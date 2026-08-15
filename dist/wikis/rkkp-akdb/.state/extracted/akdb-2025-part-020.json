@@ -1,0 +1,299 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der overvåger og forbedrer behandlingskvaliteten for højrisiko akutte abdominalkirurgiske patienter i Danmark, og dens indikatorer og datakilder udgør kerneindholdet på siderne 96–100.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 97,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 98,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 99,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 100,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige myndighed, der udgiver og administrerer Akut Kirurgi Databasen, og står bag udkastet til rapporten samt metodiske beskrivelser på siderne 96–100.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 97,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 98,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 99,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 100,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "CPR-registeret",
+      "type": "database",
+      "slug": "cpr-registeret",
+      "folder": "entities/databases/government",
+      "significance": "CPR-registeret er en af de tre primære datakilder til konstruktion af AKDB-populationen og indikatorerne, og dets brug understøtter patientidentifikation og demografisk tilknytning.",
+      "mentions": [
+        {
+          "page": 100,
+          "context": "CPR-registeret"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare",
+      "significance": "Landspatientregisteret (LPR) er den primære registreringsplatform for AKDB-data, hvor indberetning sker som del af almindelig LPR-indberetning, og det leverer kernedata om sygehuskontakter og forløb.",
+      "mentions": [
+        {
+          "page": 100,
+          "context": "Landspatientregisteret (LPR)"
+        }
+      ]
+    },
+    {
+      "name": "Den Nationale Labdatabank",
+      "type": "database",
+      "slug": "den-nationale-labdatabank-dnl",
+      "folder": "entities/databases/clinical",
+      "significance": "Den Nationale Labdatabank (DNL) er en supplerende datakilde til AKDB, der skal anvendes til indikatorberegning, når data bliver tilgængelige — og er allerede specificeret som obligatorisk kilde i databasens metodik.",
+      "mentions": [
+        {
+          "page": 100,
+          "context": "Den Nationale Labdatabank (DNL)"
+        }
+      ]
+    },
+    {
+      "name": "Dansk Anæstesi Database",
+      "type": "database",
+      "slug": "dansk-anaestesi-database-dad",
+      "folder": "entities/databases/clinical",
+      "significance": "Dansk Anæstesi Database (DAD) er en af de eksterne databaser, hvis data integreres i AKDB til beregning af visse indikatorer, hvilket understreger tværfaglig kvalitetsmåling i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 100,
+          "context": "Dansk Anæstesi Database (DAD)"
+        }
+      ]
+    },
+    {
+      "name": "Sygehusmedicinregisteret",
+      "type": "database",
+      "slug": "sygehusmedicinregisteret",
+      "folder": "entities/databases/clinical",
+      "significance": "Sygehusmedicinregisteret (SMR) er en yderligere ekstern datakilde til AKDB, der bidrager med medicinsk behandlingsdata til indikatorberegninger, hvilket udvider målingsområdet ud over rent kirurgisk praksis.",
+      "mentions": [
+        {
+          "page": 100,
+          "context": "Sygehusmedicinregisteret (SMR)"
+        }
+      ]
+    },
+    {
+      "name": "Indberetningsvejledning til Landspatientregisteret",
+      "type": "document",
+      "slug": "indberetningsvejledning-til-landspatientregisteret",
+      "folder": "topics/administrative-systems",
+      "significance": "Indberetningsvejledning til Landspatientregisteret er den gældende generelle vejledning, som AKDB-brugere henvises til for korrekt indberetning — og danner dermed en administrativ referencepunkt for datakvalitet.",
+      "mentions": [
+        {
+          "page": 100,
+          "context": "Indberetningsvejledning til Landspatientregisteret"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-administered-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 96
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-data-from",
+      "object": "cpr-registeret",
+      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)",
+      "page": 100
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)",
+      "page": 100
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-data-from",
+      "object": "den-nationale-labdatabank-dnl",
+      "evidence": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)",
+      "page": 100
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-data-from",
+      "object": "dansk-anaestesi-database-dad",
+      "evidence": "De øvrige datakilder er - Den Nationale Labdatabank (DNL) - Dansk Anæstesi Database (DAD) - Sygehusmedicinregisteret (SMR)",
+      "page": 100
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-data-from",
+      "object": "sygehusmedicinregisteret",
+      "evidence": "De øvrige datakilder er - Den Nationale Labdatabank (DNL) - Dansk Anæstesi Database (DAD) - Sygehusmedicinregisteret (SMR)",
+      "page": 100
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "refers-to-guidance",
+      "object": "indberetningsvejledning-til-landspatientregisteret",
+      "evidence": "For en generel vejledning i indberetning til LPR, henvises til Indberetningsvejledning til Landspatientregisteret",
+      "page": 100
+    }
+  ],
+  "claims": [
+    {
+      "text": "Formålet med databasen er at monitorere og forbedre kvaliteten af pleje, diagnostik og behandling af højrisiko akutte abdominalkirurgiske patienter [^src1]",
+      "type": "purpose",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 100
+    },
+    {
+      "text": "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL) [^src1]",
+      "type": "data-source",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "cpr-registeret",
+        "landspatientregisteret",
+        "den-nationale-labdatabank-dnl"
+      ],
+      "page": 100
+    },
+    {
+      "text": "Registrering af data til databasen foregår som indberetning til LPR [^src1]",
+      "type": "data-collection-method",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "landspatientregisteret"
+      ],
+      "page": 100
+    },
+    {
+      "text": "Indikatorresultater, hvor der kun optræder n = 1 eller n = 2 i enten tæller eller nævner, vil af diskretionshensyn blive fjernet og erstattet med # samt en forklaringsnote i den offentliggjorte årsrapport på www.sundhed.dk [^src1]",
+      "type": "data-privacy-policy",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 100
+    },
+    {
+      "text": "I kolonnen ”Udviklingsmål opfyldt” angives alene om punktestimatet ligger over eller under det vedtagne udviklingsmål: Ja = estimatet ligger på den rigtige side af udviklingsmålet; Nej = estimatet ligger på den forkerte side af udviklingsmålet [^src1]",
+      "type": "indicator-interpretation",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 100
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01/09/2022 - 31/08/2023",
+      "event": "Opgørelse af indlæggelsesperiode for AKDB for perioden 01/09/2022 – 31/08/2023",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "01/09/2023 - 31/08/2024",
+      "event": "Opgørelse af indlæggelsesperiode for AKDB for perioden 01/09/2023 – 31/08/2024",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "01/09/2024 - 31/08/2025",
+      "event": "Opgørelse af indlæggelsesperiode for AKDB for perioden 01/09/2024 – 31/08/2025",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indlaeggelsesperiode",
+      "title": "Supplerende opgørelse over indlæggelsesperiode",
+      "page": 97,
+      "rowDimension": "region or hospital",
+      "colDimension": "statistical quartiles per period",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "markdown": "| Region eller hospital | Min | Q1 | Median | Q3 |\n| --- | --- | --- | --- | --- |\n| Danmark | 0.00 | 4.00 | 8.00 | 17.00 |\n| Hovedstaden Region i alt | 0.00 | 4.00 | 8.00 | 20.00 |\n| Bispebjerg og Frederiksberg Hospital | 0.00 | 3.00 | 6.00 | 12.00 |\n| Amager og Hvidovre Hospital | 0.00 | 5.00 | 11.00 | 22.00 |\n| Hospitalerne i Nordsjælland | 0.00 | 5.00 | 8.00 | 20.00 |\n| Herlev og Gentofte Hospital | 0.00 | 4.00 | 7.00 | 14.00 |\n| Rigshospitalet | 0.00 | 8.00 | 22.00 | 42.00 |\n| Bornholms Hospital | 1.00 | 4.00 | 6.50 | 11.00 |\n| Sjælland Region i alt | 0.00 | 4.00 | 7.00 | 14.50 |\n| Næstved, Slagelse og Ringsted sygehuse | 0.00 | 4.00 | 9.00 | 16.00 |\n| Sjællands Universitetshospital | 0.00 | 3.00 | 7.00 | 13.00 |\n| Holbæk Sygehus | 0.00 | 4.00 | 8.00 | 15.00 |\n| Syddanmark Region i alt | 0.00 | 5.00 | 9.00 | 17.00 |\n| Esbjerg Sygehus Grindsted Sygehus | 0.00 | 4.00 | 8.50 | 15.00 |\n| Sygehus Lillebælt | 0.00 | 6.00 | 12.00 | 21.00 |\n| Odense Universitetshospital - Svendborg | 0.00 | 5.00 | 9.00 | 17.00 |\n| Sygehus Sønderjylland | 0.00 | 6.00 | 9.00 | 14.00 |\n| Midtjylland Region i alt | 0.00 | 4.00 | 8.00 | 16.00 |\n| Regionshospitalet Horsens | 0.00 | 3.00 | 8.00 | 14.00 |\n| Hospitalsenhed Midt | 0.00 | 3.00 | 7.00 | 14.00 |\n| Regionshospitalet Gødstrup | 0.00 | 4.00 | 7.00 | 13.00 |\n| Aarhus Universitetshospital | 1.00 | 6.00 | 12.00 | 23.00 |\n| Regionshospitalet Randers | 0.00 | 5.00 | 8.00 | 17.00 |\n| Nordjylland Region i alt | 0.00 | 3.00 | 6.00 | 13.00 |\n| Aalborg Universitetshospital | 0.00 | 3.00 | 7.00 | 13.00 |\n| Regionshospital Nordjylland | 0.00 | 4.00 | 6.00 | 13.00 |",
+      "summary": "Tabellen sammenligner median og kvartiler for indlæggelsesperiode (i hele dage fra ankomst til afsluttet indlæggelse) mellem regioner og hospitalsenheder for perioden 01/09/2024–31/08/2025, og viser betydelig variation — f.eks. median på 22 dage ved Rigshospitalet mod 6–8 dage ved de fleste andre store hospitalsenheder."
+    },
+    {
+      "subject": "indlaeggelsesperiode",
+      "title": "Opgørelse af indlæggelsesperiode for 01/09/2023–31/08/2024",
+      "page": 98,
+      "rowDimension": "region or hospital",
+      "colDimension": "statistical quartiles per period",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "markdown": "| Region eller hospital | Min | Q1 | Median | Q3 |\n| --- | --- | --- | --- | --- |\n| Danmark | 0.00 | 4.00 | 8.00 | 17.00 |\n| Hovedstaden Region i alt | 0.00 | 4.00 | 8.00 | 17.00 |\n| Bispebjerg og Frederiksberg Hospital | 0.00 | 4.00 | 6.00 | 11.00 |\n| Amager og Hvidovre Hospital | 0.00 | 5.00 | 10.00 | 18.50 |\n| Hospitalerne i Nordsjælland | 0.00 | 4.00 | 8.00 | 15.00 |\n| Herlev og Gentofte Hospital | 0.00 | 4.00 | 7.00 | 13.00 |\n| Rigshospitalet | 0.00 | 10.00 | 18.00 | 43.00 |\n| Bornholms Hospital | 0.00 | 5.00 | 9.00 | 17.00 |\n| Sjælland Region i alt | 0.00 | 4.00 | 8.00 | 15.00 |\n| Næstved, Slagelse og Ringsted sygehuse | 0.00 | 4.00 | 7.00 | 16.00 |\n| Sjællands Universitetshospital | 0.00 | 4.00 | 8.00 | 14.00 |\n| Holbæk Sygehus | 0.00 | 5.00 | 8.00 | 15.00 |\n| Syddanmark Region i alt | 0.00 | 5.00 | 10.00 | 19.00 |\n| Esbjerg Sygehus Grindsted Sygehus | 0.00 | 5.00 | 10.00 | 21.00 |\n| Sygehus Lillebælt | 1.00 | 7.00 | 13.00 | 23.00 |\n| Odense Universitetshospital - Svendborg | 0.00 | 5.00 | 10.00 | 17.00 |\n| Sygehus Sønderjylland | 0.00 | 4.00 | 7.00 | 12.00 |\n| Midtjylland Region i alt | 0.00 | 4.00 | 8.00 | 15.00 |\n| Regionshospitalet Horsens | 0.00 | 4.00 | 8.00 | 14.00 |\n| Hospitalsenhed Midt | 0.00 | 4.00 | 8.00 | 15.00 |\n| Regionshospitalet Gødstrup | 0.00 | 5.00 | 8.00 | 14.00 |\n| Aarhus Universitetshospital | 1.00 | 5.00 | 11.00 | 23.00 |\n| Regionshospitalet Randers | 1.00 | 4.00 | 8.00 | 12.00 |\n| Nordjylland Region i alt | 0.00 | 4.00 | 8.00 | 18.00 |\n| Aalborg Universitetshospital | 0.00 | 4.00 | 10.00 | 22.00 |\n| Regionshospital Nordjylland | 0.00 | 4.00 | 7.00 | 15.00 |",
+      "summary": "Tabellen viser indlæggelsesperiodens kvartiler for 2023–2024 og bekræfter samme mønster som tidligere år, men med stigende median ved Rigshospitalet (fra 18 til 22 dage fra 2023–2024 til 2024–2025) og en markant stigning i Q3 ved Aalborg Universitetshospital (fra 22 til 16 dage)."
+    },
+    {
+      "subject": "indlaeggelsesperiode",
+      "title": "Opgørelse af indlæggelsesperiode for 01/09/2022–31/08/2023",
+      "page": 99,
+      "rowDimension": "region or hospital",
+      "colDimension": "statistical quartiles per period",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "markdown": "| Region eller hospital | Min | Q1 | Median | Q3 |\n| --- | --- | --- | --- | --- |\n| Danmark | 0.00 | 5.00 | 8.00 | 17.00 |\n| Hovedstaden Region i alt | 0.00 | 5.00 | 9.00 | 18.00 |\n| Bispebjerg og Frederiksberg Hospital | 0.00 | 4.00 | 7.00 | 15.00 |\n| Amager og Hvidovre Hospital | 0.00 | 5.00 | 10.00 | 20.00 |\n| Hospitalerne i Nordsjælland | 0.00 | 5.00 | 9.00 | 18.00 |\n| Herlev og Gentofte Hospital | 0.00 | 4.00 | 7.00 | 14.00 |\n| Rigshospitalet | 0.00 | 9.00 | 26.00 | 52.00 |\n| Bornholms Hospital | 0.00 | 4.00 | 7.00 | 9.00 |\n| Sjælland Region i alt | 0.00 | 4.00 | 8.00 | 16.00 |\n| Næstved, Slagelse og Ringsted sygehuse | 0.00 | 5.00 | 9.00 | 19.00 |\n| Sjællands Universitetshospital | 0.00 | 4.00 | 7.00 | 15.00 |\n| Holbæk Sygehus | 0.00 | 5.00 | 7.00 | 14.50 |\n| Syddanmark Region i alt | 0.00 | 6.00 | 9.00 | 17.00 |\n| Esbjerg Sygehus Grindsted Sygehus | 0.00 | 6.00 | 10.00 | 17.00 |\n| Sygehus Lillebælt | 0.00 | 7.00 | 13.00 | 23.00 |\n| Odense Universitetshospital - Svendborg | 0.00 | 5.00 | 10.00 | 17.00 |\n| Sygehus Sønderjylland | 0.00 | 5.00 | 8.00 | 13.00 |\n| Midtjylland Region i alt | 0.00 | 4.00 | 8.00 | 16.00 |\n| Regionshospitalet Horsens | 1.00 | 6.00 | 11.00 | 21.00 |\n| Hospitalsenhed Midt | 0.00 | 3.00 | 7.00 | 14.00 |\n| Regionshospitalet Gødstrup | 0.00 | 4.00 | 8.00 | 14.00 |\n| Aarhus Universitetshospital | 0.00 | 5.00 | 10.00 | 18.00 |\n| Regionshospitalet Randers | 0.00 | 4.00 | 7.00 | 15.00 |\n| Nordjylland Region i alt | 0.00 | 4.00 | 8.00 | 15.00 |\n| Aalborg Universitetshospital | 0.00 | 5.00 | 8.00 | 16.00 |\n| Regionshospital Nordjylland | 0.00 | 4.00 | 6.00 | 12.50 |",
+      "summary": "Tabellen dokumenterer indlæggelsesperiodens kvartiler for 2022–2023 og viser, at Rigshospitalets median var 26 dage — mere end tre gange så lang som landsgennemsnittet — og at Regionshospitalet Horsens havde den højeste Q3 (21 dage), hvilket signalerer særlig længere forløb i nogle enheder."
+    }
+  ],
+  "context": "Dette afsnit fra AKDB-udkastet 2026.01.05 udgør en teknisk og metodisk dybdegang i Akut Kirurgi Databasens datakilder, indikatordefinitioner og resultatomfang, med særlig fokus på indlæggelsesperiode som en central kvalitetsparameter. Det tilhører den årlige kvalitetsrapport for akut abdominalkirurgi og indgår i et bredere nationalt system til klinisk kvalitetsmonitorering, hvor Sundhedsvæsenets Kvalitetsinstitut fungerer som koordinerende myndighed. Teksten fremhæver både datatekniske aspekter (f.eks. integration med LPR og DNL) og praktiske kvalitetsudfordringer (f.eks. registreringsafvigelse og diskretionsmæssig håndtering af små tal), og tabellerne på siderne 97–99 giver en tidsmæssig og regional sammenligning af indlæggelsesforløb over tre på hinanden følgende år."
+}

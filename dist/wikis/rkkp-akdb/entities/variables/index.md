@@ -4,24 +4,27 @@ type: index
 aliases:
   - Variables
 wiki: rkkp-akdb
-updated: '2026-08-05T20:37:55.680Z'
+updated: '2026-08-15T08:48:30.580Z'
 children:
   - healthcare-database/index.md
+  - index.md
 ---
 # Variables
 
-This folder groups the specific technical, administrative, and clinical variables used to query, filter, and validate data within healthcare registries. It currently covers the parameters essential for extracting and delimiting patient records in the Akut Kirurgi Databasen (AKDB), ensuring that local and national data validations accurately reflect clinical episodes and administrative realities.
+This area groups measurable attributes and data variables used within healthcare registries, specifically focusing on the Danish Acute Surgery Database. It covers the specific variables required to extract, filter, and formally define patient populations, detailing how hospital-level encounters are identified, how time periods are delimited, and how core cohorts of operated patients are constructed.
 
 ## Pages
 
-- [[entities/variables/healthcare-database/index|Healthcare Database]] — Technical and administrative parameters, such as episode identifiers and time-frame delimiters, used to extract and validate patient records within the AKDB.
+- [[entities/variables/healthcare-database/index|Healthcare Database]] — Catalogs specific data variables used to extract, filter, and define patient populations within the Danish Acute Surgery Database, including encounter codes, operation status, and time delimitations.
 
 ## Navigation
 
 - Parent: [[entities/index|Entities]]
 - Sibling: [[entities/codes/index|Codes]]
 - Sibling: [[entities/databases/index|Databases]]
+- Sibling: [[entities/indicators/index|Indicators]]
 - Sibling: [[entities/locations/index|Locations]]
+- Sibling: [[entities/medical-conditions/index|Medical Conditions]]
 - Sibling: [[entities/medical-procedures/index|Medical Procedures]]
 - Sibling: [[entities/organizations/index|Organizations]]
 - Sibling: [[entities/people/index|People]]

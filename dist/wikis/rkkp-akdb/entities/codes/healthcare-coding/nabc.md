@@ -1,35 +1,33 @@
 ---
 title: NABC
 type: entity
-sparse: true
 wiki: rkkp-akdb
-updated: '2026-08-05T19:00:31.575Z'
+updated: '2026-08-15T06:25:59.328Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: 31-35
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: 36-40
 tags:
   - code
 ---
-NABC is a national healthcare code in Denmark used for registering "intermediate observation" (*intermediær observation*) [^src1]. It is utilized by the Acute Surgery Database (AKDB) in its current reporting methodology to count and track patients admitted to intermediate care wards [^src1]. 
-
-Within the context of the AKDB's 2022–2023 indicator analyses, the NABC code is directly tied to the measurement of [[indikator-6|Indikator 6]] (Intermediate admission) [^src1]. For the 2023 reporting year, the database's figures for this indicator rely exclusively on submissions that employ specific care-level codes: NABB (intensive therapy), NABE (intensive observation), and NABC (intermediate observation) [^src1]. The use of NABC and its related codes is part of a broader evaluation of the AKDB's data foundation, which has faced criticism regarding data completeness and prompted strategic recommendations for future standardization via SOR codes to improve national quality measurement [^src1].
 
 ## Mentions
+
 - Page 31: "NABC (intermediær observation)" [^src1]
+- Page 36: "NABC (intermediær observation)" [^src2]
 
 ## Relationships
-- **Subject:** indikator-6
-  **Predicate:** uses-code
-  **Object:** NABC
-  **Evidence:** "Tallene for 2023 dækker udelukkende indberetninger, hvor der er anvendt NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation) koder"
-  **Page:** 31 [^src1]
+
+- [[indikator-6|Indikator 6]] — Uses Code (incoming) — "Tallene for 2023 dækker udelukkende indberetninger, hvor der er anvendt NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation) koder" [^src1]
+- [[indikator-5|Indikator 5]] — Uses Code (incoming) — "Patienter med alder 75 år eller ASA 3 er kodet med NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation)" [^src2]
 
 ## Claims
-(none)
 
-## Timeline
-(none)
+- Tallene for 2024-25 dækker udelukkende indberetninger, hvor patienter med alder ≥75 år eller ASA ≥3 er kodet med NABB, NABE eller NABC og hvor forskel på start og sluttidspunkt er over 24 timer [^src2] ([[indikator-5|Indikator 5]], [[asa-score|ASA]], [[nabb|NABB]], [[nabe|NABE]], [[nabc|NABC]])
 
 ## Sources
 
 [^src1]: AKDB_2023.pdf, pages 31-35
+[^src2]: AKDB_2025.pdf, pages 36-40
+

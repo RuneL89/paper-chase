@@ -1,0 +1,257 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er en national klinisk kvalitetsdatabase, der overvåger behandlingskvalitet ved akut abdominal kirurgi i Danmark gennem proces- og outcome-indikatorer baseret på LPR3-data, og den udgør kerneinfrastrukturen for kvalitetsudvikling inden for akut kirurgi efter afslutningen af LKT i 2022.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 2,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 3,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 4,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er udgiver og teknisk ansvarlig myndighed for Akut Kirurgi Databasen og står for udarbejdelse af årsrapporten, herunder videnskabelig validering, definition af indikatorer og sikring af datadefinitioners fælles anvendelse på tværs af regioner.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 3,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 4,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er den officielle udgiver af Akut Kirurgi Databasen og fungerer som koordinerende struktur for regional kvalitetsudvikling i det danske sundhedsvæsen.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Birgitte Rühman",
+      "type": "person",
+      "slug": "birgitte-ruhmann",
+      "folder": "entities/people/healthcare-administrators",
+      "significance": "Birgitte Rühman er Sundhedsvæsenets Kvalitetsinstituts kontaktperson for Akut Kirurgi Databasen og har operativ ansvar for kommunikation og datakoordination til rapportens udgivelse.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Birgitte Rühman; E-mail: BIRRUH@rkkp.dk"
+        }
+      ]
+    },
+    {
+      "name": "LPR3",
+      "type": "database",
+      "slug": "lpr3",
+      "folder": "entities/databases/government",
+      "significance": "LPR3 (Landspatientregisteret version 3) er den primære datakilde for Akut Kirurgi Databasen, og korrekt registrering af diagnose- og procedurekoder i LPR3 er afgørende for validiteten af alle indikatorberegninger i AKDB.",
+      "mentions": [
+        {
+          "page": 4,
+          "context": "indberetninger til LPR3"
+        },
+        {
+          "page": 4,
+          "context": "datakilden er egen indberetning til LPR"
+        }
+      ]
+    },
+    {
+      "name": "LKT",
+      "type": "healthcare-program",
+      "slug": "lkt",
+      "folder": "entities/healthcare-programs",
+      "significance": "LKT (Lokal Kvalitetsudvikling i akut kirurgi) var et tidligere nationalt kvalitetsprogram, hvis afslutning i 2022 markerede overgangen til en mere permanent databaseret kvalitetsmonitorering via AKDB, og hvis effekter fortsat aflæses i mortalitetsudviklingen.",
+      "mentions": [
+        {
+          "page": 4,
+          "context": "efter afslutningen af LKT i 2022, hvis effekter fortsat kan aflæses i data"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den beslutningskompetente gruppe for Akut Kirurgi Databasen og har truffet strategiske beslutninger om indikatoromfang, herunder ophør af national monitorering af blødende ulcera i 2018.",
+      "mentions": [
+        {
+          "page": 4,
+          "context": "Styregruppen besluttede i 2018 at ophøre med national monitorering af blødende ulcera"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-published-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut er udgiver og teknisk ansvarlig myndighed for Akut Kirurgi Databasen",
+      "page": 2
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-published-by",
+      "object": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "evidence": "Udgiver: Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 2
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "has-contact-person",
+      "object": "birgitte-ruhmann",
+      "evidence": "Sundk’s kontaktperson: Birgitte Rühman; E-mail: BIRRUH@rkkp.dk",
+      "page": 2
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-based-on",
+      "object": "lpr3",
+      "evidence": "AKDB afgrænser indikatorberegningen til den population, der opfylder inklusionskriterier for både operation og diagnose... idet variation i kodning kan forekomme afhængigt af anvendt journalsystem",
+      "page": 4
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "succeeded-program",
+      "object": "lkt",
+      "evidence": "Databasen understøtter kvalitetsarbejdet inden for akut abdominal kirurgi og bidrager til regionale og lokale initiativer samt udvikling af nye kvalitetsprojekter, særligt efter afslutningen af LKT i 2022",
+      "page": 4
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "governs",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Styregruppens medlemmer [...] Styregruppen besluttede i 2018 at ophøre med national monitorering af blødende ulcera",
+      "page": 4
+    }
+  ],
+  "claims": [
+    {
+      "text": "Opgørelsesperioden for årsrapporten er 1. september 2024 – 31. august 2025 [^src1]",
+      "type": "temporal",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Årsrapporten blev offentliggjort den 27.02.2026 [^src1]",
+      "type": "temporal",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Styregruppen besluttede i 2018 at ophøre med national monitorering af blødende ulcera [^src1]",
+      "type": "policy",
+      "entities": [
+        "styregruppen",
+        "akut-kirurgi-databasen"
+      ],
+      "page": 4
+    },
+    {
+      "text": "AKDB er omlagt og baseret på LPR-data på femte år [^src1]",
+      "type": "structural",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "lpr3"
+      ],
+      "page": 4
+    },
+    {
+      "text": "Årets resultater viser en generel positiv udvikling for procesindikatorerne, selvom enkelte områder fortsat kræver indsats [^src1]",
+      "type": "performance",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 4
+    },
+    {
+      "text": "Mortaliteten ligger under målsætningen, hvilket indikerer, at tidligere fokusområder fra LKT har haft en positiv effekt [^src1]",
+      "type": "outcome",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "lkt"
+      ],
+      "page": 4
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2018",
+      "event": "Styregruppen besluttede at ophøre med national monitorering af blødende ulcera",
+      "entities": [
+        "styregruppen",
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2022",
+      "event": "Afslutning af LKT-programmet, hvorefter AKDB blev den primære kvalitetsmonitoreringsplatform for akut abdominal kirurgi",
+      "entities": [
+        "lkt",
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "1. september 2024",
+      "event": "Start af opgørelsesperioden for AKDB Årsrapport 2025",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "31. august 2025",
+      "event": "Slut på opgørelsesperioden for AKDB Årsrapport 2025",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "27.02.2026",
+      "event": "Offentliggørelse af AKDB Årsrapport 2025",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [],
+  "context": "Denne dokumentchunk udgør introduktionen og baggrundsdelen af AKDB Årsrapport 2025 og danner rammen for en national kvalitetsmonitoreringsindsats inden for akut abdominal kirurgi i Danmark. Rapporten dokumenterer overgangen fra det tidligere projektbaserede LKT-program til en institutionaliseret, databaseret kvalitetsinfrastruktur i form af Akut Kirurgi Databasen, der nu er integreret i det nationale sundhedsvæsens kvalitetsudviklingsarkitektur via Sundhedsvæsenets Kvalitetsinstitut og Regionernes Kliniske Kvalitetsudviklingsprogram. Den beskriver metodiske udfordringer ved brug af LPR3-data, betydningen af kodningskonsistens, og de strategiske beslutninger, der styrer indikatorudvalget — herunder styregruppens 2018-beslutning om at delege overvågning af blødende ulcera til regionalt niveau. Rapporten fremhæver også, hvordan datakvalitet gradvist forbedres gennem IT-understøttet kodning og ledelsesmæssig validering."
+}

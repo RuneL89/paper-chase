@@ -4,19 +4,20 @@ type: index
 aliases:
   - Medical Interventions
 wiki: rkkp-afdk
-updated: '2026-08-05T22:56:09.655Z'
+updated: '2026-08-14T23:44:23.608Z'
 children:
   - education/index.md
   - pharmacotherapy/index.md
+  - index.md
 ---
 # Medical Interventions
 
-This folder catalogs the medical interventions monitored within the Danish healthcare quality system for patients with atrial fibrillation. It is organized into two main areas: structured educational programs designed to improve patient self-management and reduce hospital readmissions, and pharmacotherapy protocols that track the clinical indications, drug classes, and diagnostic imaging compliance for anticoagulation treatments. Together, these sub-folders document how national quality indicators measure the timely initiation and long-term adherence of life-saving therapies.
+This folder catalogs the clinical and non-clinical interventions tracked by the Danish Atrial Fibrillation database (AFDK) to manage and treat atrial fibrillation. It encompasses structured educational programs designed to empower patients and reduce hospital readmissions, alongside pharmacological and diagnostic procedures such as anticoagulation therapies and echocardiography exams used to prevent thromboembolic complications and assess newly diagnosed patients.
 
 ## Pages
 
-- [[entities/medical-interventions/education/index|Education]] — Structured patient education programs for atrial fibrillation, detailing their foundation in the ABC Pathway and their measured impact on survival and readmission rates.
-- [[entities/medical-interventions/pharmacotherapy/index|Pharmacotherapy]] — Anticoagulation treatments and echocardiography procedures, tracking clinical risk thresholds, prescribed drug classes, and the national registry codes used to monitor quality compliance.
+- [[entities/medical-interventions/education/index|Education]] — Evidence-based patient teaching programs that improve self-care and reduce mortality, monitored nationally via quality indicators.
+- [[entities/medical-interventions/pharmacotherapy/index|Pharmacotherapy]] — Pharmacological treatments and diagnostic examinations, detailing anticoagulation guidelines for stroke prevention and echocardiography requirements for initial patient assessment.
 
 ## Navigation
 

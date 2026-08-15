@@ -2,19 +2,23 @@
 title: Compliance
 type: topic
 wiki: rkkp-akdb
-updated: '2026-08-05T19:42:52.526Z'
+updated: '2026-08-15T08:05:41.443Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '26-30, 51-55'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: 26-30
 tags:
   - compliance
 ---
 
-Compliance within the AKDB 2023 framework measures the extent to which regional and local healthcare reporting units meet established national quality standards for specific clinical indicators. Assessing compliance is critical for identifying areas of systemic success and highlighting domains requiring targeted clinical interventions. The data reveals a sharp contrast in performance across different metrics, specifically when examining [[indikator-10|Indikator 10]], [[indikator-11|Indikator 11]], and [[indikator-5y|Indikator 5y]].
+Compliance within this healthcare dataset refers to the extent to which regional and local reporting units meet established national standards or development goals for specific clinical indicators. The data reveals varied compliance rates across different metrics, highlighting areas of systemic success alongside significant quality-improvement challenges.
 
-For [[indikator-10|Indikator 10]], the established compliance standard requires a rate of less than 15% [^src1]. This target was successfully met at the national level [^src1]. Furthermore, compliance for this indicator was uniform across all regions during the reporting period, with 16 out of the 21 individual reporting units also fulfilling the standard [^src1]. Similarly, the compliance threshold for [[indikator-11|Indikator 11]] is set at less than 20% [^src1]. 
+For [[indikator-10|Indikator 10]], the national standard is set at < 15%, and this target was successfully met at the national level [^src1]. Furthermore, all regions complied with the standard during the reporting period [^src1]. At the local level, 16 out of the 21 reporting units individually fulfilled the standard [^src1]. Similarly, the standard for [[indikator-11|Indikator 11]] is established at < 20% [^src1].
 
-In stark contrast, compliance for [[indikator-5y|Indikator 5y]] indicates a systemic shortfall. The national standard for this indicator requires a rate of 90% or higher (≥ 90%), but this target was not met at the national level [^src2]. The shortfall was pervasive, as none of the individual reporting units managed to fulfill the standard during the period [^src2]. This dichotomy between the successful compliance of Indikator 10 and the universal non-compliance of Indikator 5y underscores the variability in clinical quality outcomes across the database's tracked metrics.
+In contrast, compliance for other indicators was notably poor. For [[indikator-4y|Indikator 4y]], only two out of 20 reporting units met the development goal during the period [^src2]. The specific units that achieved this were [[rigshospitalet|Rigshospitalet]] and [[holbaek-sygehus|Holbæk Sygehus]] [^src2]. 
+
+Compliance for [[indikator-5y|Indikator 5y]] was entirely unsuccessful. The national standard of ≥ 90% was not met at the national level [^src3], and none of the reporting units managed to fulfill the standard during the period [^src3].
 
 ## Claims
 
@@ -34,6 +38,10 @@ In stark contrast, compliance for [[indikator-5y|Indikator 5y]] indicates a syst
   Type: compliance
   Page: 51
   Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 51-55
+- To af de 20 indberettende enheder opfyldte udviklingsmålet for Indikator 4y i perioden[^src2] (indikator-4y, rigshospitalet, holbaek-sygehus)
+  Type: compliance
+  Page: 30
+  Source: wikis/rkkp-akdb/raw/AKDB_2025.pdf, pages 26-30
 - Standarden på ≥ 90 % var ikke opfyldt på nationalt niveau for indikator 5y [^src1] (indikator-5y)
   Type: healthcare-assessment
   Page: 26
@@ -46,4 +54,5 @@ In stark contrast, compliance for [[indikator-5y|Indikator 5y]] indicates a syst
 ## Sources
 
 [^src1]: AKDB_2023.pdf, pages 51-55
-[^src2]: AKDB_2023.pdf, pages 26-30
+[^src2]: AKDB_2025.pdf, pages 26-30
+[^src3]: AKDB_2023.pdf, pages 26-30

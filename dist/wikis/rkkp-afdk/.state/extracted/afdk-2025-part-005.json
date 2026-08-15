@@ -1,0 +1,400 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 3",
+      "type": "quality-indicator",
+      "slug": "indikator-3",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 3 er en national kvalitetsindikator, der måler andelen af nydiagnosticerede patienter med atrieflimren, som får målt thyreoideastimulerende hormon (TSH) inden for en defineret tidsramme — fra 5 måneder før til 1 måned efter første diagnose — og er central for vurdering af klinisk praksis i forhold til det anbefalede udredningsforløb for atrieflimren.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 5 måneder før, til 1 måned efter 1. diagnosedato"
+        }
+      ]
+    },
+    {
+      "name": "TSH",
+      "type": "biomarker",
+      "slug": "thyreoideastimulerende-hormon-tsh",
+      "folder": "entities/biomarkers/endocrine",
+      "significance": "TSH (thyreoideastimulerende hormon) er en endokrin biomarkør, hvis måling er klinisk anbefalet ved nydiagnose af atrieflimren for at udelukke thyreoideasygdom som underliggende årsag, og den udgør den centrale målingsvariabel i Indikator 3.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 5 måneder før, til 1 måned efter 1. diagnosedato"
+        },
+        {
+          "page": 24,
+          "context": "Data om måling af TSH er indhentet via kobling med Laboratoriedatabasen."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den organisation, der udarbejder, overvåger og rapporterer Indikator 3, og dermed har ansvar for kvalitetsmålingen af TSH-målinger ved nydiagnose af atrieflimren i dansk sundhedsvæsen.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 22,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 23,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 24,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Laboratoriedatabasen",
+      "type": "database",
+      "slug": "laboratoriedatabasen",
+      "folder": "entities/databases/healthcare-registers",
+      "significance": "Laboratoriedatabasen er den centrale registerbaserede kilde, hvorfra data om TSH-målinger indhentes til beregning af Indikator 3, og dens dækning påvirker direkte pålideligheden af indikatorresultaterne.",
+      "mentions": [
+        {
+          "page": 24,
+          "context": "Data om måling af TSH er indhentet via kobling med Laboratoriedatabasen."
+        }
+      ]
+    },
+    {
+      "name": "Den Nationale Labdatabank",
+      "type": "database",
+      "slug": "den-nationale-labdatabank",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Den Nationale Labdatabank fungerer som mellemled mellem regionale laboratorier og Laboratoriedatabasen, og dens frivillige indberetningsgrundlag begrænser dækningen af TSH-målinger i Indikator 3.",
+      "mentions": [
+        {
+          "page": 24,
+          "context": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsdatastyrelsen",
+      "type": "organization",
+      "slug": "sundhedsdatastyrelsen",
+      "folder": "entities/organizations/health-data-infrastructure",
+      "significance": "Sundhedsdatastyrelsen er den myndighed, der administrerer Laboratoriedatabasen, og dermed har teknisk og organisatorisk ansvar for den datainfrastruktur, som Indikator 3 bygger på.",
+      "mentions": [
+        {
+          "page": 24,
+          "context": "hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen."
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "group",
+      "slug": "afdk-styregruppe",
+      "folder": "entities/groups/patient-advocacy",
+      "significance": "Styregruppen er den gruppe, der vurderer resultaterne af Indikator 3, identificerer systemiske barrierer (f.eks. kodningsproblemer), og beslutter om fastholdelse af indikatoren og udviklingsmålet.",
+      "mentions": [
+        {
+          "page": 24,
+          "context": "Styregruppen vurderer, at der dels kan være udfordringer med forskellige koder for en TSH måling i LABKA..."
+        },
+        {
+          "page": 24,
+          "context": "Styregruppen arbejder løbende med at sikre at alle koder for TSH målinger i LABKA bliver ”fanget” og overført til SundK."
+        }
+      ]
+    },
+    {
+      "name": "LABKA",
+      "type": "code",
+      "slug": "labka",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "LABKA er det danske laboratoriekode-system, hvis manglende standardisering af TSH-koder er identificeret som en væsentlig årsag til lav målopfyldelse for Indikator 3, især i nogle sundhedsklynger.",
+      "mentions": [
+        {
+          "page": 24,
+          "context": "der kan være udfordringer med forskellige koder for en TSH måling i LABKA"
+        },
+        {
+          "page": 24,
+          "context": "alle koder for TSH målinger i LABKA bliver ”fanget” og overført til SundK."
+        }
+      ]
+    },
+    {
+      "name": "SundK",
+      "type": "system",
+      "slug": "sundk",
+      "folder": "entities/systems/health-information-systems",
+      "significance": "SundK er det nationale sundhedsinformationssystem, hvor TSH-målingsdata fra LABKA skal overføres for at kunne indgå i Indikator 3-beregningen, og manglende overførsel er en kendt fejlkilde.",
+      "mentions": [
+        {
+          "page": 24,
+          "context": "alle koder for TSH målinger i LABKA bliver ”fanget” og overført til SundK."
+        },
+        {
+          "page": 24,
+          "context": "når data fra almen praksis bliver overført til SundK."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sønderjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Sønderjylland er den sundhedsklynge med den laveste målopfyldelse for Indikator 3 (41,2 %), hvilket er attribueret til brug af lokale LABKA-koder, der ikke bliver fanget i SundK, trods at målingerne faktisk udføres.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Sundhedsklynge Sønderjylland Nej 422 / 1.025 0 (0) 41,2 (38,1-44,3) 588 / 1.061 55,4 50,2"
+        },
+        {
+          "page": 24,
+          "context": "At Sundhedsklyngen Sønderjylland ligger markant under udviklingsmålet kan forklares ved anvendelsen af lokale koder for TSH-målingen hos en del patienter, som af denne grund ikke bliver ”fanget” og overført til SundK."
+        }
+      ]
+    },
+    {
+      "name": "Horsensklyngen",
+      "type": "organization",
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Horsensklyngen er den sundhedsklynge med højeste målopfyldelse for Indikator 3 (93,1 %), og ligger tættest på det nationale udviklingsmål på ≥95 %.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Horsensklyngen Nej 786 / 844 0 (0) 93,1 (91,2-94,7) 745 / 809 92,1 93,9"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark har den laveste regionsmæssige målopfyldelse for Indikator 3 (77,9 %), hvilket bidrager til den samlede landsdækkende manglende opfyldelse af udviklingsmålet.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Syddanmark Nej 3.955 / 5.079 0 (0) 77,9 (76,7-79,0) 3.843 / 4.835 79,5 79,1"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland har den højeste regionsmæssige målopfyldelse for Indikator 3 (87,9 %), og ligger dermed klart over gennemsnittet for alle regioner.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Midtjylland Nej 4.424 / 5.031 0 (0) 87,9 (87,0-88,8) 4.422 / 5.109 86,6 88,5"
+        }
+      ]
+    },
+    {
+      "name": "Udviklingsmålet på ≥95%",
+      "type": "policy-decision",
+      "slug": "udviklingsmaal-95-procent",
+      "folder": "topics/policy-decision",
+      "significance": "Udviklingsmålet på ≥95% er det politisk fastsatte mål for Indikator 3, som ikke er opfyldt på nationalt niveau eller på noget regions- eller klyngeniveau, og som dermed signalerer en systemisk udfordring i implementeringen af klinisk retningslinje.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Udviklingsmål Uoplyst Aktuelle år Tidligere år ≥ 95%"
+        },
+        {
+          "page": 24,
+          "context": "Udviklingsmålet på ≥95% er dermed ikke opfyldt på nationalt niveau, og der har ikke været væsentlige forbedringer de seneste tre år."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-3",
+      "predicate": "is-calculated-from",
+      "object": "laboratoriedatabasen",
+      "evidence": "Data om måling af TSH er indhentet via kobling med Laboratoriedatabasen.",
+      "page": 24
+    },
+    {
+      "subject": "laboratoriedatabasen",
+      "predicate": "is-populated-from",
+      "object": "den-nationale-labdatabank",
+      "evidence": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen.",
+      "page": 24
+    },
+    {
+      "subject": "sundhedsdatastyrelsen",
+      "predicate": "administers",
+      "object": "laboratoriedatabasen",
+      "evidence": "hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen.",
+      "page": 24
+    },
+    {
+      "subject": "afdk-styregruppe",
+      "predicate": "evaluates",
+      "object": "indikator-3",
+      "evidence": "Styregruppen vurderer, at der dels kan være udfordringer med forskellige koder for en TSH måling i LABKA...",
+      "page": 24
+    },
+    {
+      "subject": "labka",
+      "predicate": "is-used-in",
+      "object": "sundk",
+      "evidence": "alle koder for TSH målinger i LABKA bliver ”fanget” og overført til SundK.",
+      "page": 24
+    },
+    {
+      "subject": "sundk",
+      "predicate": "receives-data-from",
+      "object": "labka",
+      "evidence": "alle koder for TSH målinger i LABKA bliver ”fanget” og overført til SundK.",
+      "page": 24
+    },
+    {
+      "subject": "sundhedsklynge-soenderjylland",
+      "predicate": "has-lowest-performance-for",
+      "object": "indikator-3",
+      "evidence": "Sundhedsklynge Sønderjylland ligger markant lavere end de øvrige med 41,2%.",
+      "page": 24
+    },
+    {
+      "subject": "horsensklyngen",
+      "predicate": "has-highest-performance-for",
+      "object": "indikator-3",
+      "evidence": "Horsensklyngen ligger højest med 93,1%, tæt på udviklingsmålet.",
+      "page": 24
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan fik 83,2% af patienterne målt TSH i perioden fra 5 måneder før til 1 måned efter diagnosen atrieflimren [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-3",
+        "danmark"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Udviklingsmålet på ≥95% er dermed ikke opfyldt på nationalt niveau [^src1]",
+      "type": "policy-decision",
+      "entities": [
+        "udviklingsmaal-95-procent"
+      ],
+      "page": 24
+    },
+    {
+      "text": "På regionsniveau varierede resultaterne mellem 77,9% i Region Syddanmark og 87,9% i Region Midtjylland [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-syddanmark",
+        "region-midtjylland"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Ingen regioner opfylder udviklingsmålet [^src1]",
+      "type": "policy-decision",
+      "entities": [
+        "udviklingsmaal-95-procent"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Ingen sundhedsklynger opnår udviklingsmålet [^src1]",
+      "type": "policy-decision",
+      "entities": [
+        "udviklingsmaal-95-procent"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Horsensklyngen ligger højest med 93,1%, tæt på udviklingsmålet [^src1]",
+      "type": "performance",
+      "entities": [
+        "horsensklyngen"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Sundhedsklynge Sønderjylland ligger markant lavere end de øvrige med 41,2% [^src1]",
+      "type": "performance",
+      "entities": [
+        "sundhedsklynge-soenderjylland"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Der er ingen regioner, der opfylder udviklingsmålet for denne indikator [^src1]",
+      "type": "policy-decision",
+      "entities": [
+        "udviklingsmaal-95-procent"
+      ],
+      "page": 24
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2024 - 30.06.2025",
+      "event": "Aktuel måleperiode for Indikator 3",
+      "entities": [
+        "indikator-3"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-3",
+      "title": "Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 5 måneder før, til 1 måned efter 1. diagnosedato",
+      "page": 21,
+      "rowDimension": "geografisk enhed",
+      "colDimension": "andele og antal per periode",
+      "entities": [
+        "indikator-3",
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelse",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd",
+        "klynge-vest"
+      ],
+      "markdown": "| Geografisk enhed | Uoplyst | Tæller/antal | 01.07.2024 - 30.06.2025 | 2023/24 | 2022/23 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 18.507 / 22.250 | 83,2 (82,7-83,7) | 18.408 / 22.054 | 83,5 84,4 |\n| Hovedstaden | Nej | 5.221 / 6.199 | 84,2 (83,3-85,1) | 5.199 / 6.154 | 84,5 86,4 |\n| Sjælland | Nej | 2.899 / 3.533 | 82,1 (80,7-83,3) | 3.006 / 3.598 | 83,5 82,6 |\n| Syddanmark | Nej | 3.955 / 5.079 | 77,9 (76,7-79,0) | 3.843 / 4.835 | 79,5 79,1 |\n| Midtjylland | Nej | 4.424 / 5.031 | 87,9 (87,0-88,8) | 4.422 / 5.109 | 86,6 88,5 |\n| Nordjylland | Nej | 2.008 / 2.408 | 83,4 (81,8-84,9) | 1.938 / 2.358 | 82,2 84,8 |\n| Sundhedsklynge Bornholm | Nej | 151 / 206 | 73,3 (66,7-79,2) | 154 / 224 | 68,8 78,9 |\n| Sundhedsklynge Byen | Nej | 1.417 / 1.719 | 82,4 (80,5-84,2) | 1.357 / 1.668 | 81,4 84,7 |\n| Sundhedsklynge Midt | Nej | 1.602 / 1.871 | 85,6 (84,0-87,2) | 1.545 / 1.805 | 85,6 85,7 |\n| Sundhedsklynge Nord | Nej | 1.279 / 1.406 | 91,0 (89,3-92,4) | 1.333 / 1.472 | 90,6 93,2 |\n| Sundhedsklynge Syd | Nej | 772 / 997 | 77,4 (74,7-80,0) | 810 / 985 | 82,2 83,4 |\n| Sundhedsklyngen Holbæk | Nej | 692 / 807 | 85,7 (83,1-88,1) | 718 / 831 | 86,4 85,1 |\n| Sundhedsklyngen Nykøbing F | Nej | 576 / 715 | 80,6 (77,5-83,4) | 629 / 728 | 86,4 81,4 |\n| Sundhedsklyngen SUH | Nej | 928 / 1.106 | 83,9 (81,6-86,0) | 981 / 1.159 | 84,6 85,3 |\n| Sundhedsklyngen Slagelse | Nej | 703 / 905 | 77,7 (74,8-80,4) | 678 / 880 | 77,0 78,1 |\n| Sundhedsklynge Fyn | Nej | 1.735 / 1.931 | 89,8 (88,4-91,2) | 1.618 / 1.839 | 88,0 88,9 |\n| Sundhedsklynge Lillebælt | Nej | 981 / 1.150 | 85,3 (83,1-87,3) | 877 / 1.023 | 85,7 84,6 |\n| Sundhedsklynge Sydvestjylland | Nej | 817 / 973 | 84,0 (81,5-86,2) | 760 / 912 | 83,3 84,0 |\n| Sundhedsklynge Sønderjylland | Nej | 422 / 1.025 | 41,2 (38,1-44,3) | 588 / 1.061 | 55,4 50,2 |\n| Aarhusklyngen | Nej | 1.010 / 1.140 | 88,6 (86,6-90,4) | 941 / 1.125 | 83,6 87,4 |\n| Gødstrupklyngen | Nej | 1.046 / 1.194 | 87,6 (85,6-89,4) | 1.034 / 1.217 | 85,0 87,9 |\n| Horsensklyngen | Nej | 786 / 844 | 93,1 (91,2-94,7) | 745 / 809 | 92,1 93,9 |\n| Midtklyngen | Nej | 781 / 916 | 85,3 (82,8-87,5) | 860 / 997 | 86,3 87,5 |\n| Randersklyngen | Nej | 801 / 937 | 85,5 (83,1-87,7) | 842 / 961 | 87,6 86,0 |\n| Klynge MIDT | Nej | 760 / 915 | 83,1 (80,5-85,4) | 737 / 914 | 80,6 85,5 |\n| Klynge NORD | Nej | 661 / 782 | 84,5 (81,8-87,0) | 654 / 760 | 86,1 86,6 |\n| Klynge SYD | Nej | 364 / 440 | 82,7 (78,9-86,1) | 356 / 437 | 81,5 80,8 |\n| Klynge VEST | Nej | 223 / 271 | 82,3 (77,2-86,6) | 191 / 247 | 77,3 83,8 |",
+      "summary": "Tabellen sammenligner målopfyldelsen for Indikator 3 på nationalt, regionalt og sundhedsklynge-niveau for tre måleperioder, og viser en konsekvent manglende opfyldelse af udviklingsmålet på ≥95%, med størst variation mellem Sundhedsklynge Sønderjylland (41,2 %) og Sundhedsklynge Nord (91,0 %)."
+    }
+  ],
+  "context": "Dette dokumentudsnit er en del af den nationale kvalitetsrapport for atrieflimren i Danmark, udarbejdet af Sundhedsvæsenets Kvalitetsinstitut. Det fokuserer specifikt på Indikator 3, der måler klinisk praksis i forhold til anbefalingen om at foretage TSH-måling ved nydiagnose af atrieflimren for at udelukke thyreoideasygdom. Chunken indeholder detaljerede resultater for måleperioden 2024–2025 samt en dybdegående analyse af datakilder, systemiske barrierer (især relateret til LABKA-kodning og SundK-overførsel) og geografisk variation i kvalitetsmålingen. Den tilhører en bredere narrativ om kvalitetsudvikling i dansk kardiologisk behandling, hvor indikatorer som denne bruges til at drive forbedringer i henhold til nationale retningslinjer og patientperspektivet."
+}

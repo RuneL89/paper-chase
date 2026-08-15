@@ -56,7 +56,10 @@ New folder examples discovered during ingestion:
 - `entities/databases/clinical`
 - `entities/databases/government`
 - `entities/databases/healthcare`
+- `entities/indicators/clinical-quality-indicators`
 - `entities/locations/national`
+- `entities/locations/regions`
+- `entities/medical-conditions/acute-surgical`
 - `entities/medical-procedures/anesthesia`
 - `entities/medical-procedures/surgical`
 - `entities/organizations/healthcare-administration`
@@ -70,10 +73,12 @@ New folder examples discovered during ingestion:
 - `entities/organizations/medical-professional-bodies`
 - `entities/organizations/medical-research`
 - `entities/organizations/quality-improvement-teams`
+- `entities/organizations/regional-health-authorities`
 - `entities/organizations/regions`
 - `entities/people/healthcare-administrators`
 - `entities/people/healthcare-leaders`
 - `entities/people/healthcare-leadership`
+- `entities/people/healthcare-patient-representatives`
 - `entities/people/healthcare-professionals`
 - `entities/people/healthcare-researchers`
 - `entities/people/researchers`
@@ -81,12 +86,53 @@ New folder examples discovered during ingestion:
 - `entities/studies/clinical-trials`
 - `entities/systems/healthcare-information-systems`
 - `entities/variables/healthcare-database`
+- `topics/administrative-change`
 - `topics/administrative-systems/danish-civil-registration`
+- `topics/cancer-distribution`
+- `topics/clinical-assessment`
+- `topics/clinical-consequence`
+- `topics/clinical-evidence`
+- `topics/clinical-indicator`
+- `topics/clinical-indicators`
 - `topics/clinical-indicators/acute-surgery`
+- `topics/clinical-metrics`
 - `topics/clinical-metrics/comorbidity`
 - `topics/clinical-metrics/comorbidity-scoring`
+- `topics/clinical-outcome`
+- `topics/clinical-process`
+- `topics/clinical-quality`
+- `topics/clinical-quality-indicators`
 - `topics/clinical-quality-indicators/surgical-outcomes`
+- `topics/coding-uncertainty`
+- `topics/compliance`
+- `topics/data-availability`
+- `topics/data-decision`
+- `topics/data-privacy`
+- `topics/data-quality`
+- `topics/definition`
+- `topics/definitional`
+- `topics/definitional-conflict`
+- `topics/demographic`
+- `topics/evaluation`
+- `topics/evaluative`
+- `topics/exclusion-criteria`
+- `topics/governance`
+- `topics/healthcare-metrics`
 - `topics/healthcare-metrics/demographics`
+- `topics/healthcare-performance-indicators`
+- `topics/inter-hospital-variation`
+- `topics/methodological-assessment`
+- `topics/methodological-change`
+- `topics/performance`
+- `topics/policy`
+- `topics/policy/healthcare-reform`
+- `topics/quality-target`
+- `topics/recommendation`
+- `topics/regional-comparison`
+- `topics/relevance-assessment`
+- `topics/research-finding`
+- `topics/standard`
+- `topics/technical-infrastructure`
 - `topics/visualizations`
 
 ## Page Types
@@ -120,6 +166,9 @@ New folder examples discovered during ingestion:
 | `system` | Technical or organizational system supporting healthcare functions | `entities/systems/` subfolders | Your content, assembled by the Materializer |
 | `treatment` | Therapeutic intervention or modality | `entities/treatments/` | Your content, assembled by the Materializer |
 | `variable` | Measurable attribute or feature in healthcare data | `entities/variables/` subfolders | Your content, assembled by the Materializer |
+| `policy` | Formal policy directive or regulatory framework governing healthcare practice or data use | `topics/policy/` or `entities/policies/` | Your content, assembled by the Materializer |
+| `document-element` | Atomic unit of document structure (e.g., table, figure, footnote, heading) extracted from PDF | `documents/elements/` | Your content, assembled by the Materializer |
+| `composite` | Aggregated page synthesizing multiple related entities or topics where no single entity dominates | `topics/` or `entities/` subfolders as appropriate | Your content, assembled by the Materializer |
 
 A `comparison` page is written for each structured comparison table you extract (the `tables` output): the article's identity is the table's SUBJECT entity (its canonical slug when resolvable, never the drifting caption), each source's table is preserved verbatim in its own dated `## Table: <source>, p. <page>` section — the markdown structure is reconstructed, every row label and value stays the document's own — and a deterministic `## Related comparisons in prose` section links out to the topic/entity pages where free-text comparisons live. Synthesis reads ACROSS the dated sections (leaders, trailers, targets met or missed, trends, outliers).
 

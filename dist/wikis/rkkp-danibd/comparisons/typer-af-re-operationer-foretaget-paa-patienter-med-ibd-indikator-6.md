@@ -61,7 +61,7 @@ Summary: Tabellen viser reoperationsprocedurer ved IBD, hvor eksplorativ laparot
 
 ## Related comparisons in prose
 
-- "Der er foretaget 28 re-operationer indenfor 30 dage svarende til 4 %" — see [[quality-metric|Quality Metric]] ([[indikator-6|Indikator 6]]) [^src2]
+- "Der er foretaget 28 re-operationer indenfor 30 dage svarende til 4 %" — see [[quality-indicator|Quality Metric]] ([[indikator-6|Indikator 6]]) [^src2]
 
 ## Sources
 

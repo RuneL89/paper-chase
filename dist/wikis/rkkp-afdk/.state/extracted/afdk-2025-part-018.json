@@ -1,0 +1,414 @@
+{
+  "entities": [
+    {
+      "name": "AFDK anbefaler",
+      "type": "organization",
+      "slug": "afdk-anbefaler",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "AFDK anbefaler er den institutionelle aktør, der udarbejder og fremsætter de anbefalede indholdselementer for patientundervisning i forbindelse med atrieflimren, hvilket danner grundlag for kvalitetsindikatorer og klinisk praksis i Danmark.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "AFDK anbefaler at patientundervisningen bør indeholde informationer listet i nedenstående tabel tilpasset den enkelte patients situation og den form for undervisning man gennemfører (individuel, hold)"
+        }
+      ]
+    },
+    {
+      "name": "Patientundervisning",
+      "type": "medical-intervention",
+      "slug": "patientundervisning",
+      "folder": "entities/medical-interventions/education",
+      "significance": "Patientundervisning er en struktureret, evidensbaseret intervention, der omfatter specifikke indholdsområder som AF-sygdom, strokeforebyggelse, behandlingsoptioner og psykosocial støtte, og som er central for kvalitetssikring af behandlingen af patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "AFDK anbefaler at patientundervisningen bør indeholde informationer listet i nedenstående tabel"
+        }
+      ]
+    },
+    {
+      "name": "Tabel 1",
+      "type": "document",
+      "slug": "tabel-1",
+      "folder": "entities/documents/reports",
+      "significance": "Tabel 1 er den centrale strukturerede oversigt over anbefalede indholdselementer i patientundervisningen for patienter med atrieflimren, og fungerer som operativ reference for sundhedsprofessionelle og kvalitetsmål.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Tabel 1. AFDK anbefaler at patientundervisningen bør indeholde informationer listet i nedenstående tabel tilpasset den enkelte patients situation og den form for undervisning man gennemfører (individuel, hold)"
+        }
+      ]
+    },
+    {
+      "name": "Figur 3",
+      "type": "document",
+      "slug": "figur-3",
+      "folder": "entities/documents/reports",
+      "significance": "Figur 3 er et visuelt overblik over risikofaktorer for atrieflimren, hentet fra den nationale kliniske database NBV.Cardio.dk, og anvendes som støtteværktøj i undervisningen af patienter og sundhedsprofessionelle.",
+      "mentions": [
+        {
+          "page": 88,
+          "context": "Figur 3. Overblik over risikofaktorer. Fra: https://nbv.cardio.dk/af#152-faktorer-og-tilstande-som-er-associeret-med-atrieflimren (set d. 27.10.2025)"
+        }
+      ]
+    },
+    {
+      "name": "CHA₂DS₂-VASc",
+      "type": "clinical-score",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "CHA₂DS₂-VASc er den kliniske risikoscore, der bruges til at vurdere behovet for antikoagulationsbehandling hos patienter med atrieflimren, og som direkte indgår i beregningsreglerne for indikator 1 på side 90.",
+      "mentions": [
+        {
+          "page": 90,
+          "context": "Incidente patienter med CHA2DS2-VASc ≥2"
+        }
+      ]
+    },
+    {
+      "name": "Antikoagulationsbehandling",
+      "type": "medical-intervention",
+      "slug": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Antikoagulationsbehandling er en central behandlingskomponent for forebyggelse af stroke ved atrieflimren, og dens tidlige opstart er målt som en kvalitetsindikator (indikator 1) i det regionale kliniske kvalitetsudviklingsprogram.",
+      "mentions": [
+        {
+          "page": 90,
+          "context": "Ventetid til antikoagulations-behandling"
+        }
+      ]
+    },
+    {
+      "name": "Ekkokardiografi",
+      "type": "medical-intervention",
+      "slug": "ekkokardiografi",
+      "folder": "entities/medical-interventions/education",
+      "significance": "Ekkokardiografi er en diagnostisk og prognostisk undersøgelse, hvis udførelse inden for en defineret tidsramme efter diagnosestilling er en kvalitetsindikator (indikator 2), hvilket understreger dens betydning for korrekt behandlingsplanlægning.",
+      "mentions": [
+        {
+          "page": 90,
+          "context": "2 Ekkokardiografi Andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato"
+        }
+      ]
+    },
+    {
+      "name": "UXUC80",
+      "type": "code",
+      "slug": "uxuc80",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "UXUC80 er den specifikke kode i Landspatientregisteret, der identificerer transthorakal ekkokardiografi, og bruges til at registrere og måle udførelsen af denne undersøgelse som del af kvalitetsindikator 2.",
+      "mentions": [
+        {
+          "page": 90,
+          "context": "Koder for ekkokardiografi i Landspatientregisteret: UXUC80 (transthorakal ekkokardiografi)"
+        }
+      ]
+    },
+    {
+      "name": "B01AA",
+      "type": "code",
+      "slug": "b01aa",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AA er ATC-koden for vitamin K-antagonister, som er én af de klasser af orale antikoagulantia, hvis anvendelse registreres i forbindelse med indikator 1 for ventetid til antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 90,
+          "context": "Koder for oral AK-behandling: B01AA (vitamin K antagonister)"
+        }
+      ]
+    },
+    {
+      "name": "B01AE07",
+      "type": "code",
+      "slug": "b01ae07",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AE07 er ATC-koden for dabigatran, en direkte oralt virkende antikoagulant (DOAC), som er en af de specificerede koder til registrering af oral antikoagulationsbehandling i indikator 1.",
+      "mentions": [
+        {
+          "page": 90,
+          "context": "| B01AE07 | (dabigatran) |"
+        }
+      ]
+    },
+    {
+      "name": "B01AF01",
+      "type": "code",
+      "slug": "b01af01",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AF01 er ATC-koden for rivaroxaban, en direkte oralt virkende antikoagulant (DOAC), som er en af de specificerede koder til registrering af oral antikoagulationsbehandling i indikator 1.",
+      "mentions": [
+        {
+          "page": 90,
+          "context": "| B01AF01 | (rivaroxaban) |"
+        }
+      ]
+    },
+    {
+      "name": "B01AF02",
+      "type": "code",
+      "slug": "b01af02",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AF02 er ATC-koden for apixaban, en direkte oralt virkende antikoagulant (DOAC), som er en af de specificerede koder til registrering af oral antikoagulationsbehandling i indikator 1.",
+      "mentions": [
+        {
+          "page": 90,
+          "context": "| B01AF02 | (apixaban) |"
+        }
+      ]
+    },
+    {
+      "name": "B01AF03",
+      "type": "code",
+      "slug": "b01af03",
+      "folder": "entities/codes/drug-classes",
+      "significance": "B01AF03 er ATC-koden for edoxaban, en direkte oralt virkende antikoagulant (DOAC), som er en af de specificerede koder til registrering af oral antikoagulationsbehandling i indikator 1.",
+      "mentions": [
+        {
+          "page": 90,
+          "context": "| B01AF03 | (edoxaban) |"
+        }
+      ]
+    },
+    {
+      "name": "NBV.Cardio.dk",
+      "type": "website",
+      "slug": "nbv-cardio-dk",
+      "folder": "entities/websites/health-authorities",
+      "significance": "NBV.Cardio.dk er den nationale kliniske database for kardiovaskulære sygdomme, som leverer evidensbaserede ressourcer og figurer (herunder Figur 3) til brug i klinisk praksis og patientuddannelse i Danmark.",
+      "mentions": [
+        {
+          "page": 88,
+          "context": "Fra: https://nbv.cardio.dk/af#152-faktorer-og-tilstande-som-er-associeret-med-atrieflimren (set d. 27.10.2025)"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram er den koordinerende organisation bag udviklingen og implementeringen af kvalitetsindikatorer for atrieflimren i det danske sundhedsvæsen, herunder de beregningsregler, der beskrives på side 90.",
+      "mentions": [
+        {
+          "page": 89,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        },
+        {
+          "page": 90,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den myndighed, der har udgivet dokumentet 'Atrieflimren i Danmark', hvori Tabel 1 og Figur 3 er integreret som centrale kvalitetsdokumenter.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Atrieflimren i Danmark Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 87,
+          "context": "Atrieflimren i Danmark Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 88,
+          "context": "Atrieflimren i Danmark Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "afdk-anbefaler",
+      "predicate": "anbefaler-indhold-i",
+      "object": "patientundervisning",
+      "evidence": "AFDK anbefaler at patientundervisningen bør indeholde informationer listet i nedenstående tabel",
+      "page": 86
+    },
+    {
+      "subject": "tabel-1",
+      "predicate": "indeholder",
+      "object": "patientundervisning",
+      "evidence": "Tabel 1. AFDK anbefaler at patientundervisningen bør indeholde informationer listet i nedenstående tabel",
+      "page": 86
+    },
+    {
+      "subject": "figur-3",
+      "predicate": "viser-overblik-over",
+      "object": "risikofaktorer",
+      "evidence": "Figur 3. Overblik over risikofaktorer",
+      "page": 88
+    },
+    {
+      "subject": "nbv-cardio-dk",
+      "predicate": "udgiver",
+      "object": "figur-3",
+      "evidence": "Fra: https://nbv.cardio.dk/af#152-faktorer-og-tilstande-som-er-associeret-med-atrieflimren",
+      "page": 88
+    },
+    {
+      "subject": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "predicate": "udgiver",
+      "object": "afdk-2025",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 89
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "udgiver",
+      "object": "afdk-2025",
+      "evidence": "Atrieflimren i Danmark Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 86
+    },
+    {
+      "subject": "cha2ds2-vasc",
+      "predicate": "bruges-til-vurdering-af",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Incidente patienter med CHA2DS2-VASc ≥2",
+      "page": 90
+    },
+    {
+      "subject": "uxuc80",
+      "predicate": "identificerer",
+      "object": "ekkokardiografi",
+      "evidence": "Koder for ekkokardiografi i Landspatientregisteret: UXUC80 (transthorakal ekkokardiografi)",
+      "page": 90
+    },
+    {
+      "subject": "b01aa",
+      "predicate": "er-kode-for",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Koder for oral AK-behandling: B01AA (vitamin K antagonister)",
+      "page": 90
+    },
+    {
+      "subject": "b01ae07",
+      "predicate": "er-kode-for",
+      "object": "antikoagulationsbehandling",
+      "evidence": "| B01AE07 | (dabigatran) |",
+      "page": 90
+    },
+    {
+      "subject": "b01af01",
+      "predicate": "er-kode-for",
+      "object": "antikoagulationsbehandling",
+      "evidence": "| B01AF01 | (rivaroxaban) |",
+      "page": 90
+    },
+    {
+      "subject": "b01af02",
+      "predicate": "er-kode-for",
+      "object": "antikoagulationsbehandling",
+      "evidence": "| B01AF02 | (apixaban) |",
+      "page": 90
+    },
+    {
+      "subject": "b01af03",
+      "predicate": "er-kode-for",
+      "object": "antikoagulationsbehandling",
+      "evidence": "| B01AF03 | (edoxaban) |",
+      "page": 90
+    }
+  ],
+  "claims": [
+    {
+      "text": "AFDK anbefaler at patientundervisningen bør indeholde informationer listet i nedenstående tabel tilpasset den enkelte patients situation og den form for undervisning man gennemfører (individuel, hold) [^src1]",
+      "type": "guideline-recommendation",
+      "entities": [
+        "afdk-anbefaler",
+        "patientundervisning",
+        "tabel-1"
+      ],
+      "page": 86
+    },
+    {
+      "text": "Figur 3 viser et overblik over risikofaktorer for atrieflimren, hentet fra https://nbv.cardio.dk/af#152-faktorer-og-tilstande-som-er-associeret-med-atrieflimren [^src2]",
+      "type": "source-reference",
+      "entities": [
+        "figur-3",
+        "nbv-cardio-dk"
+      ],
+      "page": 88
+    },
+    {
+      "text": "Indikator 1 måler andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulationsbehandling, hvor behandlingen er indiceret [^src3]",
+      "type": "quality-indicator-definition",
+      "entities": [
+        "antikoagulationsbehandling",
+        "cha2ds2-vasc"
+      ],
+      "page": 90
+    },
+    {
+      "text": "Indikator 2 måler andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src4]",
+      "type": "quality-indicator-definition",
+      "entities": [
+        "ekkokardiografi"
+      ],
+      "page": 90
+    },
+    {
+      "text": "Koder for oral antikoagulationsbehandling inkluderer B01AA (vitamin K antagonister), B01AE07 (dabigatran), B01AF01 (rivaroxaban), B01AF02 (apixaban) og B01AF03 (edoxaban) [^src5]",
+      "type": "coding-system-specification",
+      "entities": [
+        "b01aa",
+        "b01ae07",
+        "b01af01",
+        "b01af02",
+        "b01af03"
+      ],
+      "page": 90
+    },
+    {
+      "text": "Koder for ekkokardiografi i Landspatientregisteret inkluderer UXUC80 (transthorakal ekkokardiografi), UXUC80A (transthorakal stress ekkokardiografi) og UXUC80B (transthorakal ekkokardiografi med dobutamin test) [^src6]",
+      "type": "coding-system-specification",
+      "entities": [
+        "uxuc80"
+      ],
+      "page": 90
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2025-10-27",
+      "event": "Figur 3 blev set på NBV.Cardio.dk",
+      "entities": [
+        "figur-3",
+        "nbv-cardio-dk"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-1",
+      "title": "Indikatorområde: Ventetid til antikoagulations-behandling",
+      "page": 90,
+      "rowDimension": "indikatorområde",
+      "colDimension": "kvalitetsmålsdefinition",
+      "entities": [
+        "antikoagulationsbehandling",
+        "cha2ds2-vasc"
+      ],
+      "markdown": "| Indikatorområde | Indikator | ANTAL PATIENTFORLØB (NÆVNER) | TÆLLER | EKSKLUDEREDE PATIENTER |\n| --- | --- | --- | --- | --- |\n| 1 Ventetid til antikoagulations-behandling | Andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations-behandling (hvor antikoagulations-behandling er indiceret) | Incidente patienter med CHA2DS2-VASc ≥2 | Patienter i nævneren som har ventetid til opstart i oral AK-behandling inden for tidsrammen 120 dage før til 30 dage efter 1. diagnosedato (udskrivelsesdato ved indlagte forløb). Koder for oral AK-behandling: B01AA (vitamin K antagonister)\\n| B01AE07 | (dabigatran) |\\n| --- | --- |\\n| B01AF01 | (rivaroxaban) |\\n| B01AF02 | (apixaban) |\\n| B01AF03 | (edoxaban) | | Patienter med CHA2DS2-VASc score <2\\nPatientforløb uden bopæl i Danmark.\\nPatienter der dør <= 30 dage efter indeksdato |",
+      "summary": "Tabellen definerer kvalitetsindikator 1 for ventetid til antikoagulationsbehandling, herunder nævner, tæller og eksklusionskriterier, samt de specifikke ATC-koder, der anvendes til registrering."
+    },
+    {
+      "subject": "indikator-2",
+      "title": "Indikatorområde: Ekkokardiografi",
+      "page": 90,
+      "rowDimension": "indikatorområde",
+      "colDimension": "kvalitetsmålsdefinition",
+      "entities": [
+        "ekkokardiografi",
+        "uxuc80"
+      ],
+      "markdown": "| Indikatorområde | Indikator | ANTAL PATIENTFORLØB (NÆVNER) | TÆLLER | EKSKLUDEREDE PATIENTER |\n| --- | --- | --- | --- | --- |\n| 2 Ekkokardiografi | Andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato | Hele den incidente population | Patienter i nævneren som har fået udført ekkokardiografi inden for tidsrammen 6 måneder før til 3 måneder efter 1. diagnosedato. Koder for ekkokardiografi i Landspatientregisteret: UXUC80 (transthorakal ekkokardiografi)\\nUXUC80A (transthorakal stress ekkokardiografi);\\nUXUC80B (transthorakal ekkokardiografi med dobutamin test) | Patientforløb med under 3 måneders opfølgning efter 1. diagnosedato.\\nPatientforløb uden bopæl i Danmark. |",
+      "summary": "Tabellen definerer kvalitetsindikator 2 for udførelse af ekkokardiografi, herunder nævner, tæller og eksklusionskriterier, samt de specifikke koder fra Landspatientregisteret, der anvendes til registrering."
+    }
+  ],
+  "context": "Dette dokumentudsnit er en del af den offentliggjorte version af 'Atrieflimren i Danmark', udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram og Sundhedsvæsenets Kvalitetsinstitut. Det fokuserer på evidensbaserede kvalitetsstandarder for patientuddannelse og klinisk follow-up af patienter med atrieflimren, især gennem to centrale kvalitetsindikatorer (ventetid til antikoagulation og udførelse af ekkokardiografi) samt detaljerede anbefalinger til struktureret patientundervisning. Dokumentet bygger på internationale retningslinjer (ESC 2024) og danske kliniske ressourcer (NBV.Cardio.dk), og danner rammen for kvalitetsmåling og klinisk praksis i hele Danmark."
+}

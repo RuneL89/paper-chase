@@ -4,17 +4,18 @@ type: index
 aliases:
   - Data Quality
 wiki: rkkp-adhd
-updated: '2026-08-05T19:17:42.236Z'
+updated: '2026-08-15T12:41:53.095Z'
 children:
   - data-quality.md
+  - index.md
 ---
 # Data Quality
 
-This folder covers the reliability and completeness of the clinical data recorded in the ADHD-DATABASEN. It highlights significant shortcomings in registration practices, such as the underreporting of patients from private hospitals and the failure to document performed treatments and clinical elements. These data quality issues compromise the database's ability to accurately track ADHD care and patient outcomes across the healthcare sector.
+This folder addresses the accuracy, completeness, and reliability of health data recorded in the ADHD-DATABASEN. It highlights significant systemic shortcomings, such as the unusually low registration of patients from private hospitals and widespread failures to document performed clinical treatments. Ultimately, these data quality issues compromise the database's ability to reliably track ADHD care and outcomes across the healthcare sector.
 
 ## Pages
 
-- [[data-quality|Data Quality]] — Examines the systemic flaws and incomplete registration practices in the ADHD-DATABASEN, including missing patient demographics from private hospitals and unrecorded clinical treatments.
+- [[data-quality|Data Quality]] — Examines systemic flaws in the ADHD-DATABASEN, including incomplete data collection from private hospitals and massive problems with clinical registration practices that leave treatments unrecorded.
 
 ## Navigation
 

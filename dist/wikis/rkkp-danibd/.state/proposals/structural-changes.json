@@ -741,6 +741,37 @@
         "indikator-1b",
         "indikator-5"
       ]
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.971Z",
+      "type": "new-folder",
+      "path": "topics/audit-finding",
+      "reason": "Topic page 'audit-finding' created from claims of type 'audit-finding'",
+      "affectedEntities": [
+        "indikator-1a",
+        "region-hovedstaden"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.971Z",
+      "type": "new-folder",
+      "path": "topics/healthcare-utilization",
+      "reason": "Topic page 'healthcare-utilization' created from claims of type 'healthcare-utilization'",
+      "affectedEntities": [
+        "ibd",
+        "psc"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.971Z",
+      "type": "new-folder",
+      "path": "topics/policy-change",
+      "reason": "Topic page 'policy-change' created from claims of type 'policy-change'",
+      "affectedEntities": [
+        "gastroskopi",
+        "indikator-1b",
+        "koloskopi"
+      ]
     }
   ],
   "knownPageTypes": [

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Biomarkers
 wiki: rkkp-danibd
-updated: '2026-08-05T07:30:17.171Z'
+updated: '2026-08-15T07:38:31.078Z'
 children:
   - gastrointestinal/index.md
+  - index.md
 ---
 # Biomarkers
 
-This area groups biomarkers used in the clinical assessment and monitoring of patients, specifically focusing on those relevant to the management of inflammatory bowel disease (IBD). It currently contains a dedicated sub-folder for gastrointestinal markers, which details the measurement of mucosal inflammation through metrics like fecal calprotectin. These resources cover the clinical application of these tests, their specific laboratory codes, and their role in national quality tracking for standardized treatment follow-up.
+This folder groups measurable biological markers used to monitor and manage diseases tracked in the corpus. It currently contains a single sub-folder dedicated to gastrointestinal biomarkers, specifically focusing on fecal calprotectin. This marker is critical for assessing mucosal inflammation in Inflammatory Bowel Disease (IBD) patients and is tracked nationally through the DANIBD registry's quality indicators to guide clinical decisions and evaluate care standards.
 
 ## Pages
 
-- [[entities/biomarkers/gastrointestinal/index|Gastrointestinal]] — Biomarkers for assessing mucosal inflammation in IBD patients, including fecal calprotectin metrics, laboratory codes, and national quality indicators.
+- [[entities/biomarkers/gastrointestinal/index|Gastrointestinal]] — Gastrointestinal biomarkers, primarily fecal calprotectin, used to assess mucosal inflammation and guide clinical decisions for IBD patients.
 
 ## Navigation
 

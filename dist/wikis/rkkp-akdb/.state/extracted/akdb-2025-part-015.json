@@ -1,0 +1,657 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er en klinisk database, der bruges til at beregne og overvåge den supplerende indikator til indikator 9c vedrørende 30-dages mortalitet efter akut kirurgi for patienter med Charlson Score ≥ 3, og er centralt for hele analysen i dette dokumentudsnit.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 72,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 73,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 74,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 75,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den udgivende organisation bag dokumentet og ansvarlig for udvikling og implementering af kvalitetsindikatorer som den supplerende indikator til indikator 9c, hvilket gør det central for autoriteten og formålet med denne analyse.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 72,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 73,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 74,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 75,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Charlson Score ≥ 3",
+      "type": "score",
+      "slug": "charlson-score-ge-3",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "Charlson Score ≥ 3 definerer den højrisikogruppe af patienter, der inkluderes i nævneren for den supplerende indikator til indikator 9c, og er derfor afgørende for målgruppens definition og klinisk relevans af mortalitetsanalysen.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score ≥ 3"
+        },
+        {
+          "page": 71,
+          "context": "og hvor patienten i forbindelse med første operation har Charlson Score ≥ 3"
+        },
+        {
+          "page": 74,
+          "context": "Supplerende indikator til indikator 9c: Mortalitet indenfor 30 dage efter akut kirurgi, Charlson Score ≥ 3. Alle opererede."
+        },
+        {
+          "page": 74,
+          "context": "patienter med Charlson Score ≥ 3, svarende til høj registreret komorbiditet."
+        }
+      ]
+    },
+    {
+      "name": "Charlson Comorbiditets indeks",
+      "type": "score",
+      "slug": "charlson-comorbiditets-indeks",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "Charlson Comorbiditets indeks er den underliggende kliniske scoringsmetode, hvorfra Charlson Score ≥ 3 udledes, og bruges til at identificere patienters komorbiditetsniveau baseret på diagnoser fra de seneste 10 år.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Patientens Charlson Comorbiditets indeks = 0 eller > 2"
+        },
+        {
+          "page": 74,
+          "context": "Diagnoser til brug i beregning af Charlson Score er hentet 10 år tilbage i tid."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9c",
+      "type": "indicator",
+      "slug": "indikator-9c",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 9c er den primære kvalitetsindikator, som den supplerende indikator beskrevet i dokumentet direkte udvides fra, og fungerer som referencepunkt for både navngivning og klinisk kontekstualisering af analysen.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Supplerende indikator til 9c: Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score ≥ 3"
+        },
+        {
+          "page": 73,
+          "context": "Supplerende indikator til indikator 9c: Mortalitet indenfor 30 dage efter akut kirurgi, Charlson Score ≥ 3. Alle opererede."
+        },
+        {
+          "page": 74,
+          "context": "Supplerende indikator til Indikator 9c beskriver andelen af patienter, der dør indenfor 30 dage fra tidspunkt for operation, for patienter med Charlson Score ≥ 3"
+        }
+      ]
+    },
+    {
+      "name": "CPR-nummer",
+      "type": "administrative-system",
+      "slug": "cpr-nummer",
+      "folder": "topics/administrative-systems/danish-civil-registration",
+      "significance": "CPR-nummer er det danske personnummer, der bruges til unik identifikation af patienter i sundhedsvæsenet, og dens gyldighed er et kritisk inklusions- og eksklusionskriterium i den supplerende indikatoranalyse.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Patienter uden gyldigt CPR-nummer"
+        },
+        {
+          "page": 71,
+          "context": "Patienter uden bopæl, annullerede eller slettede personnumre, ændrede personnumre"
+        },
+        {
+          "page": 72,
+          "context": "Ugyldigt CPRnummer."
+        }
+      ]
+    },
+    {
+      "name": "CPR-registeret",
+      "type": "database",
+      "slug": "cpr-registeret",
+      "folder": "entities/databases/government",
+      "significance": "CPR-registeret er det officielle danske register over personnumre, og status for patientens registrering heri (f.eks. 'Inaktiv, uden bopæl') er et centralt eksklusionsgrundlag i analysen.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Patienter uden bopæl, annullerede eller slettede personnumre, ændrede personnumre"
+        },
+        {
+          "page": 72,
+          "context": "Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn'"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/national",
+      "significance": "Danmark er den nationale geografiske enhed, der fungerer som den øverste aggregationsniveau for resultaterne i den supplerende indikatoranalyse, og deres data (133/742, 17,9 %) udgør den samlede referenceramme for regional og lokal sammenligning.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Danmark 133 / 742 0 (0) 17,9 (15,2-20,9) 21,2 20,2"
+        },
+        {
+          "page": 72,
+          "context": "Årsag Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er en af de fem regioner i Danmark, hvis resultater (30/229, 13,1 %) præsenteres separat i tabellen og indgår i den regionale sammenligning af 30-dages mortalitet blandt patienter med Charlson Score ≥ 3.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Hovedstaden 30 / 229 0 (0) 13,1 (9,0-18,2) 18,4 20,2"
+        },
+        {
+          "page": 72,
+          "context": "Årsag Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er en af de fem regioner i Danmark, hvis resultater (23/142, 16,2 %) præsenteres separat i tabellen og indgår i den regionale sammenligning af 30-dages mortalitet blandt patienter med Charlson Score ≥ 3.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Sjælland 23 / 142 0 (0) 16,2 (10,6-23,3) 17,8 21,8"
+        },
+        {
+          "page": 72,
+          "context": "Årsag Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Region Syddanmark er en af de fem regioner i Danmark, hvis resultater (39/168, 23,2 %) præsenteres separat i tabellen og indgår i den regionale sammenligning af 30-dages mortalitet blandt patienter med Charlson Score ≥ 3.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Syddanmark 39 / 168 0 (0) 23,2 (17,1-30,3) 20,8 21,5"
+        },
+        {
+          "page": 72,
+          "context": "Årsag Syddanmar k"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Region Midtjylland er en af de fem regioner i Danmark, hvis resultater (25/140, 17,9 %) præsenteres separat i tabellen og indgår i den regionale sammenligning af 30-dages mortalitet blandt patienter med Charlson Score ≥ 3.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Midtjylland 25 / 140 0 (0) 17,9 (11,9-25,2) 27,1 18,1"
+        },
+        {
+          "page": 72,
+          "context": "Årsag Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er en af de fem regioner i Danmark, hvis resultater (16/63, 25,4 %) præsenteres separat i tabellen og indgår i den regionale sammenligning af 30-dages mortalitet blandt patienter med Charlson Score ≥ 3.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Nordjylland 16 / 63 0 (0) 25,4 (15,3-37,9) 25,9 19,5"
+        },
+        {
+          "page": 72,
+          "context": "Årsag Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital er et specifikt hospital, hvis resultater (5/50, 10,0 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Amager og Hvidovre Hospital 5 / 50 0 (0) 10,0 (3,3-21,8) 19,2 18,9"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital er et specifikt hospital, hvis resultater (6/50, 12,0 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Bispebjerg og Frederiksberg Hospital 6 / 50 0 (0) 12,0 (4,5-24,3) 13,0 10,9"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital er et specifikt hospital, hvis resultater (#/#, 0,0 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Bornholms Hospital #/# 0 (0) 0,0 (0,0-84,2) 0,0 25,0"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital er et specifikt hospital, hvis resultater (7/61, 11,5 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Herlev og Gentofte Hospital 7 / 61 0 (0) 11,5 (4,7-22,2) 23,3 17,3"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland er en hospitalsgruppe, hvis resultater (6/46, 13,0 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Hospitalerne i Nordsjælland 6 / 46 0 (0) 13,0 (4,9-26,3) 15,4 28,3"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er et specifikt hospital, hvis resultater (6/20, 30,0 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Rigshospitalet 6 / 20 0 (0) 30,0 (11,9-54,3) 18,8 33,3"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus er et specifikt hospital, hvis resultater (8/32, 25,0 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Holbæk Sygehus 8 / 32 0 (0) 25,0 (11,5-43,4) 36,0 17,9"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er en hospitalsgruppe, hvis resultater (7/55, 12,7 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 7 / 55 0 (0) 12,7 (5,3-24,5) 15,4 28,8"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital er et specifikt hospital, hvis resultater (8/55, 14,5 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sjællands Universitetshospit al 8 / 55 0 (0) 14,5 (6,5-26,7) 12,3 15,2"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er en hospitalsgruppe, hvis resultater (11/40, 27,5 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Esbjerg Sygehus Grindsted Sygehus 11 / 40 0 (0) 27,5 (14,6-43,9) 20,0 17,6"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "ouh-odense-universitetshospital-odense",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg er et specifikt hospital, hvis resultater (13/76, 17,1 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Odense Universitetshospit al - Svendborg 13 / 76 0 (0) 17,1 (9,4-27,5) 21,4 27,5"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt er et specifikt hospital, hvis resultater (7/29, 24,1 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sygehus Lillebælt 7 / 29 0 (0) 24,1 (10,3-43,5) 19,0 11,5"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland er et specifikt hospital, hvis resultater (8/23, 34,8 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sygehus Sønderjylland 8 / 23 0 (0) 34,8 (16,4-57,3) 21,7 24,2"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er et specifikt hospital, hvis resultater (4/31, 12,9 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Aarhus Universitetshospit al 4 / 31 0 (0) 12,9 (3,6-29,8) 27,0 18,9"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt er en hospitalsgruppe, hvis resultater (8/32, 25,0 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Hospitalsenhed Midt 8 / 32 0 (0) 25,0 (11,5-43,4) 26,7 16,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er et specifikt hospital, hvis resultater (8/36, 22,2 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Regionshospitalet Gødstrup 8 / 36 0 (0) 22,2 (10,1-39,2) 29,7 22,5"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens er et specifikt hospital, hvis resultater (4/19, 21,1 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Regionshospitalet Horsens 4 / 19 0 (0) 21,1 (6,1-45,6) 24,0 29,4"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er et specifikt hospital, hvis resultater (#/#, 4,5 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Regionshospitalet Randers #/# 0 (0) 4,5 (0,1-22,8) 26,9 6,7"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital er et specifikt hospital, hvis resultater (11/42, 26,2 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Aalborg Universitetshospit al 11 / 42 0 (0) 26,2 (13,9-42,0) 22,9 16,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland er et specifikt hospital, hvis resultater (5/21, 23,8 %) præsenteres på afdelingsniveau i tabellen og illustrerer variationen i 30-dages mortalitet blandt patienter med høj komorbiditet inden for den regionale struktur.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Regionshospital Nordjylland 5 / 21 0 (0) 23,8 (8,2-47,2) 31,6 25,9"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-used-for-measuring",
+      "object": "indikator-9c",
+      "evidence": "Supplerende indikator til 9c: Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score ≥ 3",
+      "page": 71
+    },
+    {
+      "subject": "charlson-score-ge-3",
+      "predicate": "is-derived-from",
+      "object": "charlson-comorbiditets-indeks",
+      "evidence": "Patientens Charlson Comorbiditets indeks = 0 eller > 2",
+      "page": 72
+    },
+    {
+      "subject": "indikator-9c",
+      "predicate": "has-supplementary-indicator",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Supplerende indikator til indikator 9c",
+      "page": 73
+    },
+    {
+      "subject": "cpr-nummer",
+      "predicate": "is-validated-against",
+      "object": "cpr-registeret",
+      "evidence": "Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn'",
+      "page": 72
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-developed-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 71
+    }
+  ],
+  "claims": [
+    {
+      "text": "Der indgik 742 patienter i indikatoranalysen i perioden. Heraf døde 133, svarende til 17,9 % (95 % CI: 15,2-20,9) indenfor 30 dage fra operation [^src1]",
+      "type": "statistical",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "charlson-score-ge-3"
+      ],
+      "page": 74
+    },
+    {
+      "text": "Diagnoser til brug i beregning af Charlson Score er hentet 10 år tilbage i tid [^src1]",
+      "type": "methodological",
+      "entities": [
+        "charlson-comorbiditets-indeks"
+      ],
+      "page": 74
+    },
+    {
+      "text": "Eksklusion: Ugyldigt CPR-nummer (79 tilfælde), patienten er under 18 år (177 tilfælde), patienten er ikke opereret (6.646 tilfælde), patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn' (6 tilfælde), operationen er ikke den første operation i hospitalsopholdet (544 tilfælde), patientens Charlson Comorbiditets indeks = 0 eller > 2 (2.502 tilfælde) [^src1]",
+      "type": "exclusion-criteria",
+      "entities": [
+        "cpr-nummer",
+        "cpr-registeret",
+        "charlson-comorbiditets-indeks"
+      ],
+      "page": 72
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2024 - 31.08.2025",
+      "event": "Aktuel periode for udviklingsmål for den supplerende indikator til indikator 9c",
+      "entities": [
+        "indikator-9c",
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "01.09.2023 - 31.08.2024",
+      "event": "Tidligere år (2023/24) for sammenligning af mortalitetsandele",
+      "entities": [
+        "indikator-9c",
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "01.09.2022 - 31.08.2023",
+      "event": "Tidligere år (2022/23) for sammenligning af mortalitetsandele",
+      "entities": [
+        "indikator-9c",
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "mortality-by-region-and-hospital",
+      "title": "Resultater for supplerende indikator til indikator 9c: Mortalitet indenfor 30 dage efter akut kirurgi, Charlson Score ≥ 3",
+      "page": 71,
+      "rowDimension": "region og hospital",
+      "colDimension": "andel af døde patienter med 95% konfidensinterval og tidligere års andele",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "sjaelland-region-i-alt",
+        "syddanmark-region-i-alt",
+        "midtjylland-region-i-alt",
+        "nordjylland-region-i-alt",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Region/Hospital | Tæller/antal | opnået nævner (%) | Andel 95% CI | Andel 2023/24 | Andel 2022/23 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 133 / 742 | 0 (0) | 17,9 (15,2-20,9) | 21,2 | 20,2 |\n| Hovedstaden | 30 / 229 | 0 (0) | 13,1 (9,0-18,2) | 18,4 | 20,2 |\n| Sjælland | 23 / 142 | 0 (0) | 16,2 (10,6-23,3) | 17,8 | 21,8 |\n| Syddanmark | 39 / 168 | 0 (0) | 23,2 (17,1-30,3) | 20,8 | 21,5 |\n| Midtjylland | 25 / 140 | 0 (0) | 17,9 (11,9-25,2) | 27,1 | 18,1 |\n| Nordjylland | 16 / 63 | 0 (0) | 25,4 (15,3-37,9) | 25,9 | 19,5 |\n| Amager og Hvidovre Hospital | 5 / 50 | 0 (0) | 10,0 (3,3-21,8) | 19,2 | 18,9 |\n| Bispebjerg og Frederiksberg Hospital | 6 / 50 | 0 (0) | 12,0 (4,5-24,3) | 13,0 | 10,9 |\n| Bornholms Hospital | #/# | 0 (0) | 0,0 (0,0-84,2) | 0,0 | 25,0 |\n| Herlev og Gentofte Hospital | 7 / 61 | 0 (0) | 11,5 (4,7-22,2) | 23,3 | 17,3 |\n| Hospitalerne i Nordsjælland | 6 / 46 | 0 (0) | 13,0 (4,9-26,3) | 15,4 | 28,3 |\n| Rigshospitalet | 6 / 20 | 0 (0) | 30,0 (11,9-54,3) | 18,8 | 33,3 |\n| Holbæk Sygehus | 8 / 32 | 0 (0) | 25,0 (11,5-43,4) | 36,0 | 17,9 |\n| Næstved, Slagelse og Ringsted sygehuse | 7 / 55 | 0 (0) | 12,7 (5,3-24,5) | 15,4 | 28,8 |\n| Sjællands Universitetshospital | 8 / 55 | 0 (0) | 14,5 (6,5-26,7) | 12,3 | 15,2 |\n| Esbjerg Sygehus Grindsted Sygehus | 11 / 40 | 0 (0) | 27,5 (14,6-43,9) | 20,0 | 17,6 |\n| Odense Universitetshospital - Svendborg | 13 / 76 | 0 (0) | 17,1 (9,4-27,5) | 21,4 | 27,5 |\n| Sygehus Lillebælt | 7 / 29 | 0 (0) | 24,1 (10,3-43,5) | 19,0 | 11,5 |\n| Sygehus Sønderjylland | 8 / 23 | 0 (0) | 34,8 (16,4-57,3) | 21,7 | 24,2 |\n| Aarhus Universitetshospital | 4 / 31 | 0 (0) | 12,9 (3,6-29,8) | 27,0 | 18,9 |\n| Hospitalsenhed Midt | 8 / 32 | 0 (0) | 25,0 (11,5-43,4) | 26,7 | 16,0 |\n| Regionshospitalet Gødstrup | 8 / 36 | 0 (0) | 22,2 (10,1-39,2) | 29,7 | 22,5 |\n| Regionshospitalet Horsens | 4 / 19 | 0 (0) | 21,1 (6,1-45,6) | 24,0 | 29,4 |\n| Regionshospitalet Randers | #/# | 0 (0) | 4,5 (0,1-22,8) | 26,9 | 6,7 |\n| Aalborg Universitetshospital | 11 / 42 | 0 (0) | 26,2 (13,9-42,0) | 22,9 | 16,0 |\n| Regionshospital Nordjylland | 5 / 21 | 0 (0) | 23,8 (8,2-47,2) | 31,6 | 25,9 |",
+      "summary": "Tabellen sammenligner 30-dages mortalitetsandele blandt patienter med Charlson Score ≥ 3 på nationalt, regionalt og hospitalsniveau, og viser betydelig variation — fra 0,0 % (Bornholms Hospital) til 34,8 % (Sygehus Sønderjylland) — samt generel faldende tendens i nogle regioner fra 2022/23 til 2023/24."
+    }
+  ],
+  "context": "Dette dokumentudsnit udgør en teknisk beskrivelse af en supplerende kvalitetsindikator til indikator 9c i den danske Akut Kirurgi Databasen (AKDB), udarbejdet af Sundhedsvæsenets Kvalitetsinstitut. Den fokuserer på 30-dages mortalitet efter akut kirurgi blandt patienter med høj registreret komorbiditet (defineret som Charlson Score ≥ 3), og omfatter detaljerede inklusions- og eksklusionskriterier, metodologiske forudsætninger (herunder brug af CPR-nummer og historiske diagnosedata fra CPR-registeret), samt kvantitative resultater på nationalt, regionalt og hospitalsniveau for perioden 01.09.2024–31.08.2025 sammenholdt med tidligere år. Den indgår i en bredere kvalitetsudviklingskontekst, hvor AKDB anvendes til at overvåge og forbedre kirurgisk kvalitet og sikkerhed i det danske sundhedsvæsen."
+}

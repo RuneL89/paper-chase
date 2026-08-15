@@ -1,0 +1,525 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Databasen er den centrale kvalitetsdatabase, der overvåger og rapporterer indikatorer for behandlingskvalitet ved inflammatoriske tarmsygdomme i Danmark, og fungerer som grundlag for alle indikatoropgørelser i dette dokument.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        },
+        {
+          "page": 22,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        },
+        {
+          "page": 23,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        },
+        {
+          "page": 24,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        },
+        {
+          "page": 25,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        }
+      ]
+    },
+    {
+      "name": "BIKE1",
+      "type": "procedure-code",
+      "slug": "bike1-undervisning-i-inflammatorisk-tarmsygdom",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "BIKE1 er den officielle SKS-kode til registrering af undervisning i inflammatorisk tarmsygdom, hvilket gør den til en central operativ kode for kvalitetsmåling af patientuddannelse.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Undervisningen registreres i journalen efter gennemført undervisning (SKS-kode: BIKE1)."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "quality-indicator",
+      "slug": "indikator-1",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1 måler andelen af nydiagnosticerede patienter med IBD, der modtager struktureret patientuddannelse inden for et år efter diagnose, og er en central kvalitetsparameter for patientinvolvering og sundhedsoplysning.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Resultat\nDenne anden opgørelse af indikatoren viser, at 26 % af de nydiagnosticerede har fået undervisning i året efter, de fik diagnosen."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "quality-indicator",
+      "slug": "indikator-3",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 3 måler andelen af voksne med Crohns sygdom, der efter ileocøkal resektion får endoskopisk opfølgning (koloskopi) inden for ét år, og er en klinisk kvalitetsindikator baseret på international anbefaling.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Indikator 3. Post-operativ Crohns sygdom, opfølgning"
+        },
+        {
+          "page": 22,
+          "context": "Indikator 3: Andelen af voksne med Crohns sygdom, der har fået foretaget ileocækal resektion, som bliver koloskoperet inden for ét år efter operationen"
+        },
+        {
+          "page": 23,
+          "context": "Indikator 3: Andelen af voksne med Crohns sygdom, der har fået foretaget ileocækal resektion, som bliver koloskoperet inden for ét år efter operationen. Forest plot på afdelingsniveau."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4",
+      "type": "quality-indicator",
+      "slug": "indikator-4",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 4 måler andelen af steroidkurer givet til patienter over 50 år med IBD, hvor DEXA-scanning er foretaget, og sikrer overholdelse af dansk endokrinologisk behandlingsvejledning ved risiko for knogleskørhed.",
+      "mentions": [
+        {
+          "page": 25,
+          "context": "Indikator 4. DEXA-scanning, steroidbehandling"
+        },
+        {
+          "page": 25,
+          "context": "Indikator 4: Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning. Forest plot på afdelingsniveau."
+        }
+      ]
+    },
+    {
+      "name": "Crohns sygdom",
+      "type": "disease",
+      "slug": "crohns-sygdom",
+      "folder": "entities/diseases/ibd-comorbidities",
+      "significance": "Crohns sygdom er en central inflammatorisk tarmsygdom, der danner baggrund for Indikator 3 og indgår i definitionen af patientpopulationen for denne kvalitetsmåling.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Indikator 3. Post-operativ Crohns sygdom, opfølgning"
+        },
+        {
+          "page": 22,
+          "context": "Crohns sygdom er en kronisk sygdom, som har et sygdomsmønster bestående af sygdomsaktivitet afbrudt af remissionsfaser."
+        },
+        {
+          "page": 23,
+          "context": "Indikatoren omfatter alle voksne med Crohns sygdom svarende til patienter, der er fyldt 18 år og har diagnosen Crohns sygdom på operationstidspunktet."
+        }
+      ]
+    },
+    {
+      "name": "ileocøkal resektion",
+      "type": "procedure",
+      "slug": "primaert-kirurgisk-indgreb",
+      "folder": "entities/procedural",
+      "significance": "Ileocøkal resektion er det primære kirurgiske indgreb, som definerer patientpopulationen for Indikator 3, og inkluderer både åben og laparoskopisk udførelse samt relaterede resektionsformer.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Indikatoren monitorerer derfor andelen af voksne med Crohns sygdom, der har fået foretaget ileocøkal resektion, som bliver koloskoperet inden for ét år efter operationen."
+        },
+        {
+          "page": 23,
+          "context": "Ileocøkal resektion omfatter desuden laparoskopisk ileocøkal resektion samt højresidig hemikolektomi og laparoskopisk højresidig hemikolektomi (SKS-koder: KJFB20/21/30/31)."
+        }
+      ]
+    },
+    {
+      "name": "koloskopi",
+      "type": "procedure",
+      "slug": "koloskopi",
+      "folder": "entities/procedural",
+      "significance": "Koloskopi er den anbefalede endoskopiske metode til postoperativ opfølgning efter ileocøkal resektion ved Crohns sygdom, og udgør den målte handling i Indikator 3.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Indikatoren monitorerer derfor andelen af voksne med Crohns sygdom, der har fået foretaget ileocøkal resektion, som bliver koloskoperet inden for ét år efter operationen."
+        },
+        {
+          "page": 23,
+          "context": "Koloskopien med/uden biopsi skal være udført inden for et år efter operationsdatoen (SKS-koder: KUJF32/35)."
+        }
+      ]
+    },
+    {
+      "name": "DEXA-scanning",
+      "type": "procedure",
+      "slug": "dexa-scanning",
+      "folder": "entities/procedural",
+      "significance": "DEXA-scanning er den gyldige diagnostiske metode til vurdering af knoglemineraltæthed og udgør den målte handling i Indikator 4 ved steroidbehandling hos ældre IBD-patienter.",
+      "mentions": [
+        {
+          "page": 25,
+          "context": "Knogleskørhed og osteopeni diagnosticeres bedst ved osteodensitometri (DEXA-scanning), som måler knoglemineraltætheden."
+        },
+        {
+          "page": 25,
+          "context": "Indikator 4. DEXA-scanning, steroidbehandling"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden er én af fem regioner i Danmark, hvis præstation i Indikator 3 og Indikator 1 indgår i regional variationen og sammenligningen i databasens kvalitetsrapport.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Hovedstaden | Nej | 27 | / | 52 | 52 | (38-66) | 28 | / | 57 | 49 |"
+        },
+        {
+          "page": 24,
+          "context": "For de øvrige fire regioner ses en variation fra 50 % i Region Sjælland til 62 % i Region Nordjylland."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er én af fem regioner i Danmark, og viser den laveste præstation i Indikator 1 (10 %) samt en af de laveste i Indikator 3 (50 %), hvilket fremhæver regional ulighed i kvalitetsmåling.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Der er en regional variation fra 10 % i Region Sjælland til 39 % i Region Midtjylland."
+        },
+        {
+          "page": 22,
+          "context": "Sjælland | Nej | 8 | / | 16 | 50 | (25-75) | 17 | / | 23 | 74 |"
+        },
+        {
+          "page": 24,
+          "context": "For de øvrige fire regioner ses en variation fra 50 % i Region Sjælland til 62 % i Region Nordjylland."
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Syddanmark er én af fem regioner i Danmark, og viser den højeste præstation i Indikator 3 (67 % i 2023–24 og 83 % i 2022–23), hvilket indgår i regional sammenligning og trendanalyse.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Syddanmark | Nej | 26 | / | 39 | 67 | (50-81) | 33 | / | 40 | 83 |"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Midtjylland er den eneste region, der opfylder udviklingsmålet på ≥80 % for Indikator 3 (87 %), og viser samtidig den højeste præstation i Indikator 1 (39 %), hvilket gør den central i kvalitetsdiskussionen.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Der er en regional variation fra 10 % i Region Sjælland til 39 % i Region Midtjylland."
+        },
+        {
+          "page": 22,
+          "context": "Midtjylland | Ja | 27 | / | 31 | 87 | (70-96) | 32 | / | 47 | 68 |"
+        },
+        {
+          "page": 24,
+          "context": "I Region Midtjylland har 87 % af patienterne fået den anbefalede opfølgning til tiden, hvormed de som den eneste region lever op til udviklingsmålet."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland viser den største fremgang i Indikator 1 (24 procentpoint) og en moderat præstation i Indikator 3 (62 %), hvilket indgår i analyse af regional udvikling og variation.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Der er en regional variation fra 10 % i Region Sjælland til 39 % i Region Midtjylland. Som det ses af trendgrafen er der sket en fremgang i alle fem regioner; størst i Region Nordjylland med 24 procentpoint."
+        },
+        {
+          "page": 22,
+          "context": "Nordjylland | Nej | 8 | / | 13 | 62 | (32-86) | 7 | / | 12 | 58 |"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "healthcare-facility",
+      "slug": "rigshospitalet-med-klinik-mave-tarm-lever",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Rigshospitalet er den eneste voksne afdeling, der ikke har startet med undervisning i Indikator 1, hvilket fremhæver en særlig udfordring i implementeringen af patientuddannelse.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Det ses også, at 9 ud af 14 børneafdelinger ikke er begyndt at undervise, mens det kun er Rigshospitalet blandt afdelingerne for voksne, som ikke er kommet i gang med undervisningen."
+        }
+      ]
+    },
+    {
+      "name": "OUH Odense Medicinsk Mave-Tarm Afd. S",
+      "type": "healthcare-facility",
+      "slug": "ouh-odense-medicinsk-mave-tarm-afd-s",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "OUH Odense Medicinsk Mave-Tarm Afd. S er en af de få afdelinger, der opfylder udviklingsmålet for Indikator 3 (80 %), hvilket markerer den som en top-performende enhed i postoperativ opfølgning.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "OUH Odense Medicinsk Mave-Tarm Afd. S Ja 12 / 15 80 (52-96) 15 / 18 83"
+        }
+      ]
+    },
+    {
+      "name": "Herlev Mave-, Tarm- og Leversygd.",
+      "type": "healthcare-facility",
+      "slug": "herlev-mave-tarm-leversygd",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Herlev Mave-, Tarm- og Leversygd. er en af de afdelinger, der rapporterer lave tal for Indikator 3 (44 %), hvilket indgår i diskussionen om variation og behov for audit.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Herlev Mave-, Tarm- og Leversygd. Nej 4 / 9 44 (14-79) # /# 14"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre Gastroenheden",
+      "type": "healthcare-facility",
+      "slug": "hvidovre-gastroenheden",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Hvidovre Gastroenheden er en af de afdelinger, der rapporterer mellemresultater for Indikator 3 (65 %), og indgår i den bredere regional analyse af opfølgning efter ileocøkal resektion.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Hvidovre Gastroenheden Nej 11 / 17 65 (38-86) 12 / 21 57"
+        }
+      ]
+    },
+    {
+      "name": "Nordsjælland Kirurgisk Afdeling",
+      "type": "healthcare-facility",
+      "slug": "nordsjaelland-kirurgisk-overafdeling",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Nordsjælland Kirurgisk Afdeling er en af de afdelinger, der rapporterer lave resultater for Indikator 3 (55 %), og indgår i analysen af variation og mulige forbedringsområder.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Nordsjælland Kirurgisk Afdeling Nej 6 / 11 55 (23-83) 3 / 8 38"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Lever-, Mave- og Tarmsygd.",
+      "type": "healthcare-facility",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Aarhus Lever-, Mave- og Tarmsygd. er en af de afdelinger i Region Midtjylland, der opfylder udviklingsmålet for Indikator 3 (86 %), og understøtter regionens fremtrædende position.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Aarhus Lever-, Mave- og Tarmsygd. Ja 6 / 7 86 (42-100) 7 / 11 64"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "maintains",
+      "object": "indikator-1",
+      "evidence": "Denne anden opgørelse af indikatoren viser, at 26 % af de nydiagnosticerede har fået undervisning i året efter, de fik diagnosen.",
+      "page": 21
+    },
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "maintains",
+      "object": "indikator-3",
+      "evidence": "Indikator 3. Post-operativ Crohns sygdom, opfølgning",
+      "page": 22
+    },
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "maintains",
+      "object": "indikator-4",
+      "evidence": "Indikator 4. DEXA-scanning, steroidbehandling",
+      "page": 25
+    },
+    {
+      "subject": "indikator-1",
+      "predicate": "uses-procedure-code",
+      "object": "bike1-undervisning-i-inflammatorisk-tarmsygdom",
+      "evidence": "Undervisningen registreres i journalen efter gennemført undervisning (SKS-kode: BIKE1).",
+      "page": 21
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "requires-procedure",
+      "object": "primaert-kirurgisk-indgreb",
+      "evidence": "Indikatoren omfatter alle voksne med Crohns sygdom svarende til patienter, der er fyldt 18 år og har diagnosen Crohns sygdom på operationstidspunktet. Ileocøkal resektion omfatter desuden laparoskopisk ileocøkal resektion samt højresidig hemikolektomi...",
+      "page": 23
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "requires-procedure",
+      "object": "koloskopi",
+      "evidence": "Koloskopien med/uden biopsi skal være udført inden for et år efter operationsdatoen (SKS-koder: KUJF32/35).",
+      "page": 23
+    },
+    {
+      "subject": "indikator-4",
+      "predicate": "requires-procedure",
+      "object": "dexa-scanning",
+      "evidence": "Indikatoren monitorerer derfor andelen af steroidkure givet til patienter over 50 år, hvor patienten har fået foretaget DEXA-scanning.",
+      "page": 25
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains-healthcare-facility",
+      "object": "rigshospitalet-med-klinik-mave-tarm-lever",
+      "evidence": "Det ses også, at 9 ud af 14 børneafdelinger ikke er begyndt at undervise, mens det kun er Rigshospitalet blandt afdelingerne for voksne, som ikke er kommet i gang med undervisningen.",
+      "page": 21
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains-healthcare-facility",
+      "object": "aarhus-universitetshospital",
+      "evidence": "Aarhus Lever-, Mave- og Tarmsygd. Ja 6 / 7 86 (42-100) 7 / 11 64",
+      "page": 22
+    }
+  ],
+  "claims": [
+    {
+      "text": "26 % af de nydiagnosticerede har fået undervisning i året efter, de fik diagnosen [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Der er en regional variation fra 10 % i Region Sjælland til 39 % i Region Midtjylland [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-sjaelland",
+        "region-midtjylland"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Størst fremgang i Region Nordjylland med 24 procentpoint [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-nordjylland"
+      ],
+      "page": 21
+    },
+    {
+      "text": "9 ud af 14 børneafdelinger ikke er begyndt at undervise [^src1]",
+      "type": "quality-indicator",
+      "entities": [],
+      "page": 21
+    },
+    {
+      "text": "Rigshospitalet er den eneste voksne afdeling, som ikke er kommet i gang med undervisningen [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "rigshospitalet-med-klinik-mave-tarm-lever"
+      ],
+      "page": 21
+    },
+    {
+      "text": "Udviklingsmålet for Indikator 3 er, at mindst 80 % har fået endoskopisk opfølgning til tiden [^src2]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 22
+    },
+    {
+      "text": "I alt har 151 voksne med Crohns sygdom fået foretaget ileocøkal resektion i opgørelsesperioden [^src4]",
+      "type": "clinical-statistic",
+      "entities": [
+        "crohns-sygdom",
+        "primaert-kirurgisk-indgreb"
+      ],
+      "page": 24
+    },
+    {
+      "text": "På landsplan har 64 % af patienterne fået den anbefalede opfølgning til tiden [^src4]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 24
+    },
+    {
+      "text": "I Region Midtjylland har 87 % af patienterne fået den anbefalede opfølgning til tiden [^src4]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-midtjylland",
+        "indikator-3"
+      ],
+      "page": 24
+    },
+    {
+      "text": "Udviklingsmålet for Indikator 4 er, at mindst 80 % skal have foretaget en DEXA-scanning, når de behandles med steroid [^src5]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-4"
+      ],
+      "page": 25
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.10.2023 - 30.09.2024",
+      "event": "Opgørelsesperiode for Indikator 3",
+      "entities": [
+        "indikator-3"
+      ]
+    },
+    {
+      "date": "2023-2024",
+      "event": "Tallene for Indikator 1 er fra 2023-2024 pga. opfølgningstiden",
+      "entities": [
+        "indikator-1"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-3",
+      "title": "Indikator 3: Andelen af voksne med Crohns sygdom, der har fået foretaget ileocækal resektion, som bliver koloskoperet inden for ét år efter operationen",
+      "page": 22,
+      "rowDimension": "region og afdeling",
+      "colDimension": "andel og antal per periode",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "rigshospitalet-med-klinik-mave-tarm-lever",
+        "ouh-odense-medicinsk-mave-tarm-afd-s",
+        "herlev-mave-tarm-leversygd",
+        "hvidovre-gastroenheden",
+        "nordsjaelland-kirurgisk-overafdeling",
+        "aarhus-universitetshospital"
+      ],
+      "markdown": "| Danmark | Nej | 96 | / | 151 | 64 | (55-71) | 117 | / | 179 | 65 |\n| Hovedstaden | Nej | 27 | / | 52 | 52 | (38-66) | 28 | / | 57 | 49 |\n| Sjælland | Nej | 8 | / | 16 | 50 | (25-75) | 17 | / | 23 | 74 |\n| Syddanmark | Nej | 26 | / | 39 | 67 | (50-81) | 33 | / | 40 | 83 |\n| Midtjylland | Ja | 27 | / | 31 | 87 | (70-96) | 32 | / | 47 | 68 |\n| Nordjylland | Nej | 8 | / | 13 | 62 | (32-86) | 7 | / | 12 | 58 |\n| Hovedstaden | Nej | 27 | / | 52 | 52 | (38-66) | 28 | / | 57 | 49 |\n| Bispebjerg Abdominalcenter K | Nej | 6 | / | 12 | 50 | (21-79) | 11 | / | 18 | 61 |\n| Bornholm Medicinsk Afdeling | Nej | 0 | / | 3 | 0 | (0-71) | # | / | # | 0 |\n| Herlev Mave-, Tarm- og Leversygd. | Nej | 4 | / | 9 | 44 | (14-79) | # | / | # | 14 |\n| Hvidovre Gastroenheden | Nej | 11 | / | 17 | 65 | (38-86) | 12 | / | 21 | 57 |\n| Nordsjælland Kirurgisk Afdeling | Nej | 6 | / | 11 | 55 | (23-83) | 3 | / | 8 | 38 |\n| Sjælland | Nej | 8 | / | 16 | 50 | (25-75) | 17 | / | 23 | 74 |\n| NSR Slagelse Med. Gastroenterologi | Nej | # | / | # | 50 | (1-99) | # | / | # | 67 |\n| SUH Køge Med. Gastroenterologi | Nej | 7 | / | 14 | 50 | (23-77) | 15 | / | 19 | 79 |\n| Syddanmark | Nej | 26 | / | 39 | 67 | (50-81) | 33 | / | 40 | 83 |\n| EGS Esbjerg Medicinsk Mave og Tarm Amb. | Nej | 5 | / | 8 | 63 | (24-91) | 9 | / | 9 | 100 |\n| OUH Odense Medicinsk Mave-Tarm Afd. S | Ja | 12 | / | 15 | 80 | (52-96) | 15 | / | 18 | 83 |\n| SHS Aabenraa Mave- og Tarmsygd. | Nej | # | / | # | 33 | (1-91) | # | / | # | 67 |\n| SLB Vejle Gastroenterologisk Amb. | Nej | 8 | / | 13 | 62 | (32-86) | 9 | / | 13 | 69 |\n| Midtjylland | Ja | 27 | / | 31 | 87 | (70-96) | 32 | / | 47 | 68 |\n| Aarhus Lever-, Mave- og Tarmsygd. | Ja | 6 | / | 7 | 86 | (42-100) | 7 | / | 11 | 64 |\n| Gødstrup Mave-, Tarm- og Leversygd. | Ja | 7 | / | 8 | 88 | (47-100) | 8 | / | 13 | 62 |\n| HE Midt Klinik for Mave- og Tarmsygd. | Ja | 9 | / | 11 | 82 | (48-98) | 9 | / | 9 | 100 |\n| Randers Lever-, Mave- og Tarmsygd. | Ja | 5 | / | 5 | 100 | (48-100) | 6 | / | 10 | 60 |\n| Nordjylland | Nej | 8 | / | 13 | 62 | (32-86) | 7 | / | 12 | 58 |\n| AAUH Aalborg Med. Gastroenterologisk Afd. | Nej | 8 | / | 11 | 73 | (39-94) | 6 | / | 11 | 55 |\n| RHN Hjørring Med. Mave- og Tarmsygd. | Nej | # | / | # | 0 | (0-84) | # | / | # | 100 |",
+      "summary": "Tabellen sammenligner andelen af voksne med Crohns sygdom efter ileocøkal resektion, der får koloskopi inden for ét år, på regions- og afdelingsniveau, og viser stor variation fra 0 % til 100 %, hvor kun Region Midtjylland og to afdelinger opfylder udviklingsmålet på ≥80 %."
+    }
+  ],
+  "context": "Dette dokumentudsnit fra DANIBD-rapporten (sider 21–25) beskriver tre centrale kvalitetsindikatorer for behandlingen af inflammatoriske tarmsygdomme i Danmark: Indikator 1 (patientuddannelse), Indikator 3 (postoperativ koloskopi efter ileocøkal resektion ved Crohns sygdom) og Indikator 4 (DEXA-scanning ved steroidbehandling hos ældre patienter). Det indgår i en bredere nationale kvalitetsudviklingsindsats under Regionernes Kliniske Kvalitetsudviklingsprogram, hvor data fra landets regioner og sygehuse systematisk overvåges for at identificere variation, fremme god praksis og støtte klinisk forbedring. Rapporten kombinerer kvantitative opgørelser, regional og afdelingsvis sammenligning samt klinisk kontekstualisering af mål og implikationer."
+}

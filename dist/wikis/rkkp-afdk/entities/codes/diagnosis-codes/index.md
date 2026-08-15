@@ -4,8 +4,17 @@ type: index
 aliases:
   - Diagnosis Codes
 wiki: rkkp-afdk
-updated: '2026-08-05T22:41:10.846Z'
+updated: '2026-08-14T23:28:13.676Z'
 children:
+  - di110-star.md
+  - di130-star.md
+  - di132-star.md
+  - di420-star.md
+  - di426-star.md
+  - di427-star.md
+  - di428-star.md
+  - di429-star.md
+  - di50-star.md
   - di60.md
   - di61.md
   - di62.md
@@ -40,47 +49,57 @@ children:
   - ds065.md
   - ds066.md
   - dz501.md
+  - index.md
 ---
 # Diagnosis Codes
 
-This folder contains the specific ICD-10 diagnosis codes used by the Danish Regions' Clinical Quality Development Programme (RKKP) to monitor safety outcomes in patients treated for atrial fibrillation. Because anticoagulation therapies carry significant risks, these codes are systematically grouped into composite clinical indicators to track the incidence of severe bleeding—including intracranial, gastrointestinal, and urinary or respiratory hemorrhages—as well as ischemic strokes. Each page details the exact clinical definition of the code and its methodological application in the national atrial fibrillation database's annual quality reports.
+This folder catalogs the specific ICD-10 diagnosis codes used by the Danish Atrial Fibrillation Database (AFDK) to monitor clinical quality and patient safety. The codes are grouped into distinct clinical indicators, capturing heart failure hospitalizations, ischemic stroke incidence, and severe bleeding events across intracranial, gastrointestinal, urinary, and respiratory systems. By standardizing these diagnostic identifiers, Danish health authorities systematically track the real-world safety of anticoagulant therapies and evaluate cardiovascular care quality across regions.
 
 ## Pages
 
-- [[di60|DI60]] — Subarachnoid hemorrhage, tracked to monitor intracranial bleeding risks in anticoagulated atrial fibrillation patients.
-- [[di61|DI61]] — Cerebral hemorrhage, used alongside other codes to calculate the incidence of intracranial bleeding.
-- [[di62|DI62]] — Other non-traumatic intracranial hemorrhages, part of the composite safety indicator for severe bleeding events.
-- [[di63|DI63]] — Cerebral infarction, a key indicator for ischemic stroke reflecting potentially inadequate anticoagulation therapy.
-- [[di64|DI64]] — Stroke without specification of hemorrhage or infarction, used with DI63 to track overall ischemic stroke incidence.
-- [[dj942|DJ942]] — Haemothorax, included in the broad composite indicator measuring respiratory and urinary tract bleeding.
-- [[dk25-0|DK25.0]] — Acute gastric ulcer with hemorrhage, part of the gastrointestinal bleeding cluster for severe bleeding surveillance.
-- [[dk25-2|DK25.2]] — Acute gastric ulcer with hemorrhage and perforation, tracked to monitor severe digestive tract adverse events.
-- [[dk25-4|DK25.4]] — Chronic or unspecified gastric ulcer with hemorrhage, used to capture gastrointestinal bleeding complications.
-- [[dk25-6|DK25.6]] — Chronic or unspecified gastric ulcer with hemorrhage and perforation, part of the severe bleeding quality indicator.
-- [[dk26-0|DK26.0]] — Acute duodenal ulcer with hemorrhage, monitored to evaluate the safety of anticoagulant therapies.
-- [[dk26-2|DK26.2]] — Acute duodenal ulcer with hemorrhage and perforation, grouped within the gastrointestinal bleeding codes.
-- [[dk26-4|DK26.4]] — Chronic or unspecified duodenal ulcer with hemorrhage, tracking severe bleeding in the atrial fibrillation population.
-- [[dk26-6|DK26.6]] — Chronic or unspecified duodenal ulcer with hemorrhage and perforation, a data point for major bleeding complications.
-- [[dk27-0|DK27.0]] — Acute gastroduodenal ulcer with hemorrhage, included in the numerator for severe bleeding incidence.
-- [[dk27-2|DK27.2]] — Acute gastroduodenal ulcer with hemorrhage and perforation, systematically recorded for cross-regional safety comparisons.
-- [[dk27-4|DK27.4]] — Chronic or unspecified gastroduodenal ulcer with bleeding, tracking severe gastrointestinal incidents.
-- [[dk27-6|DK27.6]] — Chronic or unspecified gastroduodenal ulcer with hemorrhage and perforation, measuring severe bleeding outcomes.
-- [[dk28-0|DK28.0]] — Acute gastrointestinal ulcer with bleeding, part of the comprehensive bleeding indicator framework.
-- [[dk28-2|DK28.2]] — Acute gastrointestinal ulcer with bleeding and perforation, capturing major digestive tract hemorrhages.
-- [[dk28-4|DK28.4]] — Chronic or unspecified gastrointestinal ulcer with bleeding, monitoring adverse events from anticoagulant medications.
-- [[dk28-6|DK28.6]] — Chronic or unspecified gastrointestinal ulcer with bleeding and perforation, used in clinical quality measurements.
-- [[dk29-0|DK29.0]] — Acute hemorrhagic gastritis, grouped within the gastrointestinal bleeding category for safety monitoring.
-- [[dk29-8a|DK29.8A]] — Acute bleeding duodenitis, specifically targeted to identify gastrointestinal hemorrhages in atrial fibrillation patients.
-- [[dk92-0|DK92.0]] — Hematemesis (vomiting blood), utilized to identify upper gastrointestinal bleeding events.
-- [[dk92-1|DK92.1]] — Melena (black, tarry stools), capturing specific signs of upper gastrointestinal bleeding.
-- [[dk92-2|DK92.2]] — Gastrointestinal bleeding, unspecified, serving as a catch-all code for digestive tract hemorrhages.
-- [[dn02|DN02]] — Recurrent and persistent blood in the urine, tracking urinary tract bleeding complications.
-- [[dr04|DR04]] — Bleeding from the airways, identifying respiratory tract hemorrhages in the severe bleeding composite indicator.
-- [[dr31|DR31]] — Unspecified blood in the urine, grouped with other urinary and respiratory codes to monitor anticoagulation safety.
-- [[ds064|DS064]] — Traumatic epidural hemorrhage, a primary identifier for intracranial bleeding in prevalent patients.
-- [[ds065|DS065]] — Traumatic subdural hemorrhage, grouped with neurological codes to calculate intracranial bleeding incidence.
-- [[ds066|DS066]] — Traumatic subarachnoid hemorrhage, evaluating the bleeding risks associated with different anticoagulation treatments.
-- [[dz501|DZ501]] — Contact for other physiotherapy, used in combination with stroke codes (DI63/DI64) to accurately capture ischemic stroke patient trajectories.
+- [[di110-star|"DI110*"]] — ICD-10 code group used alongside others to identify heart failure hospital contacts for the national heart failure indicator.
+- [[di130-star|"DI130*"]] — ICD-10 code group utilized in the Danish National Patient Register to define heart failure events in atrial fibrillation patients.
+- [[di132-star|"DI132*"]] — Diagnostic code group forming part of the technical definition for tracking heart failure incidence following an atrial fibrillation diagnosis.
+- [[di420-star|"DI420*"]] — Classification group used to extract heart failure data from national registries to evaluate cardiovascular care quality.
+- [[di426-star|"DI426*"]] — ICD-10 code group identifying heart failure cases to calculate the heart failure indicator (Indicator 15) in the AFDK.
+- [[di427-star|"DI427*"]] — Diagnostic code used to capture primary or secondary heart failure diagnoses in hospital contacts for national quality tracking.
+- [[di428-star|"DI428*"]] — Code group essential for defining heart failure events in the national atrial fibrillation quality assurance framework.
+- [[di429-star|"DI429*"]] — ICD-10 code used to track heart failure hospitalizations and monitor clinical outcomes for atrial fibrillation patients nationwide.
+- [[di50-star|"DI50*"]] — Foundational ICD-10 code group for identifying heart failure events in the Danish National Patient Register.
+- [[di60|DI60]] — Diagnosis code for subarachnoid hemorrhage, used to track intracranial bleeding and severe bleeding incidents among anticoagulated patients.
+- [[di61|DI61]] — Code for intracerebral hemorrhage, grouped with others to measure the safety of anticoagulation therapies in atrial fibrillation populations.
+- [[di62|DI62]] — Identifier for other nontraumatic intracranial hemorrhages, utilized in national indicators to monitor severe bleeding complications.
+- [[di63|DI63]] — Code for cerebral infarction, serving as a primary action diagnosis to measure the incidence of ischemic stroke.
+- [[di64|DI64]] — Diagnosis code for unspecified stroke, used alongside cerebral infarction codes to evaluate the adequacy of stroke prevention therapies.
+- [[dj942|DJ942]] — Code for haemothorax, grouped with other respiratory and urinary codes to quantify severe non-gastrointestinal bleeding events.
+- [[dk25-0|DK25.0]] — Code for acute gastric ulcer with bleeding, part of a comprehensive set tracking severe gastrointestinal bleeding in AF patients.
+- [[dk25-2|DK25.2]] — Identifier for acute gastric ulcer with hemorrhage and perforation, used to monitor severe anticoagulant-related complications.
+- [[dk25-4|DK25.4]] — Code for chronic or unspecified gastric ulcer with bleeding, utilized in national registries to assess treatment safety.
+- [[dk25-6|DK25.6]] — Diagnosis code for chronic gastric ulcer with both bleeding and perforation, flagging critical gastrointestinal adverse events.
+- [[dk26-0|DK26.0]] — Code for acute duodenal ulcer with hemorrhage, tracked to evaluate the risk profiles of antithrombotic treatments.
+- [[dk26-2|DK26.2]] — Identifier for acute duodenal ulcer with bleeding and perforation, included in the severe bleeding quality indicator.
+- [[dk26-4|DK26.4]] — Code for chronic or unspecified duodenal ulcer with bleeding, used to capture digestive tract hemorrhages in national reports.
+- [[dk26-6|DK26.6]] — Diagnosis code for chronic duodenal ulcer with bleeding and perforation, monitoring severe gastrointestinal complications.
+- [[dk27-0|DK27.0]] — Code for acute gastroduodenal ulcer with hemorrhage, part of the broad spectrum of GI bleeding codes in the AFDK.
+- [[dk27-2|DK27.2]] — Identifier for acute gastroduodenal ulcer with bleeding and perforation, tracking adverse events in cardiovascular care.
+- [[dk27-4|DK27.4]] — Code for chronic or unspecified gastroduodenal ulcer with hemorrhage, used for cross-regional quality comparisons.
+- [[dk27-6|DK27.6]] — Diagnosis code for chronic gastroduodenal ulcer with bleeding and perforation, capturing severe ulcer complications.
+- [[dk28-0|DK28.0]] — Code for acute gastrointestinal ulcer with bleeding, utilized to measure the incidence of severe bleeding in AF patients.
+- [[dk28-2|DK28.2]] — Identifier for acute gastrointestinal ulcer with bleeding and perforation, ensuring comprehensive surveillance of GI adverse events.
+- [[dk28-4|DK28.4]] — Code for chronic or unspecified gastrointestinal ulcer with bleeding, part of the standardized metric for clinical quality measurement.
+- [[dk28-6|DK28.6]] — Diagnosis code for chronic gastrointestinal ulcer with bleeding and perforation, tracking life-threatening anticoagulant complications.
+- [[dk29-0|DK29.0]] — Code for acute hemorrhagic gastritis, grouped within the gastrointestinal bleeding category to evaluate treatment safety.
+- [[dk29-8a|DK29.8A]] — Identifier for acute hemorrhagic duodenitis, used in pharmacovigilance to monitor bleeding risks associated with anticoagulants.
+- [[dk92-0|DK92.0]] — Code for hematemesis (vomiting blood), capturing upper gastrointestinal bleeding events in the national patient registry.
+- [[dk92-1|DK92.1]] — Diagnosis code for melena, utilized to track black, tarry stools indicating upper GI bleeding among AF patients.
+- [[dk92-2|DK92.2]] — Code for unspecified gastrointestinal bleeding, serving as a catch-all for digestive tract hemorrhages in quality indicators.
+- [[dn02|DN02]] — Code for recurrent and persistent hematuria, categorized under urinary tract bleeding to monitor severe adverse events.
+- [[dr04|DR04]] — Identifier for bleeding from the respiratory tract, grouped with urinary codes to capture non-GI severe bleeding incidents.
+- [[dr31|DR31]] — Code for unspecified blood in urine, used alongside other urinary codes to comprehensively track bleeding complications.
+- [[ds064|DS064]] — Diagnosis code for traumatic epidural hemorrhage, part of the intracranial bleeding cluster monitoring neurological complications.
+- [[ds065|DS065]] — Code for traumatic subdural hemorrhage, utilized to evaluate the real-world safety profiles of anticoagulant therapies.
+- [[ds066|DS066]] — Identifier for traumatic subarachnoid hemorrhage, tracking severe neurological bleeding events in the national registry.
+- [[dz501|DZ501]] — Code for contact for other physiotherapy, used in combination with stroke codes to identify ischemic stroke rehabilitation trajectories.
 
 ## Navigation
 
@@ -92,6 +111,6 @@ This folder contains the specific ICD-10 diagnosis codes used by the Danish Regi
 
 ## Statistics
 
-- Pages: 34
+- Pages: 43
 - Sub-folders: 0
 - Sources: 0

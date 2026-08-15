@@ -4,8 +4,10 @@ type: index
 aliases:
   - Regions
 wiki: rkkp-afdk
-updated: '2026-08-05T23:06:53.967Z'
+updated: '2026-08-14T23:56:28.893Z'
 children:
+  - geodatastyrelsen.md
+  - index.md
   - region-hovedstaden.md
   - region-nordjylland.md
   - region-sjaelland.md
@@ -13,14 +15,15 @@ children:
 ---
 # Regions
 
-This folder catalogs the administrative and geographic healthcare regions of Denmark evaluated in the national atrial fibrillation quality reports, alongside the structural framework of regional health clusters. It details the clinical performance, indicator compliance, and organizational infrastructure of Region Hovedstaden, Region Nordjylland, and Region Sjælland, highlighting regional variations in treatment standards and mortality. Additionally, it documents the structural paradigm shift toward population-based reporting through the 21 geographical health clusters (Sundhedsklyngerne) that coordinate cross-sectoral care.
+This folder catalogs the regional administrative bodies, geographic health regions, and national spatial authorities that structure and report on atrial fibrillation care in Denmark. It includes composite profiles for Region Hovedstaden, Region Nordjylland, and Region Sjælland, detailing their respective clinical quality indicator performances, hospital networks, and data governance initiatives. Additionally, it covers Sundhedsklyngerne, the 21 health clusters that serve as the primary geographic framework for population-based quality measurement, and Geodatastyrelsen, the national authority providing the geospatial data used to map these regional healthcare outcomes.
 
 ## Pages
 
-- [[region-hovedstaden|Region Hovedstaden — Hovedstaden]] — The Capital Region's healthcare organization and geographic territory, tracking its clinical performance, hospital network, and specific struggles with echocardiography and creatinine measurement indicators.
-- [[region-nordjylland|Region Nordjylland — Nordjylland]] — The northernmost Danish region and its administrative body, notable for being the only region to fully meet specific long-term follow-up and creatinine measurement standards for atrial fibrillation care.
-- [[region-sjaelland|Region Sjælland — Sjælland]] — The Zealand region's healthcare organization and territory, detailing its hospital infrastructure, health clusters, and performance dips below national standards for echocardiography and specific incidence indicators.
-- [[sundhedsklynger|Sundhedsklyngerne]] — The 21 geographical health clusters that represent a structural shift in Danish clinical quality reporting, moving from a hospital-centered model to a population-based, cross-sectoral approach.
+- [[geodatastyrelsen|Geodatastyrelsen]] — The national public authority providing the UTM32/EUREF89 geospatial data used to map healthcare quality metrics like severe bleeding incidence across health clusters.
+- [[region-hovedstaden|Region Hovedstaden — Hovedstaden]] — The capital region's administrative and geographic profile, detailing its struggles with echocardiography and stroke prevention indicators alongside its network of major hospitals and private cardiologists.
+- [[region-nordjylland|Region Nordjylland — Nordjylland]] — The North Jutland region, highlighted as a benchmark for high-quality cardiovascular care and the only region consistently meeting standards for anticoagulation and follow-up indicators.
+- [[region-sjaelland|Region Sjælland — Sjælland]] — The Zealand region's clinical performance and organizational profile, including its mixed indicator results and internal investigations into disputed patient education data.
+- [[sundhedsklynger|Sundhedsklyngerne]] — The 21 geographic health clusters that serve as the primary population-based framework for reporting and stratifying national atrial fibrillation quality outcomes.
 
 ## Navigation
 
@@ -41,6 +44,6 @@ This folder catalogs the administrative and geographic healthcare regions of Den
 
 ## Statistics
 
-- Pages: 4
+- Pages: 5
 - Sub-folders: 0
 - Sources: 0

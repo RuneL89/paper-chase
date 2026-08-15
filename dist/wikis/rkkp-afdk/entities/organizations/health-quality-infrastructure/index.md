@@ -4,17 +4,22 @@ type: index
 aliases:
   - Health Quality Infrastructure
 wiki: rkkp-afdk
-updated: '2026-08-05T22:59:46.276Z'
+updated: '2026-08-14T23:47:52.188Z'
 children:
+  - afdk-anbefaler.md
   - ekvis.md
+  - index.md
+  - sundhedsvaesenets-kvalitetsinstitut.md
 ---
 # Health Quality Infrastructure
 
-This folder catalogs organizations responsible for overseeing and evaluating clinical quality standards within the Danish healthcare system. It includes professional units that represent practicing specialist doctors and actively participate in reviewing clinical quality indicators for national health reports. By documenting these entities, the wiki tracks how medical professionals contribute to quality management and consensus-building around care metrics across different regions.
+This folder groups the institutional bodies responsible for defining, monitoring, and reviewing the quality of atrial fibrillation care in Denmark. It contains the national authority that produces the annual clinical quality reports and defines performance indicators, the professional unit representing practicing medical specialists that reviews these reports, and the specific governance actor that establishes evidence-based standards for patient education. Together, these organizations form the core quality assurance and standard-setting infrastructure for the national "Atrial Fibrillation in Denmark" initiative.
 
 ## Pages
 
-- [[ekvis|De praktiserende speciallæger (Enheden for Kvalitet I Speciallægepraksis(eKVIS))]] — A professional unit representing practicing specialist doctors in Denmark that reviews clinical quality indicators for national healthcare reports.
+- [[afdk-anbefaler|AFDK anbefaler]] — The institutional actor responsible for developing and issuing recommended content elements and evidence-based standards for patient education concerning atrial fibrillation.
+- [[ekvis|De praktiserende speciallæger (Enheden for Kvalitet I Speciallægepraksis(eKVIS))]] — A professional unit representing practicing medical specialists that serves as a reviewing body for the national clinical quality reports on atrial fibrillation.
+- [[sundhedsvaesenets-kvalitetsinstitut|Sundhedsvæsenets Kvalitetsinstitut]] — The national authority responsible for preparing, monitoring, and publishing the clinical quality indicators and annual reports for atrial fibrillation in Denmark.
 
 ## Navigation
 
@@ -35,6 +40,6 @@ This folder catalogs organizations responsible for overseeing and evaluating cli
 
 ## Statistics
 
-- Pages: 1
+- Pages: 3
 - Sub-folders: 0
 - Sources: 0

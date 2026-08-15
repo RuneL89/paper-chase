@@ -156,6 +156,18 @@ The wiki root also contains `AGENTS.md` (this file), `index.md` (navigation cont
 - Maximum 3 levels below `entities/` or `topics/`.
 - Never create folders outside `entities/` or `topics/`.
 
+New folders created during ingestion:
+- `topics/coding-assignment`
+- `topics/coding-system-specification`
+- `topics/critical-assessment`
+- `topics/exclusion-criteria`
+- `topics/guideline-recommendation`
+- `topics/performance-trend`
+- `topics/policy-target`
+- `topics/quality-improvement-action`
+- `topics/quality-indicator-result`
+- `topics/quality-indicator-target`
+
 ## Page Types
 
 | Type | Purpose | Location | Created By |
@@ -200,6 +212,7 @@ The wiki root also contains `AGENTS.md` (this file), `index.md` (navigation cont
 | `policy` | Formal statement of intent or rule adopted by authority | `topics/policy-change/`, `topics/policy-decision/`, or `topics/governance/` | Your content, assembled by the Materializer |
 | `publication` | Scholarly or gray literature output (e.g., journal article, white paper) | `entities/documents/` or `topics/` | Your content, assembled by the Materializer |
 | `standard` | Authoritative specification or benchmark (e.g., ISO, HL7, clinical guideline) | `entities/standards/` or `topics/standard/` | Your content, assembled by the Materializer |
+| `policy-decision` | Specific authoritative decision regarding policy (e.g., adoption, revision, repeal) | `topics/policy-decision/` or `entities/` if canonicalized | Your content, assembled by the Materializer |
 
 A `comparison` page is written for each structured comparison table you extract (the `tables` output): the article's identity is the table's SUBJECT entity (its canonical slug when resolvable, never the drifting caption), each source's table is preserved verbatim in its own dated `## Table: <source>, p. <page>` section — the markdown structure is reconstructed, every row label and value stays the document's own — and a deterministic `## Related comparisons in prose` section links out to the topic/entity pages where free-text comparisons live. Synthesis reads ACROSS the dated sections (leaders, trailers, targets met or missed, trends, outliers).
 

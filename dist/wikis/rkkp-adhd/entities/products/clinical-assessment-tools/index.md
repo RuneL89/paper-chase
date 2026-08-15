@@ -4,21 +4,22 @@ type: index
 aliases:
   - Clinical Assessment Tools
 wiki: rkkp-adhd
-updated: '2026-08-05T19:14:21.059Z'
+updated: '2026-08-15T12:39:58.408Z'
 children:
   - dawba.md
+  - index.md
   - kiddie-sads.md
   - pse-scan.md
 ---
 # Clinical Assessment Tools
 
-This folder groups the three manualized, semi-structured diagnostic interview methods approved for use in Danish child and adolescent psychiatry. These standardized tools are specifically utilized to systematically assess core ADHD symptoms, differential diagnoses, and comorbid conditions in patients aged 6 to 17. Their application is formally tracked to fulfill clinical quality indicator 2b, serving as a central component in national efforts to ensure diagnostic certainty, geographic equality, and adherence to clinical guidelines.
+This folder contains the specific manualized and semi-structured diagnostic interview methods approved for use in Danish child and adolescent psychiatry. These tools are utilized to systematically assess core ADHD symptoms, differential diagnoses, and comorbidities in patients aged 6 to 17. Their application is formally tracked within the national quality monitoring framework to fulfill clinical quality indicator 2b, aiming to ensure diagnostic certainty and geographic equality across treatment facilities.
 
 ## Pages
 
-- [[dawba|DAWBA]] — A manualized diagnostic interview method approved for fulfilling indicator 2b to systematically assess core ADHD symptoms and comorbidities.
-- [[kiddie-sads|Kiddie-SADS]] — A full semi-structured interview recognized as an approved method for standardized diagnostic pathways, though national guidelines note it is not strictly necessary in every single case.
-- [[pse-scan|PSE-SCAN]] — A manualized interview tool used to objectively assess ADHD symptoms and differential diagnoses, with its implementation tracked in annual reports to evaluate regional variations and systemic challenges.
+- [[dawba|DAWBA]] — A manualized, semi-structured interview method approved for assessing core ADHD symptoms and comorbidities to fulfill national quality indicator 2b.
+- [[kiddie-sads|Kiddie-SADS]] — A full semi-structured diagnostic interview recognized as an approved method for indicator 2b, though national guidelines note it is not strictly necessary in every case.
+- [[pse-scan|PSE-SCAN]] — A manualized interview tool used to objectively assess ADHD symptoms and comorbidities, tracked in annual quality reports that highlight systemic challenges in meeting national fulfillment targets.
 
 ## Navigation
 

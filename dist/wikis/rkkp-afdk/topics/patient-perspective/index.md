@@ -4,17 +4,18 @@ type: index
 aliases:
   - Patient Perspective
 wiki: rkkp-afdk
-updated: '2026-08-05T23:38:35.068Z'
+updated: '2026-08-15T00:40:16.290Z'
 children:
+  - index.md
   - patient-perspective.md
 ---
 # Patient Perspective
 
-This folder contains topics related to the patient perspective within the context of the Danish Atrial Fibrillation Database (Databasen for Atrieflimren i Danmark). It documents the immediate informational and support needs of individuals newly diagnosed with atrial fibrillation, specifically highlighting their strong desire for structured educational programs shortly after diagnosis. The content reflects the priorities of patients navigating a new chronic heart condition, emphasizing the value of timely and organized post-diagnostic care based on registry reporting.
+This folder captures the patient perspective within the context of the Danish atrial fibrillation registry (Databasen for Atrieflimren i Danmark). It documents the immediate informational and support needs of individuals newly diagnosed with atrial fibrillation, highlighting their strong demand for structured educational programs shortly after their diagnosis is confirmed. This area underscores the critical priority of timely, organized patient education in post-diagnostic care for those navigating a new chronic heart condition.
 
 ## Pages
 
-- [[patient-perspective|Patient Perspective]] — Documents the immediate informational needs and strong desire for structured educational programs among patients newly diagnosed with atrial fibrillation.
+- [[patient-perspective|Patient Perspective]] — Details the immediate informational and support needs of newly diagnosed atrial fibrillation patients, emphasizing their demand for structured educational programs shortly after diagnosis.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder contains topics related to the patient perspective within the contex
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder contains topics related to the patient perspective within the contex
 - Sibling: [[topics/organizational-change/index|Organizational Change]]
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

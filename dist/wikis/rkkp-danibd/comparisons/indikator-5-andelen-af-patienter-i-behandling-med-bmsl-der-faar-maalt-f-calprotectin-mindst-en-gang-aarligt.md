@@ -83,10 +83,10 @@ Summary: Tabellen sammenligner andelen af patienter med BMSL-behandling, der har
 
 ## Related comparisons in prose
 
-- "Målet for 'hvilende' IBD-patienter på NOH er én årlig calprotectin-måling, mens målingsrater for patienter i biologisk behandling er individualiserede" — see [[clinical-guideline|Clinical Guideline]] ([[calprotectin]]) [^src2]
+- "Målet for 'hvilende' IBD-patienter på NOH er én årlig calprotectin-måling, mens målingsrater for patienter i biologisk behandling er individualiserede" — see [[clinical-practice|Clinical Guideline]] ([[calprotectin]]) [^src2]
 - "Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt, er 78 % (95 % CI: 77–79) på landsplan for perioden 1. oktober 2022 til 30. september 2023" — see [[quality-indicator|Quality Indicator]] ([[bmsl|Biologiske og målrettede syntetiske lægemidler]], [[calprotectin]]) [^src3]
 - "Indikator 5: Fæces calprotectin måling, BMSL, har en opfyldelse på 83 % (95 % CI: 82–84) i perioden 01.10.2023–30.09.2024" — see [[quality-indicator|Quality Indicator]] ([[calprotectin]], [[bmsl|Biologiske og målrettede syntetiske lægemidler]]) [^src4]
-- "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt" — see [[quality-metric|Quality Metric]] ([[calprotectin]]) [^src5]
+- "På landsplan har 78 % af patienterne i BMSL fået målt F-calpro en gang årligt" — see [[quality-indicator|Quality Metric]] ([[calprotectin]]) [^src5]
 - "I perioden 1/10/2022 – 30/09/2023 modtog 360 børn og unge samt 10.163 voksne behandling med BMSL" — see [[treatment|Treatment]] ([[bmsl|Biologiske og målrettede syntetiske lægemidler]]) [^src6]
 - "BOHJ18A1 (infliximab) var den hyppigst anvendte BMSL-behandling blandt børn og unge med 239 unikke patienter (66 %) og blandt voksne med 3.754 unikke patienter (37 %)" — see [[treatment|Treatment]] ([[bmsl|Biologiske og målrettede syntetiske lægemidler]]) [^src6]
 - "BOHJ18A3 (adalimumab) blev anvendt af 59 børn og unge (16 %) og 2.689 voksne (26 %) i perioden" — see [[treatment|Treatment]] ([[bmsl|Biologiske og målrettede syntetiske lægemidler]]) [^src6]

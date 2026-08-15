@@ -4,19 +4,22 @@ type: index
 aliases:
   - Sources
 wiki: rkkp-akdb
-updated: '2026-08-05T20:39:09.338Z'
+updated: '2026-08-15T08:49:43.137Z'
 children:
   - akdb-2023.md
   - akdb-2024.md
+  - akdb-2025.md
+  - index.md
 ---
 # Sources
 
-This folder holds the provenance records for the source PDFs ingested into the wiki. Each page acts as a metadata and navigation hub for a specific document, recording its SHA-256 hash, total page count, and ingestion timestamp, while providing a complete directory of links to the extracted text chunks for every page of the original report.
+This folder holds the provenance records for the three annual reports of the Danish Clinical Register of Emergency Surgery (AKDB) ingested into the wiki. Each page documents a specific year's source PDF, recording its cryptographic hash, total page count, and ingestion timestamp to ensure data integrity. They also serve as the structural entry points to the raw text, linking directly to the sequentially extracted document chunks for each report. Together, these records provide a verifiable audit trail from the original files to the structured claims found throughout the rest of the wiki.
 
 ## Pages
 
-- [[akdb-2023|Source: AKDB_2023.pdf]] — Provenance record and page index for the 95-page 2023 AKDB report, including extraction warnings for the final page
-- [[akdb-2024|Source: AKDB_2024.pdf]] — Provenance record and page index for the 107-page 2024 AKDB report, including extraction warnings for the final page
+- [[akdb-2023|Source: AKDB_2023.pdf]] — Provenance record for the 2023 annual report, tracking 95 pages and linking to 19 extracted document chunks.
+- [[akdb-2024|Source: AKDB_2024.pdf]] — Provenance record for the 2024 annual report, tracking 107 pages and linking to 22 extracted document chunks.
+- [[akdb-2025|Source: AKDB_2025.pdf]] — Provenance record for the 2025 annual report, tracking 117 pages and linking to 24 extracted document chunks.
 
 ## Navigation
 
@@ -28,6 +31,6 @@ This folder holds the provenance records for the source PDFs ingested into the w
 
 ## Statistics
 
-- Pages: 2
+- Pages: 3
 - Sub-folders: 0
-- Sources: 2
+- Sources: 3

@@ -1,0 +1,4262 @@
+{
+  "version": 1,
+  "recordedAt": "2026-08-15T12:54:55.967Z",
+  "wikis": [
+    "rkkp-adhd",
+    "rkkp-afdk",
+    "rkkp-akdb",
+    "rkkp-danibd"
+  ],
+  "pages": {
+    "rkkp-adhd/entities/codes/agx01b.md": {
+      "sha256": "8b36da23c3fe24f7ae8ab6862803fb20eb93dc4fcd7fd1584b07dc7c0056d5f8",
+      "mtimeMs": 1786796377013.1155,
+      "size": 2058
+    },
+    "rkkp-adhd/entities/facilities/psychiatry-clinics/aabenna-borne-og-ungdomspsykiatrisk-ambulatorium.md": {
+      "sha256": "accac1b8e758afe5130b47658a8033966bfaad278f955d6625acda885e17b3ef",
+      "mtimeMs": 1785953228451.6428,
+      "size": 5701
+    },
+    "rkkp-adhd/entities/facilities/psychiatry-clinics/bua-psykiatrisk-klinik-for-skoleboern.md": {
+      "sha256": "e9f302431657c2046d2fcafd768afd7381ca14c14f24cf92fe9191052515ae13",
+      "mtimeMs": 1785954270135.3796,
+      "size": 3877
+    },
+    "rkkp-adhd/entities/facilities/psychiatry-clinics/bua-psykiatrisk-klinik-for-unge.md": {
+      "sha256": "a182598cd7ea5ed2e2cda736d2aea2e8f06e8d34efc818775e4bb31295becbac",
+      "mtimeMs": 1785954545999.9082,
+      "size": 3195
+    },
+    "rkkp-adhd/entities/facilities/psychiatry-clinics/hillerod-psykiatrisk-ambulatorium-boern-og-unge.md": {
+      "sha256": "afcaec553ca207427c7d31fd11fa9c913adda092abcc6234d460607a716b2a98",
+      "mtimeMs": 1785953100579.1155,
+      "size": 3875
+    },
+    "rkkp-adhd/entities/facilities/psychiatry-clinics/odense-borne-og-ungdomspsykiatrisk-ambulatorium.md": {
+      "sha256": "c691f545d25532ff8020a0be0e9d9174577ae174d0b2c8d2c99b0eee2990b0de",
+      "mtimeMs": 1785953100340.6577,
+      "size": 7380
+    },
+    "rkkp-adhd/entities/facilities/psychiatry-clinics/pck-psykoterapeutisk-klinik.md": {
+      "sha256": "d5f9224bcda6f48d22d17467cd5df3a446c29c3fb985079f6c29093fbf893ab8",
+      "mtimeMs": 1785954450184.6592,
+      "size": 2601
+    },
+    "rkkp-adhd/entities/medications/adhd/atomoxetin-n06ba09.md": {
+      "sha256": "971cd7d39f9bf77c2dca154b899503221fafc4e1b8cec4f83de13c5e3b4527d1",
+      "mtimeMs": 1785953741933.9668,
+      "size": 2965
+    },
+    "rkkp-adhd/entities/medications/adhd/dexamfetamin-n06ba02.md": {
+      "sha256": "1fc989250ab696e0ed58ad485ab70bd5176ebe2af50e3e33f6d5b1f44f8c51ed",
+      "mtimeMs": 1785953668098.8936,
+      "size": 2717
+    },
+    "rkkp-adhd/entities/medications/adhd/guanfacin-c02ac02.md": {
+      "sha256": "e48ec930e8d611d9854e53d99cf81b564c25e5566646a6ab7af86a90d7be2377",
+      "mtimeMs": 1785953810019.481,
+      "size": 2819
+    },
+    "rkkp-adhd/entities/medications/adhd/lisdexamfetamin-n06ba12.md": {
+      "sha256": "143f1178b22393c7f5cc1d5757bd36c8183cecb3deac5af37f4fb0f42ba57cbd",
+      "mtimeMs": 1785953803136.9392,
+      "size": 3342
+    },
+    "rkkp-adhd/entities/medications/adhd/methylphenidat-n06ba04.md": {
+      "sha256": "b74ea15d242e0cdb8085b31dd76fdd0b4104d426b8e026a1be1b0ab3c9d7803c",
+      "mtimeMs": 1785953683630.1982,
+      "size": 3219
+    },
+    "rkkp-adhd/entities/medications/adhd/modafinil-n06ba07.md": {
+      "sha256": "2cbca2b8158e94376c3d982de1dd35bd54f829546588cd4332f6a344e1fdd3c5",
+      "mtimeMs": 1785953746079.2866,
+      "size": 3035
+    },
+    "rkkp-adhd/entities/organizations/clinics/bua-psykiatrisk-klinik-for-udredning.md": {
+      "sha256": "55f0fc3938db51c70627f3d836c32d731bfb485bd885affc56fe88c9629ab729",
+      "mtimeMs": 1785953555509.819,
+      "size": 3727
+    },
+    "rkkp-adhd/entities/organizations/healthcare-databases/adhd-databasen.md": {
+      "sha256": "3fa183da890eb6c98fc3df577198b1e5967d5d0e06792b7dc4fa22471d5f62d3",
+      "mtimeMs": 1786796377198.1504,
+      "size": 39539
+    },
+    "rkkp-adhd/entities/organizations/healthcare-databases/lpr.md": {
+      "sha256": "d8642df365363a25f2cac2940e6c0ac629f4791b8664ec28469e81f8ebfa3b4d",
+      "mtimeMs": 1785954486608.1167,
+      "size": 2036
+    },
+    "rkkp-adhd/entities/organizations/healthcare-governance/danmarks-statistik.md": {
+      "sha256": "95a60543733507d9085d1dad0df64d6d9a2400818467af97ee9cf56fc93f0400",
+      "mtimeMs": 1785954359790.9382,
+      "size": 2044
+    },
+    "rkkp-adhd/entities/organizations/healthcare-governance/styregruppen.md": {
+      "sha256": "c4535c74bba042b67be1aadf6f785694208111da461cc81082b7fa23e77d0e07",
+      "mtimeMs": 1785953348472.6016,
+      "size": 13338
+    },
+    "rkkp-adhd/entities/organizations/healthcare-professional-bodies/danske-multidisciplinaere-psykiatrigrupper-dmpger.md": {
+      "sha256": "f30474f4616e4cef83a7e497fa4dc9c0ebd68b295f8fd79e9f2283bd430eb7e3",
+      "mtimeMs": 1785952460897.6355,
+      "size": 6689
+    },
+    "rkkp-adhd/entities/organizations/healthcare-providers/dps-midtjylland.md": {
+      "sha256": "c062a4deea078af2be72b696c5a42da49c096609066255ecc59a9ab40e025511",
+      "mtimeMs": 1785952384889.8535,
+      "size": 3066
+    },
+    "rkkp-adhd/entities/organizations/healthcare-providers/hejmdal-privathospital-viby-beh-afsnit.md": {
+      "sha256": "b65dfc86816874e1571cc116b09e47d3b36315dde3a3c05293c6b15bb06046f8",
+      "mtimeMs": 1785954300737.4011,
+      "size": 2105
+    },
+    "rkkp-adhd/entities/organizations/healthcare-providers/privathospitaler.md": {
+      "sha256": "af8a3f0cb5a67e567a216ee27b5ddfd60e6ba7c86e0ef1040bdb0bf33d4479e3",
+      "mtimeMs": 1785954242669.3848,
+      "size": 5760
+    },
+    "rkkp-adhd/entities/organizations/healthcare-providers/rhp.md": {
+      "sha256": "3ed3d806d9755bd8e203c0075ae63f65322059e16748baa7b70b0f517392c011",
+      "mtimeMs": 1785953911523.1304,
+      "size": 3166
+    },
+    "rkkp-adhd/entities/organizations/healthcare-standards/rkkp.md": {
+      "sha256": "402ebed153ebc5e5b0297d7add1bb43741563e0caf7e1867900518cb26f81179",
+      "mtimeMs": 1785952290056.9075,
+      "size": 4106
+    },
+    "rkkp-adhd/entities/organizations/healthcare-standards/sundhedsvaesnets-kvalitetsinstitut.md": {
+      "sha256": "b618b3e57250b2e75ec21b059f479bb897dcc5b32c0fa244fee92ac4ec3690db",
+      "mtimeMs": 1785953938827.5022,
+      "size": 1988
+    },
+    "rkkp-adhd/entities/organizations/hospitals/aarhus-universitetshospital-psykiatrien.md": {
+      "sha256": "0d76fdbec096c59f87770737ad7e72d1766290b124ffafd3c9f458e9f5e70609",
+      "mtimeMs": 1785952387973.4456,
+      "size": 4783
+    },
+    "rkkp-adhd/entities/organizations/hospitals/bua.md": {
+      "sha256": "9c344633ab84b7a2358340c306a71f9bf8e045eacf516eb02ec884f68a8bb965",
+      "mtimeMs": 1785952364538.5535,
+      "size": 3814
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/bispebjerg-bup-ambulatorium.md": {
+      "sha256": "1719f71104376fbd3fa25e1d862e4bd64acbab2d9b11d4d6cb67705a8698e9b8",
+      "mtimeMs": 1785953405915.4626,
+      "size": 3184
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/boerne-unge-psyk-afd-40.md": {
+      "sha256": "fd6ea9ec3fecf410fc75ef480ca9b117d1ae4f58c728dbe0951ef798535efce5",
+      "mtimeMs": 1785953269604.95,
+      "size": 2138
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/bornholm-bup-ambulatorium.md": {
+      "sha256": "76393d0c0151376d397a572272e5061fd0c653ffdf94271a7d8dfd2730f74224",
+      "mtimeMs": 1785953422806.4092,
+      "size": 3505
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/bua-smaborn-klinik.md": {
+      "sha256": "8344edf05f980411a91961ae9c7d7e7a47ce31f56c9f7c7e10af7de0ddfd53af",
+      "mtimeMs": 1786796486875.5964,
+      "size": 5844
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/esbjerg-bup-ambulatorium.md": {
+      "sha256": "608ba9ce8b03dff215dee74c47e2a838166cd932ecf87e59adc51577347f5572",
+      "mtimeMs": 1785953175896.4473,
+      "size": 2816
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/glostrup-bup-ambulatorium.md": {
+      "sha256": "8be0b12239aed2f1774daed93d9b4d8119deaccadd717c3ba8eb62ed42b6a4fe",
+      "mtimeMs": 1785953478802.808,
+      "size": 2689
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/pho-klinik-1-for-psykiatriske-lidelser-horsens.md": {
+      "sha256": "f41021eab57e215799eb043a20668abc56e0aa60d93f3c13f42058844cd3766e",
+      "mtimeMs": 1785954423908.975,
+      "size": 4185
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/pmi-klinik-for-depression-og-mani-midt.md": {
+      "sha256": "0bd3c2359a707ce40577f8d0fee005e3fe23e35c742778a6689ac105db2ab26b",
+      "mtimeMs": 1785954422811.3948,
+      "size": 2544
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/ps-almenpsykiatrisk-syd-ambulatorier.md": {
+      "sha256": "074ea1a90484eb0928ef85e642e48ac947be4437abb49c916ecf866d3d7ec885",
+      "mtimeMs": 1785954516057.151,
+      "size": 1601
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/psy-lokalpsykiatri-toender.md": {
+      "sha256": "77b97ae9423a6a0efa8ef82ac05f2a457727730fa91265b271fd2b6facdc82c5",
+      "mtimeMs": 1785954454664.376,
+      "size": 2286
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/rpg-psykiatrisk-klinik-1-godstrup.md": {
+      "sha256": "fb412ee07f22eba841b6497bb6d45211363cbe42e445ac365881d29624abc229",
+      "mtimeMs": 1785954523916.1128,
+      "size": 1565
+    },
+    "rkkp-adhd/entities/organizations/psychiatry-clinics/vejle-bup-ambulatorium.md": {
+      "sha256": "49533af29381e4b57c689d02fd284c7d6467fd1938af14c457c3340cbce0c139",
+      "mtimeMs": 1786796476545.0735,
+      "size": 5770
+    },
+    "rkkp-adhd/entities/organizations/regional-authorities/hjemkommune.md": {
+      "sha256": "b461c07d0fbe1d34b7909ce9a9ccfe88540fc157c046568fdbc53edd9a8a0ca0",
+      "mtimeMs": 1785954342284.4275,
+      "size": 2121
+    },
+    "rkkp-adhd/entities/organizations/regional-authorities/region-hovedstaden.md": {
+      "sha256": "95e981c619cc79c753662000b8c7701bcdc14d8029aa8ebb373bd3507e035eee",
+      "mtimeMs": 1785955320978.4136,
+      "size": 10934
+    },
+    "rkkp-adhd/entities/organizations/regional-authorities/region-midtjylland.md": {
+      "sha256": "6db5ee7c5c0d263bb1ce014f37f3a18dfbf01fc69769d0d809eb443597ca7884",
+      "mtimeMs": 1785955181987.3015,
+      "size": 17152
+    },
+    "rkkp-adhd/entities/organizations/regional-authorities/region-nordjylland.md": {
+      "sha256": "e17c53fe0475680d0ba9152a05ed903f97c2293d73095a430695b040fa0a5ab9",
+      "mtimeMs": 1785955359716.0083,
+      "size": 16705
+    },
+    "rkkp-adhd/entities/organizations/regional-authorities/region-sjaelland.md": {
+      "sha256": "77af42d0ce79d9ed0d14d64d180bd9c9e1dc72fc3401017f415e088790725405",
+      "mtimeMs": 1785955376060.5142,
+      "size": 12117
+    },
+    "rkkp-adhd/entities/organizations/regions/danmark.md": {
+      "sha256": "a600b1a896d54eda314d87cfe1ffce08b5107f0c0bc9d4d762119227e1363967",
+      "mtimeMs": 1785954475778.4607,
+      "size": 1544
+    },
+    "rkkp-adhd/entities/organizations/regions/region-syddanmark.md": {
+      "sha256": "eca5049e0172f1cd0f944f3449ce1f31d6862afbfff101aa7d68d6e14e5c8e13",
+      "mtimeMs": 1786796377222.9055,
+      "size": 14693
+    },
+    "rkkp-adhd/entities/people/healthcare-professionals/malene-tousgaard-foget-oestergaard.md": {
+      "sha256": "809bad1c13f705243ca60fbe942a494596b14244767ac449954d0bec07d39a99",
+      "mtimeMs": 1785952317113.3286,
+      "size": 1727
+    },
+    "rkkp-adhd/entities/people/healthcare-professionals/mette-hedelund.md": {
+      "sha256": "aa0911d7e2240eb41089b8859509e54765839c4cfa8b1b7bb93c2cde3e581f41",
+      "mtimeMs": 1785953944821.068,
+      "size": 1876
+    },
+    "rkkp-adhd/entities/people/healthcare-professionals/shelagh-powell.md": {
+      "sha256": "0e393fb25e1a7213a9a2f82c75c215519e8d75f22ab4d1339bf3883331c8665a",
+      "mtimeMs": 1785952266028.3894,
+      "size": 3901
+    },
+    "rkkp-adhd/entities/people/healthcare-professionals/simon-hjerrild.md": {
+      "sha256": "c590baa71d08d4bc2bf5f4995ab5dde1a9c754e56d64f2e2e0a9f635563188d5",
+      "mtimeMs": 1785952284648.7344,
+      "size": 4951
+    },
+    "rkkp-adhd/entities/people/healthcare-professionals/speciallaeger.md": {
+      "sha256": "f91c0a6680f7b38a3a6bd2ae9c06a648284f6107c0a7e111ffcbe109fab2b6aa",
+      "mtimeMs": 1785953595631.386,
+      "size": 3173
+    },
+    "rkkp-adhd/entities/people/healthcare-professionals/specialpsykolog.md": {
+      "sha256": "4f3f703ab5064ef2cd8510aee486ebf6b12e5a7f1c87c03e0be8a47790034d9c",
+      "mtimeMs": 1785953599126.5083,
+      "size": 2778
+    },
+    "rkkp-adhd/entities/populations/adhd/adhd-behandlingspopulation.md": {
+      "sha256": "30b5bce70b5e55e7f6dc318c6708f638c2b04f6a3f44d2b65cfc988de246ac41",
+      "mtimeMs": 1785953710291.42,
+      "size": 12988
+    },
+    "rkkp-adhd/entities/populations/adhd/adhd-udredningspopulation.md": {
+      "sha256": "20617e490c04e6c64e3defa1c49ac431a3f3a80bae0c4764af2789511ad8eb79",
+      "mtimeMs": 1785953822415.095,
+      "size": 6971
+    },
+    "rkkp-adhd/entities/populations/general/baggrundspopulationen-2023.md": {
+      "sha256": "12e76bc133f01ad291db9f2f547e3ec1b60bf8ed17f66dfa879cf6453e35ecf7",
+      "mtimeMs": 1785953860733.9631,
+      "size": 2158
+    },
+    "rkkp-adhd/entities/products/assessment-tools/pse.md": {
+      "sha256": "8fe7b5876a21959df9fc8eac8d506de9243c82a7d332c20ff372b2a2fd35fcb6",
+      "mtimeMs": 1785953513906.4573,
+      "size": 1673
+    },
+    "rkkp-adhd/entities/products/clinical-assessment-tools/dawba.md": {
+      "sha256": "0e2e750a0dcc9fe1e3148f55d53c55130f5a1189276f375dbdd8d994f33bc354",
+      "mtimeMs": 1785953468773.695,
+      "size": 2359
+    },
+    "rkkp-adhd/entities/products/clinical-assessment-tools/kiddie-sads.md": {
+      "sha256": "e864c141c73221fae8230da17c08d965dc94ac2d913c79d984c06aa35e5d8188",
+      "mtimeMs": 1785953452457.2544,
+      "size": 3140
+    },
+    "rkkp-adhd/entities/products/clinical-assessment-tools/pse-scan.md": {
+      "sha256": "9a3faf148faec34a52a7e5dbcd66eeda37615ca4a774ec4f4757debb6d2e6ef7",
+      "mtimeMs": 1785953466716.1196,
+      "size": 2741
+    },
+    "rkkp-adhd/topics/data-quality/data-quality.md": {
+      "sha256": "acaf43eed4889e2b2e875b0b69ab8477c7e9243740104948b5538bef157e020d",
+      "mtimeMs": 1785954768845.522,
+      "size": 1369
+    },
+    "rkkp-adhd/topics/demographic/demographic.md": {
+      "sha256": "b452b142aa40e8e85a01c87bf192a775baf945c36f8c634cf2da29aa6514fa35",
+      "mtimeMs": 1785954810955.232,
+      "size": 3833
+    },
+    "rkkp-adhd/topics/educational-outcome/educational-outcome.md": {
+      "sha256": "b09baac782a63cabd8612da739bcf2374d50cb8f30be318a357e3cd7f53578dd",
+      "mtimeMs": 1785954912398.1653,
+      "size": 2596
+    },
+    "rkkp-adhd/topics/governance/governance.md": {
+      "sha256": "6d0b29b97017ea49ec455dbf55c513eb05388169a88648bbf0bf1edd73f9d3fe",
+      "mtimeMs": 1785954912113.3728,
+      "size": 1939
+    },
+    "rkkp-adhd/topics/indicators/indikator-7a-7b.md": {
+      "sha256": "416112be4c4a2cf340acb16f97608d06ae51264b2eb707c1f9fdb537a4b1c123",
+      "mtimeMs": 1785953900147.509,
+      "size": 1479
+    },
+    "rkkp-adhd/topics/low-performance/low-performance.md": {
+      "sha256": "97431712221309e11f1c3f8cb613b1dd20f3f337521f01ab4869e96bc8c29283",
+      "mtimeMs": 1785954941158.2805,
+      "size": 1280
+    },
+    "rkkp-adhd/topics/non-compliance/non-compliance.md": {
+      "sha256": "38ee4da7bbe106e98471537854558fd25928077926156a33659a2885f19c9ae7",
+      "mtimeMs": 1785954706990.4058,
+      "size": 2008
+    },
+    "rkkp-adhd/topics/outlier-performance/outlier-performance.md": {
+      "sha256": "b75f6918836e9958472a8215f1f2f39119cfd480792e383dfe1d7be0a4428c50",
+      "mtimeMs": 1785954903868.1013,
+      "size": 1239
+    },
+    "rkkp-adhd/topics/performance-change/performance-change.md": {
+      "sha256": "91729a4d50aefda6cae4680a8ecfb7a51e07f04880fecc01e37b337224705dc6",
+      "mtimeMs": 1785954852863.1296,
+      "size": 1841
+    },
+    "rkkp-adhd/topics/performance/performance.md": {
+      "sha256": "883df43dfd740993ea670d986e0027508ff478db09cc9a40c6a7cc87912b8fa1",
+      "mtimeMs": 1785954802472.8745,
+      "size": 22913
+    },
+    "rkkp-adhd/topics/policy-change/policy-change.md": {
+      "sha256": "f7064b0ce551eabcf5a7df1c19c5e910a6fec598d155893ad420b2b149d59aa2",
+      "mtimeMs": 1785954806454.099,
+      "size": 1877
+    },
+    "rkkp-adhd/topics/policy-development/policy-development.md": {
+      "sha256": "600a685761271ffc670ebf70b333a1aef146de69babafc508c1888bb55148731",
+      "mtimeMs": 1785954840705.782,
+      "size": 1307
+    },
+    "rkkp-adhd/topics/policy/mental-health-strategy/10-aars-planen.md": {
+      "sha256": "bfcc0ec60d9df6fde3528cfb566285dd8d4706e7afa6f652f62a3743597e0569",
+      "mtimeMs": 1785952434250.3865,
+      "size": 2774
+    },
+    "rkkp-adhd/topics/policy/mental-health-strategy/dmpg-retningslinje.md": {
+      "sha256": "35385455b24cb3f138a255cbccbf6894b1a739c4a16efad84a88300a74c8245b",
+      "mtimeMs": 1786796765054.8127,
+      "size": 381
+    },
+    "rkkp-adhd/topics/policy/mental-health-strategy/dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis.md": {
+      "sha256": "c8e201d63bacc9438467bc29d002615509cec953ded34e0dee1ab11aa8f43b5f",
+      "mtimeMs": 1786796432399.8418,
+      "size": 3685
+    },
+    "rkkp-adhd/topics/policy/policy.md": {
+      "sha256": "7b4b33efc90af2fa3ba326f2f15f6e60ba3ef9306de2fec89266783106d05161",
+      "mtimeMs": 1785954990983.3157,
+      "size": 2905
+    },
+    "rkkp-adhd/topics/processes/adhd-pakkeforloeb.md": {
+      "sha256": "40511eec957b1ddcafbd6bc55ff61aba766a90ef3cfe57e438d3795b0390ed99",
+      "mtimeMs": 1785954466439.6753,
+      "size": 2839
+    },
+    "rkkp-adhd/topics/processes/adhd-udredningsforlob.md": {
+      "sha256": "467b8bd05d9ef0e11e421f9ca815fd84a6cf19cf0e4a3b53220ed161e1859daf",
+      "mtimeMs": 1785953878339.2725,
+      "size": 3367
+    },
+    "rkkp-adhd/topics/processes/koordinerende-netvaerksmoede.md": {
+      "sha256": "cab134a25b294e307b82eb5fbfe2e9aa0353f0eeffed3f9133adf1332b8a8d76",
+      "mtimeMs": 1785954321841.0483,
+      "size": 2379
+    },
+    "rkkp-adhd/topics/quality-indicator/quality-indicator.md": {
+      "sha256": "7a92061778f20a7d13dced41188e5d4e89dda29fb79d551c336e0f1d9f1d4091",
+      "mtimeMs": 1785954723478.726,
+      "size": 2854
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-1.md": {
+      "sha256": "a548323af82c77a75b10d1c8750b4fc24c0902f20d2920ba377771c95464328a",
+      "mtimeMs": 1785952545815.2583,
+      "size": 10795
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-10.md": {
+      "sha256": "58fde95543299eaaddef24ec617a5d121fdcaee6ad6b917e51a5ca14f9e79660",
+      "mtimeMs": 1785954105047.6482,
+      "size": 6693
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-11.md": {
+      "sha256": "06e1190e544fb443f395cb84bc1bda4907874c2ab54729d2f531c5faa9f25d6f",
+      "mtimeMs": 1785954336634.407,
+      "size": 12981
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-2a.md": {
+      "sha256": "ed26f6f09a84e44a10e9ab02a3e4ece62664229ef072b58eaf12f9112105fc13",
+      "mtimeMs": 1785952630127.4846,
+      "size": 10212
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-2b.md": {
+      "sha256": "7ff8cff864b3168aec81743050f019223ccedabf6c46261db7da9ed3bbc51681",
+      "mtimeMs": 1785952651868.9595,
+      "size": 12792
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-3.md": {
+      "sha256": "7bb604cc34cf3c7c6a2f429732d0b6156f8c7833cafdb1f929eb96ea6c4c9b20",
+      "mtimeMs": 1786796377237.8188,
+      "size": 11702
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-4.md": {
+      "sha256": "605bcd652cdb6b713f004b8d09c617ece0e0192f699b42fee2f91cfbbb5ea572",
+      "mtimeMs": 1785952972528.121,
+      "size": 10033
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-5.md": {
+      "sha256": "54ce5c2a7fc4041a475e1b3c54fbda2a2f377f07d4ed7fcfb85e033cf501a589",
+      "mtimeMs": 1785952972178.7307,
+      "size": 9195
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-6.md": {
+      "sha256": "18d4924534bb837cafe2f80cb41cc0b533f03ebbcde53af836e3d0bc95b1861e",
+      "mtimeMs": 1785952975211.2878,
+      "size": 9702
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-7a.md": {
+      "sha256": "1e49f5dec7410e1f97472d5a26bac7c1bee96313c89b2ac787440d92fef39f8a",
+      "mtimeMs": 1785953039318.17,
+      "size": 5586
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-7b.md": {
+      "sha256": "6a1f153dfd8bca725a28eef35b0d0c431927748bd1110d3c2a9e75385739fd1b",
+      "mtimeMs": 1785953197365.761,
+      "size": 6008
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-8.md": {
+      "sha256": "5dcd2756a75f0d2986ee18e6e7d6a7e405e07cc48033f41bee0da657ab3cad28",
+      "mtimeMs": 1785954040898.783,
+      "size": 5632
+    },
+    "rkkp-adhd/topics/quality-indicators/adhd-care/indikator-9.md": {
+      "sha256": "a9a144c335b74389db285a8257e6bd7f97387d8f25e7f962944bc184e385e082",
+      "mtimeMs": 1785954048745.9775,
+      "size": 5408
+    },
+    "rkkp-adhd/topics/quality-standard/quality-standard.md": {
+      "sha256": "699c8878fd349ce7dc61a75b22473eeac1792aeacf1ec2bf08998c70dc31abcd",
+      "mtimeMs": 1785954659427.1995,
+      "size": 4793
+    },
+    "rkkp-adhd/topics/regional-variation/regional-variation.md": {
+      "sha256": "13509800bb49fed47ae4b3108913853f8efaa742e39e80a2df7cda0644e5e32a",
+      "mtimeMs": 1785954805991.5671,
+      "size": 5863
+    },
+    "rkkp-afdk/entities/biomarkers/endocrine/thyreoideastimulerende-hormon-tsh.md": {
+      "sha256": "c46549177881e5c949084d4facacd0d2ba3dcc1eded3131356716bbffc52d566",
+      "mtimeMs": 1786737994474.2373,
+      "size": 17472
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di110-star.md": {
+      "sha256": "3a485f5698541d35caa007890128528e762854e80b6f895feae64d254c65d3e2",
+      "mtimeMs": 1786742818998.6475,
+      "size": 2211
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di130-star.md": {
+      "sha256": "26f994339367285eac12d857126efcd306d227a1ede799d626a9ac62c123202a",
+      "mtimeMs": 1786742832412.2917,
+      "size": 2028
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di132-star.md": {
+      "sha256": "60af81ed7ecbda6cf2aaec1ff0c74a479f91405f712204bb79714f1db9810383",
+      "mtimeMs": 1786742836834.8257,
+      "size": 1976
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di420-star.md": {
+      "sha256": "f9010bcb76c5155abb6d73f6029f5959d97c5a2b1b742a5c816adc608b0a8619",
+      "mtimeMs": 1786742849669.83,
+      "size": 2067
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di426-star.md": {
+      "sha256": "2b9880bf2bebd2b060e96b8f52fd762496023affb4ccd8683d5c68490730816e",
+      "mtimeMs": 1786742858550.0754,
+      "size": 2200
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di427-star.md": {
+      "sha256": "00b08c3e0874f1e5145148684387eaf10722c992b904b6ad67402087a4b20744",
+      "mtimeMs": 1786742877506.4578,
+      "size": 2356
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di428-star.md": {
+      "sha256": "5b7023ff4732bcc458d727b940a4a786ccfc70344e9b16f209c45c9322c7b65f",
+      "mtimeMs": 1786742892412.994,
+      "size": 2412
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di429-star.md": {
+      "sha256": "4b6416d10ae6a9fe4e93e39a04dcddec8a652a596022df2d51afdc1f3390a2b8",
+      "mtimeMs": 1786742881336.7175,
+      "size": 2599
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di50-star.md": {
+      "sha256": "869d84a461cd4fd1cdf0d010305cfd64dfdfcdbd9458e6c95c8f3da68c33a193",
+      "mtimeMs": 1786742790750.167,
+      "size": 2077
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di60.md": {
+      "sha256": "06c2da7271355171704cfff35c3a75d68c7f2ceda43b1b0ec5559ab4f2b8c62a",
+      "mtimeMs": 1786740161902.7625,
+      "size": 5158
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di61.md": {
+      "sha256": "e2ec2746a9e2f7c8928bde9862254072abc939fb5e983dd96fe6bd2306aa71d9",
+      "mtimeMs": 1786740161345.766,
+      "size": 4834
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di62.md": {
+      "sha256": "fe4f0cd03c87bee570e0620a308756edd672c041a040ce4cc5a43129656e74d6",
+      "mtimeMs": 1786740207508.348,
+      "size": 4983
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di63.md": {
+      "sha256": "163f9c8e3d2789686a62b1d5a994c368fc8dd4409d52d938597a884a75d74377",
+      "mtimeMs": 1786740076163.129,
+      "size": 3714
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/di64.md": {
+      "sha256": "788cafcd1681eda174c22f18fe28aa89b4c520b4b34f8bf1cb4615b83079b69b",
+      "mtimeMs": 1786740106956.1497,
+      "size": 4601
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dj942.md": {
+      "sha256": "f19b628945bc6742cfd5fc5868d5d1e859f1861044f87ca46e42bd4fd6ae543b",
+      "mtimeMs": 1786740662608.5425,
+      "size": 2782
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk25-0.md": {
+      "sha256": "07228767457bc1319c4c6c96be30508061ee8dc9c0a5b278e5ae7dbab7a53a3a",
+      "mtimeMs": 1786740303752.671,
+      "size": 3565
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk25-2.md": {
+      "sha256": "eb4b5b1653aa8bb088a2d21d1fd2c945a3b54b38b6045c3583ab5b293a3c66a5",
+      "mtimeMs": 1786740285776.542,
+      "size": 3873
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk25-4.md": {
+      "sha256": "a870d4a0253fa22e8d19e7aa63e6dbd81f31bfddb4fd28b9f61901a19de54f25",
+      "mtimeMs": 1786740308755.4226,
+      "size": 3703
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk25-6.md": {
+      "sha256": "38a55f4b0c892f31183c60efad1f0823b0e13acdfae58acf88218900eb5cba6b",
+      "mtimeMs": 1786740324003.8708,
+      "size": 3259
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk26-0.md": {
+      "sha256": "097e655f4ca5c146152b7ce2493f1fafd945e3ca3c150c694b34efc1acf584e8",
+      "mtimeMs": 1786740351752.6057,
+      "size": 3110
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk26-2.md": {
+      "sha256": "280372b9560e7f1157a57715b13512379485c3199a69491566fb3cbab1275f0c",
+      "mtimeMs": 1786740361509.126,
+      "size": 3333
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk26-4.md": {
+      "sha256": "c9e982c5c89a427a8e1bb4367508813e96294ac0070e9b519282682c1eed5aa0",
+      "mtimeMs": 1786740372446.6907,
+      "size": 3422
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk26-6.md": {
+      "sha256": "5ed692403f5ab842db0a3a8832bbaa290bed9dbc680dd357f46107c36ceeacae",
+      "mtimeMs": 1786740374799.2314,
+      "size": 3439
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk27-0.md": {
+      "sha256": "7d1cdcb60ad1285c246d5944b0489dcd78183a21e7169c05dd215b82c8a7f9b5",
+      "mtimeMs": 1786740434111.2683,
+      "size": 3206
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk27-2.md": {
+      "sha256": "b386ff9b8ba2237c7a578744557b5b32025e59e561e81d75d07f2e444ced2490",
+      "mtimeMs": 1786740424131.3845,
+      "size": 3302
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk27-4.md": {
+      "sha256": "8b4035f1b6781674ae401afb6b89fa223ba828d0af7b7a909c09f78f2b7ded66",
+      "mtimeMs": 1786740434333.751,
+      "size": 3417
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk27-6.md": {
+      "sha256": "5900d4db580ea411568e8fb05c4aac7c735bd8710fa80ac29f54b15781d9ae5a",
+      "mtimeMs": 1786740442006.2893,
+      "size": 3841
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk28-0.md": {
+      "sha256": "fa394ed07b347e4ba38d406e36e5b7df1981f2841e5c1d8198893254a250448b",
+      "mtimeMs": 1786740504561.8015,
+      "size": 4121
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk28-2.md": {
+      "sha256": "a6ebd0bc5a5c3f1368e529648090747629a951bcb36623f22bb63223427f9662",
+      "mtimeMs": 1786740524778.7383,
+      "size": 3424
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk28-4.md": {
+      "sha256": "de0b93093c7b11fe5e50acd087a4c50536a25db0db466df03963eb8d2a341405",
+      "mtimeMs": 1786740519026.723,
+      "size": 3676
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk28-6.md": {
+      "sha256": "9b18fe9b18e740bd34444a1f62b6255baf8189da05a282e15a869bd170441725",
+      "mtimeMs": 1786740522794.7065,
+      "size": 3984
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk29-0.md": {
+      "sha256": "62cb2ce54da20fd6448a5395495676d3cca6c29f9acf3fa9b49f630d840ada12",
+      "mtimeMs": 1786740576791.114,
+      "size": 3019
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk29-8a.md": {
+      "sha256": "90569a527b174c4774f1b6d70bdc2160ccd45592d21288ce302d422fdef2e4f9",
+      "mtimeMs": 1786740610429.602,
+      "size": 3715
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk92-0.md": {
+      "sha256": "b292b9e0b194ba21fa7622ad6d33cfcf33a9340fd3707b424a9bd5e5ead181c8",
+      "mtimeMs": 1786740583548.383,
+      "size": 3165
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk92-1.md": {
+      "sha256": "42bbfb5bd84b0ff48c7668f62ba83b24520f42060fe8438977ae5c9631c82a24",
+      "mtimeMs": 1786740584288.5864,
+      "size": 3393
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dk92-2.md": {
+      "sha256": "7d30fc46d6a4358b1c9c049d2a0a8da55d0cfca31c35357c36b888e40ced1db6",
+      "mtimeMs": 1786740631035.4568,
+      "size": 3283
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dn02.md": {
+      "sha256": "bb3547c625a2bef70aa3efa8c7dd82b61c03a63f40620ba894926256dac07e58",
+      "mtimeMs": 1786740646936.4856,
+      "size": 3108
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dr04.md": {
+      "sha256": "adac795c3194b1a1ef3e889c6bf712d1844bf52c89586eecd058bf1edd7cf444",
+      "mtimeMs": 1786740667868.1096,
+      "size": 2913
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dr31.md": {
+      "sha256": "b9449822ef0c633a002b8670e39f1243fdc939251655a85765766a4d665dc673",
+      "mtimeMs": 1786740702005.158,
+      "size": 3938
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/ds064.md": {
+      "sha256": "a3ddf316923acc68a17b9f48970e47a10ba67d3b4ccce25ee55808aef611dcce",
+      "mtimeMs": 1786740245464.2336,
+      "size": 4586
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/ds065.md": {
+      "sha256": "f643a15e2d8ffaf0938af1eff17ee492822a2e10eae5b35e364dfb68889c0163",
+      "mtimeMs": 1786740222075.528,
+      "size": 3955
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/ds066.md": {
+      "sha256": "fa7c84032bfe9989bc4117694e11877277134f35298d35da931ba8300e2a523d",
+      "mtimeMs": 1786740249233.814,
+      "size": 4177
+    },
+    "rkkp-afdk/entities/codes/diagnosis-codes/dz501.md": {
+      "sha256": "4e72c83466c59e1b9e167e3ebbce2b80e7aa82939b30818919a45d21d62b97b6",
+      "mtimeMs": 1786740140792.911,
+      "size": 4591
+    },
+    "rkkp-afdk/entities/codes/drug-classes/b01aa.md": {
+      "sha256": "06dd6ee930e3b811f59d1070905a9cd8d8cec251fba5a24820dfea5318ca0acc",
+      "mtimeMs": 1786739851146.0005,
+      "size": 4585
+    },
+    "rkkp-afdk/entities/codes/intervention-codes/bfkb.md": {
+      "sha256": "bcac25c9300335e7d33ca3364aa49b6f6db82b9c8bda9cc5a49f2ab04aabdd7a",
+      "mtimeMs": 1786740761214.7346,
+      "size": 5898
+    },
+    "rkkp-afdk/entities/codes/intervention-codes/bqf-star.md": {
+      "sha256": "b48a473df1121b98fa5eeb9fcda48cfec5797ffeaabb697b1a021d464ae075bf",
+      "mtimeMs": 1785963423527.7224,
+      "size": 1944
+    },
+    "rkkp-afdk/entities/codes/intervention-codes/bvds.md": {
+      "sha256": "8c5cc768a4c0d719216fdecdca22512232f36d52e44d9621fbcd2e4c11d0136e",
+      "mtimeMs": 1785963454320.209,
+      "size": 1703
+    },
+    "rkkp-afdk/entities/codes/intervention-codes/bvdy-star.md": {
+      "sha256": "4a12df35875ecefa7a138b4ab4e3e4af95e4c1ba8a1e298ae5154641ac3405bd",
+      "mtimeMs": 1785963481795.5818,
+      "size": 1834
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/as000646-p-thyrotropin.md": {
+      "sha256": "addadbebc88cbf042284399bf721295e153e640831039056e089c95f45ca18db",
+      "mtimeMs": 1786743140342.2793,
+      "size": 1720
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/ass00039-p-thyrotropin.md": {
+      "sha256": "83ae8e26b51ed82ab753561fc859b881e81ce78346d99621e2e3683e135eb728",
+      "mtimeMs": 1786742522001.374,
+      "size": 2534
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/ass00136-p-thyrotropin.md": {
+      "sha256": "a962adb045df1c746245297772ba5f8c496a5f4b7569a32ba5af43b9460424a1",
+      "mtimeMs": 1786742542601.3408,
+      "size": 2752
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/ass00647-p-thyrotropin.md": {
+      "sha256": "12f2eb331e7db9cf7d59bcbe8fd8313c5db989f8ea5b9a7200a47d2563423477",
+      "mtimeMs": 1786742555680.22,
+      "size": 2799
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/ass00650-p-thyrotropin.md": {
+      "sha256": "f3c66a31b199cdb03c713c24f0b04ba8a2118f01341cf4a7e4c74351fae0eb05",
+      "mtimeMs": 1786743179427.1707,
+      "size": 1614
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/dnk35895-p-thyrotropin.md": {
+      "sha256": "ed3d0bbedf6c2d8b0c6cb7f6acdbb47d23249a1661cd6aa9328903f18ce9c0ca",
+      "mtimeMs": 1786742470388.0945,
+      "size": 2533
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/epc00002-p-thyrotropin.md": {
+      "sha256": "8b6291bfab0ec6e10a9b130bd5ff00a2b8a08d62cb802ff791d5603268949c62",
+      "mtimeMs": 1786743224401.553,
+      "size": 1856
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/np03578-p-thyrotropin.md": {
+      "sha256": "5bfd2e785780afeb73f66d7f654c617268d86b0dd598a44b3236ac2c3ac934ab",
+      "mtimeMs": 1786742461782.5015,
+      "size": 2296
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/np03624-p-thyrotropin.md": {
+      "sha256": "0e6f04b3b4202edd26431f44c99a4434e1399396de83a2ea0233225b412d56d3",
+      "mtimeMs": 1786742424987.833,
+      "size": 2506
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/np04199-p-thyrotropin.md": {
+      "sha256": "f8e5563c99682f9d65476be3eb578008f952983c8d1beec0f6deeb4453b7656a",
+      "mtimeMs": 1786742313183.4377,
+      "size": 2585
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/np04200-p-thyrotropin.md": {
+      "sha256": "1c319bcb45440ef9c0caabb919cee79e3cc6f9d642463e653bf9b9585d43ab6a",
+      "mtimeMs": 1786742385496.6182,
+      "size": 2593
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/npu03577-p-thyrotropin.md": {
+      "sha256": "0f65d2fab085faa436706c133832918370cbf5d25a1bb624af499d2a482b8771",
+      "mtimeMs": 1785962585292.3389,
+      "size": 1864
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/npu04998-p-kreatinin.md": {
+      "sha256": "618e9f1b46000cb759a85d6ed1438456963baf8b8010f20bd02e99fe27c03fe5",
+      "mtimeMs": 1786740037921.4983,
+      "size": 5317
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/npu18016-p-kreatinin.md": {
+      "sha256": "4c7170724aefffdd07f952a170f796ceb5bd493f803e71d2d730cf5f27ee0de6",
+      "mtimeMs": 1786740076116.5242,
+      "size": 4985
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/npu27547-p-thyrotropin.md": {
+      "sha256": "fee6f97e5ce42be49b22a9475e66bd0a483ae142b07b5dcc17c756d8d7380350",
+      "mtimeMs": 1786743106719.6501,
+      "size": 2613
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/p-creatinin.md": {
+      "sha256": "61fee85f1b3fe8fb022871a56574355048fcf6a61424634bf92a2e84ddcc9ab1",
+      "mtimeMs": 1786741923903.3281,
+      "size": 4994
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/rsd03382-p-thyrotropin.md": {
+      "sha256": "c7f41a07fd2d48abd3b323378526d595f1cd6f80aeb707cdf40ea32551044e27",
+      "mtimeMs": 1786743274467.1836,
+      "size": 2095
+    },
+    "rkkp-afdk/entities/codes/laboratory-tests/s-creatinin.md": {
+      "sha256": "e7f1c11decb358dad1e0b8a77644074c5df1c4b408d0953e054968eb1f5648c4",
+      "mtimeMs": 1786741894262.5303,
+      "size": 3308
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/0906-ekko-kardiografi.md": {
+      "sha256": "1e3610077efeebd752e2f8ddf2ca23a28f9ba856f5ea8d58bf058e0f9126ccb4",
+      "mtimeMs": 1786739783687.5664,
+      "size": 3993
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/2208-ekkocardiografi.md": {
+      "sha256": "b3ba3e47d84df1639ab43c3a542817047237c604bb103cef7102067dee20c751",
+      "mtimeMs": 1786739556651.3071,
+      "size": 3486
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/3810-ekkocardiografi-standardundersoegelse.md": {
+      "sha256": "3f4c3731d1a0ba4feca07731733e09c23f811b9936857ace58a35c6c47113e55",
+      "mtimeMs": 1786736337497.7546,
+      "size": 1727
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/3811-ekkocardiografi-avanceret-undersoegelse.md": {
+      "sha256": "9343ea6fc6064cbbd4391cf52800249400f6444e8357c93e62395b034c51e755",
+      "mtimeMs": 1786736337499.7744,
+      "size": 1739
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/5101-ekko-cardiografi.md": {
+      "sha256": "25dabee5800d28e6189b3cb555e65a4fa724fcc37cc600707995a05034051458",
+      "mtimeMs": 1786739641130.2375,
+      "size": 3938
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/5102-transsofageal-ekko.md": {
+      "sha256": "1332c690d66e420652ffcbea6a9900dc850297d811fe114fde5ac5a32f9f360e",
+      "mtimeMs": 1786739657197.2031,
+      "size": 3951
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/5103-stress-ekkocardiogra.md": {
+      "sha256": "6a0178d0dcf2d4e970b9d20233a3d2b29c9fc9735d759431101e4070e41cbadc",
+      "mtimeMs": 1786739714924.3064,
+      "size": 4130
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/6402-ekkocardiografi.md": {
+      "sha256": "e649f01529acd3001b6d0197db0a2d089c49f255cc935759f3849f3a4cac242b",
+      "mtimeMs": 1786739716629.7576,
+      "size": 3461
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/6408-ekkocardiografi.md": {
+      "sha256": "53a31b5069342b97b08eddbbe5a81c200b59e6ac354346ac8f7ec11e2cdbd2ea",
+      "mtimeMs": 1786739794171.4255,
+      "size": 3875
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/uxuc80.md": {
+      "sha256": "04bd0641d6073d7f5994fa46c7e9e6b7a786d199dda9628ec8599acf25ca1c99",
+      "mtimeMs": 1786736337800.8708,
+      "size": 961
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/uxuc80a.md": {
+      "sha256": "2df0b135c8b627196b80ca03280202a16bd18ac97167fb4ea3c0f22618a60885",
+      "mtimeMs": 1785964854093.0945,
+      "size": 1420
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/uxuc80b.md": {
+      "sha256": "13d2ecdb56e166f910f6f26aa1f2b772b67a88e96dd0d7f2f57b8c560143e16b",
+      "mtimeMs": 1785964877097.958,
+      "size": 1456
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/uxuc80c.md": {
+      "sha256": "5ce15303c954a5394b7391bb788ad64853383bcfe67e4477574093c1da9f3a31",
+      "mtimeMs": 1786739503732.485,
+      "size": 3149
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/uxuc80d.md": {
+      "sha256": "5aad74804222ab20ba9488f5ba34c6660876b26ef06b7dbd38b987e6eeee5932",
+      "mtimeMs": 1786739504462.8171,
+      "size": 2755
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/uxuc80e.md": {
+      "sha256": "14d036d3124182070f35277bfb23496da7f454f77dc26d5f65eb7909121f103c",
+      "mtimeMs": 1786739573412.5713,
+      "size": 3437
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/uxuc81.md": {
+      "sha256": "bae252d90d75746876493608a12c40553ffa24eabb257343398b2830c3798fa5",
+      "mtimeMs": 1786739568974.7986,
+      "size": 3476
+    },
+    "rkkp-afdk/entities/codes/procedure-codes/uxuc81c.md": {
+      "sha256": "6e806cf1b3e385a7e51faecf7fc4ae8ee4763a9315aac4c55e99b1deb5ac866f",
+      "mtimeMs": 1786739574064.882,
+      "size": 2811
+    },
+    "rkkp-afdk/entities/databases/healthcare-registers/cpr-registeret.md": {
+      "sha256": "235cd687a659b3fe076c0afba913b6bfd804eaa2f081844e8cc667e5432d168f",
+      "mtimeMs": 1786739443380.2097,
+      "size": 2917
+    },
+    "rkkp-afdk/entities/databases/healthcare-registries/laboratoriedatabasen.md": {
+      "sha256": "04b5607101cfe5e4ee6ed515c3dad3c6b5d68bdd7a4e12fdbed93f29613a0cfa",
+      "mtimeMs": 1786741809263.3723,
+      "size": 3141
+    },
+    "rkkp-afdk/entities/databases/healthcare-registries/landspatientregisteret.md": {
+      "sha256": "89fbaaabdd9cc70c0f8eb22066ec45f6b1dae166865d5d2c4df43bbbe8790e98",
+      "mtimeMs": 1786736905005.9165,
+      "size": 35107
+    },
+    "rkkp-afdk/entities/documents/reports/afdk-aarsrapport-2023.md": {
+      "sha256": "577ed532138cec9cb4ca86294e0e0c16e066745b42643858ecd7d7b1d12ea5f7",
+      "mtimeMs": 1786736432099.7158,
+      "size": 3625
+    },
+    "rkkp-afdk/entities/documents/reports/afdk-anbefalinger-for-patientundervisningen.md": {
+      "sha256": "3147f77dde5260267c2c052837446f924f54828177152481d258a323b162a016",
+      "mtimeMs": 1786742794739.886,
+      "size": 1851
+    },
+    "rkkp-afdk/entities/documents/reports/ambuflex-skema.md": {
+      "sha256": "2471d74638761fd27e03807b585262c6963f58337dd925fe30715d513b678742",
+      "mtimeMs": 1785964677953.6206,
+      "size": 1831
+    },
+    "rkkp-afdk/entities/documents/reports/figur-3.md": {
+      "sha256": "d16197a8d444906aeb4a75d901ea9665c6ecf8f1ecb6ca39862ad811330aa77d",
+      "mtimeMs": 1786736337917.2383,
+      "size": 905
+    },
+    "rkkp-afdk/entities/documents/reports/palm-et-al-2020.md": {
+      "sha256": "326a304957c83120e1ae0dd5b0b8843267f4e4d617b021d3536de1d1eacfc4c3",
+      "mtimeMs": 1786742207284.9937,
+      "size": 4459
+    },
+    "rkkp-afdk/entities/documents/reports/risom-2019.md": {
+      "sha256": "c08c6afc94f6f2ebe92af2aa2d2ac03cc1d1f09b563bbdcbf0d31b3c168e5860",
+      "mtimeMs": 1786736337798.8528,
+      "size": 866
+    },
+    "rkkp-afdk/entities/documents/reports/risom-et-al-2018.md": {
+      "sha256": "9a11c4ce0f77bf74d8e21baa4bd45932f3260bdc664bf8cef79d94168eb75ee3",
+      "mtimeMs": 1786742999159.9465,
+      "size": 2486
+    },
+    "rkkp-afdk/entities/documents/reports/sundhedsstyrelsen-2019.md": {
+      "sha256": "19303598eb9b72c8cfe5e4806029caf79ad528aad2ea8b1e1be49919b8028fa3",
+      "mtimeMs": 1786736337903.3987,
+      "size": 1198
+    },
+    "rkkp-afdk/entities/documents/reports/supplerende-analyser-7-alvorlig-bloedning.md": {
+      "sha256": "7d639b5b5ffcd31671607db3f5a246b77bea89c7c86793657c30b0e5786cd8e9",
+      "mtimeMs": 1786742962457.9563,
+      "size": 2606
+    },
+    "rkkp-afdk/entities/documents/reports/tabel-1.md": {
+      "sha256": "85c85263f873ae46e7a885153c85802fa97eb3c55c51f0bbbbccdcf478aa6afd",
+      "mtimeMs": 1786743038926.7139,
+      "size": 2491
+    },
+    "rkkp-afdk/entities/documents/reports/van-gelder-et-al-2024.md": {
+      "sha256": "31fd1b3f9768995cb68c03dc7cea3b1d03a0af94ae0ecf937076d868818a35b0",
+      "mtimeMs": 1786742964696.4578,
+      "size": 1650
+    },
+    "rkkp-afdk/entities/drugs/anticoagulants/b01ae07.md": {
+      "sha256": "9f33f4ad30057cb8941077e869fa8de72c7ad09f63ab765a1d91c4d22e6436ea",
+      "mtimeMs": 1786739932789.4573,
+      "size": 3780
+    },
+    "rkkp-afdk/entities/drugs/anticoagulants/b01af01.md": {
+      "sha256": "5e2a1976dac1126adc3e8aba34bf82b60b91ee88319defb80d46b16a37dc7fe1",
+      "mtimeMs": 1786739978822.6155,
+      "size": 3695
+    },
+    "rkkp-afdk/entities/drugs/anticoagulants/b01af02.md": {
+      "sha256": "6f4ce351af2ce7cc2ca880813bc61c84bb3261bae4dcbab9ddcfdc365c8b72cd",
+      "mtimeMs": 1786740000381.1233,
+      "size": 5240
+    },
+    "rkkp-afdk/entities/drugs/anticoagulants/b01af03.md": {
+      "sha256": "afed92c80363bb845961ad2d6b3e8b46a0a0ba1cb8753ac876b7bbd08284815b",
+      "mtimeMs": 1786740077341.744,
+      "size": 4139
+    },
+    "rkkp-afdk/entities/groups/patient-advocacy/afdk-patientrepraesentanter.md": {
+      "sha256": "ea7abb34b86f1f81f60554a2760ae93718162f702cc7e82f971222169dead235",
+      "mtimeMs": 1786738745051.4001,
+      "size": 5042
+    },
+    "rkkp-afdk/entities/groups/patient-advocacy/praktiserende-kardiologer.md": {
+      "sha256": "32a0d3c8d978ca6573ef0db845d3df40f0dd61ac1dfd89faa2c73961841dbc74",
+      "mtimeMs": 1786740867143.9617,
+      "size": 9280
+    },
+    "rkkp-afdk/entities/locations/cities/aarhus.md": {
+      "sha256": "aed307e141f87375708dc60972cdd6c851cb6a74f20fc827d02b7c35b7cbc3d9",
+      "mtimeMs": 1785960548284.3596,
+      "size": 2214
+    },
+    "rkkp-afdk/entities/locations/cities/toender.md": {
+      "sha256": "80446ebb2e0d837eb63d26a24a7db28844488c7314e9b62c36f5cd29f82f62cb",
+      "mtimeMs": 1785960576327.9036,
+      "size": 1771
+    },
+    "rkkp-afdk/entities/locations/countries/danmark.md": {
+      "sha256": "6e707398a69857d6bcfaed29b87140cc00e128ec6abe9ff4dc21c3011652934c",
+      "mtimeMs": 1786737542135.7195,
+      "size": 21266
+    },
+    "rkkp-afdk/entities/locations/municipalities/aabenraa.md": {
+      "sha256": "e10c38d846d3b6454f4d7a5bed4832d9e3ca6cdf13f268f288a29abea6b3b7f2",
+      "mtimeMs": 1785961785068.0498,
+      "size": 1289
+    },
+    "rkkp-afdk/entities/locations/municipalities/aalborg.md": {
+      "sha256": "3cd6babd3a856bb5898abf376d1650e46f59b2d3b4ea41e6a55e5d8ff1db1590",
+      "mtimeMs": 1785962033115.4255,
+      "size": 1192
+    },
+    "rkkp-afdk/entities/locations/municipalities/aeroe.md": {
+      "sha256": "aa6d8e3b5808ee9ff5d3ac9f04ac3485f0eac8d2b8b2c20ad2123aa475f0a079",
+      "mtimeMs": 1785961929204.8252,
+      "size": 1487
+    },
+    "rkkp-afdk/entities/locations/municipalities/albertslund.md": {
+      "sha256": "68a1272e4aca0e4e19f8c8d12d8a5f36913200b6e172e9366ece634350b661f7",
+      "mtimeMs": 1785961250627.9563,
+      "size": 1457
+    },
+    "rkkp-afdk/entities/locations/municipalities/alleroed.md": {
+      "sha256": "c6b38052cc467a511e1f730c19be5483743121aff8270c57a503924b89c89111",
+      "mtimeMs": 1785961277264.2354,
+      "size": 1265
+    },
+    "rkkp-afdk/entities/locations/municipalities/assens.md": {
+      "sha256": "db0271991d6cf633e360dd23b765597c1cb19b49f2e01d5c2ab47905ad4305e8",
+      "mtimeMs": 1785961797040.271,
+      "size": 1375
+    },
+    "rkkp-afdk/entities/locations/municipalities/ballerup.md": {
+      "sha256": "cefa8215259d17205c206c676f825bee43fc4312c593641fcad3a4210a861e5f",
+      "mtimeMs": 1785961292493.6711,
+      "size": 1646
+    },
+    "rkkp-afdk/entities/locations/municipalities/billund.md": {
+      "sha256": "861c51a1e7832bc399dd8259d4c3b8c23d4c68ce76008a2ed21cb219c0c6ef4b",
+      "mtimeMs": 1785961818018.3062,
+      "size": 1256
+    },
+    "rkkp-afdk/entities/locations/municipalities/bornholm.md": {
+      "sha256": "a0d75b491d6aae56e4433f856e42206c70c18af7ab671ec8633dd659e73545e4",
+      "mtimeMs": 1786739035559.7014,
+      "size": 1832
+    },
+    "rkkp-afdk/entities/locations/municipalities/broendby.md": {
+      "sha256": "8e3c0ca891d5059752ba9fa37b575b7926740109eca78ab4c8e8da983ea7d1c6",
+      "mtimeMs": 1785961319339.1868,
+      "size": 1538
+    },
+    "rkkp-afdk/entities/locations/municipalities/dragoer.md": {
+      "sha256": "3674c109637b2dec7c10b91ec2278c97806cff7adcb322b628c5d1b46be38d57",
+      "mtimeMs": 1785961352505.401,
+      "size": 1345
+    },
+    "rkkp-afdk/entities/locations/municipalities/egedal.md": {
+      "sha256": "ee8d3f5c2ad3f533c86239fd846996bd05a7380f0ef2c9585a1774ca4477d6ae",
+      "mtimeMs": 1785961355177.1956,
+      "size": 1427
+    },
+    "rkkp-afdk/entities/locations/municipalities/esbjerg.md": {
+      "sha256": "b3712a9855abcb145a81807aa60c928080be5f944ace866975d77739fad1b01a",
+      "mtimeMs": 1785961815909.3308,
+      "size": 1433
+    },
+    "rkkp-afdk/entities/locations/municipalities/faaborg-midtfyn.md": {
+      "sha256": "d0b1b4a1edd8f09958479034b2ef111a381e691a236ae59f62280beb0174793e",
+      "mtimeMs": 1785961833844.4414,
+      "size": 1405
+    },
+    "rkkp-afdk/entities/locations/municipalities/favskov.md": {
+      "sha256": "fd727c3c1dd7703bf5495b57d28317e15eb0d39d1ab48a5e9bfe3c418def3e46",
+      "mtimeMs": 1785961915799.2556,
+      "size": 1591
+    },
+    "rkkp-afdk/entities/locations/municipalities/faxe.md": {
+      "sha256": "542df95fdf6a4db60057cf06a3b52053244d4a0d6e251e55e297549deddd372b",
+      "mtimeMs": 1785961673573.5027,
+      "size": 1446
+    },
+    "rkkp-afdk/entities/locations/municipalities/fredensborg.md": {
+      "sha256": "7420d1a9fb4e3a47acee27f023ddb86368af47728f3b7a0cb37745cd512a4404",
+      "mtimeMs": 1785961385928.5708,
+      "size": 1541
+    },
+    "rkkp-afdk/entities/locations/municipalities/frederiksberg.md": {
+      "sha256": "077e2f96d06742a2bad7a341f82717763a1d0f4fc37142a53dd01118d13286ae",
+      "mtimeMs": 1786739057064.451,
+      "size": 1926
+    },
+    "rkkp-afdk/entities/locations/municipalities/frederikssund.md": {
+      "sha256": "799b9c33d25cbb4bd9763b9acbb7d476194f84c778146172e38efd170b8a087b",
+      "mtimeMs": 1785961435581.7148,
+      "size": 1729
+    },
+    "rkkp-afdk/entities/locations/municipalities/frederiksvaerk-hundested.md": {
+      "sha256": "917464983fe8c46d514f057801cc12820cfa7d0ea642366d826e05023bfec5e5",
+      "mtimeMs": 1785961449182.4783,
+      "size": 1633
+    },
+    "rkkp-afdk/entities/locations/municipalities/furesoe.md": {
+      "sha256": "b036ab18b3a7b7e8a682bddd7863735eec0ad82f80463a8ac4bf4f2409d01a04",
+      "mtimeMs": 1785961467420.547,
+      "size": 1542
+    },
+    "rkkp-afdk/entities/locations/municipalities/gentofte.md": {
+      "sha256": "f84300c268cd57bcacafcf86d394ef149dfe6c6d82e6b29deb25bdfaf3cc5a10",
+      "mtimeMs": 1785961488825.6833,
+      "size": 1582
+    },
+    "rkkp-afdk/entities/locations/municipalities/gladsaxe.md": {
+      "sha256": "861ed2eafdb49e92e4e0c3552798e44ee1e2ed5ef2542dd5655b6581faf19c35",
+      "mtimeMs": 1785961505498.0876,
+      "size": 1554
+    },
+    "rkkp-afdk/entities/locations/municipalities/glostrup.md": {
+      "sha256": "754ed89ef4402bb3e09d916d1e49aa5b3a169ed63a40c25d3c32f9ea7c4d1c10",
+      "mtimeMs": 1785961525797.928,
+      "size": 1498
+    },
+    "rkkp-afdk/entities/locations/municipalities/greve.md": {
+      "sha256": "d945ac030e24ca775a2f375438cac7df84cc5b01fe8eb87444e91bd38e28030a",
+      "mtimeMs": 1785961672113.656,
+      "size": 1250
+    },
+    "rkkp-afdk/entities/locations/municipalities/gribskov.md": {
+      "sha256": "a445cf3bbcffdbce575cdeafd7b4f9c825af29ad5f2ebcf9e568d6872ffe8f63",
+      "mtimeMs": 1785961536760.7283,
+      "size": 1705
+    },
+    "rkkp-afdk/entities/locations/municipalities/guldborgsund.md": {
+      "sha256": "a368c89b95103da2bd9cafe4f632de2e37c901c99d44cab46f23f6cc6e5488b2",
+      "mtimeMs": 1785961697463.015,
+      "size": 1611
+    },
+    "rkkp-afdk/entities/locations/municipalities/hedensted.md": {
+      "sha256": "e0dc6d1893af5b9df2317575af1dd304ce4426bcb5ab0d687c505e582f7cba75",
+      "mtimeMs": 1785961943456.5396,
+      "size": 1679
+    },
+    "rkkp-afdk/entities/locations/municipalities/helsingoer.md": {
+      "sha256": "d63f3a4649a58200bf12eb1061f67eda328c91d5823371145684ed37845c797c",
+      "mtimeMs": 1785961541708.02,
+      "size": 1596
+    },
+    "rkkp-afdk/entities/locations/municipalities/herlev.md": {
+      "sha256": "e8bf3ae56156f8cf1c963f76c5bef416c6a6bf02e24299f7fc575876ab29e6c9",
+      "mtimeMs": 1785961567308.586,
+      "size": 1325
+    },
+    "rkkp-afdk/entities/locations/municipalities/herning.md": {
+      "sha256": "3d30680ffb165224ef5e2848392ad8f9e21f2c7fcbd9d6ce272b965c94f27ca9",
+      "mtimeMs": 1785961936528.2495,
+      "size": 1357
+    },
+    "rkkp-afdk/entities/locations/municipalities/hilleroed.md": {
+      "sha256": "d1011e72e587d0332da62dd292df275139b105a5c169bc56cf0f2f3d503a314f",
+      "mtimeMs": 1785961562294.0564,
+      "size": 1204
+    },
+    "rkkp-afdk/entities/locations/municipalities/hoeje-taastrup.md": {
+      "sha256": "463e758255c5284cf82b53cad2f4a441debfb715bacc4070fb2198bb5cdc7edc",
+      "mtimeMs": 1785961590386.5361,
+      "size": 1191
+    },
+    "rkkp-afdk/entities/locations/municipalities/hoersholm.md": {
+      "sha256": "0359efa8777c8bf3276b4cdea7735e712afaff790f4249287bc0f09bce735b16",
+      "mtimeMs": 1785961600038.5627,
+      "size": 1213
+    },
+    "rkkp-afdk/entities/locations/municipalities/horsens.md": {
+      "sha256": "9d279a39fe88fc23e4e31726477933093374c4c4878181031360ad514b0df235",
+      "mtimeMs": 1785961960227.567,
+      "size": 1412
+    },
+    "rkkp-afdk/entities/locations/municipalities/hvidovre.md": {
+      "sha256": "cb937eac350628af8636a7f5800dd18878d7f0cd3ce6ae72fd4bc9d7de8efc0d",
+      "mtimeMs": 1785961567009.0388,
+      "size": 1469
+    },
+    "rkkp-afdk/entities/locations/municipalities/ishoej.md": {
+      "sha256": "e5b0a1377f86ff2762597aecefaa495ceb2cfeef6c2452a130f529d6f9505dd3",
+      "mtimeMs": 1785961608583.9236,
+      "size": 1597
+    },
+    "rkkp-afdk/entities/locations/municipalities/jammerbugt.md": {
+      "sha256": "2699ed1ac9e78040c840f6fcbc0429245d031b55e620b659da2d4c26c412832d",
+      "mtimeMs": 1785962046848.4739,
+      "size": 1336
+    },
+    "rkkp-afdk/entities/locations/municipalities/kalundborg.md": {
+      "sha256": "57d6b55e213267f2a7c3677a2ec689e7f9394c6bbbde05fdee8efa1b07cb6881",
+      "mtimeMs": 1785961691633.2903,
+      "size": 1276
+    },
+    "rkkp-afdk/entities/locations/municipalities/kerteminde.md": {
+      "sha256": "8306bd0088d8c9283c07a49961c894b456c5d1a27454ae79157d79142a64574c",
+      "mtimeMs": 1785961846751.1294,
+      "size": 1271
+    },
+    "rkkp-afdk/entities/locations/municipalities/koebenhavn.md": {
+      "sha256": "9c6b45de551121dbc4d15b913ce32afc95b46a0f66de6b04e516f89a3e11b7a3",
+      "mtimeMs": 1786739081574.2837,
+      "size": 2006
+    },
+    "rkkp-afdk/entities/locations/municipalities/koege.md": {
+      "sha256": "1c513a263444b8d3b5101cba58963dbc1a10152a2e8268ebc4fba914939a0f6d",
+      "mtimeMs": 1785961716812.3708,
+      "size": 1464
+    },
+    "rkkp-afdk/entities/locations/municipalities/laesoe.md": {
+      "sha256": "3198ac3d913228366bc48f7bfcb365669aae41d259d74bc275f566b68c186115",
+      "mtimeMs": 1785962061802.0403,
+      "size": 1466
+    },
+    "rkkp-afdk/entities/locations/municipalities/lejre.md": {
+      "sha256": "56e7746871f70899c1933635805929b5bb9eaf65833ca989d34ec406ba8f060c",
+      "mtimeMs": 1785961709870.8755,
+      "size": 1343
+    },
+    "rkkp-afdk/entities/locations/municipalities/lemvig.md": {
+      "sha256": "c077b65ba8168b471a495639db11c383ed6cb6d5ac748631e9a8bad7000d48b6",
+      "mtimeMs": 1785961958680.5684,
+      "size": 1467
+    },
+    "rkkp-afdk/entities/locations/municipalities/lolland.md": {
+      "sha256": "f80bcf29d5a4e72d6e9ea86b45e61fd27077453163dabd7ca87ea3bd376607b2",
+      "mtimeMs": 1785961722501.219,
+      "size": 1619
+    },
+    "rkkp-afdk/entities/locations/municipalities/lyngby-taarbaek.md": {
+      "sha256": "9ce8ad8397f980d01f2483c28bb2d22ed51f999b5386fa735d909b86839f87fe",
+      "mtimeMs": 1785961621804.7683,
+      "size": 1304
+    },
+    "rkkp-afdk/entities/locations/municipalities/mariagerfjord.md": {
+      "sha256": "29cc4caca41d86de78e2a63d6e16a2b7338402019ef403439e7c8d43e1e900f5",
+      "mtimeMs": 1785962058269.1257,
+      "size": 1431
+    },
+    "rkkp-afdk/entities/locations/municipalities/middelfart.md": {
+      "sha256": "1f6535ec3d49d6c7d376416576341af101219e68751bfe1ea9de79470e74b112",
+      "mtimeMs": 1785961850038.6785,
+      "size": 1549
+    },
+    "rkkp-afdk/entities/locations/municipalities/morsoe.md": {
+      "sha256": "1681ae61a3682896cc5c89fe38dd42de328ce5babaa4f06a9eae28ffe83e0dd3",
+      "mtimeMs": 1785962067437.9229,
+      "size": 1470
+    },
+    "rkkp-afdk/entities/locations/municipalities/norddjurs.md": {
+      "sha256": "c87a22b718e6dc69c53cb3c2a11c6ced1a6f2f96ca1ae2164dcef22dbae477ae",
+      "mtimeMs": 1785961976647.2295,
+      "size": 1245
+    },
+    "rkkp-afdk/entities/locations/municipalities/nordfyns.md": {
+      "sha256": "eb6a6bb40277ca7bd88ab8729ee76ce4877315d7e940c52287f86eb59a575700",
+      "mtimeMs": 1785961840567.7268,
+      "size": 970
+    },
+    "rkkp-afdk/entities/locations/municipalities/nyborg.md": {
+      "sha256": "cdc6f4a0297cfa4273d9566c729fae7399885ba63f12fd89df68d0831b1b6eb8",
+      "mtimeMs": 1785961868180.9458,
+      "size": 1446
+    },
+    "rkkp-afdk/entities/locations/municipalities/odder.md": {
+      "sha256": "62899d1d5cf598d1cab9a37a242b5b7e3ddc608d27f23219b59b43fbdf48e3a5",
+      "mtimeMs": 1785961993002.788,
+      "size": 1574
+    },
+    "rkkp-afdk/entities/locations/municipalities/odsherred.md": {
+      "sha256": "1dd8ffe2dea483bb8d9449c72c5624b184627b78c2b787fe4909d19e9aae7882",
+      "mtimeMs": 1785961739485.1865,
+      "size": 1318
+    },
+    "rkkp-afdk/entities/locations/municipalities/randers.md": {
+      "sha256": "d1d1cfe52141820a5bf6cbbfa03168cba5ab3de78822d21e2b4bfa61cf28f233",
+      "mtimeMs": 1785961994178.3896,
+      "size": 1536
+    },
+    "rkkp-afdk/entities/locations/municipalities/rebild.md": {
+      "sha256": "dc6c8c3c4af9a92922eeb7e7fcb44f2a559af892315f2345474e09e235a2d965",
+      "mtimeMs": 1785962086317.0527,
+      "size": 1240
+    },
+    "rkkp-afdk/entities/locations/municipalities/ringkoebing-skjern.md": {
+      "sha256": "d001194e91ee258660c75bd24d14e5aaceed07b9968f0fc500cd20f615df4bd8",
+      "mtimeMs": 1785961994788.0427,
+      "size": 1804
+    },
+    "rkkp-afdk/entities/locations/municipalities/ringsted.md": {
+      "sha256": "025e6b6f5e1859423093aa7b2a20de1742634f0a9a1384141f7fca1a1971915e",
+      "mtimeMs": 1785961741525.3452,
+      "size": 1282
+    },
+    "rkkp-afdk/entities/locations/municipalities/roedovre.md": {
+      "sha256": "21947bbe77154c5b6782e3de023d82788f8e4d6fb6cf5ca93c6185d22dbe0ee1",
+      "mtimeMs": 1785961634004.7156,
+      "size": 1418
+    },
+    "rkkp-afdk/entities/locations/municipalities/roskilde.md": {
+      "sha256": "4dc14520414d244f13152ccbc71db5859af2c56c86ec3303a99796f0b82bb65e",
+      "mtimeMs": 1785961736624.2485,
+      "size": 1304
+    },
+    "rkkp-afdk/entities/locations/municipalities/rudersdal.md": {
+      "sha256": "ad196ca9a40268d1e281cfbe27b82df5d73c28ca4f2f43833d2096a26d5728f1",
+      "mtimeMs": 1785961642927.639,
+      "size": 1404
+    },
+    "rkkp-afdk/entities/locations/municipalities/samsoe.md": {
+      "sha256": "cb50ef61115d3d3a347a56cc5748cc21d030e97d4d0c49c720ca3a41b5181e7a",
+      "mtimeMs": 1785961999806.4446,
+      "size": 1185
+    },
+    "rkkp-afdk/entities/locations/municipalities/soenderborg.md": {
+      "sha256": "2c4da26006bbff4229da4a72a5f176ff7618facbd52d4cda126425e43248f268",
+      "mtimeMs": 1785961896839.308,
+      "size": 2078
+    },
+    "rkkp-afdk/entities/locations/municipalities/solroed.md": {
+      "sha256": "488cb064f012cbd95488b22045f056336b0830013c2de92410164cf43ca47bf4",
+      "mtimeMs": 1785961751438.11,
+      "size": 1182
+    },
+    "rkkp-afdk/entities/locations/municipalities/soroe.md": {
+      "sha256": "837102e28c647b75e475dcc4096611fd9fa5c7bd8dc03db27dabb1de21792cf9",
+      "mtimeMs": 1785961768717.5437,
+      "size": 1495
+    },
+    "rkkp-afdk/entities/locations/municipalities/stevns.md": {
+      "sha256": "bf56058860a777317da97f33afcfa118d218a58c38f004825e02fca4831968fe",
+      "mtimeMs": 1785961784051.6538,
+      "size": 1699
+    },
+    "rkkp-afdk/entities/locations/municipalities/svendborg.md": {
+      "sha256": "72d8a41ad0f0d308ee964350f3d3b5b68f0ef2546179a47216d0d7b0497da823",
+      "mtimeMs": 1785961873940.0525,
+      "size": 1394
+    },
+    "rkkp-afdk/entities/locations/municipalities/syddjurs.md": {
+      "sha256": "6547d74a39087fa4f8bfd7b01d359a15201cc1a78438b276b67885ca4f58127c",
+      "mtimeMs": 1785962021468.0698,
+      "size": 1585
+    },
+    "rkkp-afdk/entities/locations/municipalities/taarnby.md": {
+      "sha256": "4f2e3171f069bb8fff8f02f1eb3bf524875b9337f7eb48d5e59eb72501672cf6",
+      "mtimeMs": 1785961667584.5786,
+      "size": 1568
+    },
+    "rkkp-afdk/entities/locations/municipalities/vallensbaek.md": {
+      "sha256": "3510b57c3aca99b61ca08af337607cbe8958524cb6f140ff439a6cc521e43b5d",
+      "mtimeMs": 1785961657211.0576,
+      "size": 915
+    },
+    "rkkp-afdk/entities/locations/municipalities/varde.md": {
+      "sha256": "cee2051598271bf1b2f5b6c3e3cbe17066f1926e2f371c8452eb358b93f1ac37",
+      "mtimeMs": 1785961892856.8884,
+      "size": 1303
+    },
+    "rkkp-afdk/entities/locations/municipalities/vejen.md": {
+      "sha256": "c234b7c5f92740812c2ef3482217099b561e9a7055984accd12c948d94e0438c",
+      "mtimeMs": 1785961891833.2883,
+      "size": 1293
+    },
+    "rkkp-afdk/entities/locations/municipalities/vejle.md": {
+      "sha256": "42d64ff4cc6d734f4d8f1dd32184801c5401aa7b6f1a0f086e4d9909796dbc90",
+      "mtimeMs": 1785961911356.4568,
+      "size": 1458
+    },
+    "rkkp-afdk/entities/locations/municipalities/vesthimmerlands.md": {
+      "sha256": "2c49c485d5e45fed1cf49767dc95eab997d32164e19de759516138ea5dec0811",
+      "mtimeMs": 1785962091970.063,
+      "size": 1662
+    },
+    "rkkp-afdk/entities/locations/municipalities/viborg.md": {
+      "sha256": "99124097a5f093de3743f24a9735d4a94567d1c66fc55768cb4b9d8502f493fd",
+      "mtimeMs": 1785962028292.2153,
+      "size": 1411
+    },
+    "rkkp-afdk/entities/locations/municipalities/vordingborg.md": {
+      "sha256": "65fc3cd2c9453a73f494cd3055c748c001906327cd6cdec2ef143a12e0bebc31",
+      "mtimeMs": 1785961779830.2798,
+      "size": 1407
+    },
+    "rkkp-afdk/entities/locations/regions/region-midtjylland.md": {
+      "sha256": "8bc6180ecae682133fb8c61ea0a1d07305baad0c7ccb4418bfcc4d59adc1226b",
+      "mtimeMs": 1786745732715.9856,
+      "size": 28108
+    },
+    "rkkp-afdk/entities/locations/regions/region-syddanmark.md": {
+      "sha256": "bb125c5c5b4921678efe62d4a9b150d78b27fc63d809bde91b2aba285bc19171",
+      "mtimeMs": 1786745577611.4563,
+      "size": 30879
+    },
+    "rkkp-afdk/entities/locations/regions/regioner.md": {
+      "sha256": "ba2b914a069ee1ae12d512034aa43a7e3cee47e5e48517debd56f79857ba760f",
+      "mtimeMs": 1786742761835.3157,
+      "size": 2135
+    },
+    "rkkp-afdk/entities/medical-interventions/education/patientuddannelse.md": {
+      "sha256": "42e4a73f98755098e2817c303ded37008d02338460f046832cf4aac0d7d87fcd",
+      "mtimeMs": 1786742357798.9907,
+      "size": 9067
+    },
+    "rkkp-afdk/entities/medical-interventions/pharmacotherapy/antikoagulationsbehandling.md": {
+      "sha256": "55a8dfda714726163bf18cde1ae6fecaaf50e11ff4938b305935bf052624d572",
+      "mtimeMs": 1786737591776.9795,
+      "size": 26412
+    },
+    "rkkp-afdk/entities/medical-interventions/pharmacotherapy/ekkokardiografi.md": {
+      "sha256": "ecdf9e8448de761ae58b3ff31ce63edd7aee4a62675d7a710fa616257f20fa15",
+      "mtimeMs": 1786740906062.062,
+      "size": 13861
+    },
+    "rkkp-afdk/entities/organizations/clinics/atrieflimren-klinik.md": {
+      "sha256": "78ddde05e0a25b6ca5178da96461f0f92ed83c794147ad0d53808bf51e9a249b",
+      "mtimeMs": 1785964664647.8242,
+      "size": 2635
+    },
+    "rkkp-afdk/entities/organizations/clinics/friklinikken-region-syddanmark-grindsted.md": {
+      "sha256": "a8216b3432a4b9b5982a8fe0d6974e13f14878a75bb808b778501e6c2ed7ca0c",
+      "mtimeMs": 1785959010092.279,
+      "size": 3707
+    },
+    "rkkp-afdk/entities/organizations/clinics/garantiklinikken.md": {
+      "sha256": "5cc708735f685430b5eff20e12ad66b2884eb2cd6b8d205d6f023de5cfc015d2",
+      "mtimeMs": 1785958907555.3684,
+      "size": 2876
+    },
+    "rkkp-afdk/entities/organizations/health-authorities/regionernes-kliniske-kvalitetsudviklingsprogram.md": {
+      "sha256": "b0ded314518839d06cbc7718031e197095df19d73d09066d0d18860a5a7b003f",
+      "mtimeMs": 1786736917053.8257,
+      "size": 34887
+    },
+    "rkkp-afdk/entities/organizations/health-authorities/sundhedsdatastyrelsen.md": {
+      "sha256": "a82e4aef7c4b5360d2511fd585d896892b2b15df81e4ac366a4dd18d86cbe27f",
+      "mtimeMs": 1786737656632.1907,
+      "size": 6210
+    },
+    "rkkp-afdk/entities/organizations/health-data-infrastructure/laegemiddelstatistikregisteret.md": {
+      "sha256": "c1862ba1486a97854713ec2db73313752bee4b7769cc664596e0a80a8263d924",
+      "mtimeMs": 1786738092941.6936,
+      "size": 7339
+    },
+    "rkkp-afdk/entities/organizations/health-data-infrastructure/rkkp-videncenter.md": {
+      "sha256": "4af5c4e189f991d07d5993f3e1e5b0cca7dce9187ebd728f981e3497b48854dc",
+      "mtimeMs": 1786740720742.89,
+      "size": 2319
+    },
+    "rkkp-afdk/entities/organizations/health-databases/danstroke.md": {
+      "sha256": "f4ac684787e7514c538744bd361e5cb1dd39d92bba2d5193e1d118395ef2479f",
+      "mtimeMs": 1786738302081.5469,
+      "size": 4201
+    },
+    "rkkp-afdk/entities/organizations/health-databases/databasen-for-atrieflimren-i-danmark.md": {
+      "sha256": "2c2fc0eae1eeeae59ef7819b5a0736f44dcfc881a8fbc1c6da5b7c436a857b37",
+      "mtimeMs": 1786737124645.604,
+      "size": 51951
+    },
+    "rkkp-afdk/entities/organizations/health-infrastructure/den-nationale-labdatabank.md": {
+      "sha256": "786bc72d2f5a3e65e44b2295f4cff807591bbc30840f2cb65524890e59465296",
+      "mtimeMs": 1786737844678.3528,
+      "size": 5961
+    },
+    "rkkp-afdk/entities/organizations/health-quality-infrastructure/afdk-anbefaler.md": {
+      "sha256": "e6ef7450f2ce71cf76b88b15331fc34a9dc029b3b52dddbed494e8febd4a59b8",
+      "mtimeMs": 1786743011319.0066,
+      "size": 2524
+    },
+    "rkkp-afdk/entities/organizations/health-quality-infrastructure/ekvis.md": {
+      "sha256": "07ab1b997ad9c39c5466dcc1a405f5ab6e54dfa9da8843148d1332c0dca11846",
+      "mtimeMs": 1786742612598.825,
+      "size": 2785
+    },
+    "rkkp-afdk/entities/organizations/health-quality-infrastructure/sundhedsvaesenets-kvalitetsinstitut.md": {
+      "sha256": "29399cb1b72cbc7db0c4aa906a1509ed2fdc58a29eef4746395cec7be0357d41",
+      "mtimeMs": 1786742797135.6365,
+      "size": 9754
+    },
+    "rkkp-afdk/entities/organizations/health-registries/atrieflimren-i-danmark.md": {
+      "sha256": "441c49ec86355cc689f8cdce33d4b2dd9f87a5a40c5f1e6583c9ef70539d264c",
+      "mtimeMs": 1786741095030.6902,
+      "size": 30152
+    },
+    "rkkp-afdk/entities/organizations/health-registries/laboratorieregistret.md": {
+      "sha256": "7022b8df5dd24a656f1cd1a0c85c76d6b1522d4250dfd151d404260e73521db2",
+      "mtimeMs": 1786738162485.9194,
+      "size": 4289
+    },
+    "rkkp-afdk/entities/organizations/health-registries/sygesikringsregisteret.md": {
+      "sha256": "bf63f1df5cbb4e21146cfe5c9094c14cbd24836dd8db1635c812eed5afa26245",
+      "mtimeMs": 1786736337270.68,
+      "size": 4971
+    },
+    "rkkp-afdk/entities/organizations/health-standards/governance/afdk-styregruppe.md": {
+      "sha256": "1a222e5df279b97058ee3c7b762d19a2e5143bb1586393bf43c5922345d68d9e",
+      "mtimeMs": 1786738918222.6108,
+      "size": 23767
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/aarhusklyngen.md": {
+      "sha256": "3bcfd1ff86e67383d5d5c5987f3c58faafccbdbb35f562dab1601722b15239ff",
+      "mtimeMs": 1786741474592.1025,
+      "size": 4987
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/goedstrupklyngen.md": {
+      "sha256": "5b6c664426d72e9826d2d6526d0efb3b246ea3a1ae9fbe1953a010924cd75836",
+      "mtimeMs": 1786741523282.3616,
+      "size": 5847
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/horsensklyngen.md": {
+      "sha256": "c1f90c90418be85ee58345018db3fdf6eb3743ef5832e474912d67e29abd64d1",
+      "mtimeMs": 1786741664774.9036,
+      "size": 5820
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/klynge-nord.md": {
+      "sha256": "94046eca1e7c9c092277d391b2893ea63691a12846c1de4aea80a27cbf11694f",
+      "mtimeMs": 1786741718002.9768,
+      "size": 6437
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/klynge-syd.md": {
+      "sha256": "bf9e070383083b4e3a1b939018ff27f1bfd3cd90c756791e8c4e5ba1f1f42e94",
+      "mtimeMs": 1786741793974.4321,
+      "size": 6163
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/klynge-vest.md": {
+      "sha256": "0c35a206f554f34c72a4cde456809e03a680b6ef239e73ea8432aa5ff200e610",
+      "mtimeMs": 1786741870762.5,
+      "size": 5803
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/midtklyngen.md": {
+      "sha256": "2f5cec40d36f067789a42c5d2980ee07a56ac9b97a1b95c5f66e56a92788dd6e",
+      "mtimeMs": 1786741747177.2014,
+      "size": 10159
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/randersklyngen.md": {
+      "sha256": "57ddce33abb239789826a0d9870b058b443bba152a082b8ac1a677d9ec36862e",
+      "mtimeMs": 1786741670129.114,
+      "size": 5430
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklynge-bornholm.md": {
+      "sha256": "82cd8f57ef1172137c4662f63e794737315881749110924161cc42b447bbfcad",
+      "mtimeMs": 1786741149853.1423,
+      "size": 6337
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklynge-byen.md": {
+      "sha256": "21ca06e3790c3cf633d91d65cf000da731445dc6ca3691fe0f7e70b9e4caae51",
+      "mtimeMs": 1786741023298.7166,
+      "size": 5871
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklynge-fyn.md": {
+      "sha256": "bbfce8648786d5d859774ea1a357bd5bd48046b52192a8df80006295f205364c",
+      "mtimeMs": 1786741330433.5002,
+      "size": 5319
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklynge-lillebaelt.md": {
+      "sha256": "15c2bfecad70206a8f7249c5e3a881e129f3b0a749c011b369194f678f3172d5",
+      "mtimeMs": 1786741450733.2942,
+      "size": 6940
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklynge-midt.md": {
+      "sha256": "c65965d00cf31bbb9098ccbb4601b5595d10de04eb4b85755eef6468ee35f9a2",
+      "mtimeMs": 1786741085506.3743,
+      "size": 5478
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklynge-nord.md": {
+      "sha256": "c47cfb4b9d498e2360da6e28c89682e2277eaf56e16dd216278f3ebb2605d600",
+      "mtimeMs": 1786741114235.0193,
+      "size": 5159
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklynge-soenderjylland.md": {
+      "sha256": "d211ee929323f779c1b07f3553e7c56366d9e1f96fcbe50e77adf057b6fe21ff",
+      "mtimeMs": 1786741615772.964,
+      "size": 8043
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklynge-syd.md": {
+      "sha256": "aab1b07a922e2c18c542d55789f68ee0c447f1679ceb30b598e3b3492f121cf6",
+      "mtimeMs": 1786741207300.107,
+      "size": 5168
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklynge-sydvestjylland.md": {
+      "sha256": "75d6d0101c4137601d93f72abb61cd3b5d40362c70d1f7cedf3b530b9529eb82",
+      "mtimeMs": 1786741376716.1345,
+      "size": 6701
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklyngen-holbaek.md": {
+      "sha256": "d2882fd41c5b3ce3ca0c3293b6b94aac131124771a2160a05b1d4bc86f3565d3",
+      "mtimeMs": 1786741233926.9136,
+      "size": 5697
+    },
+    "rkkp-afdk/entities/organizations/healthcare-registries/sundhedsklyngen-nykoebing-f.md": {
+      "sha256": "1a49db7a89fae911504c30c485dc7c7e481ed31120e4b85cbda69c755c76bf84",
+      "mtimeMs": 1786741360037.8643,
+      "size": 5455
+    },
+    "rkkp-afdk/entities/organizations/hospital-units/faelles-akut-modtagelse.md": {
+      "sha256": "c6e1aafb7b3170fc3bf463ee1d559d3f295cb3d7f7e180d3e749bd815fbdeeea",
+      "mtimeMs": 1785963479498.2454,
+      "size": 3234
+    },
+    "rkkp-afdk/entities/organizations/hospitals/aalborg-universitetshospital-thisted.md": {
+      "sha256": "e1fe0f10ab0ae699483a6a28fc2ffd7ea39486ef7cb53e694a37b9c1ca874df3",
+      "mtimeMs": 1785959584655.1533,
+      "size": 4672
+    },
+    "rkkp-afdk/entities/organizations/hospitals/aalborg-universitetshospital.md": {
+      "sha256": "5cc34cee01bf16ce071c0754a6d46f0e4906e0818e22026abb7a2ceb71a8c447",
+      "mtimeMs": 1785959466586.9756,
+      "size": 5401
+    },
+    "rkkp-afdk/entities/organizations/hospitals/aarhus-universitetshospital.md": {
+      "sha256": "5402fbd4f7830cd63c2f621913f26fe045cb2c57ae0bfccc8cc4f020c54c56b4",
+      "mtimeMs": 1785959248049.1638,
+      "size": 6260
+    },
+    "rkkp-afdk/entities/organizations/hospitals/amager-og-hvidovre-hospital.md": {
+      "sha256": "222114a30d8038e33951ced66dc31e924e4511a1feb6610472bba37c5f70751e",
+      "mtimeMs": 1785958555419.6577,
+      "size": 3442
+    },
+    "rkkp-afdk/entities/organizations/hospitals/bispebjerg-og-frederiksberg-hospitaler.md": {
+      "sha256": "407d1ec9b1780fe752ee7ca1351bb7340f875bb26e1ef6008e87c574a3ef3be9",
+      "mtimeMs": 1785958628981.962,
+      "size": 3682
+    },
+    "rkkp-afdk/entities/organizations/hospitals/bornholms-hospital.md": {
+      "sha256": "ea9b4e21e9760e1d9ba9c3d8b6470a9ae3909402dadf16c59f038e182186e72c",
+      "mtimeMs": 1785958643132.9807,
+      "size": 3079
+    },
+    "rkkp-afdk/entities/organizations/hospitals/esbjerg-sygehus-grindsted-sygehus.md": {
+      "sha256": "6c90db437ce0755576a43c3b3742a87bf5b9168b0c2097d7f8d9cbd1a5fcc020",
+      "mtimeMs": 1785958992962.2317,
+      "size": 3737
+    },
+    "rkkp-afdk/entities/organizations/hospitals/herlev-og-gentofte-hospital.md": {
+      "sha256": "af15efddf14cf97eb9dc5d0b0525ba1fc09751872c9ef56bf9fa12ccf17ae2b1",
+      "mtimeMs": 1786737042545.511,
+      "size": 5165
+    },
+    "rkkp-afdk/entities/organizations/hospitals/holbaek.md": {
+      "sha256": "3f440678b76b77d9b828a1d8e895e488354e10dfdbe5ff5bc055758c341355bb",
+      "mtimeMs": 1785958827599.385,
+      "size": 3258
+    },
+    "rkkp-afdk/entities/organizations/hospitals/hospitalerne-i-nordsjaelland.md": {
+      "sha256": "5df0b529afd53326419722d518d4e47649b456a3aedfdc7d4f5f02f92a542e1d",
+      "mtimeMs": 1785958897130.3738,
+      "size": 5326
+    },
+    "rkkp-afdk/entities/organizations/hospitals/hospitalsenhed-midt.md": {
+      "sha256": "fcfd9bffc876c765298b157c45d4da96205308b7454587c465248b3caacdfa81",
+      "mtimeMs": 1785959459908.2756,
+      "size": 5896
+    },
+    "rkkp-afdk/entities/organizations/hospitals/hospitalsenheden-vest.md": {
+      "sha256": "3eda8f4b5991455dbe133dd1ab40659b31b1167a039de4b519ab0cec7a10e970",
+      "mtimeMs": 1785960070687.4338,
+      "size": 3542
+    },
+    "rkkp-afdk/entities/organizations/hospitals/kolding-sygehus.md": {
+      "sha256": "30539097241b43c5829c82083413e515b6f295c41ce3e37cdd92d3d04814e400",
+      "mtimeMs": 1785959248317.9307,
+      "size": 7454
+    },
+    "rkkp-afdk/entities/organizations/hospitals/naestved-sygehus.md": {
+      "sha256": "36cc506e42dd7ba5ae31a0fddcf1866dc775346d4677b0d3c869d3e0e5dd9a0a",
+      "mtimeMs": 1785960996290.541,
+      "size": 4015
+    },
+    "rkkp-afdk/entities/organizations/hospitals/nykoebing-falster.md": {
+      "sha256": "79b50cd9b570f519519d0d05cef4e899179edec3a98c7c3d3c3b3f62e5acff64",
+      "mtimeMs": 1785958999456.1372,
+      "size": 3211
+    },
+    "rkkp-afdk/entities/organizations/hospitals/ouh-odense-universitetshospital.md": {
+      "sha256": "af95276405b1f6c36242d784af648152f1cf913d0f7b947f702837eda9ae4b6b",
+      "mtimeMs": 1785959105298.4558,
+      "size": 4017
+    },
+    "rkkp-afdk/entities/organizations/hospitals/regionshospital-nordjylland-ven.md": {
+      "sha256": "def31789aedb2153ad07a5fdaaaed4e74983956eff094459b3852eafdda6b003",
+      "mtimeMs": 1785959720117.6777,
+      "size": 5174
+    },
+    "rkkp-afdk/entities/organizations/hospitals/regionshospitalet-goedstrup.md": {
+      "sha256": "33850423ec4b8b38392fde50bb9b0b68360a7b4845bc9d7824df4d6505ae81e2",
+      "mtimeMs": 1785959403949.481,
+      "size": 3115
+    },
+    "rkkp-afdk/entities/organizations/hospitals/regionshospitalet-horsens.md": {
+      "sha256": "7980f720876e20772f13e96d326cf0f8a429d1b56aa084f5f446b7eafe859b9f",
+      "mtimeMs": 1785959363463.349,
+      "size": 5665
+    },
+    "rkkp-afdk/entities/organizations/hospitals/regionshospitalet-randers.md": {
+      "sha256": "3664ad883733971115442155f6423835477a72fae951f978ae5c987fbe08d906",
+      "mtimeMs": 1785959489566.9517,
+      "size": 5000
+    },
+    "rkkp-afdk/entities/organizations/hospitals/rigshospitalet.md": {
+      "sha256": "73f72940ad43fde2a158cd6572b6cb8841927b58cda5c3d0675c8cb78b84193a",
+      "mtimeMs": 1785958902895.5232,
+      "size": 4709
+    },
+    "rkkp-afdk/entities/organizations/hospitals/samso-sundheds-og-akuthus.md": {
+      "sha256": "a80dd87ac9df2074fefb4951fc9424cc3548aa80871692e301fa320c63cd4bc8",
+      "mtimeMs": 1785962305854.4065,
+      "size": 1616
+    },
+    "rkkp-afdk/entities/organizations/hospitals/sjaellands-universitetshospital-koenge.md": {
+      "sha256": "e165a9d848884b9df8cc234ca512058500971348194b3301b097263664925b9a",
+      "mtimeMs": 1785960145204.6504,
+      "size": 3618
+    },
+    "rkkp-afdk/entities/organizations/hospitals/sjaellands-universitetshospital-roskilde.md": {
+      "sha256": "c1d85e4396d958c536ed0e85ec2776c9999215f7f1726856f0a6bac92e56c2bd",
+      "mtimeMs": 1785959118096.9475,
+      "size": 3478
+    },
+    "rkkp-afdk/entities/organizations/hospitals/slagelse-sygehus.md": {
+      "sha256": "c3dba5363a49a517f7a2a24541767065b5dc0b6197278798fd8a0d280dd481cd",
+      "mtimeMs": 1785960976269.672,
+      "size": 4022
+    },
+    "rkkp-afdk/entities/organizations/hospitals/steno-diabetes-center.md": {
+      "sha256": "93f090f4f413708069400c60b612cc372573aa77575e550ffc690a487cabe0e3",
+      "mtimeMs": 1785962185360.629,
+      "size": 1773
+    },
+    "rkkp-afdk/entities/organizations/hospitals/sundhedsklyngen-slagelse.md": {
+      "sha256": "872d5e7d0d8587b24511ace8da965b92ce934b71f13885b9fd5f49dd3cf1ce12",
+      "mtimeMs": 1786743333707.5125,
+      "size": 4867
+    },
+    "rkkp-afdk/entities/organizations/hospitals/sundhedsklyngen-suh.md": {
+      "sha256": "90f464d09a57ec24efa6f560b8a5ce6ef666bc3bef05c020d67833c2cf32a58c",
+      "mtimeMs": 1786741261333.2637,
+      "size": 6303
+    },
+    "rkkp-afdk/entities/organizations/hospitals/sygehus-lillebaelt.md": {
+      "sha256": "26647bbe6d5e130044196f66ef09e28c1666ac8f1ecec03e3c98112eeab6ce53",
+      "mtimeMs": 1785959629373.25,
+      "size": 5448
+    },
+    "rkkp-afdk/entities/organizations/hospitals/sygehus-soenderjylland.md": {
+      "sha256": "d4617cdf3f47f0f662c342817ee90ad39a1fc83d1d4d8c9d70377782ea071df7",
+      "mtimeMs": 1785959241849.1772,
+      "size": 5118
+    },
+    "rkkp-afdk/entities/organizations/hospitals/vejle-sygehus.md": {
+      "sha256": "e0e48bb9144f6f0d1312942a5757496a06467aee22e565d82074287edf34339f",
+      "mtimeMs": 1785959333855.1006,
+      "size": 7093
+    },
+    "rkkp-afdk/entities/organizations/medical-societies/dansk-cardiologisk-selskab.md": {
+      "sha256": "da48b05394035a068ab5e6511613422f85cf8744d74cf43b78966fe6507b6eff",
+      "mtimeMs": 1786738807123.957,
+      "size": 3049
+    },
+    "rkkp-afdk/entities/organizations/medical-societies/international-society-of-thrombosis-and-hemostasis.md": {
+      "sha256": "c754883028e3a1d606f4776e66b14ac4ec122fa97593015950080a71ac64595f",
+      "mtimeMs": 1786738533823.5996,
+      "size": 6109
+    },
+    "rkkp-afdk/entities/organizations/medical-societies/sig-af.md": {
+      "sha256": "ef0dc7a474d73785b654d1e5fbbed7c51633a5d17c31b62705aafa1095c3a1a6",
+      "mtimeMs": 1786741960054.6567,
+      "size": 3639
+    },
+    "rkkp-afdk/entities/organizations/municipalities/broenderslev-dronninglund.md": {
+      "sha256": "062722bb3bfa9ac34ac7c4dbb809ea3bbb04de85cbd3d4f0bb61d154da26a72c",
+      "mtimeMs": 1785960432099.1628,
+      "size": 2384
+    },
+    "rkkp-afdk/entities/organizations/municipalities/fanoe.md": {
+      "sha256": "503ab80785ffbcb7ddaa4a7867d6d2b45c950f6502fccf507502af52c2a993dd",
+      "mtimeMs": 1785960216301.462,
+      "size": 2252
+    },
+    "rkkp-afdk/entities/organizations/municipalities/fredericia.md": {
+      "sha256": "39be08f1f1ac83a8017b8b24bf217dfe0dfa8caa6ccc91989c806d67fbc55df5",
+      "mtimeMs": 1785960249065.069,
+      "size": 1925
+    },
+    "rkkp-afdk/entities/organizations/municipalities/frederikshavn.md": {
+      "sha256": "cc182c9c4727e0b21956646f5d26815339e5a4941b0f89ff53ca58ea155dac49",
+      "mtimeMs": 1785960427545.262,
+      "size": 2089
+    },
+    "rkkp-afdk/entities/organizations/municipalities/haderslev.md": {
+      "sha256": "a79cfd8a567e65bfb877265f66543cbca5e0e83e00384975867aa1a9dd824c68",
+      "mtimeMs": 1785960278485.5876,
+      "size": 2145
+    },
+    "rkkp-afdk/entities/organizations/municipalities/hjoerring.md": {
+      "sha256": "82b0a3a48960cf97b580dc896c20be251daabdd4b4288d722b83d0f3813fb8f0",
+      "mtimeMs": 1785960440401.8726,
+      "size": 2007
+    },
+    "rkkp-afdk/entities/organizations/municipalities/holstebro.md": {
+      "sha256": "e718e233e5fa633ceef38614ee7a838915c26297c5c07f8c17460c7767aba84b",
+      "mtimeMs": 1785960346724.3738,
+      "size": 1828
+    },
+    "rkkp-afdk/entities/organizations/municipalities/ikast-brande.md": {
+      "sha256": "21e031be22d89e13a120f7dc01a3a76405e33dd5668e44a9f5cf8e064ef09d57",
+      "mtimeMs": 1785960344841.1226,
+      "size": 1821
+    },
+    "rkkp-afdk/entities/organizations/municipalities/kolding.md": {
+      "sha256": "9197b3709323d42fe1a8099b962d8c3f75665471d3bfe6c46ccbd1d0b8fa325f",
+      "mtimeMs": 1785960276530.752,
+      "size": 1844
+    },
+    "rkkp-afdk/entities/organizations/municipalities/langeland.md": {
+      "sha256": "23c2cc1623baeb1705780f61d653e99fbb871740cc64d2cf826d4f7f6f87a838",
+      "mtimeMs": 1785960309246.4312,
+      "size": 2058
+    },
+    "rkkp-afdk/entities/organizations/municipalities/odense.md": {
+      "sha256": "a05a7d939864a7044d4e4cfb5966f134fee1b6a65ebc299b5a6ac3056308a9c0",
+      "mtimeMs": 1785960306863.572,
+      "size": 1932
+    },
+    "rkkp-afdk/entities/organizations/municipalities/silkeborg.md": {
+      "sha256": "6c35593de22400face058d55ea553d31bcd36973ad2e6f359750def60042ccab",
+      "mtimeMs": 1785960378988.3352,
+      "size": 2212
+    },
+    "rkkp-afdk/entities/organizations/municipalities/skanderborg.md": {
+      "sha256": "f3949dc48e2ba237d3ebbf10cca6b6ff0e10b61423ff1e0d6855d26736f4db1d",
+      "mtimeMs": 1785960380234.9014,
+      "size": 2128
+    },
+    "rkkp-afdk/entities/organizations/municipalities/skive.md": {
+      "sha256": "a00d3f13f700656e0b306416512cec2de6bcf4acbdebd7d94885b19877f8a9eb",
+      "mtimeMs": 1785960391476.885,
+      "size": 2205
+    },
+    "rkkp-afdk/entities/organizations/municipalities/struer.md": {
+      "sha256": "71ab87243fbe8533917578b3e06a2ab9cbc9e3682caa8c39d632626730a45b0b",
+      "mtimeMs": 1785960411881.184,
+      "size": 2089
+    },
+    "rkkp-afdk/entities/organizations/municipalities/thisted.md": {
+      "sha256": "c20e107c6a74a01b0404fd953b62c81a5ff8f739c9cbb3794e282c3fef1642bb",
+      "mtimeMs": 1785960462047.0352,
+      "size": 2075
+    },
+    "rkkp-afdk/entities/organizations/regions/geodatastyrelsen.md": {
+      "sha256": "c307604606b93f25356597141a1e85aef677d3daa0225ca919fa8ae1498cc369",
+      "mtimeMs": 1786742740642.9036,
+      "size": 1442
+    },
+    "rkkp-afdk/entities/organizations/regions/region-hovedstaden.md": {
+      "sha256": "0ca5ef9d5711aa05ebcaa0d4f262e238851ac83684d7146ff944dab19571dd3c",
+      "mtimeMs": 1786745295009.154,
+      "size": 28170
+    },
+    "rkkp-afdk/entities/organizations/regions/region-nordjylland.md": {
+      "sha256": "3b798e0ca561b377effce319bb0d918962948d8eb6e388d2768e99d4280a9cab",
+      "mtimeMs": 1786745676580.1936,
+      "size": 33915
+    },
+    "rkkp-afdk/entities/organizations/regions/region-sjaelland.md": {
+      "sha256": "4eb79b16a65333d7d8d0fea1e8d05a05376bb8f89ffb1242dc33ecd4663f1fd1",
+      "mtimeMs": 1786745535633.2834,
+      "size": 27221
+    },
+    "rkkp-afdk/entities/organizations/regions/sundhedsklynger.md": {
+      "sha256": "d5a0d2cdf2a0c8a782debf9fb6dd022beef378805e1ca5033bd49d438e9e1ea5",
+      "mtimeMs": 1786740797181.2705,
+      "size": 6182
+    },
+    "rkkp-afdk/entities/people/health-professionals/axel-brandes.md": {
+      "sha256": "8f712f3d6c64231e86ae0e19b58fef6e652063570f813246d92c2479a38794c0",
+      "mtimeMs": 1786738862555.2637,
+      "size": 3967
+    },
+    "rkkp-afdk/entities/people/health-professionals/dorte-damgaard.md": {
+      "sha256": "0843db1cfc54f467ab8b0ba07f668d9b2c14c63ae804a2a49c9b325fdb10fbf2",
+      "mtimeMs": 1785961101922.3213,
+      "size": 1508
+    },
+    "rkkp-afdk/entities/people/health-professionals/dorthe-svenstrup.md": {
+      "sha256": "45b54cdb1f841b4c90e3059eb7f5124599d31b7efa98634aab821a7bbbbdb420",
+      "mtimeMs": 1786741998231.8936,
+      "size": 2511
+    },
+    "rkkp-afdk/entities/people/health-professionals/henrik-rasmussen.md": {
+      "sha256": "5b97bbb9deaabcf5451c0a253f2ea33f8c80fd63ceb82fa3a4f6ff9fe6bac378",
+      "mtimeMs": 1785961141482.3281,
+      "size": 1716
+    },
+    "rkkp-afdk/entities/people/health-professionals/henrik-vadmann.md": {
+      "sha256": "5d150dcb2ceb08881c922f43fdbb037247dd80c45e4d1f9596b2c6a5a9e8cd6a",
+      "mtimeMs": 1786742922012.931,
+      "size": 1513
+    },
+    "rkkp-afdk/entities/people/health-professionals/ina-qvist.md": {
+      "sha256": "8359784f36d693081d8cbbf1120a2afb473deb1d8acc3566d0a00f1bf9bd0415",
+      "mtimeMs": 1785961012399.4995,
+      "size": 1694
+    },
+    "rkkp-afdk/entities/people/health-professionals/jeppe-launbjerg.md": {
+      "sha256": "4649e843be3d50410fd18028e070b8daeae6b70968e3102f3feecffb52b02628",
+      "mtimeMs": 1785961163966.4373,
+      "size": 1632
+    },
+    "rkkp-afdk/entities/people/health-professionals/louisa-marguerite-christensen.md": {
+      "sha256": "58cd03759ba86781abbaba2cadadcf43946798e30cc5fb5ab2ceaae342e58c43",
+      "mtimeMs": 1786742039550.1804,
+      "size": 2929
+    },
+    "rkkp-afdk/entities/people/health-professionals/margit-brinck.md": {
+      "sha256": "62fc8aed2f1667c9264a5dfeaa84dcaf0a6a57c8c1e0bd9a80c0006107d2499c",
+      "mtimeMs": 1786738825511.8599,
+      "size": 2415
+    },
+    "rkkp-afdk/entities/people/health-professionals/michael-nielsen.md": {
+      "sha256": "57160b07f72295577917617ffddb009e70fd10c950a579daaaeb2c1676dfac83",
+      "mtimeMs": 1786742927489.4988,
+      "size": 1538
+    },
+    "rkkp-afdk/entities/people/health-professionals/ole-dyg-pedersen.md": {
+      "sha256": "59db7c28d8ec392c31fecc8e7d7bb72f94c41cb3ced1f45ef091e0edaa15947f",
+      "mtimeMs": 1786738926234.1394,
+      "size": 3783
+    },
+    "rkkp-afdk/entities/people/health-professionals/palle-mark-christensen.md": {
+      "sha256": "dd7cc5a8efa5c919ced05926203dd4e7e20158c35de3f6c35bf719ad056e93a4",
+      "mtimeMs": 1786738926026.084,
+      "size": 2541
+    },
+    "rkkp-afdk/entities/people/health-professionals/signe-risom.md": {
+      "sha256": "ebf422b254a3627b2493a903a9624fe8c42ef2c6cfef612082f6d5bdbcdf8715",
+      "mtimeMs": 1786742777397.6438,
+      "size": 2214
+    },
+    "rkkp-afdk/entities/people/health-professionals/ulla-davidsen.md": {
+      "sha256": "1d027d91c51dcbf55617f487095f042390fa949fe0ba521f683d42fd7684c5c6",
+      "mtimeMs": 1786738880535.6975,
+      "size": 2534
+    },
+    "rkkp-afdk/entities/people/health-researchers/anders-moller-schlunsen.md": {
+      "sha256": "3a6d10c6b3844193280096a6b545a5db9e7924a1d68d35a0b7381bc1a3e22e2b",
+      "mtimeMs": 1786738993345.1753,
+      "size": 3742
+    },
+    "rkkp-afdk/entities/people/health-researchers/chresten-gamborg-puggaard.md": {
+      "sha256": "731b44182cd04ece2f77fed58d2bf7f44882ea44f225975feb7313569a647b94",
+      "mtimeMs": 1786742037873.5198,
+      "size": 2060
+    },
+    "rkkp-afdk/entities/people/health-researchers/inge-oster.md": {
+      "sha256": "5f3eb63cfec291f916a01333f2780ecd0136931944f4ceae094483f788f3bafc",
+      "mtimeMs": 1786742950186.3433,
+      "size": 1880
+    },
+    "rkkp-afdk/entities/people/health-researchers/miriam-grijota-chousa.md": {
+      "sha256": "8ee8fb0ff475a88eda431ecf6bf277c6ce7a3434e3257c5066479acdc76ca8a3",
+      "mtimeMs": 1786739013426.329,
+      "size": 3293
+    },
+    "rkkp-afdk/entities/people/healthcare-professionals/albert-marni-joensen.md": {
+      "sha256": "4d9f0b96b33259f2386bc48a3a2e908a1bc1165833661936d1397ffb28d5637c",
+      "mtimeMs": 1785957645450.251,
+      "size": 3055
+    },
+    "rkkp-afdk/entities/people/healthcare-professionals/julie-andersen.md": {
+      "sha256": "d7118d4d7ea509f033b84570bb3c9f09f3669225ddbe8506dc2b7295fd6860a9",
+      "mtimeMs": 1785957657175.1743,
+      "size": 3945
+    },
+    "rkkp-afdk/entities/people/healthcare-professionals/lars-frost.md": {
+      "sha256": "badf74444d7d52f6edd414bd3534c30c7bb2bac8900bfad9b1ee9a136e683d25",
+      "mtimeMs": 1785957634888.4402,
+      "size": 3173
+    },
+    "rkkp-afdk/entities/people/healthcare-professionals/mette-ringtved.md": {
+      "sha256": "a8b3713c4f1abff0dceb9f49cfee1003ada71d0cbb31ab11484d4417a8d70eb5",
+      "mtimeMs": 1786742911814.443,
+      "size": 1692
+    },
+    "rkkp-afdk/entities/people/healthcare-professionals/ulla-dam-schmidt.md": {
+      "sha256": "993cf1d785a25e6a4edc9395f47ed448c5ce395df9671a9a45b8f50cf3ed7606",
+      "mtimeMs": 1786736410146.9646,
+      "size": 4360
+    },
+    "rkkp-afdk/entities/people/patient-representatives/inge-molgaard.md": {
+      "sha256": "05828ec9d14547f157e480d5a4e12f2b9e29d996e03027b4f08a5ee3cae52ef0",
+      "mtimeMs": 1786738960822.0593,
+      "size": 2333
+    },
+    "rkkp-afdk/entities/people/patient-representatives/robert-bedsted.md": {
+      "sha256": "bf8792068d55c83ecac950bbc21013bda796c5406eb6e7ec12ecff854005bb0a",
+      "mtimeMs": 1786738976036.9648,
+      "size": 2676
+    },
+    "rkkp-afdk/entities/pharmaceuticals/analgesics/nsaid.md": {
+      "sha256": "657a2ed844d6677886aa69fb680955fb7e11ba2896b2f5716af662c1e3b4b4f5",
+      "mtimeMs": 1785960735123.9707,
+      "size": 1520
+    },
+    "rkkp-afdk/entities/pharmaceuticals/antiplatelets/pladehaemmere.md": {
+      "sha256": "bdc7305e924b00a2f23cd957a4ba5c6ffde6990bd01cb6e9237ea83187bbb946",
+      "mtimeMs": 1785960724317.3042,
+      "size": 1132
+    },
+    "rkkp-afdk/entities/products/pharmaceuticals/doac.md": {
+      "sha256": "b3d56d78938f581ffbe79e12671c675428f95595e56d585fcdcc3233ce8eb52f",
+      "mtimeMs": 1786738666932.2046,
+      "size": 14768
+    },
+    "rkkp-afdk/entities/products/pharmaceuticals/marevan.md": {
+      "sha256": "2f2c326b3797e36f60015edb85ca98e75119e4ba93650bce2a92876bd57f8653",
+      "mtimeMs": 1786738505237.838,
+      "size": 13904
+    },
+    "rkkp-afdk/entities/standards/medical-coding/sks-koder.md": {
+      "sha256": "730052f66692eacfe38c11d6d6468ebe4430a4c5cd0b8108895356ceedfe569b",
+      "mtimeMs": 1785960936476.1396,
+      "size": 3348
+    },
+    "rkkp-afdk/entities/standards/medical-guidelines/esc-guidelines.md": {
+      "sha256": "ba93ba5356a66a3adc3f943c988cae052b773b9945f6df34422833ce1ba34245",
+      "mtimeMs": 1786742053760.0798,
+      "size": 5624
+    },
+    "rkkp-afdk/entities/standards/medical-guidelines/rads.md": {
+      "sha256": "d29e8ac01bddd6a367adcd916b4ad1b20a96d4ebbec4329708cc50c05825573c",
+      "mtimeMs": 1786742885031.286,
+      "size": 1444
+    },
+    "rkkp-afdk/entities/systems/health-information-systems/sundhedsplatformen.md": {
+      "sha256": "fe207a3cebcf91c0699bae097a1d685de3a98fc5ef0783b6b378290d8fcd7ae5",
+      "mtimeMs": 1786741778327.556,
+      "size": 3828
+    },
+    "rkkp-afdk/entities/systems/health-information-systems/sundk.md": {
+      "sha256": "740c1eeea2fe7d4d583e95c319fbe358aa88d82945773ada738f47bf0f304920",
+      "mtimeMs": 1786742616229.8362,
+      "size": 2420
+    },
+    "rkkp-afdk/entities/systems/laboratory-information-systems/labka.md": {
+      "sha256": "aa1fe5ccacae7e5aece67ceff0fb0ff1005eff5474b07d10863dc83208e962f2",
+      "mtimeMs": 1786737910749.0156,
+      "size": 3934
+    },
+    "rkkp-afdk/entities/websites/health-authorities/nbv-cardio-dk.md": {
+      "sha256": "4c610f6897ae4d5b635c413099a40d113ee6132de14dd38f53e3b14be707a393",
+      "mtimeMs": 1786736337923.2705,
+      "size": 704
+    },
+    "rkkp-afdk/entities/websites/health-authorities/www-rkkp-dk.md": {
+      "sha256": "5055a28d3413f801926fd9321090084cd0939ad509ac6534af027071c6dd9632",
+      "mtimeMs": 1785957923728.3486,
+      "size": 2223
+    },
+    "rkkp-afdk/topics/clinical-guideline/clinical-guideline.md": {
+      "sha256": "de823d2efb40bd783668d22c4df5c284fe424a41ad5bd923b900526e9a0eec10",
+      "mtimeMs": 1786744092629.745,
+      "size": 3420
+    },
+    "rkkp-afdk/topics/clinical-indicators/atrial-fibrillation/gastrointestinal-bloedning.md": {
+      "sha256": "8d5e35aa543798f222fb4256e408aca732e0dcbe0f157eb27ab839b0f7edd5b7",
+      "mtimeMs": 1786742707029.0127,
+      "size": 2015
+    },
+    "rkkp-afdk/topics/clinical-indicators/atrial-fibrillation/indikator-11.md": {
+      "sha256": "0fa65ad2c58033fe4f6a6e803882a4317b305b80fee0364a9075f36c9d8800a1",
+      "mtimeMs": 1785964718623.8857,
+      "size": 2493
+    },
+    "rkkp-afdk/topics/clinical-indicators/atrial-fibrillation/indikator-15.md": {
+      "sha256": "0187fa3db31d80b9ff1adf3bbc01a55edb64f080a662cce75e1beb553682346a",
+      "mtimeMs": 1786742117129.1987,
+      "size": 6823
+    },
+    "rkkp-afdk/topics/clinical-indicators/atrial-fibrillation/indikator-4a.md": {
+      "sha256": "c0f27f6444cc116854a776778c4fa7797c172893cc048d4f6c3491d2b2ee7cc3",
+      "mtimeMs": 1786738046468.3462,
+      "size": 19624
+    },
+    "rkkp-afdk/topics/clinical-indicators/atrial-fibrillation/indikator-9.md": {
+      "sha256": "48886bcf0bd43b2c81ea8d6c39e2bf2fbe66b6cd6eeb8d10306fb76157cce1ef",
+      "mtimeMs": 1786742251061.63,
+      "size": 4096
+    },
+    "rkkp-afdk/topics/clinical-indicators/atrial-fibrillation/lungebloedning.md": {
+      "sha256": "ce558a9eca2ad2bbc8f4e32976cf90e7ec9ba58bdae68172e7c53602febfcab1",
+      "mtimeMs": 1786742733431.8494,
+      "size": 1586
+    },
+    "rkkp-afdk/topics/clinical-indicators/atrial-fibrillation/supplerende-analyser-7.md": {
+      "sha256": "b91311939306d98a890a3df25a8dda733f70eac4790e8ee7135f8418ab711a5e",
+      "mtimeMs": 1786742092870.2087,
+      "size": 2589
+    },
+    "rkkp-afdk/topics/clinical-indicators/atrial-fibrillation/supplerende-indikator-hjertesvigt-efter-atrieflimren.md": {
+      "sha256": "c69ced53d6cac2c202d285076593a77295029087aca4a6d18133d3d5169bcc76",
+      "mtimeMs": 1786742091395.8884,
+      "size": 2144
+    },
+    "rkkp-afdk/topics/clinical-indicators/atrial-fibrillation/urinvejsbloedning.md": {
+      "sha256": "c4b0ce48c9397b85fe756cd965e5caa86713b9f83c499cc4cc2a759ffd0e9f83",
+      "mtimeMs": 1786742710132.3386,
+      "size": 1801
+    },
+    "rkkp-afdk/topics/clinical-indicators/cardiology/hjertesvigtsindikatoren.md": {
+      "sha256": "154db0c093071a5809f66c5832df369b182d5954ef1b82910eb990d8575373a5",
+      "mtimeMs": 1786742195757.9954,
+      "size": 10052
+    },
+    "rkkp-afdk/topics/clinical-indicators/clinical-indicators.md": {
+      "sha256": "f425a119fe2f862ea7023eeaf7e4dec39342c4716b699db0f2bed26f7d0d3bb9",
+      "mtimeMs": 1785966179513.0957,
+      "size": 5778
+    },
+    "rkkp-afdk/topics/clinical-indicators/indikator-2.md": {
+      "sha256": "ebd4bf149d09240e45a9134d5c2e1e02e67bac31e57406ccbb61c471cc2d51df",
+      "mtimeMs": 1786737575092.4602,
+      "size": 29139
+    },
+    "rkkp-afdk/topics/clinical-indicators/standard-80-percent.md": {
+      "sha256": "1c2815a5b71cb2b20287f93d2d7d8340134aeeda19b71408ff078f2dfadea0e5",
+      "mtimeMs": 1786737379422.4624,
+      "size": 3752
+    },
+    "rkkp-afdk/topics/clinical-outcome/alvorlig-bloedning.md": {
+      "sha256": "bce65433784fd91c8cb5705c0a59ea66c3b9f2063144377cdd0ffc16df493d7b",
+      "mtimeMs": 1786741988522.6287,
+      "size": 14417
+    },
+    "rkkp-afdk/topics/clinical-outcome/clinical-outcome.md": {
+      "sha256": "51206fcc82a1925d347d6b5fd80c7015993325e5560e6d2c4ad5fd4fb8d01c1f",
+      "mtimeMs": 1786744420652.8396,
+      "size": 13776
+    },
+    "rkkp-afdk/topics/clinical-outcome/supplerende-indikator-mortalitet.md": {
+      "sha256": "9b4b3fe414d8496bc1918ad7c47cf86f4527583b591e559c604fa384877ba7de",
+      "mtimeMs": 1786742962889.719,
+      "size": 2459
+    },
+    "rkkp-afdk/topics/clinical-practice-decision/clinical-practice-decision.md": {
+      "sha256": "e740b7fc243ddfcae1eb1db00e4349ca6083381c852f26554e817431407f798e",
+      "mtimeMs": 1785965945157.8918,
+      "size": 2969
+    },
+    "rkkp-afdk/topics/clinical-practice-decision/struktureret-undervisningsprogram.md": {
+      "sha256": "6f2ba221acbea1c522cb9e4793d50ae1b27f456794a7348747482f17ed7bc52c",
+      "mtimeMs": 1786740911114.1663,
+      "size": 4110
+    },
+    "rkkp-afdk/topics/clinical-practice/clinical-practice.md": {
+      "sha256": "503eb6a7affd108f88efed0c1ac70eb15773927b44d4f97533827142098e965d",
+      "mtimeMs": 1786744501530.8506,
+      "size": 10445
+    },
+    "rkkp-afdk/topics/clinical-risk-distribution/clinical-risk-distribution.md": {
+      "sha256": "c81761441291ea481be94dae59038fd39aa61ba85d3f9829c66348b772f53e87",
+      "mtimeMs": 1785965966888.589,
+      "size": 2357
+    },
+    "rkkp-afdk/topics/clinical-risk/clinical-risk.md": {
+      "sha256": "82295a18fae82d14fa4379ce03bffe5fec953efa72c78e46803c5a25ba228a32",
+      "mtimeMs": 1786744372750.972,
+      "size": 2403
+    },
+    "rkkp-afdk/topics/clinical-tools/care-modellen.md": {
+      "sha256": "8dc901b3343db24f15ead86113e5d86912fa71f37f4eee76de0d069938971d5c",
+      "mtimeMs": 1786742995152.594,
+      "size": 1694
+    },
+    "rkkp-afdk/topics/clinical-tools/risk-scores/abc-pathway.md": {
+      "sha256": "b556f79ddeb161719754dfcb68b6c70e30818a642903561f7203da699d6dd073",
+      "mtimeMs": 1785964802162.4707,
+      "size": 3413
+    },
+    "rkkp-afdk/topics/clinical-tools/risk-scores/cha2ds2-vasc.md": {
+      "sha256": "0296029766e2cd8cf57fb6ea95f6500d1aae999e5733a2b2889e248241265f60",
+      "mtimeMs": 1786739323337.8777,
+      "size": 15198
+    },
+    "rkkp-afdk/topics/coding-assignment/coding-assignment.md": {
+      "sha256": "08a0c7c5589c29247ea73c3cb95651fcd82b31410d23aca1735d69f02099a809",
+      "mtimeMs": 1786744752134.1206,
+      "size": 1172
+    },
+    "rkkp-afdk/topics/coding-system-specification/coding-system-specification.md": {
+      "sha256": "f3aca211871a5d5e173b818412a2d12a06a77b1368ab3b41bf2d8fa890c7e9e6",
+      "mtimeMs": 1786736338068.4604,
+      "size": 842
+    },
+    "rkkp-afdk/topics/comparative-result/comparative-result.md": {
+      "sha256": "19636e9b1c8724e64eea498800844a5d9517d2be02c420933b05463bfa653dd6",
+      "mtimeMs": 1786744164396.8672,
+      "size": 4073
+    },
+    "rkkp-afdk/topics/critical-assessment/critical-assessment.md": {
+      "sha256": "5f0beada8c067ce91ce3ab6cd5a550f5fc112cdc2f56d019ad347140035ed89c",
+      "mtimeMs": 1786744808143.633,
+      "size": 1302
+    },
+    "rkkp-afdk/topics/data-infrastructure/data-infrastructure.md": {
+      "sha256": "1a8a134a0b1d7a1a5d0044adee12fd5afcb8bba59da77d8b10a053ab3b848214",
+      "mtimeMs": 1785965237271.2751,
+      "size": 1776
+    },
+    "rkkp-afdk/topics/definition/definition.md": {
+      "sha256": "3651b3436e0bc4dee391f30e720ef6d2218dbf5514b6d0d7f87d2c5b95ebc4de",
+      "mtimeMs": 1786743599864.5464,
+      "size": 9052
+    },
+    "rkkp-afdk/topics/definitional/definitional.md": {
+      "sha256": "be97dd514042199a5294cf4794d299280171907b828fa69aac9b3415e7fb324b",
+      "mtimeMs": 1785965275464.3494,
+      "size": 1642
+    },
+    "rkkp-afdk/topics/epidemiology/epidemiology.md": {
+      "sha256": "7c25fa34606585a991b056f4401b10df86a2e50a1db82ae0dc1deae17c34b220",
+      "mtimeMs": 1786744045893.536,
+      "size": 14984
+    },
+    "rkkp-afdk/topics/epidemiology/praevalente-patienter-med-atrieflimren.md": {
+      "sha256": "38d23a3c4dab77d8af79521a45b0ed20cc1183497aabeab437c2205a3222bdf4",
+      "mtimeMs": 1786742042775.978,
+      "size": 5972
+    },
+    "rkkp-afdk/topics/exclusion-criteria/exclusion-criteria.md": {
+      "sha256": "f67a4356d0f7bf2df851a4335831684a13148a5ce121b2c2d6248a820eb43c0a",
+      "mtimeMs": 1786744783930.521,
+      "size": 1434
+    },
+    "rkkp-afdk/topics/geographic-distribution/geographic-distribution.md": {
+      "sha256": "1fdef0ea86869d814bb547098de6f41e657893170de9e70ff647f96e2c54e6bc",
+      "mtimeMs": 1786744236901.197,
+      "size": 4645
+    },
+    "rkkp-afdk/topics/governance/governance.md": {
+      "sha256": "cf90b7a1ce27ce9aefb62de88242ed9ff92bc34d5a1c77ef24f2e345669bd13e",
+      "mtimeMs": 1786743765693.5198,
+      "size": 2464
+    },
+    "rkkp-afdk/topics/guideline-recommendation/guideline-recommendation.md": {
+      "sha256": "75dea7ab8b0487067e08f0f6ade3f5a0644d9c708581d3f9d1eb1896bcc5b31d",
+      "mtimeMs": 1786744594524.5789,
+      "size": 1688
+    },
+    "rkkp-afdk/topics/health-indicators/indikator-3.md": {
+      "sha256": "10a6cfbc0ee38622e5921c20364d5fb7add8c37ce40c01b3435c20b18103bbaf",
+      "mtimeMs": 1786737733800.624,
+      "size": 14660
+    },
+    "rkkp-afdk/topics/health-indicators/indikator-6.md": {
+      "sha256": "de4c4672d9d0a3be8880f5956dfd19b32cc05cb77062c26b3b23366f9d392a59",
+      "mtimeMs": 1786738433095.5928,
+      "size": 8316
+    },
+    "rkkp-afdk/topics/healthcare-indicators/indikator-10.md": {
+      "sha256": "c1435666a90c52333bf4a7add57d3309bfd34f0974924e28b034ec04495991fc",
+      "mtimeMs": 1785962241853.359,
+      "size": 3011
+    },
+    "rkkp-afdk/topics/healthcare-indicators/indikator-16.md": {
+      "sha256": "03e8c3196ba0339b92c24381847f3da21b6245fce7725b389619687a866119a1",
+      "mtimeMs": 1785962260625.6133,
+      "size": 2978
+    },
+    "rkkp-afdk/topics/healthcare-quality-indicators/indikator-4b.md": {
+      "sha256": "f80430355b121f9c0a91a52e8b294cda0ef694bbebbc740baeecaf597bbd20d6",
+      "mtimeMs": 1786738364314.219,
+      "size": 21115
+    },
+    "rkkp-afdk/topics/healthcare-quality-standards/standard-90-percent.md": {
+      "sha256": "f7afddbe378e5f2439f2dac7817f3ed78e803d8966fb5c167e77c054b7f671b9",
+      "mtimeMs": 1786737997811.1138,
+      "size": 3964
+    },
+    "rkkp-afdk/topics/healthcare-quality-standards/standarden.md": {
+      "sha256": "78b2a47a9520983c9152111ca0391925100517184479a7e90868a1b97e52d08c",
+      "mtimeMs": 1786741856963.6887,
+      "size": 1988
+    },
+    "rkkp-afdk/topics/icd-codes/di48.md": {
+      "sha256": "6dc79ef283b0dbf9c6697e4d7632f0db43dd5416d673e592b2838c817442b48b",
+      "mtimeMs": 1786739497628.6787,
+      "size": 6040
+    },
+    "rkkp-afdk/topics/incidence-rate/incidence-rate.md": {
+      "sha256": "a800e8186442dc49ba23e7eaf26139fcb783a43f3223fce29f8ea209d1ec1096",
+      "mtimeMs": 1786743963944.5442,
+      "size": 5123
+    },
+    "rkkp-afdk/topics/limitation/limitation.md": {
+      "sha256": "2aad81010d086e4967926a0ddabfbaf030cf655a4d4eb4b22ee73ad6f12f545e",
+      "mtimeMs": 1786744036798.2925,
+      "size": 7032
+    },
+    "rkkp-afdk/topics/medical-conditions/cardiovascular/atrieflimren.md": {
+      "sha256": "d4068db0b9a0f8cc523e0fca00aa8084892e7dd92bead4b1df6213244ca36348",
+      "mtimeMs": 1786736870898.616,
+      "size": 67642
+    },
+    "rkkp-afdk/topics/medical-conditions/neurological/intrakraniel-bloedning.md": {
+      "sha256": "174b0555c33d3b396b83a5f52dd246e917be89e0ff5afcd33dbcbde61e7cf143",
+      "mtimeMs": 1786739494813.1033,
+      "size": 15976
+    },
+    "rkkp-afdk/topics/medical-conditions/neurological/iskaemisk-apopleksi.md": {
+      "sha256": "4c4e11d2d3b85a80fb5d0600d46e8720e0ada897a5417b5d9709a3cc4ba7a72a",
+      "mtimeMs": 1786739442675.5637,
+      "size": 14759
+    },
+    "rkkp-afdk/topics/methodological-definition/methodological-definition.md": {
+      "sha256": "d7ec7a49081288bbf2ae94524fdb489af8794dd90d6754050810518a7eca08fd",
+      "mtimeMs": 1786744397206.7686,
+      "size": 3172
+    },
+    "rkkp-afdk/topics/mortality-rate/mortality-rate.md": {
+      "sha256": "a2d5fd998a30567c84e1c8dde21fd493bc13f5fd85e9a91df75aa271987860f7",
+      "mtimeMs": 1786744027527.3413,
+      "size": 3505
+    },
+    "rkkp-afdk/topics/organizational-change/organizational-change.md": {
+      "sha256": "de82eccdb8b36d2ce11b4f6529d386f5e620d4f2a68e4cd56aa54b4391252780",
+      "mtimeMs": 1786743421070.7993,
+      "size": 2864
+    },
+    "rkkp-afdk/topics/organizational-practice/organizational-practice.md": {
+      "sha256": "2a314cfe9f4656479a8707bd4d35f0e6fde030148af154f68ce4df95fdb21f7d",
+      "mtimeMs": 1786744253861.3337,
+      "size": 2105
+    },
+    "rkkp-afdk/topics/organizational/organizational.md": {
+      "sha256": "d7a0bb368f5204bc10ff83454cafd7a86a2895bcbe19a4ed049cef885aee5432",
+      "mtimeMs": 1785966046953.5264,
+      "size": 2455
+    },
+    "rkkp-afdk/topics/patient-perspective/patient-perspective.md": {
+      "sha256": "be30300796949f57062d964022681998fdf873a63440f8531e7293f01aeffcf7",
+      "mtimeMs": 1785966185136.092,
+      "size": 1372
+    },
+    "rkkp-afdk/topics/performance-trend/performance-trend.md": {
+      "sha256": "fd3cfc46ac264a113300f8bf1db1ce3a8f0857fe5b76685b87e841b3af0a762d",
+      "mtimeMs": 1786744529903.4714,
+      "size": 1521
+    },
+    "rkkp-afdk/topics/performance/performance.md": {
+      "sha256": "cdd77b27236a31917a587e94d29b5f311ddf4b86456e8bcdb7281955c2c45310",
+      "mtimeMs": 1786743857531.5498,
+      "size": 21191
+    },
+    "rkkp-afdk/topics/pharmacovigilance/pharmacovigilance.md": {
+      "sha256": "eeea7d730ebd59e39c88cc81241792b1045eac20930e575256d8d57d7ef080e3",
+      "mtimeMs": 1786743781478.2964,
+      "size": 4158
+    },
+    "rkkp-afdk/topics/policy-change/policy-change.md": {
+      "sha256": "18a865de99deab6291bab51471ef98ce7fb19a59c952b87bb506e835152d7847",
+      "mtimeMs": 1785965633251.6821,
+      "size": 1183
+    },
+    "rkkp-afdk/topics/policy-decision/policy-decision.md": {
+      "sha256": "537f4f167bcd7d7069e6ae5fb5885105b6d7bc48478a981afb43f38bada79b1b",
+      "mtimeMs": 1786743641330.8394,
+      "size": 6620
+    },
+    "rkkp-afdk/topics/policy-decision/udviklingsmaal-95-procent.md": {
+      "sha256": "0aab9405c198c9e3e8a228d87ef98778fbea170bc4b1ccf0fc35edc58e505d21",
+      "mtimeMs": 1786742670366.4185,
+      "size": 2758
+    },
+    "rkkp-afdk/topics/policy-target/policy-target.md": {
+      "sha256": "34ebe84f9863247dd0720fdef3c8533fc9c1caa91b2b934c2bc746bd57c16ae7",
+      "mtimeMs": 1786744559783.5579,
+      "size": 1007
+    },
+    "rkkp-afdk/topics/pre-hospital-treatment/pre-hospital-treatment.md": {
+      "sha256": "8e28390db4b7bab6ce2ab25683b562f827e72e0436745b86b3e63138b9c0b41a",
+      "mtimeMs": 1785965282753.6062,
+      "size": 1444
+    },
+    "rkkp-afdk/topics/quality-improvement-action/quality-improvement-action.md": {
+      "sha256": "ffd9dbbe61c26ce2aeae28dc18c1aa0d0e11c7841a7a60b74184c9f66d2d52a0",
+      "mtimeMs": 1786744841021.377,
+      "size": 1244
+    },
+    "rkkp-afdk/topics/quality-indicator-definition/quality-indicator-definition.md": {
+      "sha256": "42c0747c1705b779d257a5a02e37566d828eb5a569e8599894685ad936c8a322",
+      "mtimeMs": 1786736338052.9841,
+      "size": 3374
+    },
+    "rkkp-afdk/topics/quality-indicator-result/quality-indicator-result.md": {
+      "sha256": "4b38b5bc3e06a6176e6cf845fc90a5f144a301e05826dee44edc8f8f04d1d486",
+      "mtimeMs": 1786736338059.0347,
+      "size": 2023
+    },
+    "rkkp-afdk/topics/quality-indicator-target/quality-indicator-target.md": {
+      "sha256": "674656823c706a9ebb5635e42a5864df15fe17d64258eb63b9c3534fc8dda6a2",
+      "mtimeMs": 1786744483183.7893,
+      "size": 3684
+    },
+    "rkkp-afdk/topics/quality-indicator/quality-indicator.md": {
+      "sha256": "819d850ce7acb79a5a52708072740b7362dbafda45b128a7d8c451f045dae801",
+      "mtimeMs": 1786744345607.461,
+      "size": 8266
+    },
+    "rkkp-afdk/topics/quality-indicators/atrial-fibrillation/indikator-4a1.md": {
+      "sha256": "bdbb28aa50a246d40b7a44afffa284a73ab4cfc33ddcc14b48639df6e6feefbf",
+      "mtimeMs": 1785964477248.1401,
+      "size": 3762
+    },
+    "rkkp-afdk/topics/quality-indicators/atrial-fibrillation/indikator-4a2.md": {
+      "sha256": "be53e27510aceb4b29a2889d47ae1160fb4bbfbe4ca217bb9f21cb16dc80e366",
+      "mtimeMs": 1785964462372.5347,
+      "size": 4079
+    },
+    "rkkp-afdk/topics/quality-indicators/atrial-fibrillation/indikator-4a3.md": {
+      "sha256": "1a2901665d64ed884979ce09dd85deea7066a3a9c15074e592b8844afce29a3e",
+      "mtimeMs": 1786736339115.8267,
+      "size": 7585
+    },
+    "rkkp-afdk/topics/quality-indicators/atrial-fibrillation/indikator-7.md": {
+      "sha256": "aad89eb16139dc9eaa4e29feb8a7868e98694c8df26a15ce4f61f10ff6283c0b",
+      "mtimeMs": 1786738792525.051,
+      "size": 12091
+    },
+    "rkkp-afdk/topics/quality-indicators/atrial-fibrillation/indikator-8.md": {
+      "sha256": "ec78bd26cd7b4a1a564f8fd3d91717b34c761eb4282fb9b4167473a6a7815607",
+      "mtimeMs": 1786739401406.2764,
+      "size": 25817
+    },
+    "rkkp-afdk/topics/quality-indicators/atrial-fibrillation/udviklingsmaal-90-percent.md": {
+      "sha256": "c476944e491662a65f3c18d97bfd34931edad1180064374845cec0394dd4beb2",
+      "mtimeMs": 1786742672427.2888,
+      "size": 3568
+    },
+    "rkkp-afdk/topics/quality-indicators/atrial-fibrillation/udviklingsmaal.md": {
+      "sha256": "83d3535085afb6da587972ccf18623e56c867fd645d4a439dc1defcde8a40999",
+      "mtimeMs": 1786742697977.9817,
+      "size": 3188
+    },
+    "rkkp-afdk/topics/quality-indicators/cardiology/indikator-1.md": {
+      "sha256": "0386bd0c97d0178981a3475be9e1ae459f89f99fac184df6460fd48ac4881b72",
+      "mtimeMs": 1786737230862.4714,
+      "size": 10278
+    },
+    "rkkp-afdk/topics/quality-indicators/cardiology/indikator-5.md": {
+      "sha256": "3a59f39a0361075087aaa8b7aafa05c43394ea586837a4c97c50344a1d8f2a90",
+      "mtimeMs": 1786738484516.6804,
+      "size": 19808
+    },
+    "rkkp-afdk/topics/quality-indicators/cardiology/indikator.md": {
+      "sha256": "e8fdd6b09c4f9abd045a931b5c3e00f7f5b5819f794c1e6326445de327de4506",
+      "mtimeMs": 1786742084226.178,
+      "size": 1913
+    },
+    "rkkp-afdk/topics/quality-indicators/cardiovascular/indikator-12.md": {
+      "sha256": "8202a9831efc2a6a28de1ba1c7373c06b23e3fa682882b2050f53b3931ae5ba7",
+      "mtimeMs": 1785962211010.4812,
+      "size": 3561
+    },
+    "rkkp-afdk/topics/quality-indicators/cardiovascular/indikator-13.md": {
+      "sha256": "3e485d776e7357e0d543b4fc4e02dbed9ec5efd5ef7893102cbf5b578e52793b",
+      "mtimeMs": 1785962145983.0725,
+      "size": 3029
+    },
+    "rkkp-afdk/topics/standard/standard.md": {
+      "sha256": "5536f546bde3ce35d124df5013e3af5f1ccced70ceb9d5d21cad3057e00152a9",
+      "mtimeMs": 1786743707104.6992,
+      "size": 13623
+    },
+    "rkkp-afdk/topics/statistical-interpretation/statistical-interpretation.md": {
+      "sha256": "cd71283613461f73561f06084b499e49c26a687c9eea21c4cde8a368c0cc39bd",
+      "mtimeMs": 1785966475113.6987,
+      "size": 2091
+    },
+    "rkkp-afdk/topics/validation/validation.md": {
+      "sha256": "f5b5f541b7bfca7f79509cb30caa0189be7f7cd66f0832bd1174d2730ff345e0",
+      "mtimeMs": 1786736338048.0173,
+      "size": 1352
+    },
+    "rkkp-akdb/entities/codes/healthcare-coding/kka.md": {
+      "sha256": "c3eafaf6de39ba8f22760c0dd8f184e9dadca1bda6c30cbefd2bb2aeaee8d611",
+      "mtimeMs": 1786775159513.9072,
+      "size": 814
+    },
+    "rkkp-akdb/entities/codes/healthcare-coding/nabb.md": {
+      "sha256": "728b284e5f5b5644c9cb3d0d100b5f201c3aa06c6708e93f5e09e4578232cca9",
+      "mtimeMs": 1786775159326.3838,
+      "size": 1210
+    },
+    "rkkp-akdb/entities/codes/healthcare-coding/nabc.md": {
+      "sha256": "ac46ef6c7e9da6c99d9c68403441f8bb7261fd7e6661228d7fb2c0cb1afdba02",
+      "mtimeMs": 1786775159329.5222,
+      "size": 1228
+    },
+    "rkkp-akdb/entities/codes/healthcare-coding/nabe.md": {
+      "sha256": "b721745643a3208b7387122f67fd7044672c3634abdc4709a6e59b74ae8c106e",
+      "mtimeMs": 1786775159327.3855,
+      "size": 1220
+    },
+    "rkkp-akdb/entities/codes/healthcare-coding/zz2009c.md": {
+      "sha256": "ea6de9165e7f34ccbee8f7907572932201dbda4332d4645c3887c078e939a4c2",
+      "mtimeMs": 1785958373297.4043,
+      "size": 2510
+    },
+    "rkkp-akdb/entities/codes/healthcare-coding/zz2009d.md": {
+      "sha256": "a240d697b5d831ea9b2e075666a6020ea8e31918f6abb9dd2126974afc8c775a",
+      "mtimeMs": 1785958368887.2834,
+      "size": 2181
+    },
+    "rkkp-akdb/entities/codes/healthcare-coding/zzp0030a.md": {
+      "sha256": "cc9eafd2dffad74371c5d19a11f2612d64eb9ddee422c54f910368e69e575a35",
+      "mtimeMs": 1786775159465.969,
+      "size": 730
+    },
+    "rkkp-akdb/entities/codes/healthcare-coding/zzp0030c.md": {
+      "sha256": "740a19fe7c9a534e6a277c90803274c9d1eb15f05de2552b08a923158d08e5da",
+      "mtimeMs": 1786775159467.9707,
+      "size": 768
+    },
+    "rkkp-akdb/entities/codes/medical-coding/babz00.md": {
+      "sha256": "5b1582cd07c86c648a8c3410f38bf2a69d86068a73ce0593efeb7fb32ab31da4",
+      "mtimeMs": 1786775159489.526,
+      "size": 661
+    },
+    "rkkp-akdb/entities/codes/medical-coding/dk65.md": {
+      "sha256": "c40140473f40b0267ec5569c8cd95968cecf673a731935edd86e798144d4f307",
+      "mtimeMs": 1786775159494.5198,
+      "size": 717
+    },
+    "rkkp-akdb/entities/codes/medical-coding/kjak01.md": {
+      "sha256": "9154c8e2b5eff770f85b0e8f149dd073f6f1a0a4c26cce97c9831937a979f0ef",
+      "mtimeMs": 1786775159481.34,
+      "size": 808
+    },
+    "rkkp-akdb/entities/codes/medical-coding/kjak03.md": {
+      "sha256": "f8bda81c060b23e401819fefbeff0451ffe65a1770bf32372d4ce7a6b4bead66",
+      "mtimeMs": 1786775159483.3474,
+      "size": 808
+    },
+    "rkkp-akdb/entities/codes/medical-coding/kjak04.md": {
+      "sha256": "5ac699008fcccc25e4e7cf29af0449991761d9620ef351ef2995daa421b3f709",
+      "mtimeMs": 1786775159485.344,
+      "size": 808
+    },
+    "rkkp-akdb/entities/codes/medical-coding/naad0.md": {
+      "sha256": "cf92fe2f2d7d743d18537547828f54e294c45155e831f2ba83e409a965d87c5f",
+      "mtimeMs": 1786775159492.5205,
+      "size": 685
+    },
+    "rkkp-akdb/entities/codes/medical-coding/naaz2.md": {
+      "sha256": "5d1b615bab75cd152922e84151a66f0fe4c5a542d5b23b0c30af21fc4b03bc3b",
+      "mtimeMs": 1786775159487.345,
+      "size": 685
+    },
+    "rkkp-akdb/entities/codes/medical-coding/sks-kode-naaz42.md": {
+      "sha256": "7e360971f64e1e43074feaaa970415da0a86a516ede581a634705023aa55ee8b",
+      "mtimeMs": 1786775159314.2166,
+      "size": 4005
+    },
+    "rkkp-akdb/entities/codes/medical-coding/sor-koder.md": {
+      "sha256": "64651069665f0d1e9dcd736be786ae054974b1c95a76f840b74e5b48386d646e",
+      "mtimeMs": 1786780356384.2114,
+      "size": 3417
+    },
+    "rkkp-akdb/entities/databases/clinical/danish-clinical-register-of-emergency-surgery.md": {
+      "sha256": "c1327e7ec7443b5c87b47e984f86bf4f3c6caa1e053e87e37e886ff4d229599e",
+      "mtimeMs": 1786775159406.7563,
+      "size": 675
+    },
+    "rkkp-akdb/entities/databases/government/cpr-registeret.md": {
+      "sha256": "214a873472951d56f66be1a866a8bedc891e53557512a99c13db0da67402cbaa",
+      "mtimeMs": 1786775159389.5967,
+      "size": 2708
+    },
+    "rkkp-akdb/entities/databases/government/sundhedsvaesenets-organisationsregister-sor.md": {
+      "sha256": "5802c67714d92b23e763415e219f0061587a5049e780a86724f93894a537a9ce",
+      "mtimeMs": 1786775159404.7607,
+      "size": 1236
+    },
+    "rkkp-akdb/entities/databases/healthcare/dansk-anaestesi-database-dad.md": {
+      "sha256": "1e9fa716c0e8f0c987f16cd0b4981031883a3acad1ed77f335886b079b155cd4",
+      "mtimeMs": 1786775159394.594,
+      "size": 3137
+    },
+    "rkkp-akdb/entities/databases/healthcare/den-nationale-labdatabank-dnl.md": {
+      "sha256": "b88c1246e7c818e1bc1a32948198748dc56360372b5bb0d98bba9d91c5b2ce5c",
+      "mtimeMs": 1786775159391.5964,
+      "size": 3059
+    },
+    "rkkp-akdb/entities/indicators/clinical-quality-indicators/indikator-9a.md": {
+      "sha256": "2bfc803c476273bafc90e32f2349593e7e07d62dcf9c77b3c220e9abe869b05d",
+      "mtimeMs": 1786780106172.6565,
+      "size": 2412
+    },
+    "rkkp-akdb/entities/locations/national/danmark.md": {
+      "sha256": "42fc06732efb615d704ecc0aba9101079353f17c818d378651cce930dafd95ee",
+      "mtimeMs": 1786775159225.0884,
+      "size": 11620
+    },
+    "rkkp-akdb/entities/locations/national/ima.md": {
+      "sha256": "44cb1f74d9bd19e04c37c8026cce996486e7d028f5ad7471fe6e5485879f77f5",
+      "mtimeMs": 1786775159529.2412,
+      "size": 1295
+    },
+    "rkkp-akdb/entities/locations/national/ita-afsnit.md": {
+      "sha256": "4f1daab2efe48c07d5526c8c3113e719addc7a93ff3c7e66bc8ab6c891a51369",
+      "mtimeMs": 1786775159531.2346,
+      "size": 1319
+    },
+    "rkkp-akdb/entities/locations/national/randers.md": {
+      "sha256": "5fc30967f5cbcd76ca0544aa8671f7a7d657e8b1165b166be20c8c8be9cee8db",
+      "mtimeMs": 1786780463412.8757,
+      "size": 1969
+    },
+    "rkkp-akdb/entities/locations/national/region-syd.md": {
+      "sha256": "6ddfc7fd854c10fe1c4bcd5f5125efa1310f6bcd34800eb597635057a1df6043",
+      "mtimeMs": 1786775159535.2368,
+      "size": 899
+    },
+    "rkkp-akdb/entities/locations/regions/hovedstaden.md": {
+      "sha256": "b1a20f33d0dd63f4a9cca2e2babf64228e127589bf8584473f973ca2bef87dfe",
+      "mtimeMs": 1786780201188.6033,
+      "size": 9575
+    },
+    "rkkp-akdb/entities/locations/regions/midtjylland.md": {
+      "sha256": "ee2732d520bdfef2818d317481f80afefc119ec627dad0bc35e4d58e0a3ef898",
+      "mtimeMs": 1786780223807.696,
+      "size": 8248
+    },
+    "rkkp-akdb/entities/locations/regions/nordjylland.md": {
+      "sha256": "d0532a76dcb667b4458f759097da2db9cd445edaf5c25f9971a54a4c2f9873ee",
+      "mtimeMs": 1786780380021.3743,
+      "size": 6216
+    },
+    "rkkp-akdb/entities/locations/regions/sjaelland.md": {
+      "sha256": "9197f5cc2259157e8b53027643d7f82b279c299eb677afd57636e90aace65e19",
+      "mtimeMs": 1786780305561.5933,
+      "size": 8512
+    },
+    "rkkp-akdb/entities/locations/regions/syddanmark.md": {
+      "sha256": "7a7068cfa261a34cf26893299a9d4241286a0dd29bc4f56ddd1d03b648cd10ed",
+      "mtimeMs": 1786780344668.9575,
+      "size": 7355
+    },
+    "rkkp-akdb/entities/medical-conditions/acute-surgical/iskaemi.md": {
+      "sha256": "f1c56c5aa50be3714d8ce202ce1456674af3f849fccbb5be3d5caed596e4bb50",
+      "mtimeMs": 1786780433130.9094,
+      "size": 1748
+    },
+    "rkkp-akdb/entities/medical-conditions/acute-surgical/perforeret-hulorgan.md": {
+      "sha256": "730165383290d921cf227a8f79716bd3c4cd98f69d1759c08fe17947e3ca9023",
+      "mtimeMs": 1786780394313.0884,
+      "size": 2144
+    },
+    "rkkp-akdb/entities/medical-conditions/acute-surgical/svaer-ileus.md": {
+      "sha256": "255dede61952bf087b7e3d5b54c5f7434aae42bf7c89fa77538f7f0e83e8822e",
+      "mtimeMs": 1786780418429.5352,
+      "size": 2299
+    },
+    "rkkp-akdb/entities/medical-procedures/anesthesia/ct-skanning.md": {
+      "sha256": "03d2ffe3125274dcebd1aedf08c9d2ad75da8231dccbb04c556bc819d5c6918a",
+      "mtimeMs": 1786775159446.5522,
+      "size": 2144
+    },
+    "rkkp-akdb/entities/medical-procedures/anesthesia/epidural.md": {
+      "sha256": "54037b0c1f59cef16ea2befa1c3a5db70d2f9107848713c125d2a51326c92027",
+      "mtimeMs": 1786775159350.8638,
+      "size": 5141
+    },
+    "rkkp-akdb/entities/medical-procedures/surgical/aaben-kirurgi.md": {
+      "sha256": "75b8673e3b9a199627159a22be61b7400018db9166bc6a9f38bd794e6aff8715",
+      "mtimeMs": 1785958158411.336,
+      "size": 2096
+    },
+    "rkkp-akdb/entities/medical-procedures/surgical/ileusoperationer-uden-iskaemi-eller-perforation.md": {
+      "sha256": "db40497a85d9dace120a3d92eba0a6c5726a820d7ed561bddebe4e613d717d70",
+      "mtimeMs": 1786780464698.5393,
+      "size": 3548
+    },
+    "rkkp-akdb/entities/medical-procedures/surgical/laparoskopi.md": {
+      "sha256": "704001e8ba649ac0b283ae836bfd0ec8057dd618c655213818dae4a706152230",
+      "mtimeMs": 1786780677030.401,
+      "size": 3961
+    },
+    "rkkp-akdb/entities/medical-procedures/surgical/laparotomi.md": {
+      "sha256": "163d40d3eca8de9d4d6a1cdbe08146d349e3c84d9656ce2b96d05bebffa37290",
+      "mtimeMs": 1786780692225.2844,
+      "size": 3895
+    },
+    "rkkp-akdb/entities/medical-procedures/surgical/mobilisering.md": {
+      "sha256": "3122d317475edc6e57191713e8e98def32568541feec86827cb36bae860cf0eb",
+      "mtimeMs": 1786775159544.444,
+      "size": 604
+    },
+    "rkkp-akdb/entities/organizations/healthcare-administration/sundhedsdatastyrelsens-teknikergruppe.md": {
+      "sha256": "9a0392f463504861745ad84cb6ac00e88f6bca47fbe176c1b85e09c986988e24",
+      "mtimeMs": 1786775159402.7566,
+      "size": 1034
+    },
+    "rkkp-akdb/entities/organizations/healthcare-authority/sds.md": {
+      "sha256": "c0cadda9c77f19d46c15dd6dd2891a1848e2605fb29823b55828d6e0b6edeed7",
+      "mtimeMs": 1785956660150.6108,
+      "size": 2074
+    },
+    "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen.md": {
+      "sha256": "c7d7aaacd1764048d05b223b33e54cc365342688dba109eeedb6410b39ed17a2",
+      "mtimeMs": 1786775159174.0793,
+      "size": 49805
+    },
+    "rkkp-akdb/entities/organizations/healthcare-databases/landspatientregisteret.md": {
+      "sha256": "a0a5c4ed24969500d523d4c6a5959e32689516d95c94b39c08e3290a35422848",
+      "mtimeMs": 1786775159182.192,
+      "size": 7889
+    },
+    "rkkp-akdb/entities/organizations/healthcare-databases/sygehusmedicinregisteret.md": {
+      "sha256": "3435e1281640a3ddcc3ee11ad30ff87219e4a8a898bec414f524fd82f3c71ce4",
+      "mtimeMs": 1786775159304.7131,
+      "size": 3064
+    },
+    "rkkp-akdb/entities/organizations/healthcare-governance/lkt-akut-kirurgi.md": {
+      "sha256": "d1847b846f68d08be7650995e514012b0865e3857e61a55fe0d91062e8bb907f",
+      "mtimeMs": 1786775159473.1597,
+      "size": 3792
+    },
+    "rkkp-akdb/entities/organizations/healthcare-governance/lkt.md": {
+      "sha256": "16c8e8b2f81cb1e0f97639ecc537f3376bcd18304436af2dd4158b11a18faf8f",
+      "mtimeMs": 1786775159344.6958,
+      "size": 910
+    },
+    "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen.md": {
+      "sha256": "613a6e0dc02071be110518ba5dda2f5628f6eba0aa1903bce969614262e8d716",
+      "mtimeMs": 1786775159342.6938,
+      "size": 7301
+    },
+    "rkkp-akdb/entities/organizations/healthcare-organizations/regionernes-kliniske-kvalitetsudviklingsprogram.md": {
+      "sha256": "7878fce853e0c375c610c521596ab5ac1ff3a09437e8585001f9ed5052351b04",
+      "mtimeMs": 1786775159177.022,
+      "size": 8595
+    },
+    "rkkp-akdb/entities/organizations/healthcare-oversight/sundhedsvaesenets-kvalitetsinstitut.md": {
+      "sha256": "6d56c2f95e00bb14237e5b2d2c13c7e3f186231b9cb004e6dc151426dd11c7d0",
+      "mtimeMs": 1786775159441.5547,
+      "size": 14620
+    },
+    "rkkp-akdb/entities/organizations/healthcare-systems/sfi.md": {
+      "sha256": "f0b12bb2e648c4591c8a00dddd111a7771b194dc05dde7c693ff078405fb81d4",
+      "mtimeMs": 1785957620306.038,
+      "size": 1952
+    },
+    "rkkp-akdb/entities/organizations/hospitals/aalborg-universitetshospital-thisted.md": {
+      "sha256": "d5c396c9e603d2689d810e5c2b118b791162ace37665221edb0329109ed79c17",
+      "mtimeMs": 1786775159295.3665,
+      "size": 1133
+    },
+    "rkkp-akdb/entities/organizations/hospitals/aalborg-universitetshospital.md": {
+      "sha256": "ad926e8944aa42199a951e6c1dbaa989112de9afe27b1f9d16fe3816afefb9d2",
+      "mtimeMs": 1786775159293.3655,
+      "size": 4567
+    },
+    "rkkp-akdb/entities/organizations/hospitals/aarhus-universitetshospital.md": {
+      "sha256": "090d306f57f66f54b3bcdf80d3d83f4f0c0d50f27986e0c8b9ea53b9405081e6",
+      "mtimeMs": 1786775159276.9832,
+      "size": 5371
+    },
+    "rkkp-akdb/entities/organizations/hospitals/amager-og-hvidovre-hospital.md": {
+      "sha256": "de78b025075d578c1a1657e5a027309fef17778b4a88708fdf7d056e851a886d",
+      "mtimeMs": 1786775159229.2744,
+      "size": 6503
+    },
+    "rkkp-akdb/entities/organizations/hospitals/bispebjerg-og-frederiksberg-hospitaler.md": {
+      "sha256": "0fae8800dbe9800057ad271cbaf4848ff5761f6b134b8eeb77e18c0b0c95f0a8",
+      "mtimeMs": 1786775159232.2761,
+      "size": 5560
+    },
+    "rkkp-akdb/entities/organizations/hospitals/bornholms-hospital.md": {
+      "sha256": "5945ad2a62f37c1771520136f4fcd5155d8431b0dff0942f1fb937bbfa504aae",
+      "mtimeMs": 1786775159240.4731,
+      "size": 5781
+    },
+    "rkkp-akdb/entities/organizations/hospitals/esbjerg-sygehus-grindsted-sygehus.md": {
+      "sha256": "f052efbb3fc228709307c0bb1bac90dd9b1527330515aae267f4ee956c713a35",
+      "mtimeMs": 1786775159347.695,
+      "size": 4597
+    },
+    "rkkp-akdb/entities/organizations/hospitals/esbjerg-sygehus.md": {
+      "sha256": "97b12df2cb898d52cc741843bdf8137cefa9605e8729bbdc87a6b59e30e972fa",
+      "mtimeMs": 1786775159263.756,
+      "size": 1016
+    },
+    "rkkp-akdb/entities/organizations/hospitals/herlev-hospital.md": {
+      "sha256": "0abee012e5e51443ac78ffc951adac8c2e37a3ba807a0de3fc1d5be3f707255a",
+      "mtimeMs": 1786780514119.3628,
+      "size": 2052
+    },
+    "rkkp-akdb/entities/organizations/hospitals/herlev-og-gentofte-hospital.md": {
+      "sha256": "52d5b3348d5e806b3fa1779747b8da748d7ee72d086c50352f5547fcde71216a",
+      "mtimeMs": 1786775159243.4724,
+      "size": 4917
+    },
+    "rkkp-akdb/entities/organizations/hospitals/holbaek-sygehus.md": {
+      "sha256": "716ceabd5d03a8b866e39df44499f54561ee17ac0a2ba2fb83e8b6a3f48415bb",
+      "mtimeMs": 1786775159253.621,
+      "size": 6024
+    },
+    "rkkp-akdb/entities/organizations/hospitals/hospitalerne-i-nordsjaelland.md": {
+      "sha256": "8ccd68f7632baac41b0c28def93182e6f59d821cbc96c463675a6120c8929f23",
+      "mtimeMs": 1786775159246.4724,
+      "size": 4269
+    },
+    "rkkp-akdb/entities/organizations/hospitals/hospitalsenhed-midt.md": {
+      "sha256": "cd05c005683a9e59eeb0080a47a5e19dfa034eee1fcfaa68bd020ef624d31869",
+      "mtimeMs": 1786775159280.1555,
+      "size": 4218
+    },
+    "rkkp-akdb/entities/organizations/hospitals/hvidovre-hospital.md": {
+      "sha256": "34570043c0729ec9709729d5ac7799feb94de0e17a28abfb2744492d765b8eb0",
+      "mtimeMs": 1786780492903.507,
+      "size": 1732
+    },
+    "rkkp-akdb/entities/organizations/hospitals/kolding-sygehus.md": {
+      "sha256": "fe1655bc8baecd1c242a90089864c9da9c98ca63402162964a7d014195a5611a",
+      "mtimeMs": 1785956779110.9119,
+      "size": 1405
+    },
+    "rkkp-akdb/entities/organizations/hospitals/naestved-slagese-og-ringsted-sygehuse.md": {
+      "sha256": "13a8f160abf50c762526d9e039b8850ed9dacb6caf4c73408f3c36554f273e81",
+      "mtimeMs": 1786775159257.6226,
+      "size": 5198
+    },
+    "rkkp-akdb/entities/organizations/hospitals/nykoebing-f-sygehus.md": {
+      "sha256": "f8689e644ba01b9e855929d4c785900a28f85b010e48bd005b156a9ed92f0c43",
+      "mtimeMs": 1786780331000.1526,
+      "size": 5046
+    },
+    "rkkp-akdb/entities/organizations/hospitals/odense-universitetshospital-svendborg.md": {
+      "sha256": "c4892bae9bed3c979a0ab3816b5e6b11c3cdae87db0410f8e304f3b838d31908",
+      "mtimeMs": 1786775159266.7593,
+      "size": 3263
+    },
+    "rkkp-akdb/entities/organizations/hospitals/ouh-odense-universitetshospital-odense.md": {
+      "sha256": "65a7d61a213588879a655b22df27a075b51054a6cfb9b690646c4135cb03f2a0",
+      "mtimeMs": 1786775159365.0417,
+      "size": 2299
+    },
+    "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland.md": {
+      "sha256": "d837ff77c1534fae05ada4d70b0830f6c61e65e56797e1c954d4683f54ab49f4",
+      "mtimeMs": 1786775159299.7107,
+      "size": 6293
+    },
+    "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-goedstrup.md": {
+      "sha256": "8f63426661a29ab719010368ddd15064c5cd4303d03988e3ba5dd93b2d1459c0",
+      "mtimeMs": 1786775159283.1577,
+      "size": 5181
+    },
+    "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-horsens.md": {
+      "sha256": "a25448324580f4405a5601d364dcc570791d58a9e39482fbdc50ca995272d7ed",
+      "mtimeMs": 1786775159287.156,
+      "size": 5805
+    },
+    "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-randers.md": {
+      "sha256": "f4d5cda7b831d0d66a09063d1bd8f168fae4f08c1e6fd3500db1e4ae7a74e533",
+      "mtimeMs": 1786775159290.365,
+      "size": 5020
+    },
+    "rkkp-akdb/entities/organizations/hospitals/rigshospitalet.md": {
+      "sha256": "848888d5c53131f6e272024ef21cffcbeb3c9cc047ee1abd2c0486a745982d64",
+      "mtimeMs": 1786775159250.6714,
+      "size": 7628
+    },
+    "rkkp-akdb/entities/organizations/hospitals/sjaellands-universitetshospital-koege.md": {
+      "sha256": "475a50098abb8ceec1010c894c75ea038565570f481a8675a00f3171ede875d8",
+      "mtimeMs": 1785956723862.3723,
+      "size": 1634
+    },
+    "rkkp-akdb/entities/organizations/hospitals/sjaellands-universitetshospital.md": {
+      "sha256": "03399464030d45c3d277f59580a3d29d774cc7df71f9877d18b764e9aa9b9bb3",
+      "mtimeMs": 1786775159260.7578,
+      "size": 3577
+    },
+    "rkkp-akdb/entities/organizations/hospitals/slagelse.md": {
+      "sha256": "d1bdca0f4c9fad92cd123047f4fde2b5fe01c52cbb00337f836271e8d52e8347",
+      "mtimeMs": 1785956784630.609,
+      "size": 1684
+    },
+    "rkkp-akdb/entities/organizations/hospitals/sygehus-lillebaelt.md": {
+      "sha256": "37693a5bc87e81d6d7532e548876cf8da33f91319c41c284f75dfdd343200a53",
+      "mtimeMs": 1786775159269.9856,
+      "size": 3992
+    },
+    "rkkp-akdb/entities/organizations/hospitals/sygehus-soenderjylland.md": {
+      "sha256": "8bed43f5b6ce914114929995e8f7cd9b08ac47a5d3d87380adc8ad2573bcc7ae",
+      "mtimeMs": 1786775159272.986,
+      "size": 4695
+    },
+    "rkkp-akdb/entities/organizations/hospitals/vejle-sygehus.md": {
+      "sha256": "eb1ced9bdf84df06fa2edb44b3662235721757b7dd1ba5c357989f28faf81fbc",
+      "mtimeMs": 1785956837503.8542,
+      "size": 1537
+    },
+    "rkkp-akdb/entities/organizations/medical-professional-bodies/american-college-of-radiology.md": {
+      "sha256": "03838689e03fb8bc1171a28be14f605e21d8afd367f02865a186450f1b681a87",
+      "mtimeMs": 1786775159311.2146,
+      "size": 1072
+    },
+    "rkkp-akdb/entities/organizations/medical-professional-bodies/dansk-radiologisk-selskab.md": {
+      "sha256": "4421d6d224a91543fc9f5d8f2ee876b10f7b37f25d9eed949edd57f3aa9c178f",
+      "mtimeMs": 1786775159308.213,
+      "size": 782
+    },
+    "rkkp-akdb/entities/organizations/medical-professional-bodies/dansk-selskab-for-klinisk-ernaering.md": {
+      "sha256": "ef30ea80b14cd7c3451152b9000afc221fb19514e1a4bd203c882ed86955d1f0",
+      "mtimeMs": 1786780508443.1704,
+      "size": 2603
+    },
+    "rkkp-akdb/entities/organizations/medical-research/elpquick.md": {
+      "sha256": "0a421671f72fe5da6ce316a2a42acebf05e55abb7b75e84faf3b9a38c063c7a3",
+      "mtimeMs": 1786775159301.7153,
+      "size": 1107
+    },
+    "rkkp-akdb/entities/organizations/regional-health-authorities/region-hovedstaden.md": {
+      "sha256": "748bebcd0a5e392607d1cd6a22719e2865e99694074f0439b5564017d1bceb8a",
+      "mtimeMs": 1786780107563.8757,
+      "size": 12101
+    },
+    "rkkp-akdb/entities/organizations/regional-health-authorities/region-midtjylland.md": {
+      "sha256": "5f79d54ffa60015c56530bed9fb23dcdc5ad679c9ad3545e6e669032f6c4b817",
+      "mtimeMs": 1786780107563.8757,
+      "size": 13533
+    },
+    "rkkp-akdb/entities/organizations/regional-health-authorities/region-nordjylland.md": {
+      "sha256": "cb75de89ecf8fb5c35668e1c1b2e93497dadd99f065f23d74ce8063e1d7a0cc2",
+      "mtimeMs": 1786780107579.5518,
+      "size": 13400
+    },
+    "rkkp-akdb/entities/organizations/regional-health-authorities/region-sjaelland.md": {
+      "sha256": "c8e5f222f6f27f2d2785a51ed40040b8f3af0532bcbb9f8d7d436ff0da025ea3",
+      "mtimeMs": 1786780107579.5518,
+      "size": 11612
+    },
+    "rkkp-akdb/entities/organizations/regional-health-authorities/region-syddanmark.md": {
+      "sha256": "f8587e327d169e48ab88f1ddf8e4f8914edeaa8b86d613975c8fb91c43a5e35f",
+      "mtimeMs": 1786780107581.9065,
+      "size": 11140
+    },
+    "rkkp-akdb/entities/organizations/regions/hovedstaden-region-i-alt.md": {
+      "sha256": "ac58140ea239eea9c5f42cfe258030c45a2139874dab7161b8f197ddac50b115",
+      "mtimeMs": 1786775159354.8733,
+      "size": 3280
+    },
+    "rkkp-akdb/entities/organizations/regions/midtjylland-region-i-alt.md": {
+      "sha256": "a62bd2efd3b25427a9fd1e4cb89f8d6df51848dea54f2613066676680be95787",
+      "mtimeMs": 1786775159368.2158,
+      "size": 2343
+    },
+    "rkkp-akdb/entities/organizations/regions/nordjylland-region-i-alt.md": {
+      "sha256": "8f58afb6093e4f67715be3b9c8026699ad89b16c89da3cfbae2a23c763fd2cb9",
+      "mtimeMs": 1786775159369.2217,
+      "size": 2491
+    },
+    "rkkp-akdb/entities/organizations/regions/sjaelland-region-i-alt.md": {
+      "sha256": "3daedc678f3a045b3f944f8f81befd52b3bfe3763fa8f9512a3507e8612a3564",
+      "mtimeMs": 1786775159356.8643,
+      "size": 1814
+    },
+    "rkkp-akdb/entities/organizations/regions/syddanmark-region-i-alt.md": {
+      "sha256": "a1c2f85a416eb6d338591b311a16825782318671b6ec5c1047f45dc3c0992d2a",
+      "mtimeMs": 1786775159361.0415,
+      "size": 1661
+    },
+    "rkkp-akdb/entities/people/healthcare-administrators/birgitte-ruhmann.md": {
+      "sha256": "b698dbf269213a51c12c204319d91c4148bdb240338b702916577a8b761945ec",
+      "mtimeMs": 1786775159436.378,
+      "size": 1957
+    },
+    "rkkp-akdb/entities/people/healthcare-administrators/vera-slyk.md": {
+      "sha256": "b08a2e71d4bf25df9e24a55f8500e571ed37d9c8afe2ca885eb1370cfc4fbc79",
+      "mtimeMs": 1786775159575.2673,
+      "size": 461
+    },
+    "rkkp-akdb/entities/people/healthcare-leaders/peter-svenningsen.md": {
+      "sha256": "9ea74651d801ea9f09a559a777018c234b6de8f702d039995a7bb2582b3c93f1",
+      "mtimeMs": 1786775159179.1992,
+      "size": 1330
+    },
+    "rkkp-akdb/entities/people/healthcare-leadership/lone-winther-jensen.md": {
+      "sha256": "00730ad0246a4f3ac3d0d5b266b834e1684830b08aa146403832a404cc18bf88",
+      "mtimeMs": 1786775159420.15,
+      "size": 1022
+    },
+    "rkkp-akdb/entities/people/healthcare-patient-representatives/vera-slyk.md": {
+      "sha256": "82ecd73913e31d5c224e7608e152d497d1c5ebe2e133e73712aa08d2e2c9c396",
+      "mtimeMs": 1786780810844.7007,
+      "size": 1725
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/anaestesiolog.md": {
+      "sha256": "243c7f374a75e51acb248f6da4b4e0e23f0f2155dd3e737b32c7352f76a73bf5",
+      "mtimeMs": 1785958438607.859,
+      "size": 2132
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/camilla-leidcker.md": {
+      "sha256": "ce2ced25a92b30fd76b5e05d2bcd5c0f003f130757011400ec037c18d510e709",
+      "mtimeMs": 1785957383701.9216,
+      "size": 2038
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/emma-possfelt-moeller.md": {
+      "sha256": "0dc88a73531919c97d3fad6fda4985ef06bb039c4c8e45a724a2c31b8dbbca55",
+      "mtimeMs": 1786780740228.1587,
+      "size": 1848
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/halfdan-lauridsen.md": {
+      "sha256": "2b88e14a4a9a22b3f52b410fd4f88ca83bd3ffa375141643a6425ee24a56ccec",
+      "mtimeMs": 1786775159411.9553,
+      "size": 919
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/helene-rask-dalby.md": {
+      "sha256": "b909003926dea3ca0b0b976423fb6f4982bb99aa00d94f9a6ca5b0fe8d05dff4",
+      "mtimeMs": 1786780761451.2258,
+      "size": 1413
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/henriette-vind-thaysen.md": {
+      "sha256": "f1397bf7a646e966d3448eec25b340f75e77c137ce8b5b10a67e6727c1786915",
+      "mtimeMs": 1786780776804.3884,
+      "size": 1762
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/jakob-burcharth.md": {
+      "sha256": "4b27b4756a714b9f6b5f9defcbbc8560006e4f8afd97dbc4b397e65515b520a4",
+      "mtimeMs": 1785957443597.3425,
+      "size": 1500
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/karen-vestergaard-andersen.md": {
+      "sha256": "d29c00b1e3dedf061312cc1782b98864b9ce682454d796a677d63fb4e089c3c3",
+      "mtimeMs": 1785957446182.451,
+      "size": 1809
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/kasper-gymoese-berthelsen.md": {
+      "sha256": "1ff76e911f2a7b1f4e36c33fc172171e80cae923dcc0d48da0a28bfdda3c522e",
+      "mtimeMs": 1786780805682.4702,
+      "size": 1925
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/kristian-aagaard-poulsen.md": {
+      "sha256": "75b1ba8982396f8601ee35902141cabca3386da43eec46f958557be352fe8a5f",
+      "mtimeMs": 1785957448568.3118,
+      "size": 1693
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/line-rokkedal-jonsson.md": {
+      "sha256": "f760265c51804d80d11926fefd1eec23cde1305f3dab6ebe58ebe66dd2709a84",
+      "mtimeMs": 1786775159417.9546,
+      "size": 1061
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/marianne-vinbaek.md": {
+      "sha256": "5eb1f11766459b7285c2d2ac09e60a1098a6d59d977b8bdc6941b0acd7c6d649",
+      "mtimeMs": 1786775159422.1458,
+      "size": 887
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/mette-astrup-tolver.md": {
+      "sha256": "a7b14d8aed8229e8397a61bd5d8e9d5f4212328bf7b93dded683ec7af1f3189f",
+      "mtimeMs": 1786780763389.6414,
+      "size": 2059
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/mikkel-niklas-frandsen.md": {
+      "sha256": "a874a7e497af5cf33fe7ea29b05e154f992ad716c8144c045d2c098e256e4a07",
+      "mtimeMs": 1786780842491.237,
+      "size": 1835
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/nicolai-bang-foss.md": {
+      "sha256": "76a54806708cd646910a91fc9eec58f6f1c5af33e769c7966a853e67165c85ee",
+      "mtimeMs": 1785957535850.3496,
+      "size": 1878
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/rasmus-haarup-lie.md": {
+      "sha256": "012e288f8809c7c028694e218be6020b7f157d3bc5100f9a8e6a765bb2c17369",
+      "mtimeMs": 1786775159425.1443,
+      "size": 1038
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/rikke-therkildsen.md": {
+      "sha256": "ba3affb9f06325351c2079801bb36301a6a5cdd504ff4da10deb0d4536d64980",
+      "mtimeMs": 1786775159427.1497,
+      "size": 889
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/rune-trangbaek.md": {
+      "sha256": "ffde14445b69a0ca3654e5cc5ca13aeb6c90ad8269fe1bf529fe07a19495c24b",
+      "mtimeMs": 1785957554867.4033,
+      "size": 1403
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/thomas-cotzand.md": {
+      "sha256": "48bcf88b4145e81f40beff1ad2876496686775ac9875efdb5e1fe6c524874119",
+      "mtimeMs": 1786780799421.1096,
+      "size": 1591
+    },
+    "rkkp-akdb/entities/people/healthcare-professionals/thomas-jorgensen.md": {
+      "sha256": "4c47d58fb91e48e18473b648f1634bdaf0e581469fba28cc95554dcabb1e96b8",
+      "mtimeMs": 1785957572977.7454,
+      "size": 1896
+    },
+    "rkkp-akdb/entities/people/healthcare-researchers/anne-kirstine-dyrvig.md": {
+      "sha256": "51a97b4fb8112c1f49e1a3e8997a74bb29da2ce6ef2d095a54845c8e299281a4",
+      "mtimeMs": 1786775159431.3767,
+      "size": 782
+    },
+    "rkkp-akdb/entities/people/healthcare-researchers/henrik-nielsen.md": {
+      "sha256": "4db239446d8186c1b5fb57827832b0b7c5b6c4ab958d3a5bc592b372f685be07",
+      "mtimeMs": 1786775159433.3792,
+      "size": 784
+    },
+    "rkkp-akdb/entities/people/healthcare-researchers/laursen-sb.md": {
+      "sha256": "efecf5d488dbede3f8ca3d7377e467a9e5d2d0ec8f4611d59c5f335fd0e82206",
+      "mtimeMs": 1785958318709.2612,
+      "size": 1978
+    },
+    "rkkp-akdb/entities/people/healthcare-researchers/rosenstock-s.md": {
+      "sha256": "c875c06a88fee43fa6ad450ecb92109295c6abfbbf8780eb06f2dc6ff730be22",
+      "mtimeMs": 1785958331087.6787,
+      "size": 1377
+    },
+    "rkkp-akdb/entities/people/healthcare-researchers/schaffalitzky-de-muckadell-ob.md": {
+      "sha256": "b88d065b8deac8e761581ee2485346286219b414d944e02ae4e9c2b88509de5a",
+      "mtimeMs": 1785958349512.4595,
+      "size": 2216
+    },
+    "rkkp-akdb/entities/people/researchers/moller-mh.md": {
+      "sha256": "9cb856982b09154637aff2f54f98a8e02b63c2050eaac35c02196c19492bc815",
+      "mtimeMs": 1785957339087.802,
+      "size": 3321
+    },
+    "rkkp-akdb/entities/scores/clinical-assessment/apache.md": {
+      "sha256": "2d706809fed53d640f01f17d1514e557981926151bee5a2c91ce4b501beecc49",
+      "mtimeMs": 1786775159336.5295,
+      "size": 1431
+    },
+    "rkkp-akdb/entities/scores/clinical-assessment/asa-score.md": {
+      "sha256": "710c7f56ac4adf532f85356594d6e5ee4a5adc39bb70e8f157a9bfd500426947",
+      "mtimeMs": 1786775159331.5234,
+      "size": 6166
+    },
+    "rkkp-akdb/entities/scores/clinical-assessment/charlson-score-ge-3.md": {
+      "sha256": "be68dae688d88c0073c4e4d6118bc5eb63712fb97e2f7b2d054a986b1a74c4df",
+      "mtimeMs": 1786775159501.7273,
+      "size": 2421
+    },
+    "rkkp-akdb/entities/scores/clinical-assessment/p-possum.md": {
+      "sha256": "f2565bfa5f15d27c2b0fb2d7dc101c30c677597cfa200d57c8df9d9517399f32",
+      "mtimeMs": 1786775159335.5225,
+      "size": 1167
+    },
+    "rkkp-akdb/entities/scores/clinical-assessment/pulp-score.md": {
+      "sha256": "937fd63aabef339a36b411f972a03a01812692ec26d69d81e8358ce490a9d14a",
+      "mtimeMs": 1786780706481.5144,
+      "size": 1140
+    },
+    "rkkp-akdb/entities/scores/clinical-assessment/surgical-apgar-score.md": {
+      "sha256": "475366bbfe4283b4eb3475c5db6aeff56a293fe4e51303e90eccbed378e7e6d6",
+      "mtimeMs": 1786775159338.695,
+      "size": 1510
+    },
+    "rkkp-akdb/entities/studies/clinical-trials/aha-studiet.md": {
+      "sha256": "9c02ef67edf508addfd1a1a7b5e472c03709a6a2a6377112c9c947e0e27a5edd",
+      "mtimeMs": 1786775159455.75,
+      "size": 2254
+    },
+    "rkkp-akdb/entities/studies/clinical-trials/danfraill.md": {
+      "sha256": "457330a9744217d9294b65ed301e91c4db93fed3c180c3446f9d8e5098e84718",
+      "mtimeMs": 1786775159540.4463,
+      "size": 593
+    },
+    "rkkp-akdb/entities/studies/clinical-trials/nasbo-projektet.md": {
+      "sha256": "70b3551f30e98039b2fb832ab8b01c82c3d1e158e4e9874cf1d68cb64207a15c",
+      "mtimeMs": 1786780479494.748,
+      "size": 1813
+    },
+    "rkkp-akdb/entities/studies/clinical-trials/pulp-trial.md": {
+      "sha256": "6fb949fda2affd19e552f38033e40d31390aec7111064ea5810f0b0273bea2b1",
+      "mtimeMs": 1786775159408.9543,
+      "size": 1520
+    },
+    "rkkp-akdb/entities/systems/healthcare-information-systems/epj.md": {
+      "sha256": "d089dd3a1c2ce2dab2a62605ee4b0cb1073c192a5c8636d52a8c0b9b061d5bd7",
+      "mtimeMs": 1786775159511.911,
+      "size": 845
+    },
+    "rkkp-akdb/entities/systems/healthcare-information-systems/lis.md": {
+      "sha256": "172984854a0e8107f67d095e4c2fcc5b87875184d730e9a2a4e32a615db372b0",
+      "mtimeMs": 1786775159509.9219,
+      "size": 1012
+    },
+    "rkkp-akdb/entities/variables/healthcare-database/forloeb-sorkode.md": {
+      "sha256": "71fd8c6fbd0a5c3956b35c4fb57fa594344eb1a6125d1326bba67fc060048d36",
+      "mtimeMs": 1786775159523.0686,
+      "size": 854
+    },
+    "rkkp-akdb/entities/variables/healthcare-database/opereret-1.md": {
+      "sha256": "9575ab97d4a82b38ca1ad0855538a8a94a3083a76345129f246346f9d746835b",
+      "mtimeMs": 1786775159517.9104,
+      "size": 991
+    },
+    "rkkp-akdb/entities/variables/healthcare-database/t-0.md": {
+      "sha256": "9248eaab73faaab768561b8d0edd87d870c92c15e5dc4b079a6112f72e032b07",
+      "mtimeMs": 1786775159520.0605,
+      "size": 813
+    },
+    "rkkp-akdb/topics/administrative-change/administrative-change.md": {
+      "sha256": "5c2d6d5daa2b24d4f77df099e4573647109091c5bdde8f5e150c4fc3bc50fef8",
+      "mtimeMs": 1786781084551.3472,
+      "size": 1499
+    },
+    "rkkp-akdb/topics/administrative-systems/danish-civil-registration/cpr-nummer.md": {
+      "sha256": "414255c7297888d26652c5571af2080763518cca5875dbfa4e36d854a8e39e6f",
+      "mtimeMs": 1786775159382.4177,
+      "size": 2565
+    },
+    "rkkp-akdb/topics/administrative-systems/danish-civil-registration/eras.md": {
+      "sha256": "40216f073ec4032c7f012883c4d689576f45f3a12d5dba9813f3802a5ecd970e",
+      "mtimeMs": 1786775159462.9697,
+      "size": 981
+    },
+    "rkkp-akdb/topics/administrative-systems/danish-civil-registration/indberetningsvejledning-til-landspatientregisteret.md": {
+      "sha256": "db9ba99e69536f20267df964cf5a24a95a1da8705f905f6515fa0cc4c014b8cc",
+      "mtimeMs": 1786775159507.7268,
+      "size": 1124
+    },
+    "rkkp-akdb/topics/cancer-distribution/cancer-distribution.md": {
+      "sha256": "6473db0eb5901392ca963b853ed757874601f2dad64be8c082b284368981e901",
+      "mtimeMs": 1785959024286.5886,
+      "size": 5293
+    },
+    "rkkp-akdb/topics/cancer-distribution/perforeret-ulcus.md": {
+      "sha256": "eaa0ec190c93eced6fadf8df8532e345b73a52a863ba3d74a387ab3480027fd4",
+      "mtimeMs": 1786775159460.9695,
+      "size": 1795
+    },
+    "rkkp-akdb/topics/clinical-assessment/clinical-assessment.md": {
+      "sha256": "03afeffa20b9ff07ffe980614d56a2b2aba265e2c3c05979f852200c28f7c604",
+      "mtimeMs": 1786775159660.7122,
+      "size": 1160
+    },
+    "rkkp-akdb/topics/clinical-consequence/clinical-consequence.md": {
+      "sha256": "d675392952bfce6fc77692f937e1f0e5966df68e09dab96ee6b81d78109ceb2a",
+      "mtimeMs": 1786775159646.3489,
+      "size": 671
+    },
+    "rkkp-akdb/topics/clinical-evidence/clinical-evidence.md": {
+      "sha256": "9d480a5b2a91181790c9b4cb79f006e9f4101f248e2800d2b5116c664883c5c6",
+      "mtimeMs": 1786775159645.3508,
+      "size": 1011
+    },
+    "rkkp-akdb/topics/clinical-indicator/clinical-indicator.md": {
+      "sha256": "21298dba5756fb171db269e7aaff21c143aed182b2579e9036978e6878a773f4",
+      "mtimeMs": 1785959225164.51,
+      "size": 2060
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/aha-patienter.md": {
+      "sha256": "5a3ef89b577bd959b353d7b78d4062f845e8fd0971ec8ae0a520c8e4b38fcd57",
+      "mtimeMs": 1786780107611.5955,
+      "size": 908
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/aha-populationen.md": {
+      "sha256": "eeb9e0b2673aec1a12b48186e27355b01d7fa69658c78215ba6ccf157d285eb6",
+      "mtimeMs": 1786780720616.9534,
+      "size": 4472
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/akut-abdomen.md": {
+      "sha256": "96fa9f95cde088ab367583ffc81487333b682f80cb2b82514255564ef29c854d",
+      "mtimeMs": 1786780107611.5955,
+      "size": 1578
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/antibiotikabehandling.md": {
+      "sha256": "0886d812785cc5421d5fcface366abb934e5c735c074a3d3c68fa7070eff498f",
+      "mtimeMs": 1786775159448.7512,
+      "size": 1307
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-1.md": {
+      "sha256": "5db184acd5e08201363f4f4bcfcc02a8097eabb5c910530a8a6bd72615676e74",
+      "mtimeMs": 1786775159188.4043,
+      "size": 21378
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-10.md": {
+      "sha256": "280b9f3d95cb07bb341827f499a53e0221a3acf23c3c608de8930f3849ba3057",
+      "mtimeMs": 1786775159220.0847,
+      "size": 12035
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-11.md": {
+      "sha256": "ddaa0b0a8cf17c87e8d8cfaf368f19ed661387f44ecc68f4ddf93fa1a820f808",
+      "mtimeMs": 1785955221158.9602,
+      "size": 5855
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-3.md": {
+      "sha256": "0c7a16d9853f37e46bd9ec95909a2fcbf2aea8eab89f10820fa153d6cad2f27f",
+      "mtimeMs": 1786775159193.3994,
+      "size": 12083
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-4.md": {
+      "sha256": "8a56ffb1d9e5f11a1811d2fa8efff09c30c65439b45152daf5816a44eaff095a",
+      "mtimeMs": 1786775159196.4077,
+      "size": 2569
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-5.md": {
+      "sha256": "0c2263c7d68a438c185912d39720bee6281a3316b2c26877a9788f8d6e5ba408",
+      "mtimeMs": 1786775159200.715,
+      "size": 7453
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-6.md": {
+      "sha256": "fcc358199cc07c758433042f4ed428cb108b8798c1b0da943ef862a485818b32",
+      "mtimeMs": 1786775159204.735,
+      "size": 8112
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-7.md": {
+      "sha256": "afea241645bdd6ee47ea470f6574cda882566f6a04323a3af4224a49821dd123",
+      "mtimeMs": 1786775159207.7158,
+      "size": 5906
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-8.md": {
+      "sha256": "a1e2533fe1562424bd63bea1ff38d146c399e7cec7752f112b4cbf530678bad6",
+      "mtimeMs": 1786775159211.9365,
+      "size": 9273
+    },
+    "rkkp-akdb/topics/clinical-indicators/acute-surgery/indikator-9.md": {
+      "sha256": "f5aa9000dee1fb46101242820c6f89f5d3b5f814203e47cadb8fb9e5f4634b2a",
+      "mtimeMs": 1786780107631.4946,
+      "size": 9863
+    },
+    "rkkp-akdb/topics/clinical-metrics/charlson-score.md": {
+      "sha256": "c0b743b825582f8e6ae22051be729287b4ccc80fa93623b86fcd981834eb5f22",
+      "mtimeMs": 1786775159384.416,
+      "size": 3952
+    },
+    "rkkp-akdb/topics/clinical-metrics/comorbidity-scoring/charlson-comorbiditets-indeks.md": {
+      "sha256": "c7eac129dbfa2423175b3ebe825a735156c3ce70ffc504bb8168fe2df3ddd724",
+      "mtimeMs": 1786775159378.4192,
+      "size": 3279
+    },
+    "rkkp-akdb/topics/clinical-metrics/comorbidity/charlson-score-0.md": {
+      "sha256": "063081a442b2f4f3dc4362002f266ad7a930d37385cd438928b1202cee91326b",
+      "mtimeMs": 1786775159372.2207,
+      "size": 3571
+    },
+    "rkkp-akdb/topics/clinical-metrics/comorbidity/charlson-score-1-2.md": {
+      "sha256": "4f22b3cd446a24dfd8d0544920821a25918d1ad0645f7aaf39a515c25d3de434",
+      "mtimeMs": 1786775159375.2197,
+      "size": 9334
+    },
+    "rkkp-akdb/topics/clinical-metrics/ernaering.md": {
+      "sha256": "a1125f62bff31017f2f8dfdba92c6bcf9625805ce3854a5df67eea9a3792faff",
+      "mtimeMs": 1786775159546.443,
+      "size": 1475
+    },
+    "rkkp-akdb/topics/clinical-outcome/clinical-outcome.md": {
+      "sha256": "cbd1adeda5eedb105ffad64447e0fbda8853c374284e494e5a959d6cafb13985",
+      "mtimeMs": 1786775159653.5178,
+      "size": 13595
+    },
+    "rkkp-akdb/topics/clinical-process/clinical-process.md": {
+      "sha256": "e04f3c467a7d0fe46e74b1c16b710ce33a4f0a2b0693bc619b9704cf2a238052",
+      "mtimeMs": 1786781204253.1577,
+      "size": 2323
+    },
+    "rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-10b.md": {
+      "sha256": "4acf4536adbb7dc1499e46d53e9ee5d544bc446e7aa3e1848710cb34f1c52d85",
+      "mtimeMs": 1786780420938.3772,
+      "size": 3095
+    },
+    "rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-10c.md": {
+      "sha256": "f7561b90829eddd9de8fd09f2e06bddf92676c4b88fec74c2b55385c949f2143",
+      "mtimeMs": 1785957059077.233,
+      "size": 5105
+    },
+    "rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-2.md": {
+      "sha256": "10eab2125780c0e575df43ded6084a3fcbc729e1c8724c2e6c41280599eff1b2",
+      "mtimeMs": 1786780107643.517,
+      "size": 8168
+    },
+    "rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-4x.md": {
+      "sha256": "ff233723051281fff3015be87c3e6d31da2d245f606a91c825d82c8c931e8cf5",
+      "mtimeMs": 1786775159451.7485,
+      "size": 7702
+    },
+    "rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-4y.md": {
+      "sha256": "641971e2a83619d34a120ca0a01daf837bfeb030c7ad20ecf3546da3929e326b",
+      "mtimeMs": 1786775159458.9746,
+      "size": 7281
+    },
+    "rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-9b.md": {
+      "sha256": "179b93983bf037678a0acbb78d1171a70a1a221af3ba4145a53a09ce7c0db785",
+      "mtimeMs": 1786775159496.52,
+      "size": 5333
+    },
+    "rkkp-akdb/topics/clinical-quality-indicators/surgical-outcomes/indikator-9c.md": {
+      "sha256": "c44ef8969395c484885e367ecd172547cbfe6036ddcbc78a4ec45c46cc6b978b",
+      "mtimeMs": 1786775159499.741,
+      "size": 5160
+    },
+    "rkkp-akdb/topics/clinical-quality/clinical-quality.md": {
+      "sha256": "36eef3963467ab3f0c63cb938672a683896253d6e60b49afaefe1609feefe0e2",
+      "mtimeMs": 1786781108297.4626,
+      "size": 2503
+    },
+    "rkkp-akdb/topics/coding-uncertainty/coding-uncertainty.md": {
+      "sha256": "1e658094cd966e5ea75b77cb1e193caa4ac6ed0dc62572a1520e8e3e5f36fc27",
+      "mtimeMs": 1785959401329.5244,
+      "size": 1437
+    },
+    "rkkp-akdb/topics/compliance/compliance.md": {
+      "sha256": "74631f438ce474cd3058dcfd3cc55a8c000513a3ac9ff8770ea5801f8228443f",
+      "mtimeMs": 1786781141441.563,
+      "size": 3062
+    },
+    "rkkp-akdb/topics/data-availability/data-availability.md": {
+      "sha256": "adbfd18687a44dd30cd4cf388e51160b67466fe6b42c2ee7de79884702df4858",
+      "mtimeMs": 1785959270228.7642,
+      "size": 1383
+    },
+    "rkkp-akdb/topics/data-decision/data-decision.md": {
+      "sha256": "584065c2a49d9488bd23d233018bb36a95c4bfff783283f76ad44153f0ee1054",
+      "mtimeMs": 1786781114028.9097,
+      "size": 1669
+    },
+    "rkkp-akdb/topics/data-privacy/data-privacy.md": {
+      "sha256": "65b91c121f68752069991555cdb582f4a20e7a22425389d3d12d06015210a45c",
+      "mtimeMs": 1785959272202.1404,
+      "size": 1925
+    },
+    "rkkp-akdb/topics/data-quality/data-quality.md": {
+      "sha256": "41a5ab42a93db1f46601da0c3cca9a73290c51a109eedda671499ff71d0b7527",
+      "mtimeMs": 1786775159621.985,
+      "size": 1966
+    },
+    "rkkp-akdb/topics/definition/definition.md": {
+      "sha256": "51620f32bd4012f37311ea9773f40b88af659e31d6064bdf1007f203c482784a",
+      "mtimeMs": 1786775159624.9878,
+      "size": 5036
+    },
+    "rkkp-akdb/topics/definitional-conflict/definitional-conflict.md": {
+      "sha256": "28d611d1827088a63817d843bac352183701013932ea966b98db16d26d35d4cf",
+      "mtimeMs": 1785959362070.7861,
+      "size": 1376
+    },
+    "rkkp-akdb/topics/definitional/definitional.md": {
+      "sha256": "e9d513cf625cd1c15c3d80a633d75131925f181f887d86956e5d268fd880d6f2",
+      "mtimeMs": 1786781136253.6018,
+      "size": 3191
+    },
+    "rkkp-akdb/topics/demographic/demographic.md": {
+      "sha256": "32d741a95d8059b5fa2a37b951935c471f346e1ab2fb7b95f0aa394945d5ecdb",
+      "mtimeMs": 1786775159657.5225,
+      "size": 629
+    },
+    "rkkp-akdb/topics/evaluation/evaluation.md": {
+      "sha256": "1f2490b5d58cb528b58af2ddd1649386d65d945d3c5d2d848d394c64c1198c4a",
+      "mtimeMs": 1786775159633.207,
+      "size": 1193
+    },
+    "rkkp-akdb/topics/evaluative/evaluative.md": {
+      "sha256": "e155b4e8df08fe96bb4d29f7a061a2dde36ec786a73fcc1a1f1217c99583f3fa",
+      "mtimeMs": 1786775159643.35,
+      "size": 881
+    },
+    "rkkp-akdb/topics/exclusion-criteria/exclusion-criteria.md": {
+      "sha256": "57af50c48d520fc08cded68c5373367d48c3730cfad88ba393f501feb925f68b",
+      "mtimeMs": 1786775159626.9841,
+      "size": 2806
+    },
+    "rkkp-akdb/topics/governance/governance.md": {
+      "sha256": "07fd68908ef996b6b5ff56f0753ebd457406142acc418d38f3a43cfa93bf12b9",
+      "mtimeMs": 1786781047207.1833,
+      "size": 1768
+    },
+    "rkkp-akdb/topics/healthcare-metrics/demographics/alder.md": {
+      "sha256": "b3b7756f54f2d37fdec61515de32b0ed46059d3d0e9db7eb180a05c55ac9213e",
+      "mtimeMs": 1786775159386.421,
+      "size": 1288
+    },
+    "rkkp-akdb/topics/healthcare-performance-indicators/indikator-5x.md": {
+      "sha256": "cc472355a2b674ac8f7b9f09e0cc5f3493e6035fd105a2822f28d64d4ccf25d0",
+      "mtimeMs": 1786780599844.8242,
+      "size": 6465
+    },
+    "rkkp-akdb/topics/healthcare-performance-indicators/indikator-5y.md": {
+      "sha256": "fb98f31ab7079f48fd5d31eab39e9f2c5f57e82bc2d28104f9218c855c17a052",
+      "mtimeMs": 1785956368084.8428,
+      "size": 3103
+    },
+    "rkkp-akdb/topics/inter-hospital-variation/inter-hospital-variation.md": {
+      "sha256": "90af0a81438eda422fe1547c9fa91871cc01d7cec4d77ddc91a0ea125e4fa35f",
+      "mtimeMs": 1785959173382.4116,
+      "size": 1225
+    },
+    "rkkp-akdb/topics/methodological-assessment/methodological-assessment.md": {
+      "sha256": "020e19de933df672c5319f15fe4842101401f1d535ceefa7198ceec16c444347",
+      "mtimeMs": 1786775159649.5305,
+      "size": 972
+    },
+    "rkkp-akdb/topics/methodological-change/methodological-change.md": {
+      "sha256": "3e16de58b6e90d0ee7d686b8b0897da8bafe551f0edf653da6a31c257b22d8dd",
+      "mtimeMs": 1786775159667.7126,
+      "size": 444
+    },
+    "rkkp-akdb/topics/performance/performance.md": {
+      "sha256": "3d596d720e41506c987706883f15d5a2385f7fe09d7119e19cf48e9504bf0f58",
+      "mtimeMs": 1786780107659.6914,
+      "size": 26011
+    },
+    "rkkp-akdb/topics/policy/healthcare-reform/sundhedsreformen.md": {
+      "sha256": "e1dccfcb2125f510e361b40065357ba2e0dfc00b1829130c63daa39cc5e15525",
+      "mtimeMs": 1786780540983.112,
+      "size": 2328
+    },
+    "rkkp-akdb/topics/policy/policy.md": {
+      "sha256": "a10707f82c253dfeaa3252a5d2276715d84963d48c6bcfe9a05b71fb3b2f400c",
+      "mtimeMs": 1786775159612.7913,
+      "size": 3559
+    },
+    "rkkp-akdb/topics/quality-target/quality-target.md": {
+      "sha256": "a641b6f67df1362c201eb0ff19f0eb31f3f8310fd6d95fdb746a13d82e978d0c",
+      "mtimeMs": 1786781151361.4126,
+      "size": 1608
+    },
+    "rkkp-akdb/topics/recommendation/recommendation.md": {
+      "sha256": "29b993e85ce5cccd8f7552c8783e3bf2bceb4c86555a2cfd7d788525df3b878b",
+      "mtimeMs": 1786775159641.3481,
+      "size": 897
+    },
+    "rkkp-akdb/topics/regional-comparison/regional-comparison.md": {
+      "sha256": "641caa62fadc1654f4f83cefcfc6e5f1ffc33b662ce3ea80b6c4fa83c1ccc98c",
+      "mtimeMs": 1786775159630.1963,
+      "size": 5512
+    },
+    "rkkp-akdb/topics/relevance-assessment/relevance-assessment.md": {
+      "sha256": "c092c8641d15efcf362fa28516cb79d1ad8333c224e92e1ed40e5ce42bc247ba",
+      "mtimeMs": 1785959366348.1533,
+      "size": 1175
+    },
+    "rkkp-akdb/topics/research-finding/research-finding.md": {
+      "sha256": "b9e05df52722ed24bf12210c44ed6ffe5d982e3442488b8f3f0fa12c2d9a88bb",
+      "mtimeMs": 1786775159665.7131,
+      "size": 469
+    },
+    "rkkp-akdb/topics/standard/standard.md": {
+      "sha256": "cba56f3ba06bf914c1af59861954b2bde29514d1006b7d8ce43f34a0fa3c2c8d",
+      "mtimeMs": 1786775159615.819,
+      "size": 7862
+    },
+    "rkkp-akdb/topics/technical-infrastructure/technical-infrastructure.md": {
+      "sha256": "4ad2e0808ff08caa9415e86cf60bfd733ffe09a57e194acdbe0ddc16f54384ef",
+      "mtimeMs": 1785959305898.7795,
+      "size": 1697
+    },
+    "rkkp-akdb/topics/visualizations/supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau.md": {
+      "sha256": "8e2d5643f01b622d358130ba64ac4d7cd8e9049799bf597a6378a2d900a8e73e",
+      "mtimeMs": 1786775159504.728,
+      "size": 483
+    },
+    "rkkp-danibd/entities/biomarkers/gastrointestinal/calprotectin.md": {
+      "sha256": "45990657c28741d2d0b2eb689693ca312d4bba4b530d26205b38e3328c296a26",
+      "mtimeMs": 1785944120949.3372,
+      "size": 7373
+    },
+    "rkkp-danibd/entities/biomarkers/gastrointestinal/faeces-calprotectin-maaling.md": {
+      "sha256": "d6af2efc435963cdd3bee5bbcd31b7fbd3f569198d77a9d03eaa0ac752861219",
+      "mtimeMs": 1785944120951.3804,
+      "size": 1750
+    },
+    "rkkp-danibd/entities/classification-systems/medical/montreal.md": {
+      "sha256": "63c4017db347ae5849bc7720e428c8720474e11a34cc810ff96e9bad82f06a9e",
+      "mtimeMs": 1785944120976.6165,
+      "size": 1202
+    },
+    "rkkp-danibd/entities/databases/health-registries/gastrobio.md": {
+      "sha256": "74863cc0fcd9c5f86d6279f7538b90e9405c65602682a6b4ea155efe6451419d",
+      "mtimeMs": 1785944120978.6306,
+      "size": 1650
+    },
+    "rkkp-danibd/entities/databases/health-registries/landspatientregisteret.md": {
+      "sha256": "2c83a9f61efc5c2197ec6847472c275e1d5b74ec2d8ec03249c01af6aa78b0d1",
+      "mtimeMs": 1785944120996.6184,
+      "size": 8579
+    },
+    "rkkp-danibd/entities/databases/health-registries/sygehusmedicinregisteret.md": {
+      "sha256": "3bf90e79228cbc2b4c0ccd656aa9307b39e4ec26e3c49c158c9b72a3561c8352",
+      "mtimeMs": 1785944120998.635,
+      "size": 2511
+    },
+    "rkkp-danibd/entities/databases/national-health-registers/laboratoriedatabasen.md": {
+      "sha256": "a61881ad12d8a7c12b766f75cfd2fa4aa3336599967b53b0b904e8fd042b822d",
+      "mtimeMs": 1785944121009.589,
+      "size": 1545
+    },
+    "rkkp-danibd/entities/diseases/gastrointestinal/kolorektalkraeft.md": {
+      "sha256": "6eef79489d49b904d798ac6b15a4a217c25f18189d3ee84f9f93e366e1b29bc8",
+      "mtimeMs": 1785944121025.071,
+      "size": 2452
+    },
+    "rkkp-danibd/entities/diseases/ibd-comorbidities/psc.md": {
+      "sha256": "79e6f470ad6ef5291e5271e43597ef54814aed66a426d037e311b9f58bee5795",
+      "mtimeMs": 1785944121030.2593,
+      "size": 9002
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/aarhus-universitetshospital.md": {
+      "sha256": "3a89b1351daac7c960eafe34c88178ff9e933f48e85a175958983a84841536e4",
+      "mtimeMs": 1785944121039.2441,
+      "size": 4704
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/abdominalcenter-k-bispebjerg-hospital.md": {
+      "sha256": "41d7cd678e659c43fbdaaf8d18530f2e161533afc664000bf8d9136a7b886ddc",
+      "mtimeMs": 1786777777277.9534,
+      "size": 963
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/amager-og-hvidovre-hospital.md": {
+      "sha256": "777abb370b9bcd73f2e8f21d2f4bb1022538b1ce05958eaf7188958a6694356d",
+      "mtimeMs": 1786778102032.1162,
+      "size": 1358
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/egs-esbjerg-medicinsk-mave-og-tarm-amb.md": {
+      "sha256": "a22012e4d1f005b139922f69fe7951b5c178a31f440df85ff902a486b3e4a529",
+      "mtimeMs": 1786777897967.2654,
+      "size": 2074
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/herlev-mave-tarm-leversygd.md": {
+      "sha256": "d66b99c5940fcfd86eb4fa8c0b1e24578387c4565c6a2087125d814ca8c5fee0",
+      "mtimeMs": 1785944121043.419,
+      "size": 2048
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/hvidovre-gastroenheden.md": {
+      "sha256": "242ad362ca4a7d8d782bd98a68d44c6cb090933ffdbd1839df6007ade4fa7d59",
+      "mtimeMs": 1785944121046.5532,
+      "size": 1981
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/hvidovre.md": {
+      "sha256": "c2a90f2566f143a7054b884a80f12de503801ed4b9883e8a2ca3fce8fe0f22a9",
+      "mtimeMs": 1785944121048.1677,
+      "size": 2569
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/nordsjaelland-kirurgisk-overafdeling.md": {
+      "sha256": "6c2b720a200d126e9b0b91333dc7fd2d030d1578f747e5427620c6bbc6730eed",
+      "mtimeMs": 1785944121060.2434,
+      "size": 3473
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/nordsjaellands-hospital.md": {
+      "sha256": "3001ad199dda7dc3b81244bab16a4e3f140600e524d692d0b1f4894fcec5ea26",
+      "mtimeMs": 1785944121066.2756,
+      "size": 4776
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/ouh-odense-kirurgisk-afdeling-a.md": {
+      "sha256": "509607a6b7025744e808638ff32cb60a350027fd7cf59f4dc469b4c4ca46d392",
+      "mtimeMs": 1785944121068.2837,
+      "size": 2512
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/ouh-odense-medicinsk-mave-tarm-afd-s.md": {
+      "sha256": "907f656d64b0c62e984ff7112bc038e2139b8acb21a34380002550d2e740b3d2",
+      "mtimeMs": 1785944121076.3643,
+      "size": 1958
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/ouh-svendborg.md": {
+      "sha256": "f4a64b2d5909e0784bb7dfdb60b7de9e4f9fb5e98a04942e275a9eb729ec9ca2",
+      "mtimeMs": 1785944121086.1992,
+      "size": 2078
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/regionshospitalet-goedstrup.md": {
+      "sha256": "5e6bfe8d4c6d2751ecd738a0f1323de2d53ea2a918e917d9d5fc2465a8956c26",
+      "mtimeMs": 1785944121094.0051,
+      "size": 6223
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/rigshospitalet-med-klinik-mave-tarm-lever.md": {
+      "sha256": "376d4f66c989f37b19bdcbd2e072618622c402c14d6f866c10f5728809ab7116",
+      "mtimeMs": 1785944121096.0176,
+      "size": 3275
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/sjellands-universitetshospital.md": {
+      "sha256": "701dd6c8a963cd60ed93aa6e12a2d5b0b2b939b5204aac66f1c2d1104a57e484",
+      "mtimeMs": 1786778129551.6543,
+      "size": 1531
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/slb-kolding-boerne-og-ungeafdeling.md": {
+      "sha256": "5f25ab5bd42dcc36190ad018ec5db4135fc54d6564ff5dffd143ec4039c10bbf",
+      "mtimeMs": 1786777777224.095,
+      "size": 737
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/slb-vejle-gastroenterologisk-amb.md": {
+      "sha256": "057bb155bddfa95333121c107eb210955c3baa0d67424fa0fb8d3c76d5aaaca6",
+      "mtimeMs": 1786777855209.5154,
+      "size": 1554
+    },
+    "rkkp-danibd/entities/healthcare-facilities/hospitals/slb-vejle-medicinsk-afdeling.md": {
+      "sha256": "3f7379c774fe5e7e6fb08967f390bbf3ea1d2a235eeac35d2f16be6675780f84",
+      "mtimeMs": 1785944121100.0544,
+      "size": 3767
+    },
+    "rkkp-danibd/entities/medical-conditions/gastrointestinal/anastomoselaekage.md": {
+      "sha256": "a834c1db9c49d29d09edb73487a7d907876bbc92ab9c9e2869110192e9728649",
+      "mtimeMs": 1785944121114.3562,
+      "size": 2523
+    },
+    "rkkp-danibd/entities/medical-conditions/gastrointestinal/fpiac.md": {
+      "sha256": "01f649de469d20f104c36e7ddedfbb5f7392d8e3f7cae8e2b69329befad5704a",
+      "mtimeMs": 1786777826005.8616,
+      "size": 2745
+    },
+    "rkkp-danibd/entities/medical-conditions/gastrointestinal/ibd.md": {
+      "sha256": "2d82b8f211c0e7011548c54fb2ecd86658ff19bff0adce85e2afb175000e69df",
+      "mtimeMs": 1785944121126.4253,
+      "size": 12826
+    },
+    "rkkp-danibd/entities/medical-conditions/gastrointestinal/korttarmssyndrom.md": {
+      "sha256": "2ed14e8f760853d1470f9bb02ad9c9f0816fd41495797824c8426e088da8e78b",
+      "mtimeMs": 1785944121131.5999,
+      "size": 2762
+    },
+    "rkkp-danibd/entities/medical-conditions/gastrointestinal/veo-ibd.md": {
+      "sha256": "cb2ff5c7a0d662ccf9603fe8b0357bd74340a517957a43df861a84e0c35de0ae",
+      "mtimeMs": 1785944121133.6902,
+      "size": 1993
+    },
+    "rkkp-danibd/entities/organizations/health-authorities/regionernes-kliniske-kvalitetsudviklingsprogram.md": {
+      "sha256": "fde64ac4fe0a878a1184cb5e6993e068d4626cd594d6bdb97295b138d9a429d7",
+      "mtimeMs": 1785944121151.7976,
+      "size": 3323
+    },
+    "rkkp-danibd/entities/organizations/health-authorities/sundhedsvaesenets-kvalitetsinstitut.md": {
+      "sha256": "d2b3fe1a82aa5361fe920a1919b5d84b65c05e72a7b7da30c35d029e60324403",
+      "mtimeMs": 1785944121159.659,
+      "size": 1623
+    },
+    "rkkp-danibd/entities/organizations/health-committees/region-oestdanmarks-sundhedsfaglige-raad-for-mave-tarm-og-leversygdomme.md": {
+      "sha256": "c38b39c8e541722c3bb2d86dc026c5e8947f3e9aabf1a4e4839a8d71509584fe",
+      "mtimeMs": 1786778174140.0227,
+      "size": 2025
+    },
+    "rkkp-danibd/entities/organizations/health-committees/styregruppen-for-danibd.md": {
+      "sha256": "b9868b3d956f53e0d9cff212c094b22c2f86570608797f5ec79ca8783457ef86",
+      "mtimeMs": 1785944121164.824,
+      "size": 11710
+    },
+    "rkkp-danibd/entities/organizations/health-databases/dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme.md": {
+      "sha256": "64d4d8a5cc36fe7a1f2c17d4610305e4ce90ce6f6d55a3e708cffe023e97ec87",
+      "mtimeMs": 1785944121171.902,
+      "size": 32984
+    },
+    "rkkp-danibd/entities/organizations/health-organizations/dansk-paediatrisk-selskab.md": {
+      "sha256": "0f9fe3d3ac4e4e36b13b3f65d4d9319a051851381df0236ca137052e5538d0d3",
+      "mtimeMs": 1785944121183.9895,
+      "size": 2183
+    },
+    "rkkp-danibd/entities/organizations/health-organizations/espgghan-2025-uc-guideline.md": {
+      "sha256": "a44515bca11849f08f11fb3ad8698ed63f3e667ce169745ebaf2637250ccc533",
+      "mtimeMs": 1786777829719.458,
+      "size": 2145
+    },
+    "rkkp-danibd/entities/organizations/health-organizations/espgghan.md": {
+      "sha256": "58a6e9bdffa6c00264426490f5b1bd7864436888954623e9a045784090cc3f77",
+      "mtimeMs": 1785944121193.8293,
+      "size": 1794
+    },
+    "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden.md": {
+      "sha256": "6cdb9ecbf1bca507a4a1af570c2a7bb0f0b5cfd193c16d94ef52241e53661510",
+      "mtimeMs": 1785944121213.6567,
+      "size": 5751
+    },
+    "rkkp-danibd/entities/organizations/regional-health-authorities/region-midtjylland.md": {
+      "sha256": "2700e7dcb374836c611ad45d276ce696d4c73ebfe3f9ded8c3b42633e3e99d4f",
+      "mtimeMs": 1785944121217.7666,
+      "size": 7053
+    },
+    "rkkp-danibd/entities/organizations/regional-health-authorities/region-nordjylland.md": {
+      "sha256": "79ac0f2eab9e09f3ad93cacc1c05d9ae3bfd0c05f7cfd34e7e0e6f34c9343824",
+      "mtimeMs": 1785944121224.9578,
+      "size": 8359
+    },
+    "rkkp-danibd/entities/organizations/regional-health-authorities/region-sjaelland.md": {
+      "sha256": "a6b6666e2feff0adb0f93c44aec1e1817e684483747b3c026c6af3f68d4c41ed",
+      "mtimeMs": 1785944121231.01,
+      "size": 6336
+    },
+    "rkkp-danibd/entities/organizations/regional-health-authorities/region-syddanmark.md": {
+      "sha256": "afccdbd9870afdafbc8317ae40c24c023e7c47ff20b57bf65706b4363045e7ae",
+      "mtimeMs": 1785944121233.0232,
+      "size": 7094
+    },
+    "rkkp-danibd/entities/people/data-governance/esra-oztoprak.md": {
+      "sha256": "f8cbb19382af83c31e555c275e6fcf82178180a655189b658d4273478306740d",
+      "mtimeMs": 1785944121240.8718,
+      "size": 1835
+    },
+    "rkkp-danibd/entities/people/data-governance/mathilde-pedersen.md": {
+      "sha256": "31fab14312968729b9d80bc8115ae6fb89da6ce32788a2cf3a31a5761cbb1c55",
+      "mtimeMs": 1786777981272.1614,
+      "size": 1872
+    },
+    "rkkp-danibd/entities/people/data-governance/pernille-aaen-sloth.md": {
+      "sha256": "2e0b9069b42a52e848b6d853a7b3dacfbc36c9443b22f691f880fceb41ff6713",
+      "mtimeMs": 1786777953876.9153,
+      "size": 1802
+    },
+    "rkkp-danibd/entities/people/data-managers/iben-kryger-birkholm.md": {
+      "sha256": "4bdfcd67f7ab8739614dfa692df1d440e5b55a0ed7573d13ea640582d040aa88",
+      "mtimeMs": 1786777978721.0918,
+      "size": 1422
+    },
+    "rkkp-danibd/entities/people/data-managers/jakob-riis.md": {
+      "sha256": "b6c6366379bf980c02a31778d11e3fb5914eadf392a42416250df851705f72fe",
+      "mtimeMs": 1785944121248.9878,
+      "size": 1636
+    },
+    "rkkp-danibd/entities/people/epidemiologists/anne-mette-falstie-jensen.md": {
+      "sha256": "6633a1e1bfe3d766fe691895d234ea83c216297423a7941b7908409e6959a0fe",
+      "mtimeMs": 1785944121258.875,
+      "size": 1741
+    },
+    "rkkp-danibd/entities/people/health-leaders/lone-larsen.md": {
+      "sha256": "44251279279828f2556b8ef767c61f135952578f36a41404808ad97a28f6c4d2",
+      "mtimeMs": 1785944121276.8203,
+      "size": 3507
+    },
+    "rkkp-danibd/entities/people/health-leaders/nynne-nyboe-andersen.md": {
+      "sha256": "f8d680c17dcac2c5696160aa42ee6fa45db27f1f25ee8973d18438403f9a2483",
+      "mtimeMs": 1786777931851.962,
+      "size": 1686
+    },
+    "rkkp-danibd/entities/people/health-leaders/tina-fransgaard.md": {
+      "sha256": "d4c78c3bdfb8cc2ba336ad63222adff6ac50ac94ad047a9240d69292e8a47ee3",
+      "mtimeMs": 1786777912620.1443,
+      "size": 1483
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/else-kjaer-mikkelsen.md": {
+      "sha256": "0d2601d87b386ef5b9020fb7156eeec9090160d6e9b02a6d91b9055233d91610",
+      "mtimeMs": 1785944121280.8496,
+      "size": 1854
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/eva-nielsen.md": {
+      "sha256": "999a47391dd6c816b0875ad0b7a1dc4668b0b9ac052514167fbfefe78148ea2d",
+      "mtimeMs": 1786777939406.2312,
+      "size": 1604
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/henning-glerup.md": {
+      "sha256": "8d8c9ed13e248142fc6c73e87ea5826f896156f48b85be178da0e1fb7c564f0e",
+      "mtimeMs": 1785944121284.6235,
+      "size": 1771
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/ida-vind.md": {
+      "sha256": "bebdca9bf8efcecf4ff138d102b1cdbaa636be9cc6253050063903a8ee57b78b",
+      "mtimeMs": 1785944121292.725,
+      "size": 1912
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/inge-nordgaard-lassen.md": {
+      "sha256": "8cb9914093ef38d972dca07d5c187364de139aa86a09f069bb2182d5ba130724",
+      "mtimeMs": 1785944121310.499,
+      "size": 1855
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/jens-kjeldsen.md": {
+      "sha256": "54569020589371da2ed7ce6a170b1fde45d37bd2c7bf675a2991521bbf5218f5",
+      "mtimeMs": 1785944121313.5962,
+      "size": 1999
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/johan-burisch.md": {
+      "sha256": "164e18f71ab097ea699ee03dc7e5030b270e7ab9ced9734aba4416b1700dec55",
+      "mtimeMs": 1785944121316.6936,
+      "size": 2064
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/marianne-kajbaek-vester-andersen.md": {
+      "sha256": "ac955d9de43c992f1f9c4fb3583a2f864d81d246db75831ec21f5cba255d3aa7",
+      "mtimeMs": 1785944121327.696,
+      "size": 2195
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/mohamed-attaubi.md": {
+      "sha256": "7585bacd380792d812252178ef30b3c4bd94833b89aa20fc1cc999542ae7f14c",
+      "mtimeMs": 1785944121331.8508,
+      "size": 1661
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/niels-qvist.md": {
+      "sha256": "708ef5e0b723ac8ae643a501919a1c2e1904bd696408c1c41b324d4b8e8c0a54",
+      "mtimeMs": 1785944121341.215,
+      "size": 1504
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/ole-thorlacius-ussing.md": {
+      "sha256": "468e687754443bbd58e5ac34072f695cfcd4cb18340fc8b9b1ec4299c7ff8736",
+      "mtimeMs": 1785944121343.2236,
+      "size": 1771
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/rasmus-gaardskaer-nielsen.md": {
+      "sha256": "16693ebfaa22633576f86701c7811fb14e47fc74f437f2f0da7b989bb6ef0661",
+      "mtimeMs": 1785944121351.296,
+      "size": 1692
+    },
+    "rkkp-danibd/entities/people/healthcare-professionals/torben-knudsen.md": {
+      "sha256": "9759d8e4f3a6676f05ce0c21d4fffa550b9e6e7f618924229613f209a392523b",
+      "mtimeMs": 1785944121361.099,
+      "size": 1816
+    },
+    "rkkp-danibd/entities/people/patient-representatives/jannie-jensen.md": {
+      "sha256": "cd85b89ce191c0385243123b5b81bce4e0a130213a2086c650ebfac6edd01cc8",
+      "mtimeMs": 1785944121379.0583,
+      "size": 1553
+    },
+    "rkkp-danibd/entities/people/researchers/jacobsen-ha-et-al.md": {
+      "sha256": "c07bf2ae6d4f0d98dd924a4745a8d873d96741e3bce9276cc5feda3940d456d2",
+      "mtimeMs": 1785944121391.1848,
+      "size": 3048
+    },
+    "rkkp-danibd/entities/procedural/dexa-scanning.md": {
+      "sha256": "90805a466c0aa3cc68ed6dae864126eba01717b7c9fa825b4a05c5a616e574dd",
+      "mtimeMs": 1785944121394.9507,
+      "size": 6349
+    },
+    "rkkp-danibd/entities/procedural/gastroskopi.md": {
+      "sha256": "2d5000ee6ddbdd5fc7dc7b8f6f2a1fd2a9c52e02e33bb53e42732f2df4b8b9ef",
+      "mtimeMs": 1786777835352.5818,
+      "size": 2871
+    },
+    "rkkp-danibd/entities/procedural/kapselendoskopi.md": {
+      "sha256": "2bcaf40a4aec5831006066d6c4f260dbd8ae73b44c771d0a1e89621dcdbc7126",
+      "mtimeMs": 1786777847481.2317,
+      "size": 2837
+    },
+    "rkkp-danibd/entities/procedural/mr-af-tyndtarmen.md": {
+      "sha256": "e7683cab10c3dc89955768d5ea43c4e13776ccec8dd4a302df7d98efc7c1f5e6",
+      "mtimeMs": 1785944121409.8264,
+      "size": 1678
+    },
+    "rkkp-danibd/entities/products/health-it/constant-care.md": {
+      "sha256": "c481122949b3b8bfd437857c56e093fb75c29af3b9bdf10a4e9ceca0a9f691ff",
+      "mtimeMs": 1785944121412.9438,
+      "size": 3427
+    },
+    "rkkp-danibd/entities/products/health-it/etrasimod.md": {
+      "sha256": "553dda7b53fcd66c36041cfb48dddf358c3ceb7cb1b101dcd3eef610c7ec4248",
+      "mtimeMs": 1786777898225.3457,
+      "size": 1941
+    },
+    "rkkp-danibd/entities/products/health-it/filgotinib.md": {
+      "sha256": "c5763fc1df60f9060fe41e0ed89ae2dc12fc9d6d64104416e4914fd497cfbe97",
+      "mtimeMs": 1785944121414.9988,
+      "size": 1771
+    },
+    "rkkp-danibd/entities/products/health-it/mirikizumab.md": {
+      "sha256": "6017427204797b55f0bcb0174ff7f8670532f3d36cdf6cea975ba5f002063083",
+      "mtimeMs": 1785944121428.0251,
+      "size": 1799
+    },
+    "rkkp-danibd/entities/products/health-it/ozanimod.md": {
+      "sha256": "6cc9d8502f5ff9b487980b72de822e666c1da7fac82ff740e9b637b75905d19e",
+      "mtimeMs": 1785944121431.128,
+      "size": 2086
+    },
+    "rkkp-danibd/entities/products/health-it/risankizumab.md": {
+      "sha256": "1958c6c4a1274ead5b02576121ca5e88a0dcea72b8657e45f6ceedc5883fa51a",
+      "mtimeMs": 1785944121437.2297,
+      "size": 2093
+    },
+    "rkkp-danibd/entities/products/health-it/upadacitinib.md": {
+      "sha256": "315c78ca2700ab8aac3e74e959d1f0934b9ede4b470f4565c25d085cec52d2eb",
+      "mtimeMs": 1785944121445.0334,
+      "size": 2160
+    },
+    "rkkp-danibd/entities/treatments/gastrointestinal/bmsl.md": {
+      "sha256": "0f5b2ad0f770e2bee98396d75690e8022de8e6df6a562b641c6e5d5a9c568ec0",
+      "mtimeMs": 1785944121460.8787,
+      "size": 10176
+    },
+    "rkkp-danibd/entities/treatments/gastrointestinal/steroidkurer.md": {
+      "sha256": "7519dfe5d42384440371878a741ded63733b51445be29a5954c28a6e4a83ff93",
+      "mtimeMs": 1786777884879.3906,
+      "size": 2590
+    },
+    "rkkp-danibd/topics/audit-finding/audit-finding.md": {
+      "sha256": "2fa12ca74da809450aac270cc2e6bac383591a21e6caaebe143e2297b0977fbe",
+      "mtimeMs": 1786777777410.1182,
+      "size": 793
+    },
+    "rkkp-danibd/topics/clinical-consensus/clinical-consensus.md": {
+      "sha256": "fe48eba3c236f80af6bc45fe1409cf9f9141fcc02bb72cbc733a2ef7b44e7e42",
+      "mtimeMs": 1785944121499.7576,
+      "size": 1064
+    },
+    "rkkp-danibd/topics/clinical-practice/clinical-practice.md": {
+      "sha256": "c21c9c8a77ba18abbbf1512181cc512d15c3314af0e8414d354865d7dd7053e9",
+      "mtimeMs": 1785944121510.7952,
+      "size": 2910
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/bike1-undervisning-i-inflammatorisk-tarmsygdom.md": {
+      "sha256": "bfec7526c1db9e90e7dc237c2983f198413a707bcf0e8745423f294a8182bb51",
+      "mtimeMs": 1785944121528.979,
+      "size": 5161
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/kjah00-eksplorativ-laparotomi.md": {
+      "sha256": "4ae8ca3e43fb20d7b5458b2b16b1f3db2ddb8a732d0a3d601407152db876d32e",
+      "mtimeMs": 1785944121548.2173,
+      "size": 588
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/kjah01-laparoskopi.md": {
+      "sha256": "686a98145a2f9a395d27a98a7e92a447dce0d497f63d3cb9316ab1088918aace",
+      "mtimeMs": 1785944121558.057,
+      "size": 1242
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/kjfb00-tyndtarmsresektion.md": {
+      "sha256": "40ac2feaadf024ba0af44508e72a4bb8b38cc36eb7bd493d203c4be4bb2603bf",
+      "mtimeMs": 1786777777266.8523,
+      "size": 589
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/kjfb20-21-30-31.md": {
+      "sha256": "ac0c626382a7162c4215329a36e663403527299c94962c37b12e80f727f8b80c",
+      "mtimeMs": 1785944121560.0747,
+      "size": 2494
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/kjfb21-laparoskopisk-ileocokal-resektion.md": {
+      "sha256": "fb52c2199697c8670d9dac0082e3458f5cd2399dc4e2025bd85ab4365a7c592d",
+      "mtimeMs": 1785944121564.1208,
+      "size": 673
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi.md": {
+      "sha256": "3f8a5b72da58f4546be6fa9507477b4766c85004c46312a13fcc59bd6f796b17",
+      "mtimeMs": 1786777777266.8523,
+      "size": 686
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/kjfh11-laparoskopisk-kolektomi-og-ileostomi.md": {
+      "sha256": "bb9e462afc085a7774ec81e67654677780597e4369e9d4a4f38933a171952dc1",
+      "mtimeMs": 1785944121565.8738,
+      "size": 1274
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/kujf32-35.md": {
+      "sha256": "95bcf0e50211691a84b0539ea97b64795162936e102340ce130894b70a054065",
+      "mtimeMs": 1785944121578.7402,
+      "size": 2144
+    },
+    "rkkp-danibd/topics/codes/procedure-codes/npu-kode.md": {
+      "sha256": "2c2596b70a3c35b6ee6c1c9f6d27f2f758c08b6df575b9e8f79498498f0ea7c5",
+      "mtimeMs": 1785944121581.8274,
+      "size": 2579
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bohj18a1-behandling-med-infliximab.md": {
+      "sha256": "e2118d58549c1c07295f9477169f126b0a085f5c75b0d9c10f2b88c1af096e8d",
+      "mtimeMs": 1785944121595.046,
+      "size": 3732
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bohj18a3-behandling-med-adalimumab.md": {
+      "sha256": "754010080c520da8ef2a552dc7edcc12e0469bbb65982163aba05c6ac06dd5d9",
+      "mtimeMs": 1785944121598.1682,
+      "size": 2539
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bohj18a4-behandling-med-golimumab.md": {
+      "sha256": "aaf0a4d927e76c7d2b42f1f4aa41d756c7f69593a3eebdf8f035033307a251b9",
+      "mtimeMs": 1785944121600.2207,
+      "size": 1663
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bohj18b3-behandling-med-ustekinumab.md": {
+      "sha256": "943aa23d5097872269cf74691e3cfa95a491f0209810340afb76cc8ca7ff804c",
+      "mtimeMs": 1785944121609.5715,
+      "size": 3158
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bohj19h4-behandling-med-vedolizumab.md": {
+      "sha256": "bb379d9e3b93f2700a687af379e4a731e17914c07654dedfe62fcddc393d52f6",
+      "mtimeMs": 1785944121616.8284,
+      "size": 2841
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bohj19n1-behandling-med-risankizumab.md": {
+      "sha256": "9b8b737949e635c69b0338765b38ecf9e36fe65fcbf1ad29dfb8777a1f4903b6",
+      "mtimeMs": 1786777999602.0989,
+      "size": 1488
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bohj28d-behandling-med-tofacitinib.md": {
+      "sha256": "ae2745308ceacca68a7e2b5d5cb3f416026fa966c31271b72e16d37263e4ee61",
+      "mtimeMs": 1785944121625.228,
+      "size": 1937
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bwhp107-behandling-med-upadacitinib.md": {
+      "sha256": "74a9937647e0c6d63b133e28d0edeff4fa74a7a53841bac9d6031bc86aa897d5",
+      "mtimeMs": 1786778018731.8542,
+      "size": 1911
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bwhp141-behandling-med-filgotinib.md": {
+      "sha256": "0b945ca5f17f15437631bca501e438a12356ba684a91181d6a6f289bfb670a46",
+      "mtimeMs": 1786778012927.0884,
+      "size": 1507
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bwhp142-behandling-med-mirikizumab.md": {
+      "sha256": "65bdad03a2cddb2754c8340dd440445ed341591e299707eda8337eb201c7214e",
+      "mtimeMs": 1786778044081.073,
+      "size": 1951
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bwhp143-behandling-med-ozanimod.md": {
+      "sha256": "e65bf20ec5fa610d7f5b06fe9625c093d929947914ac2a9635f2bcc6ecad028c",
+      "mtimeMs": 1786778065716.6433,
+      "size": 1763
+    },
+    "rkkp-danibd/topics/codes/treatment-codes/bwhp148-behandling-med-etrasimod.md": {
+      "sha256": "8dd2bf3a2f3492f6882855e291a09eee807fd6447fe6d0ce256068aedf9a496e",
+      "mtimeMs": 1786778069241.4797,
+      "size": 1812
+    },
+    "rkkp-danibd/topics/coverage/coverage.md": {
+      "sha256": "007518053c3056f2890291531e7010f9bbb52be506353f8446aca788bf61b3a2",
+      "mtimeMs": 1785944121630.4219,
+      "size": 922
+    },
+    "rkkp-danibd/topics/diagnoses/gastrointestinal/dk912b-korttarmssyndrom.md": {
+      "sha256": "55530f04cecddca4a8ffc02d7c4d249b13acfad2455a0ec72658bf0f01df2e27",
+      "mtimeMs": 1785944121647.5981,
+      "size": 2254
+    },
+    "rkkp-danibd/topics/diagnoses/hepatobiliary/dk830f-primaer-skleroserende-kolangitis.md": {
+      "sha256": "c6dd584da9fdd2f1834a0ceef91a1446fd34b23e2f7260c9c98c9539057823d5",
+      "mtimeMs": 1785944121675.4077,
+      "size": 1726
+    },
+    "rkkp-danibd/topics/diagnoses/ibd/dk50-crohns-sygdom.md": {
+      "sha256": "4469499059a3e8fec4bd38ba98fa1be359ab787a5f784a21832ccbbf47a66472",
+      "mtimeMs": 1785944121681.4592,
+      "size": 2997
+    },
+    "rkkp-danibd/topics/diagnoses/ibd/dk51-ulceroes-colitis.md": {
+      "sha256": "40b5b4dceeb322177cb9d324ad4d2754c9f5df9cf64f1e70b9dd47fb67dd5731",
+      "mtimeMs": 1785944121691.3745,
+      "size": 3552
+    },
+    "rkkp-danibd/topics/diseases/gastrointestinal/colitis-ulcerosa.md": {
+      "sha256": "e965083cb15a65f379e66bd8c61a7d4e4d404a1863657a0088db69423aebd581",
+      "mtimeMs": 1785944121709.1743,
+      "size": 5230
+    },
+    "rkkp-danibd/topics/diseases/gastrointestinal/crohns-sygdom.md": {
+      "sha256": "026b518107ebb7e7ec01a7e42cc7ef4923fdf2641a762a61f49d33f638dbe23c",
+      "mtimeMs": 1785944121712.256,
+      "size": 6095
+    },
+    "rkkp-danibd/topics/diseases/gastrointestinal/inflammatoriske-tarmsygdomme.md": {
+      "sha256": "8f8a86aeef34b07956a7681f27bad9903a3669e839ed9909c6304b2e5b2c4763",
+      "mtimeMs": 1785944121725.1582,
+      "size": 6145
+    },
+    "rkkp-danibd/topics/diseases/hepatic-biliary/primaer-skleroserende-kolangitis.md": {
+      "sha256": "ec21a512dae6fd070d83e58d69342b1b24cb39500cfe5d6f6bd1149912872be9",
+      "mtimeMs": 1785944121749.0627,
+      "size": 486
+    },
+    "rkkp-danibd/topics/eligibility-criteria/eligibility-criteria.md": {
+      "sha256": "332a8fcf884bea840949663a983f2217044952f9827f8bcae7892dcf90cf24cb",
+      "mtimeMs": 1785944121764.7368,
+      "size": 1299
+    },
+    "rkkp-danibd/topics/healthcare-utilization/healthcare-utilization.md": {
+      "sha256": "a3686adbf2388434493ee0e2a195efd0d3acab921cbe0d0d873ae800bdc0b44a",
+      "mtimeMs": 1786778561213.9028,
+      "size": 4117
+    },
+    "rkkp-danibd/topics/mission/mission.md": {
+      "sha256": "7963b10a78bcb2d95be73a8eae89e629f430bccad3707cf2bd45be53a8df49c9",
+      "mtimeMs": 1785944121792.5286,
+      "size": 473
+    },
+    "rkkp-danibd/topics/performance/performance.md": {
+      "sha256": "59c9f7da3b1dcd9eff1734d82387948b3f41703992c500db1ace2479e6ecbc98",
+      "mtimeMs": 1785944121798.7083,
+      "size": 5181
+    },
+    "rkkp-danibd/topics/policy-change/policy-change.md": {
+      "sha256": "3fe0160b740905d2681cc678e0e0bad59321bfc0b67614d9d7bfc2d93a96de30",
+      "mtimeMs": 1786777777410.1182,
+      "size": 430
+    },
+    "rkkp-danibd/topics/procedural/koloskopi.md": {
+      "sha256": "c9f55db63021f1e1566c05c7d723558340b5cdef6f807743eefb2c89a8aee78a",
+      "mtimeMs": 1785944121816.864,
+      "size": 2543
+    },
+    "rkkp-danibd/topics/procedural/primaert-kirurgisk-indgreb.md": {
+      "sha256": "9fe34f73c556dad6087faae9fec45bf2622ea88cf12c74616ecde1695731609f",
+      "mtimeMs": 1785944121830.7234,
+      "size": 2719
+    },
+    "rkkp-danibd/topics/procedural/re-operation.md": {
+      "sha256": "fb311d589fec351c7cab3ad64eb02d88bdfe0a0ec09e5b396753b0b89ed7d779",
+      "mtimeMs": 1785944121842.6277,
+      "size": 1707
+    },
+    "rkkp-danibd/topics/quality-indicator/quality-indicator.md": {
+      "sha256": "2d2983002ffb8cdc8d2ffe5b129670bea6e5d55ce9804f29766b458651270718",
+      "mtimeMs": 1785944121848.8845,
+      "size": 6088
+    },
+    "rkkp-danibd/topics/quality-indicator/re-operationsrate.md": {
+      "sha256": "0bf85e6549e86ff669fb25a6dd92d5a5a44c48b81c5e56b28c5a2568b3d911b3",
+      "mtimeMs": 1785944121850.8975,
+      "size": 2135
+    },
+    "rkkp-danibd/topics/quality-indicators/ibd/indikator-1.md": {
+      "sha256": "a4368277054f0acbfe851f5b768540f9cf7126529117d1f975f6fb472ac7d739",
+      "mtimeMs": 1785944121865.6504,
+      "size": 3297
+    },
+    "rkkp-danibd/topics/quality-indicators/ibd/indikator-1a.md": {
+      "sha256": "b8312204770b53eea216e241cf4c2d2e718931ed60f37682126a4fa30f0018dc",
+      "mtimeMs": 1785944121878.1624,
+      "size": 3957
+    },
+    "rkkp-danibd/topics/quality-indicators/ibd/indikator-1b.md": {
+      "sha256": "13dccde234fb0f706b6102d0c8faa76edff0613394bbbaca9850983051f6bea3",
+      "mtimeMs": 1785944121880.2466,
+      "size": 5406
+    },
+    "rkkp-danibd/topics/quality-indicators/ibd/indikator-2.md": {
+      "sha256": "598e3493a88ed78c08af6c329300896a24b04fbf9d53e771320d0f700124b7b6",
+      "mtimeMs": 1785944121890.9512,
+      "size": 6875
+    },
+    "rkkp-danibd/topics/quality-indicators/ibd/indikator-3.md": {
+      "sha256": "b5671637e26dfd998b9b4385fd7f2892c67a69eac23dcb52e5d193afd20e2a7f",
+      "mtimeMs": 1785944121894.9734,
+      "size": 3997
+    },
+    "rkkp-danibd/topics/quality-indicators/ibd/indikator-4.md": {
+      "sha256": "4046625d23e51a2053bdaf3e61dc59c4d567ecd58e6c71c81c6c97c65ad972d0",
+      "mtimeMs": 1785944121898.9976,
+      "size": 3816
+    },
+    "rkkp-danibd/topics/quality-indicators/ibd/indikator-5.md": {
+      "sha256": "cfed0d2488844ffe045ca28e4e810149d8ccf3b8bd7e1632a9771f4daee339d6",
+      "mtimeMs": 1785944121912.9102,
+      "size": 3803
+    },
+    "rkkp-danibd/topics/quality-indicators/ibd/indikator-6.md": {
+      "sha256": "79e6fb281502dafb1af93328b6aa98f80b111bf5da94b6b81b3150d023b76270",
+      "mtimeMs": 1785944121916.6975,
+      "size": 8335
+    },
+    "rkkp-danibd/topics/quality-indicators/ibd/indikator-7.md": {
+      "sha256": "e9eef9c3fd738cf0f977ee71ae3c0e4d2bbce0965c2f7a39b082f5adca32fa3d",
+      "mtimeMs": 1785944121924.7617,
+      "size": 3373
+    },
+    "rkkp-danibd/topics/quality-target/quality-target.md": {
+      "sha256": "5c93465541fa5164ab1313235fe0715116788a61402e004590595f5af2e37f20",
+      "mtimeMs": 1785944121932.5723,
+      "size": 2120
+    },
+    "rkkp-danibd/topics/treatment/treatment.md": {
+      "sha256": "5f85381c1dcef3c6fe3a5d1de76d38f5d43728a773b176a568705b413fad3469",
+      "mtimeMs": 1785944121961.1187,
+      "size": 3796
+    },
+    "rkkp-danibd/topics/validation/validation.md": {
+      "sha256": "29166cb2f0e34ed0601fb45591a311602d55b4550d5d42d82280f549c6506540",
+      "mtimeMs": 1785944121966.3247,
+      "size": 805
+    }
+  }
+}

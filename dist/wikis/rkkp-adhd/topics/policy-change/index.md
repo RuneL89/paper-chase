@@ -4,17 +4,18 @@ type: index
 aliases:
   - Policy Change
 wiki: rkkp-adhd
-updated: '2026-08-05T19:27:01.167Z'
+updated: '2026-08-15T12:48:11.745Z'
 children:
+  - index.md
   - policy-change.md
 ---
 # Policy Change
 
-This folder documents structural and administrative adjustments within the ADHD framework aimed at improving assessment workflows and cross-sectoral collaboration. It specifically covers recent updates to clinical indicators, such as the division of Indikator 2b to isolate distinct assessment elements and the reclassification of Indikator 4 to facilitate earlier primary healthcare contact during the diagnostic phase.
+This folder documents specific revisions made to the structural definitions of clinical and administrative indicators within the ADHD framework. It captures deliberate policy shifts aimed at refining diagnostic criteria, such as splitting indicators to isolate distinct assessment elements and reclassifying others to promote earlier cross-sectoral coordination with primary healthcare. These changes reflect a broader strategic effort to improve assessment workflows and intervention timing.
 
 ## Pages
 
-- [[policy-change|Policy Change]] — Details recent structural adjustments to ADHD clinical indicators, including the splitting of Indikator 2b and the redefinition of Indikator 4 to emphasize earlier cross-sectoral assessment.
+- [[policy-change|Policy Change]] — Details recent structural adjustments to ADHD framework indicators, including the splitting of Indikator 2b and the redefinition of Indikator 4 to enhance assessment workflows and cross-sectoral collaboration.
 
 ## Navigation
 

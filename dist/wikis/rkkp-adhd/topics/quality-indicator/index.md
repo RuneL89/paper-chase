@@ -4,17 +4,18 @@ type: index
 aliases:
   - Quality Indicator
 wiki: rkkp-adhd
-updated: '2026-08-05T19:28:56.723Z'
+updated: '2026-08-15T12:49:44.409Z'
 children:
+  - index.md
   - quality-indicator.md
 ---
 # Quality Indicator
 
-This folder covers the specific metrics used to monitor and ensure the standard of clinical practices for ADHD assessment and treatment within the Danish healthcare system. It details how the ADHD-DATABASEN utilizes quality indicators to track the timeliness of diagnostic pathways for both preschool and older children, as well as the prevalence of medical treatment modalities in hospital-based psychiatry.
+This folder holds the topic page detailing the quality indicators used to monitor and ensure clinical standards for ADHD assessment and treatment in the Danish healthcare system. It covers the specific metrics tracked by the ADHD-DATABASEN, such as the 120-day timeframes for diagnostic interviews and environmental observations across different pediatric age groups, alongside data on prevailing treatment modalities like medical interventions in hospital-based psychiatry.
 
 ## Pages
 
-- [[quality-indicator|Quality Indicator]] — Outlines the metrics used by the ADHD-DATABASEN to measure diagnostic timeliness, such as environmental observations and manualized interviews within 120 days, and tracks prevailing treatment modalities.
+- [[quality-indicator|Quality Indicator]] — Details the specific metrics used to track diagnostic timeliness and treatment modalities for ADHD, including Indikator 2a, 2b, and 11.
 
 ## Navigation
 

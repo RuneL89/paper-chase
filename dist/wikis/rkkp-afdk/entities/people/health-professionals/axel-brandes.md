@@ -4,21 +4,22 @@ type: entity
 aliases:
   - Axel Brandes
 wiki: rkkp-afdk
-updated: '2026-08-05T20:17:42.798Z'
+updated: '2026-08-14T20:21:02.557Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: 81-85
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: '1-5, 66-70'
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: '1-5, 66-70'
 tags:
   - person
 ---
+Axel Brandes is a Danish medical professional and academic who plays a central leadership role in the national quality assurance efforts for atrial fibrillation treatment. He serves as a professor, chief physician, and holds a Doctor of Medicine (dr.med.) degree at Esbjerg and Grindsted Hospital, part of the University Hospital of Southern Denmark [^src1] [^src2]. 
 
-Axel Brandes is a prominent medical professional and a central leadership figure in Denmark's cardiovascular quality improvement initiatives. He serves as a Professor, Chief Physician (*overlæge*), and Doctor of Medicine (*dr.med.*) at Esbjerg and Grindsted Hospital, which operates under the University Hospital of Southern Denmark (*Syddansk Universitetshospital*) [^src1]. 
+Within the context of the Danish healthcare system's quality development programs, Brandes is a key figure in the governance of the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK). In the 2023 annual report, he is identified as a member of the database's steering group [^src1]. By the 2024 and 2025 reporting periods, his role had evolved into the primary leadership position: he is explicitly named as the chair ("Formandskab") of the [[afdk-styregruppe|Styregruppen for AFDK]] and the chairperson ("Forperson") for the [[atrieflimren-i-danmark|Atrieflimren i Danmark]] database [^src2] [^src3] [^src4] [^src5]. Notably, the 2025 reports reflect an update in his clinical title to "ledende overlæge" (leading chief physician) [^src4] [^src5]. 
 
-Brandes plays a critical role in the national governance and clinical oversight of atrial fibrillation care. He is a member of the steering committee for the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK), the national clinical quality database tracking the treatment and outcomes of atrial fibrillation patients [^src1]. Expanding on his leadership within this domain, he is identified as the chairperson (*forperson*) for [[atrieflimren-i-danmark|Atrieflimren i Danmark]] [^src2] and officially holds the chairmanship (*formandskab*) of the [[afdk-styregruppe|Styregruppen for AFDK]] [^src3]. 
-
-Through these roles, Brandes helps guide the strategic and methodological direction of the AFDK's annual reporting. His work supports a broader paradigm shift in Danish healthcare from strictly hospital-centered metrics to population-based quality measurements across health clusters, ensuring that clinical practices—such as anticoagulation therapy, echocardiography, and structured patient education—remain evidence-based and uniformly applied across both hospital and primary care sectors.
+Through his leadership in the AFDK steering group, Brandes helps oversee the national clinical quality indicators, data collection from the National Patient Registry, and the shift toward population-based quality measurements across Denmark's health clusters [^src2] [^src4]. His work supports both local clinical improvements and national political governance in cardiovascular health [^src4].
 
 ## Mentions
 - Page 83: "Axel Brandes, Professor, overlæge, dr.med.
@@ -27,27 +28,26 @@ Esbjerg og Grindsted sygehus, Syddansk Universitetshospital" [^src1]
 Esbjerg og Grindsted sygehus, Syddansk
 Universitetshospital" [^src2]
 - Page 70: "Formandskab Axel Brandes, Professor, overlæge, dr.med. Esbjerg og Grindsted sygehus, Syddansk Universitetshospital" [^src3]
+- Page 2: "Axel Brandes, Professor, ledende overlæge, dr.med. Esbjerg og Grindsted sygehus, Syddansk Universitetshospital" [^src4]
+- Page 66: "Formandskab Axel Brandes, Professor, ledende overlæge, dr.med. Esbjerg og Grindsted sygehus, Syddansk Universitetshospital" [^src5]
 
 ## Relationships
-- Subject: axel-brandes
-  Predicate: is-member-of
-  Object: databasen-for-atrieflimren-i-danmark
-  Evidence: "Axel Brandes, Professor, overlæge, dr.med.
+- **Subject:** axel-brandes | **Predicate:** is-member-of | **Object:** databasen-for-atrieflimren-i-danmark
+  - **Evidence:** "Axel Brandes, Professor, overlæge, dr.med.
 Esbjerg og Grindsted sygehus, Syddansk Universitetshospital"
-  Page: 83
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 81-85 [^src1]
-- Subject: axel-brandes
-  Predicate: is-forperson-of
-  Object: atrieflimren-i-danmark
-  Evidence: "Forpersoner for databasen: Axel Brandes"
-  Page: 2
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 1-5 [^src2]
-- Subject: axel-brandes
-  Predicate: is-chair-of
-  Object: afdk-styregruppe
-  Evidence: "Formandskab Axel Brandes, Professor, overlæge, dr.med."
-  Page: 70
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 66-70 [^src3]
+  - **Page:** 83 [^src1]
+- **Subject:** axel-brandes | **Predicate:** is-forperson-of | **Object:** atrieflimren-i-danmark
+  - **Evidence:** "Forpersoner for databasen: Axel Brandes"
+  - **Page:** 2 [^src2]
+- **Subject:** axel-brandes | **Predicate:** is-chair-of | **Object:** afdk-styregruppe
+  - **Evidence:** "Formandskab Axel Brandes, Professor, overlæge, dr.med."
+  - **Page:** 70 [^src3]
+- **Subject:** axel-brandes | **Predicate:** is-forperson-for | **Object:** databasen-for-atrieflimren-i-danmark
+  - **Evidence:** "Axel Brandes, Professor, ledende overlæge, dr.med. Esbjerg og Grindsted sygehus, Syddansk Universitetshospital"
+  - **Page:** 2 [^src4]
+- **Subject:** axel-brandes | **Predicate:** is-chair-of | **Object:** afdk-styregruppe
+  - **Evidence:** "Formandskab Axel Brandes, Professor, ledende overlæge, dr.med. Esbjerg og Grindsted sygehus, Syddansk Universitetshospital"
+  - **Page:** 66 [^src5]
 
 ## Claims
 (none)
@@ -60,3 +60,5 @@ Esbjerg og Grindsted sygehus, Syddansk Universitetshospital"
 [^src1]: AFDK_2023.pdf, pages 81-85
 [^src2]: AFDK_2024.pdf, pages 1-5
 [^src3]: AFDK_2024.pdf, pages 66-70
+[^src4]: AFDK_2025.pdf, pages 1-5
+[^src5]: AFDK_2025.pdf, pages 66-70

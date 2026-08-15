@@ -4,21 +4,22 @@ type: index
 aliases:
   - Healthcare Databases
 wiki: rkkp-akdb
-updated: '2026-08-05T20:24:33.241Z'
+updated: '2026-08-15T08:33:20.859Z'
 children:
   - akut-kirurgi-databasen.md
+  - index.md
   - landspatientregisteret.md
   - sygehusmedicinregisteret.md
 ---
 # Healthcare Databases
 
-This folder contains the core national healthcare registers and clinical quality databases that form the data infrastructure for monitoring acute surgical care in Denmark. It includes the Akut Kirurgi Databasen, which tracks clinical quality indicators for emergency abdominal surgery, alongside the foundational national registries it relies upon: the Landspatientregisteret for patient pathways and procedure codes, and the Sygehusmedicinregisteret for hospital medication and antibiotic tracking. Together, these entities document how Danish healthcare organizations collect, integrate, and validate clinical data to evaluate surgical outcomes and treatment timeliness.
+This folder catalogs the core national and clinical healthcare databases that underpin quality monitoring and clinical research in the Danish healthcare system. It includes the Akut Kirurgi Databasen, a specialized clinical quality database tracking outcomes and processes for high-risk acute abdominal surgery patients. The folder also contains the foundational national registries it relies upon, namely the Landspatientregisteret for patient contacts and procedures, and the Sygehusmedicinregisteret for hospital-administered medication data. Together, these databases form the data infrastructure used to calculate clinical indicators, assess mortality, and drive quality improvement initiatives across Danish regions.
 
 ## Pages
 
-- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — The central national clinical quality database for emergency surgery in Denmark, tracking process and outcome indicators like time-to-surgery and 30-day mortality.
-- [[landspatientregisteret|Landspatientregisteret]] — The Danish National Patient Register, serving as the primary data source and registration platform for constructing patient pathways and clinical quality indicators.
-- [[sygehusmedicinregisteret|Sygehusmedicinregisteret]] — A national healthcare register established in 2018 that provides critical hospital medication data, specifically tracking antibiotic treatments for acute surgical patients.
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — A clinical quality database that tracks process and outcome indicators for high-risk acute abdominal surgery patients to monitor and improve care across Denmark.
+- [[landspatientregisteret|Landspatientregisteret]] — The national patient registry providing foundational data on hospital contacts, procedures, and diagnoses used to define clinical populations and calculate comorbidity scores.
+- [[sygehusmedicinregisteret|Sygehusmedicinregisteret]] — The hospital medicine registry capturing data on administered drugs, such as antibiotics, to support specific clinical quality indicators.
 
 ## Navigation
 

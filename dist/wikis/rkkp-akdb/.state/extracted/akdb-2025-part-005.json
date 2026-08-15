@@ -1,0 +1,387 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 3",
+      "type": "indicator",
+      "slug": "indikator-3",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 3 er en kvalitetsindikator for præoperativ optimering af akutte abdominale kirurgiske patienter, defineret via SKS-koden NAAZ42 og/eller operationsstart inden for 4 timer fra modtagelse, og den udgør en central del af Akut Kirurgi Databasens overvågning af behandlingsmæssig proaktivitet.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Indikator 3: Præoperativ optimering. Forest plot på afdelingsniveau"
+        },
+        {
+          "page": 21,
+          "context": "Indikator 3: Præoperativ optimering. Trendgraf over resultater på regionalt niveau"
+        },
+        {
+          "page": 22,
+          "context": "Indikatorbeskrivelse for indikator 3"
+        },
+        {
+          "page": 22,
+          "context": "Indikator 3 beskriver andelen af patienter, der modtager præoperativ optimering eller går direkte til operation."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4x",
+      "type": "indicator",
+      "slug": "indikator-4x",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 4x måler andelen af patienter med perforation eller iskæmi, der opereres inden for seks timer efter ankomst til sygehus, og er en tidskritisk kvalitetsindikator for akut abdominal kirurgi med et udviklingsmål på ≥ 90 %.",
+      "mentions": [
+        {
+          "page": 23,
+          "context": "Indikator 4x: Operation indenfor 6 timer (360 minutter) (Perforation eller iskæmi)"
+        },
+        {
+          "page": 25,
+          "context": "Indikator 4x: Operation indenfor 6 timer, perforation eller iskæmi. Forest plot på afdelingsniveau"
+        },
+        {
+          "page": 25,
+          "context": "Indikator 4x: Operation indenfor 6 timer, perforation eller iskæmi. Trendgraf over resultater på regionalt niveau"
+        }
+      ]
+    },
+    {
+      "name": "NAAZ42",
+      "type": "medical-code",
+      "slug": "naaz42",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "NAAZ42 er en specifik SKS-kode, der bruges til dokumentation af præoperativ optimering i LPR, og den er afgørende for beregningen af Indikator 3, da den udgør én af de to kriterier for tællerinklusion.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "der pr. 1/10-2022 blev oprettet en SKS kode (NAAZ42) til angivelse af at der er udført præoperativ optimering via LPR."
+        },
+        {
+          "page": 22,
+          "context": "Patienter indgår i tælleren, hvis den anæstesiologiske ydelse ”præoperativ optimering” dokumenteres med SKS-koden NAAZ42"
+        }
+      ]
+    },
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der indsamler, analyserer og rapporterer kvalitetsdata for akut abdominal kirurgi i Danmark, og den er ansvarlig for udarbejdelse og overvågning af både Indikator 3 og Indikator 4x.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 22,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 23,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 24,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 25,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality-assurance",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den offentlige myndighed, der udgiver og styrer Akut Kirurgi Databasen samt udarbejder indikatorbeskrivelserne for Indikator 3 og Indikator 4x, hvilket gør det til den primære administrative og faglige ansvarsbærer for disse kvalitetsmål.",
+      "mentions": [
+        {
+          "page": 21,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 22,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 23,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 24,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 25,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "hospital",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus fremhæves som eksempel på en enhed, hvor målopfyldelsen for Indikator 3 kan forbedres markant ved målrettet indsats, og det anvendes som casescenario til national vidensdeling og inspiration for andre hospitaler.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Holbæk sygehus viser, at målopfyldelsen flyttes markant med en målrettet indsats."
+        }
+      ]
+    },
+    {
+      "name": "AHA-studiet",
+      "type": "study",
+      "slug": "aha-studiet",
+      "folder": "entities/studies/clinical-trials",
+      "significance": "AHA-studiet er et mortalitets-sænkende klinisk studie, der anvendes som evidensgrundlag for Indikator 3, idet det demonstrerer effekten af præoperativ optimering på IMA / ITA / eller operationsgangen umiddelbart før operation.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "I det mortalitets-sænkende AHA-studie, blev patienterne optimeret på IMA / ITA / eller på operationsgangen forud for operation umiddelbart efter beslutning om operation."
+        }
+      ]
+    },
+    {
+      "name": "IMA",
+      "type": "medical-procedure",
+      "slug": "ima",
+      "folder": "entities/medical-procedures/anesthesia",
+      "significance": "IMA (Intensiv Medicinsk Afdeling) er én af de tre lokationer nævnt i AHA-studiet, hvor præoperativ optimering har vist sig at reducere mortalitet, og den indgår derfor i den kliniske definition af Indikator 3's tællerkriterier.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "I det mortalitets-sænkende AHA-studie, blev patienterne optimeret på IMA / ITA / eller på operationsgangen forud for operation umiddelbart efter beslutning om operation."
+        }
+      ]
+    },
+    {
+      "name": "ITA",
+      "type": "medical-procedure",
+      "slug": "ita",
+      "folder": "entities/medical-procedures/anesthesia",
+      "significance": "ITA (Intermediær Terapeutisk Afdeling) er én af de tre lokationer nævnt i AHA-studiet, hvor præoperativ optimering har vist sig at reducere mortalitet, og den indgår derfor i den kliniske definition af Indikator 3's tællerkriterier.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "I det mortalitets-sænkende AHA-studie, blev patienterne optimeret på IMA / ITA / eller på operationsgangen forud for operation umiddelbart efter beslutning om operation."
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er den region med laveste nationalt rapporterede målopfyldelse for Indikator 3 (5,1 %), hvilket illustrerer den store inter-regionale variation og understreger behovet for regional analyse og intervention.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Regionalt varierede resultaterne fra 5,1 % i Region Hovedstaden til 21,5 % i Region Midtjylland."
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Midtjylland er den region med højeste nationalt rapporterede målopfyldelse for Indikator 3 (21,5 %), hvilket markerer den som en potentielt 'best performer' i sammenligning med andre regioner og understøtter strategien om national vidensdeling.",
+      "mentions": [
+        {
+          "page": 22,
+          "context": "Regionalt varierede resultaterne fra 5,1 % i Region Hovedstaden til 21,5 % i Region Midtjylland."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-3",
+      "predicate": "is-defined-by",
+      "object": "naaz42",
+      "evidence": "Indikatoren er endeligt defineret således at den kan måles og afrapporteres som kvalitetsindikator idet der pr. 1/10-2022 blev oprettet en SKS kode (NAAZ42) til angivelse af at der er udført præoperativ optimering via LPR.",
+      "page": 22
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "is-managed-by",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Akut Kirurgi Databasen [...] Indikator 3: Præoperativ optimering.",
+      "page": 21
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-published-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen\nUdkast 2026.01.05\nSundhedsvæsenets Kvalitetsinstitut",
+      "page": 21
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "is-supported-by-evidence-from",
+      "object": "aha-studiet",
+      "evidence": "I det mortalitets-sænkende AHA-studie, blev patienterne optimeret på IMA / ITA / eller på operationsgangen forud for operation umiddelbart efter beslutning om operation.",
+      "page": 22
+    },
+    {
+      "subject": "aha-studiet",
+      "predicate": "uses-optimering-on",
+      "object": "ima",
+      "evidence": "I det mortalitets-sænkende AHA-studie, blev patienterne optimeret på IMA / ITA / eller på operationsgangen forud for operation umiddelbart efter beslutning om operation.",
+      "page": 22
+    },
+    {
+      "subject": "aha-studiet",
+      "predicate": "uses-optimering-on",
+      "object": "ita",
+      "evidence": "I det mortalitets-sænkende AHA-studie, blev patienterne optimeret på IMA / ITA / eller på operationsgangen forud for operation umiddelbart efter beslutning om operation.",
+      "page": 22
+    },
+    {
+      "subject": "indikator-4x",
+      "predicate": "is-managed-by",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Akut Kirurgi Databasen [...] Indikator 4x: Operation indenfor 6 timer (360 minutter) (Perforation eller iskæmi)",
+      "page": 23
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indikator 3 er defineret således at den kan måles og afrapporteres som kvalitetsindikator idet der pr. 1/10-2022 blev oprettet en SKS kode (NAAZ42) til angivelse af at der er udført præoperativ optimering via LPR [^src1]",
+      "type": "definitional",
+      "entities": [
+        "indikator-3",
+        "naaz42"
+      ],
+      "page": 22
+    },
+    {
+      "text": "I alt 3.247 patienter indgik i nævneren for Indikator 3, og heraf fik 463 enten præoperativ optimering, eller gik direkte til operation, hvilket svarer til en national andel på 14,3 % (95 % CI 13,1-15,5) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Udviklingsmålet for Indikator 3 er ≥ 90 %, hvilket er langt fra opfyldt [^src1]",
+      "type": "target",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Regionalt varierede resultaterne for Indikator 3 fra 5,1 % i Region Hovedstaden til 21,5 % i Region Midtjylland [^src1]",
+      "type": "regional-comparison",
+      "entities": [
+        "indikator-3",
+        "region-hovedstaden",
+        "region-midtjylland"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Ingen af de indberettende enheder opfyldte udviklingsmålet for Indikator 3 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 22
+    },
+    {
+      "text": "Indikator 4x har et udviklingsmål på ≥ 90 % [^src1]",
+      "type": "target",
+      "entities": [
+        "indikator-4x"
+      ],
+      "page": 23
+    },
+    {
+      "text": "For Indikator 4x er national andel for perioden 01.09.2024–31.08.2025 34,0 % (95 % CI 30,8–37,3) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-4x"
+      ],
+      "page": 23
+    },
+    {
+      "text": "For Indikator 4x er andelen i Region Midtjylland for perioden 01.09.2024–31.08.2025 42,2 % (95 % CI 35,4–49,3), hvilket er den højeste regionale andel [^src1]",
+      "type": "regional-comparison",
+      "entities": [
+        "indikator-4x",
+        "region-midtjylland"
+      ],
+      "page": 23
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2022-10-01",
+      "event": "Oprettelse af SKS-koden NAAZ42 til dokumentation af præoperativ optimering i LPR",
+      "entities": [
+        "naaz42"
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "event": "Start af indberetningsperiode for Indikator 4x for året 2024/25",
+      "entities": [
+        "indikator-4x"
+      ]
+    },
+    {
+      "date": "2025-08-31",
+      "event": "Afslutning af indberetningsperiode for Indikator 4x for året 2024/25",
+      "entities": [
+        "indikator-4x"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-4x",
+      "title": "Indikator 4x: Operation indenfor 6 timer (360 minutter) (Perforation eller iskæmi)",
+      "page": 23,
+      "rowDimension": "regions-and-hospitals",
+      "colDimension": "proportion-per-year-with-95-ci",
+      "entities": [
+        "indikator-4x",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Udviklingsmål | Uoplyst | Aktuelle år Tæller/ antal | 01.09.2024 - 31.08.2025 | 2023/24 | 2022/23 |\n| --- | --- | --- | --- | --- | --- |\n| ≥ 90% | Nej | 294 / 865 | 0 (0) 34,0 (30,8-37,3) | 30,1 | 27,4 |\n| ≥ 90% | Nej | 81 / 263 | 0 (0) 30,8 (25,3-36,8) | 28,1 | 25,8 |\n| ≥ 90% | Nej | 51 / 162 | 0 (0) 31,5 (24,4-39,2) | 22,9 | 25,3 |\n| ≥ 90% | Nej | 50 / 155 | 0 (0) 32,3 (25,0-40,2) | 28,3 | 23,4 |\n| ≥ 90% | Nej | 87 / 206 | 0 (0) 42,2 (35,4-49,3) | 37,9 | 34,7 |\n| ≥ 90% | Nej | 25 / 79 | 0 (0) 31,6 (21,6-43,1) | 40,5 | 28,4 |",
+      "summary": "Tabellen sammenligner andelen af patienter med perforation eller iskæmi, der opereres inden for seks timer, på regionalt og hospitalsniveau over tre år, og viser en generel stigning i andelen, men alle værdier ligger langt under det nationale udviklingsmål på ≥ 90 %."
+    }
+  ],
+  "context": "Dette dokumentudsnit fra Akut Kirurgi Databasen (AKDB) udgør en teknisk og klinisk analyse af to centrale kvalitetsindikatorer for akut abdominal kirurgi i Danmark: Indikator 3 (præoperativ optimering) og Indikator 4x (operation inden for seks timer ved perforation eller iskæmi). Den indgår i en bredere kvalitetsudviklingsstrategi ledet af Sundhedsvæsenets Kvalitetsinstitut, der søger at standardisere og forbedre behandlingen af akutte kirurgiske patienter gennem data-baseret overvågning. Analysen fremhæver betydelige udfordringer ved lav målopfyldelse, stor regional variation og manglende standardisering i registrering, samtidig med at den peger på konkrete løsningsmuligheder som SOR-koder og national vidensdeling mellem 'best performers'."
+}

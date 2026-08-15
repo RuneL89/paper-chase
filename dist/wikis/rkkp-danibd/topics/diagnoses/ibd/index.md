@@ -4,19 +4,20 @@ type: index
 aliases:
   - Ibd
 wiki: rkkp-danibd
-updated: '2026-08-05T07:54:20.736Z'
+updated: '2026-08-15T07:59:44.038Z'
 children:
   - dk50-crohns-sygdom.md
   - dk51-ulceroes-colitis.md
+  - index.md
 ---
 # Ibd
 
-This folder contains the two primary World Health Organization (WHO)-classified diagnosis codes used to identify and track inflammatory bowel disease (IBD) patients within the Danish national registry (DANIBD). It covers DK50* for Crohn's disease and DK51* for ulcerative colitis, which together form the foundation for regional epidemiological tracking, clinical benchmarking, and quality measurement. By standardizing these diagnostic codes, the registry supports cross-regional monitoring and the development of evidence-based treatment guidelines for IBD care across Denmark.
+This folder contains the two primary WHO-classified diagnosis codes used within the Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) to identify and track patients with inflammatory bowel disease. The pages detail the regional prevalence of Crohn's disease and ulcerative colitis across Denmark's five regions, providing the foundational categories for quality measurement and clinical benchmarking. By standardizing these codes, the national registry supports cross-regional monitoring and the development of evidence-based treatment guidelines for IBD care.
 
 ## Pages
 
-- [[dk50-crohns-sygdom|"DK50* Crohns sygdom"]] — The diagnostic code for Crohn's disease, detailing its regional prevalence across Denmark and its role in evaluating biological drug usage and surgical interventions.
-- [[dk51-ulceroes-colitis|"DK51* Ulcerøs colitis"]] — The diagnostic code for ulcerative colitis, tracking cross-regional patient distribution and supporting quality indicators for medical and surgical IBD care.
+- [[dk50-crohns-sygdom|"DK50* Crohns sygdom"]] — The diagnostic code for Crohn's disease, detailing its regional prevalence across Denmark and its role in tracking biological drug use and surgical interventions.
+- [[dk51-ulceroes-colitis|"DK51* Ulcerøs colitis"]] — The diagnostic code for ulcerative colitis, outlining its regional distribution and its use in monitoring quality indicators like surgical reoperations and primary sclerosing cholangitis comorbidities.
 
 ## Navigation
 

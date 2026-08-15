@@ -4,21 +4,22 @@ type: index
 aliases:
   - Cardiology
 wiki: rkkp-afdk
-updated: '2026-08-05T23:44:28.799Z'
+updated: '2026-08-15T00:50:39.167Z'
 children:
+  - index.md
   - indikator-1.md
   - indikator-5.md
   - indikator.md
 ---
 # Cardiology
 
-This folder contains specific clinical quality metrics used to evaluate and track the treatment of cardiovascular conditions, particularly atrial fibrillation, within the Danish healthcare system. The pages detail the methodology, national standards, and regional performance data for indicators measuring the timeliness of anticoagulation therapy and the incidence of ischemic stroke among prevalent patients. Additionally, it covers governance decisions regarding the retention and standard-setting for broader treatment quality indicators.
+This folder catalogs the specific cardiology quality indicators used to evaluate atrial fibrillation care within the Danish healthcare system. It documents metrics that track the timely initiation of anticoagulation therapy for newly diagnosed patients and the incidence of ischemic strokes among the prevalent patient population. Additionally, it covers general framework decisions regarding performance thresholds and quality standards established for national clinical monitoring.
 
 ## Pages
 
-- [[indikator-1|Indikator 1]] — Tracks the proportion of newly diagnosed atrial fibrillation patients who initiate anticoagulation within 30 days, measuring compliance against a 90% national standard.
-- [[indikator-5|Indikator 5]] — Measures the incidence of ischemic stroke among prevalent atrial fibrillation patients to evaluate the effectiveness of preventive anticoagulant treatments against a 0.8% threshold.
-- [[indikator|Indikator]] — Documents the governance decision to retain a specific treatment quality indicator and officially set its performance standard at 50%.
+- [[indikator-1|Indikator 1]] — Tracks the proportion of newly diagnosed atrial fibrillation patients who initiate clinically indicated anticoagulation treatment within 30 days, benchmarked against a national standard of ≥ 90%.
+- [[indikator-5|Indikator 5]] — Measures the incidence of ischemic stroke among prevalent atrial fibrillation patients to evaluate the effectiveness of preventive anticoagulant treatments, with a target incidence of ≤ 0.8%.
+- [[indikator|Indikator]] — Outlines the general framework for quantitative metrics evaluating atrial fibrillation treatment quality, including the 2024 decision to retain a specific 50% performance threshold.
 
 ## Navigation
 

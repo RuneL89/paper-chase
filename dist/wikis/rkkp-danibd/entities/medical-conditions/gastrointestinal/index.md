@@ -4,23 +4,26 @@ type: index
 aliases:
   - Gastrointestinal
 wiki: rkkp-danibd
-updated: '2026-08-05T07:36:28.204Z'
+updated: '2026-08-15T07:43:50.883Z'
 children:
   - anastomoselaekage.md
+  - fpiac.md
   - ibd.md
+  - index.md
   - korttarmssyndrom.md
   - veo-ibd.md
 ---
 # Gastrointestinal
 
-This folder catalogs gastrointestinal medical conditions monitored within the Danish healthcare system, primarily through the DANIBD national registry. It covers the broad diagnostic category of Inflammatory Bowel Disease (IBD) alongside specific, severe variants and complications such as very-early onset IBD (VEO-IBD), short bowel syndrome (korttarmssyndrom), and post-surgical anastomotic leakage. Together, these pages detail the epidemiological data, diagnostic pathways, and clinical quality indicators used to evaluate and standardize care for these patients across Danish hospitals.
+This folder catalogs specific gastrointestinal conditions tracked within the Danish national IBD registry (DANIBD) and related healthcare quality monitoring efforts. It covers the broad category of inflammatory bowel disease (IBD) alongside specialized or severe variants like very-early onset IBD (VEO-IBD) and short bowel syndrome (korttarmssyndrom). The area also documents surgical complications such as anastomotic leakage (anastomoselækage) and distinct pediatric allergies like FPIAC, which frequently cause data contamination and misclassification within the national registry.
 
 ## Pages
 
-- [[anastomoselaekage|anastomoselækage]] — A serious surgical complication evaluated as a primary quality metric for IBD operations, advocated over re-operation rates by some regional hospitals.
-- [[ibd|IBD]] — The overarching diagnostic category for chronic inflammatory bowel diseases in Denmark, encompassing Crohn's disease and ulcerative colitis, tracked extensively by the DANIBD registry.
-- [[korttarmssyndrom]] — A rare but severe complication of IBD tracked via specific diagnosis codes to ensure comprehensive quality assurance and registry inclusion.
-- [[veo-ibd|VEO-IBD]] — A severe, very-early onset form of IBD affecting the youngest children, requiring specialized centralized diagnostics that impact pediatric quality indicators.
+- [[anastomoselaekage|anastomoselækage]] — A serious surgical complication advocated by some regional hospitals as a more accurate quality metric for IBD operations than re-operation rates.
+- [[fpiac|FPIAC]] — A non-IgE-mediated infant food allergy that is frequently misclassified as ulcerative colitis, causing data contamination in the national registry's diagnostic workup indicators.
+- [[ibd|IBD]] — The overarching diagnostic category for chronic inflammatory bowel diseases in Denmark, encompassing extensive epidemiological, demographic, and treatment monitoring data.
+- [[korttarmssyndrom]] — A rare but severe IBD complication tracked via specific diagnosis codes to ensure comprehensive quality assurance and registry inclusion for affected patients.
+- [[veo-ibd|VEO-IBD]] — A severe form of IBD affecting the youngest children, requiring centralized diagnostics and influencing pediatric quality indicators due to the clinical need to limit anesthesia exposure.
 
 ## Navigation
 
@@ -28,6 +31,6 @@ This folder catalogs gastrointestinal medical conditions monitored within the Da
 
 ## Statistics
 
-- Pages: 4
+- Pages: 5
 - Sub-folders: 0
 - Sources: 0

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Healthcare Facilities
 wiki: rkkp-danibd
-updated: '2026-08-05T07:36:00.815Z'
+updated: '2026-08-15T07:43:28.386Z'
 children:
   - hospitals/index.md
+  - index.md
 ---
 # Healthcare Facilities
 
-This area groups healthcare facilities that participate in the national DANIBD quality monitoring program for inflammatory bowel disease (IBD) in Denmark. It currently encompasses hospitals and specialized clinical departments, cataloging their performance against national quality indicators, operational audits, and localized digital health initiatives.
+This folder groups the physical and organizational healthcare sites delivering care to patients tracked in the DANIBD national quality database for inflammatory bowel disease. It currently encompasses hospitals, specialized gastroenterology departments, and ambulatory clinics across Denmark's regions. The contained records evaluate each facility's performance against specific clinical quality indicators, document internal audit findings, and highlight areas where diagnostic or treatment targets were met or missed.
 
 ## Pages
 
-- [[entities/healthcare-facilities/hospitals/index|Hospitals]] — Individual hospitals and specialized departments across Denmark tracking compliance with national IBD quality indicators, internal audits, and digital health adoption.
+- [[entities/healthcare-facilities/hospitals/index|Hospitals]] — Individual hospitals, specialized departments, and ambulatory clinics participating in the DANIBD registry, evaluated on clinical quality indicators like DEXA scanning, calprotectin monitoring, and postoperative colonoscopies.
 
 ## Navigation
 

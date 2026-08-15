@@ -1,0 +1,205 @@
+{
+  "generated": "2026-08-15T13:17:57.405Z",
+  "clusters": [
+    {
+      "clusterId": "clinical-practice",
+      "title": "Clinical Practice",
+      "description": "Topics covering standardized, evidence-informed interventions and workflows delivered to patients, including pharmacological treatment, patient education, and procedural protocols.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-afdk",
+          "page": "rkkp-afdk/topics/clinical-practice/clinical-practice",
+          "label": "Clinical Practice"
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "page": "rkkp-danibd/topics/clinical-practice/clinical-practice",
+          "label": "Clinical Practice"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "clusterId": "data-quality",
+      "title": "Data Quality",
+      "description": "Topics addressing deficiencies, inconsistencies, or systemic limitations in how patient-level or process-level data is captured, recorded, or reported within clinical quality registries.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-adhd",
+          "page": "rkkp-adhd/topics/data-quality/data-quality",
+          "label": "Data Quality"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "page": "rkkp-akdb/topics/data-quality/data-quality",
+          "label": "Data Quality"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "clusterId": "definitional",
+      "title": "Definitional",
+      "description": "Topics focused on precise specifications—clinical, administrative, or methodological—that underpin the consistent interpretation and application of quality indicators, codes, or patient populations.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-afdk",
+          "page": "rkkp-afdk/topics/definitional/definitional",
+          "label": "Definitional"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "page": "rkkp-akdb/topics/definitional/definitional",
+          "label": "Definitional"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "clusterId": "exclusion-criteria",
+      "title": "Exclusion Criteria",
+      "description": "Topics describing methodological rules that determine which patients or cases are omitted from the denominator or numerator of clinical quality indicator calculations.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-afdk",
+          "page": "rkkp-afdk/topics/exclusion-criteria/exclusion-criteria",
+          "label": "Exclusion Criteria"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "page": "rkkp-akdb/topics/exclusion-criteria/exclusion-criteria",
+          "label": "Exclusion Criteria"
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "clusterId": "governance",
+      "title": "Governance",
+      "description": "Topics concerning the organizational oversight bodies, steering committees, or structural anchoring responsible for directing, evaluating, and adapting clinical quality initiatives and registry operations.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-adhd",
+          "page": "rkkp-adhd/topics/governance/governance",
+          "label": "Governance"
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "page": "rkkp-afdk/topics/governance/governance",
+          "label": "Governance"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "page": "rkkp-akdb/topics/governance/governance",
+          "label": "Governance"
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "clusterId": "performance",
+      "title": "Performance",
+      "description": "Topics that refer to the measured outcomes of healthcare delivery against defined benchmarks, including aggregate results, variations, trends, and deviations from targets — all framed as evaluations of clinical or operational effectiveness.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-adhd",
+          "page": "rkkp-adhd/topics/performance/performance",
+          "label": "Performance"
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "page": "rkkp-afdk/topics/performance/performance",
+          "label": "Performance"
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "page": "rkkp-danibd/topics/performance/performance",
+          "label": "Performance"
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "clusterId": "policy-change",
+      "title": "Policy Change",
+      "description": "Topics documenting formal adjustments to rules, standards, or methodologies governing clinical reporting, indicator calculation, or care delivery frameworks across national quality databases.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-adhd",
+          "page": "rkkp-adhd/topics/policy-change/policy-change",
+          "label": "Policy Change"
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "page": "rkkp-afdk/topics/policy-change/policy-change",
+          "label": "Policy Change"
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "page": "rkkp-danibd/topics/policy-change/policy-change",
+          "label": "Policy Change"
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "clusterId": "quality-indicator",
+      "title": "Quality Indicator",
+      "description": "Topics that define, describe, or operationalize standardized clinical metrics used to assess healthcare quality across national registries. These topics cover the conceptual framework, naming conventions, and functional role of indicators in monitoring care delivery.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-adhd",
+          "page": "rkkp-adhd/topics/quality-indicator/quality-indicator",
+          "label": "Quality Indicator"
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "page": "rkkp-afdk/topics/quality-indicator/quality-indicator",
+          "label": "Quality Indicator"
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "page": "rkkp-danibd/topics/quality-indicator/quality-indicator",
+          "label": "Quality Indicator"
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "clusterId": "quality-target",
+      "title": "Quality Target",
+      "description": "Topics referencing predefined performance thresholds or developmental goals (udviklingsmål) set for clinical quality indicators to benchmark and drive improvement in healthcare delivery.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-akdb",
+          "page": "rkkp-akdb/topics/quality-target/quality-target",
+          "label": "Quality Target"
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "page": "rkkp-danibd/topics/quality-target/quality-target",
+          "label": "Quality Target"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "clusterId": "regional-variation",
+      "title": "Regional Variation",
+      "description": "Topics highlighting disparities in clinical outcomes, performance metrics, or resource distribution across Denmark’s five administrative healthcare regions.",
+      "mappedTopics": [
+        {
+          "wiki": "rkkp-adhd",
+          "page": "rkkp-adhd/topics/regional-variation/regional-variation",
+          "label": "Regional Variation"
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "page": "rkkp-afdk/topics/geographic-distribution/geographic-distribution",
+          "label": "Geographic Distribution"
+        }
+      ],
+      "confidence": "medium"
+    }
+  ]
+}

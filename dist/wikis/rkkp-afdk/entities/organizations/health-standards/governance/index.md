@@ -4,17 +4,18 @@ type: index
 aliases:
   - Governance
 wiki: rkkp-afdk
-updated: '2026-08-05T23:01:05.613Z'
+updated: '2026-08-14T23:49:32.301Z'
 children:
   - afdk-styregruppe.md
+  - index.md
 ---
 # Governance
 
-This folder contains the governing bodies responsible for overseeing national clinical quality databases and establishing healthcare standards in Denmark. It currently holds the page for the steering committee of the Atrial Fibrillation in Denmark (AFDK) database, detailing its multidisciplinary membership and its mandate to set clinical indicator targets, validate data reporting, and issue strategic recommendations. Through this committee, the folder captures the operational governance that shapes cardiovascular care and quality measurement across Danish regions and health clusters.
+This folder contains the governing bodies responsible for setting and maintaining clinical quality standards within the Danish healthcare registries. It documents the professional steering committee that manages the Atrial Fibrillation in Denmark (AFDK) database, detailing its multidisciplinary composition and its authority over national healthcare targets. Readers can find information on how this committee evaluates clinical indicators, establishes benchmarks for treatments like anticoagulation, and integrates patient perspectives into systemic quality improvement.
 
 ## Pages
 
-- [[afdk-styregruppe|Styregruppen for AFDK]] — The multidisciplinary steering committee governing the national atrial fibrillation database, tasked with setting clinical standards, validating registry data, and guiding regional healthcare improvements.
+- [[afdk-styregruppe|Styregruppen for AFDK]] — The professional steering committee managing the AFDK database, responsible for setting national clinical standards, evaluating quality indicators, and integrating patient perspectives into healthcare governance.
 
 ## Navigation
 

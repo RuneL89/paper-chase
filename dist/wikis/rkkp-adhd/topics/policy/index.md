@@ -4,19 +4,20 @@ type: index
 aliases:
   - Policy
 wiki: rkkp-adhd
-updated: '2026-08-05T19:26:17.989Z'
+updated: '2026-08-15T12:47:43.075Z'
 children:
   - mental-health-strategy/index.md
+  - index.md
   - policy.md
 ---
 # Policy
 
-This folder contains the policy framework and strategic initiatives governing ADHD treatment quality in Denmark. It covers the overarching policy directives managed by the Styregruppen, including specific quantitative development targets for clinical indicators and the integration of non-pharmacological treatment guidelines. Additionally, it groups the core national political and clinical strategies, such as the 10-Year Plan and multidisciplinary psychiatric guidelines, that bridge high-level policy with daily clinical practice and standardize care across hospitals and specialist clinics.
+This folder contains the formal frameworks, political strategies, and clinical guidelines that govern ADHD treatment quality in Denmark. The direct policy page details the overarching framework managed by the Styregruppen, including specific quantitative development targets for quality indicators and the integration of non-pharmacological treatment guidelines. It also groups the Mental Health Strategy sub-folder, which houses major political initiatives like the 10-Year Plan and standardized DMPG clinical assessment guidelines for children and adolescents.
 
 ## Pages
 
-- [[policy|Policy]] — The overarching policy framework for ADHD treatment quality, detailing the Styregruppen's management of clinical indicators, quantitative development targets, and non-pharmacological interventions.
-- [[topics/policy/mental-health-strategy/index|Mental Health Strategy]] — Core political and clinical strategies shaping ADHD care in Denmark, including the national 10-Year Plan and DMPG guidelines for non-pharmacological treatment and diagnostic assessment.
+- [[policy|Policy]] — The overarching policy framework managed by the Styregruppen, detailing quantitative development targets for specific quality indicators and the integration of non-pharmacological treatment guidelines.
+- [[topics/policy/mental-health-strategy/index|Mental Health Strategy]] — High-level political initiatives like the 10-Year Plan and standardized DMPG clinical assessment guidelines that shape the structural approach to ADHD care.
 
 ## Navigation
 

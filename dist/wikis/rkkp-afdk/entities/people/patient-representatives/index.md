@@ -4,19 +4,20 @@ type: index
 aliases:
   - Patient Representatives
 wiki: rkkp-afdk
-updated: '2026-08-05T23:10:20.150Z'
+updated: '2026-08-15T00:01:13.724Z'
 children:
+  - index.md
   - inge-molgaard.md
   - robert-bedsted.md
 ---
 # Patient Representatives
 
-This folder catalogs individuals who act as patient representatives within the national clinical quality development efforts for cardiovascular health in Denmark. Both representatives documented here serve on the steering committee for the Danish Atrial Fibrillation Database, bringing the patient perspective to high-level clinical and political decision-making. Their inclusion underscores the cross-sectoral, interdisciplinary governance model used to ensure that atrial fibrillation treatment remains uniform, evidence-based, and patient-centered across the country.
+This folder catalogs individuals who serve as patient representatives within the governance structures of Danish national healthcare quality databases. The representatives documented here sit on the steering committee for the Danish Atrial Fibrillation Database (AFDK), where they ensure that patient perspectives are integrated into clinical quality development, data validation, and strategic decision-making. Their ongoing roles and contributions are tracked across multiple annual reports published by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP).
 
 ## Pages
 
-- [[inge-molgaard|Inge Mølgaard]] — Serves on the AFDK steering committee, contributing to the governance and structured patient education frameworks for atrial fibrillation.
-- [[robert-bedsted|Robert Bedsted]] — Serves on the AFDK steering committee, representing patient interests in the national quality development of atrial fibrillation care.
+- [[inge-molgaard|Inge Mølgaard]] — Patient representative on the AFDK Steering Committee, ensuring patient perspectives in atrial fibrillation data validation and quality development.
+- [[robert-bedsted|Robert Bedsted]] — Patient representative on the AFDK Steering Committee, contributing to the governance and patient-centered monitoring of cardiovascular healthcare.
 
 ## Navigation
 

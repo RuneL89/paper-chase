@@ -4,17 +4,18 @@ type: index
 aliases:
   - Cardiovascular
 wiki: rkkp-afdk
-updated: '2026-08-05T23:33:50.960Z'
+updated: '2026-08-15T00:34:54.929Z'
 children:
   - atrieflimren.md
+  - index.md
 ---
 # Cardiovascular
 
-This folder catalogs cardiovascular medical conditions monitored within the Danish clinical quality registries. It currently focuses on atrial fibrillation (atrieflimren), a widespread condition affecting over 130,000 people in Denmark and associated with severe complications like ischemic stroke and heart failure. The documentation covers the condition's epidemiological footprint and the comprehensive suite of national quality indicators used by the Danish Atrial Fibrillation Database to track anticoagulation timelines, diagnostic imaging, and structured patient education.
+This folder groups medical conditions affecting the cardiovascular system that are monitored by Danish clinical quality databases. It currently centers on atrial fibrillation, documenting its prevalence, associated risks like ischemic stroke and heart failure, and the national quality indicators used to track diagnostic procedures, anticoagulation treatments, and patient outcomes.
 
 ## Pages
 
-- [[atrieflimren]] — Details the epidemiology, clinical risks, and national quality indicators for atrial fibrillation in Denmark, including anticoagulation therapy, echocardiography, and patient education metrics tracked by the AFDK.
+- [[atrieflimren]] — Details the epidemiology, clinical quality indicators, treatments, and complications of atrial fibrillation in Denmark, drawing on national registry data and RKKP reports.
 
 ## Navigation
 

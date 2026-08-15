@@ -4,21 +4,24 @@ type: index
 aliases:
   - Health Researchers
 wiki: rkkp-afdk
-updated: '2026-08-05T23:09:26.888Z'
+updated: '2026-08-14T23:59:54.785Z'
 children:
   - anders-moller-schlunsen.md
   - chresten-gamborg-puggaard.md
+  - index.md
+  - inge-oster.md
   - miriam-grijota-chousa.md
 ---
 # Health Researchers
 
-This folder contains profiles of health researchers and data specialists employed by the Danish Regions' Clinical Quality Development Programme (RKKP) who contribute to national cardiovascular quality initiatives. Specifically, it documents the clinical epidemiologists, biostatisticians, and data managers who serve on the steering committee for the Danish Atrial Fibrillation database (AFDK), providing the methodological, statistical, and technical infrastructure expertise required to oversee national registry data and clinical quality development.
+This folder profiles the clinical epidemiologists, data managers, and biostatisticians who drive the analytical and governance work behind Denmark's national healthcare quality registries, particularly the Danish Atrial Fibrillation Database (AFDK). These researchers are affiliated with key health quality institutions like RKKP and Sundhedsvæsenets Kvalitetsinstitut (SundK), where they manage data infrastructure and evaluate clinical outcomes such as stroke incidence and anticoagulation wait times. Their multidisciplinary expertise ensures that national cardiovascular quality improvement initiatives are grounded in rigorous statistical analysis and cross-sectoral data governance.
 
 ## Pages
 
-- [[anders-moller-schlunsen|Anders Møller Schlünsen]] — Clinical epidemiologist and PhD at RKKP serving on the AFDK steering committee, focusing on data validation and quality development for atrial fibrillation registries.
-- [[chresten-gamborg-puggaard|Chresten Gamborg Puggaard]] — Data manager with a cand. polit. degree at RKKP, providing technical and administrative expertise in data structure to the AFDK steering group.
-- [[miriam-grijota-chousa|Miriam Grijota Chousa]] — Biostatistician and data manager at RKKP who contributes statistical and methodological expertise to the AFDK steering committee to ensure data validity for cardiovascular quality development.
+- [[anders-moller-schlunsen|Anders Møller Schlünsen]] — Clinical epidemiologist and AFDK steering committee member who transitioned from RKKP to SundK, acting as the primary contact for data governance.
+- [[chresten-gamborg-puggaard|Chresten Gamborg Puggaard]] — Data manager and political scientist providing technical infrastructure and administrative expertise to the AFDK steering group.
+- [[inge-oster|Inge Øster]] — Clinical epidemiologist at SundK contributing to AFDK steering committee analyses on anticoagulation wait times and stroke incidence.
+- [[miriam-grijota-chousa|Miriam Grijota Chousa]] — Statistician and biostatistician who manages and analyzes AFDK data for clinical decision-making, transitioning her affiliation from RKKP to SundK.
 
 ## Navigation
 
@@ -29,6 +32,6 @@ This folder contains profiles of health researchers and data specialists employe
 
 ## Statistics
 
-- Pages: 3
+- Pages: 4
 - Sub-folders: 0
 - Sources: 0

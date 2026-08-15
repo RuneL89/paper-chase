@@ -4,17 +4,18 @@ type: index
 aliases:
   - Organizational
 wiki: rkkp-afdk
-updated: '2026-08-05T23:36:39.152Z'
+updated: '2026-08-15T00:38:02.659Z'
 children:
+  - index.md
   - organizational.md
 ---
 # Organizational
 
-This area covers the organizational structure and geographic distribution of specialist healthcare resources documented in the corpus. It specifically details the involvement and regional distribution of practicing cardiologists across Denmark, highlighting significant disparities between the capital area and rural regions. The pages here provide cited data on how specialist practices are concentrated and their role in incident patient pathways.
+This folder covers the structural distribution and organizational landscape of specialist healthcare delivery in Denmark. It specifically details the involvement and geographic concentration of practicing cardiologists, revealing significant regional disparities—such as the heavy centralization of private specialist cardiology in the Capital Region compared to rural areas like North Jutland. These insights are crucial for evaluating how specialist care is distributed and accessed across incident patient pathways.
 
 ## Pages
 
-- [[organizational|Organizational]] — Details the geographic distribution of practicing cardiologists across Danish regions, highlighting the heavy concentration of specialist practices in Region Hovedstaden compared to rural areas.
+- [[organizational|Organizational]] — Details the structural distribution and geographic concentration of practicing cardiologists across Danish regions, highlighting disparities in specialist care delivery.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This area covers the organizational structure and geographic distribution of spe
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This area covers the organizational structure and geographic distribution of spe
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

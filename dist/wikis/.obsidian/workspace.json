@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "56837d72dae46337",
+        "id": "1d014e1d445f2ae4",
         "type": "tabs",
         "children": [
           {
-            "id": "04cb895dd1248f0e",
+            "id": "eeed4f88a9361c8b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "index-of-indexes.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "index-of-indexes"
             }
           }
         ]
@@ -37,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -176,9 +182,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "04cb895dd1248f0e",
+  "active": "eeed4f88a9361c8b",
   "lastOpenFiles": [
+    "cross-wiki/topics/quality-target.md",
+    "cross-wiki/topics/definitional.md",
+    "rkkp-adhd/topics/governance/governance.md",
+    "cross-wiki/topics/governance.md",
+    "cross-wiki/topics/index.md",
+    "cross-wiki/index.md",
+    "cross-wiki/entities.md",
+    "rkkp-afdk/comparisons/alvorlig-bloedning.md",
+    "rkkp-afdk/topics/clinical-outcome/clinical-outcome.md",
+    "rkkp-akdb/documents/akdb-2025-part-002.md",
+    "rkkp-akdb/documents/akdb-2025-part-001.md",
+    "rkkp-afdk/comparisons/alder-ved-diagnose.md",
+    "rkkp-afdk/comparisons/index.md",
     "rkkp-afdk/index.md",
+    "index-of-indexes.md",
     "rkkp-afdk/topics/index.md",
     "rkkp-afdk/topics/validation/index.md",
     "rkkp-afdk/topics/statistical-interpretation/index.md",
@@ -190,20 +210,6 @@
     "rkkp-afdk/topics/quality-indicator-definition/index.md",
     "rkkp-afdk/topics/quality-indicator/index.md",
     "rkkp-afdk/topics/pre-hospital-treatment/index.md",
-    "rkkp-afdk/topics/policy-decision/index.md",
-    "rkkp-afdk/topics/policy-change/index.md",
-    "rkkp-afdk/topics/pharmacovigilance/index.md",
-    "rkkp-afdk/topics/performance/index.md",
-    "rkkp-afdk/topics/patient-perspective/index.md",
-    "rkkp-afdk/topics/organizational-practice/index.md",
-    "rkkp-afdk/topics/organizational-change/index.md",
-    "rkkp-afdk/topics/organizational/index.md",
-    "rkkp-afdk/topics/mortality-rate/index.md",
-    "rkkp-afdk/topics/methodological-definition/index.md",
-    "rkkp-afdk/topics/medical-conditions/index.md",
-    "rkkp-afdk/topics/medical-conditions/neurological/index.md",
-    "rkkp-afdk/topics/medical-conditions/cardiovascular/index.md",
-    "rkkp-afdk/topics/limitation/index.md",
     "rkkp-akdb/topics/regional-comparison",
     "rkkp-afdk/topics/validation",
     "rkkp-afdk/topics/statistical-interpretation",

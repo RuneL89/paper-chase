@@ -4,17 +4,18 @@ type: index
 aliases:
   - Assessment Tools
 wiki: rkkp-adhd
-updated: '2026-08-05T19:13:54.073Z'
+updated: '2026-08-15T12:39:39.225Z'
 children:
+  - index.md
   - pse.md
 ---
 # Assessment Tools
 
-This folder catalogs specific psychiatric assessment instruments used in Danish child and adolescent psychiatry, such as full semi-structured interviews. The pages detail how these tools are applied in clinical practice and how recent reevaluations of their mandatory use are shaping new healthcare quality indicators. By documenting shifts in clinical consensus, this area highlights the intersection of diagnostic procedures, resource constraints, and systemic healthcare administration.
+This folder contains specific psychiatric assessment instruments utilized in child and adolescent psychiatry, particularly within the context of the Danish national ADHD database. It currently documents the Present State Examination (PSE), a comprehensive semi-structured interview. The inclusion of PSE here highlights a significant shift in clinical consensus, as recent national reports conclude that such intensive interviews are not strictly necessary for every ADHD case, thereby informing new steering group strategies to address resource constraints and geographic inequalities in Danish healthcare.
 
 ## Pages
 
-- [[pse|PSE]] — A full semi-structured psychiatric interview whose mandatory use in every ADHD case is being reevaluated to address resource constraints and geographic inequalities.
+- [[pse|PSE]] — A full semi-structured psychiatric interview whose mandatory universal use in ADHD diagnostics is being reevaluated to address systemic resource constraints and geographic inequalities.
 
 ## Navigation
 

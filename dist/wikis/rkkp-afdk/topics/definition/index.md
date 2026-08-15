@@ -4,17 +4,18 @@ type: index
 aliases:
   - Definition
 wiki: rkkp-afdk
-updated: '2026-08-05T23:26:08.992Z'
+updated: '2026-08-15T00:23:51.288Z'
 children:
   - definition.md
+  - index.md
 ---
 # Definition
 
-This folder contains the foundational definitions used by the Databasen for Atrieflimren i Danmark (AFDK) to monitor and improve the treatment of atrial fibrillation in Denmark. It details the strict criteria for patient inclusion, such as specific ICD-10 codes in national registries and practicing cardiologist systems, and outlines the exact numerators, denominators, and timeframes for calculating clinical quality indicators like anticoagulation initiation, echocardiography, and TSH measurement. Additionally, it covers the clinical definitions for comorbidities like heart failure and the stated purpose of patient education programs.
+This folder contains the foundational definitions used by the Danish Atrial Fibrillation Database (AFDK) to monitor and improve the quality of care for patients with atrial fibrillation. It details the strict, standardized criteria for identifying patient populations through specific ICD-10 diagnostic codes in national and private registries. Furthermore, it outlines the precise numerators and denominators required to calculate clinical quality indicators, alongside rigorous definitions for secondary outcomes like heart failure and the formal purpose of patient education.
 
 ## Pages
 
-- [[definition|Definition]] — Details the explicit inclusion criteria for atrial fibrillation patients in national registries, the exact numerators and denominators for quality indicators like anticoagulation and echocardiography, and the clinical definitions for comorbidities such as heart failure.
+- [[definition|Definition]] — Outlines the AFDK's standardized criteria for patient populations, clinical quality indicator calculations, secondary outcomes like heart failure, and patient education interventions.
 
 ## Navigation
 
@@ -27,12 +28,17 @@ This folder contains the foundational definitions used by the Databasen for Atri
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder contains the foundational definitions used by the Databasen for Atri
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

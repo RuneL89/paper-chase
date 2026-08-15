@@ -4,47 +4,62 @@ type: entity
 aliases:
   - 5101 EKKO-cardiografi
 wiki: rkkp-afdk
-updated: '2026-08-05T20:41:50.666Z'
+updated: '2026-08-14T20:34:01.130Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: 116-120
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: 101-105
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: 91-95
 tags:
   - procedure-code
 ---
-**5101 EKKO-cardiografi** is a specific procedure code registered in the Danish Health Insurance Register ([[sygesikringsregisteret|Sygesikringsregisteret]]) used to identify [[ekkokardiografi|echocardiography]] examinations. This code plays a critical role in the national quality measurement and clinical tracking of patients diagnosed with atrial fibrillation in the Danish healthcare system [^src1]. 
+**5101 EKKO-cardiografi** is a specific medical procedure code registered in the [[sygesikringsregisteret|Sygesikringsregisteret]] (Danish National Health Service Register) [^src1]. It is utilized within the Danish healthcare system to identify and track [[ekkokardiografi|echocardiography]] examinations, specifically serving as a critical data point for measuring the quality of care for patients with atrial fibrillation under the national AFDK (Atrieflimren i Danmark) program managed by RKKP [^src3].
 
-The code is documented in the annual reports for the Database for Atrial Fibrillation in Denmark, published by the Regions' Clinical Quality Development Programme (RKKP). These reports outline the precise calculation rules and coding requirements for clinical quality indicators, ensuring standardized data collection and comparison across regions [^src1]. Specifically, "5101 EKKO-cardiografi" is utilized to track whether patients receive necessary echocardiographic evaluations as part of their diagnostic and follow-up care [^src2]. 
+As part of a broader set of echocardiography codes used for registry analyses and clinical quality indicators, 5101 operates alongside several other related procedure codes. These include [[2208-ekkocardiografi|2208 Ekkocardiografi]], [[3810-ekkocardiografi-standardundersoegelse|3810 Ekkocardiografi, standardundersøgelse]], [[3811-ekkocardiografi-avanceret-undersoegelse|3811 Ekkocardiografi, avanceret undersøgelse]], [[5102-transsofageal-ekko|5102 Transsøfofagal ekko.]], [[5103-stress-ekkocardiogra|5103 Stress ekkocardiogra]], [[6402-ekkocardiografi|6402 Ekkocardiografi]], [[6408-ekkocardiografi|6408 Ekkocardiografi]], and [[0906-ekko-kardiografi|0906 Ekko-kardiografi]] [^src1]. The systematic definition of these codes ensures standardized data collection, allowing health authorities to calculate precise denominators and numerators for clinical indicators, such as the proportion of atrial fibrillation patients receiving timely echocardiographic assessments [^src2]. 
 
-Within the Health Insurance Register, this code is part of a broader set of procedural identifiers used to capture various types of echocardiography. It is listed alongside other related codes such as [[2208-ekkocardiografi|2208 Ekkocardiografi]], [[3810-ekkocardiografi-standardundersoegelse|3810 Ekkocardiografi, standardundersøgelse]], [[3811-ekkocardiografi-avanceret-undersoegelse|3811 Ekkocardiografi, avanceret undersøgelse]], [[5102-transsofageal-ekko|5102 Transsøfofagal ekko.]], [[5103-stress-ekkocardiogra|5103 Stress ekkocardiogra]], [[6402-ekkocardiografi|6402 Ekkocardiografi]], [[6408-ekkocardiografi|6408 Ekkocardiografi]], and [[0906-ekko-kardiografi|0906 Ekko-kardiografi]] [^src1]. By maintaining these specific codes, RKKP ensures that clinical quality indicators—such as the proportion of atrial fibrillation patients receiving an echocardiogram—can be accurately calculated and monitored over time [^src2].
+The code is consistently referenced across multiple annual iterations of the AFDK quality reports (2023, 2024, and 2025), underscoring its ongoing role in the technical guidelines for registering and calculating cardiovascular quality metrics in Denmark [^src1] [^src2] [^src3].
 
 ## Mentions
-- Page 116: "5101 EKKO-cardiografi" [^src1]
-- Page 105: "5101 EKKO-cardiografi" [^src2]
+- Page 116: "5101 EKKO-cardiografi" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 116-120) [^src1]
+- Page 105: "5101 EKKO-cardiografi" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105) [^src2]
+- Page 91: "5101 EKKO-cardiografi" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95) [^src3]
 
 ## Relationships
-**Outgoing**
-- **Subject:** 5101-ekko-cardiografi
-  **Predicate:** is-registered-in
-  **Object:** sygesikringsregisteret
-  **Evidence:** "Koder for ekkokardiografi i Sygesikringsregisteret: 5101 EKKO-cardiografi"
-  **Page:** 116 [^src1]
+Outgoing (this entity is the SUBJECT of these relationships):
+- Subject: 5101-ekko-cardiografi
+  Predicate: is-registered-in
+  Object: sygesikringsregisteret
+  Evidence: "Koder for ekkokardiografi i Sygesikringsregisteret: 5101 EKKO-cardiografi"
+  Page: 116
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 116-120 [^src1]
+- Subject: 5101-ekko-cardiografi
+  Predicate: is-code-from
+  Object: sygesikringsregisteret
+  Evidence: "Koder for ekkokardiografi i Sygesikringsregisteret: 5101 EKKO-cardiografi"
+  Page: 91
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95 [^src3]
 
-**Incoming**
-- **Subject:** ekkokardiografi
-  **Predicate:** coded-as
-  **Object:** 5101 EKKO-cardiografi
-  **Evidence:** "5101 EKKO-cardiografi"
-  **Page:** 105 [^src2]
+Incoming (this entity is the OBJECT of these relationships):
+- Subject: ekkokardiografi
+  Predicate: coded-as
+  Object: (this entity)
+  Evidence: "5101 EKKO-cardiografi"
+  Page: 105
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105 [^src2]
 
 ## Claims
-- **Procedural:** Sygesikringsregisteret indeholder følgende ekkokardiografi-koder: 2208, 3810, 3811, 5101, 5102, 5103, 6402, 6408 og 0906 [^src1] (2208-ekkocardiografi, 3810-ekkocardiografi-standardundersoegelse, 3811-ekkocardiografi-avanceret-undersoegelse, 5101-ekko-cardiografi, 5102-transsofageal-ekko, 5103-stress-ekkocardiogra, 6402-ekkocardiografi, 6408-ekkocardiografi, 0906-ekko-kardiografi)
+- Sygesikringsregisteret indeholder følgende ekkokardiografi-koder: 2208, 3810, 3811, 5101, 5102, 5103, 6402, 6408 og 0906 [^src1] (2208-ekkocardiografi, 3810-ekkocardiografi-standardundersoegelse, 3811-ekkocardiografi-avanceret-undersoegelse, 5101-ekko-cardiografi, 5102-transsofageal-ekko, 5103-stress-ekkocardiogra, 6402-ekkocardiografi, 6408-ekkocardiografi, 0906-ekko-kardiografi)
+  Type: procedural
+  Page: 116
+  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 116-120 [^src1]
 
 ## Timeline
-No timeline events are recorded for this entity.
+(none)
 
 ## Sources
 
 [^src1]: AFDK_2023.pdf, pages 116-120
 [^src2]: AFDK_2024.pdf, pages 101-105
+[^src3]: AFDK_2025.pdf, pages 91-95

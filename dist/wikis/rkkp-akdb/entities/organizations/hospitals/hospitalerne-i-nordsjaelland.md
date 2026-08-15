@@ -4,85 +4,66 @@ type: entity
 aliases:
   - Hospitalerne i Nordsjælland
 wiki: rkkp-akdb
-updated: '2026-08-05T18:44:53.072Z'
+updated: '2026-08-15T06:25:59.245Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '21-25, 56-60, 6-10, 61-65, 71-75'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '51-55, 6-10, 61-65, 71-75'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: '6-10, 61-65, 66-70, 71-75, 76-80, 81-85, 86-90, 91-95'
 tags:
   - organization
 ---
-# Hospitalerne i Nordsjælland
-
-**Hospitalerne i Nordsjælland** is a hospital unit in Denmark that is tracked in the national clinical quality database for acute surgery (Akut Kirurgi Databasen, AKDB). The unit's performance is monitored across multiple clinical indicators, reflecting its role in the Danish healthcare system's quality assurance and benchmarking efforts. In the AKDB reports, the unit is listed under both [[region-hovedstaden|Region Hovedstaden]] and [[region-sjaelland|Region Sjælland]], and its data is aggregated within the broader [[sjaelland-region-i-alt|Sjælland Region i alt]] category [^src2] [^src3] [^src4].
-
-For the period from September 1, 2022, to August 31, 2023, the unit's compliance with [[indikator-1|Indikator 1]] (which measures timely antibiotic treatment) was 37.1% [^src1]. In the subsequent reporting period (September 1, 2023, to August 31, 2024), this compliance rate improved to 45.8% [^src6]. 
-
-The unit is also evaluated on supplementary indicators. For [[indikator-5x|Indikator 5x]], which measures the speed of surgical intervention for life-threatening conditions, Hospitalerne i Nordsjælland recorded a rate of 25.3% (95% CI: 16.7–35.5) in the 2023 report [^src2]. In the 2024 report, a related metric on pages 51-55 showed a rate of 13.7% (95% CI: 9.3-19.2) [^src7]. 
-
-Regarding patient outcomes and demographics, the 2023 report noted that out of 214 operated patients at the unit, 4 (0.13%) had gastrointestinal cancers and 4 (0.13%) had other cancers [^src3]. When analyzing 30-day mortality after acute surgery for patients with mild to moderate comorbidity ([[charlson-score-1-2|Charlson Score = 1 eller 2]]), 8 out of 69 patients died (11.6%; 95% CI: 5.1-21.6) [^src4]. In the 2024 report, this specific mortality metric showed 4 deaths out of 82 patients (4.9%; 95% CI: 1.3-12.0) [^src8]. The unit's demographic distributions, including age and gender statistics, are also detailed in both the 2023 and 2024 reports [^src5] [^src9].
 
 ## Mentions
 
-- Page 8: "Hospitalerne i Nordsjælland Nej 78 / 210 0 (0) 37,1 (30,6-44,1) 29,9 16,2" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 6-10)
-- Page 21: "Hospitalerne i Nordsjælland Nej 23 / 91 0 (0) 25,3 (16,7-35,5)" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 21-25)
-- Page 56: "Hospitalerne i Nordsjælland" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60)
-- Page 61: "Hospitalerne i Nordsjælland 8 / 69 0 (0) 11,6 (5,1-21,6) 6,5 8,2" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65)
-- Page 71: "Hospitalerne i Nordsjælland 240 18,5 58,00 71,00 67,95 79,00" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 71-75)
-- Page 6: "Hospitalerne i Nordsjælland Nej 92 / 201 0 (0) 45,8 (38,7-52,9) 37,1 29,9" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 6-10)
-- Page 51: "Hospitalerne i Nordsjælland Ja 28 / 204 0 (0) 13,7 (9,3-19,2) 19,2 16,4" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 51-55)
-- Page 61: "Hospitalerne i Nordsjælland 4 / 82 0 (0) 4,9 (1,3-12,0) 7,6 10,8" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 61-65)
-- Page 71: "Hospitalerne i Nordsjælland 240 18,5 58,00 71,00 67,95 79,00" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 71-75)
+- Page 8: "Hospitalerne i Nordsjælland Nej 78 / 210 0 (0) 37,1 (30,6-44,1) 29,9 16,2" [^src1]
+- Page 21: "Hospitalerne i Nordsjælland Nej 23 / 91 0 (0) 25,3 (16,7-35,5)" [^src2]
+- Page 56: "Hospitalerne i Nordsjælland" [^src3]
+- Page 61: "Hospitalerne i Nordsjælland 8 / 69 0 (0) 11,6 (5,1-21,6) 6,5 8,2" [^src4]
+- Page 71: "Hospitalerne i Nordsjælland 240 18,5 58,00 71,00 67,95 79,00" [^src5]
+- Page 6: "Hospitalerne i Nordsjælland Nej 92 / 201 0 (0) 45,8 (38,7-52,9) 37,1 29,9" [^src6]
+- Page 51: "Hospitalerne i Nordsjælland Ja 28 / 204 0 (0) 13,7 (9,3-19,2) 19,2 16,4" [^src7]
+- Page 61: "Hospitalerne i Nordsjælland 4 / 82 0 (0) 4,9 (1,3-12,0) 7,6 10,8" [^src8]
+- Page 71: "Hospitalerne i Nordsjælland 240 18,5 58,00 71,00 67,95 79,00" [^src9]
+- Page 9: "Hospitalerne i
+Nordsjælland
+Nej 108 / 217 0 (0) 49,8 (42,9-56,6) 47,1 37,1" [^src10]
+- Page 61: "Hospitalerne i Nordsjælland 207 83 132 228" [^src11]
+- Page 62: "Hospitalerne i Nordsjælland 524 100,00 217 41,41 307 58,59" [^src11]
+- Page 63: "Hospitalerne i Nordsjælland #/# 0 (0) 2,1 (0,3-7,5) 4,8 7,5" [^src11]
+- Page 67: "Hospitalerne i Nordsjælland" [^src12]
+- Page 71: "Hospitalerne i Nordsjælland 6 / 46 0 (0) 13,0 (4,9-26,3) 15,4 28,3" [^src13]
+- Page 76: "Hospitalerne i
+Nordsjælland
+3 / 23 0 (0) 13,0 (2,8-33,6) 12,0 13,0" [^src14]
+- Page 81: "Hospitalerne i
+Nordsjælland
+6 / 93 0 (0) 6,5 (2,4-13,5) 9,9 8,4" [^src15]
+- Page 83: "Hospitalerne i
+Nordsjælland
+7 / 93 0 (0) 7,5 (3,1-14,9) 13,2 12,6" [^src15]
+- Page 86: "Hospitalerne i Nordsjælland Ja 79 / 118 0 (0) 66,9 (57,7-75,3) 61,1 75,2" [^src16]
+- Page 89: "Hospitalerne i Nordsjælland Nej 35 / 99 0 (0) 35,4 (26,0-45,6) 36,2 33,3" [^src16]
+- Page 91: "Hospitalerne i Nordsjælland 217 100,00 118 54,38 99 45,62" [^src17]
 
 ## Relationships
 
-Outgoing (this entity is the SUBJECT of these relationships):
-- Subject: hospitalerne-i-nordsjaelland
-  Predicate: has-indicator-result
-  Object: indikator-1
-  Evidence: "Hospitalerne i Nordsjælland Nej 78 / 210 0 (0) 37,1 (30,6-44,1) 29,9 16,2"
-  Page: 8
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 6-10
-- Subject: hospitalerne-i-nordsjaelland
-  Predicate: is-part-of
-  Object: sjaelland-region-i-alt
-  Evidence: "Hospitalerne i Nordsjælland er listet under Sjælland Region i alt i tabellen"
-  Page: 56
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60
-
-Incoming (this entity is the OBJECT of these relationships):
-- Subject: region-hovedstaden
-  Predicate: contains-hospital
-  Object: (this entity)
-  Evidence: "Hospitalerne i Nordsjælland er beliggende i Region Hovedstaden"
-  Page: 21
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 21-25
-- Subject: region-sjaelland
-  Predicate: contains-hospital
-  Object: (this entity)
-  Evidence: "Sjælland 28 / 180 [...] Hospitalerne i Nordsjælland 8 / 69"
-  Page: 61
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65
+- [[indikator-1|Indikator 1]] — Has Indicator Result [^src1]
+- [[sjaelland-region-i-alt|Sjælland Region i alt]] — Is Part Of [^src3]
+- [[region-hovedstaden|Region Hovedstaden — Hovedstaden]] — Contains Hospital (incoming) — "Hospitalerne i Nordsjælland er beliggende i Region Hovedstaden" [^src2]
+- [[region-sjaelland|Region Sjælland — Sjælland]] — Contains Hospital (incoming) — "Sjælland 28 / 180 [...] Hospitalerne i Nordsjælland 8 / 69" [^src4]
+- [[region-sjaelland|Region Sjælland — Sjælland]] — Contains Hospital (incoming) — "Sjælland
+Hospitalerne i
+Nordsjælland
+Nej 108 / 217 0 (0) 49,8 (42,9-56,6) 47,1 37,1" [^src10]
 
 ## Claims
 
-- Hospitalerne i Nordsjælland havde en andel på 25,3 % (95 % CI: 16,7–35,5) for supplerende indikator 5x [^src1] (hospitalerne-i-nordsjaelland, indikator-5x)
-  Type: performance-statistic
-  Page: 21
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 21-25
-- Hospitalerne i Nordsjælland: 214 opererede patienter, hvoraf 4 (0,13 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme [^src1] (hospitalerne-i-nordsjaelland)
-  Type: cancer-distribution
-  Page: 56
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60
-- Hospitalerne i Nordsjælland: 8 / 69 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (11,6 %; 95 % CI: 5,1-21,6) [^src1] (hospitalerne-i-nordsjaelland, charlson-score-1-2)
-  Type: hospital-statistic
-  Page: 61
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65
-
-## Timeline
-
-(none)
+- Hospitalerne i Nordsjælland havde en andel på 25,3 % (95 % CI: 16,7–35,5) for supplerende indikator 5x [^src2] ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]], [[indikator-5x|Indikator 5x]])
+- Hospitalerne i Nordsjælland: 214 opererede patienter, hvoraf 4 (0,13 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme [^src3] ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]])
+- Hospitalerne i Nordsjælland: 8 / 69 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (11,6 %; 95 % CI: 5,1-21,6) [^src4] ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]], [[charlson-score-1-2|Charlson Score = 1 eller 2]])
 
 ## Sources
 
@@ -95,3 +76,12 @@ Incoming (this entity is the OBJECT of these relationships):
 [^src7]: AKDB_2024.pdf, pages 51-55
 [^src8]: AKDB_2024.pdf, pages 61-65
 [^src9]: AKDB_2024.pdf, pages 71-75
+[^src10]: AKDB_2025.pdf, pages 6-10
+[^src11]: AKDB_2025.pdf, pages 61-65
+[^src12]: AKDB_2025.pdf, pages 66-70
+[^src13]: AKDB_2025.pdf, pages 71-75
+[^src14]: AKDB_2025.pdf, pages 76-80
+[^src15]: AKDB_2025.pdf, pages 81-85
+[^src16]: AKDB_2025.pdf, pages 86-90
+[^src17]: AKDB_2025.pdf, pages 91-95
+

@@ -4,8 +4,9 @@ type: index
 aliases:
   - Healthcare Coding
 wiki: rkkp-akdb
-updated: '2026-08-05T20:18:06.758Z'
+updated: '2026-08-15T08:24:18.939Z'
 children:
+  - index.md
   - kka.md
   - nabb.md
   - nabc.md
@@ -17,18 +18,18 @@ children:
 ---
 # Healthcare Coding
 
-This folder catalogs specific administrative, registration, and procedure codes used within the Danish healthcare system and the Akut Kirurgi Databasen (AKDB) to track clinical quality indicators. The pages detail identifiers related to postoperative care levels, early mobilization protocols, and nutritional assessments, showing how data is harvested from electronic health records like NordEPJ and the National Patient Register (LPR). Several entries also document technical infrastructure challenges that arise when local clinical workflows fail to correctly map activities to these national codes, threatening the validity of regional quality measurements.
+This folder catalogs specific healthcare procedure and classification codes used within the Danish healthcare system and the Akut Kirurgi Databasen (AKDB) to track clinical quality indicators. The codes cover critical care levels, early mobilization, and nutritional assessments, highlighting both the clinical metrics they support and the technical infrastructure challenges—such as missing electronic health record linkages in regional systems—that can prevent accurate data harvesting.
 
 ## Pages
 
-- [[kka|KKA]] — Administrative data delivery mechanism from the Danish Healthcare Quality Institute used by hospitals for local data validation.
-- [[nabb|NABB]] — National registration code for intensive therapy, utilized alongside other care-level codes to track Indikator 6.
-- [[nabc|NABC]] — Healthcare code for intermediate observation, essential for measuring intermediate admissions and evaluating data completeness.
-- [[nabe|NABE]] — Registration code designating intensive observation, foundational for evaluating the postoperative stays of high-risk patients.
-- [[zz2009c|ZZ2009C]] — Procedure code for preparing a nutrition plan, highlighting data harvesting failures caused by missing links in the NordEPJ system.
-- [[zz2009d|ZZ2009D]] — Procedure code documenting no clinical indication for a nutrition plan, illustrating electronic health record integration challenges.
-- [[zzp0030a|ZZP0030A]] — National Patient Register code indicating that early mobilization has been initiated, forming the numerator for Indikator 6.
-- [[zzp0030c|ZZP0030C]] — Registry code recording that early mobilization was clinically contraindicated, used to accurately filter the denominator for Indikator 6.
+- [[kka|KKA]] — The KKA delivery abbreviation for the database, identifying AKDB's specific administrative code.
+- [[nabb|NABB]] — The procedure code for intensive therapy, used to track care levels for elderly or high-risk patients in quality indicators.
+- [[nabc|NABC]] — The code for intermediate observation, applied alongside intensive care codes to measure specific patient cohorts.
+- [[nabe|NABE]] — The code for intensive observation, utilized in indicators tracking prolonged care for older or high-ASA patients.
+- [[zz2009c|ZZ2009C]] — The procedure code for preparing a nutrition plan, notable for highlighting data harvesting failures in the NordEPJ system.
+- [[zz2009d|ZZ2009D]] — The code documenting no indication for a nutrition plan, sharing the same regional EHR linkage issues as its counterpart.
+- [[zzp0030a|ZZP0030A]] — The code indicating that early mobilization has been started, used to register mobilization efforts in the national patient registry.
+- [[zzp0030c|ZZP0030C]] — The code for assessing no indication for early mobilization, completing the tracking of mobilization protocols.
 
 ## Navigation
 

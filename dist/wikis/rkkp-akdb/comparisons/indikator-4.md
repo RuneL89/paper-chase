@@ -44,7 +44,7 @@ Summary: Tabellen sammenligner resultater for Indikator 4 på regionalt niveau f
 ## Related comparisons in prose
 
 - "Indikator 4 har en standard på ≥ 90 % for andelen af patienter med præoperativ optimering eller direkte til operation" — see [[standard|Standard]] (Indikator 4) [^src2]
-- "Indikator 4 har en standard på ≥ 80 % for andelen af patienter, der opereres inden for seks timer efter ankomst (blandt dem, der opereres inden for 24 timer)" — see [[performance-standard|Performance Standard]] (Indikator 4) [^src3]
+- "Indikator 4 har en standard på ≥ 80 % for andelen af patienter, der opereres inden for seks timer efter ankomst (blandt dem, der opereres inden for 24 timer)" — see [[standard|Performance Standard]] (Indikator 4) [^src3]
 - "Ud af 2.059 patienter, der blev opereret inden for 24 timer, blev 618 opereret inden for 6 timer. Det svarer til 30,0 % på landsplan" — see [[performance|Performance]] (Indikator 4) [^src4]
 
 ## Sources

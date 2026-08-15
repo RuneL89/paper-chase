@@ -4,21 +4,23 @@ type: index
 aliases:
   - Data Availability
 wiki: rkkp-akdb
-updated: '2026-08-05T20:50:47.935Z'
+updated: '2026-08-15T09:03:57.816Z'
 children:
   - data-availability.md
+  - index.md
 ---
 # Data Availability
 
-This folder covers the accessibility and integration of external data sources required to calculate clinical performance indicators. It specifically documents the current limitations in accessing laboratory data from the Danish National Laboratory Database (DNL) for national quality registries. The included page details the explicit plans to incorporate this laboratory data into the Acute Surgery Database (AKDB) once external data pipelines make it available, underscoring a key dependency for comprehensive surgical quality evaluation.
+This area covers the accessibility and integration of external data sources required for calculating national clinical quality indicators. It specifically documents the current limitations regarding laboratory data from the Danish National Laboratory Database (DNL) and outlines explicit plans to incorporate this data into the Acute Surgery Database (AKDB) once it becomes available. The material highlights the ongoing dependency on external data pipelines to fully evaluate and report on acute surgical quality.
 
 ## Pages
 
-- [[data-availability|Data Availability]] — Documents the current lack of integrated laboratory data from the Danish National Laboratory Database (DNL) in national quality registries and the future plans to incorporate it into the Acute Surgery Database (AKDB) indicator calculations.
+- [[data-availability|Data Availability]] — Documents the current lack of laboratory data from the Danish National Laboratory Database in national quality registries and the planned future integration of this data into the Acute Surgery Database's indicator calculations.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/administrative-change/index|Administrative Change]]
 - Sibling: [[topics/administrative-systems/index|Administrative Systems]]
 - Sibling: [[topics/cancer-distribution/index|Cancer Distribution]]
 - Sibling: [[topics/clinical-assessment/index|Clinical Assessment]]
@@ -28,10 +30,12 @@ This folder covers the accessibility and integration of external data sources re
 - Sibling: [[topics/clinical-indicators/index|Clinical Indicators]]
 - Sibling: [[topics/clinical-metrics/index|Clinical Metrics]]
 - Sibling: [[topics/clinical-outcome/index|Clinical Outcome]]
+- Sibling: [[topics/clinical-process/index|Clinical Process]]
 - Sibling: [[topics/clinical-quality/index|Clinical Quality]]
 - Sibling: [[topics/clinical-quality-indicators/index|Clinical Quality Indicators]]
 - Sibling: [[topics/coding-uncertainty/index|Coding Uncertainty]]
 - Sibling: [[topics/compliance/index|Compliance]]
+- Sibling: [[topics/data-decision/index|Data Decision]]
 - Sibling: [[topics/data-privacy/index|Data Privacy]]
 - Sibling: [[topics/data-quality/index|Data Quality]]
 - Sibling: [[topics/definition/index|Definition]]
@@ -41,15 +45,19 @@ This folder covers the accessibility and integration of external data sources re
 - Sibling: [[topics/evaluation/index|Evaluation]]
 - Sibling: [[topics/evaluative/index|Evaluative]]
 - Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
+- Sibling: [[topics/governance/index|Governance]]
 - Sibling: [[topics/healthcare-metrics/index|Healthcare Metrics]]
 - Sibling: [[topics/healthcare-performance-indicators/index|Healthcare Performance Indicators]]
 - Sibling: [[topics/inter-hospital-variation/index|Inter Hospital Variation]]
 - Sibling: [[topics/methodological-assessment/index|Methodological Assessment]]
+- Sibling: [[topics/methodological-change/index|Methodological Change]]
 - Sibling: [[topics/performance/index|Performance]]
 - Sibling: [[topics/policy/index|Policy]]
+- Sibling: [[topics/quality-target/index|Quality Target]]
 - Sibling: [[topics/recommendation/index|Recommendation]]
 - Sibling: [[topics/regional-comparison/index|Regional Comparison]]
 - Sibling: [[topics/relevance-assessment/index|Relevance Assessment]]
+- Sibling: [[topics/research-finding/index|Research Finding]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/technical-infrastructure/index|Technical Infrastructure]]
 - Sibling: [[topics/visualizations/index|Visualizations]]

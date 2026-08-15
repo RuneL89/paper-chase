@@ -1,0 +1,359 @@
+{
+  "entities": [
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregisteret er den primære kilde til data om patienters deltagelse i struktureret patientundervisning og bruges til beregning af indikator 4a (patientuddannelse) i AFDK's kvalitetsmål.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Information omkring patienters deltagelse i et struktureret undervisningsprogram indhentes fra Landspatientregisteret."
+        }
+      ]
+    },
+    {
+      "name": "SKS-koden BFKB",
+      "type": "code",
+      "slug": "b01af02",
+      "folder": "entities/codes/intervention-codes",
+      "significance": "BFKB er den specifikke SKS-kode, der siden 1.1.2023 alene kan dokumentere målopfyldelse for indikatoren om struktureret patientundervisning ved nydiagnosticeret atrieflimren.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Fra og med 1.1.2023 er det alene SKS-koden BFKB der kan resultere i målopfyldelse for indikatoren."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4a",
+      "type": "quality-indicator",
+      "slug": "indikator-4a",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 4a måler andelen af nydiagnosticerede patienter med atrieflimren, der har modtaget struktureret patientundervisning inden for det første år efter diagnosen, og er centralt for evaluering af patientuddannelsesforløb i AFDK.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Se beregningsregler for indikatorerne her."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 15",
+      "type": "quality-indicator",
+      "slug": "indikator-15",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 15 måler andelen af nydiagnosticerede patienter med atrieflimren, der udvikler hjertesvigt inden for 1 år, og er en vigtig klinisk outcome-indikator i overvågningen af langtidseffekter af atrieflimren.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Indikator 15: Hjertesvigt efter atrieflimren"
+        },
+        {
+          "page": 59,
+          "context": "Indikator 15: Andelen af nydiagnosticerede patienter med atriflimren, som udvikler hjertesvigt inden for 1 år"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital er et konkret eksempel på en institution, hvor holdundervisning for patienter med nydiagnosticeret atrieflimren er integreret i Sundhedsplatformen og udgør en model for implementering af indikator 4a.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "På Herlev og Gentofte Hospitals hjerteafdeling er holdundervisning en integreret del af tilbuddet til patienter der får diagnosen atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsplatformen",
+      "type": "system",
+      "slug": "sundhedsplatformen",
+      "folder": "entities/systems/health-information-systems",
+      "significance": "Sundhedsplatformen fungerer som teknisk infrastruktur, der automatisk genererer henvisninger til holdundervisning for patienter med nydiagnosticeret atrieflimren ved Herlev og Gentofte Hospital, hvilket understøtter systematisk implementering af kvalitetsindikator 4a.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Tilbuddet er bygget ind i Sundhedsplatformen der dermed automatisk genererer en henvisning til holdundervisning."
+        }
+      ]
+    },
+    {
+      "name": "Signe Risom",
+      "type": "person",
+      "slug": "signe-risom",
+      "folder": "entities/people/health-professionals",
+      "significance": "Signe Risom er en kardiologisk sygeplejerske og Ph.d. ved Herlev og Gentofte Hospital, der står frem som praktisk ansvarlig for udformningen og gennemførelsen af holdundervisningen for patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Signe Risom, kardiologisk sygeplejerske og Ph.d., Herlev og Gentofte Hospital."
+        }
+      ]
+    },
+    {
+      "name": "SIG-AF",
+      "type": "organization",
+      "slug": "sig-af",
+      "folder": "entities/organizations/medical-societies",
+      "significance": "SIG-AF er en faglig interessegruppe, der samarbejder med AFDK om at udbrede og implementere anbefalinger for patientundervisning samt sikre korrekt kodning af denne, og dermed spiller en central rolle i forbedring af indikator 4a.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "I samarbejde med SIG-AF skal AFDK Anbefalinger for patientundervisningen (se bilag) udbredes og implementeres over hele landet."
+        }
+      ]
+    },
+    {
+      "name": "AFDK Anbefalinger for patientundervisningen",
+      "type": "document",
+      "slug": "afdk-anbefalinger-for-patientundervisningen",
+      "folder": "entities/documents/reports",
+      "significance": "AFDK Anbefalinger for patientundervisningen er en vejledende rapport, der fastlægger indhold og struktur for struktureret undervisning af patienter med nydiagnosticeret atrieflimren, og som skal udbredes og implementeres nationalt i samarbejde med SIG-AF.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "I samarbejde med SIG-AF skal AFDK Anbefalinger for patientundervisningen (se bilag) udbredes og implementeres over hele landet."
+        }
+      ]
+    },
+    {
+      "name": "ESC guidelines",
+      "type": "standard",
+      "slug": "esc-guidelines",
+      "folder": "entities/standards/medical-guidelines",
+      "significance": "De nye ESC guidelines giver patientundervisning en højere vægtning, hvilket styrker kravet om, at alle patienter med nydiagnosticeret atrieflimren fremadrettet bør tilbydes struktureret undervisning, og dermed understøtter AFDK's fokus på indikator 4a.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Patientundervisning får en højere vægtning i de nye ESC guidelines, så alle patienter med nydiagnosticeret atrieflimren fremadrettet gerne skulle tilbydes undervisning."
+        }
+      ]
+    },
+    {
+      "name": "Midtklyngen",
+      "type": "organization",
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/regions",
+      "significance": "Midtklyngen er den eneste klynge i Danmark, der opfylder udviklingsmålet på 50% for indikator 4a (62%), hvilket gør den til et benchmark-eksempel for andre regioner og klynger.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Det er kun patienterne med bopæl i Midtklyngen (Region Midtjylland) der med en andel på 62% opfylder udviklingsmålet."
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland har den højeste regionale målopfyldelse for indikator 4a (36,7%), hvilket viser en markant forbedring i forhold til andre regioner og understøtter dens rolle som leder i implementering af struktureret patientundervisning.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Ingen regioner opfylder således udviklingsmålet men Region Midtjylland (36,7%) har en markant højere målopfyldelse end de øvrige regioner."
+        }
+      ]
+    },
+    {
+      "name": "AFDK-patientrepræsentanter",
+      "type": "group",
+      "slug": "afdk-patientrepraesentanter",
+      "folder": "entities/groups/patient-advocacy",
+      "significance": "AFDK-patientrepræsentanterne fremhæver patienternes behov for struktureret undervisning kort efter diagnosestilling og understøtter, at sådant læringsforløb skaber tryghed, livskvalitet og fælles beslutningstagning, hvilket styrker validiteten af indikator 4a.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Fra patientrepræsentanterne: Patienterne ser et stort behov for et tilbud om et struktureret undervisningsforløb kort tid efter, diagnosen er stillet."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "landspatientregisteret",
+      "predicate": "provides-data-for",
+      "object": "indikator-4a",
+      "evidence": "Information omkring patienters deltagelse i et struktureret undervisningsprogram indhentes fra Landspatientregisteret.",
+      "page": 56
+    },
+    {
+      "subject": "b01af02",
+      "predicate": "is-required-code-for",
+      "object": "indikator-4a",
+      "evidence": "Fra og med 1.1.2023 er det alene SKS-koden BFKB der kan resultere i målopfyldelse for indikatoren.",
+      "page": 56
+    },
+    {
+      "subject": "herlev-og-gentofte-hospital",
+      "predicate": "implements",
+      "object": "indikator-4a",
+      "evidence": "På Herlev og Gentofte Hospitals hjerteafdeling er holdundervisning en integreret del af tilbuddet til patienter der får diagnosen atrieflimren.",
+      "page": 57
+    },
+    {
+      "subject": "sundhedsplatformen",
+      "predicate": "enables-automation-of",
+      "object": "indikator-4a",
+      "evidence": "Tilbuddet er bygget ind i Sundhedsplatformen der dermed automatisk genererer en henvisning til holdundervisning.",
+      "page": 57
+    },
+    {
+      "subject": "signe-risom",
+      "predicate": "leads",
+      "object": "indikator-4a-implementation-at-herlev-og-gentofte-hospital",
+      "evidence": "Signe Risom, kardiologisk sygeplejerske og Ph.d., Herlev og Gentofte Hospital.",
+      "page": 57
+    },
+    {
+      "subject": "sig-af",
+      "predicate": "collaborates-with",
+      "object": "afdk-anbefalinger-for-patientundervisningen",
+      "evidence": "I samarbejde med SIG-AF skal AFDK Anbefalinger for patientundervisningen (se bilag) udbredes og implementeres over hele landet.",
+      "page": 56
+    },
+    {
+      "subject": "esc-guidelines",
+      "predicate": "supports",
+      "object": "indikator-4a",
+      "evidence": "Patientundervisning får en højere vægtning i de nye ESC guidelines, så alle patienter med nydiagnosticeret atrieflimren fremadrettet gerne skulle tilbydes undervisning.",
+      "page": 56
+    },
+    {
+      "subject": "midtklyngen",
+      "predicate": "achieves-target-for",
+      "object": "indikator-4a",
+      "evidence": "Det er kun patienterne med bopæl i Midtklyngen (Region Midtjylland) der med en andel på 62% opfylder udviklingsmålet.",
+      "page": 56
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "achieves-highest-regional-performance-for",
+      "object": "indikator-4a",
+      "evidence": "Ingen regioner opfylder således udviklingsmålet men Region Midtjylland (36,7%) har en markant højere målopfyldelse end de øvrige regioner.",
+      "page": 56
+    },
+    {
+      "subject": "afdk-patientrepraesentanter",
+      "predicate": "advocates-for",
+      "object": "indikator-4a",
+      "evidence": "Fra patientrepræsentanterne: Patienterne ser et stort behov for et tilbud om et struktureret undervisningsforløb kort tid efter, diagnosen er stillet.",
+      "page": 56
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt havde 19,2% af de nydiagnosticerede patienter med atrieflimren modtaget struktureret patientundervisning inden for det første år efter atrieflimren diagnosen blev stillet og udviklingsmålet på mindst 50% er således ikke opfyldt [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4a"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Regionalt varierede andelen fra 4,3-36,7% [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4a"
+      ],
+      "page": 56
+    },
+    {
+      "text": "På klyngeniveau ses der markant variation (0-62%) [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4a"
+      ],
+      "page": 56
+    },
+    {
+      "text": "Holdundervisningen varer i alt i 2,5 timer og holdene består af enten 14-16 patienter plus pårørende eller større hold på op til 35 patienter plus pårørende [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "herlev-og-gentofte-hospital"
+      ],
+      "page": 57
+    },
+    {
+      "text": "En eller to arytmi-sygeplejersker forestår undervisningen om anatomi og fysiologi, årsager til atrieflimren, risiko for stroke, samt livsstil og risikofaktorer, og livet med sygdom [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "herlev-og-gentofte-hospital"
+      ],
+      "page": 57
+    },
+    {
+      "text": "En kardiolog deltager i ca. 30 min og har fokus på behandling af atrieflimren [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "herlev-og-gentofte-hospital"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Indikator og udviklingsmål fastholdes [^src1]",
+      "type": "policy-decision",
+      "entities": [
+        "indikator-4a"
+      ],
+      "page": 57
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2023-01-01",
+      "event": "Fra og med 1.1.2023 er det alene SKS-koden BFKB der kan resultere i målopfyldelse for indikatoren.",
+      "entities": [
+        "b01af02",
+        "indikator-4a"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-15",
+      "title": "Indikator 15: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år",
+      "page": 59,
+      "rowDimension": "regions and healthcare clusters",
+      "colDimension": "percentage with 95% CI and counts per year",
+      "entities": [
+        "indikator-15",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelse",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd",
+        "klynge-vest"
+      ],
+      "markdown": "| Region | Tæller/ antal | 01.07.2023 - 30.06.2024 | 2022/23 | 2021/22 |\n| --- | --- | --- | --- | --- |\n| Danmark | 1.276 / 21.846 | 0 (0) | 5,8 (5,5-6,2) | 1.652 / 21.752 |\n| Hovedstaden | 357 / 6.106 | 0 (0) | 5,8 (5,3-6,5) | 457 / 5.888 |\n| Sjælland | 258 / 3.566 | 0 (0) | 7,2 (6,4-8,1) | 306 / 3.554 |\n| Syddanmark | 254 / 4.780 | 0 (0) | 5,3 (4,7-6,0) | 362 / 4.977 |\n| Midtjylland | 282 / 5.061 | 0 (0) | 5,6 (5,0-6,2) | 335 / 4.915 |\n| Nordjylland | 125 / 2.333 | 0 (0) | 5,4 (4,5-6,4) | 192 / 2.418 |\n| Sundhedsklynge Bornholm | 20 / 222 | 0 (0) | 9,0 (5,6-13,6) | 14 / 195 |\n| Sundhedsklynge Byen | 89 / 1.655 | 0 (0) | 5,4 (4,3-6,6) | 138 / 1.616 |\n| Sundhedsklynge Midt | 110 / 1.782 | 0 (0) | 6,2 (5,1-7,4) | 134 / 1.755 |\n| Sundhedsklynge Nord | 94 / 1.467 | 0 (0) | 6,4 (5,2-7,8) | 90 / 1.291 |\n| Sundhedsklynge Syd | 44 / 980 | 0 (0) | 4,5 (3,3-6,0) | 81 / 1.031 |\n| Sundhedsklyngen Holbæk | 68 / 822 | 0 (0) | 8,3 (6,5-10,4) | 72 / 750 |\n| Sundhedsklyngen Nykøbing F | 61 / 721 | 0 (0) | 8,5 (6,5-10,7) | 77 / 753 |\n| Sundhedsklyngen SUH | 61 / 1.148 | 0 (0) | 5,3 (4,1-6,8) | 69 / 1.139 |\n| Sundhedsklyngen Slagelse | 68 / 875 | 0 (0) | 7,8 (6,1-9,7) | 88 / 912 |\n| Sundhedsklynge Fyn | 86 / 1.814 | 0 (0) | 4,7 (3,8-5,8) | 148 / 1.934 |\n| Sundhedsklynge Lillebælt | 47 / 1.016 | 0 (0) | 4,6 (3,4-6,1) | 72 / 1.086 |\n| Sundhedsklynge Sydvestjylland | 40 / 898 | 0 (0) | 4,5 (3,2-6,0) | 61 / 935 |\n| Sundhedsklynge Sønderjylland | 81 / 1.052 | 0 (0) | 7,7 (6,2-9,5) | 81 / 1.022 |\n| Aarhusklyngen | 73 / 1.115 | 0 (0) | 6,5 (5,2-8,2) | 60 / 1.078 |\n| Gødstrupklyngen | 68 / 1.209 | 0 (0) | 5,6 (4,4-7,1) | 80 / 1.075 |\n| Horsensklyngen | 45 / 795 | 0 (0) | 5,7 (4,2-7,5) | 58 / 876 |\n| Midtklyngen | 53 / 988 | 0 (0) | 5,4 (4,0-7,0) | 68 / 997 |\n| Randersklyngen | 43 / 954 | 0 (0) | 4,5 (3,3-6,0) | 69 / 889 |\n| Klynge MIDT | 43 / 901 | 0 (0) | 4,8 (3,5-6,4) | 64 / 865 |\n| Klynge NORD | 46 / 752 | 0 (0) | 6,1 (4,5-8,1) | 68 / 819 |\n| Klynge SYD | 22 / 434 | 0 (0) | 5,1 (3,2-7,6) | 42 / 460 |\n| Klynge VEST | 14 / 246 | 0 (0) | 5,7 (3,1-9,4) | 18 / 274 |",
+      "summary": "Tabellen sammenligner andelen af nydiagnosticerede patienter med atrieflimren, der udvikler hjertesvigt inden for 1 år, på regions- og klyngeniveau for tre regnskabsår, og viser en ensartet faldende tendens i alle områder fra 2021/22 til 2023/24."
+    }
+  ],
+  "context": "Denne chunk fra AFDK's 2025-rapport handler om kvalitetsmåling af patientuddannelse (indikator 4a) og klinisk outcome (indikator 15) i forbindelse med nydiagnosticeret atrieflimren i det danske sundhedsvæsen. Den præsenterer beregningsgrundlaget, resultaterne for 2023/24, regionale og klyngebaserede variationer samt konkrete implementeringsmodeller – især fra Herlev og Gentofte Hospital – og inkluderer input fra både faglige organisationer (SIG-AF), kliniske professionelle (Signe Risom) og patientrepræsentanter. Sammen med referencer til ESC-guidelines og Sundhedsplatformen danner den en integreret analyse af systemiske udfordringer og muligheder for forbedring af patientuddannelse og langtidsovervågning."
+}

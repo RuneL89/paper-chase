@@ -1,0 +1,61 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er en klinisk database, der indsamler og rapporterer data om akut kirurgiske forløb i det danske sundhedsvæsen, og den er centrale for kvalitetsudvikling inden for akut kirurgi.",
+      "mentions": [
+        {
+          "page": 116,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den organisation, der har udarbejdet og udgivet udkastet til Akut Kirurgi Databasen, hvilket understreger dets rolle som nationalt kvalitetsstyringsorgan.",
+      "mentions": [
+        {
+          "page": 116,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "udgivet-af",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 116
+    }
+  ],
+  "claims": [
+    {
+      "text": "Udkast 2026.01.05 [^src1]",
+      "type": "administrative",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 116
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-01-05",
+      "event": "Udkast til Akut Kirurgi Databasen blev udgivet",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "sundhedsvaesenets-kvalitetsinstitut"
+      ]
+    }
+  ],
+  "tables": [],
+  "context": "Dette afsnit fra AKDB_2025.pdf (sider 116–117) præsenterer titelbladet for et udkast til Akut Kirurgi Databasen, som er en del af det nationale kvalitetsudviklingsprogram for akut kirurgi i Danmark. Det indgår i en bredere kontekst af kliniske databaser, der støtter kvalitetsmåling og forbedring af behandlingsforløb inden for akut kirurgi, og er knyttet til arbejdet i Regionernes Kliniske Kvalitetsudviklingsprogram samt Sundhedsvæsenets Kvalitetsinstitut. Udkastet fra januar 2026 signalerer en opdatering af registreringskriterier, indberetningsvejledninger og kvalitetsindikatorer i forbindelse med den løbende udvikling af akut kirurgiske kvalitetsmål."
+}

@@ -4,23 +4,26 @@ type: index
 aliases:
   - Healthcare Professionals
 wiki: rkkp-afdk
-updated: '2026-08-05T23:09:54.204Z'
+updated: '2026-08-15T00:00:28.614Z'
 children:
   - albert-marni-joensen.md
+  - index.md
   - julie-andersen.md
   - lars-frost.md
+  - mette-ringtved.md
   - ulla-dam-schmidt.md
 ---
 # Healthcare Professionals
 
-This folder contains profiles of key healthcare professionals involved in the national quality assurance and clinical leadership of atrial fibrillation treatment in Denmark. These individuals serve in pivotal roles within the Danish Atrial Fibrillation Database (AFDK) and the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), acting as steering committee chairs, specialized nurses, and quality consultants who drive clinical indicators, coordinate annual reports, and ensure evidence-based cardiovascular care across Danish hospitals.
+This folder catalogs healthcare professionals who hold leadership, clinical, and administrative roles in Denmark's national quality assurance efforts for cardiovascular health, specifically within the Danish Atrial Fibrillation Database (AFDK). The individuals listed here include chief physicians, specialized nurses, nursing directors, and quality consultants who chair or serve on the AFDK steering committee, oversee clinical indicators, and act as primary contacts for the database's annual reports. Their collective work drives the standardization of atrial fibrillation treatment and the implementation of evidence-based care across Danish regions.
 
 ## Pages
 
-- [[albert-marni-joensen|Albert Marni Joensen]] — Consultant physician and PhD who co-chairs the AFDK steering committee and evaluates clinical indicator results for atrial fibrillation treatment.
-- [[julie-andersen|Julie Andersen]] — Quality consultant at RKKP who serves as the primary operational contact and data controller representative for the AFDK and its annual reports.
-- [[lars-frost|Lars Frost]] — Chief Physician and Doctor of Medicine who chairs the AFDK steering committee, acting as a central clinical leader for national atrial fibrillation quality development.
-- [[ulla-dam-schmidt|Ulla Dam-Schmidt]] — Specialized nurse who co-chairs the AFDK steering committee, integrating nursing perspectives, structured patient education, and interdisciplinary collaboration into national cardiovascular quality metrics.
+- [[albert-marni-joensen|Albert Marni Joensen]] — Consultant physician and PhD who serves as co-chair of the AFDK steering committee, evaluating clinical indicator results for national reports.
+- [[julie-andersen|Julie Andersen]] — Quality consultant at RKKP who acts as the primary operational contact and data authority representative for the AFDK and its annual publications.
+- [[lars-frost|Lars Frost]] — Chief Physician and Doctor of Medicine who chairs the AFDK steering committee, acting as a central clinical leader for national quality development in atrial fibrillation treatment.
+- [[mette-ringtved|Mette Ringtved]] — Nursing director at Regionshospitalet Horsens and member of the AFDK steering group, representing nursing leadership in clinical governance.
+- [[ulla-dam-schmidt|Ulla Dam-Schmidt]] — Specialized nurse who serves as chairperson of the AFDK steering committee, ensuring nursing perspectives and structured patient education are embedded in national recommendations.
 
 ## Navigation
 
@@ -31,6 +34,6 @@ This folder contains profiles of key healthcare professionals involved in the na
 
 ## Statistics
 
-- Pages: 4
+- Pages: 5
 - Sub-folders: 0
 - Sources: 0

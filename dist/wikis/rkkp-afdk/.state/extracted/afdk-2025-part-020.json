@@ -1,0 +1,264 @@
+{
+  "entities": [
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er navnet på en offentlig rapport udgivet af Regionernes Kliniske Kvalitetsudviklingsprogram, som dækker kvalitetsindikatorer for behandling af atrieflimren i det danske sundhedsvæsen, og som er genstand for regionale kommentarer på side 97.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 97,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesnets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Dette er den organisation, der er angivet som udgiver af rapporten 'Atrieflimren i Danmark' på side 96, og som dermed har ansvar for indholdet og kvalitetsmålingen i rapporten.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "type": "organization",
+      "slug": "rkkp",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Dette er den organisation, der udgiver den offentliggjorte version af rapporten 'Atrieflimren i Danmark' på side 97, og som står bag det nationale kvalitetsudviklingsarbejde for kliniske indikatorer.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "quality-indicator",
+      "slug": "indikator-8",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Dette er den specifikke kvalitetsindikator, som Region Sjælland på side 97 kritiserer for manglende overensstemmelse med klinisk virkelighed, hvilket gør den central for forståelsen af datakvalitetsudfordringer i rapporten.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "indikator 8"
+        }
+      ]
+    },
+    {
+      "name": "BFKB (Patientuddannelse i atrieflimren og atrieflagren)",
+      "type": "code",
+      "slug": "bfkb",
+      "folder": "entities/codes/intervention-codes",
+      "significance": "Dette er den kodificerede aktivitet, der anvendes som tæller for indikator 8, og som definerer, hvad der regnes som et struktureret undervisningsprogram for patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 96,
+          "context": "BFKB (Patientuddannelse i atrieflimren og atrieflagren)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis kommentarer til rapporten 'Atrieflimren i Danmark' inkluderet på side 97, og som her ikke har fremsat nogen kommentarer.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis kommentarer til rapporten 'Atrieflimren i Danmark' inkluderet på side 97, og som her kritiserer resultaterne for indikator 8 og initierer en intern undersøgelse af registreringsfejl.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis kommentarer til rapporten 'Atrieflimren i Danmark' inkluderet på side 97, og som her ikke har fremsat nogen kommentarer.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis kommentarer til rapporten 'Atrieflimren i Danmark' inkluderet på side 97, og som her ikke har fremsat nogen kommentarer.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis kommentarer til rapporten 'Atrieflimren i Danmark' inkluderet på side 97, og som her ikke har modtaget kommentarer — hvilket antyder manglende deltagelse eller manglende fremsendelse.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Praktiserende speciallæger (Enheden for Kvalitet I Speciallægepraksis (eKVIS))",
+      "type": "organization",
+      "slug": "ekvis",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Dette er den faglige enhed, der repræsenterer praktiserende speciallæger i kvalitetsarbejdet, og som på side 97 ikke har modtaget kommentarer — hvilket signalerer en potentielt utilstrækkelig feedbackkæde fra praksis til national kvalitetsrapportering.",
+      "mentions": [
+        {
+          "page": 97,
+          "context": "Praktiserende speciallæger (Enheden for Kvalitet I Speciallægepraksis (eKVIS))"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-published-by",
+      "object": "sundhedsvaesnets-kvalitetsinstitut",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 96
+    },
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-published-by",
+      "object": "rkkp",
+      "evidence": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "page": 97
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "is-defined-by-code",
+      "object": "bfkb",
+      "evidence": "BFKB (Patientuddannelse i atrieflimren og atrieflagren)",
+      "page": 96
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "provides-comment-on",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Ingen kommentarer",
+      "page": 97
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "provides-comment-on",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Det vurderes ikke, at resultaterne vedr. indikator 8 stemmer overens med den kliniske virkelighed. Vi undersøger, hvad der går galt ift. registrering og dataflow hos os selv i første omgang.",
+      "page": 97
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "provides-comment-on",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Ingen kommentarer",
+      "page": 97
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "provides-comment-on",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Ingen kommentarer",
+      "page": 97
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "provides-comment-on",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Ikke modtaget kommentarer",
+      "page": 97
+    },
+    {
+      "subject": "ekvis",
+      "predicate": "provides-comment-on",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Ikke modtaget kommentarer",
+      "page": 97
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indikator 8 måler andelen af patienter med atrieflimren, som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet [^src1]",
+      "type": "quality-indicator-definition",
+      "entities": [
+        "indikator-8"
+      ],
+      "page": 96
+    },
+    {
+      "text": "BFKB-koden anvendes som tæller for indikator 8 [^src1]",
+      "type": "coding-assignment",
+      "entities": [
+        "bfkb",
+        "indikator-8"
+      ],
+      "page": 96
+    },
+    {
+      "text": "Patienter, som dør under den primære indlæggelse, ekskluderes fra beregningen af indikator 8 [^src1]",
+      "type": "exclusion-criteria",
+      "entities": [
+        "indikator-8"
+      ],
+      "page": 96
+    },
+    {
+      "text": "Region Sjælland vurderer, at resultaterne for indikator 8 ikke stemmer overens med den kliniske virkelighed [^src1]",
+      "type": "critical-assessment",
+      "entities": [
+        "region-sjaelland",
+        "indikator-8"
+      ],
+      "page": 97
+    },
+    {
+      "text": "Region Sjælland har iværksat en intern undersøgelse af registrerings- og dataflow-fejl i forbindelse med indikator 8 [^src1]",
+      "type": "quality-improvement-action",
+      "entities": [
+        "region-sjaelland",
+        "indikator-8"
+      ],
+      "page": 97
+    }
+  ],
+  "timeline": [],
+  "tables": [],
+  "context": "Dette afsnit af rapporten 'Atrieflimren i Danmark' (sider 96–98) danner en del af den årlige kvalitetsrapportering fra Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), der dokumenterer og vurderer implementeringen af kliniske kvalitetsindikatorer i behandlingen af atrieflimren i Danmark. Siden 96 præsenterer indikator 8, der måler gennemførelse af struktureret patientuddannelse, herunder dens kodebaserede definition (BFKB) og eksklusionskriterier. Side 97 indeholder regionale kommentarer til rapporten, hvor Region Sjælland fremhæver en alvorlig uoverensstemmelse mellem registrerede tal og klinisk praksis for netop denne indikator — hvilket peger på systemiske problemer i dataregistrering og kvalitetsmåling. Denne kritik er centralt betydning for forståelsen af datakvaliteten i RKKP-rapporteringen og understreger behovet for justering af både registreringspraksis og indikatordefinition."
+}

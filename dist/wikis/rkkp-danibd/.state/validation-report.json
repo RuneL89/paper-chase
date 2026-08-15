@@ -23,260 +23,192 @@
         "link": "Region Sjælland"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-1-patientkarakteristika-pr-behandlende-region.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-1-patientkarakteristiska-pr-region.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-1-patientkarakteristika-pr-behandlende-region.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-1-patientkarakteristiska-pr-region.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-1-patientkarakteristika-pr-behandlende-region.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-1-patientkarakteristiska-pr-region.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-5-typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md",
-        "link": "clinical-guideline|Clinical Guideline"
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-2-karakteristika-for-nydiagnosticeret-voksne-ved-foerste-kontakt-i-forloebet-indikator-1a.md",
+        "link": "contact-frequency|Contact Frequency"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-5-typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-2-karakteristika-for-nydiagnosticeret-voksne-ved-foerste-kontakt-i-forloebet-indikator-1a.md",
+        "link": "contact-type|Contact Type"
+      },
+      {
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-4-karakteristika-for-patienter-i-behandling-med-bmsl.md",
         "link": "departmental-performance|Departmental Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-5-typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-4-karakteristika-for-patienter-i-behandling-med-bmsl.md",
         "link": "regional-performance|Regional Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-5-typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-4-karakteristika-for-patienter-i-behandling-med-bmsl.md",
         "link": "coverage-estimate|Coverage Estimate"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-6-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
-        "link": "clinical-guideline|Clinical Guideline"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-6-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-5-karakteristika-for-patienter-i-behandling-med-bmsl-paa-afdelingsniveau-indikator-5.md",
         "link": "departmental-performance|Departmental Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-6-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-5-karakteristika-for-patienter-i-behandling-med-bmsl-paa-afdelingsniveau-indikator-5.md",
         "link": "regional-performance|Regional Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-6-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-5-karakteristika-for-patienter-i-behandling-med-bmsl-paa-afdelingsniveau-indikator-5.md",
         "link": "coverage-estimate|Coverage Estimate"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-7-karakteristika-for-patienter-med-psc-indikator-7.md",
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-8-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "link": "kjff13-terminal-enterostomi"
+      },
+      {
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-8-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "link": "kjwa00-sutur-af-saarruptur-eft-gastroenterologisk-operatio"
+      },
+      {
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-8-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "link": "kjfa70-sutur-af-tyndtarm"
+      },
+      {
+        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-8-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+        "link": "kjww96-anden-reoperation-eft-gastroenterologisk-operation"
+      },
+      {
+        "page": "wikis/rkkp-danibd/comparisons/figur-over-antallet-af-patienter-der-er-inkluderet-i-danibd-fra-databasens-start-d-1-oktober-2022-frem-til-30-september-2025-fordelt-paa-de-tre-opgoerelsesperioder.md",
         "link": "departmental-performance|Departmental Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-7-karakteristika-for-patienter-med-psc-indikator-7.md",
+        "page": "wikis/rkkp-danibd/comparisons/figur-over-antallet-af-patienter-der-er-inkluderet-i-danibd-fra-databasens-start-d-1-oktober-2022-frem-til-30-september-2025-fordelt-paa-de-tre-opgoerelsesperioder.md",
         "link": "regional-performance|Regional Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/appendikstabel-7-karakteristika-for-patienter-med-psc-indikator-7.md",
+        "page": "wikis/rkkp-danibd/comparisons/figur-over-antallet-af-patienter-der-er-inkluderet-i-danibd-fra-databasens-start-d-1-oktober-2022-frem-til-30-september-2025-fordelt-paa-de-tre-opgoerelsesperioder.md",
         "link": "coverage-estimate|Coverage Estimate"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-1b.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-1a.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-1b.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-1a.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-1b.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-1a.md",
+        "link": "quality-metric|Quality Metric"
+      },
+      {
+        "page": "wikis/rkkp-danibd/comparisons/indikator-1a.md",
         "link": "departmental-performance|Departmental Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-1b.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-1a.md",
         "link": "regional-performance|Regional Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-1b.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-1a.md",
         "link": "coverage-estimate|Coverage Estimate"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-2.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-4.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-2.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-4.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-2.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-4.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-2.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-4.md",
         "link": "departmental-performance|Departmental Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-2.md",
-        "link": "regional-performance|Regional Performance"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-2.md",
-        "link": "coverage-estimate|Coverage Estimate"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-3.md",
-        "link": "quality-metric|Quality Metric"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-4-andelen-af-patienter-med-ibd-i-behandling-med-bmsl-der-faar-maalt-f-calpro-mindst-en-gang-aarligt.md",
-        "link": "clinical-guideline|Clinical Guideline"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-4-andelen-af-patienter-med-ibd-i-behandling-med-bmsl-der-faar-maalt-f-calpro-mindst-en-gang-aarligt.md",
-        "link": "quality-metric|Quality Metric"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-4-andelen-af-patienter-med-ibd-i-behandling-med-bmsl-der-faar-maalt-f-calpro-mindst-en-gang-aarligt.md",
-        "link": "departmental-performance|Departmental Performance"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-4-andelen-af-patienter-med-ibd-i-behandling-med-bmsl-der-faar-maalt-f-calpro-mindst-en-gang-aarligt.md",
-        "link": "regional-performance|Regional Performance"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-4-andelen-af-patienter-med-ibd-i-behandling-med-bmsl-der-faar-maalt-f-calpro-mindst-en-gang-aarligt.md",
-        "link": "coverage-estimate|Coverage Estimate"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-4-andelen-af-steroidkure-givet-til-patienter-over-50-aar-med-ibd-hvor-patienten-har-faaet-foretaget-dexa-scanning.md",
-        "link": "clinical-guideline|Clinical Guideline"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-4-andelen-af-steroidkure-givet-til-patienter-over-50-aar-med-ibd-hvor-patienten-har-faaet-foretaget-dexa-scanning.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-4.md",
         "link": "performance-assessment|Performance Assessment"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-5-andelen-af-patienter-i-behandling-med-bmsl-der-faar-maalt-f-calprotectin-mindst-en-gang-aarligt.md",
-        "link": "clinical-guideline|Clinical Guideline"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-5-andelen-af-patienter-i-behandling-med-bmsl-der-faar-maalt-f-calprotectin-mindst-en-gang-aarligt.md",
-        "link": "quality-metric|Quality Metric"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-6.md",
-        "link": "quality-metric|Quality Metric"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-6.md",
-        "link": "departmental-performance|Departmental Performance"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-6.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-4.md",
         "link": "regional-performance|Regional Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-6.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-4.md",
         "link": "coverage-estimate|Coverage Estimate"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-7.md",
-        "link": "quality-metric|Quality Metric"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-7.md",
-        "link": "quality-metric|Quality Metric"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-7.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-5.md",
         "link": "departmental-performance|Departmental Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-7.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-5.md",
         "link": "regional-performance|Regional Performance"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/indikator-7.md",
+        "page": "wikis/rkkp-danibd/comparisons/indikator-5.md",
         "link": "coverage-estimate|Coverage Estimate"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/karakteristika-for-patienter-med-psc-indikator-7.md",
-        "link": "quality-metric|Quality Metric"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/karakteristika-for-patienter-med-psc-indikator-7.md",
-        "link": "quality-metric|Quality Metric"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-1-patientkarakteristika-for-nydiagnosticerede-og-praevalente-boern-med-ibd-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2023-til-og-med-30-september-2024.md",
+        "page": "wikis/rkkp-danibd/comparisons/tabel-1-patientkarakteristika-for-nydiagnosticerede-og-praevalente-boern-med-ibd-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025.md",
         "link": "clinical-guideline|Clinical Guideline"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2022-til-og-med-30-september-2023.md",
+        "page": "wikis/rkkp-danibd/comparisons/tabel-1-patientkarakteristika-for-nydiagnosticerede-og-praevalente-boern-med-ibd-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025.md",
+        "link": "contact-frequency|Contact Frequency"
+      },
+      {
+        "page": "wikis/rkkp-danibd/comparisons/tabel-1-patientkarakteristika-for-nydiagnosticerede-og-praevalente-boern-med-ibd-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025.md",
+        "link": "contact-type|Contact Type"
+      },
+      {
+        "page": "wikis/rkkp-danibd/comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025.md",
         "link": "clinical-guideline|Clinical Guideline"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2022-til-og-med-30-september-2023.md",
-        "link": "departmental-performance|Departmental Performance"
+        "page": "wikis/rkkp-danibd/comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025.md",
+        "link": "contact-frequency|Contact Frequency"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2022-til-og-med-30-september-2023.md",
-        "link": "regional-performance|Regional Performance"
+        "page": "wikis/rkkp-danibd/comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025.md",
+        "link": "contact-type|Contact Type"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2022-til-og-med-30-september-2023.md",
-        "link": "coverage-estimate|Coverage Estimate"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2023-til-og-med-30-september-2024.md",
-        "link": "clinical-guideline|Clinical Guideline"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-de-samlede-indikatorresultater.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-de-samlede-indikatorresultater.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-de-samlede-indikatorresultater.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-de-samlede-indikatorresultater.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-de-samlede-indikatorresultater.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-de-samlede-indikatorresultater.md",
         "link": "quality-metric|Quality Metric"
       },
       {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-4-oversigt-over-indikatorresultaterne-paa-landsplan.md",
-        "link": "clinical-guideline|Clinical Guideline"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-4-oversigt-over-indikatorresultaterne-paa-landsplan.md",
-        "link": "departmental-performance|Departmental Performance"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-4-oversigt-over-indikatorresultaterne-paa-landsplan.md",
-        "link": "regional-performance|Regional Performance"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/tabel-4-oversigt-over-indikatorresultaterne-paa-landsplan.md",
-        "link": "coverage-estimate|Coverage Estimate"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md",
-        "link": "quality-metric|Quality Metric"
-      },
-      {
-        "page": "wikis/rkkp-danibd/comparisons/typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
-        "link": "quality-metric|Quality Metric"
+        "page": "wikis/rkkp-danibd/comparisons/tabel-3-oversigt-over-de-samlede-indikatorresultater.md",
+        "link": "quality-indicator-result|Quality Indicator Result"
       },
       {
         "page": "wikis/rkkp-danibd/entities/diseases/gastrointestinal/kolorektalkraeft.md",
@@ -315,6 +247,10 @@
         "link": "danibd-aarsrapport-2024"
       },
       {
+        "page": "wikis/rkkp-danibd/topics/healthcare-utilization/healthcare-utilization.md",
+        "link": "Primær skleroserende kolangitis (PSC)"
+      },
+      {
         "page": "wikis/rkkp-danibd/topics/performance/performance.md",
         "link": "mr-scanning-af-tyndtarm|MR-scanning of the small intestine"
       },
@@ -332,10 +268,6 @@
       },
       {
         "page": "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-1b.md",
-        "link": "gastroskopi"
-      },
-      {
-        "page": "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-1b.md",
         "link": "mr-scanning-af-tyndtarm"
       },
       {
@@ -348,36 +280,45 @@
       }
     ],
     "orphaned": [
+      "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-1a.md",
       "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-1b.md",
       "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-2.md",
       "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-3.md",
+      "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-4.md",
+      "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-5.md",
       "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-6.md",
       "wikis/rkkp-danibd/topics/quality-indicators/ibd/indikator-7.md"
     ],
     "islands": [
       "wikis/rkkp-danibd/entities/biomarkers/gastrointestinal/faeces-calprotectin-maaling.md",
       "wikis/rkkp-danibd/entities/databases/national-health-registers/laboratoriedatabasen.md",
+      "wikis/rkkp-danibd/entities/healthcare-facilities/hospitals/amager-og-hvidovre-hospital.md",
+      "wikis/rkkp-danibd/entities/healthcare-facilities/hospitals/egs-esbjerg-medicinsk-mave-og-tarm-amb.md",
       "wikis/rkkp-danibd/entities/healthcare-facilities/hospitals/herlev-mave-tarm-leversygd.md",
       "wikis/rkkp-danibd/entities/healthcare-facilities/hospitals/hvidovre-gastroenheden.md",
+      "wikis/rkkp-danibd/entities/healthcare-facilities/hospitals/sjellands-universitetshospital.md",
+      "wikis/rkkp-danibd/entities/healthcare-facilities/hospitals/slb-vejle-gastroenterologisk-amb.md",
+      "wikis/rkkp-danibd/entities/organizations/health-committees/region-oestdanmarks-sundhedsfaglige-raad-for-mave-tarm-og-leversygdomme.md",
       "wikis/rkkp-danibd/entities/organizations/health-organizations/dansk-paediatrisk-selskab.md",
       "wikis/rkkp-danibd/entities/organizations/health-organizations/espgghan.md",
       "wikis/rkkp-danibd/entities/procedural/mr-af-tyndtarmen.md",
+      "wikis/rkkp-danibd/entities/products/health-it/etrasimod.md",
       "wikis/rkkp-danibd/topics/codes/procedure-codes/kjah01-laparoskopi.md",
       "wikis/rkkp-danibd/topics/codes/procedure-codes/kjfh11-laparoskopisk-kolektomi-og-ileostomi.md",
       "wikis/rkkp-danibd/topics/diseases/hepatic-biliary/primaer-skleroserende-kolangitis.md",
       "wikis/rkkp-danibd/topics/procedural/primaert-kirurgisk-indgreb.md"
     ],
-    "totalLinks": 1956,
-    "totalPages": 216
+    "totalLinks": 3017,
+    "totalPages": 276
   },
   "citations": {
     "invalid": [],
     "missingSource": [],
     "missingFrontmatterSource": [],
-    "totalCitations": 399
+    "totalCitations": 579
   },
   "schema": {
     "invalid": [],
-    "totalPages": 216
+    "totalPages": 276
   }
 }

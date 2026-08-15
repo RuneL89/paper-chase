@@ -4,17 +4,18 @@ type: index
 aliases:
   - Researchers
 wiki: rkkp-akdb
-updated: '2026-08-05T20:34:15.415Z'
+updated: '2026-08-15T08:44:21.421Z'
 children:
+  - index.md
   - moller-mh.md
 ---
 # Researchers
 
-This folder catalogs researchers whose scientific publications and clinical trials provide the methodological and evidence-based foundation for the Danish Emergency Surgery Database. It currently documents Mads H. Møller, a prominent Danish surgical researcher who leads the PULP trial and has extensively published on preoperative delays and mortality in patients with perforated peptic ulcers. By tracking these individuals, the wiki maps the academic and clinical research ecosystem that drives the database's quality indicators and treatment timeframes.
+This folder catalogs researchers whose work provides the methodological and evidence-based foundation for the Danish Emergency Surgery Database and related clinical registries. It currently profiles Mads H. Møller, a Danish surgical researcher specializing in emergency surgery and peptic ulcers. His research on preoperative delays, mortality, and his leadership of the PULP trial directly inform the database's clinical quality indicators and treatment timeframes.
 
 ## Pages
 
-- [[moller-mh|Møller MH]] — Danish surgical researcher leading the PULP trial and specializing in preoperative delays and mortality for perforated peptic ulcers.
+- [[moller-mh|Møller MH]] — Danish surgical researcher specializing in emergency surgery, known for leading the PULP trial and studying preoperative delays in perforated peptic ulcers.
 
 ## Navigation
 
@@ -22,6 +23,7 @@ This folder catalogs researchers whose scientific publications and clinical tria
 - Sibling: [[entities/people/healthcare-administrators/index|Healthcare Administrators]]
 - Sibling: [[entities/people/healthcare-leaders/index|Healthcare Leaders]]
 - Sibling: [[entities/people/healthcare-leadership/index|Healthcare Leadership]]
+- Sibling: [[entities/people/healthcare-patient-representatives/index|Healthcare Patient Representatives]]
 - Sibling: [[entities/people/healthcare-professionals/index|Healthcare Professionals]]
 - Sibling: [[entities/people/healthcare-researchers/index|Healthcare Researchers]]
 

@@ -4,19 +4,20 @@ type: index
 aliases:
   - Health Authorities
 wiki: rkkp-afdk
-updated: '2026-08-05T22:57:22.349Z'
+updated: '2026-08-14T23:45:30.521Z'
 children:
+  - index.md
   - regionernes-kliniske-kvalitetsudviklingsprogram.md
   - sundhedsdatastyrelsen.md
 ---
 # Health Authorities
 
-This folder catalogs the central public and governmental organizations responsible for clinical quality development, health data management, and national registry administration in Denmark. It covers the authority that manages national clinical databases, defines quality indicators, and publishes annual care reports, alongside the central agency that hosts the underlying patient and laboratory registries. Together, these entities form the administrative and data backbone for evaluating and improving healthcare quality nationwide.
+This folder contains the national and regional public organizations responsible for overseeing clinical quality development, managing health data infrastructure, and administering clinical quality registries in Denmark. These authorities define clinical quality indicators, approve national databases, and host laboratory data pipelines, playing a central role in benchmarking healthcare performance and identifying systemic data limitations across the Danish healthcare system.
 
 ## Pages
 
-- [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] — The public organization that administers national clinical databases, defines quality indicators, and publishes annual reports on atrial fibrillation care.
-- [[sundhedsdatastyrelsen|Sundhedsdatastyrelsen]] — The central governmental authority that manages national health data infrastructure, including the patient and laboratory registries used for clinical quality assessments.
+- [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] — The public organization administering national clinical quality development, defining quality indicators, and publishing annual reports on atrial fibrillation care.
+- [[sundhedsdatastyrelsen|Sundhedsdatastyrelsen]] — The national authority managing health data infrastructure, hosting the Laboratory Database, and serving as the official approving body for clinical quality registries.
 
 ## Navigation
 

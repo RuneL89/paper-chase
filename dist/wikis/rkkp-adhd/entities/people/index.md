@@ -4,17 +4,18 @@ type: index
 aliases:
   - People
 wiki: rkkp-adhd
-updated: '2026-08-05T19:12:00.795Z'
+updated: '2026-08-15T12:38:00.359Z'
 children:
   - healthcare-professionals/index.md
+  - index.md
 ---
 # People
 
-This area groups the people mentioned in the corpus, specifically focusing on those involved in the Danish psychiatric healthcare system. It covers healthcare professionals who play central roles in the governance, clinical practice, and quality assurance of ADHD treatment, including national database steering committee members, administrative contacts, and specialist clinicians shaping diagnostic standards.
+This area catalogs the individuals mentioned in the corpus who play a role in the Danish healthcare system. It currently focuses on healthcare professionals, grouping the clinical leaders, quality consultants, and specialist practitioners who govern, operate, and deliver ADHD care, as well as those managing and steering the national ADHD database.
 
 ## Pages
 
-- [[entities/people/healthcare-professionals/index|Healthcare Professionals]] — Individual clinicians, quality consultants, and professional roles driving the governance and clinical standards of the national ADHD database and Danish psychiatric care.
+- [[entities/people/healthcare-professionals/index|Healthcare Professionals]] — Clinical leaders, quality consultants, and specialist practitioners who govern, operate, and deliver ADHD care and manage the national ADHD database.
 
 ## Navigation
 

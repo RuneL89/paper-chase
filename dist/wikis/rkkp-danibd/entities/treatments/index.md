@@ -4,17 +4,18 @@ type: index
 aliases:
   - Treatments
 wiki: rkkp-danibd
-updated: '2026-08-05T07:47:52.979Z'
+updated: '2026-08-15T07:53:45.782Z'
 children:
   - gastrointestinal/index.md
+  - index.md
 ---
 # Treatments
 
-This area groups medical therapies and treatments documented in the Danish healthcare corpus, with a current focus on interventions for inflammatory bowel disease (IBD). It specifically covers advanced biological and targeted synthetic drugs used for gastrointestinal conditions. The child folder details how these specific treatments are tracked and monitored within national quality registries like DANIBD, including patient demographics, specific drug usage, and clinical quality targets.
+This area groups therapeutic interventions tracked within the Danish national quality databases, specifically focusing on pharmacological treatments for gastrointestinal conditions like inflammatory bowel disease (IBD). It covers advanced biologic and targeted synthetic therapies alongside systemic steroid regimens, detailing their clinical definitions, registry tracking codes, and associated national quality indicators for patient monitoring.
 
 ## Pages
 
-- [[entities/treatments/gastrointestinal/index|Gastrointestinal]] — Advanced medical therapies for gastrointestinal conditions, specifically biological and targeted synthetic drugs for IBD tracked in the DANIBD registry.
+- [[entities/treatments/gastrointestinal/index|Gastrointestinal]] — Pharmacological interventions for IBD, including biologic therapies and steroid courses, with their specific drug codes, patient demographics, and national compliance targets.
 
 ## Navigation
 

@@ -4,27 +4,16 @@ type: entity
 aliases:
   - Indikator 9
 wiki: rkkp-akdb
-updated: '2026-08-05T18:40:21.241Z'
+updated: '2026-08-15T06:25:59.214Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '41-45, 46-50, 6-10'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '101-105, 51-55, 6-10, 96-100'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: '106-110, 46-50, 51-55, 56-60, 6-10'
 tags:
   - indicator
----
-**Indikator 9** is a clinical quality indicator tracked within the [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] (AKDB), a national quality monitoring program for acute high-risk abdominal surgery in Denmark. The indicator is evaluated by the database's [[styregruppen|Styregruppen]] (steering group) [^src2]. Notably, the definition and focus of Indikator 9 underwent a significant shift between the 2023 and 2024 annual reports, changing from a process indicator regarding anesthesia to an outcome indicator measuring mortality.
-
-### 2023 Reporting Period: Epidural Anesthesia
-During the measurement period from September 1, 2022, to August 31, 2023, Indikator 9 was defined as a process indicator measuring the proportion of patients who received an [[epidural|epidural]] in connection with their surgery [^src1]. The regulatory standard for this indicator was set at > 60% [^src1]. Nationally, 53.0% of the 3,147 operated patients met this standard (95% CI: 51.2-54.7) [^src2]. 
-
-At the hospital level, several institutions successfully met the standard, including [[aarhus-universitetshospital|Aarhus Universitetshospital]] (70.5%), [[regionshospitalet-horsens|Regionshospitalet Horsens]] (66.7%), [[esbjerg-sygehus-grindsted-sygehus|Esbjerg Sygehus Grindsted Sygehus]] (65.6%), [[regionshospitalet-goedstrup|Regionshospitalet Gødstrup]] (63.3%), and [[odense-universitetshospital-svendborg|Odense Universitetshospital - Svendborg]] (60.9%) [^src2]. Conversely, [[regionshospital-nordjylland|Regionshospital Nordjylland]] did not meet the standard, achieving only 29.5% [^src2]. The indicator faced practical implementation challenges; notably, [[regionshospitalet-randers|Regionshospitalet Randers]] proposed that the indicator be made voluntary or removed entirely, citing the heavy administrative burden of retrospective registration [^src2].
-
-### 2024 Reporting Period: 30-Day Mortality
-For the subsequent measurement period from September 1, 2023, to August 31, 2024, Indikator 9 was redefined as an outcome indicator measuring 30-day mortality following acute surgery for all operated patients with relevant diagnosis and procedure codes [^src4]. The performance standard and development goal for this new definition was set at < 12% [^src5]. 
-
-In this period, 3,179 patient courses were included in the analysis for Indikator 9 and the related [[indikator-10|Indikator 10]] [^src5]. Of these, 376 patients died within 30 days of hospital arrival, resulting in a national mortality rate of 11.8% (95% CI: 10.7-13.0) [^src6]. Supplementary analyses attempting to correlate mortality with Charlson Comorbidity Index scores encountered data quality issues. Audits revealed discrepancies in the Charlson scores, particularly among patients in the "score 0" population who were of advanced age, rendering the background variables unreliable for precise risk-adjusted calculations [^src7].
-
 ---
 
 ## Mentions
@@ -37,82 +26,64 @@ In this period, 3,179 patient courses were included in the analysis for Indikato
 - Page 51: "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)" [^src5]
 - Page 96: "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)" [^src6]
 - Page 101: "I relation til Indikator 9: Andel af patienter der dør indenfor 30 dage, er der supplerende opgørelse på Charleson score. Her har man på begge hospitalet auditeret på patienterne. Der findes at Charlescon scorer ikke passer, der er således ingen af patienter i score 0 populationen der burde være score 0, idet de alle har høj alder, men idet det er uklaart hvor baggrundsvariabler til udregning er hentet fra er det ikke muligt helt at anvende data." [^src7]
+- Page 6: "Indikator 9: Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode)" [^src8]
+- Page 7: "Indikator 9: Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode)" [^src8]
+- Page 49: "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)" [^src9]
+- Page 51: "Indikator 9: Mortalitet indenfor 30 dage for opererede. Forest plot på afdelingsniveau" [^src10]
+- Page 52: "Indikator 9: Mortalitet indenfor 30 dage for opererede. Trendgraf over resultater på regionalt niveau" [^src10]
+- Page 52: "Indikatorbeskrivelse for indikator 9" [^src10]
+- Page 53: "Diskussion og implikationer af årets resultater for indikator 9" [^src10]
+- Page 108: "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)" [^src11]
 
 ## Relationships
 
-### Outgoing
-- **Subject:** indikator-9 | **Predicate:** belongs-to-database | **Object:** akut-kirurgi-databasen
-  - **Evidence:** "Indikator 9: Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen"
-  - **Page:** 6 [^src1]
-- **Subject:** indikator-9 | **Predicate:** is-evaluated-by | **Object:** styregruppen
-  - **Evidence:** "Styregruppen har modtaget ønske om en kode der hedder ”Ernæring genoptaget”."
-  - **Page:** 41 [^src2]
-- **Subject:** indikator-9 | **Predicate:** measures | **Object:** epidural
-  - **Evidence:** "Indikator 9 beskriver andelen af patienter, der får anlagt epidural i forbindelse med operationen"
-  - **Page:** 46 [^src3]
-- **Subject:** indikator-9 | **Predicate:** measures-outcome-for | **Object:** akut-kirurgi-databasen
-  - **Evidence:** "Indikator 9: Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode)"
-  - **Page:** 6 [^src4]
-- **Subject:** indikator-9 | **Predicate:** is-calculated-from | **Object:** akut-kirurgi-databasen
-  - **Evidence:** "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
-  - **Page:** 51 [^src5]
-- **Subject:** indikator-9 | **Predicate:** has-development-goal | **Object:** indikator-9-development-goal
-  - **Evidence:** "Udviklingsmål < 12 %"
-  - **Page:** 51 [^src5]
-
-### Incoming
-- **Subject:** esbjerg-sygehus-grindsted-sygehus | **Predicate:** meets-standard-of | **Object:** indikator-9
-  - **Evidence:** "Esbjerg Sygehus Grindsted Sygehus Ja 86 / 131 0 (0) 65,6 (56,9-73,7) 43,2 38,6"
-  - **Page:** 41 [^src2]
-- **Subject:** odense-universitetshospital-svendborg | **Predicate:** meets-standard-of | **Object:** indikator-9
-  - **Evidence:** "Odense Universitetshospital - Svendborg Ja 140 / 230 0 (0) 60,9 (54,2-67,2) 28,9 5,7"
-  - **Page:** 41 [^src2]
-- **Subject:** aarhus-universitetshospital | **Predicate:** meets-standard-of | **Object:** indikator-9
-  - **Evidence:** "Aarhus Universitetshospital Ja 98 / 139 0 (0) 70,5 (62,2-77,9) 63,7 68,6"
-  - **Page:** 41 [^src2]
-- **Subject:** regionshospitalet-goedstrup | **Predicate:** meets-standard-of | **Object:** indikator-9
-  - **Evidence:** "Regionshospitalet Gødstrup Ja 100 / 158 0 (0) 63,3 (55,3-70,8) 59,7 47,8"
-  - **Page:** 41 [^src2]
-- **Subject:** regionshospitalet-horsens | **Predicate:** meets-standard-of | **Object:** indikator-9
-  - **Evidence:** "Regionshospitalet Horsens Ja 62 / 93 0 (0) 66,7 (56,1-76,1) 58,2 60,2"
-  - **Page:** 41 [^src2]
-- **Subject:** regionshospitalet-randers | **Predicate:** proposes-to-modify | **Object:** indikator-9
-  - **Evidence:** "Fra Randers foreslås det, at indikatoren gøres frivillig eller fjernes, da den kræver meget efterregistrering."
-  - **Page:** 41 [^src2]
-- **Subject:** regionshospital-nordjylland | **Predicate:** does-not-meet-standard-of | **Object:** indikator-9
-  - **Evidence:** "Regionshospital Nordjylland Nej 28 / 95 0 (0) 29,5 (20,6-39,7) 34,2 43,0"
-  - **Page:** 41 [^src2]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Belongs To Database [^src1]
+- [[styregruppen|Styregruppen]] — Is Evaluated By [^src2]
+- [[epidural]] — Measures [^src3]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Measures Outcome For [^src4]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Calculated From [^src5]
+- [[indikator-9-development-goal]] — Has Development Goal [^src5]
+- [[clinical-outcome|Mortality]] — Measures [^src9]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Part Of [^src9]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Reported By [^src10]
+- [[12-percent]] — Has Target [^src10]
+- [[12-percent]] — Has Target [^src11]
+- [[esbjerg-sygehus-grindsted-sygehus|Esbjerg Sygehus Grindsted Sygehus]] — Meets Standard Of (incoming) — "Esbjerg Sygehus Grindsted Sygehus Ja 86 / 131 0 (0) 65,6 (56,9-73,7) 43,2 38,6" [^src2]
+- [[odense-universitetshospital-svendborg|Odense Universitetshospital - Svendborg]] — Meets Standard Of (incoming) — "Odense Universitetshospital - Svendborg Ja 140 / 230 0 (0) 60,9 (54,2-67,2) 28,9 5,7" [^src2]
+- [[aarhus-universitetshospital|Aarhus Universitetshospital]] — Meets Standard Of (incoming) — "Aarhus Universitetshospital Ja 98 / 139 0 (0) 70,5 (62,2-77,9) 63,7 68,6" [^src2]
+- [[regionshospitalet-goedstrup|Regionshospitalet Gødstrup]] — Meets Standard Of (incoming) — "Regionshospitalet Gødstrup Ja 100 / 158 0 (0) 63,3 (55,3-70,8) 59,7 47,8" [^src2]
+- [[regionshospitalet-horsens|Regionshospitalet Horsens]] — Meets Standard Of (incoming) — "Regionshospitalet Horsens Ja 62 / 93 0 (0) 66,7 (56,1-76,1) 58,2 60,2" [^src2]
+- [[regionshospitalet-randers|Regionshospitalet Randers]] — Proposes To Modify (incoming) — "Fra Randers foreslås det, at indikatoren gøres frivillig eller fjernes, da den kræver meget efterregistrering." [^src2]
+- [[regionshospital-nordjylland|Regionshospital Nordjylland]] — Does Not Meet Standard Of (incoming) — "Regionshospital Nordjylland Nej 28 / 95 0 (0) 29,5 (20,6-39,7) 34,2 43,0" [^src2]
+- [[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]] — Is Best Practice For (incoming) — "Hvidovre Hospital og Herlev Hospital fremstår i år som best practice med exceptionelt gode resultater over tid for mortalitet." [^src10]
+- [[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]] — Is Best Practice For (incoming) — "Hvidovre Hospital og Herlev Hospital fremstår i år som best practice med exceptionelt gode resultater over tid for mortalitet." [^src10]
+- [[lkt-akut-kirurgi|LKT Akutkirurgi]] — Is Associated With Improvement In (incoming) — "Der ses en parallel forbedring med de initiativer, der blev gennemført under LKT Akut Kirurgi i perioden 2021-2023, hvilket må betegnes som en national succes." [^src10]
+- [[babz00|BABZ00]] — Is Used To Measure (incoming) — "Denne oplysning har hidtil været indsamlet med Dansk Anaestesi Database som datakilde, men for at optimere datagrundlaget ønskes nu at supplere med data fra LPR til beregning af indikator 9 (Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen)." [^src12]
+- [[naad0|NAAD0*]] — Is Used To Measure (incoming) — "Denne oplysning har hidtil været indsamlet med Dansk Anaestesi Database som datakilde, men for at optimere datagrundlaget ønskes nu at supplere med data fra LPR til beregning af indikator 9 (Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen)." [^src12]
 
 ## Claims
 
-### Standard
-- Indikator 9 har en standard på > 60 % for andelen af patienter, der har fået anlagt epidural i forbindelse med operationen [^src1]
-
-### Regulatory Standard
-- Standarden for indikator 9 er > 60 % [^src1]
-
-### Quality Metric
-- Nationalt opfyldte 53,0 % af de 3.147 opererede patienter indikator 9 (95 % CI: 51,2-54,7) [^src1]
-
-### Performance Standard
-- Indikator 9 har en standard på < 12 % for 30-dages mortalitet blandt alle opererede patienter med relevant diagnose- og procedurekode [^src1]
-
-### Performance Goal
-- Indikator 9 har udviklingsmål på < 12 % [^src1]
-
-### Data Volume
-- I perioden 01.09.2023 – 31.08.2024 indgik 3.179 forløb i indikatoranalysen for Indikator 9 og Indikator 10 [^src1]
-
-### Outcome
-- Der indgik 3.179 forløb i indikatoranalysen i perioden. Heraf døde 376 personer, svarende til 11,8 % (95 % CI: 10,7-13,0) indenfor 30 dage fra ankomst til sygehus [^src1]
-
-## Timeline
-
-- **2022-09-01:** Start af måleperioden for indikatorresultaterne (01.09.2022 – 31.08.2023) (indikator-1, indikator-3, indikator-4, indikator-5, indikator-6, indikator-7, indikator-8, indikator-9, indikator-10, indikator-11)
-- **2023-08-31:** Afslutning af måleperioden for indikatorresultaterne (01.09.2022 – 31.08.2023) (indikator-1, indikator-3, indikator-4, indikator-5, indikator-6, indikator-7, indikator-8, indikator-9, indikator-10, indikator-11)
-- **01.09.2022 - 31.08.2023:** Rapportperioden for indikator 8 og 9, hvor data blev indsamlet fra Akut Kirurgi Databasen (indikator-8, indikator-9, akut-kirurgi-databasen)
-- **2023-09-01:** Start af måleperioden for Indikator 9 og Indikator 10 i 2024-årsrapporten (indikator-9, indikator-10)
-- **2024-08-31:** Afslutning af måleperioden for Indikator 9 og Indikator 10 i 2024-årsrapporten (indikator-9, indikator-10)
+- Indikator 9 har en standard på > 60 % for andelen af patienter, der har fået anlagt epidural i forbindelse med operationen [^src1] ([[indikator-9|Indikator 9]])
+- Standarden for indikator 9 er > 60 % [^src2] ([[indikator-9|Indikator 9]])
+- Nationalt opfyldte 53,0 % af de 3.147 opererede patienter indikator 9 (95 % CI: 51,2-54,7) [^src2] ([[indikator-9|Indikator 9]])
+- Indikator 9 har en standard på < 12 % for 30-dages mortalitet blandt alle opererede patienter med relevant diagnose- og procedurekode [^src4] ([[indikator-9|Indikator 9]])
+- Indikator 9 har udviklingsmål på < 12 % [^src5] ([[indikator-9|Indikator 9]])
+- I perioden 01.09.2023 – 31.08.2024 indgik 3.179 forløb i indikatoranalysen for Indikator 9 og Indikator 10 [^src5] ([[indikator-9|Indikator 9]], [[indikator-10|Indikator 10]])
+- Der indgik 3.179 forløb i indikatoranalysen i perioden. Heraf døde 376 personer, svarende til 11,8 % (95 % CI: 10,7-13,0) indenfor 30 dage fra ankomst til sygehus [^src6] ([[indikator-9|Indikator 9]])
+- Indikator 9 har et udviklingsmål på < 12 % for andelen af patienter, der dør inden for 30 dage fra operationsdato for alle opererede med relevant diagnosekode og procedurekode [^src8] ([[indikator-9|Indikator 9]])
+- For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 9 på landsplan 10,1 % (95 % CI: 9,1–11,2) [^src8] ([[indikator-9|Indikator 9]], [[danmark|Danmark]])
+- Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode) [^src9] ([[indikator-9|Indikator 9]])
+- Udviklingsmål for Indikator 9 er < 12 % [^src9] ([[indikator-9|Indikator 9]])
+- Danmark: 10,1 % (9,1-11,2) i aktuelle år (01.09.2024 - 31.08.2025) [^src9] ([[indikator-9|Indikator 9]])
+- Rigshospitalet: 32,6 % (19,5-48,0) i aktuelle år (01.09.2024 - 31.08.2025) [^src9] ([[indikator-9|Indikator 9]], [[rigshospitalet|Rigshospitalet]])
+- Eksklusion: Patienten er under 18 år: 177 i hele Danmark [^src9] ([[indikator-9|Indikator 9]])
+- Der indgik 3.244 forløb i indikatoranalysen i perioden. Heraf døde 329 personer, svarende til 10,1 % (95 % CI: 9,-11,2) indenfor 30 dage fra ankomst til sygehus [^src10] ([[indikator-9|Indikator 9]])
+- Den nationale 30-dagesmortalitet lå på 10,1 % og opfyldte dermed udviklingsmålet på < 12 % [^src10] ([[indikator-9|Indikator 9]])
+- Regionalt varierede andelen fra 9,1 % i Region Hovedstaden til 12,3 % i Region Syddanmark [^src10] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[indikator-9|Indikator 9]])
+- I alt 16 af de 20 indberettende enheder opfyldte udviklingsmålet i perioden [^src10] ([[indikator-9|Indikator 9]])
+- Indikator 9 har ligget under 12 % i tre år i træk og er fortsat faldende [^src10] ([[indikator-9|Indikator 9]])
+- En analyse fra 2024 undersøgte, om hospitaler med større cancerpopulationer havde signifikant dårligere overlevelse. Dette blev ikke påvist [^src10] ([[indikator-9|Indikator 9]])
+- Der indgik 3.244 forløb i indikatoranalysen i perioden. Heraf døde 329 personer, svarende til 10,1 % indenfor 30 dage fra ankomst til sygehus [^src11] ([[indikator-9|Indikator 9]])
 
 ## Sources
 
@@ -123,3 +94,9 @@ In this period, 3,179 patient courses were included in the analysis for Indikato
 [^src5]: AKDB_2024.pdf, pages 51-55
 [^src6]: AKDB_2024.pdf, pages 96-100
 [^src7]: AKDB_2024.pdf, pages 101-105
+[^src8]: AKDB_2025.pdf, pages 6-10
+[^src9]: AKDB_2025.pdf, pages 46-50
+[^src10]: AKDB_2025.pdf, pages 51-55
+[^src11]: AKDB_2025.pdf, pages 106-110
+[^src12]: AKDB_2025.pdf, pages 56-60
+

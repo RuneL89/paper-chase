@@ -4,19 +4,20 @@ type: index
 aliases:
   - Databases
 wiki: rkkp-danibd
-updated: '2026-08-05T07:32:48.066Z'
+updated: '2026-08-15T07:40:44.750Z'
 children:
   - health-registries/index.md
   - national-health-registers/index.md
+  - index.md
 ---
 # Databases
 
-This folder groups the foundational data sources and registries used to track patient diagnoses, treatments, and laboratory results for inflammatory bowel disease (IBD) in Denmark. It encompasses regional and national health registries that supply diagnostic codes, surgical records, and medication dispensing data, alongside national registers providing critical biomarker measurements. Together, these databases form the underlying infrastructure for the Danish national clinical quality database (DANIBD), enabling epidemiological validation, treatment monitoring, and the ongoing quality assurance of IBD care across hospitals.
+This folder groups the primary Danish health registries and national registers that serve as foundational data sources for the DANIBD cohort and healthcare quality monitoring. It covers regional and national patient registers used to identify, track, and validate inflammatory bowel disease (IBD) care, as well as national databases for laboratory tests and dispensed hospital medicine that supply critical biomarker and treatment data.
 
 ## Pages
 
-- [[entities/databases/health-registries/index|Health Registries]] — Regional and national registries tracking IBD patient diagnoses, surgical interventions, and hospital-dispensed medications to define cohorts and monitor treatment outcomes.
-- [[entities/databases/national-health-registers/index|National Health Registers]] — National-level registers supplying essential biomarker and laboratory test data, such as fecal calprotectin, for evaluating healthcare quality indicators.
+- [[entities/databases/health-registries/index|Health Registries]] — Primary Danish health registries and clinical databases used to identify, track, and validate IBD care, including the national patient register and regional validation databases.
+- [[entities/databases/national-health-registers/index|National Health Registers]] — National-level health registers supplying foundational data for quality monitoring, such as the national register for laboratory tests providing critical biomarker measurements.
 
 ## Navigation
 

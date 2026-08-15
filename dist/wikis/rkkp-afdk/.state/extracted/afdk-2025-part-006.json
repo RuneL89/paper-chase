@@ -1,0 +1,410 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 4a",
+      "type": "quality-indicator",
+      "slug": "indikator-4a",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 4a er en central kvalitetsindikator for behandlingskvaliteten af patienter med atrieflimren i Danmark, der måler andelen af patienter med indikation for antikoagulationsbehandling, som faktisk modtager den 2 år efter diagnosen — og danner grundlag for national evaluering af udviklingsmålet på ≥90%.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Indikator 4a: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato"
+        },
+        {
+          "page": 27,
+          "context": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret). 2 år efter diagnosen atrieflimren."
+        },
+        {
+          "page": 28,
+          "context": "Indikator 4a: Andel af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population, hvor det er indiceret). 2 år efter diagnosen atrieflimren."
+        },
+        {
+          "page": 29,
+          "context": "Indikatoren og udviklingsmålet fastholdes."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4b",
+      "type": "quality-indicator",
+      "slug": "indikator-4b",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 4b er en supplerende kvalitetsindikator, der vurderer overvågningen af nyrefunktion hos patienter med atrieflimren, der behandles med direkte orale antikoagulantia (DOAC), ved at måle andelen med mindst én årlig P-creatinin-måling.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "Indikator 4b: Kontrol af nyrefunktion"
+        },
+        {
+          "page": 30,
+          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesnets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den institution, der udarbejder og publicerer rapporten 'Atrieflimren i Danmark', herunder kvalitetsindikatorerne 4a og 4b, og dermed står for national kvalitetsmonitorering af behandlingen af atrieflimren.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 27,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 28,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 29,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 30,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "antikoagulationsbehandling",
+      "type": "medical-intervention",
+      "slug": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Antikoagulationsbehandling er den centrale farmakologiske intervention, hvis anvendelse indikator 4a måler, og som er kritisk for forebyggelse af tromboemboliske komplikationer hos patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "med indikation for antikoagulationsbehandling"
+        },
+        {
+          "page": 27,
+          "context": "med indikation for antikoagulationsbehandling, der modtager behandling"
+        },
+        {
+          "page": 28,
+          "context": "med indikation for antikoagulationsbehandling, der modtager behandling"
+        },
+        {
+          "page": 29,
+          "context": "Såfremt en patient har indløst en recept på oral AK-behandling i perioden 90 dage før til 90 dage efter 2-års dagen for diagnosedatoen for atrieflimren, er der tale om indikatoropfyldelse."
+        }
+      ]
+    },
+    {
+      "name": "direkte orale antikoagulantia (DOAC)",
+      "type": "pharmaceutical",
+      "slug": "doac",
+      "folder": "entities/pharmaceuticals/anticoagulants",
+      "significance": "DOAC er den specifikke klasse af antikoagulantia, som indikator 4b fokuserer på, da deres renal clearance kræver regelmæssig kontrol af nyrefunktion via P-creatinin.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "behandling med direkte orale antikoagulantia (DOAC)"
+        }
+      ]
+    },
+    {
+      "name": "P-creatinin",
+      "type": "biomarker",
+      "slug": "p-creatinin",
+      "folder": "entities/biomarkers/endocrine",
+      "significance": "P-creatinin er den biokemiske markør, der bruges til at vurdere nyrefunktion i forbindelse med DOAC-behandling, og som indikator 4b kræver målt mindst én gang årligt.",
+      "mentions": [
+        {
+          "page": 30,
+          "context": "mindst 1 måling af P-creatinin årligt."
+        }
+      ]
+    },
+    {
+      "name": "CHAD2DS2-VASc",
+      "type": "clinical-score",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "CHAD2DS2-VASc-scoringssystemet bruges til at identificere patienter med atrieflimren, som har indikation for antikoagulationsbehandling, og er derfor centralt for definitionen af nævneren i indikator 4a.",
+      "mentions": [
+        {
+          "page": 29,
+          "context": "Patienten har ikke indikation for AK-behandling (CHAD2DS2-VASc < 2)"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregisteret er en af de to primære datakilder, hvorfra indikator 4a beregnes, og leverer information om diagnose, hospitalisering og overlevelse for patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 29,
+          "context": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret og Lægemiddelstatistikregisteret."
+        }
+      ]
+    },
+    {
+      "name": "Lægemiddelstatistikregisteret",
+      "type": "database",
+      "slug": "laegemiddelstatistikregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Lægemiddelstatistikregisteret er den anden primære kilde til beregning af indikator 4a, da det registrerer receptindløsninger og dermed dokumenterer faktisk antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 29,
+          "context": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret og Lægemiddelstatistikregisteret."
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Rapporten 'Atrieflimren i Danmark' er den officielle nationale kvalitetsrapport, der præsenterer resultaterne for indikator 4a og 4b samt diskussion af udviklingen og implikationerne for sundhedsvæsenet.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 27,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 28,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 29,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 30,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Region Hovedstaden er den region med laveste opfyldelse af indikator 4a (87,2 %) på regionsniveau i 2022/23 og dermed et centralt sammenligningspunkt i rapportens analyse.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Hovedstaden Nej 3.409 / 3.909 0 (0) 87,2 (86,1-88,2) 3.198 / 3.700 86,4 87,7"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Nordjylland er den eneste region, der opfylder udviklingsmålet på ≥90 % for indikator 4a (90,7 %), og dermed et eksempel på høj ydeevne i rapporten.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Nordjylland Ja 1.481 / 1.632 0 (0) 90,7 (89,2-92,1) 1.324 / 1.452 91,2 91,2"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Bornholm",
+      "type": "organization",
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Bornholm er den sundhedsklynge med højeste opfyldelse af indikator 4a (91,6 %) blandt alle sundhedsklynger i 2022/23 og dermed et fremtrædende eksempel på god klinisk praksis i rapporten.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Sundhedsklynge\nBornholm\nJa 120 / 131 0 (0) 91,6 (85,5-95,7) 111 / 128 86,7 89,5"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Byen",
+      "type": "organization",
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Byen er den sundhedsklynge med laveste opfyldelse af indikator 4a (85,8 %) blandt alle sundhedsklynger i 2022/23 og dermed et centralt referenceniveau i rapportens variationanalyse.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Sundhedsklynge Byen Nej 918 / 1.070 0 (0) 85,8 (83,6-87,8) 785 / 912 86,1 86,1"
+        }
+      ]
+    },
+    {
+      "name": "udviklingsmål på ≥90%",
+      "type": "policy-decision",
+      "slug": "udviklingsmaal-90-percent",
+      "folder": "topics/policy-decision",
+      "significance": "Udviklingsmålet på ≥90 % er det normative mål, der definerer acceptable kvalitetsniveauer for antikoagulationsbehandling af patienter med atrieflimren, og som rapporten konkluderer ikke er opfyldt på nationalt niveau.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Udviklingsmål Uoplyst Aktuelle år Tidligere år\n≥ 90%"
+        },
+        {
+          "page": 29,
+          "context": "Udviklingsmålet på ≥90% er dermed ikke opfyldt på nationalt niveau, og resultatet er stort set uændret i forhold til de foregående år."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-4a",
+      "predicate": "measures",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Indikator 4a: Andel af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato",
+      "page": 26
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "measures",
+      "object": "p-creatinin",
+      "evidence": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt.",
+      "page": 30
+    },
+    {
+      "subject": "indikator-4a",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret og Lægemiddelstatistikregisteret.",
+      "page": 29
+    },
+    {
+      "subject": "indikator-4a",
+      "predicate": "uses-data-from",
+      "object": "laegemiddelstatistikregisteret",
+      "evidence": "Data til beregning af indikatoren er indhentet fra Landspatientregisteret og Lægemiddelstatistikregisteret.",
+      "page": 29
+    },
+    {
+      "subject": "indikator-4a",
+      "predicate": "depends-on",
+      "object": "cha2ds2-vasc",
+      "evidence": "Patienten har ikke indikation for AK-behandling (CHAD2DS2-VASc < 2)",
+      "page": 29
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "applies-to",
+      "object": "doac",
+      "evidence": "Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt.",
+      "page": 30
+    },
+    {
+      "subject": "sundhedsvaesnets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Atrieflimren i Danmark\nSundhedsvæsenets Kvalitetsinstitut",
+      "page": 26
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan var 88,2% af patienterne fortsat i antikoagulationsbehandling to år efter diagnosen atrieflimren [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4a",
+        "atrieflimren-i-danmark"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Udviklingsmålet på ≥90% er dermed ikke opfyldt på nationalt niveau [^src1]",
+      "type": "policy-decision",
+      "entities": [
+        "udviklingsmaal-90-percent"
+      ],
+      "page": 29
+    },
+    {
+      "text": "På regionsniveau varierede andelen fra 87,2% i Region Hovedstaden til 90,7% i Region Nordjylland [^src1]",
+      "type": "geographic-distribution",
+      "entities": [
+        "region-hovedstaden",
+        "region-nordjylland"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Kun Region Nordjylland opfylder udviklingsmålet [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-nordjylland",
+        "udviklingsmaal-90-percent"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Flere klynger i Nord- og Midtjylland opfylder udviklingsmålet imens de klynger med det laveste niveau ligger omkring 85% [^src1]",
+      "type": "geographic-distribution",
+      "entities": [
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Der er observeret stigende persistens til antikoagulationsbehandling i perioden siden 2016, som generelt ligger på et højt niveau sammenlignet med andre lande [^src1]",
+      "type": "epidemiology",
+      "entities": [
+        "antikoagulationsbehandling"
+      ],
+      "page": 29
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2022 - 30.06.2023",
+      "event": "Aktuelle år for indikator 4a-beregning",
+      "entities": [
+        "indikator-4a"
+      ]
+    },
+    {
+      "date": "2021/22",
+      "event": "Tidligere år for indikator 4a-beregning",
+      "entities": [
+        "indikator-4a"
+      ]
+    },
+    {
+      "date": "2020/21",
+      "event": "Tidligere år for indikator 4a-beregning",
+      "entities": [
+        "indikator-4a"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-4a",
+      "title": "Indikator 4a: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato",
+      "page": 26,
+      "rowDimension": "geografiske-enheder",
+      "colDimension": "resultater-per-år",
+      "entities": [
+        "indikator-4a",
+        "region-hovedstaden",
+        "region-nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen"
+      ],
+      "markdown": "| Geografisk enhed | Uoplyst | Tæller/ antal | 01.07.2022 - 30.06.2023 | 2021/22 | 2020/21 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 12.868 / 14.591 | 88,2 (87,7-88,7) | 88,1 | 88,1 |\n| Hovedstaden | Nej | 3.409 / 3.909 | 87,2 (86,1-88,2) | 86,4 | 87,7 |\n| Sjælland | Nej | 2.158 / 2.457 | 87,8 (86,5-89,1) | 87,1 | 85,2 |\n| Syddanmark | Nej | 2.902 / 3.326 | 87,3 (86,1-88,4) | 87,5 | 88,4 |\n| Midtjylland | Nej | 2.918 / 3.267 | 89,3 (88,2-90,4) | 90,0 | 88,8 |\n| Nordjylland | Ja | 1.481 / 1.632 | 90,7 (89,2-92,1) | 91,2 | 91,2 |\n| Sundhedsklynge Bornholm | Ja | 120 / 131 | 91,6 (85,5-95,7) | 86,7 | 89,5 |\n| Sundhedsklynge Byen | Nej | 918 / 1.070 | 85,8 (83,6-87,8) | 86,1 | 86,1 |\n| Sundhedsklynge Midt | Nej | 1.028 / 1.152 | 89,2 (87,3-91,0) | 85,8 | 88,6 |\n| Sundhedsklynge Nord | Nej | 737 / 851 | 86,6 (84,1-88,8) | 87,7 | 88,5 |\n| Sundhedsklynge Syd | Nej | 606 / 705 | 86,0 (83,2-88,4) | 86,2 | 87,6 |\n| Sundhedsklyngen Holbæk | Nej | 448 / 514 | 87,2 (84,0-89,9) | 87,9 | 86,1 |\n| Sundhedsklyngen Nykøbing F | Nej | 427 / 503 | 84,9 (81,5-87,9) | 86,4 | 84,1 |\n| Sundhedsklyngen SUH | Nej | 712 / 805 | 88,4 (86,0-90,6) | 87,7 | 86,3 |\n| Sundhedsklyngen Slagelse | Nej | 571 / 635 | 89,9 (87,3-92,2) | 86,0 | 84,2 |\n| Sundhedsklynge Fyn | Nej | 1.098 / 1.286 | 85,4 (83,3-87,3) | 87,1 | 86,8 |\n| Sundhedsklynge Lillebælt | Ja | 677 / 746 | 90,8 (88,4-92,7) | 90,5 | 89,9 |\n| Sundhedsklynge Sydvestjylland | Nej | 547 / 632 | 86,6 (83,6-89,1) | 85,2 | 90,0 |\n| Sundhedsklynge Sønderjylland | Nej | 580 / 662 | 87,6 (84,9-90,0) | 87,5 | 88,1 |\n| Aarhusklyngen | Nej | 605 / 690 | 87,7 (85,0-90,0) | 593 / 669 | 88,6 |\n| Gødstrupklyngen | Nej | 628 / 717 | 87,6 (84,9-89,9) | 697 / 787 | 88,6 |\n| Horsensklyngen | Ja | 528 / 576 | 91,7 (89,1-93,8) | 486 / 538 | 90,3 |\n| Midtklyngen | Nej | 598 / 666 | 89,8 (87,2-92,0) | 588 / 647 | 90,9 |\n| Randersklyngen | Ja | 559 / 618 | 90,5 (87,9-92,7) | 548 / 594 | 92,3 |\n| Klynge MIDT | Nej | 518 / 576 | 89,9 (87,2-92,3) | 462 / 509 | 90,8 |\n| Klynge NORD | Ja | 521 / 569 | 91,6 (89,0-93,7) | 443 / 484 | 91,5 |\n| Klynge SYD | Ja | 284 / 315 | 90,2 (86,3-93,2) | 241 / 268 | 89,9 |\n| Klynge VEST | Ja | 158 / 172 | 91,9 (86,7-95,5) | 178 / 191 | 93,2 |",
+      "summary": "Tabellen sammenligner opfyldelsen af indikator 4a på tværs af regioner, sundhedsklynger og klynger for tre år, og viser en klar geografisk variation med højeste værdier i Nordjylland og Bornholm og laveste i Byen og Nykøbing F."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af den nationale kvalitetsrapport 'Atrieflimren i Danmark', udgivet af Sundhedsvæsenets Kvalitetsinstitut, og fokuserer på to kvalitetsindikatorer (4a og 4b) til vurdering af behandlingskvaliteten af patienter med atrieflimren. Indikator 4a måler behandlingspersistens med antikoagulation 2 år efter diagnose, mens indikator 4b fokuserer på overvågning af nyrefunktion hos patienter på DOAC. Chunken indeholder detaljerede resultattabeller, beregningsregler baseret på Landspatientregisteret og Lægemiddelstatistikregisteret, samt en diskussion af udviklingstendenser og politiske implikationer — især at udviklingsmålet på ≥90 % ikke er opfyldt på nationalt plan, men kun i nogle regioner og klynger."
+}

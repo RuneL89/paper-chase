@@ -4,17 +4,18 @@ type: index
 aliases:
   - Methodological Definition
 wiki: rkkp-afdk
-updated: '2026-08-05T23:35:16.431Z'
+updated: '2026-08-15T00:36:33.553Z'
 children:
+  - index.md
   - methodological-definition.md
 ---
 # Methodological Definition
 
-This folder holds the precise mathematical and statistical definitions used to calculate and interpret clinical quality indicators. It documents the exact formulas for metrics like patient registration completeness in national health databases, as well as the notation for comparing current performance against historical confidence intervals. These methodological baselines are essential for accurately evaluating clinical outcomes and registry data quality without ambiguity.
+This folder contains pages detailing the methodological definitions that underpin quality assurance and reporting within the Databasen for Atrieflimren i Danmark (AFDK) and the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). These definitions establish the standardized frameworks used to measure clinical indicators, evaluate database completeness, and define the eligible patient population for longitudinal cardiovascular healthcare tracking in Denmark.
 
 ## Pages
 
-- [[methodological-definition|Methodological Definition]] — Outlines the specific mathematical formulas for calculating registry completeness and the statistical notation used for historical confidence intervals in clinical databases.
+- [[methodological-definition|Methodological Definition]] — Outlines the standardized metrics for database completeness, patient eligibility based on CPR residency, and longitudinal statistical comparisons used in AFDK reporting.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder holds the precise mathematical and statistical definitions used to c
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder holds the precise mathematical and statistical definitions used to c
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

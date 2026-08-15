@@ -4,10 +4,11 @@ type: index
 aliases:
   - Medical Coding
 wiki: rkkp-akdb
-updated: '2026-08-05T20:18:36.492Z'
+updated: '2026-08-15T08:24:59.357Z'
 children:
   - babz00.md
   - dk65.md
+  - index.md
   - kjak01.md
   - kjak03.md
   - kjak04.md
@@ -18,19 +19,19 @@ children:
 ---
 # Medical Coding
 
-This folder catalogs specific medical classification and procedure codes utilized within the Danish healthcare system, primarily for tracking interventions in the Acute Surgery Database (AKDB). The codes cover a range of surgical and anesthesiological practices, from laparoscopic drainage and peritoneal lavage to epidural blocks and preoperative optimization. By standardizing these identifiers, the database can accurately expand its population definitions, calculate national quality indicators, and evaluate clinical workflows across different hospital departments.
+This folder catalogs specific medical procedure and classification codes used within the Danish healthcare system, particularly for quality monitoring in the Acute Surgery Database (AKDB). It includes SKS procedure codes for anesthesiological interventions—such as epidural placement, preoperative optimization, and specific surgical procedures—as well as SOR codes used to identify specialized care unit stays. Each page details how these codes define patient populations, measure clinical quality indicators, and resolve coding uncertainties in national registries like the LPR.
 
 ## Pages
 
-- [[babz00|BABZ00]] — Tracks the insertion of an epidural catheter to measure epidural use in acute surgical care.
-- [[dk65|"DK65*"]] — A supplementary code noting a specific percentage of operations within the database's reporting.
-- [[kjak01|"KJAK01*"]] — Designates laparoscopic drainage of the abdominal cavity, added to expand the database's tracked population.
-- [[kjak03|"KJAK03*"]] — Denotes laparotomy and peritoneal lavage, included to ensure complete coverage of relevant acute surgical procedures.
-- [[kjak04|"KJAK04*"]] — Represents laparoscopy and peritoneal lavage, incorporated into the population definition to capture all relevant interventions.
-- [[naad0|"NAAD0*"]] — Identifies epidural blocks, used alongside catheter insertion codes to evaluate anesthesiological practices.
-- [[naaz2|NAAZ2]] — Documents anesthesiological preoperative optimization to monitor whether patients are adequately prepared before surgery.
-- [[sks-kode-naaz42|SKS-koden NAAZ42]] — The specific SKS code for anesthesiological preoperative optimization, required for measuring national quality indicators like Indikator 3 and 4.
-- [[sor-koder|SOR koder]] — Proposed as a more precise alternative coding method to identify patient stays in intensive, intermediate, or recovery care units.
+- [[babz00|BABZ00]] — Procedure code for epidural catheter placement, used alongside NAAD0* to measure epidural use in patient treatment.
+- [[dk65|"DK65*"]] — Surgical operation code analyzed to determine its impact on the acute surgery patient population and registry results.
+- [[kjak01|"KJAK01*"]] — Procedure code added to expand the population definition for acute surgery treatments across different hospitals.
+- [[kjak03|"KJAK03*"]] — Procedure code included in the acute surgery population definition to capture relevant patient treatments.
+- [[kjak04|"KJAK04*"]] — Procedure code grouped with KJAK01* and KJAK03* to ensure comprehensive population tracking for acute surgical care.
+- [[naad0|"NAAD0*"]] — Code for epidural block, used with BABZ00 to track whether epidurals were utilized in patient treatment.
+- [[naaz2|NAAZ2]] — Code for anesthesiological preoperative optimization, introduced to ensure and monitor that patients are optimized before surgery.
+- [[sks-kode-naaz42|SKS-koden NAAZ42]] — Specific SKS code created in 2022 to document preoperative optimization via the National Patient Register (LPR) for quality indicators.
+- [[sor-koder|SOR koder]] — Classification system recommended for tracking patient stays in intensive, intermediate, or recovery beds to improve the accuracy of clinical quality indicators.
 
 ## Navigation
 

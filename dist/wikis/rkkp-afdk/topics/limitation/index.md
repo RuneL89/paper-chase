@@ -4,17 +4,18 @@ type: index
 aliases:
   - Limitation
 wiki: rkkp-afdk
-updated: '2026-08-05T23:33:07.428Z'
+updated: '2026-08-15T00:33:56.923Z'
 children:
+  - index.md
   - limitation.md
 ---
 # Limitation
 
-This folder documents the structural, systemic, and operational constraints that affect data completeness and accuracy within the Databasen for Atrieflimren i Danmark (AFDK) and its associated quality indicators. It covers inherent coverage gaps, such as the exclusion of patients treated exclusively in general practice and the systematic underestimation of atrial fibrillation prevalence due to unrecognized cases. Furthermore, it details specific data collection blind spots caused by cross-sector referrals to private hospitals, regional health platform reporting failures, and local laboratory coding discrepancies that prevent accurate quality monitoring.
+This folder covers the methodological, systemic, and coverage-related constraints that affect data accuracy and performance evaluation within the Databasen for Atrieflimren i Danmark (AFDK). It documents how the database's strict inclusion criteria systematically underestimate true disease prevalence, how administrative workflows and local laboratory codes disrupt data capture for specific clinical indicators, and why raw hospital-level performance data requires careful interpretation to account for patient case-mix.
 
 ## Pages
 
-- [[limitation|Limitation]] — Details the structural, operational, and technical constraints affecting AFDK data completeness, including patient coverage gaps, cross-sector reporting blind spots, and local laboratory coding issues.
+- [[limitation|Limitation]] — Details the methodological and systemic constraints affecting AFDK data accuracy, including coverage exclusions, missing private hospital data, local laboratory coding issues, and case-mix interpretation risks.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder documents the structural, systemic, and operational constraints that
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder documents the structural, systemic, and operational constraints that
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Icd Codes
 wiki: rkkp-afdk
-updated: '2026-08-05T23:31:59.570Z'
+updated: '2026-08-15T00:32:29.650Z'
 children:
   - di48.md
+  - index.md
 ---
 # Icd Codes
 
-This folder contains specific ICD-10 diagnostic codes used to define and track patient populations within the Danish healthcare system's clinical quality databases. Currently, it holds the foundational code for atrial fibrillation, detailing how it is applied across national registries and private practice systems to identify incident and prevalent cases for epidemiological and quality improvement reporting.
+This folder catalogs specific International Classification of Diseases (ICD) codes that serve as foundational identifiers within the corpus. It currently documents the DI48 code, the ICD-10 designation for atrial fibrillation, which acts as the central diagnostic cornerstone for the Danish Atrial Fibrillation Database (AFDK). By defining both incident and prevalent patient populations, this code enables epidemiological tracking and clinical quality benchmarking across national registries and private cardiology practices.
 
 ## Pages
 
-- [[di48|DI48]] — The ICD-10 code for atrial fibrillation, defining the patient populations tracked by the Danish Atrial Fibrillation Database across national and private registries.
+- [[di48|DI48]] — The ICD-10 diagnosis code for atrial fibrillation, detailing its methodological use in defining patient populations for the Danish Atrial Fibrillation Database and national registries.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder contains specific ICD-10 diagnostic codes used to define and track p
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder contains specific ICD-10 diagnostic codes used to define and track p
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

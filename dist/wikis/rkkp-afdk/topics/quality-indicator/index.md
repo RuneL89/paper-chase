@@ -4,17 +4,18 @@ type: index
 aliases:
   - Quality Indicator
 wiki: rkkp-afdk
-updated: '2026-08-05T23:42:31.220Z'
+updated: '2026-08-15T00:46:56.753Z'
 children:
+  - index.md
   - quality-indicator.md
 ---
 # Quality Indicator
 
-This folder contains the conceptual framework and specific metrics used to monitor and evaluate the standard of clinical care in the Danish healthcare system, particularly for patients newly diagnosed with atrial fibrillation. It details the national quality indicators—such as the timely initiation of anticoagulation treatment, performance of echocardiography, and measurement of TSH levels—along with their compliance rates, regional disparities, and the established national standards.
+This folder contains the foundational topic page defining the quality indicators used to evaluate atrial fibrillation management and treatment across Denmark. It details the comprehensive suite of national metrics—ranging from diagnostic echocardiography and anticoagulation protocols to patient education and adverse event monitoring—designed to ensure evidence-based care and track regional performance against established clinical standards.
 
 ## Pages
 
-- [[quality-indicator|Quality Indicator]] — Details the three primary national metrics for atrial fibrillation care, including anticoagulation timelines, echocardiography windows, and TSH testing, alongside regional compliance data.
+- [[quality-indicator|Quality Indicator]] — Outlines the national metrics for atrial fibrillation care in Denmark, covering diagnostic timelines, anticoagulation initiation, thyroid testing, patient education, and severe adverse event tracking.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder contains the conceptual framework and specific metrics used to monit
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -49,11 +55,16 @@ This folder contains the conceptual framework and specific metrics used to monit
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

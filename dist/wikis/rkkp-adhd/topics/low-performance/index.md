@@ -4,17 +4,18 @@ type: index
 aliases:
   - Low Performance
 wiki: rkkp-adhd
-updated: '2026-08-05T19:21:25.761Z'
+updated: '2026-08-15T12:44:23.459Z'
 children:
+  - index.md
   - low-performance.md
 ---
 # Low Performance
 
-This area covers departmental metrics that fall below established operational or clinical thresholds within ADHD reporting data. The available evidence specifically identifies departments failing to meet a 20% benchmark, recording that 13 departments performed under this threshold. However, the current corpus lacks granular details such as the specific names of the underperforming departments, their overseeing regional health authorities, or the exact clinical nature of the 20% metric being measured.
+This folder covers instances of substandard service delivery or outcomes within the ADHD clinical reporting data. It currently contains a single topic page documenting departments that failed to meet a specific 20% operational or clinical benchmark. While the corpus notes that 13 departments fell below this threshold, the exact nature of the metric and the identities of the underperforming departments are not detailed in the available evidence.
 
 ## Pages
 
-- [[low-performance|Low Performance]] — Details the 13 departments that fell below the 20% performance benchmark in ADHD reporting, noting the lack of specific departmental or metric details in the extracted data.
+- [[low-performance|Low Performance]] — Documents the 13 departments that fell below a 20% benchmark in ADHD reporting, noting that specific department names and metric definitions remain unspecified in the source data.
 
 ## Navigation
 

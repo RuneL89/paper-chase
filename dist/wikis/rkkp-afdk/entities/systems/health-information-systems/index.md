@@ -4,17 +4,20 @@ type: index
 aliases:
   - Health Information Systems
 wiki: rkkp-afdk
-updated: '2026-08-05T23:14:42.759Z'
+updated: '2026-08-15T00:06:37.888Z'
 children:
+  - index.md
   - sundhedsplatformen.md
+  - sundk.md
 ---
 # Health Information Systems
 
-This folder catalogs health information systems deployed across Danish hospitals and their systemic impact on national clinical data. It documents how specific shared platforms can introduce data limitations, such as the underreporting of procedures to national registries, which in turn compromises the validity of national clinical quality indicators. By tracking these systems, researchers and administrators can identify infrastructure-driven blind spots in healthcare quality assurance.
+This folder catalogs the primary health information systems operating within the Danish healthcare infrastructure, focusing on their dual roles in clinical workflow management and national quality monitoring. It covers Sundhedsplatformen, a regional hospital system that automates care pathways but introduces significant data blind spots in national registries, alongside SundK, the national data hub that aggregates laboratory and general practice records to evaluate clinical performance indicators. Together, these pages detail how systemic data pipelines and software limitations directly impact the validity of national healthcare quality reports.
 
 ## Pages
 
-- [[sundhedsplatformen|Sundhedsplatformen]] — A shared healthcare information system in Denmark that has been identified as a source of data limitation due to its poor reporting rates for echocardiography procedures to the National Patient Registry.
+- [[sundhedsplatformen|Sundhedsplatformen]] — A regional hospital information system that automates patient education referrals but is linked to significant underreporting of echocardiography procedures to the national patient registry.
+- [[sundk|SundK]] — The national data hub for healthcare quality monitoring that aggregates TSH laboratory results and general practice records to calculate clinical performance indicators.
 
 ## Navigation
 
@@ -23,6 +26,6 @@ This folder catalogs health information systems deployed across Danish hospitals
 
 ## Statistics
 
-- Pages: 1
+- Pages: 2
 - Sub-folders: 0
 - Sources: 0

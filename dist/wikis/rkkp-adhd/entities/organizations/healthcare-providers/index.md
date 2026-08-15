@@ -4,23 +4,24 @@ type: index
 aliases:
   - Healthcare Providers
 wiki: rkkp-adhd
-updated: '2026-08-05T19:06:23.616Z'
+updated: '2026-08-15T12:33:08.807Z'
 children:
   - dps-midtjylland.md
   - hejmdal-privathospital-viby-beh-afsnit.md
+  - index.md
   - privathospitaler.md
   - rhp.md
 ---
 # Healthcare Providers
 
-This folder groups organizations that directly deliver psychiatric and ADHD-related healthcare in Denmark, spanning both public regional services and private hospitals. The pages document their varying levels of compliance with national quality indicators, highlighting systemic issues such as severe data registration deficits, zero-compliance rates on specific clinical metrics, and ongoing institutional efforts to improve diagnostic workflows and reporting practices.
+This folder catalogs specific healthcare providers and organizational units delivering psychiatric and ADHD-related care in Denmark, as highlighted in national quality database reports. It includes regional psychiatric services like DPS Midtjylland and Region Hovedstadens Psykiatri (RHP), which illustrate systemic registration challenges and ongoing improvement initiatives. Additionally, it covers private hospitals as a distinct category, documenting their severe data scarcity, near-total non-compliance with specific clinical quality indicators, and the methodological difficulties in benchmarking their performance against public institutions.
 
 ## Pages
 
-- [[dps-midtjylland|DPS Midtjylland]] — The regional psychiatric service in Region Midtjylland, noted for a severe drop in registered assessment pathways that complicates treatment quality evaluation.
-- [[hejmdal-privathospital-viby-beh-afsnit|"Hejmdal Privathospital Viby, beh.afsnit"]] — A private hospital treatment department that recorded 0% performance on critical clinical environmental observation indicators for children and adolescents.
-- [[privathospitaler|Privathospitaler]] — The collective category of private hospitals in the national ADHD quality reporting system, characterized by severe data scarcity, registration anomalies, and near-total non-compliance on several key metrics.
-- [[rhp|RHP]] — Region Hovedstadens Psykiatri, which has struggled to meet database indicator standards but is implementing initiatives like automatic registration and staff education to improve data quality.
+- [[dps-midtjylland|DPS Midtjylland]] — Regional psychiatric service in Region Midtjylland noted for a severe drop in registered assessment pathways, highlighting systemic IT and staffing barriers.
+- [[hejmdal-privathospital-viby-beh-afsnit|"Hejmdal Privathospital Viby, beh.afsnit"]] — A private hospital treatment department that recorded 0% performance on critical environmental observation indicators for children and adolescents.
+- [[privathospitaler|Privathospitaler]] — The collective category of private hospitals in the national ADHD quality reporting system, characterized by sparse data, missing registrations, and widespread failure to meet clinical quality standards.
+- [[rhp|RHP]] — Region Hovedstadens Psykiatri, which initially struggled with quality indicator standards and registration practices but has implemented targeted improvement initiatives and automatic coding workflows.
 
 ## Navigation
 

@@ -4,111 +4,193 @@ type: entity
 aliases:
   - Sundhedsvæsenets Kvalitetsinstitut
 wiki: rkkp-akdb
-updated: '2026-08-05T19:22:13.852Z'
+updated: '2026-08-15T06:25:59.439Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: >-
       1-5, 11-15, 16-20, 26-30, 31-35, 36-40, 41-45, 51-55, 56-60, 6-10, 61-65,
       66-70, 71-75, 76-80, 81-85, 86-90, 91-95, 96-100
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: >-
+      1-5, 101-105, 106-110, 11-15, 111-115, 116-117, 16-20, 21-25, 26-30,
+      36-40, 41-45, 46-50, 51-55, 56-60, 6-10, 61-65, 66-70, 71-75, 76-80,
+      81-85, 86-90, 91-95, 96-100
 tags:
   - organization
 ---
-**Sundhedsvæsenets Kvalitetsinstitut** (the Danish Healthcare Quality Institute) is a central organization responsible for evidence-based quality development within the Danish healthcare system [^src14]. It serves as the primary publisher and governing institution for the [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] (Acute Surgery Database) and its associated annual reports [^src14]. Operating under the broader framework of the Regional Clinical Quality Development Program (RKKP), the institute is tasked with the development, monitoring, and publication of clinical quality indicators for acute surgery across Denmark [^src13], [^src14].
-
-The institute's mandate covers a comprehensive set of standardized clinical metrics, ranging from process indicators—such as early antibiotic administration and CT scanning—to outcome metrics like 30-day and 90-day mortality [^src13]. In addition to overseeing the database as a whole, the institute publishes specific indicator descriptions, including those for [[indikator-4x|Indikator 4x]] and [[indikator-4y|Indikator 4y]] [^src16], and reports on specialized metrics such as [[indikator-6|Indikator 6]] (early mobilization) [^src5]. For coordination and inquiries regarding the database, the institute's designated contact person is [[birgitte-ruhmann|Birgitte Rühmann]] [^src1]. 
-
-A major milestone in the institute's recent reporting cycle occurred on February 28, 2025, when the final version of the Akut Kirurgi Databasen annual report (covering the clinical period from September 2023 to August 2024) was officially published and released for public dissemination [^src6], [^src12], [^src17]. This publication relies heavily on data from the Danish National Patient Register (LPR) and serves as a vital tool for benchmarking, clinical governance, and continuous quality improvement across Denmark's regions and hospitals [^src13], [^src14].
 
 ## Mentions
 
-- Page 2: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 1-5) [^src1]
-- Page 3: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 1-5) [^src1]
-- Page 4: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 1-5) [^src1]
-- Page 6: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 6-10) [^src2]
-- Page 16: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20) [^src3]
-- Page 31: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 31-35) [^src4]
-- Page 36: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 36-40) [^src5]
-- Page 41: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 41-45) [^src6]
-- Page 51: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 51-55) [^src7]
-- Page 61: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 61-65) [^src8]
-- Page 66: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70) [^src9]
-- Page 71: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 71-75) [^src10]
-- Page 76: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 76-80) [^src11]
-- Page 81: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 81-85) [^src12]
-- Page 86: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 86-90) [^src13]
-- Page 96: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 96-100) [^src14]
-- Page 11: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 11-15) [^src15]
-- Page 26: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 26-30) [^src16]
+- Page 2: "Sundhedsvæsenets Kvalitetsinstitut" [^src1]
+- Page 3: "Sundhedsvæsenets Kvalitetsinstitut" [^src1]
+- Page 4: "Sundhedsvæsenets Kvalitetsinstitut" [^src1]
+- Page 6: "Sundhedsvæsenets Kvalitetsinstitut" [^src2]
+- Page 16: "Sundhedsvæsenets Kvalitetsinstitut" [^src3]
+- Page 31: "Sundhedsvæsenets Kvalitetsinstitut" [^src4]
+- Page 36: "Sundhedsvæsenets Kvalitetsinstitut" [^src5]
+- Page 41: "Sundhedsvæsenets Kvalitetsinstitut" [^src6]
+- Page 51: "Sundhedsvæsenets Kvalitetsinstitut" [^src7]
+- Page 61: "Sundhedsvæsenets Kvalitetsinstitut" [^src8]
+- Page 66: "Sundhedsvæsenets Kvalitetsinstitut" [^src9]
+- Page 71: "Sundhedsvæsenets Kvalitetsinstitut" [^src10]
+- Page 76: "Sundhedsvæsenets Kvalitetsinstitut" [^src11]
+- Page 81: "Sundhedsvæsenets Kvalitetsinstitut" [^src12]
+- Page 86: "Sundhedsvæsenets Kvalitetsinstitut" [^src13]
+- Page 96: "Sundhedsvæsenets Kvalitetsinstitut" [^src14]
+- Page 2: "Sundhedsvæsenets Kvalitetsinstitut" [^src15]
+- Page 3: "Sundhedsvæsenets Kvalitetsinstitut" [^src15]
+- Page 4: "Sundhedsvæsenets Kvalitetsinstitut" [^src15]
+- Page 6: "Sundhedsvæsenets Kvalitetsinstitut" [^src16]
+- Page 7: "Sundhedsvæsenets Kvalitetsinstitut" [^src16]
+- Page 8: "Sundhedsvæsenets Kvalitetsinstitut" [^src16]
+- Page 9: "Sundhedsvæsenets Kvalitetsinstitut" [^src16]
+- Page 10: "Sundhedsvæsenets Kvalitetsinstitut" [^src16]
+- Page 11: "Sundhedsvæsenets Kvalitetsinstitut" [^src17]
+- Page 16: "Sundhedsvæsenets Kvalitetsinstitut" [^src18]
+- Page 17: "Sundhedsvæsenets Kvalitetsinstitut" [^src18]
+- Page 18: "Sundhedsvæsenets Kvalitetsinstitut" [^src18]
+- Page 19: "Sundhedsvæsenets Kvalitetsinstitut" [^src18]
+- Page 20: "Sundhedsvæsenets Kvalitetsinstitut" [^src18]
+- Page 21: "Sundhedsvæsenets Kvalitetsinstitut" [^src19]
+- Page 22: "Sundhedsvæsenets Kvalitetsinstitut" [^src19]
+- Page 23: "Sundhedsvæsenets Kvalitetsinstitut" [^src19]
+- Page 24: "Sundhedsvæsenets Kvalitetsinstitut" [^src19]
+- Page 25: "Sundhedsvæsenets Kvalitetsinstitut" [^src19]
+- Page 26: "Sundhedsvæsenets Kvalitetsinstitut" [^src20]
+- Page 27: "Sundhedsvæsenets Kvalitetsinstitut" [^src20]
+- Page 28: "Sundhedsvæsenets Kvalitetsinstitut" [^src20]
+- Page 29: "Sundhedsvæsenets Kvalitetsinstitut" [^src20]
+- Page 30: "Sundhedsvæsenets Kvalitetsinstitut" [^src20]
+- Page 36: "Sundhedsvæsenets Kvalitetsinstitut" [^src21]
+- Page 37: "Sundhedsvæsenets Kvalitetsinstitut" [^src21]
+- Page 38: "Sundhedsvæsenets Kvalitetsinstitut" [^src21]
+- Page 39: "Sundhedsvæsenets Kvalitetsinstitut" [^src21]
+- Page 40: "Sundhedsvæsenets Kvalitetsinstitut" [^src21]
+- Page 41: "Sundhedsvæsenets Kvalitetsinstitut" [^src22]
+- Page 46: "Sundhedsvæsenets Kvalitetsinstitut" [^src23]
+- Page 47: "Sundhedsvæsenets Kvalitetsinstitut" [^src23]
+- Page 48: "Sundhedsvæsenets Kvalitetsinstitut" [^src23]
+- Page 49: "Sundhedsvæsenets Kvalitetsinstitut" [^src23]
+- Page 50: "Sundhedsvæsenets Kvalitetsinstitut" [^src23]
+- Page 51: "Sundhedsvæsenets Kvalitetsinstitut" [^src24]
+- Page 52: "Sundhedsvæsenets Kvalitetsinstitut" [^src24]
+- Page 53: "Sundhedsvæsenets Kvalitetsinstitut" [^src24]
+- Page 54: "Sundhedsvæsenets Kvalitetsinstitut" [^src24]
+- Page 55: "Sundhedsvæsenets Kvalitetsinstitut" [^src24]
+- Page 56: "Sundhedsvæsenets Kvalitetsinstitut" [^src25]
+- Page 57: "Sundhedsvæsenets Kvalitetsinstitut" [^src25]
+- Page 58: "Sundhedsvæsenets Kvalitetsinstitut" [^src25]
+- Page 59: "Sundhedsvæsenets Kvalitetsinstitut" [^src25]
+- Page 60: "Sundhedsvæsenets Kvalitetsinstitut" [^src25]
+- Page 61: "Sundhedsvæsenets Kvalitetsinstitut" [^src26]
+- Page 62: "Sundhedsvæsenets Kvalitetsinstitut" [^src26]
+- Page 63: "Sundhedsvæsenets Kvalitetsinstitut" [^src26]
+- Page 64: "Sundhedsvæsenets Kvalitetsinstitut" [^src26]
+- Page 65: "Sundhedsvæsenets Kvalitetsinstitut" [^src26]
+- Page 66: "Sundhedsvæsenets Kvalitetsinstitut" [^src27]
+- Page 67: "Sundhedsvæsenets Kvalitetsinstitut" [^src27]
+- Page 68: "Sundhedsvæsenets Kvalitetsinstitut" [^src27]
+- Page 69: "Sundhedsvæsenets Kvalitetsinstitut" [^src27]
+- Page 70: "Sundhedsvæsenets Kvalitetsinstitut" [^src27]
+- Page 71: "Sundhedsvæsenets Kvalitetsinstitut" [^src28]
+- Page 72: "Sundhedsvæsenets Kvalitetsinstitut" [^src28]
+- Page 73: "Sundhedsvæsenets Kvalitetsinstitut" [^src28]
+- Page 74: "Sundhedsvæsenets Kvalitetsinstitut" [^src28]
+- Page 75: "Sundhedsvæsenets Kvalitetsinstitut" [^src28]
+- Page 76: "Sundhedsvæsenets Kvalitetsinstitut" [^src29]
+- Page 81: "Sundhedsvæsenets Kvalitetsinstitut" [^src30]
+- Page 86: "Sundhedsvæsenets Kvalitetsinstitut" [^src31]
+- Page 91: "Sundhedsvæsenets Kvalitetsinstitut" [^src32]
+- Page 96: "Sundhedsvæsenets Kvalitetsinstitut" [^src33]
+- Page 97: "Sundhedsvæsenets Kvalitetsinstitut" [^src33]
+- Page 98: "Sundhedsvæsenets Kvalitetsinstitut" [^src33]
+- Page 99: "Sundhedsvæsenets Kvalitetsinstitut" [^src33]
+- Page 100: "Sundhedsvæsenets Kvalitetsinstitut" [^src33]
+- Page 101: "Sundhedsvæsenets Kvalitetsinstitut" [^src34]
+- Page 106: "Sundhedsvæsenets Kvalitetsinstitut" [^src35]
+- Page 111: "Sundhedsvæsenets Kvalitetsinstitut" [^src36]
+- Page 112: "Sundhedsvæsenets Kvalitetsinstitut" [^src36]
+- Page 113: "Sundhedsvæsenets Kvalitetsinstitut" [^src36]
+- Page 114: "Sundhedsvæsenets Kvalitetsinstitut" [^src36]
+- Page 115: "Sundhedsvæsenets Kvalitetsinstitut" [^src36]
+- Page 116: "Sundhedsvæsenets Kvalitetsinstitut" [^src37]
+- Page 11: "Sundhedsvæsenets Kvalitetsinstitut" [^src38]
+- Page 26: "Sundhedsvæsenets Kvalitetsinstitut" [^src39]
 - Page 56: "Akut Kirurgi Databasen
 Endelig version til offentliggørelse 2025.02.28
-Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 56-60) [^src17]
-- Page 91: "Sundhedsvæsenets Kvalitetsinstitut" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 91-95) [^src18]
+Sundhedsvæsenets Kvalitetsinstitut" [^src40]
+- Page 91: "Sundhedsvæsenets Kvalitetsinstitut" [^src41]
 
 ## Relationships
 
-**Outgoing**
-- Subject: sundhedsvaesenets-kvalitetsinstitut | Predicate: has-contact-person | Object: birgitte-ruhmann
-  Evidence: "Sundk’s kontaktperson: Birgitte Rühman; E-mail: BIRRUH@rkkp.dk" [^src1]
-- Subject: sundhedsvaesenets-kvalitetsinstitut | Predicate: publishes | Object: akut-kirurgi-databasen
-  Evidence: "Akut Kirurgi Databasen
-Endelig version til offentliggørelse 2025.02.28
-Sundhedsvæsenets Kvalitetsinstitut" [^src6]
-- Subject: sundhedsvaesenets-kvalitetsinstitut | Predicate: publishes | Object: akut-kirurgi-databasen
-  Evidence: "Akut Kirurgi Databasen — Endelig version til offentliggørelse 2025.02.28 — Sundhedsvæsenets Kvalitetsinstitut" [^src12]
-- Subject: sundhedsvaesenets-kvalitetsinstitut | Predicate: publishes | Object: akut-kirurgi-databasen
-  Evidence: "Sundhedsvæsenets Kvalitetsinstitut er udgiver af rapporten og ansvarlig for udvikling, overvågning og offentliggørelse af kvalitetsindikatorer for akut kirurgi i Danmark." [^src14]
-- Subject: sundhedsvaesenets-kvalitetsinstitut | Predicate: publishes | Object: indikator-4x
-  Evidence: "Sundhedsvæsenets Kvalitetsinstitut udgiver Indikatorbeskrivelse for indikator 4x." [^src16]
-- Subject: sundhedsvaesenets-kvalitetsinstitut | Predicate: publishes | Object: indikator-4y
-  Evidence: "Sundhedsvæsenets Kvalitetsinstitut udgiver Indikatorbeskrivelse for indikator 4y." [^src16]
-
-**Incoming**
-- Subject: akut-kirurgi-databasen | Predicate: is-published-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen — Sundhedsvæsenets Kvalitetsinstitut" [^src1]
-- Subject: akut-kirurgi-databasen | Predicate: is-managed-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Sundhedsvæsenets Kvalitetsinstitut udgiver og ansvarer for den endelige version af Akut Kirurgi Databasen" [^src2]
-- Subject: akut-kirurgi-databasen | Predicate: is-published-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen
+- [[birgitte-ruhmann|Birgitte Rühmann]] — Has Contact Person [^src1]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Publishes [^src6]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Publishes [^src12]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Publishes [^src14]
+- [[birgitte-ruhmann|Birgitte Rühmann]] — Has Contact Person [^src15]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Publishes [^src18]
+- [[indikator-4y|Indikator 4y]] — Publishes [^src30]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Publishes [^src35]
+- [[indikator-4x|Indikator 4x]] — Publishes [^src39]
+- [[indikator-4y|Indikator 4y]] — Publishes [^src39]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Published By (incoming) — "Akut Kirurgi Databasen — Sundhedsvæsenets Kvalitetsinstitut" [^src1]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Sundhedsvæsenets Kvalitetsinstitut udgiver og ansvarer for den endelige version af Akut Kirurgi Databasen" [^src2]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Published By (incoming) — "Akut Kirurgi Databasen
 Endelig version til offentliggørelse 2025.02.28
 Sundhedsvæsenets Kvalitetsinstitut" [^src3]
-- Subject: indikator-6 | Predicate: is-reported-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Sundhedsvæsenets Kvalitetsinstitut udgiver den endelige version til offentliggørelse." [^src5]
-- Subject: akut-kirurgi-databasen | Predicate: is-administered-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src7]
-- Subject: akut-kirurgi-databasen | Predicate: is-managed-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src8]
-- Subject: akut-kirurgi-databasen | Predicate: is-administered-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src9]
-- Subject: akut-kirurgi-databasen | Predicate: is-managed-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src10]
-- Subject: akut-kirurgi-databasen | Predicate: is-administered-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src11]
-- Subject: akut-kirurgi-databasen | Predicate: is-managed-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen — Endelig version til offentliggørelse 2025.02.28 — Sundhedsvæsenets Kvalitetsinstitut" [^src12]
-- Subject: akut-kirurgi-databasen | Predicate: is-published-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen
+- [[indikator-6|Indikator 6]] — Is Reported By (incoming) — "Sundhedsvæsenets Kvalitetsinstitut udgiver den endelige version til offentliggørelse." [^src5]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Administered By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src7]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src8]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Administered By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src9]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src10]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Administered By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src11]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen — Endelig version til offentliggørelse 2025.02.28 — Sundhedsvæsenets Kvalitetsinstitut" [^src12]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Published By (incoming) — "Akut Kirurgi Databasen
 Endelig version til offentliggørelse 2025.02.28
 Sundhedsvæsenets Kvalitetsinstitut" [^src13]
-- Subject: akut-kirurgi-databasen | Predicate: is-managed-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src15]
-- Subject: akut-kirurgi-databasen | Predicate: is-administered-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Sundhedsvæsenets Kvalitetsinstitut" [^src15]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Administered By (incoming) — "Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut" [^src16]
+- [[indikator-3|Indikator 3]] — Is Published By (incoming) — "Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut" [^src19]
+- [[indikator-4x|Indikator 4x]] — Is Published By (incoming) — "Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut" [^src19]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Developed By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src20]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Developed By (incoming) — "Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut" [^src21]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen. Udkast 2026.01.05. Sundhedsvæsenets Kvalitetsinstitut" [^src22]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Managed By (incoming) — "Akut Kirurgi Databasen [...] Sundhedsvæsenets Kvalitetsinstitut" [^src23]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut" [^src24]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Published By (incoming) — "Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut" [^src25]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen er udarbejdet af Sundhedsvæsenets Kvalitetsinstitut" [^src26]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Developed By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src27]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Developed By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src28]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Used By (incoming) — "Sundhedsvæsenets Kvalitetsinstitut udarbejder supplerende opgørelser af 30-dages- og 90-dages-mortalitet for indikator 4y baseret på data fra Akut Kirurgi Databasen" [^src30]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen Udkast 2026.01.05 Sundhedsvæsenets Kvalitetsinstitut" [^src31]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src32]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut på alle sider 96–100." [^src33]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Published By (incoming) — "Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut" [^src34]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut" [^src36]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Developed By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src37]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Managed By (incoming) — "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut" [^src38]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Administered By (incoming) — "Akut Kirurgi Databasen
 Endelig version til offentliggørelse 2025.02.28
-Sundhedsvæsenets Kvalitetsinstitut" [^src17]
-- Subject: akut-kirurgi-databasen | Predicate: is-published-by | Object: sundhedsvaesenets-kvalitetsinstitut
-  Evidence: "Akut Kirurgi Databasen
+Sundhedsvæsenets Kvalitetsinstitut" [^src40]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Published By (incoming) — "Akut Kirurgi Databasen
 Endelig version til offentliggørelse 2025.02.28
-Sundhedsvæsenets Kvalitetsinstitut" [^src18]
-
-## Claims
-
-(none)
-
-## Timeline
-
-- 2025-02-28: Endelig version af Akut Kirurgi Databasen til offentliggørelse blev udgivet (akut-kirurgi-databasen, sundhedsvaesenets-kvalitetsinstitut) [^src6] [^src12] [^src17]
-- 2025-02-28: Endelig version af Akut Kirurgi Databasen blev offentliggjort (akut-kirurgi-databasen, sundhedsvaesenets-kvalitetsinstitut) [^src6] [^src12] [^src17]
-- 2025-02-28: Udgivelse af den endelige version af Akut Kirurgi Databasen (akut-kirurgi-databasen, sundhedsvaesenets-kvalitetsinstitut) [^src6] [^src12] [^src17]
+Sundhedsvæsenets Kvalitetsinstitut" [^src41]
 
 ## Sources
 
@@ -126,7 +208,31 @@ Sundhedsvæsenets Kvalitetsinstitut" [^src18]
 [^src12]: AKDB_2024.pdf, pages 81-85
 [^src13]: AKDB_2024.pdf, pages 86-90
 [^src14]: AKDB_2024.pdf, pages 96-100
-[^src15]: AKDB_2024.pdf, pages 11-15
-[^src16]: AKDB_2024.pdf, pages 26-30
-[^src17]: AKDB_2024.pdf, pages 56-60
-[^src18]: AKDB_2024.pdf, pages 91-95
+[^src15]: AKDB_2025.pdf, pages 1-5
+[^src16]: AKDB_2025.pdf, pages 6-10
+[^src17]: AKDB_2025.pdf, pages 11-15
+[^src18]: AKDB_2025.pdf, pages 16-20
+[^src19]: AKDB_2025.pdf, pages 21-25
+[^src20]: AKDB_2025.pdf, pages 26-30
+[^src21]: AKDB_2025.pdf, pages 36-40
+[^src22]: AKDB_2025.pdf, pages 41-45
+[^src23]: AKDB_2025.pdf, pages 46-50
+[^src24]: AKDB_2025.pdf, pages 51-55
+[^src25]: AKDB_2025.pdf, pages 56-60
+[^src26]: AKDB_2025.pdf, pages 61-65
+[^src27]: AKDB_2025.pdf, pages 66-70
+[^src28]: AKDB_2025.pdf, pages 71-75
+[^src29]: AKDB_2025.pdf, pages 76-80
+[^src30]: AKDB_2025.pdf, pages 81-85
+[^src31]: AKDB_2025.pdf, pages 86-90
+[^src32]: AKDB_2025.pdf, pages 91-95
+[^src33]: AKDB_2025.pdf, pages 96-100
+[^src34]: AKDB_2025.pdf, pages 101-105
+[^src35]: AKDB_2025.pdf, pages 106-110
+[^src36]: AKDB_2025.pdf, pages 111-115
+[^src37]: AKDB_2025.pdf, pages 116-117
+[^src38]: AKDB_2024.pdf, pages 11-15
+[^src39]: AKDB_2024.pdf, pages 26-30
+[^src40]: AKDB_2024.pdf, pages 56-60
+[^src41]: AKDB_2024.pdf, pages 91-95
+

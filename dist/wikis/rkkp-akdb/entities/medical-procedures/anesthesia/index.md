@@ -4,19 +4,20 @@ type: index
 aliases:
   - Anesthesia
 wiki: rkkp-akdb
-updated: '2026-08-05T20:22:14.220Z'
+updated: '2026-08-15T08:31:06.119Z'
 children:
   - ct-skanning.md
   - epidural.md
+  - index.md
 ---
 # Anesthesia
 
-This folder groups medical procedures related to anesthesia and diagnostic imaging utilized in acute abdominal surgery within the Danish healthcare system. It details the clinical application of epidural analgesia for pain management and its proven impact on reducing patient mortality, alongside the logistical prioritization of CT scanning upon hospital arrival. Both procedures are central to national quality development efforts, where specific indicators monitor treatment timelines, address inter-hospital disparities, and balance clinical priorities against patient comorbidities.
+This folder groups medical procedures and diagnostic interventions critical to the acute care pathway, specifically those monitored by clinical quality indicators in the Danish acute surgery database. It covers the administration of epidural analgesia during acute abdominal surgeries and the timeliness of CT scans upon hospital arrival. Both areas are tracked to ensure optimal pain management, survival outcomes, and rapid diagnostic prioritization before antibiotic administration.
 
 ## Pages
 
-- [[ct-skanning|CT-skanning]] — Diagnostic imaging procedure prioritized in acute care workflows, with national indicators strictly monitoring its execution within two hours of hospital arrival.
-- [[epidural]] — Pain management and anesthesia method for acute abdominal surgery, tracked for its mortality-reducing benefits and significant inter-hospital variation across Denmark.
+- [[ct-skanning|CT-skanning]] — Tracks the timeliness of CT scans within 120 minutes of hospital arrival for acute patients, balancing diagnostic priority against antibiotic administration deadlines.
+- [[epidural]] — Details the use of epidural pain management during acute abdominal surgeries, highlighting inter-hospital variations and its impact on patient survival and recovery.
 
 ## Navigation
 

@@ -8,24 +8,28 @@ aliases:
     Indikatorresultater for indikator 1 på lands-, regions- og
     hospitals-/kommuneniveau
 wiki: rkkp-afdk
-updated: '2026-08-05T21:58:42.424Z'
+updated: '2026-08-14T22:20:25.225Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: '106-110, 26-30, 41-45, 51-55, 6-10, 81-85, 86-90, 9, 96-100'
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: '11-15, 16-20, 21-25, 26-30, 31-35, 36-40, 41-45, 76-80, 86-90, 91-95'
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: >-
+      16-20, 21-25, 26-30, 31-35, 36-40, 51-55, 56-60, 6-10, 66-70, 71-75,
+      76-80, 81-85, 96-98
 tags:
   - comparison
 ---
-The comparison evaluates the results for Indicator 1 (waiting time for anticoagulation treatment) across national, regional, and hospital/municipality levels in Denmark for the period of July 1, 2022, to June 30, 2023 [^src1]. The established standard requires a fulfillment rate of at least 90% [^src1]. 
+This comparison examines the performance of [[danmark|Danmark]], its five administrative regions, and individual hospitals or clinics regarding Indicator 1, which measures the wait time for anticoagulation treatment [^src1]. The established standard requires that at least 90% of patients receive treatment within the specified timeframe [^src1]. The data covers the period from July 1, 2022, to June 30, 2023 [^src1].
 
-At the national level, [[danmark|Danmark]] successfully met the standard with a fulfillment rate of 91.5% [^src1]. All five administrative regions also met the target, with [[region-nordjylland|Region Nordjylland]] leading the regions at 94.9% and [[region-hovedstaden|Region Hovedstaden]] recording the lowest regional fulfillment at exactly 90.0% [^src1]. 
+At the national level, [[danmark|Danmark]] successfully met the target, achieving a compliance rate of 91.5% (10,010 out of 10,934 patients) [^src1]. All five regions also met the ≥ 90% standard [^src1]. [[region-nordjylland|Nordjylland]] led the regions with a 94.9% compliance rate, followed closely by [[region-midtjylland|Midtjylland]] at 93.4% [^src1]. The lowest-performing regions were [[region-hovedstaden|Hovedstaden]] at 90.0% and [[region-syddanmark|Syddanmark]] at 90.5%, though both still cleared the threshold [^src1].
 
-Among the individual hospitals and clinics, several entities emerged as leaders, comfortably exceeding the 90% threshold. [[naestved-sygehus|Næstved]] achieved a perfect 100.0% fulfillment rate, though this was based on a very small sample size of 18 patients, resulting in a wide confidence interval [^src1]. [[friklinikken-region-syddanmark-grindsted|Friklinikken Region Syddanmark Grindsted]] and [[garantiklinikken|Garantiklinikken]] also posted exceptionally high rates of 98.1% and 98.0%, respectively [^src1]. Other notable high performers included [[kolding-sygehus|Kolding Sygehus]] (96.5%) and [[bornholms-hospital|Bornholms Hospital]] (95.5%) [^src1].
+At the hospital and clinic level, performance was more mixed. Several institutions significantly exceeded the standard, with [[garantiklinikken|Garantiklinikken]] reaching 98.0% and [[friklinikken-region-syddanmark-grindsted|Friklinikken Region Syddanmark Grindsted]] achieving 98.1% [^src1]. [[naestved-sygehus|Næstved]] recorded a 100% compliance rate; however, this is an outlier driven by a very small sample size of only 18 patients, resulting in a wide 95% confidence interval of 81.5% to 100.0% [^src1]. 
 
-Conversely, several hospitals missed the 90% standard and act as the trailers in this comparison. [[nykoebing-falster|Nykøbing Falster]] recorded the lowest fulfillment rate at 84.0%, followed by [[esbjerg-sygehus-grindsted-sygehus|Esbjerg Sygehus Grindsted Sygehus]] at 85.0% [^src1]. [[rigshospitalet|Rigshospitalet]] also fell short of the target, achieving only 87.4% [^src1]. Other facilities failing to meet the standard included [[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]] (88.7%), [[slagelse-sygehus|Slagelse]] (87.6%), and [[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]] (89.5%) [^src1].
+Conversely, several hospitals missed the 90% target. [[nykoebing-falster|Nykøbing Falster]] was the lowest performer among the listed entities at 84.0% [^src1]. Other notable facilities failing to meet the standard included [[esbjerg-sygehus-grindsted-sygehus|Esbjerg Sygehus Grindsted Sygehus]] (85.0%), [[rigshospitalet|Rigshospitalet]] (87.4%), [[slagelse-sygehus|Slagelse]] (87.6%), [[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]] (88.7%), and [[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]] (89.5%) [^src1]. 
 
-Because this comparison is built from a single dated table section, it does not support a cross-section trend analysis. However, the single table does include historical columns for the 2021/22 and 2020/21 periods, showing that the national average has steadily increased from 89.6% in 2020/21 to 90.9% in 2021/22, and finally to 91.5% in the current reporting year [^src1].
+Because this comparison is built from a single dated table section, no cross-report longitudinal trends can be established, although the source table provides historical snapshots for the 2021/22 and 2020/21 periods for internal reference [^src1]. For comprehensive details on other indicators, historical comparisons, and regional breakdowns not covered in this specific table, refer to the complete annual registry publications [^src2] [^src3] [^src4] [^src5] [^src6] [^src7] [^src8] [^src9] [^src10] [^src11] [^src12] [^src13] [^src14] [^src15] [^src16] [^src17] [^src18] [^src19] [^src20] [^src21] [^src22] [^src23] [^src24] [^src25] [^src26] [^src27] [^src28] [^src29] [^src30] [^src31] [^src32].
 
 ## Table: AFDK_2023.pdf, p. 9
 
@@ -67,92 +71,167 @@ Summary: Tabellen viser resultater for indikator 1 (ventetid til antikoagulation
 
 ## Related comparisons in prose
 
-- "Resultatet for Danmark for indikator 1 i perioden 01.07.2022–30.06.2023 er 91,5 % (95 % CI: 91,0–92,1)" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src2]
-- "Resultatet for Hovedstaden for indikator 1 i perioden 01.07.2022–30.06.2023 er 90,0 % (95 % CI: 88,8–91,1)" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src2]
-- "Resultatet for Sjælland for indikator 1 i perioden 01.07.2022–30.06.2023 er 90,6 % (95 % CI: 89,2–91,9)" — see [[performance|Performance]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src2]
-- "Resultatet for Syddanmark for indikator 1 i perioden 01.07.2022–30.06.2023 er 90,5 % (95 % CI: 89,3–91,6)" — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src2]
-- "Resultatet for Midtjylland for indikator 1 i perioden 01.07.2022–30.06.2023 er 93,4 % (95 % CI: 92,3–94,3)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src2]
-- "Resultatet for Nordjylland for indikator 1 i perioden 01.07.2022–30.06.2023 er 94,9 % (95 % CI: 93,5–96,0)" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src2]
-- "Nordjylland er den eneste region, der opfylder standarden på ≥90 %, med en andel på 92,4 % (95 % CI: 89,8–94,5) ved 5-årsanalyse" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src3]
-- "Kolding Sygehus har den laveste andel blandt alle listede sygehuse, nemlig 71,1 % (95 % CI: 54,1–84,6) ved 5-årsanalyse" — see [[performance|Performance]] ([[kolding-sygehus|Kolding Sygehus]]) [^src3]
-- "Rigshospitalet har den laveste andel blandt alle listede sygehuse, nemlig 79,7 % (95 % CI: 73,0–85,3) ved 5-årsanalyse" — see [[performance|Performance]] ([[rigshospitalet|Rigshospitalet]]) [^src3]
-- "Friklinikken Region Syddanmark Grindsted har en andel på 100,0 % (95 % CI: 86,8–100,0) ved 5-årsanalyse" — see [[performance|Performance]] ([[friklinikken-region-syddanmark-grindsted|Friklinikken Region Syddanmark Grindsted]]) [^src3]
-- "På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral AK-behandling senest 30 dage efter diagnosticering" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src4]
-- "Standarden på ≥ 90% er således opfyldt på landsplan og har ligget kontinuerligt over grænsen de sidste tre årsrapportsperioder" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src4]
-- "På regionsplan varierede andelen mellem 91 – 93% og standarden er således opfyldt i alle regioner" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src4]
-- "Regionernes resultater er meget homogene, men Midtjylland og Nordjylland har marginalt højere målopfyldelse (ca. 93%) end de øvrige (ca. 91%)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src4]
-- "Region Midtjylland har en højere målopfyldelse (81%) end de øvrige regioner (72,5–75,6%)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src5]
-- "Danmarks nationale andel for Indikator 4a1 i perioden 01.07.2022–30.06.2023 er 89,1% (95% CI: 88,5–89,7)" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src6]
-- "Danmarks nationale andel for Indikator 4a2 i perioden 01.07.2021–30.06.2022 er 88,6% (95% CI: 88,0–89,3)" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src6]
-- "Nordjylland opfylder standarden for Indikator 4a1 med 92,1% (95% CI: 90,4–93,6)" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src6]
-- "Nordjylland opfylder standarden for Indikator 4a2 med 91,1% (95% CI: 89,2–92,9)" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src6]
-- "Midtjylland opfylder standarden for Indikator 4a1 med 89,2% (95% CI: 87,9–90,4)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src6]
-- "Midtjylland opfylder standarden for Indikator 4a2 med 90,4% (95% CI: 89,0–91,6)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src6]
-- "Kun Region Nordjylland der opfylder standarden (95,7%)" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src7]
-- "Alle klynger i Nordjylland opfylder standarden" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src7]
-- "Midtklyngen opfylder standarden i Region Midtjylland" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src7]
-- "Sundhedsklynge Lillebælt i Syddanmark opfylder standarden" — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src7]
-- "Ingen klynger opfylder standarden i de østdanske regioner" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]]) [^src7]
-- "Region Hovedstaden har en incidens på 1,0% (95% CI: 0,9-1,1) og opfylder derfor ikke standarden" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src7]
-- "Region Sjælland har en incidens på 0,9% (95% CI: 0,8-1,0) og opfylder derfor ikke standarden" — see [[performance|Performance]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src7]
-- "Region Syddanmark har en incidens på 0,7% (95% CI: 0,6-0,8) og opfylder derfor standarden" — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src7]
-- "Region Midtjylland har en incidens på 0,7% (95% CI: 0,6-0,8) og opfylder derfor standarden" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src7]
-- "Region Nordjylland har en incidens på 0,8% (95% CI: 0,7-1,0) og opfylder derfor standarden" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src7]
-- "Regionalt varierede andelen mellem 71 - 82% og ingen regioner opfylder således standarden" — see [[clinical-performance|Clinical Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src8]
-- "Region Nordjylland opfylder som eneste region (95%) standarden" — see [[quality-performance|Quality Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src9]
-- "Det er kun Region Nord, der opfylder standarden" — see [[quality-performance|Quality Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src9]
-- "Region Nordjylland har en incidens på 0,7% (95% CI: 0,6–0,9) og opfylder standarden" — see [[quality-performance|Quality Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src9]
-- "Region Hovedstaden har en incidens på 0,9% (95% CI: 0,8–1,0) og opfylder ikke standarden" — see [[quality-performance|Quality Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src9]
-- "Region Sjælland har en incidens på 1,0% (95% CI: 0,9–1,1) og opfylder ikke standarden" — see [[quality-performance|Quality Performance]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src9]
-- "Region Syddanmark har en incidens på 0,7% (95% CI: 0,6–0,8) og opfylder standarden" — see [[quality-performance|Quality Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src9]
-- "Region Midtjylland har en incidens på 0,7% (95% CI: 0,6–0,8) og opfylder standarden" — see [[quality-performance|Quality Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src9]
-- "Der er 19.671 incidente patienter med atrial fibrillation i Danmark i perioden 1. juli 2022 – 30. juni 2023" — see [[epidemiological|Epidemiological]] ([[danmark|Danmark]]) [^src10]
-- "Der er 134.810 prævalente patienter med atrial fibrillation i Danmark i perioden 1. juli 2022 – 30. juni 2023" — see [[epidemiological|Epidemiological]] ([[danmark|Danmark]]) [^src10]
-- "I Danmark udgjorde antallet af prævalente atrieflimren-patienter med intrakraniel blødning 711 ud af 134.710 patienter, hvilket svarer til 0,53 %" — see [[epidemiological|Epidemiological]] ([[danmark|Danmark]]) [^src11]
-- "Incidens af atrieflimren i opgørelsesperioden/året for Danmark er 3,3 pr. 1000 indbyggere" — see [[incidence-rate|Incidence Rate]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src12]
-- "Incidensen af atrieflimren i Danmark var 3,7 pr. 1000 indbyggere i 2023/2024" — see [[incidence-rate|Incidence Rate]] ([[danmark|Danmark]]) [^src13]
-- "Indikator 16: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år, var 6,5% (95% CI: 6,1–6,8) for Danmark i perioden 01.07.2021 – 30.06.2022" — see [[incidence-statistic|Incidence Statistic]] ([[danmark|Danmark]]) [^src14]
-- "Mortaliteten for prævalente patienter med atrieflimren var 7,3% på landsplan i perioden 1. juli 2023 til 30. juni 2024" — see [[mortality-rate|Mortality Rate]] ([[danmark|Danmark]]) [^src13]
-- "Andelen af nydiagnosticerede patienter med atrieflimren, der dør inden for 1 år, var 12,5%" — see [[mortality-rate|Mortality Rate]] ([[danmark|Danmark]]) [^src13]
-- "Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,6% på landsplan" — see [[mortality-statistic|Mortality Statistic]] ([[danmark|Danmark]]) [^src14]
-- "Regionalt varierede mortaliteten mellem 7,4 – 7,9%" — see [[mortality-statistic|Mortality Statistic]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src14]
-- "Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler iskæmisk apopleksi inden for 1 år, var 1,1 % i Danmark i perioden 01.07.2021–30.06.2022" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src11]
-- "Andelen af nydiagnosticerede patienter med atrieflimren, som får intrakraniel blødning inden for 1 år, var 0,7 % i Danmark i perioden 01.07.2021–30.06.2022" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src11]
-- "I perioden 01.07.2018–30.06.2019 var den nationale andel af patienter med atrieflimren, der modtog antikoagulationsbehandling, 87,3 % (95 % CI: 86,5–88,1)" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src15]
-- "I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Nordjylland 91,1 % (95 % CI: 88,7–93,0)" — see [[clinical-outcome|Clinical Outcome]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src15]
-- "Blandt prævalente atrieflimren-patienter med intrakraniel blødning i Danmark havde 36,7 % en CHA2DS2-VASc-score på 1" — see [[clinical-risk-distribution|Clinical Risk Distribution]] ([[danmark|Danmark]]) [^src11]
-- "Region Hovedstaden har 13 speciallægepraksisser med praktiserende kardiologer." — see [[organizational|Organizational]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src16]
-- "Region Midtjylland har 2 speciallægepraksisser med praktiserende kardiologer." — see [[organizational|Organizational]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src16]
-- "Region Nordjylland har 1 speciallægepraksis med praktiserende kardiologer." — see [[organizational|Organizational]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src16]
-- "Nationalt blev 80,6 % af nydiagnosticerede atrieflimren-patienter undersøgt med ekkokardiografi inden for tidsrammen, hvilket opfylder standarden på ≥ 80%" — see [[quality-indicator|Quality Indicator]] ([[danmark|Danmark]]) [^src17]
-- "Region Hovedstaden havde den laveste andel af ekkokardiografi-udførelse blandt regioner: 74,5 % (95 % CI: 73,4–75,6)" — see [[quality-indicator|Quality Indicator]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src17]
-- "Region Midtjylland havde den højeste andel af ekkokardiografi-udførelse blandt regioner: 86,5 % (95 % CI: 85,5–87,4)" — see [[quality-indicator|Quality Indicator]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src17]
-- "Danmark: 96.468 / 102.690 patienter (93,9 %) havde mindst én årlig S-creatinin-måling i 2022/23" — see [[clinical-indicators|Clinical Indicators]] ([[danmark|Danmark]]) [^src18]
-- "Region Nordjylland: 11.029 / 11.526 patienter (95,7 %) havde mindst én årlig S-creatinin-måling i 2023/24" — see [[clinical-indicators|Clinical Indicators]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src18]
-- "I perioden 01.07.2022–30.06.2023 var andelen af nydiagnosticerede patienter med atrieflimren, som udviklede alvorlig blødning inden for 1 år, 3,2 % (95 % CI: 2,9–3,4) for hele Danmark" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src19]
-- "I perioden 01.07.2022–30.06.2023 var andelen af nydiagnosticerede patienter med atrieflimren, som udviklede hjertesvigt inden for 1 år, 6,1 % (95 % CI: 5,7–6,4) for hele Danmark" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src19]
-- "Gennemsnitsalderen for incidente patienter med atrieflimren i Danmark var 74 år" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src13]
-- "Gennemsnits-CHA2DS2-VASc-scoren for incidente patienter med atrieflimren i Danmark var 1,75" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src13]
-- "60,21% af de incidente patienter med atrieflimren i Danmark havde en CHA2DS2-VASc-score på ≥2" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src13]
+- "Nærværende årsrapportsperiode er den første hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank" — see [[organizational-change|Organizational Change]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src2]
+- "Resultatet for Danmark for indikator 1 i perioden 01.07.2022–30.06.2023 er 91,5 % (95 % CI: 91,0–92,1)" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src3]
+- "Resultatet for Hovedstaden for indikator 1 i perioden 01.07.2022–30.06.2023 er 90,0 % (95 % CI: 88,8–91,1)" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src3]
+- "Resultatet for Sjælland for indikator 1 i perioden 01.07.2022–30.06.2023 er 90,6 % (95 % CI: 89,2–91,9)" — see [[performance|Performance]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src3]
+- "Resultatet for Syddanmark for indikator 1 i perioden 01.07.2022–30.06.2023 er 90,5 % (95 % CI: 89,3–91,6)" — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src3]
+- "Resultatet for Midtjylland for indikator 1 i perioden 01.07.2022–30.06.2023 er 93,4 % (95 % CI: 92,3–94,3)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src3]
+- "Resultatet for Nordjylland for indikator 1 i perioden 01.07.2022–30.06.2023 er 94,9 % (95 % CI: 93,5–96,0)" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src3]
+- "Nordjylland er den eneste region, der opfylder standarden på ≥90 %, med en andel på 92,4 % (95 % CI: 89,8–94,5) ved 5-årsanalyse" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src4]
+- "Kolding Sygehus har den laveste andel blandt alle listede sygehuse, nemlig 71,1 % (95 % CI: 54,1–84,6) ved 5-årsanalyse" — see [[performance|Performance]] ([[kolding-sygehus|Kolding Sygehus]]) [^src4]
+- "Rigshospitalet har den laveste andel blandt alle listede sygehuse, nemlig 79,7 % (95 % CI: 73,0–85,3) ved 5-årsanalyse" — see [[performance|Performance]] ([[rigshospitalet|Rigshospitalet]]) [^src4]
+- "Friklinikken Region Syddanmark Grindsted har en andel på 100,0 % (95 % CI: 86,8–100,0) ved 5-årsanalyse" — see [[performance|Performance]] ([[friklinikken-region-syddanmark-grindsted|Friklinikken Region Syddanmark Grindsted]]) [^src4]
+- "På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral AK-behandling senest 30 dage efter diagnosticering" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src5]
+- "Standarden på ≥ 90% er således opfyldt på landsplan og har ligget kontinuerligt over grænsen de sidste tre årsrapportsperioder" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src5]
+- "På regionsplan varierede andelen mellem 91 – 93% og standarden er således opfyldt i alle regioner" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src5]
+- "Regionernes resultater er meget homogene, men Midtjylland og Nordjylland har marginalt højere målopfyldelse (ca. 93%) end de øvrige (ca. 91%)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src5]
+- "Region Midtjylland har en højere målopfyldelse (81%) end de øvrige regioner (72,5–75,6%)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src6]
+- "Danmarks nationale andel for Indikator 4a1 i perioden 01.07.2022–30.06.2023 er 89,1% (95% CI: 88,5–89,7)" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src7]
+- "Danmarks nationale andel for Indikator 4a2 i perioden 01.07.2021–30.06.2022 er 88,6% (95% CI: 88,0–89,3)" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src7]
+- "Nordjylland opfylder standarden for Indikator 4a1 med 92,1% (95% CI: 90,4–93,6)" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src7]
+- "Nordjylland opfylder standarden for Indikator 4a2 med 91,1% (95% CI: 89,2–92,9)" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src7]
+- "Midtjylland opfylder standarden for Indikator 4a1 med 89,2% (95% CI: 87,9–90,4)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src7]
+- "Midtjylland opfylder standarden for Indikator 4a2 med 90,4% (95% CI: 89,0–91,6)" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src7]
+- "Kun Region Nordjylland der opfylder standarden (95,7%)" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src8]
+- "Alle klynger i Nordjylland opfylder standarden" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src8]
+- "Midtklyngen opfylder standarden i Region Midtjylland" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src8]
+- "Sundhedsklynge Lillebælt i Syddanmark opfylder standarden" — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src8]
+- "Ingen klynger opfylder standarden i de østdanske regioner" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]]) [^src8]
+- "Region Hovedstaden har en incidens på 1,0% (95% CI: 0,9-1,1) og opfylder derfor ikke standarden" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src8]
+- "Region Sjælland har en incidens på 0,9% (95% CI: 0,8-1,0) og opfylder derfor ikke standarden" — see [[performance|Performance]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src8]
+- "Region Syddanmark har en incidens på 0,7% (95% CI: 0,6-0,8) og opfylder derfor standarden" — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src8]
+- "Region Midtjylland har en incidens på 0,7% (95% CI: 0,6-0,8) og opfylder derfor standarden" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src8]
+- "Region Nordjylland har en incidens på 0,8% (95% CI: 0,7-1,0) og opfylder derfor standarden" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src8]
+- "På regionsniveau varierede andelen fra 74,9% i Region Hovedstaden til 87,4% i Region Midtjylland" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src9]
+- "Syddanmark og Midtjylland har opnået udviklingsmålet" — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src9]
+- "På landsplan fik 83,2% af patienterne målt TSH i perioden fra 5 måneder før til 1 måned efter diagnosen atrieflimren" — see [[performance|Performance]] ([[danmark|Danmark]]) [^src10]
+- "På regionsniveau varierede resultaterne mellem 77,9% i Region Syddanmark og 87,9% i Region Midtjylland" — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src10]
+- "Kun Region Nordjylland opfylder udviklingsmålet" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src11]
+- "På regionsniveau varierede andelen fra 93,2% i Region Hovedstaden til 96,0% i Region Nordjylland" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src2]
+- "Kun Region Nordjylland opfylder udviklingsmålet" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src2]
+- "Det er kun Region Nord, der opfylder udviklingsmålet" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src2]
+- "Regionalt varierede andelen mellem 71 - 82% og ingen regioner opfylder således standarden" — see [[clinical-performance|Clinical Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src12]
+- "Region Nordjylland opfylder som eneste region (95%) standarden" — see [[quality-performance|Quality Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src13]
+- "Det er kun Region Nord, der opfylder standarden" — see [[quality-performance|Quality Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src13]
+- "Region Nordjylland har en incidens på 0,7% (95% CI: 0,6–0,9) og opfylder standarden" — see [[quality-performance|Quality Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src13]
+- "Region Hovedstaden har en incidens på 0,9% (95% CI: 0,8–1,0) og opfylder ikke standarden" — see [[quality-performance|Quality Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src13]
+- "Region Sjælland har en incidens på 1,0% (95% CI: 0,9–1,1) og opfylder ikke standarden" — see [[quality-performance|Quality Performance]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src13]
+- "Region Syddanmark har en incidens på 0,7% (95% CI: 0,6–0,8) og opfylder standarden" — see [[quality-performance|Quality Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src13]
+- "Region Midtjylland har en incidens på 0,7% (95% CI: 0,6–0,8) og opfylder standarden" — see [[quality-performance|Quality Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src13]
+- "Der er 790 incidente patienter med atrieflimren hos praktiserende kardiologer i Region Hovedstaden, hvilket udgør 12,7 % af alle incidente i speciallægepraksis" — see [[epidemiology|Epidemiology]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src14]
+- "Der er 0 incidente patienter med atrieflimren hos praktiserende kardiologer i Region Syddanmark" — see [[epidemiology|Epidemiology]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src14]
+- "Der er 19.671 incidente patienter med atrial fibrillation i Danmark i perioden 1. juli 2022 – 30. juni 2023" — see [[epidemiological|Epidemiological]] ([[danmark|Danmark]]) [^src15]
+- "Der er 134.810 prævalente patienter med atrial fibrillation i Danmark i perioden 1. juli 2022 – 30. juni 2023" — see [[epidemiological|Epidemiological]] ([[danmark|Danmark]]) [^src15]
+- "I Danmark udgjorde antallet af prævalente atrieflimren-patienter med intrakraniel blødning 711 ud af 134.710 patienter, hvilket svarer til 0,53 %" — see [[epidemiological|Epidemiological]] ([[danmark|Danmark]]) [^src16]
+- "Den nationale incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren er 0,8%" — see [[epidemiological|Epidemiological]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src17]
+- "Incidensen af atrieflimren i Danmark var 3,7 pr. 1000 indbyggere i 2023/2024 og 2024/2025" — see [[epidemiological|Epidemiological]] ([[danmark|Danmark]]) [^src18]
+- "Gennemsnitsalderen ved diagnose for incidente patienter med atrieflimren i Danmark var 74 år" — see [[epidemiological|Epidemiological]] ([[danmark|Danmark]]) [^src18]
+- "Prævalensen af atrieflimren i Region Sjælland var 27,1 pr. 1000 indbyggere i 2024/2025" — see [[epidemiological|Epidemiological]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src18]
+- "Gennemsnitsalderen ved diagnose for prævalente patienter med atrieflimren i Danmark var 70 år" — see [[epidemiological|Epidemiological]] ([[danmark|Danmark]]) [^src18]
+- "Incidens af atrieflimren i opgørelsesperioden/året for Danmark er 3,3 pr. 1000 indbyggere" — see [[incidence-rate|Incidence Rate]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src19]
+- "Incidensen af atrieflimren i Danmark var 3,7 pr. 1000 indbyggere i 2023/2024" — see [[incidence-rate|Incidence Rate]] ([[danmark|Danmark]]) [^src20]
+- "Indikator 16: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år, var 6,5% (95% CI: 6,1–6,8) for Danmark i perioden 01.07.2021 – 30.06.2022" — see [[incidence-statistic|Incidence Statistic]] ([[danmark|Danmark]]) [^src21]
+- "Mortaliteten for prævalente patienter med atrieflimren var 7,3% på landsplan i perioden 1. juli 2023 til 30. juni 2024" — see [[mortality-rate|Mortality Rate]] ([[danmark|Danmark]]) [^src20]
+- "Andelen af nydiagnosticerede patienter med atrieflimren, der dør inden for 1 år, var 12,5%" — see [[mortality-rate|Mortality Rate]] ([[danmark|Danmark]]) [^src20]
+- "Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden 01.07.2024–30.06.2025, var 7,1% på landsplan" — see [[mortality-rate|Mortality Rate]] ([[danmark|Danmark]]) [^src22]
+- "Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,6% på landsplan" — see [[mortality-statistic|Mortality Statistic]] ([[danmark|Danmark]]) [^src21]
+- "Regionalt varierede mortaliteten mellem 7,4 – 7,9%" — see [[mortality-statistic|Mortality Statistic]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src21]
+- "Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler iskæmisk apopleksi inden for 1 år, var 1,1 % i Danmark i perioden 01.07.2021–30.06.2022" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src16]
+- "Andelen af nydiagnosticerede patienter med atrieflimren, som får intrakraniel blødning inden for 1 år, var 0,7 % i Danmark i perioden 01.07.2021–30.06.2022" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src16]
+- "I perioden 01.07.2018–30.06.2019 var den nationale andel af patienter med atrieflimren, der modtog antikoagulationsbehandling, 87,3 % (95 % CI: 86,5–88,1)" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src23]
+- "I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Nordjylland 91,1 % (95 % CI: 88,7–93,0)" — see [[clinical-outcome|Clinical Outcome]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src23]
+- "I Danmark udviklede 235 ud af 21.846 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,1 % (95 % CI: 0,9–1,2)" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src24]
+- "I Region Hovedstaden udviklede 72 ud af 6.106 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,2 % (95 % CI: 0,9–1,5)" — see [[clinical-outcome|Clinical Outcome]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src24]
+- "I Region Sjælland udviklede 49 ud af 3.566 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,4 % (95 % CI: 1,0–1,8)" — see [[clinical-outcome|Clinical Outcome]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src24]
+- "I Region Syddanmark udviklede 49 ud af 4.780 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,0 % (95 % CI: 0,8–1,4)" — see [[clinical-outcome|Clinical Outcome]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src24]
+- "I Region Midtjylland udviklede 36 ud af 5.061 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 0,7 % (95 % CI: 0,5–1,0)" — see [[clinical-outcome|Clinical Outcome]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src24]
+- "I Region Nordjylland udviklede 29 ud af 2.333 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,2 % (95 % CI: 0,8–1,8)" — see [[clinical-outcome|Clinical Outcome]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src24]
+- "Af de 139.972 prævalente patienter med atrieflimren udviklede 1.169 (0,83 %) iskæmisk apopleksi i opgørelsesperioden" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src24]
+- "Af de 140.344 prævalente patienter med atrieflimren udviklede 797 (0,56 %) intrakraniel blødning i opgørelsesperioden" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src24]
+- "Blandt prævalente atrieflimren-patienter med intrakraniel blødning i Danmark havde 36,7 % en CHA2DS2-VASc-score på 1" — see [[clinical-risk-distribution|Clinical Risk Distribution]] ([[danmark|Danmark]]) [^src16]
+- "Region Hovedstaden har 13 speciallægepraksisser med praktiserende kardiologer." — see [[organizational|Organizational]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src25]
+- "Region Midtjylland har 2 speciallægepraksisser med praktiserende kardiologer." — see [[organizational|Organizational]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src25]
+- "Region Nordjylland har 1 speciallægepraksis med praktiserende kardiologer." — see [[organizational|Organizational]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src25]
+- "Nationalt blev 80,6 % af nydiagnosticerede atrieflimren-patienter undersøgt med ekkokardiografi inden for tidsrammen, hvilket opfylder standarden på ≥ 80%" — see [[quality-indicator|Quality Indicator]] ([[danmark|Danmark]]) [^src26]
+- "Region Hovedstaden havde den laveste andel af ekkokardiografi-udførelse blandt regioner: 74,5 % (95 % CI: 73,4–75,6)" — see [[quality-indicator|Quality Indicator]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src26]
+- "Region Midtjylland havde den højeste andel af ekkokardiografi-udførelse blandt regioner: 86,5 % (95 % CI: 85,5–87,4)" — see [[quality-indicator|Quality Indicator]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src26]
+- "Danmark: 96.468 / 102.690 patienter (93,9 %) havde mindst én årlig S-creatinin-måling i 2022/23" — see [[clinical-indicators|Clinical Indicators]] ([[danmark|Danmark]]) [^src27]
+- "Region Nordjylland: 11.029 / 11.526 patienter (95,7 %) havde mindst én årlig S-creatinin-måling i 2023/24" — see [[clinical-indicators|Clinical Indicators]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src27]
+- "I perioden 01.07.2022–30.06.2023 var andelen af nydiagnosticerede patienter med atrieflimren, som udviklede alvorlig blødning inden for 1 år, 3,2 % (95 % CI: 2,9–3,4) for hele Danmark" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src28]
+- "I perioden 01.07.2022–30.06.2023 var andelen af nydiagnosticerede patienter med atrieflimren, som udviklede hjertesvigt inden for 1 år, 6,1 % (95 % CI: 5,7–6,4) for hele Danmark" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src28]
+- "Gennemsnitsalderen for incidente patienter med atrieflimren i Danmark var 74 år" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src20]
+- "Gennemsnits-CHA2DS2-VASc-scoren for incidente patienter med atrieflimren i Danmark var 1,75" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src20]
+- "60,21% af de incidente patienter med atrieflimren i Danmark havde en CHA2DS2-VASc-score på ≥2" — see [[clinical-indicators|Clinical Indicator]] ([[danmark|Danmark]]) [^src20]
+- "På regionsniveau varierede andelen fra 87,2% i Region Hovedstaden til 90,7% i Region Nordjylland" — see [[geographic-distribution|Geographic Distribution]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src11]
+- "Region Hovedstaden har 13 speciallægepraksisser for praktiserende kardiologer" — see [[geographic-distribution|Geographic Distribution]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src14]
+- "Region Midtjylland har 2 speciallægepraksisser for praktiserende kardiologer" — see [[geographic-distribution|Geographic Distribution]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src14]
+- "Region Nordjylland har 1 speciallægepraksis for praktiserende kardiologer" — see [[geographic-distribution|Geographic Distribution]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src14]
+- "Tre regioner (Nordjylland, Midtjylland og Syddanmark) opfylder udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet" — see [[comparative-result|Comparative Result]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src17]
+- "Region Syddanmark har den højeste andel blandt regionerne for Indikator 8 i 2023/24 med 20,3 % (95 % CI: 19,1–21,6)" — see [[comparative-result|Comparative Result]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src29]
+- "Region Sjælland har den laveste andel blandt regionerne for Indikator 8 i 2023/24 med 4,3 % (95 % CI: 3,6–5,0)" — see [[comparative-result|Comparative Result]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src29]
+- "Gennemsnitsværdien af CHA₂DS₂-VASc-scoren for incidente patienter med atrieflimren i Danmark var 2,60" — see [[clinical-risk|Clinical Risk]] ([[danmark|Danmark]]) [^src18]
+- "Gennemsnitsværdien af CHA₂DS₂-VASc-scoren for prævalente patienter med atrieflimren i Danmark var 2,02" — see [[clinical-risk|Clinical Risk]] ([[danmark|Danmark]]) [^src18]
+- "Holdundervisningen varer i alt i 2,5 timer og holdene består af enten 14-16 patienter plus pårørende eller større hold på op til 35 patienter plus pårørende" — see [[clinical-practice|Clinical Practice]] ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]]) [^src30]
+- "En eller to arytmi-sygeplejersker forestår undervisningen om anatomi og fysiologi, årsager til atrieflimren, risiko for stroke, samt livsstil og risikofaktorer, og livet med sygdom" — see [[clinical-practice|Clinical Practice]] ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]]) [^src30]
+- "En kardiolog deltager i ca. 30 min og har fokus på behandling af atrieflimren" — see [[clinical-practice|Clinical Practice]] ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]]) [^src30]
+- "I Danmark blev 8.129 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 53,1 % af alle patienter i AK-behandling" — see [[clinical-practice|Clinical Practice]] ([[danmark|Danmark]]) [^src24]
+- "I Region Hovedstaden blev 2.086 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 50,6 % af alle patienter i AK-behandling" — see [[clinical-practice|Clinical Practice]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src24]
+- "I Region Sjælland blev 1.221 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 50,5 % af alle patienter i AK-behandling" — see [[clinical-practice|Clinical Practice]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src24]
+- "I Region Syddanmark blev 1.900 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 53,7 % af alle patienter i AK-behandling" — see [[clinical-practice|Clinical Practice]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src24]
+- "I Region Midtjylland blev 1.970 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 56,3 % af alle patienter i AK-behandling" — see [[clinical-practice|Clinical Practice]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src24]
+- "I Region Nordjylland blev 952 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 55,1 % af alle patienter i AK-behandling" — see [[clinical-practice|Clinical Practice]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src24]
+- "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 772 (67,3 %) indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse" — see [[clinical-practice|Clinical Practice]] ([[danmark|Danmark]]) [^src24]
+- "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 248 (64,8 %) i Region Hovedstaden indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse" — see [[clinical-practice|Clinical Practice]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src24]
+- "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 117 (59,1 %) i Region Sjælland indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse" — see [[clinical-practice|Clinical Practice]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src24]
+- "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 183 (73,5 %) i Region Syddanmark indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse" — see [[clinical-practice|Clinical Practice]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src24]
+- "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 132 (67,7 %) i Region Midtjylland indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse" — see [[clinical-practice|Clinical Practice]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src24]
+- "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 92 (75,4 %) i Region Nordjylland indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse" — see [[clinical-practice|Clinical Practice]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src24]
+- "For Indikator 1 var andelen for hele Danmark 91,6 % (95 % CI: 91,2–92,0) i perioden 01.07.2024–30.06.2025" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "For Indikator 2 var andelen for hele Danmark 81,0 % (95 % CI: 80,4–81,5) i perioden 01.04.2024–31.03.2025" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "For Indikator 3 var andelen for hele Danmark 83,2 % (95 % CI: 82,7–83,7) i perioden 01.07.2024–30.06.2025" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "For Indikator 4a var andelen for hele Danmark 88,2 % (95 % CI: 87,7–88,7) i perioden 01.07.2022–30.06.2023" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "For Indikator 4b var andelen for hele Danmark 94,3 % (95 % CI: 94,1–94,4) i perioden 01.07.2024–30.06.2025" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "For Indikator 5 var incidensen for hele Danmark 0,8 % (95 % CI: 0,8–0,9) i perioden 01.07.2024–30.06.2025" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "For Indikator 6 var incidensen for hele Danmark 0,6 % (95 % CI: 0,5–0,6) i perioden 01.07.2024–30.06.2025" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "For Indikator 7 var incidensen for hele Danmark 2,2 % (95 % CI: 2,1–2,3) i perioden 01.07.2024–30.06.2025" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "For Indikator 8 var andelen for hele Danmark 19,2 % (95 % CI: 18,6–19,7) i perioden 01.07.2023–30.06.2024" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "For Indikator 15 var andelen for hele Danmark 5,8 % (95 % CI: 5,5–6,2) i perioden 01.07.2024–30.06.2025" — see [[quality-indicator-result|Quality Indicator Result]] ([[danmark|Danmark]]) [^src31]
+- "Der ses en fortsat positiv udvikling i Region Hovedstaden, imens udviklingen er mere stagnerende i Sjælland og Nordjylland" — see [[performance-trend|Performance Trend]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src9]
+- "Region Sjælland vurderer, at resultaterne for indikator 8 ikke stemmer overens med den kliniske virkelighed" — see [[critical-assessment|Critical Assessment]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src32]
+- "Region Sjælland har iværksat en intern undersøgelse af registrerings- og dataflow-fejl i forbindelse med indikator 8" — see [[quality-improvement-action|Quality Improvement Action]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src32]
 
 ## Sources
 
 [^src1]: AFDK_2023.pdf, pages 9
-[^src2]: AFDK_2023.pdf, pages 6-10
-[^src3]: AFDK_2023.pdf, pages 41-45
-[^src4]: AFDK_2024.pdf, pages 11-15
-[^src5]: AFDK_2024.pdf, pages 21-25
-[^src6]: AFDK_2024.pdf, pages 26-30
-[^src7]: AFDK_2024.pdf, pages 41-45
-[^src8]: AFDK_2023.pdf, pages 26-30
-[^src9]: AFDK_2023.pdf, pages 51-55
-[^src10]: AFDK_2023.pdf, pages 86-90
-[^src11]: AFDK_2023.pdf, pages 96-100
-[^src12]: AFDK_2023.pdf, pages 81-85
-[^src13]: AFDK_2024.pdf, pages 86-90
-[^src14]: AFDK_2023.pdf, pages 106-110
-[^src15]: AFDK_2024.pdf, pages 31-35
-[^src16]: AFDK_2024.pdf, pages 91-95
-[^src17]: AFDK_2024.pdf, pages 16-20
-[^src18]: AFDK_2024.pdf, pages 36-40
-[^src19]: AFDK_2024.pdf, pages 76-80
+[^src2]: AFDK_2025.pdf, pages 31-35
+[^src3]: AFDK_2023.pdf, pages 6-10
+[^src4]: AFDK_2023.pdf, pages 41-45
+[^src5]: AFDK_2024.pdf, pages 11-15
+[^src6]: AFDK_2024.pdf, pages 21-25
+[^src7]: AFDK_2024.pdf, pages 26-30
+[^src8]: AFDK_2024.pdf, pages 41-45
+[^src9]: AFDK_2025.pdf, pages 16-20
+[^src10]: AFDK_2025.pdf, pages 21-25
+[^src11]: AFDK_2025.pdf, pages 26-30
+[^src12]: AFDK_2023.pdf, pages 26-30
+[^src13]: AFDK_2023.pdf, pages 51-55
+[^src14]: AFDK_2025.pdf, pages 81-85
+[^src15]: AFDK_2023.pdf, pages 86-90
+[^src16]: AFDK_2023.pdf, pages 96-100
+[^src17]: AFDK_2025.pdf, pages 36-40
+[^src18]: AFDK_2025.pdf, pages 76-80
+[^src19]: AFDK_2023.pdf, pages 81-85
+[^src20]: AFDK_2024.pdf, pages 86-90
+[^src21]: AFDK_2023.pdf, pages 106-110
+[^src22]: AFDK_2025.pdf, pages 71-75
+[^src23]: AFDK_2024.pdf, pages 31-35
+[^src24]: AFDK_2025.pdf, pages 66-70
+[^src25]: AFDK_2024.pdf, pages 91-95
+[^src26]: AFDK_2024.pdf, pages 16-20
+[^src27]: AFDK_2024.pdf, pages 36-40
+[^src28]: AFDK_2024.pdf, pages 76-80
+[^src29]: AFDK_2025.pdf, pages 51-55
+[^src30]: AFDK_2025.pdf, pages 56-60
+[^src31]: AFDK_2025.pdf, pages 6-10
+[^src32]: AFDK_2025.pdf, pages 96-98

@@ -4,21 +4,22 @@ type: index
 aliases:
   - Clinics
 wiki: rkkp-afdk
-updated: '2026-08-05T22:56:40.505Z'
+updated: '2026-08-14T23:44:49.699Z'
 children:
   - atrieflimren-klinik.md
   - friklinikken-region-syddanmark-grindsted.md
   - garantiklinikken.md
+  - index.md
 ---
 # Clinics
 
-This folder catalogs specific healthcare clinics in Denmark that are involved in the treatment and quality monitoring of atrial fibrillation. It includes specialized interdisciplinary units focused on structured patient education, as well as regional and private clinics benchmarked against national clinical quality indicators—such as echocardiography and anticoagulation coverage—in the Danish Atrial Fibrillation Database (AFDK) annual reports.
+This folder catalogs specific healthcare clinics in Denmark that are evaluated or highlighted in the national annual reports for the Danish Atrial Fibrillation Database (AFDK). The pages detail the clinical performance, quality improvement initiatives, and compliance with national indicators—such as echocardiography rates and anticoagulation treatment coverage—for specialized and regional clinics managing atrial fibrillation patients. By tracking these institutions, the wiki maps how localized clinical practices and private providers align with national cardiovascular quality standards.
 
 ## Pages
 
-- [[atrieflimren-klinik|Atrieflimren-klinik]] — An interdisciplinary clinic at Hospitalsenhed Midt established in 2012, recognized for its structured patient education model using the Ambuflex questionnaire.
-- [[friklinikken-region-syddanmark-grindsted|Friklinikken Region Syddanmark Grindsted]] — A regional clinic that demonstrated high compliance with national quality standards for echocardiography and long-term anticoagulation treatment in AFDK evaluations.
-- [[garantiklinikken|Garantiklinikken]] — A clinic that met national standards for initial echocardiography but fell significantly short of the target for long-term anticoagulation coverage in AFDK quality reports.
+- [[atrieflimren-klinik|Atrieflimren-klinik]] — An interdisciplinary clinic at Hospitalsenhed Midt recognized for its structured patient education model using the Ambuflex questionnaire.
+- [[friklinikken-region-syddanmark-grindsted|Friklinikken Region Syddanmark Grindsted]] — A clinic in Region Syddanmark that demonstrated high compliance with national quality indicators for echocardiography and long-term anticoagulation treatment.
+- [[garantiklinikken|Garantiklinikken]] — A clinic that met national standards for initial echocardiography but fell significantly short of the target for long-term anticoagulation treatment coverage.
 
 ## Navigation
 

@@ -1,0 +1,685 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der understøtter overvågning og udvikling af kvaliteten af akut kirurgisk behandling i Danmark, og danner baggrund for de præsenterede supplerende analyser på siderne 86–89.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige myndighed, der udarbejder og udgiver analysen, hvilket fremgår af alle sidehoveder fra side 86 til 90, og styrer kvalitetsudviklingsprogrammet, som indikator 8 er en del af.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "epidural",
+      "type": "treatment",
+      "slug": "epidural",
+      "folder": "entities/treatments/anesthesia",
+      "significance": "Epidural er den specifikke anæstesiteknik, hvis anvendelse ved både åben laparotomi og laparoskopi udgør indholdet af de to supplerende analyser i dokumentchunken, og er centralt for evalueringen af indikator 8.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Supplerende analyse af epidural ved laparotomi (åben) (delpopulation af indikator 8)"
+        },
+        {
+          "page": 88,
+          "context": "Supplerende analyse af epidural ved laparoskopi (delpopulation af indikator 8 )"
+        }
+      ]
+    },
+    {
+      "name": "indikator 8",
+      "type": "quality-indicator",
+      "slug": "indikator-8",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 8 er den nationale kvalitetsindikator, som de præsenterede analyser er en delpopulation af, og som måler andelen af patienter, der modtager epidural-anæstesi ved akut kirurgi, hvilket er et centralt mål for kvalitetsudvikling i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Supplerende analyse af epidural ved laparotomi (åben) (delpopulation af indikator 8)"
+        },
+        {
+          "page": 88,
+          "context": "Supplerende analyse af epidural ved laparoskopi (delpopulation af indikator 8 )"
+        }
+      ]
+    },
+    {
+      "name": "laparotomi (åben)",
+      "type": "medical-procedure",
+      "slug": "laparotomi-aaben",
+      "folder": "entities/medical-procedures/surgical",
+      "significance": "Laparotomi (åben) er den kirurgiske procedure, hvor epidurals anvendelse analyseres på side 86–87, og som udgør én af de to delpopulationer for indikator 8.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Supplerende analyse af epidural ved laparotomi (åben) (delpopulation af indikator 8)"
+        }
+      ]
+    },
+    {
+      "name": "laparoskopi",
+      "type": "medical-procedure",
+      "slug": "laparoskopi",
+      "folder": "entities/medical-procedures/surgical",
+      "significance": "Laparoskopi er den kirurgiske procedure, hvor epidurals anvendelse analyseres på side 88–89, og som udgør den anden delpopulation for indikator 8.",
+      "mentions": [
+        {
+          "page": 88,
+          "context": "Supplerende analyse af epidural ved laparoskopi (delpopulation af indikator 8 )"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/national",
+      "significance": "Danmark er den nationale niveau-aggregerede enhed, hvis resultater præsenteres i begge tabeller som reference for regional variation, og som definerer det overordnede udviklingsmål på >60% for epidural ved laparotomi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Danmark Ja 958 / 1.436 0 (0) 66,7 (64,2-69,1) 64,7 65,9"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "hovedstaden-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Hovedstaden er en af de fem regioner i Danmark, hvis resultater vises gentagne gange i begge tabeller, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Hovedstaden Ja 313 / 438 0 (0) 71,5 (67,0-75,6) 63,7 71,1"
+        },
+        {
+          "page": 88,
+          "context": "Hovedstaden Nej 267 / 575 0 (0) 46,4 (42,3-50,6) 43,9 43,7"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "sjaelland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Sjælland er en af de fem regioner i Danmark, hvis resultater vises gentagne gange i begge tabeller, og som ikke har opnået udviklingsmålet (>60%) for epidural ved hverken laparotomi eller laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Sjælland Nej 92 / 203 0 (0) 45,3 (38,3-52,4) 52,2 50,5"
+        },
+        {
+          "page": 88,
+          "context": "Sjælland Nej 160 / 414 0 (0) 38,6 (33,9-43,5) 39,3 40,8"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "syddanmark-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Syddanmark er en af de fem regioner i Danmark, hvis resultater vises gentagne gange i begge tabeller, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Syddanmark Ja 255 / 360 0 (0) 70,8 (65,8-75,5) 69,3 66,4"
+        },
+        {
+          "page": 88,
+          "context": "Syddanmark Nej 111 / 293 0 (0) 37,9 (32,3-43,7) 38,2 36,9"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "midtjylland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Midtjylland er en af de fem regioner i Danmark, hvis resultater vises gentagne gange i begge tabeller, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Midtjylland Ja 242 / 332 0 (0) 72,9 (67,8-77,6) 70,2 70,8"
+        },
+        {
+          "page": 88,
+          "context": "Midtjylland Nej 117 / 329 0 (0) 35,6 (30,4-41,0) 39,8 33,6"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "nordjylland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Nordjylland er en af de fem regioner i Danmark, hvis resultater vises gentagne gange i begge tabeller, og som ikke har opnået udviklingsmålet (>60%) for epidural ved hverken laparotomi eller laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Nordjylland Nej 56 / 103 0 (0) 54,4 (44,3-64,2) 58,6 51,6"
+        },
+        {
+          "page": 88,
+          "context": "Nordjylland Nej 68 / 203 0 (0) 33,5 (27,0-40,4) 26,5 22,7"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved både laparotomi og laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Amager og Hvidovre Hospital Ja 53 / 68 0 (0) 77,9 (66,2-87,1) 73,9 77,6"
+        },
+        {
+          "page": 88,
+          "context": "Amager og Hvidovre Hospital Ja 119 / 181 0 (0) 65,7 (58,3-72,6) 64,9 66,9"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Bispebjerg og Frederiksberg Hospital Ja 71 / 100 0 (0) 71,0 (61,1-79,6) 69,9 77,4"
+        },
+        {
+          "page": 88,
+          "context": "Bispebjerg og Frederiksberg Hospital Nej 62 / 121 0 (0) 51,2 (42,0-60,4) 43,8 45,5"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi — her med ekstremt lav andel og bred konfidensinterval.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Bornholms Hospital Ja 7 / 7 0 (0) 100,0 (59,0-100,0) 52,6 43,8"
+        },
+        {
+          "page": 88,
+          "context": "Bornholms Hospital Nej #/# 0 (0) 28,6 (3,7-71,0) 14,3 31,3"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Herlev og Gentofte Hospital Ja 81 / 106 0 (0) 76,4 (67,2-84,1) 62,0 66,7"
+        },
+        {
+          "page": 88,
+          "context": "Herlev og Gentofte Hospital Nej 48 / 160 0 (0) 30,0 (23,0-37,7) 30,0 26,2"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Hospitalerne i Nordsjælland Ja 79 / 118 0 (0) 66,9 (57,7-75,3) 61,1 75,2"
+        },
+        {
+          "page": 89,
+          "context": "Hospitalerne i Nordsjælland Nej 35 / 99 0 (0) 35,4 (26,0-45,6) 36,2 33,3"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er et af de sygehuse, der inkluderes i de regionale analyser, og som ikke har opnået udviklingsmålet (>60%) for epidural ved hverken laparotomi eller laparoskopi — her med meget lav andel og ekstremt bred konfidensinterval ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Rigshospitalet Nej 22 / 39 0 (0) 56,4 (39,6-72,2) 48,1 55,6"
+        },
+        {
+          "page": 89,
+          "context": "Rigshospitalet Nej #/# 0 (0) 14,3 (0,4-57,9) 0,0 25,0"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Holbæk Sygehus Ja 26 / 41 0 (0) 63,4 (46,9-77,9) 72,5 60,0"
+        },
+        {
+          "page": 89,
+          "context": "Holbæk Sygehus Nej 63 / 110 0 (0) 57,3 (47,5-66,7) 52,7 47,2"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er et af de sygehuse, der inkluderes i de regionale analyser, og som ikke har opnået udviklingsmålet (>60%) for epidural ved hverken laparotomi eller laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Næstved, Slagelse og Ringsted sygehuse Nej 22 / 68 0 (0) 32,4 (21,5-44,8) 36,0 37,0"
+        },
+        {
+          "page": 89,
+          "context": "Næstved, Slagelse og Ringsted sygehuse Nej 21 / 147 0 (0) 14,3 (9,1-21,0) 17,1 22,8"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital er et af de sygehuse, der inkluderes i de regionale analyser, og som ikke har opnået udviklingsmålet (>60%) for epidural ved hverken laparotomi eller laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Sjællands Universitetshospit al Nej 44 / 94 0 (0) 46,8 (36,4-57,4) 56,7 56,2"
+        },
+        {
+          "page": 89,
+          "context": "Sjællands Universitetshospit al Nej 76 / 157 0 (0) 48,4 (40,4-56,5) 47,4 54,2"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Esbjerg Sygehus Grindsted Sygehus Ja 60 / 72 0 (0) 83,3 (72,7-91,1) 75,3 74,7"
+        },
+        {
+          "page": 89,
+          "context": "Esbjerg Sygehus Grindsted Sygehus Nej 24 / 62 0 (0) 38,7 (26,6-51,9) 42,0 38,6"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "ouh-odense-universitetshospital-odense",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Odense Universitetshospit al - Svendborg Ja 122 / 174 0 (0) 70,1 (62,7-76,8) 72,3 68,2"
+        },
+        {
+          "page": 89,
+          "context": "Odense Universitetshospit al - Svendborg Nej 64 / 130 0 (0) 49,2 (40,4-58,1) 46,0 45,0"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Sygehus Lillebælt Ja 50 / 70 0 (0) 71,4 (59,4-81,6) 67,6 68,7"
+        },
+        {
+          "page": 89,
+          "context": "Sygehus Lillebælt Nej 6 / 37 0 (0) 16,2 (6,2-32,0) 26,1 20,0"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland er et af de sygehuse, der inkluderes i de regionale analyser, og som ikke har opnået udviklingsmålet (>60%) for epidural ved hverken laparotomi eller laparoskopi.",
+      "mentions": [
+        {
+          "page": 86,
+          "context": "Sygehus Sønderjylland Nej 23 / 44 0 (0) 52,3 (36,7-67,5) 50,9 47,7"
+        },
+        {
+          "page": 89,
+          "context": "Sygehus Sønderjylland Nej 17 / 64 0 (0) 26,6 (16,3-39,1) 22,6 30,6"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved både laparotomi og laparoskopi.",
+      "mentions": [
+        {
+          "page": 87,
+          "context": "Aarhus Universitetshospit al Ja 62 / 78 0 (0) 79,5 (68,8-87,8) 75,0 73,9"
+        },
+        {
+          "page": 89,
+          "context": "Aarhus Universitetshospit al Ja 36 / 59 0 (0) 61,0 (47,4-73,5) 70,8 67,3"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 87,
+          "context": "Hospitalsenhed Midt Ja 29 / 44 0 (0) 65,9 (50,1-79,5) 57,9 56,1"
+        },
+        {
+          "page": 89,
+          "context": "Hospitalsenhed Midt Nej 19 / 90 0 (0) 21,1 (13,2-31,0) 25,8 15,1"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 87,
+          "context": "Regionshospitalet Gødstrup Ja 64 / 87 0 (0) 73,6 (63,0-82,4) 70,1 76,1"
+        },
+        {
+          "page": 89,
+          "context": "Regionshospitalet Gødstrup Nej 33 / 60 0 (0) 55,0 (41,6-67,9) 55,2 46,3"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 87,
+          "context": "Regionshospitalet Horsens Ja 50 / 75 0 (0) 66,7 (54,8-77,1) 79,4 83,3"
+        },
+        {
+          "page": 89,
+          "context": "Regionshospitalet Horsens Nej 11 / 56 0 (0) 19,6 (10,2-32,4) 33,3 31,7"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er et af de sygehuse, der inkluderes i de regionale analyser, og som har opnået udviklingsmålet (>60%) for epidural ved laparotomi, men ikke ved laparoskopi.",
+      "mentions": [
+        {
+          "page": 87,
+          "context": "Regionshospitalet Randers Ja 37 / 48 0 (0) 77,1 (62,7-88,0) 65,5 62,3"
+        },
+        {
+          "page": 89,
+          "context": "Regionshospitalet Randers Nej 18 / 64 0 (0) 28,1 (17,6-40,8) 17,6 20,0"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital er et af de sygehuse, der inkluderes i de regionale analyser, og som ikke har opnået udviklingsmålet (>60%) for epidural ved hverken laparotomi eller laparoskopi.",
+      "mentions": [
+        {
+          "page": 87,
+          "context": "Aalborg Universitetshospit al Nej 41 / 69 0 (0) 59,4 (46,9-71,1) 66,2 59,3"
+        },
+        {
+          "page": 89,
+          "context": "Aalborg Universitetshospit al Nej 44 / 121 0 (0) 36,4 (27,8-45,6) 33,8 24,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland er et af de sygehuse, der inkluderes i de regionale analyser, og som ikke har opnået udviklingsmålet (>60%) for epidural ved hverken laparotomi eller laparoskopi.",
+      "mentions": [
+        {
+          "page": 87,
+          "context": "Regionshospital Nordjylland Nej 15 / 34 0 (0) 44,1 (27,2-62,1) 43,6 38,3"
+        },
+        {
+          "page": 89,
+          "context": "Regionshospital Nordjylland Nej 24 / 82 0 (0) 29,3 (19,7-40,4) 19,4 20,0"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-used-for",
+      "object": "indikator-8",
+      "evidence": "Supplerende analyse af epidural ved laparotomi (åben) (delpopulation af indikator 8)",
+      "page": 86
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-used-for",
+      "object": "indikator-8",
+      "evidence": "Supplerende analyse af epidural ved laparoskopi (delpopulation af indikator 8 )",
+      "page": 88
+    },
+    {
+      "subject": "epidural",
+      "predicate": "is-administered-during",
+      "object": "laparotomi-aaben",
+      "evidence": "Supplerende analyse af epidural ved laparotomi (åben) (delpopulation af indikator 8)",
+      "page": 86
+    },
+    {
+      "subject": "epidural",
+      "predicate": "is-administered-during",
+      "object": "laparoskopi",
+      "evidence": "Supplerende analyse af epidural ved laparoskopi (delpopulation af indikator 8 )",
+      "page": 88
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Akut Kirurgi Databasen\nUdkast 2026.01.05\nSundhedsvæsenets Kvalitetsinstitut",
+      "page": 86
+    }
+  ],
+  "claims": [
+    {
+      "text": "Udviklingsmålet for indikator 8 er >60% andel af patienter, der modtager epidural ved laparotomi [^src1]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-8",
+        "epidural",
+        "laparotomi-aaben"
+      ],
+      "page": 86
+    },
+    {
+      "text": "I perioden 01.09.2024 – 31.08.2025 er andelen af patienter, der modtog epidural ved laparotomi i Danmark, 66,7 % (95 % CI: 64,2–69,1) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "danmark",
+        "epidural",
+        "laparotomi-aaben"
+      ],
+      "page": 86
+    },
+    {
+      "text": "I perioden 01.09.2024 – 31.08.2025 er andelen af patienter, der modtog epidural ved laparoskopi i Danmark, 39,9 % (95 % CI: 37,6–42,2) [^src1]",
+      "type": "clinical-performance",
+      "entities": [
+        "danmark",
+        "epidural",
+        "laparoskopi"
+      ],
+      "page": 88
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-09-01",
+      "event": "Start af dataindsamlingsperiode for aktuelle år i supplerende analyser af epidural",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "indikator-8"
+      ]
+    },
+    {
+      "date": "2025-08-31",
+      "event": "Slut på dataindsamlingsperiode for aktuelle år i supplerende analyser af epidural",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "indikator-8"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "epidural-ved-laparotomi",
+      "title": "Supplerende analyse af epidural ved laparotomi (åben) (delpopulation af indikator 8)",
+      "page": 86,
+      "rowDimension": "regioner og sygehuse",
+      "colDimension": "andel i % per år",
+      "entities": [
+        "danmark",
+        "hovedstaden-region-i-alt",
+        "sjaelland-region-i-alt",
+        "syddanmark-region-i-alt",
+        "midtjylland-region-i-alt",
+        "nordjylland-region-i-alt",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland"
+      ],
+      "markdown": "| Region/sygehus | Uoplyst | Aktuelle år Tæller/antal | Aktuelle år Andel 95% CI | 2023/24 Andel | 2022/23 Andel |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Ja | 958 / 1.436 | 66,7 (64,2-69,1) | 64,7 | 65,9 |\n| Hovedstaden | Ja | 313 / 438 | 71,5 (67,0-75,6) | 63,7 | 71,1 |\n| Sjælland | Nej | 92 / 203 | 45,3 (38,3-52,4) | 52,2 | 50,5 |\n| Syddanmark | Ja | 255 / 360 | 70,8 (65,8-75,5) | 69,3 | 66,4 |\n| Midtjylland | Ja | 242 / 332 | 72,9 (67,8-77,6) | 70,2 | 70,8 |\n| Nordjylland | Nej | 56 / 103 | 54,4 (44,3-64,2) | 58,6 | 51,6 |\n| Hovedstaden | Ja | 313 / 438 | 71,5 (67,0-75,6) | 63,7 | 71,1 |\n| Amager og Hvidovre Hospital | Ja | 53 / 68 | 77,9 (66,2-87,1) | 73,9 | 77,6 |\n| Bispebjerg og Frederiksberg Hospital | Ja | 71 / 100 | 71,0 (61,1-79,6) | 69,9 | 77,4 |\n| Bornholms Hospital | Ja | 7 / 7 | 100,0 (59,0-100,0) | 52,6 | 43,8 |\n| Herlev og Gentofte Hospital | Ja | 81 / 106 | 76,4 (67,2-84,1) | 62,0 | 66,7 |\n| Hospitalerne i Nordsjælland | Ja | 79 / 118 | 66,9 (57,7-75,3) | 61,1 | 75,2 |\n| Rigshospitalet | Nej | 22 / 39 | 56,4 (39,6-72,2) | 48,1 | 55,6 |\n| Sjælland | Nej | 92 / 203 | 45,3 (38,3-52,4) | 52,2 | 50,5 |\n| Holbæk Sygehus | Ja | 26 / 41 | 63,4 (46,9-77,9) | 72,5 | 60,0 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 22 / 68 | 32,4 (21,5-44,8) | 36,0 | 37,0 |\n| Sjællands Universitetshospital | Nej | 44 / 94 | 46,8 (36,4-57,4) | 56,7 | 56,2 |\n| Syddanmark | Ja | 255 / 360 | 70,8 (65,8-75,5) | 69,3 | 66,4 |\n| Esbjerg Sygehus Grindsted Sygehus | Ja | 60 / 72 | 83,3 (72,7-91,1) | 75,3 | 74,7 |\n| Odense Universitetshospital - Svendborg | Ja | 122 / 174 | 70,1 (62,7-76,8) | 72,3 | 68,2 |\n| Sygehus Lillebælt | Ja | 50 / 70 | 71,4 (59,4-81,6) | 67,6 | 68,7 |\n| Sygehus Sønderjylland | Nej | 23 / 44 | 52,3 (36,7-67,5) | 50,9 | 47,7 |\n| Midtjylland | Ja | 242 / 332 | 72,9 (67,8-77,6) | 70,2 | 70,8 |",
+      "summary": "Tabellen sammenligner andelen af patienter, der modtog epidural-anæstesi ved laparotomi på nationalt, regionalt og hospitalsniveau i perioden 01.09.2024–31.08.2025 samt tidligere år, og viser betydelig regional variation, hvor Hovedstaden og Syddanmark ligger over 70 %, mens Sjælland og Nordjylland ligger under 55 %."
+    },
+    {
+      "subject": "epidural-ved-laparoskopi",
+      "title": "Supplerende analyse af epidural ved laparoskopi (delpopulation af indikator 8 )",
+      "page": 88,
+      "rowDimension": "regioner og sygehuse",
+      "colDimension": "andel i % per år",
+      "entities": [
+        "danmark",
+        "hovedstaden-region-i-alt",
+        "sjaelland-region-i-alt",
+        "syddanmark-region-i-alt",
+        "midtjylland-region-i-alt",
+        "nordjylland-region-i-alt",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Region/sygehus | Uoplyst | Aktuelle år Tæller/antal | Aktuelle år Andel 95% CI | 2023/24 Andel | 2022/23 Andel |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 723 / 1.814 | 39,9 (37,6-42,2) | 39,7 | 37,9 |\n| Hovedstaden | Nej | 267 / 575 | 46,4 (42,3-50,6) | 43,9 | 43,7 |\n| Sjælland | Nej | 160 / 414 | 38,6 (33,9-43,5) | 39,3 | 40,8 |\n| Syddanmark | Nej | 111 / 293 | 37,9 (32,3-43,7) | 38,2 | 36,9 |\n| Midtjylland | Nej | 117 / 329 | 35,6 (30,4-41,0) | 39,8 | 33,6 |\n| Nordjylland | Nej | 68 / 203 | 33,5 (27,0-40,4) | 26,5 | 22,7 |\n| Hovedstaden | Nej | 267 / 575 | 46,4 (42,3-50,6) | 43,9 | 43,7 |\n| Amager og Hvidovre Hospital | Ja | 119 / 181 | 65,7 (58,3-72,6) | 64,9 | 66,9 |\n| Bispebjerg og Frederiksberg Hospital | Nej | 62 / 121 | 51,2 (42,0-60,4) | 43,8 | 45,5 |\n| Bornholms Hospital | Nej | #/# | 28,6 (3,7-71,0) | 14,3 | 31,3 |\n| Herlev og Gentofte Hospital | Nej | 48 / 160 | 30,0 (23,0-37,7) | 30,0 | 26,2 |\n| Hospitalerne i Nordsjælland | Nej | 35 / 99 | 35,4 (26,0-45,6) | 36,2 | 33,3 |\n| Rigshospitalet | Nej | #/# | 14,3 (0,4-57,9) | 0,0 | 25,0 |\n| Sjælland | Nej | 160 / 414 | 38,6 (33,9-43,5) | 39,3 | 40,8 |\n| Holbæk Sygehus | Nej | 63 / 110 | 57,3 (47,5-66,7) | 52,7 | 47,2 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 21 / 147 | 14,3 (9,1-21,0) | 17,1 | 22,8 |\n| Sjællands Universitetshospital | Nej | 76 / 157 | 48,4 (40,4-56,5) | 47,4 | 54,2 |\n| Syddanmark | Nej | 111 / 293 | 37,9 (32,3-43,7) | 38,2 | 36,9 |\n| Esbjerg Sygehus Grindsted Sygehus | Nej | 24 / 62 | 38,7 (26,6-51,9) | 42,0 | 38,6 |\n| Odense Universitetshospital - Svendborg | Nej | 64 / 130 | 49,2 (40,4-58,1) | 46,0 | 45,0 |\n| Sygehus Lillebælt | Nej | 6 / 37 | 16,2 (6,2-32,0) | 26,1 | 20,0 |\n| Sygehus Sønderjylland | Nej | 17 / 64 | 26,6 (16,3-39,1) | 22,6 | 30,6 |\n| Midtjylland | Nej | 117 / 329 | 35,6 (30,4-41,0) | 39,8 | 33,6 |\n| Aarhus Universitetshospital | Ja | 36 / 59 | 61,0 (47,4-73,5) | 70,8 | 67,3 |\n| Hospitalsenhed Midt | Nej | 19 / 90 | 21,1 (13,2-31,0) | 25,8 | 15,1 |\n| Regionshospitalet Gødstrup | Nej | 33 / 60 | 55,0 (41,6-67,9) | 55,2 | 46,3 |\n| Regionshospitalet Horsens | Nej | 11 / 56 | 19,6 (10,2-32,4) | 33,3 | 31,7 |\n| Regionshospitalet Randers | Nej | 18 / 64 | 28,1 (17,6-40,8) | 17,6 | 20,0 |\n| Nordjylland | Nej | 68 / 203 | 33,5 (27,0-40,4) | 26,5 | 22,7 |\n| Aalborg Universitetshospital | Nej | 44 / 121 | 36,4 (27,8-45,6) | 33,8 | 24,0 |\n| Regionshospital Nordjylland | Nej | 24 / 82 | 29,3 (19,7-40,4) | 19,4 | 20,0 |",
+      "summary": "Tabellen sammenligner andelen af patienter, der modtog epidural-anæstesi ved laparoskopi på nationalt, regionalt og hospitalsniveau i perioden 01.09.2024–31.08.2025 samt tidligere år, og viser en generel lav andel (<50 %) på nationalt plan, med størst variation blandt sygehuse — hvor Amager og Hvidovre Hospital og Aarhus Universitetshospital ligger over 60 %, mens flere små hospitaler ligger under 20 %."
+    }
+  ],
+  "context": "Dette dokumentchunk er en udkastversion af en supplerende kvalitetsanalyse udarbejdet af Sundhedsvæsenets Kvalitetsinstitut i forbindelse med Akut Kirurgi Databasen. Analysen fokuserer på anvendelsen af epidural-anæstesi ved to typer kirurgiske indgreb — åben laparotomi og laparoskopi — som en delpopulation af den nationale kvalitetsindikator 8. Chunken indeholder to omfattende tabeller, der rapporterer andele, konfidensintervaller og historiske sammenligninger for både nationale, regionale og individuelle hospitalsniveauer over tre år, og illustrerer således både nationale tendenser og betydelig inter-hospital variation i implementeringen af evidensbaserede anæstesisætninger i akut kirurgi."
+}

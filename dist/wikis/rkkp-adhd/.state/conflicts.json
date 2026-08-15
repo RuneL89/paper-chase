@@ -13,6 +13,19 @@
           "Forløbsmarkøren AGX01B ('ADHD-udredning slut, mistanke afkræftet') skal indberettes senest 90 dage efter forløbets start for at undgå inklusion i udredningspopulationen [^src1]"
         ]
       }
+    },
+    {
+      "timestamp": "2026-08-15T12:25:42.712Z",
+      "pageType": "entity",
+      "slug": "agx01b",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Der er store regionale forskelle på hvor meget forløbsmarkøren AGX01B bruges [^src4]"
+        ]
+      }
     }
   ]
 }

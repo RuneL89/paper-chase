@@ -4,19 +4,25 @@ type: topic
 aliases:
   - Clinical Evidence
 wiki: rkkp-akdb
-updated: '2026-08-05T19:44:48.831Z'
+updated: '2026-08-15T06:25:59.644Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: 26-30
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: '111-115, 26-30'
 tags:
   - clinical-evidence
 ---
 
-The corpus contains limited but highly specific clinical evidence regarding the impact of treatment delays on acute surgical conditions. Specifically, the data highlights the critical time-sensitivity of treating a [[perforeret-ulcus|perforeret ulcus]] (perforated ulcer). The evidence establishes a direct, quantifiable relationship between time-to-treatment and patient mortality: for every hour of delay in treatment, the probability of survival for a patient with a perforated ulcer decreases by 2.4% [^src1]. Because the provided data is thin, consisting of only this single clinical metric, no further timelines, additional claims, or other related entities are available for this topic.
-
 ## Claims
-- For perforeret ulcus falder sandsynligheden for overlevelse med 2,4 % for hver time forsinkelse [^src1] (perforeret-ulcus)
+
+- For perforeret ulcus falder sandsynligheden for overlevelse med 2,4 % for hver time forsinkelse [^src1] ([[perforeret-ulcus|perforeret ulcus]])
+- En retrospektiv analyse af 2.668 danske patienter opereret for perforeret ulcus viser, at overlevelsesraten reduceres med 2,4 % efter 6 timer, pr. time forsinkelse [^src2] ([[perforeret-ulcus|perforeret ulcus]])
+- Intern audit bekræfter, at hovedparten af de afdøde patienter ved Rigshospitalet var sekundært visiterede med betydelig komorbiditet eller avanceret vaskulær patologi [^src3] ([[rigshospitalet|Rigshospitalet]])
 
 ## Sources
 
 [^src1]: AKDB_2024.pdf, pages 26-30
+[^src2]: AKDB_2025.pdf, pages 26-30
+[^src3]: AKDB_2025.pdf, pages 111-115
+

@@ -4,19 +4,20 @@ type: index
 aliases:
   - Healthcare Indicators
 wiki: rkkp-afdk
-updated: '2026-08-05T23:30:00.925Z'
+updated: '2026-08-15T00:30:15.066Z'
 children:
+  - index.md
   - indikator-10.md
   - indikator-16.md
 ---
 # Healthcare Indicators
 
-This folder contains specific national healthcare indicators used in Denmark to monitor long-term clinical outcomes for patients with atrial fibrillation. The pages detail the methodologies, reporting periods, and registry linkages for tracking mortality rates among prevalent patients and the incidence of heart failure among newly diagnosed individuals. These metrics serve as core quantitative tools for the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) to evaluate and guide the Danish healthcare system's management of the condition.
+This folder contains specific healthcare quality indicators used within the Danish healthcare system to monitor the long-term outcomes of patients with atrial fibrillation. The pages detail national metrics overseen by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) and the Danish Atrial Fibrillation Database, focusing on mortality rates among prevalent patients and the incidence of heart failure following a new diagnosis. Each page provides methodological definitions, reporting periods, and registry linkages used to calculate these clinical quality metrics.
 
 ## Pages
 
-- [[indikator-10|Indikator 10]] — Tracks the mortality rate among prevalent atrial fibrillation patients using national registry linkages.
-- [[indikator-16|Indikator 16]] — Monitors the incidence of heart failure within one year of an initial atrial fibrillation diagnosis.
+- [[indikator-10|Indikator 10]] — Measures the mortality rate among prevalent patients diagnosed with atrial fibrillation over a specific reporting period.
+- [[indikator-16|Indikator 16]] — Tracks the proportion of newly diagnosed atrial fibrillation patients who develop heart failure within one year.
 
 ## Navigation
 
@@ -29,13 +30,18 @@ This folder contains specific national healthcare indicators used in Denmark to 
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
 - Sibling: [[topics/healthcare-quality-standards/index|Healthcare Quality Standards]]
@@ -50,12 +56,17 @@ This folder contains specific national healthcare indicators used in Denmark to 
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

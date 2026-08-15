@@ -1,0 +1,349 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 8",
+      "type": "indicator",
+      "slug": "indikator-8",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 8 er en central kvalitetsindikator i Akut Kirurgi Databasen, der måler andelen af opererede patienter, der får anlagt epidural, og danner grundlag for vurdering af anæstesiologisk praksis samt implementering af evidensbaserede anbefalinger.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Indikator 8: Andel opererede med epidural. Forest plot på afdelingsniveau"
+        },
+        {
+          "page": 47,
+          "context": "Indikatorbeskrivelse for indikator 8"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9",
+      "type": "indicator",
+      "slug": "indikator-9",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 9 er en central mortalitetsindikator i Akut Kirurgi Databasen, der måler 30-dagesmortaliteten efter akut kirurgi og bruges til regional og hospitalsmæssig kvalitetsvurdering samt udviklingsmålsstyring.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
+        }
+      ]
+    },
+    {
+      "name": "epidural",
+      "type": "medical-procedure",
+      "slug": "epidural",
+      "folder": "entities/medical-procedures/anesthesia",
+      "significance": "Epidural er en centralt beskrevet anæstesiologisk teknik i denne chunk, som analyseres som klinisk standard for laparotomerede patienter og diskuteres i forhold til evidens for reduktion af komplikationer og forbedring af rekonvalescens.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Indikator 8 beskriver andelen af patienter, der får anlagt epidural i forbindelse med operationen."
+        },
+        {
+          "page": 47,
+          "context": "Data om epidural stammer fra Dansk Anæstesi Database, og inkluderer følgende typer af epidural: Cervical, thoracal, lumbal, sarkral, spinal."
+        }
+      ]
+    },
+    {
+      "name": "Dansk Anæstesi Database",
+      "type": "database",
+      "slug": "dansk-anaestesi-database-dad",
+      "folder": "entities/databases/clinical",
+      "significance": "Dansk Anæstesi Database er den primære kilde til data om epidural-anvendelse for Indikator 8, hvilket gør den kritisk for beregning og validering af denne kvalitetsindikator.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Data om epidural stammer fra Dansk Anæstesi Database, og inkluderer følgende typer af epidural: Cervical, thoracal, lumbal, sarkral, spinal."
+        }
+      ]
+    },
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den overordnede kliniske database, hvori både Indikator 8 og Indikator 9 er integreret, og som fungerer som platform for national kvalitetsudvikling inden for akut kirurgi.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 47,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige myndighed for udarbejdelse og publicering af rapporterne fra Akut Kirurgi Databasen, herunder definition, beregning og fortolkning af Indikator 8 og Indikator 9.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 47,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "AHA studiet",
+      "type": "study",
+      "slug": "aha-studiet",
+      "folder": "entities/studies/clinical-trials",
+      "significance": "AHA studiet er en central reference i diskussionen af epidurals kliniske effekt, idet det nævnes som evidens for, at standard brug af epidural nedbringer mortaliteten, hvilket underbygger værdien af Indikator 8.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Standard brug af epidural var en del af AHA studiet som overordnet set nedbragte mortaliteten."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er den region med laveste andel af patienter, der får anlagt epidural ifølge Indikator 8 (40,5 %), og fremgår også i tabellen for Indikator 9 som én af de regioner, der ikke har opfyldt udviklingsmålet på <12 % mortalitet.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Regionalt varierede andelen fra 40,5 % i Region Nordjylland til 57,3 % i Region Hovedstaden."
+        },
+        {
+          "page": 49,
+          "context": "Nordjylland Ja 32 / 305 0 (0) 10,5 (7,3-14,5) 13,8 13,8"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er den region med højeste andel af patienter, der får anlagt epidural ifølge Indikator 8 (57,3 %), og fremgår også i tabellen for Indikator 9 som én af de regioner, der har opfyldt udviklingsmålet på <12 % mortalitet.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Regionalt varierede andelen fra 40,5 % i Region Nordjylland til 57,3 % i Region Hovedstaden."
+        },
+        {
+          "page": 49,
+          "context": "Hovedstaden Ja 92 / 1.009 0 (0) 9,1 (7,4-11,1) 11,7 10,4"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er den eneste enhed i tabellen for Indikator 9, der ikke har opfyldt udviklingsmålet (<12 %), med en 30-dagesmortalitet på 32,6 %, hvilket markerer en alvorlig afvigelse fra nationalt niveau og rejser spørgsmål om specifikke risikofaktorer eller registreringsfejl.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "Rigshospitalet Nej 15 / 46 0 (0) 32,6 (19,5-48,0) 26,4 20,7"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-8",
+      "predicate": "measures",
+      "object": "epidural",
+      "evidence": "Indikator 8 beskriver andelen af patienter, der får anlagt epidural i forbindelse med operationen.",
+      "page": 47
+    },
+    {
+      "subject": "indikator-9",
+      "predicate": "measures",
+      "object": "mortality",
+      "evidence": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 49
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "data-source",
+      "object": "dansk-anaestesi-database-dad",
+      "evidence": "Data om epidural stammer fra Dansk Anæstesi Database",
+      "page": 47
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "part-of-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Akut Kirurgi Databasen [...] Indikator 8: Andel opererede med epidural.",
+      "page": 46
+    },
+    {
+      "subject": "indikator-9",
+      "predicate": "part-of-database",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Akut Kirurgi Databasen [...] Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi.",
+      "page": 49
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Akut Kirurgi Databasen [...] Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 46
+    },
+    {
+      "subject": "aha-studiet",
+      "predicate": "supports-evidence-for",
+      "object": "indikator-8",
+      "evidence": "Standard brug af epidural var en del af AHA studiet som overordnet set nedbragte mortaliteten.",
+      "page": 47
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "has-lowest-value-for",
+      "object": "indikator-8",
+      "evidence": "Regionalt varierede andelen fra 40,5 % i Region Nordjylland til 57,3 % i Region Hovedstaden.",
+      "page": 47
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "has-highest-value-for",
+      "object": "indikator-8",
+      "evidence": "Regionalt varierede andelen fra 40,5 % i Region Nordjylland til 57,3 % i Region Hovedstaden.",
+      "page": 47
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "has-highest-mortality-for",
+      "object": "indikator-9",
+      "evidence": "Rigshospitalet Nej 15 / 46 0 (0) 32,6 (19,5-48,0) 26,4 20,7",
+      "page": 49
+    }
+  ],
+  "claims": [
+    {
+      "text": "Ud af de 3.250 opererede i perioden, blev 1.681 bedøvede med epidural. Det svarer til en andel på 51,7 % (95 % CI: 50,0-53,5) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-8"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Udviklingsmålet for Indikator 8 er > 60 %, og endnu ikke opfyldt [^src1]",
+      "type": "policy",
+      "entities": [
+        "indikator-8"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Regionalt varierede andelen fra 40,5 % i Region Nordjylland til 57,3 % i Region Hovedstaden [^src1]",
+      "type": "regional-comparison",
+      "entities": [
+        "indikator-8",
+        "region-nordjylland",
+        "region-hovedstaden"
+      ],
+      "page": 47
+    },
+    {
+      "text": "I alt syv af de 20 indberettende enheder opfyldte udviklingsmålet i perioden [^src1]",
+      "type": "organizational-performance",
+      "entities": [
+        "indikator-8"
+      ],
+      "page": 47
+    },
+    {
+      "text": "Udviklingsmålet for Indikator 9 er < 12 % [^src2]",
+      "type": "policy",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 49
+    },
+    {
+      "text": "Danmark: 10,1 % (9,1-11,2) 30-dagesmortalitet i perioden 01.09.2024 - 31.08.2025 [^src2]",
+      "type": "statistical",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 49
+    },
+    {
+      "text": "Rigshospitalet: 32,6 % (19,5-48,0) 30-dagesmortalitet i perioden 01.09.2024 - 31.08.2025 [^src2]",
+      "type": "statistical",
+      "entities": [
+        "indikator-9",
+        "rigshospitalet"
+      ],
+      "page": 49
+    },
+    {
+      "text": "Esbjerg Sygehus Grindsted Sygehus: 13,4 % (8,2-20,4) 30-dagesmortalitet i perioden 01.09.2024 - 31.08.2025 [^src2]",
+      "type": "statistical",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 50
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2024 - 31.08.2025",
+      "event": "Måleperiode for aktuelle år i Indikator 9",
+      "entities": [
+        "indikator-9"
+      ]
+    },
+    {
+      "date": "2022",
+      "event": "Udviklingsmålet for Indikator 8 blev sat ned til 60 %",
+      "entities": [
+        "indikator-8"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-9",
+      "title": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 49,
+      "rowDimension": "regions-and-hospitals",
+      "colDimension": "30-day-mortality-percentage-by-year",
+      "entities": [
+        "indikator-9",
+        "region-hovedstaden",
+        "region-nordjylland",
+        "rigshospitalet"
+      ],
+      "markdown": "| Udviklingsmål | Uoplyst | Aktuelle år | Tidligere år |\n| --- | --- | --- | --- |\n| < 12% | Tæller/ antal | 01.09.2024 - 31.08.2025 | 2023/24 |\n| < 12% | opnået nævner (%) | Andel | 95% CI |\n| Danmark | Ja | 329 / 3.244 | 0 (0) |\n| Hovedstaden | Ja | 92 / 1.009 | 0 (0) |\n| Sjælland | Ja | 62 / 616 | 0 (0) |\n| Syddanmark | Nej | 80 / 653 | 0 (0) |\n| Midtjylland | Ja | 63 / 661 | 0 (0) |\n| Nordjylland | Ja | 32 / 305 | 0 (0) |\n| Hovedstaden | Ja | 92 / 1.009 | 0 (0) |\n| Amager og Hvidovre Hospital | Ja | 13 / 247 | 0 (0) |\n| Bispebjerg og Frederiksberg Hospital | Ja | 23 / 221 | 0 (0) |\n| Bornholms Hospital | Ja | #/# | 0 (0) |\n| Herlev og Gentofte Hospital | Ja | 20 / 264 | 0 (0) |\n| Hospitalerne i Nordsjælland | Ja | 20 / 217 | 0 (0) |\n| Rigshospitalet | Nej | 15 / 46 | 0 (0) |\n| Sjælland | Ja | 62 / 616 | 0 (0) |\n| Holbæk Sygehus | Ja | 15 / 151 | 0 (0) |\n| Næstved, Slagelse og Ringsted sygehuse | Ja | 23 / 215 | 0 (0) |",
+      "summary": "Tabellen sammenligner 30-dagesmortaliteten for Indikator 9 på regions- og hospitalsniveau for året 2024/25 og tidligere år, og viser, at Rigshospitalet og flere sygehuse i Syddanmark og Nordjylland ikke har opfyldt udviklingsmålet på <12 %."
+    },
+    {
+      "subject": "exclusion-reasons",
+      "title": "Eksklusion",
+      "page": 50,
+      "rowDimension": "exclusion-categories",
+      "colDimension": "count-by-region",
+      "entities": [
+        "region-hovedstaden",
+        "region-nordjylland",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland"
+      ],
+      "markdown": "| Årsag | Danmark | Hovedstaden | Sjælland | Syddanmark | Midtjylland | Nordjylland |\n| --- | --- | --- | --- | --- | --- | --- |\n| Eksklusion: Ugyldigt CPR-nummer. | 79 | 31 | 10 | 19 | 11 | 8 |\n| Patienten er under 18 år. | 177 | 67 | 9 | 53 | 36 | 12 |\n| Patienten er ikke opereret. | 6.646 | 1.609 | 1.024 | 1.442 | 1.579 | 992 |\n| Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn (kommunekoderne 0010, 0011, 0012 og 0019)' | 6 | 4 | 1 | . | . | 1 |\n| Operationen er ikke den første operation i hospitalsopholdet. | 544 | 188 | 77 | 143 | 107 | 29 |",
+      "summary": "Tabellen viser antallet af ekskluderede patienter for Indikator 9 fordelt på årsager og regioner, hvor 'Patienten er ikke opereret' er den dominerende eksklusionsgrund, især i Danmark som helhed."
+    }
+  ],
+  "context": "Denne chunk er en del af den årlige rapport fra Akut Kirurgi Databasen (AKDB) for 2025, udarbejdet af Sundhedsvæsenets Kvalitetsinstitut, og fokuserer på to centrale kvalitetsindikatorer: Indikator 8 (epidural-anvendelse) og Indikator 9 (30-dagesmortalitet efter akut kirurgi). Den indeholder både teknisk metodisk beskrivelse, statistiske resultater, regional og hospitalsmæssig sammenligning samt evidensbaseret diskussion af klinisk relevans. Rapporten fungerer som et redskab til national kvalitetsudvikling og styring af akut kirurgiske behandlingsforløb i det danske sundhedsvæsen, med særlig fokus på standardisering af anæstesiologisk praksis og reduktion af postoperative komplikationer og død."
+}

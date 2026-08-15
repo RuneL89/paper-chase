@@ -4,17 +4,18 @@ type: index
 aliases:
   - Groups
 wiki: rkkp-afdk
-updated: '2026-08-05T22:49:46.215Z'
+updated: '2026-08-14T23:38:43.427Z'
 children:
   - patient-advocacy/index.md
+  - index.md
 ---
 # Groups
 
-This folder groups collective entities, cohorts, and representative bodies that contribute to or advocate within the Danish Atrial Fibrillation database (AFDK). It currently houses a dedicated area for patient advocacy and specialized clinical data contribution, documenting the patient representatives who push for structured education programs and the private practicing cardiologists whose recent registry integration expands national quality measurement beyond the traditional hospital sector.
+This folder groups collective entities and organized bodies that influence healthcare delivery, advocacy, and quality measurement within the Danish Atrial Fibrillation Database (AFDK) framework. It currently contains a single sub-folder dedicated to patient advocacy, which catalogs the formal patient representatives driving structured education initiatives and the private specialist cardiologists expanding registry coverage into the specialized private care sector. By organizing these groups, the wiki tracks how non-hospital actors and patient voices shape national cardiology standards and regional quality assurance.
 
 ## Pages
 
-- [[entities/groups/patient-advocacy/index|Patient Advocacy]] — Collectives and cohorts driving patient-centric improvements and expanding clinical data capture, including patient representatives and private practice cardiologists.
+- [[entities/groups/patient-advocacy/index|Patient Advocacy]] — Collective entities influencing patient care and quality measurement, including formal patient representatives and private specialist cardiologists integrated into the AFDK registry.
 
 ## Navigation
 

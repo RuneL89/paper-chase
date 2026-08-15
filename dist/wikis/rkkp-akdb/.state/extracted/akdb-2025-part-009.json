@@ -1,0 +1,267 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 6",
+      "type": "indicator",
+      "slug": "indikator-6",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 6 måler andelen af patienter, der er mobiliseret inden for 24 timer efter operation, og dets opfyldelse på 41,5 % i 2024/25 udgør et 'stort spring', som tilskrives samarbejdet med LKT Akutkirurgi og fokus på automatisk kodedrop til LPR.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Det store spring i indikator opfyldelse til 41,5 % skyldes formentlig det tætte samarbejde med LKT Akutkirurgi, der har understøttet forståelse og processer omkring indikatoren, samt at regionerne har haft fokus på automatisk kodedrop til LPR ifm. første mobilisering."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "indicator",
+      "slug": "indikator-7",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 7 er en under-udvikling procesindikator for ernæring, der tidligere målte andelen af patienter med udarbejdet ernæringsplan inden for 48 timer efter operation, men nu omdannes til en klinisk relevant outcome-indikator for faktisk ernæringsindtag i samarbejde med Dansk Selskab for Klinisk Ernæring.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Indikator 7: Ernæring\nIndikatoren er under udvikling"
+        },
+        {
+          "page": 42,
+          "context": "Indikator 7 beskriver andelen af patienter, hvor der er taget stilling til ernæring indenfor 48 timer efter operation."
+        },
+        {
+          "page": 43,
+          "context": "Styregruppen har modtaget ønske om en kode der hedder ”Ernæring genoptaget”. En arbejdsgruppe undersøger mulighederne."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "indicator",
+      "slug": "indikator-8",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 8 måler andelen af opererede patienter, der har fået anlagt epidural i forbindelse med operationen, med et udviklingsmål på > 60 %, og viser stor regional variation — fra 20,0 % i Næstved, Slagelse og Ringsted sygehuse til 71,5 % i Aarhus Universitetshospital.",
+      "mentions": [
+        {
+          "page": 44,
+          "context": "Indikator 8: Andel opererede med epidural"
+        },
+        {
+          "page": 44,
+          "context": "Udviklingsmål > 60 %"
+        }
+      ]
+    },
+    {
+      "name": "LKT Akutkirurgi",
+      "type": "organization",
+      "slug": "lkt-akut-kirurgi",
+      "folder": "entities/organizations/healthcare-administration",
+      "significance": "LKT Akutkirurgi er en central støtteaktør for implementering af Indikator 6, idet dets tætte samarbejde har bidraget til øget forståelse og standardisering af registreringen blandt fysioterapeuter og sygepleje.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Det store spring i indikator opfyldelse til 41,5 % skyldes formentlig det tætte samarbejde med LKT Akutkirurgi, der har understøttet forståelse og processer omkring indikatoren, samt at regionerne har haft fokus på automatisk kodedrop til LPR ifm. første mobilisering."
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den afgørende beslutningstager for kvalitetsindikatorer i akut kirurgi, der har vurderet Indikator 6 som godkendt, ikke analyseret Indikator 7, nedsat en arbejdsgruppe til udvikling af ny ernæringsindikator, og anbefalet anvendelse af koden 'ingen indikation for tidlig mobilisering'.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Styregruppen anbefaler at, koden for ”ingen indikation for tidlig mobilisering” anvendes i relevante tilfælde."
+        },
+        {
+          "page": 42,
+          "context": "Styregruppen har ikke lavet analyse på indikator 7."
+        },
+        {
+          "page": 42,
+          "context": "På denne baggrund har styregruppen nedsat en arbejdsgruppe, der i samarbejde med Dansk Selskab for Klinisk Ernæring arbejder med udviklingen af en ny kvalitetsindikator for ernæring."
+        }
+      ]
+    },
+    {
+      "name": "Dansk Selskab for Klinisk Ernæring",
+      "type": "organization",
+      "slug": "dansk-selskab-for-klinisk-ernaering",
+      "folder": "entities/organizations/medical-professional-bodies",
+      "significance": "Dansk Selskab for Klinisk Ernæring er en nøglepartner i udviklingen af den nye klinisk relevante outcome-indikator for ernæring sammen med Styregruppen, hvilket understreger organisationens autoritet inden for klinisk ernæringspraksis og evidensbaseret udvikling.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "På denne baggrund har styregruppen nedsat en arbejdsgruppe, der i samarbejde med Dansk Selskab for Klinisk Ernæring arbejder med udviklingen af en ny kvalitetsindikator for ernæring."
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet i Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet i Horsens fremhæves som et eksempel på fremgang inden for Indikator 6 med en mobiliseringsrate på 85,5 % inden for 24 timer efter operation, hvilket ligger tæt på udviklingsmålet på ≥ 90 %.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Især Regionshospitalet i Horsens har opnået en stor fremgang, da 85,5% af patienterne er mobiliseret indenfor 24 timer efter operationen, hvilket er meget tæt på udviklingsmålet på de ≥ 90%."
+        }
+      ]
+    },
+    {
+      "name": "LPR",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare",
+      "significance": "Landspatientregisteret (LPR) er det nationale register, hvor data om første mobilisering registreres via automatisk kodedrop, hvilket er identificeret som en central drivkraft bag forbedringen i Indikator 6.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "at regionerne har haft fokus på automatisk kodedrop til LPR ifm. første mobilisering."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-6",
+      "predicate": "is-supported-by",
+      "object": "lkt-akut-kirurgi",
+      "evidence": "Det store spring i indikator opfyldelse til 41,5 % skyldes formentlig det tætte samarbejde med LKT Akutkirurgi, der har understøttet forståelse og processer omkring indikatoren",
+      "page": 41
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "has-development-goal",
+      "object": "90-percent-mobilization-target",
+      "evidence": "hvilket er meget tæt på udviklingsmålet på de ≥ 90%",
+      "page": 41
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-subgroup",
+      "object": "dansk-selskab-for-klinisk-ernaering",
+      "evidence": "Styregruppen har nedsat en arbejdsgruppe, der i samarbejde med Dansk Selskab for Klinisk Ernæring arbejder med udviklingen af en ny kvalitetsindikator for ernæring",
+      "page": 42
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "is-replaced-by",
+      "object": "new-clinical-outcome-ernaering-indicator",
+      "evidence": "Styregruppen er enige om, at den klinisk relevante målsætning er, om patienten modtager sufficient ernæring. Monitorering af dette kræver en outcome-indikator snarere end en procesindikator.",
+      "page": 42
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "has-development-goal",
+      "object": "60-percent-epidural-target",
+      "evidence": "Udviklingsmål > 60 %",
+      "page": 44
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indikator 6 opnåede en opfyldelse på 41,5 % i 2024/25 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Regionshospitalet i Horsens opnåede en mobiliseringsrate på 85,5 % inden for 24 timer efter operation [^src1]",
+      "type": "performance",
+      "entities": [
+        "regionshospitalet-horsens",
+        "indikator-6"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Indikator 7 er en procesindikator, der tidligere målte andelen af patienter med udarbejdet ernæringsplan inden for 48 timer efter operation [^src1]",
+      "type": "definition",
+      "entities": [
+        "indikator-7"
+      ],
+      "page": 42
+    },
+    {
+      "text": "Styregruppen har nedsat en arbejdsgruppe til udvikling af en ny kvalitetsindikator for ernæring i samarbejde med Dansk Selskab for Klinisk Ernæring [^src1]",
+      "type": "governance",
+      "entities": [
+        "styregruppen",
+        "dansk-selskab-for-klinisk-ernaering",
+        "indikator-7"
+      ],
+      "page": 42
+    },
+    {
+      "text": "Indikator 8 har et udviklingsmål på > 60 % [^src1]",
+      "type": "target",
+      "entities": [
+        "indikator-8"
+      ],
+      "page": 44
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2024 - 31.08.2025",
+      "event": "Måling af Indikator 8 for perioden 01.09.2024 – 31.08.2025 foretaget",
+      "entities": [
+        "indikator-8"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-8",
+      "title": "Udviklingsmål Uoplyst Aktuelle år Tidligere år",
+      "page": 44,
+      "rowDimension": "region eller hospital",
+      "colDimension": "Andel (%) og konfidensinterval",
+      "entities": [
+        "indikator-8",
+        "regionshospitalet-horsens",
+        "aarhus-universitetshospital",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Region eller hospital | Uoplyst | Aktuelle år | Tidligere år |\n| --- | --- | --- | --- |\n| Danmark | Nej | 1.681 / 3.250 0 (0) 51,7 (50,0-53,5) | 51,8 52,6 |\n| Hovedstaden | Nej | 580 / 1.013 0 (0) 57,3 (54,1-60,3) | 53,7 58,4 |\n| Sjælland | Nej | 252 / 617 0 (0) 40,8 (36,9-44,8) | 43,8 44,6 |\n| Syddanmark | Nej | 366 / 653 0 (0) 56,0 (52,1-59,9) | 56,3 56,3 |\n| Midtjylland | Nej | 359 / 661 0 (0) 54,3 (50,4-58,2) | 55,0 53,5 |\n| Nordjylland | Nej | 124 / 306 0 (0) 40,5 (35,0-46,3) | 41,5 35,8 |\n| Hovedstaden | Nej | 580 / 1.013 0 (0) 57,3 (54,1-60,3) | 53,7 58,4 |\n| Amager og Hvidovre Hospital | Ja | 172 / 249 0 (0) 69,1 (62,9-74,8) | 68,3 70,9 |\n| Bispebjerg og Frederiksberg Hospital | Ja | 133 / 221 0 (0) 60,2 (53,4-66,7) | 57,1 65,4 |\n| Bornholms Hospital | Ja | 9 / 14 0 (0) 64,3 (35,1-87,2) | 42,3 37,5 |\n| Herlev og Gentofte Hospital | Nej | 129 / 266 0 (0) 48,5 (42,3-54,7) | 46,4 47,7 |\n| Hospitalerne i Nordsjælland | Nej | 114 / 217 0 (0) 52,5 (45,7-59,3) | 47,4 55,3 |\n| Rigshospitalet | Nej | 23 / 46 0 (0) 50,0 (34,9-65,1) | 47,2 53,4 |\n| Sjælland | Nej | 252 / 617 0 (0) 40,8 (36,9-44,8) | 43,8 44,6 |\n| Holbæk Sygehus | Nej | 89 / 151 0 (0) 58,9 (50,7-66,9) | 58,8 52,5 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 43 / 215 0 (0) 20,0 (14,9-26,0) | 24,5 28,1 |\n| Sjællands Universitetshospit al | Nej | 120 / 251 0 (0) 47,8 (41,5-54,2) | 50,6 55,0 |\n| Syddanmark | Nej | 366 / 653 0 (0) 56,0 (52,1-59,9) | 56,3 56,3 |\n| Esbjerg Sygehus Grindsted Sygehus | Ja | 84 / 134 0 (0) 62,7 (53,9-70,9) | 61,1 63,0 |\n| Odense Universitetshospit al - Svendborg | Ja | 186 / 304 0 (0) 61,2 (55,5-66,7) | 61,4 60,3 |\n| Sygehus Lillebælt | Nej | 56 / 107 0 (0) 52,3 (42,5-62,1) | 57,1 59,2 |\n| Sygehus Sønderjylland | Nej | 40 / 108 0 (0) 37,0 (27,9-46,9) | 35,7 39,4 |\n| Midtjylland | Nej | 359 / 661 0 (0) 54,3 (50,4-58,2) | 55,0 53,5 |\n| Aarhus Universitetshospit al | Ja | 98 / 137 0 (0) 71,5 (63,2-78,9) | 72,9 71,3 |\n| Hospitalsenhed Midt | Nej | 48 / 134 0 (0) 35,8 (27,7-44,6) | 38,4 32,1 |\n| Regionshospitalet Gødstrup | Ja | 97 / 147 0 (0) 66,0 (57,7-73,6) | 64,4 63,5 |\n| Regionshospitalet Horsens | Nej | 61 / 131 0 (0) 46,6 (37,8-55,5) | 58,4 62,4 |\n| Regionshospitalet Randers | Nej | 55 / 112 0 (0) 49,1 (39,5-58,7) | 38,0 40,5 |\n| Nordjylland | Nej | 124 / 306 0 (0) 40,5 (35,0-46,3) | 41,5 35,8 |\n| Aalborg Universitetshospit al | Nej | 85 / 190 0 (0) 44,7 (37,5-52,1) | 51,4 39,5 |\n| Regionshospital Nordjylland | Nej | 39 / 116 0 (0) 33,6 (25,1-43,0) | 28,3 28,9 |",
+      "summary": "Tabellen sammenligner andelen af opererede patienter med epidural på tværs af regioner og hospitaler for 2024/25 og tidligere år, og viser betydelig variation fra 20,0 % i Næstved, Slagelse og Ringsted sygehuse til 71,5 % i Aarhus Universitetshospital."
+    },
+    {
+      "subject": "indikator-8-exclusions",
+      "title": "Årsag Danmark Hovedstaden Sjælland Syddanmark Midtjylland Nordjylland",
+      "page": 45,
+      "rowDimension": "eksklusionsårsag",
+      "colDimension": "antal patienter per region",
+      "entities": [
+        "indikator-8"
+      ],
+      "markdown": "| Årsag | Danmark | Hovedstaden | Sjælland | Syddanmark | Midtjylland | Nordjylland |\n| --- | --- | --- | --- | --- | --- | --- |\n| Eksklusion: Ugyldigt CPR-nummer. | 79 | 31 | 10 | 19 | 11 | 8 |\n| Patienten er under 18 år. | 177 | 67 | 9 | 53 | 36 | 12 |\n| Patienten er ikke opereret. | 6.646 | 1.609 | 1.024 | 1.442 | 1.579 | 992 |\n| Operationen er ikke den første operation i hospitalsopholdet. | 544 | 188 | 77 | 143 | 107 | 29 |",
+      "summary": "Tabellen præsenterer antallet af ekskluderede patienter for Indikator 8 fordelt på fire årsager og seks regioner, hvor 'Patienten er ikke opereret' udgør langt den største gruppe med 6.646 patienter i hele Danmark."
+    }
+  ],
+  "context": "Denne dokumentchunk (sider 41–45) er en del af den årlige rapport fra Akut Kirurgi Databasen (AKDB) fra 2025 og beskriver evalueringen og udviklingen af tre centrale kvalitetsindikatorer: Indikator 6 (tidlig mobilisering), Indikator 7 (ernæring) og Indikator 8 (epidural). Den indgår i en bredere narrativ om systematisk kvalitetsudvikling i dansk akut kirurgi gennem regionale databaser og national styring via Sundhedsvæsenets Kvalitetsinstitut og Styregruppen. Chunken dokumenterer både fremskridt — som det 'store spring' i Indikator 6 — og udfordringer — som manglende analyse af Indikator 7 og stor regional variation i Indikator 8 — samt beskriver institutionelle mekanismer som arbejdsgrupper, samarbejde med professionelle selskaber og tekniske løsninger som automatisk kodedrop til LPR."
+}

@@ -4,19 +4,20 @@ type: index
 aliases:
   - Healthcare Information Systems
 wiki: rkkp-akdb
-updated: '2026-08-05T20:36:38.052Z'
+updated: '2026-08-15T08:47:18.526Z'
 children:
   - epj.md
+  - index.md
   - lis.md
 ---
 # Healthcare Information Systems
 
-This folder contains the core digital infrastructure used by Danish hospitals and regions to manage patient records and validate clinical quality data. The systems documented here serve as the operational backbone for comparing local clinical reality against national registry entries, ensuring the accuracy of national quality databases like the Akut Kirurgi Databasen. By bridging local electronic records with regional management dashboards, these tools enable the retroactive correction of missing data and drive continuous quality improvement across the healthcare system.
+This folder catalogs the digital information systems used to manage, track, and validate healthcare data within the Danish acute surgery context. It covers the electronic patient journal (EPJ) used for clinical record-keeping and patient count validation, alongside the regional management information system (LIS) which aggregates population and indicator data for administrative oversight. Together, these systems form the technical infrastructure that allows clinical databases to verify their records and conduct sample controls.
 
 ## Pages
 
-- [[epj|EPJ]] — The electronic patient journal system acting as the primary ground truth for verifying patient identities, operation dates, and clinical variables in local hospitals.
-- [[lis|LIS]] — The regional management information system used by medical and administrative staff to cross-reference local EPJ records with national registry data for continuous quality assurance.
+- [[epj|EPJ]] — The electronic patient journal system used to validate patient counts and clinical data against the acute surgery database.
+- [[lis|LIS]] — The regional management information system that tracks population data, indicators, and enables sample control using CPR numbers.
 
 ## Navigation
 

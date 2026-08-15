@@ -1,0 +1,352 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den nationale kvalitetsdatabase, der overvåger behandlingskvalitet og indikatoropfyldelse for patienter med inflammatoriske tarmsygdomme i Danmark, og fungerer som det centrale datagrundlag for de regionale kommentarer og audits på siderne 51–54.",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        }
+      ]
+    },
+    {
+      "name": "Primaer-skleroserende-kolangitis (PSC)",
+      "type": "disease",
+      "slug": "primaer-skleroserende-kolangitis-psc",
+      "folder": "entities/diseases/ibd-comorbidities",
+      "significance": "PSC fremstår som en vigtig komorbid sygdom ved IBD, og Appendikstabel 9 på side 51 præsenterer demografiske og kontaktmæssige karakteristika for patienter med PSC i DANIBD-databasen, hvilket understøtter dens rolle som en klinisk og epidemiologisk relevant indikator (indikator 7).",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Appendikstabel 9: karakteristika for patienter med PSC (indikator 7)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "quality-indicator",
+      "slug": "indikator-7",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 7 er den specifikke kvalitetsindikator i DANIBD-rapporten, der måler og rapporterer karakteristika for patienter med primaer-skleroserende-kolangitis (PSC), og den er direkte knyttet til Appendikstabel 9 på side 51.",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Appendikstabel 9: karakteristika for patienter med PSC (indikator 7)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden fremsætter detaljerede regionale kommentarer til flere DANIBD-indikatorer (1a, 2, 3, 4, 5, 6) på side 52, herunder kritik af datakvalitet og beskrivelse af interne audits, hvilket gør den til en central aktør i kvalitetsudviklingen for IBD-forløb.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Nordsjællands Hospital",
+      "type": "healthcare-facility",
+      "slug": "nordsjaellands-hospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Nordsjællands Hospital er et af de regionale hospitaler, der bidrager med data til DANIBD og fremsætter kommentarer til indikatorer på side 52, hvilket illustrerer dets rolle som både dataleverandør og kvalitetsforbedringspartner i det nationale IBD-kvalitetsprogram.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "Nordsjællands Hospital. DANIBD 1/10 24- 30/9 25"
+        }
+      ]
+    },
+    {
+      "name": "NOH",
+      "type": "healthcare-facility",
+      "slug": "ouh-odense-medicinsk-mave-tarm-afd-s",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "NOH (Odense Universitetshospital, Medicinsk Mave-, Tarm- og Leverafdeling S) nævnes som eksempel på et hospital, hvor patienter fravælger diagnosesamtalen, hvilket udløser overvejelser om tidspunkt, sted og ressourceforbrug — og dermed understøtter indikator 2’s fokus på patientuddannelse.",
+      "disambiguation": "NOH refererer her til Odense Universitetshospital, Medicinsk Mave-, Tarm- og Leverafdeling S, ikke Nordsjællands Hospital eller anden institution med samme forkortelse.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "På NOH oplever vi, at patienter fravælger diagnosesamtalen."
+        }
+      ]
+    },
+    {
+      "name": "Abdominalcenter K, Bispebjerg Hospital",
+      "type": "healthcare-facility",
+      "slug": "abdominalcenter-k-bispebjerg-hospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Abdominalcenter K, Bispebjerg Hospital foretager intern audit af indikator 4 (DEXA-scanning) og indikator 6 (re-operation), og fremsætter korrektioner af tæller/nævner på side 53, hvilket demonstrerer dens rolle som aktiv deltagere i datavalidering og kvalitetsforbedring i DANIBD.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "Bemærkninger fra Abdominalcenter K, Bispebjerg Hospital"
+        }
+      ]
+    },
+    {
+      "name": "DEXA-scanning",
+      "type": "procedure",
+      "slug": "dexa-scanning",
+      "folder": "entities/procedural",
+      "significance": "DEXA-scanning er en diagnostisk procedure, der indgår som central måling i indikator 4, og regionale kommentarer på side 52–53 peger på manglende systematisk anvendelse hos patienter under steroidbehandling, hvilket udløser behov for undervisning af sundhedspersonale.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "Indikator 4. DEXA-scanning, steroidbehandling"
+        }
+      ]
+    },
+    {
+      "name": "Re-operation",
+      "type": "procedure",
+      "slug": "re-operation",
+      "folder": "entities/procedural",
+      "significance": "Re-operation er en klinisk proces, der måles via indikator 6, og Abdominalcenter K, Bispebjerg Hospital på side 53 reviderer de offentliggjorte tal (9/45) til 4/43 efter kritisk gennemgang af relevans for IBD-diagnosen, hvilket understreger kompleksiteten i korrekt registrering af kirurgiske hændelser.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "Indikator 6. Re-operation"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er en af de fem regioner, der indgår i DANIBD-programmet, og dens manglende kommentarer på side 52 indikerer enten fuld accept af indikatorresultaterne eller manglende identificerede afvigelser i forhold til de rapporterede data.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Region Østdanmarks Sundhedsfaglige Råd for Mave-, Tarm- og Leversygdomme",
+      "type": "organization",
+      "slug": "region-oestdanmarks-sundhedsfaglige-raad-for-mave-tarm-og-leversygdomme",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Dette råd fungerer som en faglig koordineringsinstans for mave-, tarm- og leversygdomme i Region Østdanmark og fremkommer som kilde til bemærkninger fra Abdominalcenter K, Bispebjerg Hospital på side 52–53, hvilket understøtter dets rolle i regional kvalitetsudvikling.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "Region Østdanmarks Sundhedsfaglige Råd for Mave-, Tarm- og Leversygdomme"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Syddanmark er en af de fem regioner, der deltager i DANIBD-programmet, og dens manglende kommentarer på side 53 indikerer ingen regionale afvigelser eller forbedringsområder identificeret i forhold til de rapporterede indikatorresultater.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Midtjylland er en af de fem regioner i DANIBD-programmet, og dens manglende kommentarer på side 53 indikerer ingen regionale afvigelser eller forbedringsområder identificeret i forhold til de rapporterede indikatorresultater.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er en af de fem regioner i DANIBD-programmet, og dens manglende kommentarer på side 53 indikerer ingen regionale afvigelser eller forbedringsområder identificeret i forhold til de rapporterede indikatorresultater.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Region Nordjylland"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "predicate": "measures",
+      "object": "indikator-7",
+      "evidence": "Appendikstabel 9: karakteristika for patienter med PSC (indikator 7)",
+      "page": 51
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "provides-comments-on",
+      "object": "indikator-1a",
+      "evidence": "Ad indikator 1a. Overraskende tal, som vi ikke synes stemmer overens med klinikken.",
+      "page": 52
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "provides-comments-on",
+      "object": "indikator-2",
+      "evidence": "Ad indikator 2. Dejligt at vi er kommet i gang om end der er plads til forbedring.",
+      "page": 52
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "provides-comments-on",
+      "object": "indikator-3",
+      "evidence": "Indikator 3. Der er lavet intern audit på de 11 patienter, som har fået foretaget resektion af terminale ileum.",
+      "page": 52
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "provides-comments-on",
+      "object": "indikator-4",
+      "evidence": "Indikator 4. Målopfyldelse på 44% en lille tilbagegang. Der vil blive sat fokus på emnet ved undervisning af læger og sygeplejersker.",
+      "page": 52
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "provides-comments-on",
+      "object": "indikator-5",
+      "evidence": "Indikator 5 og 6 målopfyldt og intet at tilføje.",
+      "page": 52
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "provides-comments-on",
+      "object": "indikator-6",
+      "evidence": "Indikator 5 og 6 målopfyldt og intet at tilføje.",
+      "page": 52
+    },
+    {
+      "subject": "abdominalcenter-k-bispebjerg-hospital",
+      "predicate": "performs-audit-of",
+      "object": "indikator-4",
+      "evidence": "Målopfyldelsen for indikator 4 har været genstand for intern audit på BFH og det kan konstateres, at der ikke har været tilstrækkeligt fokus på at ordinere DEXA-scanning til patienter i steroidkur.",
+      "page": 52
+    },
+    {
+      "subject": "abdominalcenter-k-bispebjerg-hospital",
+      "predicate": "performs-audit-of",
+      "object": "indikator-6",
+      "evidence": "Der er på Abdominalcenter K, Bispebjerg Hospital blevet foretaget en intern audit vedr. indikator 6 re-operation.",
+      "page": 52
+    },
+    {
+      "subject": "abdominalcenter-k-bispebjerg-hospital",
+      "predicate": "corrects-data-for",
+      "object": "indikator-6",
+      "evidence": "Efter disse korrektioner er den korrekte tæller 4 patienter og den korrekte nævner 43 patienter. Det korrekte resultat bliver derfor: 4/43 = 9 %.",
+      "page": 53
+    }
+  ],
+  "claims": [
+    {
+      "text": "Patienter med PSC i DANIBD-databasen udgør 49 nydiagnosticerede og 347 øvrige patienter med hospitalskontakt i opgørelsesperioden [^src1]",
+      "type": "demographic",
+      "entities": [
+        "primaer-skleroserende-kolangitis-psc"
+      ],
+      "page": 51
+    },
+    {
+      "text": "For nydiagnosticerede PSC-patienter er gennemsnitsalderen 44 år (Min;Max: 18;84) og medianalderen 38 år (Q1;Q3: 29;58) [^src1]",
+      "type": "demographic",
+      "entities": [
+        "primaer-skleroserende-kolangitis-psc"
+      ],
+      "page": 51
+    },
+    {
+      "text": "For nydiagnosticerede PSC-patienter er gennemsnitsantallet af hospitalskontakter 17 (Min;Max: 2;38) og medianantallet 16 (Q1;Q3: 9;22) [^src1]",
+      "type": "contact-frequency",
+      "entities": [
+        "primaer-skleroserende-kolangitis-psc"
+      ],
+      "page": 51
+    },
+    {
+      "text": "For nydiagnosticerede PSC-patienter er 33 % kvinder og 67 % mænd [^src1]",
+      "type": "demographic",
+      "entities": [
+        "primaer-skleroserende-kolangitis-psc"
+      ],
+      "page": 51
+    },
+    {
+      "text": "For nydiagnosticerede PSC-patienter er 65 % af kontakterne fysiske og 35 % virtuelle [^src1]",
+      "type": "contact-type",
+      "entities": [
+        "primaer-skleroserende-kolangitis-psc"
+      ],
+      "page": 51
+    },
+    {
+      "text": "Region Hovedstaden rapporterer, at 18 af de 29 patienter, der ikke opfylder indikator 1a, er fuldt koloskoperet ved privat praktiserende kirurg eller gastroenterolog [^src2]",
+      "type": "audit-finding",
+      "entities": [
+        "region-hovedstaden",
+        "indikator-1a"
+      ],
+      "page": 52
+    },
+    {
+      "text": "Region Hovedstaden rapporterer, at nogle af de 29 patienter, der ikke opfylder indikator 1a, er fejlkodede, ikke nydiagnosticerede eller resecteret grundet tidligere c coli [^src2]",
+      "type": "audit-finding",
+      "entities": [
+        "region-hovedstaden",
+        "indikator-1a"
+      ],
+      "page": 52
+    },
+    {
+      "text": "Abdominalcenter K, Bispebjerg Hospital rapporterer, at den korrekte tæller for indikator 6 (re-operation) er 4 patienter og den korrekte nævner er 43 patienter, hvilket giver en målopfyldelse på 9 % [^src3]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "abdominalcenter-k-bispebjerg-hospital",
+        "indikator-6"
+      ],
+      "page": 53
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-10-01",
+      "event": "DANIBD-rapporten dækker perioden fra 1. oktober 2024 til 30. september 2025, som angivet i headeren 'DANIBD 1/10 24- 30/9 25' på side 52.",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-7",
+      "title": "Appendikstabel 9: karakteristika for patienter med PSC (indikator 7)",
+      "page": 51,
+      "rowDimension": "patientgrupper",
+      "colDimension": "procent eller statistisk mål per gruppe",
+      "entities": [
+        "primaer-skleroserende-kolangitis-psc"
+      ],
+      "markdown": "| | Nydiagnosticerede patienter | Øvrige patienter med en hospitalskontakt i opgørelsesperioden |\n| --- | --- | --- |\n| Patienter i alt | 49 (100) | 347 (100) |\n| Kvinde | 16 (33) | 123 (35) |\n| Mand | 33 (67) | 224 (65) |\n| Gennemsnit, år (Min;Max) | 44 (18;84) | 47 (18;86) |\n| Median, år (Q1;Q3) | 38 (29;58) | 46 (34;58) |\n| Gennemsnit, antal (Min;Max) | 17 (2;38) | 13 (1;46) |\n| Median, antal (Q1;Q3) | 16 (9;22) | 11 (6;16) |\n| Fysisk | 327 (65) | 1.600 (64) |\n| Virtuel | 175 (35) | 911 (36) |",
+      "summary": "Tabellen sammenligner demografiske og kontaktmæssige karakteristika for to grupper af PSC-patienter (nydiagnosticerede vs. øvrige) og viser, at nydiagnosticerede patienter er yngre og har flere kontakter end øvrige patienter."
+    }
+  ],
+  "context": "Dette dokumentudsnit (sider 51–54) er en del af den årlige DANIBD-rapport for 2024–2025 og fokuserer på regionale kommentarer og datavalidering af kvalitetsindikatorer for inflammatoriske tarmsygdomme (IBD) i Danmark. Det indeholder både kvantitative data fra Appendikstabel 9 (indikator 7 om PSC-patienter) og kvalitative feedbacksrapporter fra regionale sundhedsmyndigheder og hospitaler, især Region Hovedstaden og Abdominalcenter K, Bispebjerg Hospital. Disse kommentarer dokumenterer en aktiv proces af kritisk dataanalyse, intern audit og justering af indikatorberegninger — især for indikator 4 (DEXA-scanning) og indikator 6 (re-operation) — hvilket understreger DANIBD’s rolle som et dynamisk, reflekterende kvalitetsudviklingsværktøj snarere end en passiv databaserapport. Den brede regionale deltagelse (her repræsenteret af alle fem regioner) samt den faglige koordination via Region Østdanmarks Sundhedsfaglige Råd illustrerer det strukturerede samarbejde mellem nationale, regionale og lokale aktører i dansk IBD-kvalitetsprogram."
+}

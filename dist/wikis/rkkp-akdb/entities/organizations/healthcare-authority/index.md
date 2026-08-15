@@ -4,17 +4,18 @@ type: index
 aliases:
   - Healthcare Authority
 wiki: rkkp-akdb
-updated: '2026-08-05T20:24:02.995Z'
+updated: '2026-08-15T08:32:49.808Z'
 children:
+  - index.md
   - sds.md
 ---
 # Healthcare Authority
 
-This folder catalogs national regulatory bodies that govern healthcare data standards and clinical quality reporting in Denmark. It currently holds the profile for the Danish Health Data Authority (SDS), the authoritative entity that validates and approves the specific Landspatientregisteret (LPR) codes required by clinical databases to measure patient outcomes and ensure legal data validity. By controlling these coding approvals, the organizations in this folder directly impact how clinical quality indicators, such as 30-day mortality rates, are calculated and tracked across the Danish healthcare system.
+This folder contains organizations that act as regulatory and authoritative bodies governing healthcare data and clinical quality standards in Denmark. It currently documents the Danish Health Data Authority (Sundhedsdatastyrelsen, or SDS), detailing its pivotal role in approving specific Landspatientregisteret (LPR) codes for use in clinical quality databases. By validating these codes—such as the formal approval granted to the Acute Surgery Database (AKDB) for tracking 30-day mortality—these authorities ensure the legal validity and methodological rigor of national healthcare quality indicators.
 
 ## Pages
 
-- [[sds|SDS]] — The Danish Health Data Authority, responsible for approving specific LPR codes used to track clinical quality indicators like 30-day mortality in acute surgery.
+- [[sds|SDS]] — The Danish Health Data Authority (Sundhedsdatastyrelsen), outlining its regulatory approval of specific LPR codes, such as BABZ00, to ensure data quality for clinical indicators in the Acute Surgery Database.
 
 ## Navigation
 

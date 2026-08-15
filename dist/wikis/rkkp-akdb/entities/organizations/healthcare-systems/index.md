@@ -4,17 +4,18 @@ type: index
 aliases:
   - Healthcare Systems
 wiki: rkkp-akdb
-updated: '2026-08-05T20:26:51.110Z'
+updated: '2026-08-15T08:35:22.494Z'
 children:
+  - index.md
   - sfi.md
 ---
 # Healthcare Systems
 
-This folder contains entities related to the digital infrastructure and reporting systems used within the Danish healthcare sector. It specifically covers the Sundhedsvæsenets Fælles Indberetningssystem (SFI), a critical registration system used to extract clinical data, such as nutrition indicators, for national quality databases. The pages here document both the function of these systems and the operational or coding challenges that can compromise data quality and clinical reporting.
+This folder catalogs the technical and administrative systems that support healthcare registration and reporting in Denmark. It currently documents SFI (Sundhedsvæsenets Fælles Indberetningssystem), the national infrastructure used to extract clinical data—such as nutrition metrics—for quality databases like the Akut Kirurgi Databasen, including detailed accounts of the coding deficiencies and operational limitations encountered by regional hospitals.
 
 ## Pages
 
-- [[sfi|SFI]] — A Danish healthcare registration and reporting system used to extract nutrition data for the Akut Kirurgi Databasen, noting its operational and coding challenges.
+- [[sfi|SFI]] — The national healthcare registration and reporting system used to extract data for clinical quality databases, noting specific coding and documentation challenges reported in the AKDB.
 
 ## Navigation
 

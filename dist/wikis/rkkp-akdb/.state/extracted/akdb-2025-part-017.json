@@ -1,0 +1,848 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der bruges til at beregne og rapportere 30-dages- og 90-dages-mortalitet for indikator 4y på nationalt og regionalt niveau i Danmark, som dokumenteret i supplerende opgørelser på siderne 81–84.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 82,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 83,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 84,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 85,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige organisation, der udarbejder og publicerer de supplerende opgørelser af mortalitet for indikator 4y baseret på data fra Akut Kirurgi Databasen, som fremgår af alle sidehoveder på siderne 81–85.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 82,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 83,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 84,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 85,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "indikator 4y",
+      "type": "indicator",
+      "slug": "indikator-4y",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 4y er en klinisk kvalitetsindikator, der måler 30-dages- og 90-dages-mortalitet efter akut kirurgisk indgreb, og som er genstand for de supplerende opgørelser præsenteret på siderne 81–84.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Supplerende opgørelse af 30-dages-mortalitet for indikator 4y"
+        },
+        {
+          "page": 83,
+          "context": "Supplerende opgørelse af 90-dages-mortalitet for indikator 4y"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/national",
+      "significance": "Danmark er den nationale referenceenhed, for hvilken 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 83, og som danner baggrund for regional sammenligning.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Danmark 76 / 1.396 0 (0) 5,4 (4,3-6,8) 7,3 6,4"
+        },
+        {
+          "page": 83,
+          "context": "Danmark 103 / 1.396 0 (0) 7,4 (6,1-8,9) 10,7 8,6"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er én af de fem regioner i Danmark, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres separat i tabellerne på siderne 81 og 83, og som også inkluderer underenheder som Amager og Hvidovre Hospital samt Bispebjerg og Frederiksberg Hospital.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Hovedstaden 23 / 436 0 (0) 5,3 (3,4-7,8) 8,5 4,5"
+        },
+        {
+          "page": 83,
+          "context": "Hovedstaden 31 / 436 0 (0) 7,1 (4,9-9,9) 11,9 7,2"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er én af de fem regioner i Danmark, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres separat i tabellerne på siderne 81 og 83, og som også inkluderer underenheder som Holbæk Sygehus, Næstved, Slagelse og Ringsted sygehuse samt Sjællands Universitetshospital.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Sjælland 13 / 271 0 (0) 4,8 (2,6-8,1) 6,4 7,9"
+        },
+        {
+          "page": 83,
+          "context": "Sjælland 22 / 271 0 (0) 8,1 (5,2-12,0) 8,8 8,9"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/national",
+      "significance": "Region Syddanmark er én af de fem regioner i Danmark, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres separat i tabellerne på siderne 81 og 83, og som også inkluderer underenheder som Esbjerg Sygehus Grindsted Sygehus, Odense Universitetshospital - Svendborg samt Sygehus Lillebælt og Sygehus Sønderjylland.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Syddanmark 18 / 297 0 (0) 6,1 (3,6-9,4) 6,2 6,5"
+        },
+        {
+          "page": 83,
+          "context": "Syddanmark 23 / 297 0 (0) 7,7 (5,0-11,4) 10,4 9,3"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Midtjylland er én af de fem regioner i Danmark, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres separat i tabellerne på siderne 81 og 83, og som også inkluderer underenheder som Aarhus Universitetshospital, Hospitalsenhed Midt, Regionshospitalet Gødstrup, Regionshospitalet Horsens og Regionshospitalet Randers.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Midtjylland 17 / 269 0 (0) 6,3 (3,7-9,9) 8,1 6,2"
+        },
+        {
+          "page": 83,
+          "context": "Midtjylland 22 / 269 0 (0) 8,2 (5,2-12,1) 10,7 7,9"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er én af de fem regioner i Danmark, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres separat i tabellerne på siderne 81 og 83, og som også inkluderer underenheder som Aalborg Universitetshospital og Regionshospital Nordjylland.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Nordjylland 5 / 123 0 (0) 4,1 (1,3-9,2) 5,3 12,5"
+        },
+        {
+          "page": 83,
+          "context": "Nordjylland 5 / 123 0 (0) 4,1 (1,3-9,2) 10,6 14,4"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital er et regionalt hospital i Region Hovedstaden, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 83.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Amager og\nHvidovre Hospital\n0 / 100 0 (0) 0,0 (0,0-3,6) 5,9 2,6"
+        },
+        {
+          "page": 83,
+          "context": "Amager og\nHvidovre Hospital\n5 / 100 0 (0) 5,0 (1,6-11,3) 9,8 3,8"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital er et regionalt hospital i Region Hovedstaden, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 83.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Bispebjerg og\nFrederiksberg\nHospital\n9 / 103 0 (0) 8,7 (4,1-15,9) 3,7 1,8"
+        },
+        {
+          "page": 83,
+          "context": "Bispebjerg og\nFrederiksberg\nHospital\n10 / 103 0 (0) 9,7 (4,8-17,1) 8,6 3,6"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital er et regionalt hospital i Region Sjælland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 83, herunder med usikkerhedskonfidensintervaller.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Bornholms\nHospital\n#/# 0 (0) 20,0 (0,5-71,6) 7,1 0,0"
+        },
+        {
+          "page": 83,
+          "context": "Bornholms\nHospital\n#/# 0 (0) 20,0 (0,5-71,6) 14,3 5,3"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital er et regionalt hospital i Region Hovedstaden, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 83.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Herlev og\nGentofte Hospital\n6 / 129 0 (0) 4,7 (1,7-9,8) 12,2 4,9"
+        },
+        {
+          "page": 83,
+          "context": "Herlev og\nGentofte Hospital\n7 / 129 0 (0) 5,4 (2,2-10,9) 14,3 8,0"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland er et regionalt hospitalskonsortium i Region Sjælland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 83.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Hospitalerne i\nNordsjælland\n6 / 93 0 (0) 6,5 (2,4-13,5) 9,9 8,4"
+        },
+        {
+          "page": 83,
+          "context": "Hospitalerne i\nNordsjælland\n7 / 93 0 (0) 7,5 (3,1-14,9) 13,2 12,6"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er et nationalt specialiseret hospital i Region Hovedstaden, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 83, herunder med usikkerhedskonfidensintervaller.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Rigshospitalet #/# 0 (0) 16,7 (0,4-64,1) 0,0 20,0"
+        },
+        {
+          "page": 84,
+          "context": "Rigshospitalet #/# 0 (0) 16,7 (0,4-64,1) 0,0 20,0"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus er et regionalt hospital i Region Sjælland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 84.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Holbæk Sygehus 6 / 77 0 (0) 7,8 (2,9-16,2) 5,5 12,5"
+        },
+        {
+          "page": 84,
+          "context": "Holbæk Sygehus 9 / 77 0 (0) 11,7 (5,5-21,0) 9,1 12,5"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er et regionalt hospitalskonsortium i Region Sjælland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 84.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Næstved,\nSlagelse og\nRingsted\nsygehuse\n6 / 97 0 (0) 6,2 (2,3-13,0) 8,2 6,9"
+        },
+        {
+          "page": 84,
+          "context": "Næstved,\nSlagelse og\nRingsted\nsygehuse\n11 / 97 0 (0) 11,3 (5,8-19,4) 8,2 9,7"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital er et regionalt universitetshospital i Region Sjælland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 84, herunder med usikkerhedskonfidensintervaller.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Sjællands\nUniversitetshospit\nal\n#/# 0 (0) 1,0 (0,0-5,6) 5,7 6,0"
+        },
+        {
+          "page": 84,
+          "context": "Sjællands\nUniversitetshospit\nal\n#/# 0 (0) 2,1 (0,3-7,3) 8,9 6,0"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er et regionalt hospitalskonsortium i Region Syddanmark, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 84.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Esbjerg Sygehus\nGrindsted\nSygehus\n6 / 67 0 (0) 9,0 (3,4-18,5) 9,3 5,4"
+        },
+        {
+          "page": 84,
+          "context": "Esbjerg Sygehus\nGrindsted\nSygehus\n6 / 67 0 (0) 9,0 (3,4-18,5) 10,7 7,1"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "ouh-odense-universitetshospital-odense",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg er et regionalt universitetshospital i Region Syddanmark, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 84.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Odense\nUniversitetshospit\nal - Svendborg\n8 / 146 0 (0) 5,5 (2,4-10,5) 4,2 7,2"
+        },
+        {
+          "page": 84,
+          "context": "Odense\nUniversitetshospit\nal - Svendborg\n10 / 146 0 (0) 6,8 (3,3-12,2) 11,2 10,8"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt er et regionalt hospital i Region Syddanmark, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 84, herunder med usikkerhedskonfidensintervaller.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Sygehus Lillebælt #/# 0 (0) 5,3 (0,6-17,7) 6,5 0,0"
+        },
+        {
+          "page": 84,
+          "context": "Sygehus Lillebælt 4 / 38 0 (0) 10,5 (2,9-24,8) 9,7 2,9"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland er et regionalt hospital i Region Syddanmark, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 81 og 84, herunder med usikkerhedskonfidensintervaller.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Sygehus\nSønderjylland\n#/# 0 (0) 4,3 (0,5-14,8) 7,5 11,6"
+        },
+        {
+          "page": 84,
+          "context": "Sygehus\nSønderjylland\n3 / 46 0 (0) 6,5 (1,4-17,9) 7,5 14,0"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er et regionalt universitetshospital i Region Midtjylland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 82 og 84.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Aarhus\nUniversitetshospit\nal\n4 / 58 0 (0) 6,9 (1,9-16,7) 8,0 3,3"
+        },
+        {
+          "page": 84,
+          "context": "Aarhus\nUniversitetshospit\nal\n6 / 58 0 (0) 10,3 (3,9-21,2) 10,0 5,0"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt er en regionalt administreret hospitalsenhed i Region Midtjylland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 82 og 84.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Hospitalsenhed\nMidt\n3 / 64 0 (0) 4,7 (1,0-13,1) 10,0 3,8"
+        },
+        {
+          "page": 84,
+          "context": "Hospitalsenhed\nMidt\n5 / 64 0 (0) 7,8 (2,6-17,3) 10,0 3,8"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er et regionalt hospital i Region Midtjylland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 82 og 84.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Regionshospitalet\nGødstrup\n5 / 53 0 (0) 9,4 (3,1-20,7) 8,3 3,5"
+        },
+        {
+          "page": 84,
+          "context": "Regionshospitalet\nGødstrup\n6 / 53 0 (0) 11,3 (4,3-23,0) 13,3 7,0"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens er et regionalt hospital i Region Midtjylland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 82 og 84, herunder med usikkerhedskonfidensintervaller.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Regionshospitalet\nHorsens\n#/# 0 (0) 3,8 (0,5-13,2) 10,3 10,5"
+        },
+        {
+          "page": 84,
+          "context": "Regionshospitalet\nHorsens\n#/# 0 (0) 3,8 (0,5-13,2) 15,5 15,8"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er et regionalt hospital i Region Midtjylland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 82 og 84.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Regionshospitalet\nRanders\n3 / 42 0 (0) 7,1 (1,5-19,5) 3,3 12,3"
+        },
+        {
+          "page": 84,
+          "context": "Regionshospitalet\nRanders\n3 / 42 0 (0) 7,1 (1,5-19,5) 5,0 12,3"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital er et regionalt universitetshospital i Region Nordjylland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 82 og 84.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Aalborg\nUniversitetshospit\nal\n4 / 71 0 (0) 5,6 (1,6-13,8) 5,1 9,5"
+        },
+        {
+          "page": 84,
+          "context": "Aalborg\nUniversitetshospit\nal\n4 / 71 0 (0) 5,6 (1,6-13,8) 10,3 9,5"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland er et regionalt hospital i Region Nordjylland, hvis 30-dages- og 90-dages-mortalitetsdata for indikator 4y præsenteres i tabellerne på siderne 82 og 84, herunder med usikkerhedskonfidensintervaller.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "Regionshospital\nNordjylland\n#/# 0 (0) 1,9 (0,0-10,3) 5,5 17,1"
+        },
+        {
+          "page": 84,
+          "context": "Regionshospital\nNordjylland\n#/# 0 (0) 1,9 (0,0-10,3) 10,9 22,0"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "used-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut udarbejder supplerende opgørelser baseret på Akut Kirurgi Databasen",
+      "page": 81
+    },
+    {
+      "subject": "indikator-4y",
+      "predicate": "measures",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Supplerende opgørelse af 30-dages-mortalitet for indikator 4y",
+      "page": 81
+    },
+    {
+      "subject": "indikator-4y",
+      "predicate": "measures",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Supplerende opgørelse af 90-dages-mortalitet for indikator 4y",
+      "page": 83
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-hovedstaden",
+      "evidence": "Danmark og Hovedstaden listes som separate rækker i samme tabel",
+      "page": 81
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-sjaelland",
+      "evidence": "Danmark og Sjælland listes som separate rækker i samme tabel",
+      "page": 81
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-syddanmark",
+      "evidence": "Danmark og Syddanmark listes som separate rækker i samme tabel",
+      "page": 81
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-midtjylland",
+      "evidence": "Danmark og Midtjylland listes som separate rækker i samme tabel",
+      "page": 81
+    },
+    {
+      "subject": "danmark",
+      "predicate": "contains",
+      "object": "region-nordjylland",
+      "evidence": "Danmark og Nordjylland listes som separate rækker i samme tabel",
+      "page": 81
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "amager-og-hvidovre-hospital",
+      "evidence": "Amager og Hvidovre Hospital er placeret under Hovedstaden i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "bispebjerg-og-frederiksberg-hospitaler",
+      "evidence": "Bispebjerg og Frederiksberg Hospital er placeret under Hovedstaden i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "herlev-og-gentofte-hospital",
+      "evidence": "Herlev og Gentofte Hospital er placeret under Hovedstaden i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "rigshospitalet",
+      "evidence": "Rigshospitalet er placeret under Hovedstaden i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "contains",
+      "object": "holbaek-sygehus",
+      "evidence": "Holbæk Sygehus er placeret under Sjælland i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "contains",
+      "object": "naestved-slagese-og-ringsted-sygehuse",
+      "evidence": "Næstved, Slagelse og Ringsted sygehuse er placeret under Sjælland i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "contains",
+      "object": "sjaellands-universitetshospital",
+      "evidence": "Sjællands Universitetshospital er placeret under Sjælland i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contains",
+      "object": "esbjerg-sygehus-grindsted-sygehus",
+      "evidence": "Esbjerg Sygehus Grindsted Sygehus er placeret under Syddanmark i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contains",
+      "object": "ouh-odense-universitetshospital-odense",
+      "evidence": "Odense Universitetshospital - Svendborg er placeret under Syddanmark i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contains",
+      "object": "sygehus-lillebaelt",
+      "evidence": "Sygehus Lillebælt er placeret under Syddanmark i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "contains",
+      "object": "sygehus-soenderjylland",
+      "evidence": "Sygehus Sønderjylland er placeret under Syddanmark i tabellen",
+      "page": 81
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "aarhus-universitetshospital",
+      "evidence": "Aarhus Universitetshospital er placeret under Midtjylland i tabellen",
+      "page": 82
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "hospitalsenhed-midt",
+      "evidence": "Hospitalsenhed Midt er placeret under Midtjylland i tabellen",
+      "page": 82
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "regionshospitalet-goedstrup",
+      "evidence": "Regionshospitalet Gødstrup er placeret under Midtjylland i tabellen",
+      "page": 82
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "regionshospitalet-horsens",
+      "evidence": "Regionshospitalet Horsens er placeret under Midtjylland i tabellen",
+      "page": 82
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "contains",
+      "object": "regionshospitalet-randers",
+      "evidence": "Regionshospitalet Randers er placeret under Midtjylland i tabellen",
+      "page": 82
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "contains",
+      "object": "aalborg-universitetshospital",
+      "evidence": "Aalborg Universitetshospital er placeret under Nordjylland i tabellen",
+      "page": 82
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "contains",
+      "object": "regionshospital-nordjylland",
+      "evidence": "Regionshospital Nordjylland er placeret under Nordjylland i tabellen",
+      "page": 82
+    }
+  ],
+  "claims": [
+    {
+      "text": "Supplerende opgørelse af 30-dages-mortalitet for indikator 4y [^src1]",
+      "type": "clinical-quality",
+      "entities": [
+        "indikator-4y",
+        "akut-kirurgi-databasen"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Supplerende opgørelse af 90-dages-mortalitet for indikator 4y [^src1]",
+      "type": "clinical-quality",
+      "entities": [
+        "indikator-4y",
+        "akut-kirurgi-databasen"
+      ],
+      "page": 83
+    },
+    {
+      "text": "Udviklingsmål: 0 (0) for alle regioner og hospitaler i både 30-dages- og 90-dages-mortalitetstabellerne [^src1]",
+      "type": "performance-target",
+      "entities": [
+        "indikator-4y",
+        "sundhedsvaesenets-kvalitetsinstitut"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Danmark: 76 / 1.396 (5,4 %; 95 % CI: 4,3–6,8 %) for 30-dages-mortalitet i 2023/24 [^src1]",
+      "type": "mortality-statistic",
+      "entities": [
+        "danmark",
+        "indikator-4y"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Danmark: 103 / 1.396 (7,4 %; 95 % CI: 6,1–8,9 %) for 90-dages-mortalitet i 2023/24 [^src1]",
+      "type": "mortality-statistic",
+      "entities": [
+        "danmark",
+        "indikator-4y"
+      ],
+      "page": 83
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2023/24",
+      "event": "Mortalitetsdata for indikator 4y rapporteret for perioden 2023/24 i supplerende opgørelser",
+      "entities": [
+        "indikator-4y",
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Mortalitetsdata for indikator 4y rapporteret for perioden 2022/23 i supplerende opgørelser",
+      "entities": [
+        "indikator-4y",
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "01.09.2024 - 31.08.2025",
+      "event": "Aktuel årspériode for supplerende opgørelser af 30-dages- og 90-dages-mortalitet for indikator 4y",
+      "entities": [
+        "indikator-4y",
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-4y",
+      "title": "Supplerende opgørelse af 30-dages-mortalitet for indikator 4y",
+      "page": 81,
+      "rowDimension": "regioner-og-hospitaler",
+      "colDimension": "mortalitet-andel-per-år",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland"
+      ],
+      "markdown": "| Uoplyst Aktuelle år Tidligere år | Udviklingsmål | Tæller/ antal | 01.09.2024 - 31.08.2025 | 2023/24 | 2022/23 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 76 / 1.396 | 0 (0) | 5,4 (4,3-6,8) | 7,3 | 6,4 |\n| Hovedstaden | 23 / 436 | 0 (0) | 5,3 (3,4-7,8) | 8,5 | 4,5 |\n| Sjælland | 13 / 271 | 0 (0) | 4,8 (2,6-8,1) | 6,4 | 7,9 |\n| Syddanmark | 18 / 297 | 0 (0) | 6,1 (3,6-9,4) | 6,2 | 6,5 |\n| Midtjylland | 17 / 269 | 0 (0) | 6,3 (3,7-9,9) | 8,1 | 6,2 |\n| Nordjylland | 5 / 123 | 0 (0) | 4,1 (1,3-9,2) | 5,3 | 12,5 |\n| Amager og Hvidovre Hospital | 0 / 100 | 0 (0) | 0,0 (0,0-3,6) | 5,9 | 2,6 |\n| Bispebjerg og Frederiksberg Hospital | 9 / 103 | 0 (0) | 8,7 (4,1-15,9) | 3,7 | 1,8 |\n| Bornholms Hospital | #/# | 0 (0) | 20,0 (0,5-71,6) | 7,1 | 0,0 |\n| Herlev og Gentofte Hospital | 6 / 129 | 0 (0) | 4,7 (1,7-9,8) | 12,2 | 4,9 |\n| Hospitalerne i Nordsjælland | 6 / 93 | 0 (0) | 6,5 (2,4-13,5) | 9,9 | 8,4 |\n| Rigshospitalet | #/# | 0 (0) | 16,7 (0,4-64,1) | 0,0 | 20,0 |\n| Sjælland | 13 / 271 | 0 (0) | 4,8 (2,6-8,1) | 6,4 | 7,9 |\n| Holbæk Sygehus | 6 / 77 | 0 (0) | 7,8 (2,9-16,2) | 5,5 | 12,5 |\n| Næstved, Slagelse og Ringsted sygehuse | 6 / 97 | 0 (0) | 6,2 (2,3-13,0) | 8,2 | 6,9 |\n| Sjællands Universitetshospital | #/# | 0 (0) | 1,0 (0,0-5,6) | 5,7 | 6,0 |\n| Syddanmark | 18 / 297 | 0 (0) | 6,1 (3,6-9,4) | 6,2 | 6,5 |\n| Esbjerg Sygehus Grindsted Sygehus | 6 / 67 | 0 (0) | 9,0 (3,4-18,5) | 9,3 | 5,4 |\n| Odense Universitetshospital - Svendborg | 8 / 146 | 0 (0) | 5,5 (2,4-10,5) | 4,2 | 7,2 |\n| Sygehus Lillebælt | #/# | 0 (0) | 5,3 (0,6-17,7) | 6,5 | 0,0 |\n| Sygehus Sønderjylland | #/# | 0 (0) | 4,3 (0,5-14,8) | 7,5 | 11,6 |\n| Midtjylland | 17 / 269 | 0 (0) | 6,3 (3,7-9,9) | 8,1 | 6,2 |",
+      "summary": "Tabellen sammenligner 30-dages-mortalitet for indikator 4y på nationalt, regionalt og hospitalsniveau for perioden 2023/24, hvor Danmark viser en andel på 5,4 % (95 % CI: 4,3–6,8 %), mens variationen mellem regioner strækker sig fra 4,1 % (Nordjylland) til 8,5 % (Hovedstaden)."
+    },
+    {
+      "subject": "indikator-4y",
+      "title": "Supplerende opgørelse af 90-dages-mortalitet for indikator 4y",
+      "page": 83,
+      "rowDimension": "regioner-og-hospitaler",
+      "colDimension": "mortalitet-andel-per-år",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Uoplyst Aktuelle år Tidligere år | Udviklingsmål | Tæller/ antal | 01.09.2024 - 31.08.2025 | 2023/24 | 2022/23 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 103 / 1.396 | 0 (0) | 7,4 (6,1-8,9) | 10,7 | 8,6 |\n| Hovedstaden | 31 / 436 | 0 (0) | 7,1 (4,9-9,9) | 11,9 | 7,2 |\n| Sjælland | 22 / 271 | 0 (0) | 8,1 (5,2-12,0) | 8,8 | 8,9 |\n| Syddanmark | 23 / 297 | 0 (0) | 7,7 (5,0-11,4) | 10,4 | 9,3 |\n| Midtjylland | 22 / 269 | 0 (0) | 8,2 (5,2-12,1) | 10,7 | 7,9 |\n| Nordjylland | 5 / 123 | 0 (0) | 4,1 (1,3-9,2) | 10,6 | 14,4 |\n| Hovedstaden | 31 / 436 | 0 (0) | 7,1 (4,9-9,9) | 11,9 | 7,2 |\n| Amager og Hvidovre Hospital | 5 / 100 | 0 (0) | 5,0 (1,6-11,3) | 9,8 | 3,8 |\n| Bispebjerg og Frederiksberg Hospital | 10 / 103 | 0 (0) | 9,7 (4,8-17,1) | 8,6 | 3,6 |\n| Bornholms Hospital | #/# | 0 (0) | 20,0 (0,5-71,6) | 14,3 | 5,3 |\n| Herlev og Gentofte Hospital | 7 / 129 | 0 (0) | 5,4 (2,2-10,9) | 14,3 | 8,0 |\n| Hospitalerne i Nordsjælland | 7 / 93 | 0 (0) | 7,5 (3,1-14,9) | 13,2 | 12,6 |\n| Rigshospitalet | #/# | 0 (0) | 16,7 (0,4-64,1) | 0,0 | 20,0 |\n| Sjælland | 22 / 271 | 0 (0) | 8,1 (5,2-12,0) | 8,8 | 8,9 |\n| Holbæk Sygehus | 9 / 77 | 0 (0) | 11,7 (5,5-21,0) | 9,1 | 12,5 |\n| Næstved, Slagelse og Ringsted sygehuse | 11 / 97 | 0 (0) | 11,3 (5,8-19,4) | 8,2 | 9,7 |\n| Sjællands Universitetshospital | #/# | 0 (0) | 2,1 (0,3-7,3) | 8,9 | 6,0 |\n| Syddanmark | 23 / 297 | 0 (0) | 7,7 (5,0-11,4) | 10,4 | 9,3 |\n| Esbjerg Sygehus Grindsted Sygehus | 6 / 67 | 0 (0) | 9,0 (3,4-18,5) | 10,7 | 7,1 |\n| Odense Universitetshospital - Svendborg | 10 / 146 | 0 (0) | 6,8 (3,3-12,2) | 11,2 | 10,8 |\n| Sygehus Lillebælt | 4 / 38 | 0 (0) | 10,5 (2,9-24,8) | 9,7 | 2,9 |\n| Sygehus Sønderjylland | 3 / 46 | 0 (0) | 6,5 (1,4-17,9) | 7,5 | 14,0 |\n| Midtjylland | 22 / 269 | 0 (0) | 8,2 (5,2-12,1) | 10,7 | 7,9 |\n| Aarhus Universitetshospital | 6 / 58 | 0 (0) | 10,3 (3,9-21,2) | 10,0 | 5,0 |\n| Hospitalsenhed Midt | 5 / 64 | 0 (0) | 7,8 (2,6-17,3) | 10,0 | 3,8 |\n| Regionshospitalet Gødstrup | 6 / 53 | 0 (0) | 11,3 (4,3-23,0) | 13,3 | 7,0 |\n| Regionshospitalet Horsens | #/# | 0 (0) | 3,8 (0,5-13,2) | 15,5 | 15,8 |\n| Regionshospitalet Randers | 3 / 42 | 0 (0) | 7,1 (1,5-19,5) | 5,0 | 12,3 |\n| Nordjylland | 5 / 123 | 0 (0) | 4,1 (1,3-9,2) | 10,6 | 14,4 |\n| Aalborg Universitetshospital | 4 / 71 | 0 (0) | 5,6 (1,6-13,8) | 10,3 | 9,5 |\n| Regionshospital Nordjylland | #/# | 0 (0) | 1,9 (0,0-10,3) | 10,9 | 22,0 |",
+      "summary": "Tabellen sammenligner 90-dages-mortalitet for indikator 4y på nationalt, regionalt og hospitalsniveau for perioden 2023/24, hvor Danmark viser en andel på 7,4 % (95 % CI: 6,1–8,9 %), mens variationen mellem regioner strækker sig fra 4,1 % (Nordjylland) til 11,9 % (Hovedstaden), og hos enkelte hospitaler når konfidensintervallet over 60 %."
+    }
+  ],
+  "context": "Dette afsnit fra AKDB_2025.pdf (siderne 81–85) udgør en teknisk supplerende analyse af kvalitetsindikator 4y — 30-dages- og 90-dages-mortalitet efter akut kirurgisk behandling — udarbejdet af Sundhedsvæsenets Kvalitetsinstitut på baggrund af data fra Akut Kirurgi Databasen. Den indgår i en bredere evaluering af akut kirurgisk kvalitet i det danske sundhedsvæsen, hvor indikatoren anvendes til national benchmarking, regional overvågning og hospitalsintern kvalitetsudvikling. Tabellerne dokumenterer både aktuelle resultater for perioden 01.09.2024–31.08.2025 og historiske sammenligningsværdier for 2023/24 og 2022/23, hvilket understøtter trendanalyse og udviklingsmålsstyring inden for akut kirurgi."
+}

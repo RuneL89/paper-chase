@@ -4,17 +4,18 @@ type: index
 aliases:
   - Codes
 wiki: rkkp-adhd
-updated: '2026-08-05T19:00:42.920Z'
+updated: '2026-08-15T12:28:36.384Z'
 children:
   - agx01b.md
+  - index.md
 ---
 # Codes
 
-This folder catalogs specific administrative and clinical codes used to track patient pathways and database inclusions within the Danish healthcare system's ADHD monitoring. It currently documents the AGX01B process marker, which officially designates the end of an ADHD assessment when the initial diagnostic suspicion is disproven. The pages here detail the strict reporting deadlines for this code and its critical role in determining whether a patient is included in the national ADHD database's assessment population.
+This folder contains standardized classification codes and process markers used within the Danish ADHD healthcare registry. It currently documents the specific marker used to exclude patients from the diagnostic assessment population when an ADHD suspicion is disproven, capturing its strict reporting deadlines and significant regional usage variations.
 
 ## Pages
 
-- [[agx01b|AGX01B]] — The process marker indicating an ADHD assessment concluded with the suspicion disproven, which excludes the patient from the national database's assessment population if reported within 90 days.
+- [[agx01b|AGX01B]] — The process marker for "ADHD diagnostic assessment concluded, suspicion disproven," including its 90-day reporting deadline and regional usage disparities.
 
 ## Navigation
 

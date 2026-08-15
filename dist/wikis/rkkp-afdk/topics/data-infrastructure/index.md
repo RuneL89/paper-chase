@@ -4,17 +4,18 @@ type: index
 aliases:
   - Data Infrastructure
 wiki: rkkp-afdk
-updated: '2026-08-05T23:25:20.670Z'
+updated: '2026-08-15T00:23:04.791Z'
 children:
   - data-infrastructure.md
+  - index.md
 ---
 # Data Infrastructure
 
-This folder documents the technical and organizational systems that collect, store, and manage clinical data for Danish healthcare registries. It specifically covers the ongoing efforts to integrate primary care records into the national clinical quality registries, highlighting the Database for Atrial Fibrillation in Denmark's transition to ingest data directly from general practitioners. These infrastructure updates aim to bridge the gap between hospital-based treatments and general practice follow-ups to ensure comprehensive monitoring of patient pathways.
+This folder covers the technical and organizational systems used to collect, integrate, and manage healthcare data for clinical quality registries in Denmark. It specifically documents the ongoing efforts to expand data pipelines—such as those for the Database for Atrial Fibrillation in Denmark—to ingest records directly from general practitioners, bridging the gap between hospital-based treatments and primary care follow-ups.
 
 ## Pages
 
-- [[data-infrastructure|Data Infrastructure]] — Details the ongoing expansion of Denmark's clinical quality registry data pipelines to integrate primary care records, specifically highlighting the AFDK registry's test-phase ingestion of general practice data.
+- [[data-infrastructure|Data Infrastructure]] — Details the expansion of Denmark's clinical quality registry data pipelines to integrate primary care records, specifically highlighting the testing phase for ingesting general practice data into the atrial fibrillation registry.
 
 ## Navigation
 
@@ -27,12 +28,17 @@ This folder documents the technical and organizational systems that collect, sto
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder documents the technical and organizational systems that collect, sto
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

@@ -3,30 +3,39 @@ title: NPU04200
 type: entity
 aliases:
   - NPU04200
-sparse: true
 wiki: rkkp-afdk
-updated: '2026-08-05T21:22:43.025Z'
+updated: '2026-08-14T21:19:45.496Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: 101-105
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: 91-95
 tags:
   - code
 ---
-NPU04200 is a specific laboratory code used within the Danish healthcare system to measure thyrotropin, commonly known as [[thyreoideastimulerende-hormon-tsh|thyreoideastimulerende hormon (TSH)]] [^src1]. It is formally recognized in the clinical quality indicators for atrial fibrillation (*Atrieflimren i Danmark*) published by the Danish Regions' Clinical Quality Development Programme (RKKP) [^src1]. 
 
-Specifically, NPU04200 is one of the designated laboratory codes that qualifies as a completed TSH measurement for clinical quality indicator 3 [^src1]. This indicator tracks whether patients receive appropriate diagnostic testing, and the code is listed alongside several other valid identifiers (such as NPU27547 and NPU04199) in the technical guidelines for calculating quality metrics in health registries [^src1]. The documentation serves as a technical guide for registering and calculating these quality measures, ensuring evidence-based clinical standards are met in the diagnosis and treatment of atrial fibrillation [^src1].
+NPU04200 is a specific laboratory test code used within the Danish healthcare system to identify measurements of [[thyreoideastimulerende-hormon-tsh|thyreoideastimulerende hormon (TSH)]] [^src1] [^src2]. It serves as a critical data point in the national clinical quality database for atrial fibrillation ("Atrieflimren i Danmark"), a program overseen by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) to monitor and improve diagnostic and treatment standards across the country [^src1] [^src2]. 
+
+Within the technical guidelines for registry analysis, NPU04200 is listed among a specific set of valid laboratory codes that count as a performed TSH measurement for clinical quality indicator 3 [^src1] [^src2]. This indicator tracks whether patients diagnosed with atrial fibrillation receive necessary thyroid function testing, which is an essential step in comprehensive cardiovascular risk assessment and management [^src1] [^src2]. The code is utilized alongside other identifiers (such as NPU27547 and NPU04199) to ensure that health data infrastructure accurately captures these diagnostic procedures, accommodating variations across different hospital systems and laboratory information systems in the Danish regions [^src1] [^src2].
 
 ## Mentions
-- Page 105: "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105)
+- Page 105: "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647" [^src1]
+- Page 92: "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647, AS000646, ASS00650, EPC00002, RSD03382" [^src2]
 
 ## Relationships
-Incoming (this entity is the OBJECT of these relationships):
-- Subject: thyreoideastimulerende-hormon-tsh
-  Predicate: coded-as
-  Object: (this entity)
-  Evidence: "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
-  Page: 105
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105
+- **Subject:** np04200-p-thyrotropin
+  **Predicate:** is-laboratory-test-code-for
+  **Object:** thyreoideastimulerende-hormon-tsh
+  **Evidence:** "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647, AS000646, ASS00650, EPC00002, RSD03382"
+  **Page:** 92
+  **Source:** wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95 [^src2]
+
+- **Subject:** thyreoideastimulerende-hormon-tsh
+  **Predicate:** coded-as
+  **Object:** (this entity)
+  **Evidence:** "NPU27547, NPU04199, NPU04200, NPU03624, NPU 03578, DNK35895, ASS00039, ASS00136, ASS00647"
+  **Page:** 105
+  **Source:** wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105 [^src1]
 
 ## Claims
 (none)
@@ -37,3 +46,4 @@ Incoming (this entity is the OBJECT of these relationships):
 ## Sources
 
 [^src1]: AFDK_2024.pdf, pages 101-105
+[^src2]: AFDK_2025.pdf, pages 91-95

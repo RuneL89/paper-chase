@@ -4,19 +4,20 @@ type: index
 aliases:
   - Standards
 wiki: rkkp-afdk
-updated: '2026-08-05T23:14:14.253Z'
+updated: '2026-08-15T00:06:07.145Z'
 children:
   - medical-coding/index.md
   - medical-guidelines/index.md
+  - index.md
 ---
 # Standards
 
-This folder groups the formal frameworks and reference systems that govern clinical practice and quality measurement within the Danish healthcare system, specifically for atrial fibrillation care. It covers the national classification codes used to register patient activities in health databases, as well as the international professional guidelines that establish the evidence-based foundation for clinical management and the development of national quality indicators.
+This area groups the authoritative standards and classification systems that shape clinical practice and quality measurement within the Danish healthcare system, particularly for atrial fibrillation care. It encompasses the medical coding frameworks used to register clinical activities and track quality indicators, alongside the international and regional clinical guidelines that establish benchmarks for acute treatment, diagnosis, and structured patient education. Together, these sub-folders bridge formal classification requirements with evidence-based clinical mandates to ensure measurable, patient-centered care.
 
 ## Pages
 
-- [[entities/standards/medical-coding/index|Medical Coding]] — The national classification systems, such as SKS codes, used to track specific clinical and educational activities in the Danish National Patient Register.
-- [[entities/standards/medical-guidelines/index|Medical Guidelines]] — International professional references, notably the European Society of Cardiology guidelines, that form the evidence-based foundation for treating atrial fibrillation and defining quality standards.
+- [[entities/standards/medical-coding/index|Medical Coding]] — The classification systems, such as SKS-koder, used to register clinical activities and define quality indicators for atrial fibrillation care.
+- [[entities/standards/medical-guidelines/index|Medical Guidelines]] — Authoritative clinical references, including ESC guidelines and RADS, that set international and regional benchmarks for diagnosing, treating, and educating atrial fibrillation patients.
 
 ## Navigation
 

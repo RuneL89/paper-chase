@@ -4,8 +4,9 @@ type: index
 aliases:
   - Regional Health Authorities
 wiki: rkkp-akdb
-updated: '2026-08-05T20:29:56.535Z'
+updated: '2026-08-15T08:38:33.940Z'
 children:
+  - index.md
   - region-hovedstaden.md
   - region-midtjylland.md
   - region-nordjylland.md
@@ -14,15 +15,15 @@ children:
 ---
 # Regional Health Authorities
 
-This folder contains the five regional health authorities of Denmark, which serve as both the administrative bodies responsible for healthcare delivery and the geographical containers for acute surgical data in the Akut Kirurgi Databasen. Each composite page maps the organizational reporting unit to its corresponding statistical region, detailing the hospitals within its borders, its performance across national clinical quality indicators, and its 30-day mortality and demographic outcomes. Together, these pages provide a comprehensive view of regional disparities and systemic improvements in Danish acute surgical care.
+This folder groups the five Danish regional health authorities responsible for organizing and reporting acute surgical care data to the national clinical quality databases. Each composite page covers both the administrative organization and its corresponding geographic region, detailing the specific hospitals they operate, their performance across a wide range of clinical quality indicators, and their 30-day mortality rates. Together, these pages form the foundation for analyzing regional variations in healthcare delivery, such as differences in timely antibiotic administration, CT scanning workflows, and early post-operative mobilization across Denmark.
 
 ## Pages
 
-- [[region-hovedstaden|Region Hovedstaden — Hovedstaden]] — The Capital Region, detailing its hospital networks like Rigshospitalet, high compliance in nutrition indicators, and localized variances in acute surgery outcomes.
-- [[region-midtjylland|Region Midtjylland — Midtjylland]] — The Central Denmark Region, highlighting its top national performance in timely antibiotic administration and lowest 30-day mortality, alongside specific data quality challenges.
-- [[region-nordjylland|Region Nordjylland — Nordjylland]] — The North Denmark Region, covering its acute surgical outcomes, lowest national proportion for indicator 5y, and highest 30-day mortality in the 2023 report.
-- [[region-sjaelland|Region Sjælland — Sjælland]] — Region Zealand, detailing its hospital network including Sjællands Universitetshospital, its low rate of missing patient information, and cross-regional patient flows.
-- [[region-syddanmark|Region Syddanmark — Syddanmark]] — The Region of Southern Denmark, noting its lowest national compliance for timely antibiotic administration and distinct performance across intermediate admission and nutrition indicators.
+- [[region-hovedstaden|Region Hovedstaden — Hovedstaden]] — The Capital Region, detailing its contained hospitals like Rigshospitalet and its performance on indicators such as 30-day mortality and timely surgery for perforation or ischemia.
+- [[region-midtjylland|Region Midtjylland — Midtjylland]] — The Central Denmark Region, which frequently reports the highest regional fulfillment rates for indicators like timely antibiotic administration and contains facilities like Aarhus Universitetshospital.
+- [[region-nordjylland|Region Nordjylland — Nordjylland]] — The North Denmark Region, highlighting specific workflow challenges with CT scanning for acute abdomen patients and containing Aalborg Universitetshospital.
+- [[region-sjaelland|Region Sjælland — Sjælland]] — Region Zealand, detailing its performance on early mobilization and containing hospitals such as Sjællands Universitetshospital and Næstved, Slagelse og Ringsted sygehuse.
+- [[region-syddanmark|Region Syddanmark — Syddanmark]] — The Region of Southern Denmark, capturing its data on intermediate admissions and containing facilities like Odense Universitetshospital and Sygehus Lillebælt.
 
 ## Navigation
 

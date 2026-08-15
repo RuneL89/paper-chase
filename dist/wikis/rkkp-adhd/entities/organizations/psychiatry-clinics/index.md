@@ -4,7 +4,7 @@ type: index
 aliases:
   - Psychiatry Clinics
 wiki: rkkp-adhd
-updated: '2026-08-05T19:08:04.001Z'
+updated: '2026-08-15T12:34:36.474Z'
 children:
   - bispebjerg-bup-ambulatorium.md
   - boerne-unge-psyk-afd-40.md
@@ -12,6 +12,7 @@ children:
   - bua-smaborn-klinik.md
   - esbjerg-bup-ambulatorium.md
   - glostrup-bup-ambulatorium.md
+  - index.md
   - pho-klinik-1-for-psykiatriske-lidelser-horsens.md
   - pmi-klinik-for-depression-og-mani-midt.md
   - ps-almenpsykiatrisk-syd-ambulatorier.md
@@ -21,22 +22,22 @@ children:
 ---
 # Psychiatry Clinics
 
-This folder catalogs specialized psychiatric outpatient clinics and departments across Denmark's regions that are evaluated in the national ADHD database's annual quality reports. The pages detail each facility's performance against specific clinical quality indicators—such as early childhood environmental observations, psychoeducation rates, and pharmacological treatment compliance—highlighting significant regional variations, resource constraints, and outlier successes in Danish ADHD care.
+This folder catalogs specialized psychiatric outpatient clinics and departments across Denmark's regions that are evaluated in the national ADHD database reports. The entities range from child and adolescent psychiatric units (BUP) dealing with early diagnostic observations and medication rates, to adult psychiatry clinics assessed on psychoeducation, social support assessments, and pharmacological treatment indicators. Together, these pages document the wide regional variations, systemic capacity challenges, and outlier performances in Danish ADHD care, directly mapping to the national quality indicators.
 
 ## Pages
 
-- [[bispebjerg-bup-ambulatorium|"Bispebjerg: Psykiatrisk ambulatorium, børn og unge"]] — Capital Region child psychiatry department showing above-average but still sub-standard compliance for early childhood diagnostic observations.
-- [[boerne-unge-psyk-afd-40|Børne-Unge Psyk. Afd. 40]] — Region Sjælland department serving as the central data provider for the region's early childhood ADHD assessment metrics.
-- [[bornholm-bup-ambulatorium|"Bornholm: Psykiatrisk ambulatorium, børn og unge"]] — Capital Region clinic exhibiting severe implementation gaps in early diagnostics alongside the highest recorded reliance on pharmacological interventions.
-- [[bua-smaborn-klinik|BUA Psykiatrisk Klinik for Småbørn]] — Region Midtjylland specialized toddler psychiatry clinic demonstrating strong compliance with national diagnostic and psychoeducation standards.
-- [[esbjerg-bup-ambulatorium|"Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium"]] — Region Syddanmark department reflecting regional capacity constraints and staff shortages in its early childhood observation fulfillment rates.
-- [[glostrup-bup-ambulatorium|"Glostrup: Psykiatrisk ambulatorium, børn og unge"]] — Capital Region outpatient department maintaining stable clinical observation practices and moderate pharmacological treatment rates.
-- [[pho-klinik-1-for-psykiatriske-lidelser-horsens|PHO Klinik 1 for Psykiatriske Lidelser – Horsens]] — Adult psychiatry clinic recognized as a national outlier for exceptional compliance with early psychoeducation and social support assessment indicators.
-- [[pmi-klinik-for-depression-og-mani-midt|PMI Klinik for depression og mani – Midt]] — Region Midtjylland clinic achieving elite national compliance rates for adult ADHD psychoeducation delivery.
-- [[ps-almenpsykiatrisk-syd-ambulatorier|"PS Almenpsykiatrisk, Syd Ambulatorier"]] — Region Nordjylland outpatient clinic recording a perfect, fully-documented compliance rate for adult pharmacological treatment quality metrics.
-- [[psy-lokalpsykiatri-toender|PSY Lokalpsykiatri (Tønder)]] — Adult psychiatry facility standing out as a high-performance outlier in national psychoeducation delivery for ADHD patients.
-- [[rpg-psykiatrisk-klinik-1-godstrup|RPG Psykiatrisk Klinik 1 – Gødstrup]] — Region Midtjylland organization contributing significantly to the region's high nationwide ranking for adult pharmacological treatment quality.
-- [[vejle-bup-ambulatorium|"Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium"]] — Region Syddanmark department excelling in early childhood observational assessments while struggling significantly with multidisciplinary diagnostic conferences.
+- [[bispebjerg-bup-ambulatorium|"Bispebjerg: Psykiatrisk ambulatorium, børn og unge"]] — Capital Region child and adolescent clinic showing above-average but non-compliant early diagnostic observation rates and a 61% medication rate.
+- [[boerne-unge-psyk-afd-40|Børne-Unge Psyk. Afd. 40]] — Region Sjælland department representing the region's aggregate data, with a low 23% compliance rate for early childhood environmental observations.
+- [[bornholm-bup-ambulatorium|"Bornholm: Psykiatrisk ambulatorium, børn og unge"]] — Capital Region clinic highlighting severe diagnostic gaps with 0% compliance on early observations, contrasted by the highest reported medication rate at 86%.
+- [[bua-smaborn-klinik|BUA Psykiatrisk Klinik for Småbørn]] — Aarhus-based toddler psychiatry unit acting as the primary data provider for Region Midtjylland, demonstrating strong target fulfillment for early diagnostics.
+- [[esbjerg-bup-ambulatorium|"Esbjerg: Børne- og Ungdomspsykiatrisk Ambulatorium"]] — Region Syddanmark outpatient clinic reflecting regional capacity constraints with a 78% fulfillment rate for early diagnostic observations.
+- [[glostrup-bup-ambulatorium|"Glostrup: Psykiatrisk ambulatorium, børn og unge"]] — Capital Region department tracking a 60% early observation compliance rate and a 68% pharmacological treatment rate.
+- [[pho-klinik-1-for-psykiatriske-lidelser-horsens|PHO Klinik 1 for Psykiatriske Lidelser – Horsens]] — Adult psychiatry clinic standing out as a national outlier for exceptional compliance in psychoeducation, social support assessments, and medication indicators.
+- [[pmi-klinik-for-depression-og-mani-midt|PMI Klinik for depression og mani – Midt]] — Mid-Jutland adult clinic recognized as one of only three departments nationwide to reach the 80% threshold for early psychoeducation.
+- [[ps-almenpsykiatrisk-syd-ambulatorier|"PS Almenpsykiatrisk, Syd Ambulatorier"]] — North Jutland outpatient clinic achieving a robust 100% compliance rate for adult pharmacological treatment quality metrics.
+- [[psy-lokalpsykiatri-toender|PSY Lokalpsykiatri (Tønder)]] — Adult psychiatry unit achieving an 83% outlier score for early psychoeducation, contrasting with broader regional registration challenges.
+- [[rpg-psykiatrisk-klinik-1-godstrup|RPG Psykiatrisk Klinik 1 – Gødstrup]] — Central Jutland clinic driving the region's strong national standing with an 82% compliance rate for adult pharmacological treatment.
+- [[vejle-bup-ambulatorium|"Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium"]] — Region Syddanmark clinic achieving perfect 100% compliance for toddler diagnostics, while recording the lowest departmental performance for diagnostic conferences.
 
 ## Navigation
 

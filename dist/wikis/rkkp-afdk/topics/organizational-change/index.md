@@ -4,17 +4,18 @@ type: index
 aliases:
   - Organizational Change
 wiki: rkkp-afdk
-updated: '2026-08-05T23:37:18.157Z'
+updated: '2026-08-15T00:38:50.088Z'
 children:
+  - index.md
   - organizational-change.md
 ---
 # Organizational Change
 
-This folder tracks structural and operational shifts within the Danish clinical quality databases, specifically focusing on how data collection processes are evolving. It documents the formal integration of practicing medical specialists, such as private cardiologists, into national registries like the Danish Atrial Fibrillation Database. These changes expand the scope of clinical quality reporting beyond traditional hospital settings to include specialized outpatient and private practice care.
+This folder documents structural and operational shifts within the Danish healthcare quality and registry infrastructure aimed at improving data comprehensiveness and clinical monitoring. It covers critical expansions such as the integration of specialized outpatient cardiology practices into national data collection efforts and the systematic, automated transfer of regional laboratory results to national databases. These changes highlight the ongoing standardization of clinical information flow between local practices and centralized quality improvement registries.
 
 ## Pages
 
-- [[organizational-change|Organizational Change]] — Details the operational shift integrating practicing cardiologists into the Regionernes Kliniske Kvalitetsudviklingsprogram and the Danish Atrial Fibrillation Database for outpatient and private practice data collection.
+- [[organizational-change|Organizational Change]] — Details operational shifts in Danish healthcare registries, including the onboarding of private cardiology specialists and the automation of laboratory data transfers by Region Midtjylland.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder tracks structural and operational shifts within the Danish clinical 
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder tracks structural and operational shifts within the Danish clinical 
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Documents
 wiki: rkkp-afdk
-updated: '2026-08-05T22:47:40.787Z'
+updated: '2026-08-14T23:36:44.090Z'
 children:
   - reports/index.md
+  - index.md
 ---
 # Documents
 
-This area groups the official documents, clinical tools, and academic publications that underpin the quality development and patient education frameworks for atrial fibrillation care in Denmark. It currently contains a single sub-folder dedicated to reports, which archives the national registry's annual quality reports, individualized patient education questionnaires, and pivotal evidence-base publications justifying structured cardiac rehabilitation.
+This folder contains the formal documents, publications, and operational tools referenced throughout the Danish Atrial Fibrillation Database (AFDK) corpus. It serves as the central repository for the written evidence base of atrial fibrillation care in Denmark, grouping official annual quality evaluations, national clinical guidelines, and the pivotal international studies that mandate structured patient education and cardiac rehabilitation. 
 
 ## Pages
 
-- [[entities/documents/reports/index|Reports]] — Foundational reports, clinical tools, and academic publications that drive the quality development and patient education frameworks for atrial fibrillation care in Denmark, including national registry annual reports and pivotal evidence-base meta-analyses.
+- [[entities/documents/reports/index|Reports]] — Foundational reports, clinical guidelines, and scientific publications underpinning AFDK quality indicators, including annual evaluations, supplementary bleeding analyses, and the evidence base for structured patient education.
 
 ## Navigation
 

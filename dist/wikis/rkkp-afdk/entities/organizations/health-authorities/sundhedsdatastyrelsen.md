@@ -2,86 +2,56 @@
 title: Sundhedsdatastyrelsen
 type: entity
 wiki: rkkp-afdk
-updated: '2026-08-05T19:59:11.536Z'
+updated: '2026-08-14T20:00:56.629Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: '21-25, 26-30, 51-55'
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: '16-20, 21-25, 41-45'
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: '21-25, 31-35, 61-65'
 tags:
   - organization
 ---
+Sundhedsdatastyrelsen is the national authority responsible for managing health data infrastructure and clinical quality registries in Denmark. Within the context of cardiovascular care, it plays a central role in hosting and administering the [[laboratoriedatabasen|Laboratoriedatabasen]] (Laboratory Database) [^src2] [^src7]. This database aggregates laboratory results from the country's major laboratories, which are connected to and feed into the system via the [[den-nationale-labdatabank|Den Nationale Labdatabank]] (National Lab Databank) [^src3] [^src8]. However, the data pipeline is not seamless; structural barriers exist where certain laboratory responses are not forwarded to the National Lab Databank and consequently fail to reach the Laboratoriedatabasen at Sundhedsdatastyrelsen, resulting in incomplete data coverage for national quality measurements [^src6].
 
-Sundhedsdatastyrelsen (the Danish Health Data Authority) is a central governmental organization responsible for managing, securing, and supplying national health data in Denmark. Within the context of the national clinical quality databases managed by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP)—such as the Danish Atrial Fibrillation Database (AFDK)—the authority plays a vital role in the underlying data infrastructure while simultaneously being the source of specific, systematic data limitations.
+Beyond data hosting, the authority holds significant regulatory power over clinical quality databases. It serves as the official approving body for the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK) [^src9]. Following Sundhedsdatastyrelsen's formal approval of the AFDK, the implementation of the database made it legally mandatory for all hospitals—and eventually general medical practices—to report their clinical data [^src9].
 
-One of the most significant limitations attributed to Sundhedsdatastyrelsen in the AFDK annual reports concerns the tracking of echocardiography procedures (Indicator 2) for newly diagnosed atrial fibrillation patients. The authority does not deliver echocardiography data originating from private hospitals to the [[landspatientregisteret|Landspatientregisteret]] [^src1], [^src4]. Because the national quality indicators rely heavily on this register, this omission creates a systematic data blind spot, meaning that echocardiograms performed in the private healthcare sector are entirely excluded from the national quality assessments [^src1], [^src4].
-
-In addition to patient registry data, Sundhedsdatastyrelsen is deeply involved in the national laboratory data infrastructure. The authority hosts and administers the [[laboratoriedatabasen|Laboratoriedatabasen]] [^src2], [^src5]. Laboratory results from major Danish laboratories that are connected to the [[den-nationale-labdatabank|Den Nationale Labdatabank]] are transferred and loaded into Sundhedsdatastyrelsen's database [^src2], [^src3]. This data flow is essential for monitoring clinical quality indicators that depend on blood tests, such as TSH screening (Indicator 3) and annual kidney function monitoring for patients on DOAC treatment (Indicator 4b). However, the reports note that if laboratory answers are not forwarded to the national databank, they consequently fail to reach the Laboratoriedatabasen at Sundhedsdatastyrelsen, further complicating complete national data coverage and impacting the accuracy of quality measurements [^src6].
+Despite its foundational role in the national health data ecosystem, Sundhedsdatastyrelsen is identified as the cause of a systematic data source limitation affecting Indicator 2, which measures the performance of echocardiography in newly diagnosed atrial fibrillation patients. The authority does not deliver echocardiography data originating from private hospitals to the [[landspatientregisteret|Landspatientregisteret]] (National Patient Register) [^src1] [^src4]. Because Sundhedsdatastyrelsen withholds or does not provide these specific data points, echocardiograms performed at private hospitals and reported to the National Patient Register are systematically excluded from the national quality indicators [^src1] [^src4].
 
 ## Mentions
 
-- Page 22: "Ekkokardiografi, som er foretaget på privathospitaler og indberettet til Landspatientregisteret, indgår ikke, da Sundhedsdatastyrelsen ikke leverer disse data." (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 21-25) [^src1]
-- Page 29: "Laboratoriedatabasen hos Sundhedsdatastyrelsen" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 26-30) [^src2]
-- Page 53: "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen." (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 51-55) [^src3]
-- Page 19: "da Sundhedsdatastyrelsen ikke leverer disse data." (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 16-20) [^src4]
-- Page 24: "Laboratoriedatabasen hos Sundhedsdatastyrelsen" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 21-25) [^src5]
-- Page 43: "Laboratoriedatabasen hos Sundhedsdatastyrelsen" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 41-45) [^src6]
+- Page 22: "Ekkokardiografi, som er foretaget på privathospitaler og indberettet til Landspatientregisteret, indgår ikke, da Sundhedsdatastyrelsen ikke leverer disse data." [^src1]
+- Page 29: "Laboratoriedatabasen hos Sundhedsdatastyrelsen" [^src2]
+- Page 53: "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen." [^src3]
+- Page 19: "da Sundhedsdatastyrelsen ikke leverer disse data." [^src4]
+- Page 24: "Laboratoriedatabasen hos Sundhedsdatastyrelsen" [^src5]
+- Page 43: "Laboratoriedatabasen hos Sundhedsdatastyrelsen" [^src6]
+- Page 24: "hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen." [^src7]
+- Page 34: "hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen." [^src8]
+- Page 63: "Med Sundhedsdatastyrelsens godkendelse af AFDK bliver det ved implementeringen af databasen lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere." [^src9]
 
 ## Relationships
 
-**Outgoing (this entity is the SUBJECT of these relationships):**
+**Outgoing**
+- **Subject:** sundhedsdatastyrelsen | **Predicate:** hosts | **Object:** laboratoriedatabasen | **Evidence:** "Laboratoriedatabasen hos Sundhedsdatastyrelsen" | **Page:** 29 | **Source:** [^src2]
+- **Subject:** sundhedsdatastyrelsen | **Predicate:** administers | **Object:** laboratoriedatabasen | **Evidence:** "hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen." | **Page:** 24 | **Source:** [^src7]
 
-- Subject: sundhedsdatastyrelsen
-  Predicate: hosts
-  Object: laboratoriedatabasen
-  Evidence: "Laboratoriedatabasen hos Sundhedsdatastyrelsen"
-  Page: 29
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 26-30 [^src2]
-
-**Incoming (this entity is the OBJECT of these relationships):**
-
-- Subject: den-nationale-labdatabank
-  Predicate: feeds-into
-  Object: sundhedsdatastyrelsen
-  Evidence: "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen."
-  Page: 29
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 26-30 [^src2]
-
-- Subject: den-nationale-labdatabank
-  Predicate: feeds-into
-  Object: sundhedsdatastyrelsen
-  Evidence: "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen."
-  Page: 53
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 51-55 [^src3]
-
-- Subject: landspatientregisteret
-  Predicate: does-not-contain-data-from
-  Object: sundhedsdatastyrelsen
-  Evidence: "da Sundhedsdatastyrelsen ikke leverer disse data."
-  Page: 19
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 16-20 [^src4]
-
-- Subject: laboratoriedatabasen
-  Predicate: is-administered-by
-  Object: sundhedsdatastyrelsen
-  Evidence: "Laboratoriedatabasen hos Sundhedsdatastyrelsen"
-  Page: 24
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 21-25 [^src5]
-
-- Subject: den-nationale-labdatabank
-  Predicate: feeds-into
-  Object: sundhedsdatastyrelsen
-  Evidence: "Laboratoriesvar [...] videresendes ikke til Den Nationale Labdatabank, og dermed heller ikke til Laboratoriedatabasen [hos Sundhedsdatastyrelsen]."
-  Page: 43
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 41-45 [^src6]
+**Incoming**
+- **Subject:** den-nationale-labdatabank | **Predicate:** feeds-into | **Object:** sundhedsdatastyrelsen | **Evidence:** "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen." | **Page:** 29 | **Source:** [^src2]
+- **Subject:** den-nationale-labdatabank | **Predicate:** feeds-into | **Object:** sundhedsdatastyrelsen | **Evidence:** "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen." | **Page:** 53 | **Source:** [^src3]
+- **Subject:** landspatientregisteret | **Predicate:** does-not-contain-data-from | **Object:** sundhedsdatastyrelsen | **Evidence:** "da Sundhedsdatastyrelsen ikke leverer disse data." | **Page:** 19 | **Source:** [^src4]
+- **Subject:** laboratoriedatabasen | **Predicate:** is-administered-by | **Object:** sundhedsdatastyrelsen | **Evidence:** "Laboratoriedatabasen hos Sundhedsdatastyrelsen" | **Page:** 24 | **Source:** [^src5]
+- **Subject:** den-nationale-labdatabank | **Predicate:** feeds-into | **Object:** sundhedsdatastyrelsen | **Evidence:** "Laboratoriesvar [...] videresendes ikke til Den Nationale Labdatabank, og dermed heller ikke til Laboratoriedatabasen [hos Sundhedsdatastyrelsen]." | **Page:** 43 | **Source:** [^src6]
+- **Subject:** databasen-for-atrieflimren-i-danmark | **Predicate:** is-godkendt-by | **Object:** sundhedsdatastyrelsen | **Evidence:** "Med Sundhedsdatastyrelsens godkendelse af AFDK bliver det ved implementeringen af databasen lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere." | **Page:** 63 | **Source:** [^src9]
 
 ## Claims
 
-(none)
+*(No explicit claims extracted outside of relationships and mentions)*
 
 ## Timeline
 
-(none)
+*(No explicit timeline events extracted)*
 
 ## Sources
 
@@ -91,3 +61,6 @@ In addition to patient registry data, Sundhedsdatastyrelsen is deeply involved i
 [^src4]: AFDK_2024.pdf, pages 16-20
 [^src5]: AFDK_2024.pdf, pages 21-25
 [^src6]: AFDK_2024.pdf, pages 41-45
+[^src7]: AFDK_2025.pdf, pages 21-25
+[^src8]: AFDK_2025.pdf, pages 31-35
+[^src9]: AFDK_2025.pdf, pages 61-65

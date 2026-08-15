@@ -4,17 +4,18 @@ type: index
 aliases:
   - Epidemiologists
 wiki: rkkp-danibd
-updated: '2026-08-05T07:42:02.382Z'
+updated: '2026-08-15T07:48:49.470Z'
 children:
   - anne-mette-falstie-jensen.md
+  - index.md
 ---
 # Epidemiologists
 
-This folder contains profiles of epidemiologists involved in Danish healthcare registries, specifically those contributing to the strategic governance and quality measurement of inflammatory bowel disease (IBD) treatment. The pages detail their institutional affiliations, committee memberships, and roles in systematizing national clinical benchmarking and evidence-based guideline development.
+This folder catalogs epidemiologists who provide the scientific and data-driven foundation for national quality measurement in Danish healthcare. Specifically, it includes professionals working with the Danish Registry for Inflammatory Bowel Disease (DANIBD) and the Regions' Clinical Quality Development Programme (RKKP), where they help systematize IBD treatment through cross-regional benchmarking, standardized coding, and evidence-based guidelines.
 
 ## Pages
 
-- [[anne-mette-falstie-jensen|Anne Mette Falstie-Jensen]] — Epidemiologist at RKKP and steering committee member for DANIBD, driving national quality measurement and IBD treatment guidelines.
+- [[anne-mette-falstie-jensen|Anne Mette Falstie-Jensen]] — Ph.D. epidemiologist at RKKP and DANIBD steering committee member who drives national quality measurement and clinical benchmarking for IBD treatment.
 
 ## Navigation
 

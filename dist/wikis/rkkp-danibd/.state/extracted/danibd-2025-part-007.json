@@ -1,0 +1,740 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den centrale kvalitetsdatabase, der overvåger behandlingskvalitet for patienter med inflammatoriske tarmsygdomme i Danmark, og det er denne database, der udarbejder årsrapporten, hvori alle indikatorer, beregningsregler og resultater på side 31–35 præsenteres.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 31 af 54"
+        },
+        {
+          "page": 32,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 32 af 54"
+        },
+        {
+          "page": 33,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 33 af 54"
+        },
+        {
+          "page": 34,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 34 af 54"
+        },
+        {
+          "page": 35,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 35 af 54"
+        }
+      ]
+    },
+    {
+      "name": "BMSL",
+      "type": "treatment",
+      "slug": "bmsl",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BMSL er en fællesbetegnelse for biologisk medicinsk behandling af inflammatoriske tarmsygdomme, og den udgør kerneindholdet i behandlingsforløbsanalysen på side 31, herunder definitionen, kodning, antal patienter og fordeling af præparater.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Et behandlingsforløb med BMSL defineres med behandlingsstart, hvor der ikke har været en behandling i perioden 12 måneder før."
+        },
+        {
+          "page": 31,
+          "context": "Det er nu muligt at indberette BMSL for patienter behandlet med disse præparater, hvormed de indgår i denne årsrapport (nævner)."
+        },
+        {
+          "page": 31,
+          "context": "I alt 13.086 patienter har været i behandling med BMSL i opgørelsesperioden svarende til 37 % af samtlige patienter set i opgørelsesperioden."
+        },
+        {
+          "page": 31,
+          "context": "Der er givet 70.337 behandlinger med BMSL i opgørelsesperioden, hvoraf flest behandlinger er givet med infliximab (42 %) efterfulgt af adalimumab (19 %), vedolizumab (15 %) og ustekinumab (13 %)."
+        }
+      ]
+    },
+    {
+      "name": "upadacitinib",
+      "type": "drug",
+      "slug": "upadacitinib",
+      "folder": "entities/products/health-it",
+      "significance": "Upadacitinib er et nyere JAK-hæmmerpræparat, som i 2024 fik ny behandlingskode i landspatientregisteret og dermed blev inkluderet i DANIBDs behandlingsregistrering og rapportering for første gang.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "filgotinib",
+      "type": "drug",
+      "slug": "filgotinib",
+      "folder": "entities/products/health-it",
+      "significance": "Filgotinib er et JAK-hæmmerpræparat, som i 2024 fik ny behandlingskode i landspatientregisteret og dermed blev inkluderet i DANIBDs behandlingsregistrering og rapportering for første gang.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "risankizumab",
+      "type": "drug",
+      "slug": "risankizumab",
+      "folder": "entities/products/health-it",
+      "significance": "Risankizumab er et IL-23-hæmmerpræparat, som i 2024 fik ny behandlingskode i landspatientregisteret og dermed blev inkluderet i DANIBDs behandlingsregistrering og rapportering for første gang.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "mirikizumab",
+      "type": "drug",
+      "slug": "mirikizumab",
+      "folder": "entities/products/health-it",
+      "significance": "Mirikizumab er et IL-23-hæmmerpræparat, som i 2024 fik ny behandlingskode i landspatientregisteret og dermed blev inkluderet i DANIBDs behandlingsregistrering og rapportering for første gang.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "ozanimod",
+      "type": "drug",
+      "slug": "ozanimod",
+      "folder": "entities/products/health-it",
+      "significance": "Ozanimod er et S1P-receptor-modulatorpræparat, som i 2024 fik ny behandlingskode i landspatientregisteret og dermed blev inkluderet i DANIBDs behandlingsregistrering og rapportering for første gang.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "etrasimod",
+      "type": "drug",
+      "slug": "etrasimod",
+      "folder": "entities/products/health-it",
+      "significance": "Etrasimod er et S1P-receptor-modulatorpræparat, som fra 1. april 2025 fik mulighed for indberetning i landspatientregisteret via SKS-kode BWHP148, men endnu ikke er inkluderet i DANIBDs rapportering pga. manglende integration med Sygehusmedicinregisteret.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Pr. 1. april 2025 blev det ligeledes muligt at indberette behandlinger givet med etrasimod (SKS-kode: BWHP148)."
+        }
+      ]
+    },
+    {
+      "name": "landspatientregisteret (LPR)",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/national-health-registers",
+      "significance": "Landspatientregisteret er det nationale register, hvorfra behandlingsdata for BMSL indberettes til DANIBD, og det er her, at nye behandlingskoder for moderne biologika blev implementeret i 2024.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR)."
+        },
+        {
+          "page": 31,
+          "context": "Det er nu muligt at indberette BMSL for patienter behandlet med disse præparater, hvormed de indgår i denne årsrapport (nævner)."
+        }
+      ]
+    },
+    {
+      "name": "Sygehusmedicinregisteret (SMR)",
+      "type": "database",
+      "slug": "sygehusmedicinregisteret",
+      "folder": "entities/databases/health-registries",
+      "significance": "Sygehusmedicinregisteret er det ønskede automatiserede datakilde til DANIBD, som endnu ikke er integreret, så klinikker fortsat skal manuelt indberette BMSL i LPR i stedet for at trække data direkte fra SMR.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "DANIBD afventer stadig muligheden for at trække informationer om medicinsk behandling automatisk via Sygehusmedicinregisteret (SMR), så klinikken ikke behøver at registrere behandlingen i LPR."
+        }
+      ]
+    },
+    {
+      "name": "F-calprotectin",
+      "type": "biomarker",
+      "slug": "f-calprotectin",
+      "folder": "entities/biomarkers/gastrointestinal",
+      "significance": "F-calprotectin er en vigtig laboratoriemåling til evaluering af mucosal inflammation hos IBD-patienter, og dens anvendelse som kvalitetsindikator dokumenteres på side 31 med specifikke NPU- og PTP-koder samt regionale og afdelingsmæssige målerater.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Måling af F-calprotectin inkluderer følgende koder fra laboratoriedatabasen: NPU19717 F-calpro og PTP00001 F-calprotectin POC."
+        },
+        {
+          "page": 31,
+          "context": "På landsplan har 86 % af patienterne i behandling med BMSL fået målt F-calprotectin en gang årligt."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "quality-indicator",
+      "slug": "indikator-6",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 6 er en central kvalitetsmåling i DANIBD-rapporten, der monitorerer re-operationsraten inden for 30 dage efter primære kirurgiske indgreb ved IBD, med et udviklingsmål på maksimalt 8 %.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Indikator 6. Re-operation"
+        },
+        {
+          "page": 32,
+          "context": "Indikator 6: Andelen af kirurgiske indgreb, hvor der er foretaget en reoperation inden for 30 dage"
+        },
+        {
+          "page": 33,
+          "context": "Indikator 6: Andelen af kirurgiske indgreb, hvor der er foretaget en re-operation inden for 30 dage."
+        },
+        {
+          "page": 34,
+          "context": "Indikator 6: Andelen af kirurgiske indgreb, hvor der er foretaget en re-operation inden for 30 dage."
+        }
+      ]
+    },
+    {
+      "name": "re-operation",
+      "type": "procedural",
+      "slug": "re-operation",
+      "folder": "entities/procedural",
+      "significance": "Re-operation er en klinisk komplikation defineret som enhver operation inden for 30 dage efter et primært kirurgisk indgreb ved IBD, og den udgør den centrale måleenhed i Indikator 6.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Re-operation foretaget efter et primært kirurgisk indgreb betragtes som en vanskelig og alvorlig sygdomskomplikation, som medfører belastning af såvel patienten som sygehusvæsenet."
+        },
+        {
+          "page": 34,
+          "context": "En re-operation omfatter en operation indenfor 30 dage efter det primære indgreb."
+        }
+      ]
+    },
+    {
+      "name": "primært kirurgisk indgreb",
+      "type": "procedure",
+      "slug": "praemaert-kirurgisk-indgreb",
+      "folder": "entities/procedural",
+      "significance": "Primært kirurgisk indgreb er den grundlæggende operation, der danner udgangspunktet for beregningen af re-operationsraten i Indikator 6, og det defineres ved specifikke procedurekoder og fravær af tidligere operation inden for 30 dage.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Et primært kirurgisk indgreb omfatter procedurekoder: KJFB*, KJFC* KJFF*, KJFG (fraset 40H/K, 41A, 50A og 60), KJFH*, KJFW*, KJGB* samt KJFA660/61/63/76/86/96-98."
+        },
+        {
+          "page": 34,
+          "context": "Et primært indgreb defineres ved, at der ikke har været et kirurgisk indgreb med tilsvarende koder 30 dage forinden."
+        }
+      ]
+    },
+    {
+      "name": "KJFH11",
+      "type": "procedure-code",
+      "slug": "kjfh11",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJFH11 er procedurekoden for 'laparoskopisk kolektomi og ileostomi', som er den hyppigste enkelte operation ved IBD-kirurgi i opgørelsesperioden og udgør 9,1 % af alle procedurer.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "laparoskopisk kolektomi og ileostomi (KJFH11) med 9,1 %"
+        }
+      ]
+    },
+    {
+      "name": "KJFB21",
+      "type": "procedure-code",
+      "slug": "kjfb21",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJFB21 er procedurekoden for 'laparoskopisk ileocækal resektion', som er den anden hyppigste operation ved IBD-kirurgi i opgørelsesperioden og udgør 8,9 % af alle procedurer.",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "laparoskopisk ileocækal resektion (KJFB21) med 8,9 %"
+        }
+      ]
+    },
+    {
+      "name": "KJAH01",
+      "type": "procedure-code",
+      "slug": "kjah01",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJAH01 er procedurekoden for 'laparoskopi', som er den tredje hyppigste operation ved IBD-kirurgi i opgørelsesperioden og udgør 8,7 % af alle procedurer, samt den hyppigste kode blandt re-operationer (27,3 %).",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "laparoskopi (KJAH01) med 8,7 %"
+        },
+        {
+          "page": 34,
+          "context": "Halvdelen af re-operationerne er kodet med laparoskopi (KJAH01) og eksplorativ laparotomi (KJAH00) (27,3% og 23,4 %)."
+        }
+      ]
+    },
+    {
+      "name": "KJAH00",
+      "type": "procedure-code",
+      "slug": "kjah00",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJAH00 er procedurekoden for 'eksplorativ laparotomi', som er den fjerde hyppigste operation ved IBD-kirurgi i opgørelsesperioden og udgør 8,1 % af alle procedurer, samt den anden hyppigste kode blandt re-operationer (23,4 %).",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "eksplorativ laparotomi (KJAH00) med 8,1 %"
+        },
+        {
+          "page": 34,
+          "context": "Halvdelen af re-operationerne er kodet med laparoskopi (KJAH01) og eksplorativ laparotomi (KJAH00) (27,3% og 23,4 %)."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er en af de fem regioner i Danmark, som udviser den laveste re-operationsrate (6 %) og den højeste F-calprotectin-målerate (94 %) blandt alle regioner i DANIBD-rapporten for 2024/25.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Region Sjælland og Nordjylland har målt F-calpro på 94 % og 93 % af deres patienter i behandling med BMSL"
+        },
+        {
+          "page": 32,
+          "context": "Sjælland | Ja | 6 | / | 107 | 6 | (2-12) | 4 | / | 89 | 4 | 6"
+        },
+        {
+          "page": 34,
+          "context": "I Region Sjælland og Nordjylland foretages der re-operation for henholdsvis 6 og 5 %"
+        },
+        {
+          "page": 35,
+          "context": "I Region Sjælland og Nordjylland blev målsætningen opfyldt med re-operationsrate på henholdsvis 6 og 5 %"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er en af de fem regioner i Danmark, som udviser den næstlaveste re-operationsrate (5 %) og den anden højeste F-calprotectin-målerate (93 %) blandt alle regioner i DANIBD-rapporten for 2024/25.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Region Sjælland og Nordjylland har målt F-calpro på 94 % og 93 % af deres patienter i behandling med BMSL"
+        },
+        {
+          "page": 32,
+          "context": "Nordjylland | Ja | 4 | / | 82 | 5 | (1-12) | 11 | / | 69 | 16 | 5"
+        },
+        {
+          "page": 34,
+          "context": "I Region Sjælland og Nordjylland foretages der re-operation for henholdsvis 6 og 5 %"
+        },
+        {
+          "page": 35,
+          "context": "I Region Sjælland og Nordjylland blev målsætningen opfyldt med re-operationsrate på henholdsvis 6 og 5 %"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden er en af de fem regioner i Danmark, som udviser den højeste re-operationsrate (11 %) og den laveste F-calprotectin-målerate (82 %) blandt alle regioner i DANIBD-rapporten for 2024/25.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "mens det er 82 % og 80 % i Region Hovedstaden og Midtjylland."
+        },
+        {
+          "page": 32,
+          "context": "Hovedstaden | Nej | 25 | / | 226 | 11 | (7-16) | 36 | / | 230 | 16 | 12"
+        },
+        {
+          "page": 34,
+          "context": "mens andelen i Region Syddanmark er på 14 % og i Region Hovedstaden på 11 %."
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Midtjylland er en af de fem regioner i Danmark, som udviser en re-operationsrate på 9 %, hvilket er tæt på målsætningen på 8 %, og en F-calprotectin-målerate på 80 %, hvilket er den næstlaveste blandt regionerne.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "mens det er 82 % og 80 % i Region Hovedstaden og Midtjylland."
+        },
+        {
+          "page": 32,
+          "context": "Midtjylland | Nej | 15 | / | 175 | 9 | (5-14) | 21 | / | 198 | 11 | 13"
+        },
+        {
+          "page": 34,
+          "context": "mens andelen i Region Syddanmark er på 14 % og i Region Hovedstaden på 11 %."
+        },
+        {
+          "page": 35,
+          "context": "Region Midtjylland var tæt på målet med 9%"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Syddanmark er en af de fem regioner i Danmark, som udviser den højeste re-operationsrate (14 %) blandt alle regioner i DANIBD-rapporten for 2024/25.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Syddanmark | Nej | 27 | / | 189 | 14 | (10-20) | 29 | / | 197 | 15 | 12"
+        },
+        {
+          "page": 34,
+          "context": "mens andelen i Region Syddanmark er på 14 % og i Region Hovedstaden på 11 %."
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Styregruppen for DANIBD er den overordnede ledelsesgruppe, der vurderer indikatorernes relevans og giver anbefalinger om klinisk audit, og dens bemærkninger og vurderinger fremgår direkte på side 32 og 35.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Styregruppen bemærker, at mange afdelinger har gjort en stor indsats for at opfylde indikatoren."
+        },
+        {
+          "page": 35,
+          "context": "Styregruppen er bekendt med at re-operationer dækker over et bredt spektrum af indgreb..."
+        },
+        {
+          "page": 35,
+          "context": "Styregruppen opfordrer derfor fortsat til intern audit på de alle afdelinger, især hvor re-operationsraten er høj."
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "healthcare-facility",
+      "slug": "rigshospitalet-med-klinik-mave-tarm-lever",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Rigshospitalet er et centralt hospital, der viser en markant fremgang i F-calprotectin-måleraten med +61 procentpoint ift. sidste års resultat, hvilket fremhæves som en positiv udvikling i rapporten.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Det bemærkes samtidig, at Rigshospitalet har haft en markant fremgang på 61 procentpoint ift. sidste års resultat jævnfør trendgraf."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "maintains",
+      "object": "indikator-6",
+      "evidence": "Indikator 6. Re-operation",
+      "page": 32
+    },
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "uses",
+      "object": "landspatientregisteret",
+      "evidence": "Det er nu muligt at indberette BMSL for patienter behandlet med disse præparater, hvormed de indgår i denne årsrapport (nævner).",
+      "page": 31
+    },
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "awaits-integration-with",
+      "object": "sygehusmedicinregisteret",
+      "evidence": "DANIBD afventer stadig muligheden for at trække informationer om medicinsk behandling automatisk via Sygehusmedicinregisteret (SMR), så klinikken ikke behøver at registrere behandlingen i LPR.",
+      "page": 31
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "measured-by",
+      "object": "f-calprotectin",
+      "evidence": "På landsplan har 86 % af patienterne i behandling med BMSL fået målt F-calprotectin en gang årligt.",
+      "page": 31
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "measures",
+      "object": "re-operation",
+      "evidence": "Indikator 6: Andelen af kirurgiske indgreb, hvor der er foretaget en reoperation inden for 30 dage",
+      "page": 32
+    },
+    {
+      "subject": "re-operation",
+      "predicate": "follows",
+      "object": "praemaert-kirurgisk-indgreb",
+      "evidence": "En re-operation omfatter en operation indenfor 30 dage efter det primære indgreb.",
+      "page": 34
+    },
+    {
+      "subject": "kjfh11",
+      "predicate": "is-procedure-of",
+      "object": "praemaert-kirurgisk-indgreb",
+      "evidence": "laparoskopisk kolektomi og ileostomi (KJFH11) med 9,1 %",
+      "page": 34
+    },
+    {
+      "subject": "kjfb21",
+      "predicate": "is-procedure-of",
+      "object": "praemaert-kirurgisk-indgreb",
+      "evidence": "laparoskopisk ileocækal resektion (KJFB21) med 8,9 %",
+      "page": 34
+    },
+    {
+      "subject": "kjah01",
+      "predicate": "is-procedure-of",
+      "object": "re-operation",
+      "evidence": "Halvdelen af re-operationerne er kodet med laparoskopi (KJAH01) og eksplorativ laparotomi (KJAH00) (27,3% og 23,4 %).",
+      "page": 34
+    },
+    {
+      "subject": "kjah00",
+      "predicate": "is-procedure-of",
+      "object": "re-operation",
+      "evidence": "Halvdelen af re-operationerne er kodet med laparoskopi (KJAH01) og eksplorativ laparotomi (KJAH00) (27,3% og 23,4 %).",
+      "page": 34
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "has-re-operation-rate",
+      "object": "6-percent",
+      "evidence": "Sjælland | Ja | 6 | / | 107 | 6 | (2-12) | 4 | / | 89 | 4 | 6",
+      "page": 32
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "has-re-operation-rate",
+      "object": "5-percent",
+      "evidence": "Nordjylland | Ja | 4 | / | 82 | 5 | (1-12) | 11 | / | 69 | 16 | 5",
+      "page": 32
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "has-re-operation-rate",
+      "object": "11-percent",
+      "evidence": "Hovedstaden | Nej | 25 | / | 226 | 11 | (7-16) | 36 | / | 230 | 16 | 12",
+      "page": 32
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "has-re-operation-rate",
+      "object": "9-percent",
+      "evidence": "Midtjylland | Nej | 15 | / | 175 | 9 | (5-14) | 21 | / | 198 | 11 | 13",
+      "page": 32
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "has-re-operation-rate",
+      "object": "14-percent",
+      "evidence": "Syddanmark | Nej | 27 | / | 189 | 14 | (10-20) | 29 | / | 197 | 15 | 12",
+      "page": 32
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "evaluates",
+      "object": "indikator-6",
+      "evidence": "Styregruppen er bekendt med at re-operationer dækker over et bredt spektrum af indgreb...",
+      "page": 35
+    },
+    {
+      "subject": "rigshospitalet-med-klinik-mave-tarm-lever",
+      "predicate": "shows-improvement-in",
+      "object": "f-calprotectin",
+      "evidence": "Det bemærkes samtidig, at Rigshospitalet har haft en markant fremgang på 61 procentpoint ift. sidste års resultat jævnfør trendgraf.",
+      "page": 31
+    }
+  ],
+  "claims": [
+    {
+      "text": "Et behandlingsforløb med BMSL defineres med behandlingsstart, hvor der ikke har været en behandling i perioden 12 måneder før. Behandlinger med mindre end 12 måneder imellem anses for at tilhøre samme behandlingsforløb. Der skelnes ikke mellem givne præparater, hvormed et behandlingsforløb kan bestå af samme eller forskellige typer af præparater. [^src1]",
+      "type": "definition",
+      "entities": [
+        "bmsl"
+      ],
+      "page": 31
+    },
+    {
+      "text": "I 2024 blev der oprettet nye behandlingskoder for upadacitinib, filgotinib og risankizumab samt mirikizumab og ozanimod i landspatientregisteret (LPR). [^src1]",
+      "type": "administrative",
+      "entities": [
+        "upadacitinib",
+        "filgotinib",
+        "risankizumab",
+        "mirikizumab",
+        "ozanimod",
+        "landspatientregisteret"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Pr. 1. april 2025 blev det muligt at indberette behandlinger givet med etrasimod (SKS-kode: BWHP148). [^src1]",
+      "type": "administrative",
+      "entities": [
+        "etrasimod"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Måling af F-calprotectin inkluderer følgende koder fra laboratoriedatabasen: NPU19717 F-calpro og PTP00001 F-calprotectin POC. [^src1]",
+      "type": "technical",
+      "entities": [
+        "f-calprotectin"
+      ],
+      "page": 31
+    },
+    {
+      "text": "I alt 13.086 patienter har været i behandling med BMSL i opgørelsesperioden svarende til 37 % af samtlige patienter set i opgørelsesperioden. Heraf er 435 børn og unge i behandling med BMSL. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bmsl"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Hovedparten af patienterne i behandling med BMSL er diagnosticerede med Crohns sygdom (60 %) og medianalderen er 42 år for voksne og 15 år for børn og unge. [^src1]",
+      "type": "demographic",
+      "entities": [
+        "bmsl",
+        "crohns-sygdom"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Der er givet 70.337 behandlinger med BMSL i opgørelsesperioden, hvoraf flest behandlinger er givet med infliximab (42 %) efterfulgt af adalimumab (19 %), vedolizumab (15 %) og ustekinumab (13 %). [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bmsl",
+        "bohj18a1-behandling-med-infliximab",
+        "bohj18a3-behandling-med-adalimumab",
+        "bohj19h4-behandling-med-vedolizumab",
+        "bohj18b3-behandling-med-ustekinumab"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Hovedparten af patienterne har fået samme (84 %) eller to forskellige behandlinger (14 %) i opgørelsesperioden. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bmsl"
+      ],
+      "page": 31
+    },
+    {
+      "text": "På landsplan har 86 % af patienterne i behandling med BMSL fået målt F-calprotectin en gang årligt. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bmsl",
+        "f-calprotectin"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Der er i alt foretaget 779 kirurgiske indgreb i perioden på 708 unikke patienter, når både primær og re-operation medtages. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "re-operation",
+        "praemaert-kirurgisk-indgreb"
+      ],
+      "page": 34
+    },
+    {
+      "text": "På landsplan er der foretaget 77 re-operationer indenfor 30 dage svarende til 10 %. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "re-operation"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Der er indrapporteret i alt 22 operationskoder ved re-operation, hvoraf halvdelen er kodet med laparoskopi (KJAH01) og eksplorativ laparotomi (KJAH00) (27,3% og 23,4 %). [^src1]",
+      "type": "statistical",
+      "entities": [
+        "re-operation",
+        "kjah01",
+        "kjah00"
+      ],
+      "page": 34
+    },
+    {
+      "text": "71 % af re-operationerne blev foretaget inden for de første 7 dage med en mediantid på 4 dage (Q1-Q3: 2-8). [^src1]",
+      "type": "statistical",
+      "entities": [
+        "re-operation"
+      ],
+      "page": 34
+    },
+    {
+      "text": "På landsplan er der foretaget re-operation efter 10% af de primære IBD operationer, hvilket er en forbedring sammenlignet med sidste års 13%. [^src1]",
+      "type": "comparative",
+      "entities": [
+        "re-operation"
+      ],
+      "page": 35
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024",
+      "event": "Oprettelse af nye behandlingskoder for upadacitinib, filgotinib, risankizumab, mirikizumab og ozanimod i landspatientregisteret (LPR)",
+      "entities": [
+        "upadacitinib",
+        "filgotinib",
+        "risankizumab",
+        "mirikizumab",
+        "ozanimod",
+        "landspatientregisteret"
+      ]
+    },
+    {
+      "date": "2025-04-01",
+      "event": "Mulighed for indberetning af behandlinger med etrasimod (SKS-kode: BWHP148) i landspatientregisteret",
+      "entities": [
+        "etrasimod",
+        "landspatientregisteret"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-6",
+      "title": "Indikator 6: Andelen af kirurgiske indgreb, hvor der er foretaget en reoperation inden for 30 dage",
+      "page": 32,
+      "rowDimension": "region",
+      "colDimension": "re-operation rate per year",
+      "entities": [
+        "indikator-6",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Danmark | Nej | 77 | / | 779 | 10 | (8-12) | 101 | / | 783 | 13 | 11 |\n| Hovedstaden | Nej | 25 | / | 226 | 11 | (7-16) | 36 | / | 230 | 16 | 12 |\n| Sjælland | Ja | 6 | / | 107 | 6 | (2-12) | 4 | / | 89 | 4 | 6 |\n| Syddanmark | Nej | 27 | / | 189 | 14 | (10-20) | 29 | / | 197 | 15 | 12 |\n| Midtjylland | Nej | 15 | / | 175 | 9 | (5-14) | 21 | / | 198 | 11 | 13 |\n| Nordjylland | Ja | 4 | / | 82 | 5 | (1-12) | 11 | / | 69 | 16 | 5 |",
+      "summary": "Tabellen sammenligner re-operationsraten (andel af kirurgiske indgreb med re-operation inden for 30 dage) på nationalt, regionalt og afdelingsmæssigt niveau for 2024/25 og tidligere år, med angivelse af om udviklingsmålet på ≤ 8 % er opnået."
+    }
+  ],
+  "context": "Dette afsnit af DANIBD-rapporten for 2024/25 (sider 31–35) fokuserer på to centrale kvalitetsdimensioner: medicinsk behandling med biologisk medicinsk behandling (BMSL) og kirurgisk behandling af inflammatoriske tarmsygdomme (IBD). Det beskriver datagrundlaget for BMSL, herunder implementering af nye behandlingskoder for moderne biologika og JAK-hæmmere i landspatientregisteret, samt klinisk anvendelse af F-calprotectin som biomarkør. Samtidig præsenteres Indikator 6, som overvåger re-operationsraten efter primære kirurgiske indgreb, med detaljerede statistikker på regions- og afdelingsniveau, samt diskussion af variationer og kliniske implikationer. Rapporten understreger både fremskridt – som faldet i re-operationsraten fra 13 % til 10 % – og udfordringer – som store regionale og lokale forskelle i både behandlingskvalitet og målerater."
+}

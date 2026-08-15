@@ -22,7 +22,7 @@ aliases:
   - Region Hovedstaden
   - Hovedstaden
 wiki: rkkp-afdk
-updated: '2026-08-05T21:52:16.409Z'
+updated: '2026-08-14T22:08:15.000Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: >-
@@ -32,23 +32,21 @@ sources:
     pages: >-
       11-15, 111-113, 16-20, 26-30, 31-35, 41-45, 56-60, 71-75, 81-85, 86-90,
       91-95
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: '16-20, 26-30, 31-35, 36-40, 51-55, 6-10, 66-70, 71-75, 76-80, 81-85, 96-98'
 tags:
   - organization
   - location
 ---
-Region Hovedstaden (the healthcare organization) and Hovedstaden (the geographic and administrative region) are fundamentally two facets of the same entity: the Capital Region of [[danmark|Danmark]]. In the context of the national [[atrieflimren|atrial fibrillation]] quality registries, they represent the organizational provider and the geographical jurisdiction, respectively. Together, they form one of the five Danish regions analyzed for cardiovascular care quality, contributing extensive data to the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] [^src2].
+This composite page examines the capital region of [[danmark|Danmark]], analyzing it through two distinct but overlapping lenses: **Region Hovedstaden** (the administrative healthcare organization and regional government) and **Hovedstaden** (the geographic location and its constituent hospital network). While "Region Hovedstaden" acts as the institutional body contributing data to the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] and managing regional health infrastructure, "Hovedstaden" is utilized in clinical registries to denote the geographic area, encompassing major facilities such as [[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]], [[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]], [[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]], [[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]], and [[rigshospitalet|Rigshospitalet]] [^src28]. Together, they form a critical part of the national monitoring of [[atrieflimren]] care, with the 2020/2021 period marking the formal start year for regional prevalence data tracking.
 
-**Infrastructure and Organization**
-As a healthcare organization, Region Hovedstaden encompasses major hospital units including [[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]], [[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]], [[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]], [[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]], and [[rigshospitalet|Rigshospitalet]] [^src18]. The region also relies on specific laboratory standards, such as the predominant use of [[npu04998-p-creatinin]] for p-creatinin measurements alongside Region Sjælland [^src27], and hosts 13 private [[praktiserende-kardiologer|cardiology practices]] [^src12]. Geographically, Hovedstaden is a subdivision of Denmark [^src10] and contains specific health clusters like [[sundhedsklynge-byen|Sundhedsklynge Byen]] [^src10].
+The performance of the capital region is heavily scrutinized across multiple clinical quality indicators. For Indicator 1, Hovedstaden achieved a 90.0% result in the 2022–2023 period [^src24], and Region Hovedstaden later reported a 90.9% result [^src8]. However, the region struggles with [[indikator-2|Indikator 2]] (echocardiography execution). Region Hovedstaden recorded the lowest proportion among all regions at 74.5% [^src9], and in another assessment, Hovedstaden failed the [[standard-80-percent|Standard: ≥80 %]] with a mere 59.9% compared to [[region-midtjylland|Region Midtjylland]]'s 84.5% [^src40]. Despite these low baselines, there is a continued positive development trend in Region Hovedstaden for Indikator 2, contrasting with stagnation in [[region-sjaelland|Region Sjælland]] and [[region-nordjylland|Region Nordjylland]] [^src39]. For [[indikator-3|Indikator 3]], no regions meet the standard, with Hovedstaden's performance reflecting this national shortfall [^src26].
 
-**Clinical Performance (Indicators 1-3)**
-The region's clinical performance is closely monitored across several quality indicators. For Indicator 1 ([[antikoagulationsbehandling|anticoagulation treatment]]), Hovedstaden achieved a result of 90.0% in the 2022-2023 period [^src14] and 90.9% in the subsequent reporting period [^src8], successfully meeting the standard [^src8]. However, the region struggles with [[indikator-2|Indikator 2]] (echocardiography), recording the lowest proportion among all regions at 70.9% in 2023 [^src15] and 74.5% in 2024 [^src9], failing the [[standard-80-percent|80% standard]] [^src9]. For [[indikator-3|Indikator 3]], no regions in Denmark meet the standard [^src16], with Hovedstaden performing in the 86-88% range [^src16].
+Anticoagulation and stroke prevention metrics reveal further challenges. Region Hovedstaden does not meet the standard for [[indikator-4b|Indikator 4b]], scoring between 92–94% [^src1] and later 93.2% [^src16]. More critically, the region fails [[indikator-5|Indikator 5]] (incidence of [[iskaemisk-apopleksi|Iskæmisk apopleksi]] among AF patients). The incidence in Hovedstaden was 0.9% [^src1] and later 1.0% [^src37], exceeding the national average of 0.8% and missing the development target [^src17]. Similarly, Hovedstaden fails [[indikator-6|Indikator 6]] with a rate of 0.7%, marginally worse than other regions [^src30], [^src31]. Regarding [[indikator-8|Indikator 8]], the national share is 19.2% [^src18]. In terms of clinical practice, 50.6% of patients in Region Hovedstaden started [[antikoagulationsbehandling|antikoagulationsbehandling]] within four months prior to their diagnosis [^src19], and 64.8% of AF patients admitted with ischemic stroke had redeemed an anticoagulation prescription within 100 days prior to admission [^src19]. Regarding patient outcomes, regional mortality rates for AF patients vary between 7.4% and 7.9% [^src33].
 
-**Clinical Performance (Indicators 4-6) and Outcomes**
-Region Hovedstaden fails to meet the standards for [[indikator-4b|Indikator 4b]], [[indikator-5|Indikator 5]], and [[indikator-6|Indikator 6]]. For Indikator 4b, no health clusters in the eastern Danish regions meet the standard [^src27], and Hovedstaden sits in the 92-94% range [^src1]. For Indikator 5, the region's incidence/result was recorded at 0.9% in 2023 [^src1] and 1.0% in 2024 [^src27], missing the target. For Indikator 6, Hovedstaden differs marginally from the rest of the country with a rate of 0.7%, failing the standard met by other regions at 0.4-0.5% [^src21]. Mortality rates in the region hover around 7.2-7.5% [^src26], consistent with the national regional variation of 7.4-7.9% [^src23].
+Beyond hospital care, the region's organizational landscape includes 13 private cardiology practices ([[praktiserende-kardiologer|Praktiserende kardiologer]]) [^src12], [^src22]. These private practices handle a significant volume, with 790 incident AF patients in Region Hovedstaden, accounting for 12.7% of all incident cases in private specialist practices [^src22]. Additionally, the region's laboratory practices show a distinct preference for using the [[npu04998-p-creatinin|npu04998-p-creatinin]] code for p-creatinine measurements, a practice shared primarily with Region Sjælland [^src37].
 
-**Trends and Context**
-While the national incidence of atrial fibrillation is 3.3 per 1,000 inhabitants [^src2], regional variations exist. There is a noted trend of falling proportions in Region Hovedstaden (-0.2 percentage points) for certain metrics [^src28]. Despite these challenges, the region remains a critical component of Denmark's healthcare landscape, though it provided "no comments" in its latest regional feedback to the [[atrieflimren-i-danmark|Atrieflimren i Danmark]] registry [^src13].
+---
 
 ## Mentions
 
@@ -77,6 +75,18 @@ Ingen kommentarer" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 121-121)
 - Page 90: "Region Hovedstaden" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90)
 - Page 91: "Region Hovedstaden 70 13 72 0 103 0 37675" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 91-95)
 - Page 112: "Region Hovedstaden" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 111-113)
+- Page 10: "Hovedstaden" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 6-10)
+- Page 26: "Hovedstaden Nej 3.409 / 3.909 0 (0) 87,2 (86,1-88,2) 3.198 / 3.700 86,4 87,7" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 26-30)
+- Page 31: "Hovedstaden Nej 27.384 / 29.367 0 (0) 93,2 (93,0-93,5) 25.621 / 27.752 92,3 92,1" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 31-35)
+- Page 36: "Hovedstaden Nej 383 / 38.830 0 (0) 1,0 (0,9-1,1) 377 / 37.640 1,0 0,9" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 36-40)
+- Page 39: "På regionsniveau varierede incidensen fra 0,6% i Region Nordjylland til 1,0% i Region Hovedstaden. Dermed opfylder tre regioner (Nordjylland, Midtjylland og Syddanmark) udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet." (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 36-40)
+- Page 52: "Hovedstaden Nej 683 / 5.396 0 (0) 12,7 (11,8-13,6) 427 / 5.198 8,2 2,2" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55)
+- Page 67: "Region Hovedstaden 2086 50.6 2037 49.4 4123" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70)
+- Page 68: "Hovedstaden 72 / 6.106 0 (0) 1,2 (0,9-1,5) 83 / 5.888 1,4 1,3" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70)
+- Page 72: "Hovedstaden 2.640 / 38.830 0 (0) 6,8 (6,6-7,1) 2.694 / 37.640 7,2 7,5" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 71-75)
+- Page 76: "Region Hovedstaden 3,6 3,2 3,2 3,0 2,9 3,0 3,2 3,2 3,2" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 76-80)
+- Page 81: "Region | Hovedstaden | 13 |" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85)
+- Page 97: "Region Hovedstaden" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98)
 
 ### Hovedstaden
 - Page 9: "Hovedstaden Ja 2.445 / 2.716 0 (0) 90,0 (88,8-91,1) 2.637 / 2.953 89,3 87,4" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 6-10)
@@ -101,7 +111,8 @@ Ingen kommentarer" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 121-121)
 ## Relationships
 
 ### Region Hovedstaden
-Outgoing (this entity is the SUBJECT of these relationships):
+
+#### Outgoing (this entity is the SUBJECT of these relationships)
 - Subject: region-hovedstaden
   Predicate: does-not-meet-standard-for
   Object: indikator-4b
@@ -153,8 +164,20 @@ Region Hovedstaden 1720 55.4 1382 44.6 3102"
 Ingen kommentarer"
   Page: 112
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 111-113
+- Subject: region-hovedstaden
+  Predicate: does-not-achieve-target-for
+  Object: indikator-4b
+  Evidence: "Hovedstaden Nej 27.384 / 29.367 0 (0) 93,2 (93,0-93,5)"
+  Page: 31
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 31-35
+- Subject: region-hovedstaden
+  Predicate: provides-comment-on
+  Object: atrieflimren-i-danmark
+  Evidence: "Ingen kommentarer"
+  Page: 97
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98
 
-Incoming (this entity is the OBJECT of these relationships):
+#### Incoming (this entity is the OBJECT of these relationships)
 - Subject: npu04998-p-creatinin
   Predicate: is-used-in-region
   Object: (this entity)
@@ -174,9 +197,16 @@ Sundhedsklynge Byen 16 / 1.625 0 (0) 1,0 (0,6-1,6) 21 / 1.493 1,4 1,4"
   Evidence: "Region Hovedstaden 13"
   Page: 93
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 91-95
+- Subject: praktiserende-kardiologer
+  Predicate: operates-in
+  Object: (this entity)
+  Evidence: "Region | Hovedstaden | 13 |"
+  Page: 81
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
 
 ### Hovedstaden
-Outgoing (this entity is the SUBJECT of these relationships):
+
+#### Outgoing (this entity is the SUBJECT of these relationships)
 - Subject: hovedstaden
   Predicate: contains-hospital
   Object: amager-og-hvidovre-hospital
@@ -226,7 +256,7 @@ Outgoing (this entity is the SUBJECT of these relationships):
   Page: 65
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 61-65
 
-Incoming (this entity is the OBJECT of these relationships):
+#### Incoming (this entity is the OBJECT of these relationships)
 - Subject: indikator-2
   Predicate: measures
   Object: (this entity)
@@ -285,6 +315,54 @@ Incoming (this entity is the OBJECT of these relationships):
   Type: organizational
   Page: 93
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 91-95
+- På regionsniveau varierede andelen fra 74,9% i Region Hovedstaden til 87,4% i Region Midtjylland [^src1] (indikator-2, region-hovedstaden, region-midtjylland)
+  Type: performance
+  Page: 19
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 16-20
+- Der ses en fortsat positiv udvikling i Region Hovedstaden, imens udviklingen er mere stagnerende i Sjælland og Nordjylland [^src1] (indikator-2, region-hovedstaden, region-sjaelland, region-nordjylland)
+  Type: performance-trend
+  Page: 19
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 16-20
+- På regionsniveau varierede andelen fra 87,2% i Region Hovedstaden til 90,7% i Region Nordjylland [^src1] (region-hovedstaden, region-nordjylland)
+  Type: geographic-distribution
+  Page: 29
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 26-30
+- På regionsniveau varierede andelen fra 93,2% i Region Hovedstaden til 96,0% i Region Nordjylland [^src1] (region-hovedstaden, region-nordjylland, indikator-4b)
+  Type: performance
+  Page: 34
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 31-35
+- Den nationale incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren er 0,8% [^src1] (indikator-5, region-hovedstaden, region-sjaelland, region-syddanmark, region-midtjylland, region-nordjylland)
+  Type: epidemiological
+  Page: 39
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 36-40
+- Tre regioner (Nordjylland, Midtjylland og Syddanmark) opfylder udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet [^src1] (region-nordjylland, region-midtjylland, region-syddanmark, region-sjaelland, region-hovedstaden)
+  Type: comparative-result
+  Page: 39
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 36-40
+- Den nationale andel for Indikator 8 i 2023/24 er 19,2 % (95 % CI: 18,6–19,7) [^src1] (indikator-8, region-hovedstaden)
+  Type: statistical
+  Page: 52
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- I Region Hovedstaden blev 2.086 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 50,6 % af alle patienter i AK-behandling [^src1] (region-hovedstaden, antikoagulationsbehandling)
+  Type: clinical-practice
+  Page: 67
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70
+- I Region Hovedstaden udviklede 72 ud af 6.106 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,2 % (95 % CI: 0,9–1,5) [^src2] (region-hovedstaden, iskaemisk-apopleksi)
+  Type: clinical-outcome
+  Page: 68
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70
+- Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 248 (64,8 %) i Region Hovedstaden indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse [^src3] (region-hovedstaden, antikoagulationsbehandling, iskaemisk-apopleksi)
+  Type: clinical-practice
+  Page: 69
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70
+- Region Hovedstaden har 13 speciallægepraksisser for praktiserende kardiologer [^src1] (region-hovedstaden, praktiserende-kardiologer)
+  Type: geographic-distribution
+  Page: 81
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
+- Der er 790 incidente patienter med atrieflimren hos praktiserende kardiologer i Region Hovedstaden, hvilket udgør 12,7 % af alle incidente i speciallægepraksis [^src1] (region-hovedstaden, praktiserende-kardiologer)
+  Type: epidemiology
+  Page: 81
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
 
 ### Hovedstaden
 - Resultatet for Hovedstaden for indikator 1 i perioden 01.07.2022–30.06.2023 er 90,0 % (95 % CI: 88,8–91,1) [^src1] (hovedstaden, databasen-for-atrieflimren-i-danmark)
@@ -319,7 +397,7 @@ Incoming (this entity is the OBJECT of these relationships):
 ## Timeline
 
 ### Region Hovedstaden
-(none)
+- 2020/2021: Startår for prævalensdata for atrieflimren i regionerne (atrieflimren-i-danmark, region-hovedstaden)
 
 ### Hovedstaden
 (none)
@@ -339,19 +417,30 @@ Incoming (this entity is the OBJECT of these relationships):
 [^src11]: AFDK_2024.pdf, pages 86-90
 [^src12]: AFDK_2024.pdf, pages 91-95
 [^src13]: AFDK_2024.pdf, pages 111-113
-[^src14]: AFDK_2023.pdf, pages 6-10
-[^src15]: AFDK_2023.pdf, pages 16-20
-[^src16]: AFDK_2023.pdf, pages 26-30
-[^src17]: AFDK_2023.pdf, pages 36-40
-[^src18]: AFDK_2023.pdf, pages 41-45
-[^src19]: AFDK_2023.pdf, pages 46-50
-[^src20]: AFDK_2023.pdf, pages 56-60
-[^src21]: AFDK_2023.pdf, pages 61-65
-[^src22]: AFDK_2023.pdf, pages 71-75
-[^src23]: AFDK_2023.pdf, pages 106-110
-[^src24]: AFDK_2024.pdf, pages 26-30
-[^src25]: AFDK_2024.pdf, pages 31-35
-[^src26]: AFDK_2024.pdf, pages 81-85
-[^src27]: AFDK_2024.pdf, pages 41-45
-[^src28]: AFDK_2024.pdf, pages 56-60
-[^src29]: AFDK_2023.pdf, pages 111-115
+[^src14]: AFDK_2025.pdf, pages 6-10
+[^src15]: AFDK_2025.pdf, pages 26-30
+[^src16]: AFDK_2025.pdf, pages 31-35
+[^src17]: AFDK_2025.pdf, pages 36-40
+[^src18]: AFDK_2025.pdf, pages 51-55
+[^src19]: AFDK_2025.pdf, pages 66-70
+[^src20]: AFDK_2025.pdf, pages 71-75
+[^src21]: AFDK_2025.pdf, pages 76-80
+[^src22]: AFDK_2025.pdf, pages 81-85
+[^src23]: AFDK_2025.pdf, pages 96-98
+[^src24]: AFDK_2023.pdf, pages 6-10
+[^src25]: AFDK_2023.pdf, pages 16-20
+[^src26]: AFDK_2023.pdf, pages 26-30
+[^src27]: AFDK_2023.pdf, pages 36-40
+[^src28]: AFDK_2023.pdf, pages 41-45
+[^src29]: AFDK_2023.pdf, pages 46-50
+[^src30]: AFDK_2023.pdf, pages 56-60
+[^src31]: AFDK_2023.pdf, pages 61-65
+[^src32]: AFDK_2023.pdf, pages 71-75
+[^src33]: AFDK_2023.pdf, pages 106-110
+[^src34]: AFDK_2024.pdf, pages 26-30
+[^src35]: AFDK_2024.pdf, pages 31-35
+[^src36]: AFDK_2024.pdf, pages 81-85
+[^src37]: AFDK_2024.pdf, pages 41-45
+[^src38]: AFDK_2024.pdf, pages 56-60
+[^src39]: AFDK_2025.pdf, pages 16-20
+[^src40]: AFDK_2023.pdf, pages 111-115

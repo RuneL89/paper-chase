@@ -2,47 +2,38 @@
 title: Definition
 type: topic
 wiki: rkkp-akdb
-updated: '2026-08-05T19:40:24.823Z'
+updated: '2026-08-15T06:25:59.623Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '36-40, 66-70, 86-90'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '16-20, 71-75'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: '11-15, 16-20, 21-25, 26-30, 41-45, 46-50, 66-70'
 tags:
   - definition
 ---
-The [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] (Acute Surgery Database) relies on a strict set of clinical quality indicators to measure, monitor, and ensure the standard of acute surgical care. These definitions span the entire patient journey, from initial emergency assessment and scanning to surgical timing, post-operative nutritional care, and mortality tracking among high-risk populations. By standardizing these definitions, the database ensures consistent reporting across hospitals.
-
-The initial phases of acute care are tracked through specific time-sensitive process indicators. [[indikator-2|Indikator 2]] measures the proportion of patients who receive a CT scan within two hours of arriving at the hospital [^src4]. Following diagnostics, [[indikator-3|Indikator 3]] tracks the proportion of patients who either receive preoperative optimization or proceed directly to surgery, defined as occurring within 240 minutes of hospital arrival [^src4]. Post-operative care is also monitored; for instance, [[indikator-8|Indikator 8]] measures the proportion of patients whose nutritional status is formally assessed within 48 hours after their operation [^src1].
-
-A major focus of the database's definitions is risk stratification and mortality tracking for vulnerable patients. Patients are classified as high-risk if they are older than 75 or have an [[asa-score|ASA]] score ≥ 3 [^src3]. Additionally, the [[charlson-comorbiditets-indeks|Charlson Comorbiditets indeks]] is used to quantify patient comorbidities, where a [[charlson-score-ge-3|Charlson Score ≥ 3]] signifies a high level of registered comorbidity [^src5]. To monitor outcomes for these specific high-risk groups, the database uses supplementary mortality indicators. One such indicator tracks the 30-day mortality rate from the date of surgery for all operated patients with a Charlson Score ≥ 3, which serves as a supplement to [[indikator-10c|Indikator 10c]] [^src2]. Another supplementary indicator specifically tracks the 30-day mortality from the exact time of operation for patients with a Charlson Score ≥ 3, serving as a supplement to Indikator 9c [^src5].
 
 ## Claims
 
-- Indikator 8: Ernæring måler andelen af patienter, hvor der er taget stilling til ernæring indenfor 48 timer efter operation [^src1] (indikator-8)
-  Type: definition
-  Page: 36
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 36-40
-- Supplerende indikator til indikator 10c beskriver andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode), og som har Charlson Score ≥ 3 [^src1] (indikator-10c, charlson-comorbiditets-indeks)
-  Type: definition
-  Page: 66
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 66-70
-- Indikator 6: Patienter med ASA-score ≥ 3 eller > 75 år klassificeres som personer i høj risiko [^src1] (akut-kirurgi-databasen, asa-score)
-  Type: definition
-  Page: 86
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 86-90
-- Indikator 2 beskriver andelen af patienter, der får en CT-skanning og som blev skannede indenfor 2 timer efter ankomst til sygehus [^src1] (indikator-2)
-  Type: definition
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- Indikator 3 beskriver andelen af patienter, der får præoperativ optimering eller som går direkte til operation, svarende til indenfor 240 minutter efter ankomst til sygehus [^src1] (indikator-3)
-  Type: definition
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- Supplerende indikator til indikator 9c beskriver andelen af patienter, der dør indenfor 30 dage fra tidspunkt for operation, for patienter med Charlson Score ≥ 3, svarende til høj registreret komorbiditet [^src1] (charlson-score-ge-3, akut-kirurgi-databasen)
-  Type: definition
-  Page: 71
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 71-75
+- Indikator 8: Ernæring måler andelen af patienter, hvor der er taget stilling til ernæring indenfor 48 timer efter operation [^src1] ([[indikator-8|Indikator 8]])
+- Supplerende indikator til indikator 10c beskriver andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode), og som har Charlson Score ≥ 3 [^src2] ([[indikator-10c|Indikator 10c]], [[charlson-comorbiditets-indeks|Charlson Comorbiditets indeks]])
+- Indikator 6: Patienter med ASA-score ≥ 3 eller > 75 år klassificeres som personer i høj risiko [^src3] ([[akut-kirurgi-databasen|Akut Kirurgi Databasen]], [[asa-score|ASA]])
+- Indikator 2 beskriver andelen af patienter, der får en CT-skanning og som blev skannede indenfor 2 timer efter ankomst til sygehus [^src4] ([[indikator-2|Indikator 2]])
+- Indikator 3 beskriver andelen af patienter, der får præoperativ optimering eller som går direkte til operation, svarende til indenfor 240 minutter efter ankomst til sygehus [^src4] ([[indikator-3|Indikator 3]])
+- Supplerende indikator til indikator 9c beskriver andelen af patienter, der dør indenfor 30 dage fra tidspunkt for operation, for patienter med Charlson Score ≥ 3, svarende til høj registreret komorbiditet [^src5] ([[charlson-score-ge-3|Charlson Score ≥ 3]], [[akut-kirurgi-databasen|Akut Kirurgi Databasen]])
+- Indikator 1 beskriver andelen af patienter, der kommer i antibiotisk behandling indenfor tre timer efter ankomst til sygehus [^src6] ([[indikator-1|Indikator 1]])
+- Indikator 2 beskriver andelen af patienter, der får en CT-skanning og som blev skannede indenfor 2 timer efter ankomst til sygehus [^src7] ([[indikator-2|Indikator 2]])
+- Indikator 3 beskriver andelen af patienter, der modtager præoperativ optimering eller går direkte til operation [^src8] ([[indikator-3|Indikator 3]])
+- Indikatoren er endeligt defineret således at den kan måles og afrapporteres som kvalitetsindikator idet der pr. 1/10-2022 blev oprettet en SKS kode (NAAZ42) til angivelse af at der er udført præoperativ optimering via LPR [^src8] ([[indikator-3|Indikator 3]], [[sks-kode-naaz42|SKS-koden NAAZ42]])
+- Patienter indgår i tælleren, hvis den anæstesiologiske ydelse ”præoperativ optimering” dokumenteres med SKS-koden NAAZ42 eller hvis tiden fra modtagelse til operation er under fire timer [^src8] ([[indikator-3|Indikator 3]], [[sks-kode-naaz42|SKS-koden NAAZ42]])
+- Indikator 4x: Andelen af patienter, der opereres indenfor seks timer efter ankomst til sygehus for patienter, der er opereret for perforation eller iskæmi, samt hvor patienten er opereret indenfor 48 timer efter ankomst til sygehuset [^src8] ([[indikator-4x|Indikator 4x]])
+- Indikator 4x beskriver andelen af patienter, der bliver opereret indenfor 6 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 48 timer, og hvor diagnosen er, perforation eller iskæmi [^src9] ([[indikator-4x|Indikator 4x]])
+- Indikator 4y beskriver andelen af patienter, der bliver opereret indenfor 24 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 48 timer, og hvor diagnosen er ileusoperationer uden iskæmi eller perforation [^src9] ([[indikator-4y|Indikator 4y]])
+- Mobilisering er defineret ved mobilisering fra liggende stilling til enten siddende eller stående stilling, hvor patienten har forladt sengen [^src10] ([[mobilisering]])
+- Andelen af patienter, der dør indenfor 30 dage fra operationsdato for alle opererede (med relevant diagnosekode og procedurekode) [^src11] ([[indikator-9|Indikator 9]])
+- Supplerende indikator til Indikator 9a beskriver andelen af patienter, der dør indenfor 30 dage fra tidspunkt for operation, for patienter med Charlson Score = 0, svarende til ingen registreret komorbiditet [^src12] ([[indikator-9a|Indikator 9a]], [[charlson-score-0|Charlson Score = 0]])
+- Supplerende indikator til Indikator 9b beskriver andelen af patienter, der dør indenfor 30 dage fra tidspunkt for operation, for patienter med Charlson Score = 1 eller 2, svarende til nogen registreret komorbiditet [^src12] ([[indikator-9b|Indikator 9b]], [[charlson-score-1-2|Charlson Score = 1 eller 2]])
 
 ## Sources
 
@@ -51,3 +42,11 @@ A major focus of the database's definitions is risk stratification and mortality
 [^src3]: AKDB_2023.pdf, pages 86-90
 [^src4]: AKDB_2024.pdf, pages 16-20
 [^src5]: AKDB_2024.pdf, pages 71-75
+[^src6]: AKDB_2025.pdf, pages 11-15
+[^src7]: AKDB_2025.pdf, pages 16-20
+[^src8]: AKDB_2025.pdf, pages 21-25
+[^src9]: AKDB_2025.pdf, pages 26-30
+[^src10]: AKDB_2025.pdf, pages 41-45
+[^src11]: AKDB_2025.pdf, pages 46-50
+[^src12]: AKDB_2025.pdf, pages 66-70
+

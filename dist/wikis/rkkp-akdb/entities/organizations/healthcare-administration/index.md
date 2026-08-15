@@ -4,17 +4,18 @@ type: index
 aliases:
   - Healthcare Administration
 wiki: rkkp-akdb
-updated: '2026-08-05T20:23:30.143Z'
+updated: '2026-08-15T08:32:25.032Z'
 children:
+  - index.md
   - sundhedsdatastyrelsens-teknikergruppe.md
 ---
 # Healthcare Administration
 
-This folder catalogs organizational bodies that provide administrative, technical, and methodological standardization for healthcare data and registries in Denmark. It currently contains the technical group of the Danish Health Data Authority, which is responsible for establishing the analytical guidelines and definitions for patient pathways used by national quality development programs and clinical databases. By setting these foundational standards, the entities in this folder ensure that real-world health data is measured reliably and consistently across the Danish healthcare system.
+This folder contains organizations involved in the administrative and technical standardization of healthcare data in Denmark. It currently holds the technical working group of the Danish Health Data Authority, which establishes analytical definitions and methodological guidance for national clinical registries. By defining how patient pathways and episodes are structured, these administrative bodies ensure that databases like the Acute Surgery Database can accurately track and measure clinical outcomes.
 
 ## Pages
 
-- [[sundhedsdatastyrelsens-teknikergruppe|Sundhedsdatastyrelsens teknikergruppe]] — The Danish Health Data Authority's technical group that establishes analytical standards and methodological guidance for defining patient pathways in national health registries.
+- [[sundhedsdatastyrelsens-teknikergruppe|Sundhedsdatastyrelsens teknikergruppe]] — The technical working group of the Danish Health Data Authority that provides analytical definitions and guidance for clinical databases, such as the episode definitions used by the Acute Surgery Database.
 
 ## Navigation
 

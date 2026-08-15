@@ -4,25 +4,26 @@ type: index
 aliases:
   - Healthcare Researchers
 wiki: rkkp-akdb
-updated: '2026-08-05T20:33:37.448Z'
+updated: '2026-08-15T08:43:46.272Z'
 children:
   - anne-kirstine-dyrvig.md
   - henrik-nielsen.md
+  - index.md
   - laursen-sb.md
   - rosenstock-s.md
   - schaffalitzky-de-muckadell-ob.md
 ---
 # Healthcare Researchers
 
-This folder catalogs healthcare researchers and academics whose work is cited in the Acute Surgery Database (AKDB) annual reports. It includes epidemiologists and biostatisticians who provide methodological oversight on the database's steering committee, alongside gastroenterologists and clinical epidemiologists who publish peer-reviewed studies on acute surgical conditions using AKDB data. Each profile details the researcher's institutional affiliations, specific clinical investigations, and collaborative networks, with all facts traced directly to the source PDFs.
+This folder groups epidemiologists, biostatisticians, and clinical professors who drive the scientific and quality-improvement research underpinning the Danish Acute Surgery Database (AKDB). These researchers are affiliated with institutions like RKKP's Videncenter, Aarhus University Hospital, and the University of Copenhagen, where they conduct peer-reviewed studies on conditions such as peptic ulcer bleeding and perforation. Their pages document their specific governance roles, collaborative clinical trials, and contributions to the national evidence base for acute surgical care.
 
 ## Pages
 
-- [[anne-kirstine-dyrvig|Anne-Kirstine Dyrvig]] — Epidemiologist at the RKKP Knowledge Center who provides methodological support on the Acute Surgery Database steering committee.
-- [[henrik-nielsen|Henrik Nielsen]] — Biostatistician and data manager at the RKKP Knowledge Center ensuring the statistical validity of the database's quality audits.
-- [[laursen-sb|Laursen SB]] — Gastroenterologist and professor at Aarhus University Hospital who researches peptic ulcer bleeding and endoscopy.
-- [[rosenstock-s|Rosenstock S]] — Clinical epidemiologist and associate professor at Aarhus University Hospital investigating peptic ulcer perforation and quality improvement in acute surgical care.
-- [[schaffalitzky-de-muckadell-ob|Schaffalitzky de Muckadell OB]] — Professor Emeritus in Gastroenterology at the University of Copenhagen who co-authors research on the clinical impacts of medications on peptic ulcer bleeding.
+- [[anne-kirstine-dyrvig|Anne-Kirstine Dyrvig]] — Epidemiologist at RKKP's Videncenter and member of the Acute Surgery Database steering committee.
+- [[henrik-nielsen|Henrik Nielsen]] — Biostatistician and data manager for the Acute Surgery Database, contributing to its data infrastructure and steering committee.
+- [[laursen-sb|Laursen SB]] — Gastroenterology professor at Aarhus University Hospital whose peer-reviewed work investigates the clinical impact of SSRIs on peptic ulcer bleeding.
+- [[rosenstock-s|Rosenstock S]] — Clinical epidemiologist at Aarhus University Hospital researching peptic ulcer perforation and quality improvement initiatives in acute surgical care.
+- [[schaffalitzky-de-muckadell-ob|Schaffalitzky de Muckadell OB]] — Professor Emeritus in Gastroenterology at the University of Copenhagen who co-authors pivotal studies on acute surgical bleeding and medication risks.
 
 ## Navigation
 
@@ -30,6 +31,7 @@ This folder catalogs healthcare researchers and academics whose work is cited in
 - Sibling: [[entities/people/healthcare-administrators/index|Healthcare Administrators]]
 - Sibling: [[entities/people/healthcare-leaders/index|Healthcare Leaders]]
 - Sibling: [[entities/people/healthcare-leadership/index|Healthcare Leadership]]
+- Sibling: [[entities/people/healthcare-patient-representatives/index|Healthcare Patient Representatives]]
 - Sibling: [[entities/people/healthcare-professionals/index|Healthcare Professionals]]
 - Sibling: [[entities/people/researchers/index|Researchers]]
 

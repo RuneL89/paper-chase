@@ -4,17 +4,18 @@ type: index
 aliases:
   - Medical Research
 wiki: rkkp-akdb
-updated: '2026-08-05T20:29:30.026Z'
+updated: '2026-08-15T08:38:01.917Z'
 children:
   - elpquick.md
+  - index.md
 ---
 # Medical Research
 
-This folder catalogs medical research initiatives and organizations operating within the Danish healthcare quality development framework. It currently documents the ELPQUICK study, a prospective cohort project evaluating acute abdominal surgery that provides critical empirical evidence linking early antibiotic administration to reduced patient mortality. These research entities serve as the scientific foundation for national clinical indicators and operational standards in acute care.
+This folder catalogs medical research initiatives and clinical studies referenced within the healthcare quality databases. It currently contains the ELPQUICK study, which is cited as foundational evidence that early antibiotic treatment significantly lowers mortality rates in acute abdominal surgery. By documenting these research entities, the wiki traces the clinical evidence that directly supports and validates the registry's quality indicators.
 
 ## Pages
 
-- [[elpquick|ELPQUICK]] — A prospective cohort study on acute abdominal surgery that validates early antibiotic treatment to reduce mortality and supports Indikator 1.
+- [[elpquick|ELPQUICK]] — A clinical study demonstrating that early antibiotic treatment reduces mortality in acute abdominal surgery, serving as supporting evidence for Indikator 1.
 
 ## Navigation
 

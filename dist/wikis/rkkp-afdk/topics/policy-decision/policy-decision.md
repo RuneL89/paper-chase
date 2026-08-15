@@ -4,24 +4,27 @@ type: topic
 aliases:
   - Policy Decision
 wiki: rkkp-afdk
-updated: '2026-08-05T21:30:18.109Z'
+updated: '2026-08-14T21:40:41.319Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: 51-55
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: '16-20, 21-25, 36-40, 51-55'
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: '1-5, 16-20, 21-25, 26-30, 56-60, 61-65'
 tags:
   - policy-decision
 ---
-The topic of **Policy Decision** in this corpus relates to the administrative retention, evaluation, and fulfillment of various clinical quality indicators and their associated standards. Across the 2023 and 2024 reporting periods, decisions are consistently made to maintain ("fastholdes") specific indicators and their target thresholds, ensuring continuous monitoring even when national performance falls short of the benchmarks.
+In the context of the AFDK (Atrial Fibrillation) clinical quality database, a **Policy Decision** refers to the formal evaluations and rulings made by the [[afdk-styregruppe]] regarding the retention, adjustment, or benchmarking of clinical indicators and standards. These decisions are fundamentally driven by longitudinal performance data, assessing whether national, regional, and cluster-level targets are being met, and determining if current metrics accurately reflect good clinical practice.
 
-For instance, [[indikator-4b|Indikator 4b]] was officially retained as a metric during the 2023 evaluation period [^src1]. Moving into the 2024 assessments, the policy decisions continue to favor maintaining the status quo for several key metrics. Both [[indikator-2|Indikator 2]] and its associated threshold, [[standard-80-percent|Standard: ≥80 %]], were retained for ongoing measurement [^src2]. Similarly, the indicator and standard for [[indikator-3|Indikator 3]] were maintained without alteration [^src3]. 
+A predominant theme across the 2023, 2024, and 2025 annual reports is the decision to maintain ("fastholdes") existing indicators and their associated benchmarks, even when targets are not fully achieved. For example, [[Indikator 4b]] was maintained in 2023 [^src1], while [[Indikator 2]] and the [[standard-80-percent]] were maintained in 2024 [^src2]. This pattern continued with the retention of [[Indikator 3]] [^src3], [[Indikator 4a3]] [^src4], and [[Indikator 4a]] [^src10] in subsequent reporting periods. In the case of [[Indikator 4a3]], the 90% standard was not met nationally in any follow-up period, yet the steering group opted to maintain both the indicator and the standard [^src4]. Conversely, when metrics perform well, such as the 0.6% standard for [[Indikator 6]] which was met nationally and across all regions, the [[standarden]] is similarly upheld [^src5]. 
 
-In some cases, the decision to retain an indicator occurs despite unmet national targets. For [[indikator-4a3|Indikator 4a3]], the standard is set at 90% for all follow-up periods, yet it was not met at the national level in any of those periods [^src4]. Nevertheless, the policy decision was to retain both the indicator and its rigorous standard [^src4]. Conversely, there are instances where standards are successfully met across the board; for [[indikator-6|Indikator 6]], the standard of 0.6% was fulfilled both nationally and across all regions [^src5]. The general reference to [[standarden|standarden]] being met in this context highlights the variability in performance across different policy areas. 
+Policy decisions also involve calibrating development goals (udviklingsmål) to reflect clinical reality. For [[Indikator 2]], the ≥80% development goal was met nationally for the second consecutive year, justifying the decision to maintain both the indicator and the goal [^src7]. However, more ambitious targets have proven elusive. The [[Udviklingsmålet på ≥95%]] was not met at the national level, by any region, or by any health cluster [^src8]. Similarly, the [[Udviklingsmål ≥ 90%]] was not fulfilled nationally [^src9]. Recognizing these systemic challenges, the [[afdk-styregruppe]] made a pragmatic policy decision regarding [[antikoagulationsbehandling]], officially determining that a 90% target fulfillment constitutes "good clinical practice" [^src6].
 
-Ultimately, these decisions reflect a broader administrative approach to quality assurance, where the retention of indicators is prioritized to ensure longitudinal tracking, regardless of whether current performance satisfies the established goals.
+Occasionally, policy decisions necessitate methodological changes to ensure indicators capture the correct clinical timeline. A notable example is [[Indikator 15]], also known as the [[Hjertesvigtsindikatoren]]. While the indicator itself was maintained, the steering group enacted a retroactive methodological change so that it now measures the occurrence of heart failure diagnoses specifically in the period from 3 months to 12 months following an atrial fibrillation diagnosis [^src11]. 
 
 ## Claims
+
 - Indikatoren fastholdes [^src1] (indikator-4b)
   Type: policy-decision
   Page: 53
@@ -46,6 +49,46 @@ Ultimately, these decisions reflect a broader administrative approach to quality
   Type: policy-decision
   Page: 55
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 51-55
+- Styregruppen har valgt at anse en 90 % målopfyldelse for antikoagulationsbehandling som værende god klinisk praksis [^src1] (afdk-styregruppe, antikoagulationsbehandling)
+  Type: policy-decision
+  Page: 4
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 1-5
+- Udviklingsmålet på ≥80% er dermed for andet år i træk opfyldt på nationalt niveau [^src1] (indikator-2)
+  Type: policy-decision
+  Page: 19
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 16-20
+- Indikatoren og udviklingsmålet fastholdes [^src1] (indikator-2)
+  Type: policy-decision
+  Page: 19
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 16-20
+- Udviklingsmålet på ≥95% er dermed ikke opfyldt på nationalt niveau [^src1] (udviklingsmaal-95-procent)
+  Type: policy-decision
+  Page: 24
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 21-25
+- Ingen regioner opfylder udviklingsmålet [^src1] (udviklingsmaal-95-procent)
+  Type: policy-decision
+  Page: 24
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 21-25
+- Ingen sundhedsklynger opnår udviklingsmålet [^src1] (udviklingsmaal-95-procent)
+  Type: policy-decision
+  Page: 24
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 21-25
+- Der er ingen regioner, der opfylder udviklingsmålet for denne indikator [^src1] (udviklingsmaal-95-procent)
+  Type: policy-decision
+  Page: 24
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 21-25
+- Udviklingsmålet på ≥90% er dermed ikke opfyldt på nationalt niveau [^src1] (udviklingsmaal-90-percent)
+  Type: policy-decision
+  Page: 29
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 26-30
+- Indikator og udviklingsmål fastholdes [^src1] (indikator-4a)
+  Type: policy-decision
+  Page: 57
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 56-60
+- Indikatoren fastholdes, men ændres med tilbagevirkende kraft så der måles på forekomsten af hjertesvigtsdiagnose i perioden 3 måneder efter atrieflimren diagnose til 12 måneder efter. [^src1] (indikator-15, hjertesvigtsindikatoren)
+  Type: policy-decision
+  Page: 62
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 61-65
 
 ## Sources
 
@@ -54,3 +97,9 @@ Ultimately, these decisions reflect a broader administrative approach to quality
 [^src3]: AFDK_2024.pdf, pages 21-25
 [^src4]: AFDK_2024.pdf, pages 36-40
 [^src5]: AFDK_2024.pdf, pages 51-55
+[^src6]: AFDK_2025.pdf, pages 1-5
+[^src7]: AFDK_2025.pdf, pages 16-20
+[^src8]: AFDK_2025.pdf, pages 21-25
+[^src9]: AFDK_2025.pdf, pages 26-30
+[^src10]: AFDK_2025.pdf, pages 56-60
+[^src11]: AFDK_2025.pdf, pages 61-65

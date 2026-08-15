@@ -4,21 +4,23 @@ type: index
 aliases:
   - Compliance
 wiki: rkkp-akdb
-updated: '2026-08-05T20:50:07.138Z'
+updated: '2026-08-15T09:03:07.173Z'
 children:
   - compliance.md
+  - index.md
 ---
 # Compliance
 
-This folder contains the central analysis of clinical quality compliance within the AKDB 2023 framework. It details how regional and local healthcare reporting units perform against established national standards for specific indicators, revealing sharp disparities in systemic success. The documentation contrasts the uniform national and regional success in meeting the strict thresholds for Indikator 10 and Indikator 11 with the pervasive, universal failure to achieve the 90% compliance target required for Indikator 5y.
+This folder contains the topic page on Compliance, which tracks how well regional and local healthcare reporting units meet national standards and development goals for specific clinical indicators. The page details varied compliance rates across metrics like Indikator 10, 11, 4y, and 5y, highlighting areas of systemic success alongside significant quality-improvement challenges where targets were entirely unmet.
 
 ## Pages
 
-- [[compliance|Compliance]] — Analyzes the extent to which regional and local healthcare units meet national quality standards for specific clinical indicators, highlighting the stark contrast between the successful compliance of Indikator 10 and the universal non-compliance of Indikator 5y.
+- [[compliance|Compliance]] — Tracks the extent to which regional and local reporting units meet national standards for specific clinical indicators, detailing successes and failures across metrics like Indikator 10 and 5y.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/administrative-change/index|Administrative Change]]
 - Sibling: [[topics/administrative-systems/index|Administrative Systems]]
 - Sibling: [[topics/cancer-distribution/index|Cancer Distribution]]
 - Sibling: [[topics/clinical-assessment/index|Clinical Assessment]]
@@ -28,10 +30,12 @@ This folder contains the central analysis of clinical quality compliance within 
 - Sibling: [[topics/clinical-indicators/index|Clinical Indicators]]
 - Sibling: [[topics/clinical-metrics/index|Clinical Metrics]]
 - Sibling: [[topics/clinical-outcome/index|Clinical Outcome]]
+- Sibling: [[topics/clinical-process/index|Clinical Process]]
 - Sibling: [[topics/clinical-quality/index|Clinical Quality]]
 - Sibling: [[topics/clinical-quality-indicators/index|Clinical Quality Indicators]]
 - Sibling: [[topics/coding-uncertainty/index|Coding Uncertainty]]
 - Sibling: [[topics/data-availability/index|Data Availability]]
+- Sibling: [[topics/data-decision/index|Data Decision]]
 - Sibling: [[topics/data-privacy/index|Data Privacy]]
 - Sibling: [[topics/data-quality/index|Data Quality]]
 - Sibling: [[topics/definition/index|Definition]]
@@ -41,15 +45,19 @@ This folder contains the central analysis of clinical quality compliance within 
 - Sibling: [[topics/evaluation/index|Evaluation]]
 - Sibling: [[topics/evaluative/index|Evaluative]]
 - Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
+- Sibling: [[topics/governance/index|Governance]]
 - Sibling: [[topics/healthcare-metrics/index|Healthcare Metrics]]
 - Sibling: [[topics/healthcare-performance-indicators/index|Healthcare Performance Indicators]]
 - Sibling: [[topics/inter-hospital-variation/index|Inter Hospital Variation]]
 - Sibling: [[topics/methodological-assessment/index|Methodological Assessment]]
+- Sibling: [[topics/methodological-change/index|Methodological Change]]
 - Sibling: [[topics/performance/index|Performance]]
 - Sibling: [[topics/policy/index|Policy]]
+- Sibling: [[topics/quality-target/index|Quality Target]]
 - Sibling: [[topics/recommendation/index|Recommendation]]
 - Sibling: [[topics/regional-comparison/index|Regional Comparison]]
 - Sibling: [[topics/relevance-assessment/index|Relevance Assessment]]
+- Sibling: [[topics/research-finding/index|Research Finding]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/technical-infrastructure/index|Technical Infrastructure]]
 - Sibling: [[topics/visualizations/index|Visualizations]]

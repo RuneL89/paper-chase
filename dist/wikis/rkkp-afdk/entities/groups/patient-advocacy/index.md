@@ -4,19 +4,20 @@ type: index
 aliases:
   - Patient Advocacy
 wiki: rkkp-afdk
-updated: '2026-08-05T22:49:18.873Z'
+updated: '2026-08-14T23:38:14.606Z'
 children:
   - afdk-patientrepraesentanter.md
+  - index.md
   - praktiserende-kardiologer.md
 ---
 # Patient Advocacy
 
-This folder groups entities related to patient advocacy and specialized clinical data contribution within the Danish Atrial Fibrillation database (AFDK). It documents the patient representatives who push for structured education programs to improve patient outcomes, as well as the private practicing cardiologists whose recent integration into the registry expands national quality measurement beyond the traditional hospital sector.
+This folder groups collective entities that influence patient care, advocacy, and quality measurement within the Danish Atrial Fibrillation Database (AFDK) framework. It contains the formal patient representatives who drive initiatives for structured education and user involvement on the national steering committee, alongside the practicing private cardiologists whose recent integration into the registry expands quality assurance from a purely hospital-centered model to include the specialized private care sector.
 
 ## Pages
 
-- [[afdk-patientrepraesentanter|Patientrepræsentanterne i AFDK]] — The dedicated patient representative group within the AFDK that collaborates with the steering committee to advocate for structured patient education and address systemic shortcomings in care.
-- [[praktiserende-kardiologer|Praktiserende kardiologer]] — The cohort of private practice cardiologists integrated into the AFDK in 2023, providing crucial population-based data on atrial fibrillation treatments outside the hospital system.
+- [[afdk-patientrepraesentanter|Patientrepræsentanterne i AFDK]] — The patient advocacy group on the AFDK steering committee that champions structured patient education and early post-diagnosis support to improve clinical outcomes and self-determination.
+- [[praktiserende-kardiologer|Praktiserende kardiologer]] — Private specialist cardiologists whose data contributions since 2023 enable population-based quality measurement and highlight regional disparities in atrial fibrillation care across Denmark.
 
 ## Navigation
 

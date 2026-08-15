@@ -2,148 +2,92 @@
 title: Landspatientregisteret
 type: entity
 aliases:
-  - LPR
   - Landspatientregisteret (LPR)
+  - LPR
+  - LPR3
 wiki: rkkp-akdb
-updated: '2026-08-05T18:28:33.844Z'
+updated: '2026-08-15T06:25:59.180Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '1-5, 46-50, 81-85'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '1-5, 21-25, 36-40, 46-50, 86-90, 91-95, 96-100'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: '1-5, 101-105, 106-110, 36-40, 56-60, 66-70, 96-100'
 tags:
   - organization
 ---
-**Landspatientregisteret** (LPR), or the Danish National Patient Register, is a central national health registry in Denmark. Within the context of acute surgical quality monitoring, it serves as the primary data source and registration platform for the [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] (AKDB) [^src1], [^src8]. The registry is fundamental to the database's operations, as patient pathways and clinical quality indicators are constructed directly from LPR submissions, making it the key to data completeness, validity, and geographical comparability across Danish regions [^src2], [^src8].
-
-To construct the patient population and calculate quality indicators, AKDB relies on data from LPR in combination with the [[cpr-registeret|CPR-registeret]] and the [[den-nationale-labdatabank-dnl|Den Nationale Labdatabank (DNL)]] [^src7], [^src10]. Rather than using a separate, dedicated data entry system, the registration of data to AKDB is integrated into routine clinical workflows by requiring hospitals to report directly to LPR [^src7], [^src10]. This structural integration means that AKDB's data quality is entirely dependent on the accuracy and timeliness of local LPR coding [^src2].
-
-LPR hosts and provides specific procedure and diagnosis codes that drive AKDB's clinical indicators. For example, LPR provides the operation times and procedure codes necessary for evaluating indicators like [[indikator-8|Indikator 8]] (epidural anesthesia) and [[indikator-10|Indikator 10]] (30-day mortality) [^src4], [^src9]. A specific methodological requirement for these indicators is that the time of anesthesia must fall within the timeframe of the surgical procedure as registered in LPR [^src4], [^src9]. Furthermore, early mobilization ([[indikator-6|Indikator 6]]) is tracked using specific LPR codes (ZZP0030A and ZZP0030C) [^src6]. 
-
-The registry's coding infrastructure has evolved to support new quality measurements. On October 1, 2022, a new code was created in LPR to indicate preoperative optimization, which enabled the quantitative measurement of Indikator 3 for the first time [^src5]. This is associated with the implementation of [[sks-kode-naaz42|SKS-koden NAAZ42]] [^src5]. Later, on December 24, 2022, AKDB received approval from the Danish Health Data Authority (SDS) to use the BABZ00 code from LPR [^src4]. 
-
-Despite its central role, relying on LPR presents challenges. The 2023 and 2024 AKDB annual reports highlight that while LPR offers a standardized national framework, variations in local coding practices and data infrastructure can impact data quality [^src8]. Consequently, hospitals and regions are required to perform local validation, comparing their internal electronic patient records (EPJ) against the data reported to LPR to ensure the registered population accurately reflects clinical reality [^src2].
 
 ## Mentions
 
-- Page 4: "datakilden er ens egen indtastning til Landspatientregisteret (LPR)" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 1-5)
-- Page 4: "det er disse data der primært er kilden til forløbsdannelsen" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 1-5)
-- Page 91: "Landspatientregisteret" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 91-95)
-- Page 96: "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)." (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 96-100)
-- Page 46: "BABZ00 fra LPR" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 46-50)
-- Page 21: "idet der pr. 1/10-2022 blev oprettet en kode til angivelse af at der er udført præoperativ optimering via LPR." (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 21-25)
-- Page 36: "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering)." (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 36-40)
-- Page 81: "registrering til LPR" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 81-85)
-- Page 4: "datakilden er ens egen indtastning til Landspatientregisteret (LPR)" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 1-5)
-- Page 4: "det er disse data der primært er kilden til forløbsdannelsen" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 1-5)
-- Page 46: "Samtidigt er der krav om, at tidspunktet for anæstesi skal ligge indenfor tidspunktet for den procedure, hvor selve operationen er angivet i LPR." (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 46-50)
-- Page 86: "Landspatientregisteret (LPR)" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 86-90)
+- Page 4: "datakilden er ens egen indtastning til Landspatientregisteret (LPR)" [^src1]
+- Page 4: "det er disse data der primært er kilden til forløbsdannelsen" [^src1]
+- Page 91: "Landspatientregisteret" [^src2]
+- Page 96: "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)." [^src3]
+- Page 40: "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering)." [^src4]
+- Page 100: "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)1." [^src5]
+- Page 100: "Registrering af data til databasen foregår som indberetning til LPR." [^src5]
+- Page 101: "Kontakterne* identificeres i LPR." [^src6]
+- Page 109: "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)." [^src7]
+- Page 81: "registrering til LPR" [^src8]
+- Page 4: "datakilden er ens egen indtastning til Landspatientregisteret (LPR)" [^src9]
+- Page 4: "det er disse data der primært er kilden til forløbsdannelsen" [^src9]
+- Page 46: "Samtidigt er der krav om, at tidspunktet for anæstesi skal ligge indenfor tidspunktet for den procedure, hvor selve operationen er angivet i LPR." [^src10]
+- Page 86: "Landspatientregisteret (LPR)" [^src11]
+- Page 46: "BABZ00 fra LPR" [^src12]
+- Page 21: "idet der pr. 1/10-2022 blev oprettet en kode til angivelse af at der er udført præoperativ optimering via LPR." [^src13]
+- Page 36: "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering)." [^src14]
+- Page 58: "Den LPR opdaterer indberetningsvejledningen sådan at tidspunktet for operationsstart fremover skal svare til tidspunktet for knivtid start." [^src15]
+- Page 58: "epidural i behandlingen af patienten. Denne oplysning har hidtil været indsamlet med Dansk Anaestesi Database som datakilde, men for at optimere datagrundlaget ønskes nu at supplere med data fra LPR" [^src15]
+- Page 4: "indberetninger til LPR3" [^src16]
 
 ## Relationships
 
-**Outgoing (this entity is the SUBJECT of these relationships):**
-
-- Subject: landspatientregisteret
-  Predicate: provides-codes-for
-  Object: indikator-10
-  Evidence: "Nævner Operationer, hvor patienter har operationstidspunkt og relevant diagnosekode og procedurekode"
-  Page: 46
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 46-50
-- Subject: landspatientregisteret
-  Predicate: hosts-code-for
-  Object: sks-kode-naaz42
-  Evidence: "idet der pr. 1/10-2022 blev oprettet en kode til angivelse af at der er udført præoperativ optimering via LPR."
-  Page: 21
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 21-25
-
-**Incoming (this entity is the OBJECT of these relationships):**
-
-- Subject: akut-kirurgi-databasen
-  Predicate: relies-on-data-from
-  Object: (this entity)
-  Evidence: "datakilden er ens egen indtastning til Landspatientregisteret (LPR)"
-  Page: 4
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 1-5
-- Subject: akut-kirurgi-databasen
-  Predicate: is-based-on
-  Object: (this entity)
-  Evidence: "Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR."
-  Page: 91
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 91-95
-- Subject: akut-kirurgi-databasen
-  Predicate: is-based-on
-  Object: (this entity)
-  Evidence: "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)."
-  Page: 96
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 96-100
-- Subject: indikator-6
-  Predicate: is-based-on-data-from
-  Object: (this entity)
-  Evidence: "Mobilisering registreres i LPR ved at angive koderne ZZP0030A og ZZP0030C."
-  Page: 36
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 36-40
-- Subject: akut-kirurgi-databasen
-  Predicate: uses-data-from
-  Object: (this entity)
-  Evidence: "Registrering af data til databasen foregår som indberetning til LPR"
-  Page: 81
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 81-85
-- Subject: akut-kirurgi-databasen
-  Predicate: relies-on-data-from
-  Object: (this entity)
-  Evidence: "datakilden er ens egen indtastning til Landspatientregisteret (LPR)"
-  Page: 4
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 1-5
-- Subject: indikator-8
-  Predicate: uses-operation-time-from
-  Object: (this entity)
-  Evidence: "tidspunktet for anæstesi skal ligge indenfor tidspunktet for den procedure, hvor selve operationen er angivet i LPR"
-  Page: 46
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 46-50
-- Subject: akut-kirurgi-databasen
-  Predicate: uses-data-from
-  Object: (this entity)
-  Evidence: "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)"
-  Page: 86
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 86-90
+- [[indikator-10|Indikator 10]] — Provides Codes For [^src12]
+- [[sks-kode-naaz42|SKS-koden NAAZ42]] — Hosts Code For [^src13]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Provides Data For [^src15]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Relies On Data From (incoming) — "datakilden er ens egen indtastning til Landspatientregisteret (LPR)" [^src1]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Based On (incoming) — "Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR." [^src2]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Based On (incoming) — "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)." [^src3]
+- [[indikator-6|Indikator 6]] — Is Defined In (incoming) — "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering)." [^src4]
+- [[charlson-score|Charlson Score]] — Is Calculated From (incoming) — "Diagnoser til brug i beregning af Charlson Score er hentet 10 år tilbage i tid" [^src17]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Uses Data From (incoming) — "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)1." [^src5]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Based On (incoming) — "Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR." [^src6]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Uses Data From (incoming) — "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)." [^src7]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Uses Data From (incoming) — "Registrering af data til databasen foregår som indberetning til LPR" [^src8]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Relies On Data From (incoming) — "datakilden er ens egen indtastning til Landspatientregisteret (LPR)" [^src9]
+- [[indikator-8|Indikator 8]] — Uses Operation Time From (incoming) — "tidspunktet for anæstesi skal ligge indenfor tidspunktet for den procedure, hvor selve operationen er angivet i LPR" [^src10]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Uses Data From (incoming) — "Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)" [^src11]
+- [[indikator-6|Indikator 6]] — Is Based On Data From (incoming) — "Mobilisering registreres i LPR ved at angive koderne ZZP0030A og ZZP0030C." [^src14]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Based On (incoming) — "Databasen er omlagt og baseret på LPR-data" [^src16]
 
 ## Claims
 
-- Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL) [^src1] (cpr-registeret, landspatientregisteret, den-nationale-labdatabank-dnl)
-  Type: data-source
-  Page: 81
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 81-85
-- Registrering af data til databasen foregår som indberetning til LPR [^src1] (akut-kirurgi-databasen, landspatientregisteret)
-  Type: data-collection-method
-  Page: 81
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 81-85
-- Akut Kirurgi Databasen er i fjerde år baseret på Landspatientregisteret (LPR) [^src1] (akut-kirurgi-databasen, landspatientregisteret)
-  Type: structural
-  Page: 4
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 1-5
-- Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL) [^src1] (akut-kirurgi-databasen, cpr-registeret, landspatientregisteret, den-nationale-labdatabank-dnl)
-  Type: data-source
-  Page: 86
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 86-90
-- Registrering af data til databasen foregår som indberetning til LPR [^src1] (akut-kirurgi-databasen, landspatientregisteret)
-  Type: registration-method
-  Page: 86
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 86-90
-
-## Timeline
-
-- 2022-12-24: AKDB modtog godkendelse fra SDS på at anvende koden BABZ00 fra LPR (akut-kirurgi-databasen, sds, landspatientregisteret)
-- 2022-10-01: En kode til angivelse af præoperativ optimering blev oprettet i LPR, hvilket muliggjorde første gang kvantitativ måling af Indikator 3 som kvalitetsindikator. (landspatientregisteret, indikator-3)
+- Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL)1 [^src5] ([[akut-kirurgi-databasen|Akut Kirurgi Databasen]], [[cpr-registeret|CPR-registeret]], [[landspatientregisteret|Landspatientregisteret]], [[den-nationale-labdatabank-dnl|Den Nationale Labdatabank (DNL)]])
+- Registrering af data til databasen foregår som indberetning til LPR [^src5] ([[akut-kirurgi-databasen|Akut Kirurgi Databasen]], [[landspatientregisteret|Landspatientregisteret]])
+- Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL) [^src8] ([[cpr-registeret|CPR-registeret]], [[landspatientregisteret|Landspatientregisteret]], [[den-nationale-labdatabank-dnl|Den Nationale Labdatabank (DNL)]])
+- Registrering af data til databasen foregår som indberetning til LPR [^src8] ([[akut-kirurgi-databasen|Akut Kirurgi Databasen]], [[landspatientregisteret|Landspatientregisteret]])
+- Akut Kirurgi Databasen er i fjerde år baseret på Landspatientregisteret (LPR) [^src9] ([[akut-kirurgi-databasen|Akut Kirurgi Databasen]], [[landspatientregisteret|Landspatientregisteret]])
+- Data til konstruktion af populationen og indikatorerne indhentes fra CPR-registeret, Landspatientregisteret (LPR) og Den Nationale Labdatabank (DNL) [^src11] ([[akut-kirurgi-databasen|Akut Kirurgi Databasen]], [[cpr-registeret|CPR-registeret]], [[landspatientregisteret|Landspatientregisteret]], [[den-nationale-labdatabank-dnl|Den Nationale Labdatabank (DNL)]])
+- Registrering af data til databasen foregår som indberetning til LPR [^src11] ([[akut-kirurgi-databasen|Akut Kirurgi Databasen]], [[landspatientregisteret|Landspatientregisteret]])
 
 ## Sources
 
 [^src1]: AKDB_2023.pdf, pages 1-5
 [^src2]: AKDB_2024.pdf, pages 91-95
 [^src3]: AKDB_2024.pdf, pages 96-100
-[^src4]: AKDB_2023.pdf, pages 46-50
-[^src5]: AKDB_2024.pdf, pages 21-25
-[^src6]: AKDB_2024.pdf, pages 36-40
-[^src7]: AKDB_2023.pdf, pages 81-85
-[^src8]: AKDB_2024.pdf, pages 1-5
-[^src9]: AKDB_2024.pdf, pages 46-50
-[^src10]: AKDB_2024.pdf, pages 86-90
+[^src4]: AKDB_2025.pdf, pages 36-40
+[^src5]: AKDB_2025.pdf, pages 96-100
+[^src6]: AKDB_2025.pdf, pages 101-105
+[^src7]: AKDB_2025.pdf, pages 106-110
+[^src8]: AKDB_2023.pdf, pages 81-85
+[^src9]: AKDB_2024.pdf, pages 1-5
+[^src10]: AKDB_2024.pdf, pages 46-50
+[^src11]: AKDB_2024.pdf, pages 86-90
+[^src12]: AKDB_2023.pdf, pages 46-50
+[^src13]: AKDB_2024.pdf, pages 21-25
+[^src14]: AKDB_2024.pdf, pages 36-40
+[^src15]: AKDB_2025.pdf, pages 56-60
+[^src16]: AKDB_2025.pdf, pages 1-5
+[^src17]: AKDB_2025.pdf, pages 66-70
+

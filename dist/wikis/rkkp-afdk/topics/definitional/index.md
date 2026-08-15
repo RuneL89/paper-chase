@@ -4,17 +4,18 @@ type: index
 aliases:
   - Definitional
 wiki: rkkp-afdk
-updated: '2026-08-05T23:26:45.874Z'
+updated: '2026-08-15T00:24:39.532Z'
 children:
   - definitional.md
+  - index.md
 ---
 # Definitional
 
-This folder contains the definitional criteria used to evaluate specific healthcare quality metrics and performance indicators within the corpus. It establishes the exact clinical conditions required to satisfy quality indicators, such as the maximum allowable waiting time from a patient's initial diagnosis to the commencement of preventive medical interventions like anticoagulation therapy. Because the current data extract focuses on a single definitional parameter, this area serves as a precise benchmark for assessing the timeliness of clinical department interventions.
+This folder contains topics that establish the exact clinical criteria and thresholds used to evaluate healthcare quality metrics and performance indicators. Specifically, it defines the conditions required to satisfy indicators such as the timeliness of medical interventions, including the maximum allowable waiting times from diagnosis to the commencement of treatments like anticoagulation therapy.
 
 ## Pages
 
-- [[definitional|Definitional]] — Details the specific clinical criteria for Indikator 1, defining the 30-day maximum waiting time from diagnosis to the start of anticoagulation treatment to prevent adverse cardiovascular events.
+- [[definitional|Definitional]] — Outlines the specific clinical criteria for evaluating healthcare quality metrics, such as the 30-day maximum waiting time from diagnosis to anticoagulation treatment for Indikator 1.
 
 ## Navigation
 
@@ -27,12 +28,17 @@ This folder contains the definitional criteria used to evaluate specific healthc
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder contains the definitional criteria used to evaluate specific healthc
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

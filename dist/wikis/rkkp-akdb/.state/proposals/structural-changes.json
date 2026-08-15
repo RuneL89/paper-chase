@@ -1110,6 +1110,115 @@
         "opereret-1",
         "t-0"
       ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "entities/indicators/clinical-quality-indicators",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "indikator-9a"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "entities/locations/regions",
+      "reason": "5 entities placed in this folder",
+      "affectedEntities": [
+        "hovedstaden",
+        "midtjylland",
+        "nordjylland",
+        "sjaelland",
+        "syddanmark"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "entities/medical-conditions/acute-surgical",
+      "reason": "3 entities placed in this folder",
+      "affectedEntities": [
+        "iskaemi",
+        "perforeret-hulorgan",
+        "svaer-ileus"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "entities/people/healthcare-patient-representatives",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "vera-slyk"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "topics/administrative-change",
+      "reason": "Topic page 'administrative-change' created from claims of type 'administrative-change'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "topics/clinical-process",
+      "reason": "Topic page 'clinical-process' created from claims of type 'clinical-process'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen",
+        "danmark",
+        "indikator-1"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "topics/data-decision",
+      "reason": "Topic page 'data-decision' created from claims of type 'data-decision'",
+      "affectedEntities": [
+        "akut-kirurgi-databasen",
+        "dk65"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "topics/governance",
+      "reason": "Topic page 'governance' created from claims of type 'governance'",
+      "affectedEntities": [
+        "dansk-selskab-for-klinisk-ernaering",
+        "indikator-7",
+        "styregruppen"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "topics/policy/healthcare-reform",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-folder",
+      "path": "topics/quality-target",
+      "reason": "Topic page 'quality-target' created from claims of type 'quality-target'",
+      "affectedEntities": [
+        "epidural",
+        "indikator-8",
+        "laparotomi"
+      ]
+    },
+    {
+      "timestamp": "2026-08-15T07:48:28.336Z",
+      "type": "new-page-type",
+      "path": "policy",
+      "reason": "New entity page type 'policy' discovered during extraction",
+      "affectedEntities": [
+        "sundhedsreformen"
+      ]
     }
   ],
   "knownPageTypes": [
@@ -1129,6 +1238,7 @@
     "medical-procedure",
     "organization",
     "person",
+    "policy",
     "quality-indicator",
     "score",
     "study",

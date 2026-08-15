@@ -4,17 +4,18 @@ type: index
 aliases:
   - Laboratory Information Systems
 wiki: rkkp-afdk
-updated: '2026-08-05T23:15:04.364Z'
+updated: '2026-08-15T00:07:04.218Z'
 children:
+  - index.md
   - labka.md
 ---
 # Laboratory Information Systems
 
-This folder catalogs the national laboratory information systems used in Denmark to register biomarker measurements and track clinical quality metrics. It currently contains the page for LABKA, the system where thyroid-stimulating hormone (TSH) test results are recorded for patients in the Danish Atrial Fibrillation Database (AFDK). The documentation highlights how variations in internal coding structures within such systems can create systemic barriers, hindering the extraction of complete data needed for national quality reports like Indikator 3.
+This folder catalogs the specialized software systems used to manage and register clinical laboratory data within the Danish healthcare infrastructure. It currently documents LABKA, the national platform where biochemical measurements—such as thyroid-stimulating hormone (TSH) tests—are recorded. The included page details how LABKA feeds critical data into national quality registries like the Danish Atrial Fibrillation registry (AFDK), while also examining the structural coding inconsistencies within the system that complicate nationwide quality reporting and the technical workarounds used to route this data to the broader SundK health platform.
 
 ## Pages
 
-- [[labka|LABKA]] — The national Danish laboratory system used to register TSH measurements, detailing how its inconsistent internal coding structures impede complete data extraction for atrial fibrillation quality indicators.
+- [[labka|LABKA]] — The national Danish laboratory system for registering clinical test results, highlighting its role in atrial fibrillation quality indicators and the internal coding variations that complicate data extraction.
 
 ## Navigation
 

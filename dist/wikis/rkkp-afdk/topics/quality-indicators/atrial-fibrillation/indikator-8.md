@@ -4,31 +4,32 @@ type: entity
 aliases:
   - Indikator 8
 wiki: rkkp-afdk
-updated: '2026-08-05T20:24:49.015Z'
+updated: '2026-08-14T20:30:01.408Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: '121-121, 71-75, 76-80'
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: '6-10, 61-65, 96-100'
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: '51-55, 6-10, 81-85, 96-98'
 tags:
   - topic
 ---
-**Indikator 8** is a quality indicator within the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK) and the [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] (RKKP) [^src1] [^src4]. It measures the proportion of newly diagnosed patients with [[atrieflimren|atrial fibrillation]] who receive a [[struktureret-undervisningsprogram|structured education program]] within the first year after their diagnosis, serving as a key metric for [[patientuddannelse|patient education]] and engagement [^src1] [^src5] [^src6].
+**Indikator 8** is a national healthcare quality indicator in [[danmark|Danmark]] that measures the proportion of newly diagnosed patients with [[atrieflimren]] who receive a [[struktureret-undervisningsprogram|Struktureret undervisningsprogram]] within the first year after their diagnosis [^src1] [^src6]. As a metric of [[patientuddannelse|Patientuddannelse]] and patient engagement, it serves as a critical component of the [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] (RKKP) and is prominently featured in the annual [[atrieflimren-i-danmark|Atrieflimren i Danmark]] (AFDK) database reports [^src4] [^src7].
 
-### Standard and Performance
-The national quality standard for Indikator 8 is set at ≥50% [^src1] [^src4] [^src6]. However, national performance has consistently fallen short of this target, and there has been no significant development in the proportion since the 2018–2019 period [^src2]. In the 2023 annual report (covering patients diagnosed between July 1, 2021, and June 30, 2022), only 35% of newly diagnosed patients received structured education, with regional fulfillment varying between 24% and 43% [^src2]. 
+### Clinical Rationale and Evidence
+The indicator is grounded in strong clinical evidence and international recommendations. The [[esc-guidelines|ESC guidelines]] recommend patient education for AF patients and their relatives as a central, integrated part of basic treatment [^src8]. Similarly, the [[sundhedsstyrelsen-2019|Sundhedsstyrelsen, 2019]] National Clinical Guideline strongly recommends that newly diagnosed AF patients participate in cardiac rehabilitation that includes patient education [^src8]. Research underscores its importance: a meta-analysis by [[palm-et-al-2020|Palm et al., 2020]] demonstrated a 22% reduction in mortality and readmissions for patients receiving structured education [^src8], while qualitative studies by [[risom-et-al-2018|Risom et al., 2018]] highlight that patients view individualized AF education as crucial for living well with the disease [^src8].
 
-The subsequent 2024 report (covering July 1, 2022, to June 30, 2023) showed a national fulfillment rate of just 15.9% (or roughly 16%), with regional variations ranging from 3.6% to 34% [^src4] [^src6]. Although all regions increased their proportion of patients meeting the goal compared to the previous year's 8.2%, no region successfully met the 50% standard [^src4]. At the health cluster level, variation is stark (0–58%); [[midtklyngen|Midtklyngen]] was the only unit to achieve the standard at 57.5%, while [[sundhedsklynge-soenderjylland|Sundhedsklynge Sønderjylland]] (42.5%) and [[randersklyngen|Randersklyngen]] (42%) were notably close [^src4].
+### Methodology and Coding
+Indikator 8 relies on data extracted from the [[landspatientregisteret|Landspatientregisteret]] [^src2] [^src4]. To ensure precise measurement, the methodology has undergone specific refinements. Historically, multiple [[sks-koder|SKS-koder]] were accepted, but a major policy change dictated that from January 1, 2023, only the specific code [[bfkb|BFKB]] ("Patientuddannelse i atrieflimren og atrieflagren") can result in target fulfillment [^src2] [^src4] [^src8]. Furthermore, patients who die during their primary admission are excluded from the calculation [^src9]. The indicator requires a one-year follow-up period, meaning data for a given reporting year reflects patients diagnosed in the preceding year [^src2].
 
-### Methodology and Coding Rules
-Data regarding patient participation in structured education is retrieved from the [[landspatientregisteret|Landspatientregisteret]] [^src2] [^src4]. Historically, the indicator was defined by the reporting of several [[sks-koder|SKS codes]], including BFKB, BQF*, BVDS, and BVDY* [^src2]. A significant policy change took effect on January 1, 2023: from this date forward, only the specific [[bfkb|BFKB]] code ("Patientuddannelse i atrieflimren") can result in target fulfillment for Indikator 8 [^src2] [^src4] [^src5]. The 2023 annual report was the final publication to include the broader set of codes in its calculations [^src2].
+### Performance and Regional Variations
+The national quality standard for Indikator 8 is set at ≥50% [^src1] [^src6]. However, national performance has consistently fallen short of this target and shown stagnation or decline in recent years. In the 2021–2022 period, 35% of eligible patients received structured education [^src2]. This dropped to 15.9% in 2022–2023 [^src10], and slightly recovered to 19.2% in 2023–2024 [^src6]. 
 
-### Clinical Context and Governance
-The emphasis on patient education is growing, receiving higher weighting in the new [[esc-guidelines|ESC guidelines]], which recommend that all newly diagnosed atrial fibrillation patients be offered education [^src4]. The indicator is integrated into the ABC Pathway treatment model and aligns with evidence-based clinical goals [^src5]. 
+Regional and local disparities are significant. In the 2023–2024 period, [[region-syddanmark|Region Syddanmark]] had the highest regional proportion at 20.3%, while [[region-sjaelland|Region Sjælland]] had the lowest at 4.3% [^src7]. Notably, [[region-sjaelland|Region Sjælland]] has criticized these results, stating they do not align with clinical reality, and has launched an internal investigation into registration and data flow errors [^src9]. At the health cluster level, [[midtklyngen|Midtklyngen]] was the only cluster to meet the ≥50% target in 2023–2024, achieving 62.1% [^src7]. Other clusters, such as [[sundhedsklynge-soenderjylland|Sundhedsklynge Sønderjylland]] and [[randersklyngen|Randersklyngen]], have shown positive trends and are approaching the standard [^src4], while [[sundhedsklyngen-suh|Sundhedsklyngen SUH]] recorded the lowest proportion at just 0.1% [^src7].
 
-Despite these clinical directives, practical and governance challenges remain. [[region-nordjylland|Region Nordjylland]] has requested clearer definitions of the criteria required for patient education to count toward Indikator 8, and raised questions about the role of municipalities in providing education and whether the steering group is considering this aspect [^src3]. Furthermore, the [[afdk-patientrepraesentanter|Patientrepræsentanterne i AFDK]] are actively involved in monitoring and advocating for the metrics captured by this indicator [^src2].
-
-***
+### Governance and Future Directions
+Published by the [[sundhedsvaesenets-kvalitetsinstitut|Sundhedsvæsenets Kvalitetsinstitut]], Indikator 8 remains a focal point for quality improvement discussions among [[afdk-patientrepraesentanter|Patientrepræsentanterne i AFDK]] and regional stakeholders [^src3] [^src7]. Regions have requested clearer definitions of the criteria for patient education and raised questions about the role of municipalities in delivering these educational programs [^src3]. Moving forward, the increased weighting of patient education in updated ESC guidelines emphasizes the need for systemic improvements to ensure all newly diagnosed AF patients are offered structured training [^src4].
 
 ## Mentions
 - Page 73: "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram inden for det 1. år efter at diagnosen er stillet." (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 71-75)
@@ -42,6 +43,13 @@ Despite these clinical directives, practical and governance challenges remain. [
 - Page 61: "Indikator 8: Patientuddannelse/undervisning" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 61-65)
 - Page 61: "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet." (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 61-65)
 - Page 97: "Indikator 8: Struktureret patientuddannelse" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 96-100)
+- Page 6: "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF)." (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 6-10)
+- Page 51: "Indikator 8: Patientuddannelse/undervisning" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55)
+- Page 52: "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF)" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55)
+- Page 54: "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet. Kontroldiagram på regionsniveau." (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55)
+- Page 55: "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram inden for det 1. år efter at diagnosen er stillet. Kontroldiagram på hospitalsniveau." (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55)
+- Page 84: "Indikator 8: Struktureret patientuddannelse" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85)
+- Page 97: "indikator 8" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98)
 
 ## Relationships
 Outgoing (this entity is the SUBJECT of these relationships):
@@ -99,6 +107,60 @@ Outgoing (this entity is the SUBJECT of these relationships):
   Evidence: "Indikator 8: Struktureret patientuddannelse"
   Page: 97
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 96-100
+- Subject: indikator-8
+  Predicate: measures
+  Object: struktureret-undervisningsprogram
+  Evidence: "Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF)"
+  Page: 6
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 6-10
+- Subject: indikator-8
+  Predicate: is-defined-by
+  Object: sundhedsvaesenets-kvalitetsinstitut
+  Evidence: "Indikator 8 er udgivet af Sundhedsvæsenets Kvalitetsinstitut"
+  Page: 51
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Subject: indikator-8
+  Predicate: measures-implementation-of
+  Object: struktureret-undervisningsprogram
+  Evidence: "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram"
+  Page: 51
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Subject: indikator-8
+  Predicate: is-based-on
+  Object: esc-guidelines
+  Evidence: "De europæiske guidelines fra ESC anbefaler patientuddannelse til patienter med atrieflimren (AF) og deres pårørende, som en central og integreret del af den grundlæggende behandling (Van Gelder et al., 2024)."
+  Page: 84
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
+- Subject: indikator-8
+  Predicate: is-based-on
+  Object: sundhedsstyrelsen-2019
+  Evidence: "Den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med AF angiver en stærk anbefaling for, at patienter med ny AF diagnose deltager i hjerterehabilitering indeholdende patientuddannelse (Sundhedsstyrelsen 2019)."
+  Page: 84
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
+- Subject: indikator-8
+  Predicate: is-evidenced-by
+  Object: palm-et-al-2020
+  Evidence: "Meta-analysen indeholdt fem randomiseret interventions studier og et ikke-randomiseret interventionsstudie med i alt 2007 patienter og viste, til fordel for interventionsgruppen der modtog patientundervisning, en reduktion på død og genindlæggelse på 22% (Risk Ratio 0.78, CI 95% 0.63-0-97)"
+  Page: 84
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
+- Subject: indikator-8
+  Predicate: is-supported-by
+  Object: risom-et-al-2018
+  Evidence: "Patienterne beskriver deres erfaringer med individuel undervisning om AF som værende afgørende for at leve et godt liv med sygdom."
+  Page: 84
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
+- Subject: indikator-8
+  Predicate: uses-code
+  Object: bfkb
+  Evidence: "Indrapportering af indikator 8, patientuddannelse/-undervisning til AFDK skal kodes i journalen med BFKB-koden: "Patientuddannelse i atrieflimren"."
+  Page: 84
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
+- Subject: indikator-8
+  Predicate: is-defined-by-code
+  Object: bfkb
+  Evidence: "BFKB (Patientuddannelse i atrieflimren og atrieflagren)"
+  Page: 96
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98
 
 Incoming (this entity is the OBJECT of these relationships):
 - Subject: atrieflimren
@@ -131,6 +193,24 @@ Incoming (this entity is the OBJECT of these relationships):
   Evidence: "Patientundervisning får en højere vægtning i de nye ESC guidelines, så alle patienter med nydiagnosticeret atrieflimren fremadrettet gerne skulle tilbydes undervisning."
   Page: 65
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 61-65
+- Subject: atrieflimren-i-danmark
+  Predicate: contains-report-on
+  Object: (this entity)
+  Evidence: "Atrieflimren i Danmark indeholder Indikator 8"
+  Page: 51
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Subject: sundhedsklynge-soenderjylland
+  Predicate: has-indicator-value
+  Object: (this entity)
+  Evidence: "Sundhedsklynge Sønderjylland Nej 388 / 954 0 (0) 40,7 (37,5-43,9) 377 / 888 42,5 16,3"
+  Page: 52
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Subject: midtklyngen
+  Predicate: has-indicator-value
+  Object: (this entity)
+  Evidence: "Midtklyngen Ja 554 / 892 0 (0) 62,1 (58,8-65,3) 513 / 892 57,5 47,7"
+  Page: 52
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
 
 ## Claims
 - Standard for Indikator 8 er ≥50% [^src2] (indikator-8)
@@ -205,6 +285,66 @@ Incoming (this entity is the OBJECT of these relationships):
   Type: procedural
   Page: 97
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 96-100
+- Indikator 8 har et udviklingsmål på ≥ 50 % [^src1] (indikator-8)
+  Type: quality-indicator-target
+  Page: 6
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 6-10
+- For Indikator 8 var andelen for hele Danmark 19,2 % (95 % CI: 18,6–19,7) i perioden 01.07.2023–30.06.2024 [^src2] (indikator-8, danmark)
+  Type: quality-indicator-result
+  Page: 7
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 6-10
+- Indikator 8 måler andelen af nydiagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram inden for det første år efter diagnosen [^src1] (indikator-8, struktureret-undervisningsprogram)
+  Type: definition
+  Page: 51
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Målsætningen for Indikator 8 er ≥ 50 % [^src1] (indikator-8)
+  Type: policy-target
+  Page: 52
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Den nationale andel for Indikator 8 i 2023/24 er 19,2 % (95 % CI: 18,6–19,7) [^src1] (indikator-8, region-hovedstaden)
+  Type: statistical
+  Page: 52
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Region Syddanmark har den højeste andel blandt regionerne for Indikator 8 i 2023/24 med 20,3 % (95 % CI: 19,1–21,6) [^src1] (region-syddanmark, indikator-8)
+  Type: comparative-result
+  Page: 52
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Region Sjælland har den laveste andel blandt regionerne for Indikator 8 i 2023/24 med 4,3 % (95 % CI: 3,6–5,0) [^src1] (region-sjaelland, indikator-8)
+  Type: comparative-result
+  Page: 52
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Midtklyngen er den eneste sundhedsklynge, der opfylder målsætningen på ≥ 50 % for Indikator 8 i 2023/24 med 62,1 % (95 % CI: 58,8–65,3) [^src1] (midtklyngen, indikator-8)
+  Type: comparative-result
+  Page: 52
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Sundhedsklyngen SUH har den laveste andel blandt alle klynger for Indikator 8 i 2023/24 med 0,1 % (95 % CI: 0,0–0,5) [^src1] (sundhedsklyngen-suh, indikator-8)
+  Type: comparative-result
+  Page: 52
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55
+- Indikator 8 måler andelen af ny-diagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram inden for det 1. år efter diagnosen er stillet [^src2] (indikator-8, patientuddannelse)
+  Type: quality-indicator
+  Page: 84
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
+- Indikator 8 måler andelen af patienter med atrieflimren, som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet [^src1] (indikator-8)
+  Type: quality-indicator-definition
+  Page: 96
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98
+- BFKB-koden anvendes som tæller for indikator 8 [^src1] (bfkb, indikator-8)
+  Type: coding-assignment
+  Page: 96
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98
+- Patienter, som dør under den primære indlæggelse, ekskluderes fra beregningen af indikator 8 [^src1] (indikator-8)
+  Type: exclusion-criteria
+  Page: 96
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98
+- Region Sjælland vurderer, at resultaterne for indikator 8 ikke stemmer overens med den kliniske virkelighed [^src1] (region-sjaelland, indikator-8)
+  Type: critical-assessment
+  Page: 97
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98
+- Region Sjælland har iværksat en intern undersøgelse af registrerings- og dataflow-fejl i forbindelse med indikator 8 [^src1] (region-sjaelland, indikator-8)
+  Type: quality-improvement-action
+  Page: 97
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98
 
 ## Timeline
 - 2022-07-01: Start af opgørelsesperiode for Indikator 7 og Indikator 8 (indikator-7, indikator-8)
@@ -213,6 +353,9 @@ Incoming (this entity is the OBJECT of these relationships):
 - 2023-01-01: Ændring i beregningsregler for Indikator 8: Kun SKS-koden BFKB anvendes fra denne dato (indikator-8, sks-koder)
 - 2023-01-01: Fra og med 1. januar 2023 er det alene SKS-koden BFKB, der kan resultere i målopfyldelse for Indikator 8. (bfkb, indikator-8)
 - 2023-07-01: Opgørelsesperioden for Indikator 8 er 1. juli 2022 til 30. juni 2023. (indikator-8)
+- 2023-07-01: Start af målingsperiode for Indikator 8 (indikator-8)
+- 2023-07-01: Start af måleperioden for Indikator 8 2023/24 (indikator-8)
+- 2024-06-30: Afslutning af måleperioden for Indikator 8 2023/24 (indikator-8)
 
 ## Sources
 
@@ -221,4 +364,8 @@ Incoming (this entity is the OBJECT of these relationships):
 [^src3]: AFDK_2023.pdf, pages 121-121
 [^src4]: AFDK_2024.pdf, pages 61-65
 [^src5]: AFDK_2024.pdf, pages 96-100
-[^src6]: AFDK_2024.pdf, pages 6-10
+[^src6]: AFDK_2025.pdf, pages 6-10
+[^src7]: AFDK_2025.pdf, pages 51-55
+[^src8]: AFDK_2025.pdf, pages 81-85
+[^src9]: AFDK_2025.pdf, pages 96-98
+[^src10]: AFDK_2024.pdf, pages 6-10

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Policy Development
 wiki: rkkp-adhd
-updated: '2026-08-05T19:27:34.345Z'
+updated: '2026-08-15T12:48:37.133Z'
 children:
+  - index.md
   - policy-development.md
 ---
 # Policy Development
 
-This folder documents planned updates and anticipated changes to ADHD treatment policies within the corpus. It currently contains a single record detailing the expected improvement of Indikator 5, a performance metric that will be updated in response to forthcoming non-pharmacological treatment guidelines from the Danske Multidisciplinære Psykiatrigrupper (DMPGer). Because the source material provides limited evidence on this subject, the folder's scope is restricted to this specific planned policy update.
+This folder tracks the formulation and anticipated updates of clinical policies governing ADHD care. It currently documents a specific planned revision to the performance metric Indikator 5, which is expected to be improved in response to forthcoming non-pharmacological treatment guidelines from the Danske Multidisciplinære Psykiatrigrupper (DMPGer). As the corpus contains limited evidence on broader policy creation, this area serves as a focused record of upcoming procedural shifts rather than a comprehensive historical archive.
 
 ## Pages
 
-- [[policy-development|Policy Development]] — Details the anticipated improvement of Indikator 5 based on upcoming DMPGer guidelines for non-pharmacological ADHD treatment.
+- [[policy-development|Policy Development]] — Details the anticipated improvement of Indikator 5 driven by upcoming DMPGer guidelines on non-pharmacological ADHD treatment.
 
 ## Navigation
 

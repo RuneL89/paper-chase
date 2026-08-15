@@ -1,0 +1,732 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "folder": "entities/organizations/health-databases",
+      "significance": "Databasen er den centrale kvalitetsdatabase for overvågning af behandling og udvikling inden for inflammatoriske tarmsygdomme i Danmark, og fungerer som grundlag for alle tabeller og indikatorer præsenteret på siderne 46–50.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        }
+      ]
+    },
+    {
+      "name": "BMSL",
+      "type": "treatment",
+      "slug": "bmsl",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BMSL er den officielle danske kode for biologisk behandling ved inflammatoriske tarmsygdomme, og styrer registreringen af alle biologiske lægemidler i DANIBD-databasen på siderne 46–48.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Appendikstabel 4: Karakteristika for patienter i behandling med BMSL"
+        }
+      ]
+    },
+    {
+      "name": "DK50",
+      "type": "diagnosis",
+      "slug": "dk50-crohns-sygdom",
+      "folder": "topics/diagnoses/ibd",
+      "significance": "DK50 er den danske diagnosekode for Crohns sygdom og udgør den største diagnosegruppe blandt voksne patienter i BMSL-behandling ifølge tabel 4 og 5 på side 46–47.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "DK50 299 (69) 7.573 (60)"
+        }
+      ]
+    },
+    {
+      "name": "DK51",
+      "type": "diagnosis",
+      "slug": "dk51-ulceroes-colitis",
+      "folder": "topics/diagnoses/ibd",
+      "significance": "DK51 er den danske diagnosekode for ulcerøs colitis og udgør den anden største diagnosegruppe blandt voksne patienter i BMSL-behandling ifølge tabel 4 og 5 på side 46–47.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "DK51 136 (31) 4.995 (39)"
+        }
+      ]
+    },
+    {
+      "name": "DK830F",
+      "type": "diagnosis",
+      "slug": "dk830f-primaer-skleroserende-kolangitis",
+      "folder": "topics/diagnoses/hepatobiliary",
+      "significance": "DK830F er den danske diagnosekode for primær skleroserende kolangitis, der registreres som komorbiditet eller underdiagnose blandt IBD-patienter i DANIBD, men uden registrerede voksne tilfælde i tabel 4 på side 46.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "DK830F 59 (0)"
+        }
+      ]
+    },
+    {
+      "name": "DK912B",
+      "type": "diagnosis",
+      "slug": "dk912b-korttarmssyndrom",
+      "folder": "entities/diseases/ibd-comorbidities",
+      "significance": "DK912B er den danske diagnosekode for korttarmssyndrom, der forekommer som komplikation efter kirurgi ved IBD og registreres blandt børn i tabel 4 på side 46, men ikke blandt voksne.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "DK912B 24 (0)"
+        }
+      ]
+    },
+    {
+      "name": "BOHJ18A1",
+      "type": "treatment-code",
+      "slug": "bohj18a1-behandling-med-infliximab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ18A1 er den danske procedurekode for behandling med infliximab, og er den hyppigst anvendte biologiske behandling både blandt børn og voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BOHJ18A1 - Behandling med infliximab"
+        }
+      ]
+    },
+    {
+      "name": "BOHJ18A3",
+      "type": "treatment-code",
+      "slug": "bohj18a3-behandling-med-adalimumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ18A3 er den danske procedurekode for behandling med adalimumab, og er den anden hyppigst anvendte biologiske behandling blandt voksne og tredje hyppigst blandt børn i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BOHJ18A3 - Behandling med adalimumab"
+        }
+      ]
+    },
+    {
+      "name": "BOHJ18A4",
+      "type": "treatment-code",
+      "slug": "bohj18a4-behandling-med-golimumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ18A4 er den danske procedurekode for behandling med golimumab, og er en sjælden behandlingsform i både barnepopulationen og hos voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BOHJ18A4 - Behandling med golimumab"
+        }
+      ]
+    },
+    {
+      "name": "BOHJ18B3",
+      "type": "treatment-code",
+      "slug": "bohj18b3-behandling-med-ustekinumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ18B3 er den danske procedurekode for behandling med ustekinumab, og er den fjerde hyppigst anvendte biologiske behandling blandt voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BOHJ18B3 - Behandling med ustekinumab"
+        }
+      ]
+    },
+    {
+      "name": "BOHJ19H4",
+      "type": "treatment-code",
+      "slug": "bohj19h4-behandling-med-vedolizumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ19H4 er den danske procedurekode for behandling med vedolizumab, og er den anden hyppigst anvendte behandling blandt børn og tredje hyppigst blandt voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BOHJ19H4 - Behandling med vedolizumab"
+        }
+      ]
+    },
+    {
+      "name": "BOHJ19N1",
+      "type": "treatment-code",
+      "slug": "bohj19n1-behandling-med-risankizumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ19N1 er den danske procedurekode for behandling med risankizumab, og er en nyere biologisk behandling med begrænset anvendelse blandt både børn og voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BOHJ19N1 - Behandling med risankizumab"
+        }
+      ]
+    },
+    {
+      "name": "BOHJ28D",
+      "type": "treatment-code",
+      "slug": "bohj28d-behandling-med-tofacitinib",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BOHJ28D er den danske procedurekode for behandling med tofacitinib, og er en JAK-hæmmer med meget lav forekomst i både barnepopulationen og hos voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BOHJ28D - Behandling med tofacitinib"
+        }
+      ]
+    },
+    {
+      "name": "BWHP107",
+      "type": "treatment-code",
+      "slug": "bwhp107-behandling-med-upadacitinib",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BWHP107 er den danske procedurekode for behandling med upadacitinib, og er en JAK-hæmmer med begrænset anvendelse blandt både børn og voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BWHP107 - Behandling med upadacitinib"
+        }
+      ]
+    },
+    {
+      "name": "BWHP141",
+      "type": "treatment-code",
+      "slug": "bwhp141-behandling-med-filgotinib",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BWHP141 er den danske procedurekode for behandling med filgotinib, og er en nyere JAK-hæmmer uden registrerede behandlinger blandt børn og med få registreringer blandt voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BWHP141 - Behandling med filgotinib"
+        }
+      ]
+    },
+    {
+      "name": "BWHP142",
+      "type": "treatment-code",
+      "slug": "bwhp142-behandling-med-mirikizumab",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BWHP142 er den danske procedurekode for behandling med mirikizumab, og er en nyere IL-23-hæmmer med ingen registrerede behandlinger blandt børn og begrænset anvendelse blandt voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BWHP142 - Behandling med mirikizumab"
+        }
+      ]
+    },
+    {
+      "name": "BWHP143",
+      "type": "treatment-code",
+      "slug": "bwhp143-behandling-med-ozanimod",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BWHP143 er den danske procedurekode for behandling med ozanimod, og er en S1P-modulator uden registrerede behandlinger blandt børn og med meget få registreringer blandt voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BWHP143 - Behandling med ozanimod"
+        }
+      ]
+    },
+    {
+      "name": "BWHP148",
+      "type": "treatment-code",
+      "slug": "bwhp148-behandling-med-etrasimod",
+      "folder": "topics/codes/treatment-codes",
+      "significance": "BWHP148 er den danske procedurekode for behandling med etrasimod, og er en nyere S1P-modulator uden registrerede behandlinger blandt børn og med meget få registreringer blandt voksne i perioden 1/10/2024–30/9/2025 ifølge Appendikstabel 6 på side 48.",
+      "mentions": [
+        {
+          "page": 48,
+          "context": "BWHP148 - Behandling med etrasimod"
+        }
+      ]
+    },
+    {
+      "name": "KJFH11",
+      "type": "procedure-code",
+      "slug": "kjfh11-laparoskopisk-kolektomi-og-ileostomi",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJFH11 er den danske procedurekode for laparoskopisk kolektomi og ileostomi, og er den hyppigst foretagne kirurgiske procedure blandt IBD-patienter i perioden ifølge Appendikstabel 7 på side 49.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "KJFH11 - Laparoskopisk kolektomi og ileostomi 135 9,1"
+        }
+      ]
+    },
+    {
+      "name": "KJFB21",
+      "type": "procedure-code",
+      "slug": "kjfb21-laparoskopisk-ileocokal-resektion",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJFB21 er den danske procedurekode for laparoskopisk ileocækal resektion, og er den anden hyppigst foretagne kirurgiske procedure blandt IBD-patienter i perioden ifølge Appendikstabel 7 på side 49.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "KJFB21 - Laparoskopisk ileocækal resektion 132 8,9"
+        }
+      ]
+    },
+    {
+      "name": "KJAH01",
+      "type": "procedure-code",
+      "slug": "kjah01-laparoskopi",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJAH01 er den danske procedurekode for laparoskopi, og er den tredje hyppigst foretagne kirurgiske procedure blandt IBD-patienter i perioden ifølge Appendikstabel 7 på side 49.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "KJAH01 - Laparoskopi 130 8,7"
+        }
+      ]
+    },
+    {
+      "name": "KJAH00",
+      "type": "procedure-code",
+      "slug": "kjah00-eksplorativ-laparotomi",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJAH00 er den danske procedurekode for eksplorativ laparotomi, og er den fjerde hyppigst foretagne kirurgiske procedure blandt IBD-patienter i perioden ifølge Appendikstabel 7 på side 49.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "KJAH00 - Eksplorativ laparotomi 120 8,1"
+        }
+      ]
+    },
+    {
+      "name": "KJFG40",
+      "type": "procedure-code",
+      "slug": "kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJFG40 er den danske procedurekode for revision af enterostomi eller kolostomi uden laparotomi, og er den femte hyppigst foretagne kirurgiske procedure blandt IBD-patienter i perioden ifølge Appendikstabel 7 på side 49.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "KJFG40 - Revision af enterostomi el. kolostomi u. laparotomi 88 5,9"
+        }
+      ]
+    },
+    {
+      "name": "KJFB00",
+      "type": "procedure-code",
+      "slug": "kjfb00-tyndtarmsresektion",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KJFB00 er den danske procedurekode for tyndtarmsresektion, og er den sjette hyppigst foretagne kirurgiske procedure blandt IBD-patienter i perioden ifølge Appendikstabel 7 på side 49.",
+      "mentions": [
+        {
+          "page": 49,
+          "context": "KJFB00 - Tyndtarmsresektion 86 5,8"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "healthcare-facility",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Amager og Hvidovre Hospital er et regionalt hospital i Region Hovedstaden, og er det hospital med flest registrerede BMSL-patienter i Appendikstabel 5 på side 47.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Amager og Hvidovre Hospital 1.253 808 (64) 438 (35) 7 (1) 606 (48) 647 (52) 35 (4;88) 32 (24;44) 13 (1;53) 10 (8;16)"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "healthcare-facility",
+      "slug": "rigshospitalet-med-klinik-mave-tarm-lever",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Rigshospitalet er det nationale referencecenter for mave-tarm-leversygdomme, og fremgår som et af de hospitalsenheder med registreringer i Appendikstabel 5 på side 47.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Rigshospitalet 289 177 (61) 103 (36) 8 (3) # (#) 138 (48) 151 (52) 44 (17;82) 45 (31;55) 13 (1;49) 11 (8;15)"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "healthcare-facility",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Aarhus Universitetshospital er et universitetshospital i Region Midtjylland, og fremgår som et af de hospitalsenheder med registreringer i Appendikstabel 5 på side 47.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Aarhus Universitetshospital 968 472 (49) 472 (49) 14 (1) 10 (1) 497 (51) 471 (49) 36 (4;85) 32 (24;46) 14 (1;49) 12 (8;19)"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "healthcare-facility",
+      "slug": "ouh-odense-svendborg",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg er en af de store universitetshospitaler i Region Syddanmark, og fremgår som et af de hospitalsenheder med registreringer i Appendikstabel 5 på side 47.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Odense Universitetshospital - Svendborg 1.338 797 (60) 533 (40) 6 (0) # (#) 696 (52) 642 (48) 43 (8;98) 40 (29;56) 14 (1;50) 12 (9;17)"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "healthcare-facility",
+      "slug": "sjellands-universitetshospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Sjællands Universitetshospital er et universitetshospital i Region Sjælland, og fremgår som et af de hospitalsenheder med registreringer i Appendikstabel 5 på side 47.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Sjællands Universitetshospital 1.257 878 (70) 376 (30) # (#) # (#) 608 (48) 649 (52) 46 (13;92) 45 (31;59) 14 (1;118) 11 (8;16)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "maintains",
+      "object": "bmsl",
+      "evidence": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) indeholder data om patienter i behandling med BMSL",
+      "page": 46
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bohj18a1-behandling-med-infliximab",
+      "evidence": "BOHJ18A1 - Behandling med infliximab",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bohj18a3-behandling-med-adalimumab",
+      "evidence": "BOHJ18A3 - Behandling med adalimumab",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bohj18a4-behandling-med-golimumab",
+      "evidence": "BOHJ18A4 - Behandling med golimumab",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bohj18b3-behandling-med-ustekinumab",
+      "evidence": "BOHJ18B3 - Behandling med ustekinumab",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bohj19h4-behandling-med-vedolizumab",
+      "evidence": "BOHJ19H4 - Behandling med vedolizumab",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bohj19n1-behandling-med-risankizumab",
+      "evidence": "BOHJ19N1 - Behandling med risankizumab",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bohj28d-behandling-med-tofacitinib",
+      "evidence": "BOHJ28D - Behandling med tofacitinib",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bwhp107-behandling-med-upadacitinib",
+      "evidence": "BWHP107 - Behandling med upadacitinib",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bwhp141-behandling-med-filgotinib",
+      "evidence": "BWHP141 - Behandling med filgotinib",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bwhp142-behandling-med-mirikizumab",
+      "evidence": "BWHP142 - Behandling med mirikizumab",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bwhp143-behandling-med-ozanimod",
+      "evidence": "BWHP143 - Behandling med ozanimod",
+      "page": 48
+    },
+    {
+      "subject": "bmsl",
+      "predicate": "includes-treatment",
+      "object": "bwhp148-behandling-med-etrasimod",
+      "evidence": "BWHP148 - Behandling med etrasimod",
+      "page": 48
+    },
+    {
+      "subject": "kjfh11-laparoskopisk-kolektomi-og-ileostomi",
+      "predicate": "is-procedure-for",
+      "object": "inflammatoriske-tarmsygdomme",
+      "evidence": "Appendikstabel 7: Typer af kirurgiske indgreb foretaget på patienter med IBD",
+      "page": 49
+    },
+    {
+      "subject": "kjfb21-laparoskopisk-ileocokal-resektion",
+      "predicate": "is-procedure-for",
+      "object": "inflammatoriske-tarmsygdomme",
+      "evidence": "Appendikstabel 7: Typer af kirurgiske indgreb foretaget på patienter med IBD",
+      "page": 49
+    },
+    {
+      "subject": "kjah01-laparoskopi",
+      "predicate": "is-procedure-for",
+      "object": "inflammatoriske-tarmsygdomme",
+      "evidence": "Appendikstabel 7: Typer af kirurgiske indgreb foretaget på patienter med IBD",
+      "page": 49
+    },
+    {
+      "subject": "kjah00-eksplorativ-laparotomi",
+      "predicate": "is-procedure-for",
+      "object": "inflammatoriske-tarmsygdomme",
+      "evidence": "Appendikstabel 7: Typer af kirurgiske indgreb foretaget på patienter med IBD",
+      "page": 49
+    },
+    {
+      "subject": "kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi",
+      "predicate": "is-procedure-for",
+      "object": "inflammatoriske-tarmsygdomme",
+      "evidence": "Appendikstabel 7: Typer af kirurgiske indgreb foretaget på patienter med IBD",
+      "page": 49
+    },
+    {
+      "subject": "kjfb00-tyndtarmsresektion",
+      "predicate": "is-procedure-for",
+      "object": "inflammatoriske-tarmsygdomme",
+      "evidence": "Appendikstabel 7: Typer af kirurgiske indgreb foretaget på patienter med IBD",
+      "page": 49
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt 2.838 BMSL-registreringer blandt børn og 67.499 blandt voksne i perioden 1/10/2024–30/9/2025 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bmsl"
+      ],
+      "page": 48
+    },
+    {
+      "text": "I alt 517 unikke BMSL-patienter blandt børn og 14.999 blandt voksne i perioden 1/10/2024–30/9/2025 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bmsl"
+      ],
+      "page": 48
+    },
+    {
+      "text": "I alt 435 unikke BMSL-patienter blandt børn og 12.651 blandt voksne i perioden 1/10/2024–30/9/2025 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "bmsl"
+      ],
+      "page": 48
+    },
+    {
+      "text": "KJFH11 - Laparoskopisk kolektomi og ileostomi udgør 9,1 % af alle kirurgiske indgreb på IBD-patienter [^src2]",
+      "type": "statistical",
+      "entities": [
+        "kjfh11-laparoskopisk-kolektomi-og-ileostomi"
+      ],
+      "page": 49
+    },
+    {
+      "text": "KJFB21 - Laparoskopisk ileocækal resektion udgør 8,9 % af alle kirurgiske indgreb på IBD-patienter [^src2]",
+      "type": "statistical",
+      "entities": [
+        "kjfb21-laparoskopisk-ileocokal-resektion"
+      ],
+      "page": 49
+    },
+    {
+      "text": "KJAH01 - Laparoskopi udgør 8,7 % af alle kirurgiske indgreb på IBD-patienter [^src2]",
+      "type": "statistical",
+      "entities": [
+        "kjah01-laparoskopi"
+      ],
+      "page": 49
+    },
+    {
+      "text": "KJAH00 - Eksplorativ laparotomi udgør 8,1 % af alle kirurgiske indgreb på IBD-patienter [^src2]",
+      "type": "statistical",
+      "entities": [
+        "kjah00-eksplorativ-laparotomi"
+      ],
+      "page": 49
+    },
+    {
+      "text": "KJFG40 - Revision af enterostomi el. kolostomi u. laparotomi udgør 5,9 % af alle kirurgiske indgreb på IBD-patienter [^src2]",
+      "type": "statistical",
+      "entities": [
+        "kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi"
+      ],
+      "page": 49
+    },
+    {
+      "text": "KJFB00 - Tyndtarmsresektion udgør 5,8 % af alle kirurgiske indgreb på IBD-patienter [^src2]",
+      "type": "statistical",
+      "entities": [
+        "kjfb00-tyndtarmsresektion"
+      ],
+      "page": 49
+    },
+    {
+      "text": "KJAH01 - Laparoskopi udgør 27,3 % af alle re-operationer på IBD-patienter [^src3]",
+      "type": "statistical",
+      "entities": [
+        "kjah01-laparoskopi"
+      ],
+      "page": 50
+    },
+    {
+      "text": "KJAH00 - Eksplorativ laparotomi udgør 23,4 % af alle re-operationer på IBD-patienter [^src3]",
+      "type": "statistical",
+      "entities": [
+        "kjah00-eksplorativ-laparotomi"
+      ],
+      "page": 50
+    },
+    {
+      "text": "KJFF13 - Terminal enterostomi udgør 7,8 % af alle re-operationer på IBD-patienter [^src3]",
+      "type": "statistical",
+      "entities": [
+        "kjff13-terminal-enterostomi"
+      ],
+      "page": 50
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-10-01",
+      "event": "Start af registreringsperioden for BMSL-behandlinger i DANIBD",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "bmsl"
+      ]
+    },
+    {
+      "date": "2025-09-30",
+      "event": "Slut på registreringsperioden for BMSL-behandlinger i DANIBD",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "bmsl"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "bmsl-patient-karakteristika",
+      "title": "Appendikstabel 4: Karakteristika for patienter i behandling med BMSL",
+      "page": 46,
+      "rowDimension": "demografiske-variabler",
+      "colDimension": "antal-og-procent-for-boern-og-voksne",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "bmsl",
+        "dk50-crohns-sygdom",
+        "dk51-ulceroes-colitis",
+        "dk830f-primaer-skleroserende-kolangitis",
+        "dk912b-korttarmssyndrom"
+      ],
+      "markdown": "| Diagnose | Børn | Voksne |\n| --- | --- | --- |\n| DK50 | 299 (69) | 7.573 (60) |\n| DK51 | 136 (31) | 4.995 (39) |\n| DK830F | 59 (0) | 0 |\n| DK912B | 24 (0) | 0 |\n| Køn | | |\n| Kvinde | 198 (46) | 6.381 (50) |\n| Mand | 237 (54) | 6.270 (50) |\n| Alder | | |\n| Mean | 14 (4;18) | 44 (17;98) |\n| Median | 15 (13;17) | 42 (30;57) |",
+      "summary": "Tabellen sammenligner aldersfordeling, køn og diagnosefordeling blandt børn og voksne i BMSL-behandling, og viser at DK50 og DK51 dominerer, mens DK830F og DK912B kun findes blandt børn."
+    },
+    {
+      "subject": "bmsl-hospital-distribution",
+      "title": "Appendikstabel 5: Karakteristika for patienter i behandling med BMSL på afdelingsniveau (indikator 5)",
+      "page": 47,
+      "rowDimension": "hospitaler",
+      "colDimension": "antal-og-procent-for-diagnoser-og-køn",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "bmsl",
+        "dk50-crohns-sygdom",
+        "dk51-ulceroes-colitis",
+        "dk830f-primaer-skleroserende-kolangitis",
+        "dk912b-korttarmssyndrom",
+        "amager-og-hvidovre-hospital",
+        "rigshospitalet-med-klinik-mave-tarm-lever",
+        "aarhus-universitetshospital",
+        "ouh-odense-svendborg",
+        "sjellands-universitetshospital"
+      ],
+      "markdown": "| Hospital | DANIBD | DK50 | DK51 | DK830F | DK912B | Kvinde | Mand | a_mean | a_median | k_ mean | k_median |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Amager og Hvidovre Hospital | 1.253 | 808 (64) | 438 (35) | 7 (1) | 606 (48) | 647 (52) | 35 (4;88) | 32 (24;44) | 13 (1;53) | 10 (8;16) |\n| Bispebjerg og Fr.berg Hospital | 643 | 360 (56) | 280 (44) | 3 (0) | 322 (50) | 321 (50) | 41 (18;90) | 36 (29;50) | 15 (1;40) | 13 (9;19) |\n| Bornholms Hospital | 45 | 19 (42) | 26 (58) | 23 (51) | 22 (49) | 46 (18;76) | 47 (33;58) | 12 (2;30) | 11 (8;15) |\n| Herlev og Gentofte Hospital | 1.034 | 623 (60) | 401 (39) | 10 (1) | 529 (51) | 505 (49) | 45 (17;88) | 44 (32;57) | 10 (1;36) | 9 (7;12) |\n| Nordsjællands Hospital | 542 | 345 (64) | 195 (36) | # (#) | 279 (51) | 263 (49) | 49 (17;88) | 50 (35;62) | 14 (2;35) | 13 (9;18) |\n| Region Hovedstadens Psykiatri | # | # (#) | # (#) | # (#) | # (#) | 41 (33;49) | 41 (33;49) | 24 (16;28) | 28 (16;28) |\n| Rigshospitalet | 289 | 177 (61) | 103 (36) | 8 (3) | # (#) | 138 (48) | 151 (52) | 44 (17;82) | 45 (31;55) | 13 (1;49) | 11 (8;15) |\n| Holbæk Sygehus | 22 | 16 (73) | 6 (27) | 12 (55) | 10 (45) | 53 (32;76) | 54 (38;61) | 9 (1;19) | 8 (6;9) |\n| Midt- og Vestsjællands Hospital, Somatik | 331 | 201 (61) | 129 (39) | # (#) | 179 (54) | 152 (46) | 47 (18;84) | 46 (33;60) | 14 (3;36) | 13 (9;16) |\n| Sjællands Universitetshospital | 1.257 | 878 (70) | 376 (30) | # (#) | # (#) | 608 (48) | 649 (52) | 46 (13;92) | 45 (31;59) | 14 (1;118) | 11 (8;16) |\n| Esbjerg Grindsted Sygehus | 677 | 417 (62) | 258 (38) | # (#) | 352 (52) | 325 (48) | 46 (18;88) | 44 (32;59) | 14 (2;52) | 12 (9;17) |\n| Odense Universitetshospital - Svendborg | 1.338 | 797 (60) | 533 (40) | 6 (0) | # (#) | 696 (52) | 642 (48) | 43 (8;98) | 40 (29;56) | 14 (1;50) | 12 (9;17) |\n| Sygehus Lillebælt | 892 | 502 (56) | 388 (43) | # (#) | 450 (50) | 442 (50) | 45 (8;93) | 43 (31;58) | 14 (1;53) | 12 (9;17) |\n| Sygehus Sønderjylland | 338 | 188 (56) | 150 (44) | 155 (46) | 183 (54) | 47 (6;89) | 48 (32;59) | 15 (1;55) | 12 (10;17) |\n| Aarhus Universitetshospital | 968 | 472 (49) | 472 (49) | 14 (1) | 10 (1) | 497 (51) | 471 (49) | 36 (4;85) | 32 (24;46) | 14 (1;49) | 12 (8;19) |\n| Hospitalsenhed Midt | 693 | 445 (64) | 246 (35) | # (#) | # (#) | 340 (49) | 353 (51) | 46 (16;90) | 45 (33;57) | 13 (1;46) | 11 (8;16) |\n| Regionshospitalet Gødstrup | 485 | 236 (49) | 248 (51) | # (#) | 252 (52) | 233 (48) | 46 (15;89) | 44 (31;60) | 15 (1;105) | 12 (8;17) |\n| Regionshospitalet Horsens | 395 | 238 (60) | 157 (40) | 219 (55) | 176 (45) | 45 (19;93) | 45 (31;58) | 14 (1;39) | 12 (8;18) |\n| Regionshospitalet Randers | 355 | 205 (58) | 149 (42) | # (#) | 172 (48) | 183 (52) | 45 (18;85) | 44 (31;57) | 15 (1;36) | 13 (9;19) |\n| Aalborg Universitetshospital | 1.303 | 807 (62) | 488 (37) | # (#) | 7 (1) | 642 (49) | 661 (51) | 42 (4;89) | 39 (29;54) | 11 (1;38) | 10 (7;13) |\n| Regionshospital Nordjylland | 224 | 137 (61) | 87 (39) | 107 (48) | 117 (52) | 51 (19;89) | 51 (35;65) | 13 (1;35) | 11 (8;16) |",
+      "summary": "Tabellen viser fordelingen af BMSL-patienter på tværs af danske hospitalsenheder, herunder diagnosefordeling, køn og alderskarakteristika, og identificerer Amager og Hvidovre Hospital som den største enhed med 1.253 patienter."
+    },
+    {
+      "subject": "bmsl-behandlingsformer",
+      "title": "Appendikstabel 6: Typer og antal behandlinger med BMSL (indikator 5)",
+      "page": 48,
+      "rowDimension": "behandlingskoder",
+      "colDimension": "antal-og-procent-for-boern-og-voksne",
+      "entities": [
+        "bmsl",
+        "bohj18a1-behandling-med-infliximab",
+        "bohj18a3-behandling-med-adalimumab",
+        "bohj18a4-behandling-med-golimumab",
+        "bohj18b3-behandling-med-ustekinumab",
+        "bohj19h4-behandling-med-vedolizumab",
+        "bohj19n1-behandling-med-risankizumab",
+        "bohj28d-behandling-med-tofacitinib",
+        "bwhp107-behandling-med-upadacitinib",
+        "bwhp141-behandling-med-filgotinib",
+        "bwhp142-behandling-med-mirikizumab",
+        "bwhp143-behandling-med-ozanimod",
+        "bwhp148-behandling-med-etrasimod"
+      ],
+      "markdown": "| Behandlingskode | Børn, antal (%) | Voksne, antal (%) |\n| --- | --- | --- |\n| BOHJ18A1 - Behandling med infliximab | 1.805 (64) | 27.673 (41) |\n| BOHJ18A3 - Behandling med adalimumab | 402 (14) | 12.657 (19) |\n| BOHJ18A4 - Behandling med golimumab | 11 (0) | 1.034 (2) |\n| BOHJ18B3 - Behandling med ustekinumab | 81 (3) | 9.102 (13) |\n| BOHJ18B7 - Behandling med guselkumab | 7 (0) | 0 |\n| BOHJ19H4 - Behandling med vedolizumab | 453 (16) | 10.060 (15) |\n| BOHJ19N1 - Behandling med risankizumab | 34 (1) | 3.105 (5) |\n| BOHJ28D - Behandling med tofacitinib | 31 (1) | 417 (1) |\n| BWHP107 - Behandling med upadacitinib | 15 (1) | 884 (1) |\n| BWHP141 - Behandling med filgotinib | 203 (0) | 0 |\n| BWHP142 - Behandling med mirikizumab | 6 (0) | 2.331 (3) |\n| BWHP143 - Behandling med ozanimod | 20 (0) | 0 |\n| BWHP148 - Behandling med etrasimod | 6 (0) | 0 |\n| Ialt | 2.838 | 67.499 |",
+      "summary": "Tabellen opsummerer antallet af BMSL-behandlinger pr. kode i perioden 1/10/2024–30/9/2025, og viser at infliximab (BOHJ18A1) er den hyppigst anvendte behandling både blandt børn og voksne."
+    },
+    {
+      "subject": "kirurgiske-indgreb-ibd",
+      "title": "Appendikstabel 7: Typer af kirurgiske indgreb foretaget på patienter med IBD (indikator 6)",
+      "page": 49,
+      "rowDimension": "procedurekoder",
+      "colDimension": "antal-og-procent",
+      "entities": [
+        "kjfh11-laparoskopisk-kolektomi-og-ileostomi",
+        "kjfb21-laparoskopisk-ileocokal-resektion",
+        "kjah01-laparoskopi",
+        "kjah00-eksplorativ-laparotomi",
+        "kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi",
+        "kjfb00-tyndtarmsresektion"
+      ],
+      "markdown": "| Operation | Antal | Procent |\n| --- | --- | --- |\n| KJFH11 - Laparoskopisk kolektomi og ileostomi | 135 | 9,1 |\n| KJFB21 - Laparoskopisk ileocækal resektion | 132 | 8,9 |\n| KJAH01 - Laparoskopi | 130 | 8,7 |\n| KJAH00 - Eksplorativ laparotomi | 120 | 8,1 |\n| KJFG40 - Revision af enterostomi el. kolostomi u. laparotomi | 88 | 5,9 |\n| KJFB00 - Tyndtarmsresektion | 86 | 5,8 |\n| KJGB61 - Lap excis af endetarm og ileoanal anastom eft tidl | 53 | 3,6 |\n| KJFB20 - Ileocækal resektion | 51 | 3,4 |\n| KJGB33 - Laparoskopisk og intersphincterisk excision af ende | 34 | 2,3 |\n| KJFG00 - Lukning af ileostomi uden tarmresektion | 32 | 2,2 |\n| KJFF10 - Loop enterostomi | 22 | 1,5 |\n| KJFB33 - Anden samtidig resektion af tyndtarm og tyktarm | 21 | 1,4 |\n| KJFG20 - Lukning af ileostomi med tarmresektion | 21 | 1,4 |\n| KJFF13 - Terminal enterostomi | 20 | 1,3 |\n| KJFH10 - Kolektomi og ileostomi | 19 | 1,3 |\n| KJFA58 - Endoskopisk dilatation af tyktarm | 18 | 1,2 |\n| KJFG50 - Revision af enterostomi el. kolostomi m. laparotomi | 18 | 1,2 |\n| KJGB31 - Laparoskopisk og perineal excision af endetarm | 18 | 1,2 |\n| KJFB31 - Laparoskopisk højresidig hemikolektomi | 16 | 1,1 |\n| KJFG26 - Lukn. af terminal ileostomi/anlæg. af anastom. til | 15 | 1,0 |\n| KJFG96 - Anden operation på enterostomi og tarmreservoir | 15 | 1,0 |\n| KJWA00 - Sutur af sårruptur eft. gastroenterologisk operatio | 15 | 1,0 |\n| KJFB30 - Højresidig hemikolektomi | 14 | 0,9 |\n| KJFA38 - Endoskopisk dilatation af tyndtarm | 13 | 0,9 |\n| KJFB47 - Laparoskopisk resektion af colon sigmoideum | 13 | 0,9 |\n| KJFF11 - Laparoskopisk loop enterostomi | 13 | 0,9 |\n| KJFA70 - Sutur af tyndtarm | 12 | 0,8 |\n| KJFB01 - Laparoskopisk tyndtarmsresektion | 12 | 0,8 |\n| KJFF27 - Laparoskopisk sigmoideostomi | 12 | 0,8 |\n| KJFW96 - Anden operation på tyndtarm el. tyktarm | 12 | 0,8 |\n| KJFB96 - Anden tarmresektion | 11 | 0,7 |\n| KJFG00A - Lukning af loop ileostomi uden tarmresektion | 11 | 0,7 |\n| KJFA15 - Endoskopisk polypektomi i tyktarm | 10 | 0,7 |\n| KJFG41 - Laparoskopisk revision af enterostomi eller kolosto | 9 | 0,6 |\n| KJFG41A - Laparoskopisk operation for stomihernie | 9 | 0,6 |\n| KJFC00 - Enteroenterostomi | 8 | 0,5 |\n| KJFH01 - Laparoskopisk kolektomi og ileorektostomi | 8 | 0,5 |\n| KJFC11 - Laparoskopisk ileotransversostomi | 7 | 0,5 |\n| KJFK10 - Løsning af adhærencer ved ileus | 7 | 0,5 |\n| KJWW96 - Anden reoperation eft. gastroenterologisk operation | 7 | 0,5 |\n| KJFA71 - Laparoskopisk sutur af tyndtarm | 6 | 0,4 |\n| KJFB31B - Laparoskopisk subtotal kolektomi | 6 | 0,4 |\n| KJFB34 - An. laparoskop. samtid. resekt. af tyndtarm og tykt | 6 | 0,4 |\n| KJFB46 - Resektion af colon sigmoideum | 6 | 0,4 |\n| KJFB50 - Anden colonresektion | 6 | 0,4 |\n| KJFG20A - Lukning af loop ileostomi med tarmresektion | 6 | 0,4 |\n| KJFH21 - Laparoskopisk proktokolektomi og ileostomi | 6 | 0,4 |\n| KJAH30 - Laparostomi | 5 | 0,3 |\n| KJFB51 - Anden laparoskopisk colonresektion | 5 | 0,3 |\n| KJFB60 - Resektion af colon sigmoideum m. kolostomi | 5 | 0,3 |\n| KJFH20 - Proktokolektomi og ileostomi | 5 | 0,3 |\n| KJWB00 - Reop. v. overfl. infekt. eft. gastroenterol. op. | 5 | 0,3 |\n| Øvrige | 152 | 10,2 |",
+      "summary": "Tabellen lister alle kirurgiske procedurer på IBD-patienter med antal og procentandel, og viser at de fem hyppigste procedurer tilsammen udgør over 40 % af alle indgreb, med KJFH11 som den mest anvendte."
+    },
+    {
+      "subject": "re-operationer-ibd",
+      "title": "Appendikstabel 8: Typer af re-operationer foretaget på patienter med IBD (indikator 6)",
+      "page": 50,
+      "rowDimension": "procedurekoder",
+      "colDimension": "antal-og-procent",
+      "entities": [
+        "kjah01-laparoskopi",
+        "kjah00-eksplorativ-laparotomi",
+        "kjff13-terminal-enterostomi",
+        "kjwa00-sutur-af-saarruptur-eft-gastroenterologisk-operatio",
+        "kjfa70-sutur-af-tyndtarm",
+        "kjww96-anden-reoperation-eft-gastroenterologisk-operation"
+      ],
+      "markdown": "| Operation | Antal | Procent |\n| --- | --- | --- |\n| KJAH01 - Laparoskopi | 21 | 27,3 |\n| KJAH00 - Eksplorativ laparotomi | 18 | 23,4 |\n| KJFF13 - Terminal enterostomi | 6 | 7,8 |\n| KJWA00 - Sutur af sårruptur eft. gastroenterologisk operatio | 4 | 5,2 |\n| KJFA70 - Sutur af tyndtarm | 3 | 3,9 |\n| KJWW96 - Anden reoperation eft. gastroenterologisk operation | 3 | 3,9 |\n| KJFA71 - Laparoskopisk sutur af tyndtarm | # | # |\n| KJFB00 - Tyndtarmsresektion | # | # |\n| KJFK10 - Løsning af adhærencer ved ileus | # | # |\n| KJWB00 - Reop. v. overfl. infekt. eft. gastroenterol. op. | # | # |\n| KJWD00 - Reop. for overfl. blødn. eft. gastroenterol. op. | # | # |\n| KJWE00 - Reop. for dyb blødn. eft. gastroenterol. op. | # | # |\n| KJFA81 - Laparoskopisk sutur af tyktarm | # | # |\n| KJFB33 - Anden samtidig resektion af tyndtarm og tyktarm | # | # |\n| KJFB50 - Anden colonresektion | # | # |\n| KJFB96 - Anden tarmresektion | # | # |\n| KJFC10 - Ileotransversostomi | # | # |\n| KJFF10 - Loop enterostomi | # | # |\n| KJFF11 - Laparoskopisk loop enterostomi | # | # |\n| KJFL11 - Laparoskopi med reposition af afklemt tarm | # | # |\n| KJWF00 - Reop. for sutur/anastom-insuff. eft. gastroenterol. | # | # |\n| KJWF01 - Perkut.endoskop.reop, sutur/anast-insuff. eft.gastr | # | # |",
+      "summary": "Tabellen viser fordelingen af re-operationer blandt IBD-patienter, hvor laparoskopi (KJAH01) og eksplorativ laparotomi (KJAH00) udgør tilsammen over halvdelen af alle re-operationer."
+    }
+  ],
+  "context": "Dette afsnit fra DANIBD-2025-rapporten (sider 46–50) indeholder tekniske appendikstabeller, der dokumenterer klinisk brug af biologiske behandlinger (BMSL) og kirurgiske indgreb blandt patienter med inflammatoriske tarmsygdomme i Danmark. Tabellerne danner evidensgrundlag for kvalitetsindikatorerne 5 (biologisk behandling) og 6 (kirurgi), og leverer detaljerede demografiske, diagnostiske og behandlingsmæssige data på både nationalt og hospitalsniveau. De understøtter evaluering af behandlingsvariation, adgang til avancerede terapier og kirurgisk praksis i hele landet, og er central for DANIBD’s rolle som national kvalitetsdatabase for IBD."
+}

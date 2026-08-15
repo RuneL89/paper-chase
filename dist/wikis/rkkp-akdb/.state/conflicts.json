@@ -23,6 +23,1048 @@
         "relationships": [],
         "claims": []
       }
+    },
+    {
+      "timestamp": "2026-08-15T07:45:55.354Z",
+      "type": "manual-edit",
+      "page": "topics/healthcare-metrics/demographics/alder.md",
+      "reason": "Curation topics sticky merge of 'alder' into 'demographic' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:45:55.363Z",
+      "type": "manual-edit",
+      "page": "topics/visualizations/supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau.md",
+      "reason": "Curation topic sticky drop of 'supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:45:55.373Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-hovedstaden.md",
+      "reason": "Curation entities sticky cluster of 'region-hovedstaden' into composite 'region-hovedstaden' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:45:55.385Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-midtjylland.md",
+      "reason": "Curation entities sticky cluster of 'region-midtjylland' into composite 'region-midtjylland' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:45:55.397Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-nordjylland.md",
+      "reason": "Curation entities sticky cluster of 'region-nordjylland' into composite 'region-nordjylland' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:45:55.407Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-sjaelland.md",
+      "reason": "Curation entities sticky cluster of 'region-sjaelland' into composite 'region-sjaelland' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:45:55.418Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-syddanmark.md",
+      "reason": "Curation entities sticky cluster of 'region-syddanmark' into composite 'region-syddanmark' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.368Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/aha-patienter.md",
+      "reason": "Curation topics merge of 'aha-patienter' into 'akut-abdomen' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.384Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/aha-populationen.md",
+      "reason": "Curation topics merge of 'aha-populationen' into 'akut-abdomen' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.394Z",
+      "type": "manual-edit",
+      "page": "topics/healthcare-metrics/demographics/alder.md",
+      "reason": "Curation topics merge of 'alder' into 'demographic' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.404Z",
+      "type": "manual-edit",
+      "page": "topics/methodological-change/methodological-change.md",
+      "reason": "Curation topics merge of 'methodological-change' into 'administrative-change' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.416Z",
+      "type": "manual-edit",
+      "page": "topics/research-finding/research-finding.md",
+      "reason": "Curation topic drop of 'research-finding' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.430Z",
+      "type": "manual-edit",
+      "page": "topics/visualizations/supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau.md",
+      "reason": "Curation topic drop of 'supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.439Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-hovedstaden.md",
+      "reason": "Curation entities cluster of 'region-hovedstaden' into composite 'region-hovedstaden' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.451Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-midtjylland.md",
+      "reason": "Curation entities cluster of 'region-midtjylland' into composite 'region-midtjylland' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.467Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-nordjylland.md",
+      "reason": "Curation entities cluster of 'region-nordjylland' into composite 'region-nordjylland' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.478Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-sjaelland.md",
+      "reason": "Curation entities cluster of 'region-sjaelland' into composite 'region-sjaelland' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.490Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-syddanmark.md",
+      "reason": "Curation entities cluster of 'region-syddanmark' into composite 'region-syddanmark' skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.535Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/healthcare-databases/akut-kirurgi-databasen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.552Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/healthcare-organizations/regionernes-kliniske-kvalitetsudviklingsprogram.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.563Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-leaders/peter-svenningsen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.577Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/healthcare-databases/landspatientregisteret.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.589Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/indikator-1.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.603Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/indikator-3.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.617Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/indikator-4.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.634Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/indikator-5.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.647Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/indikator-6.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.660Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/indikator-7.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.673Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/indikator-8.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.685Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/indikator-9.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.699Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/indikator-10.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.717Z",
+      "type": "manual-edit",
+      "page": "entities/locations/national/danmark.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.777Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/amager-og-hvidovre-hospital.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.789Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/bispebjerg-og-frederiksberg-hospitaler.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.808Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/bornholms-hospital.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.820Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/herlev-og-gentofte-hospital.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.834Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/hospitalerne-i-nordsjaelland.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.848Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/rigshospitalet.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.859Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/holbaek-sygehus.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.878Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/naestved-slagese-og-ringsted-sygehuse.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.889Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/sjaellands-universitetshospital.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.909Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/odense-universitetshospital-svendborg.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.921Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/sygehus-lillebaelt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.936Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/sygehus-soenderjylland.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.946Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/aarhus-universitetshospital.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.961Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/hospitalsenhed-midt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.973Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/regionshospitalet-goedstrup.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.984Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/regionshospitalet-horsens.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:24.996Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/regionshospitalet-randers.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.013Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/aalborg-universitetshospital.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.025Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/aalborg-universitetshospital-thisted.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.041Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/regionshospital-nordjylland.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.053Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/medical-research/elpquick.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.064Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/healthcare-databases/sygehusmedicinregisteret.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.076Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/medical-professional-bodies/dansk-radiologisk-selskab.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.087Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/medical-professional-bodies/american-college-of-radiology.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.099Z",
+      "type": "manual-edit",
+      "page": "entities/codes/medical-coding/sks-kode-naaz42.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.131Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-hovedstaden.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.142Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-nordjylland.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.154Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-syddanmark.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.164Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-midtjylland.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.176Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-sjaelland.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.186Z",
+      "type": "manual-edit",
+      "page": "entities/codes/healthcare-coding/nabb.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.197Z",
+      "type": "manual-edit",
+      "page": "entities/codes/healthcare-coding/nabe.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.209Z",
+      "type": "manual-edit",
+      "page": "entities/codes/healthcare-coding/nabc.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.227Z",
+      "type": "manual-edit",
+      "page": "entities/scores/clinical-assessment/asa-score.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.236Z",
+      "type": "manual-edit",
+      "page": "entities/scores/clinical-assessment/p-possum.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.247Z",
+      "type": "manual-edit",
+      "page": "entities/scores/clinical-assessment/apache.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.258Z",
+      "type": "manual-edit",
+      "page": "entities/scores/clinical-assessment/surgical-apgar-score.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.269Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/healthcare-governance/styregruppen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.280Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/healthcare-governance/lkt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.293Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/esbjerg-sygehus-grindsted-sygehus.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.304Z",
+      "type": "manual-edit",
+      "page": "entities/medical-procedures/anesthesia/epidural.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.316Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regions/hovedstaden-region-i-alt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.333Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regions/sjaelland-region-i-alt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.354Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regions/syddanmark-region-i-alt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.371Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/hospitals/ouh-odense-universitetshospital-odense.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.389Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regions/midtjylland-region-i-alt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.404Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regions/nordjylland-region-i-alt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.415Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-metrics/comorbidity/charlson-score-0.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.430Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-metrics/comorbidity/charlson-score-1-2.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.451Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-metrics/comorbidity-scoring/charlson-comorbiditets-indeks.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.467Z",
+      "type": "manual-edit",
+      "page": "topics/administrative-systems/danish-civil-registration/cpr-nummer.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.481Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-metrics/charlson-score.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.491Z",
+      "type": "manual-edit",
+      "page": "topics/healthcare-metrics/demographics/alder.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.504Z",
+      "type": "manual-edit",
+      "page": "entities/databases/government/cpr-registeret.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.518Z",
+      "type": "manual-edit",
+      "page": "entities/databases/healthcare/den-nationale-labdatabank-dnl.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.531Z",
+      "type": "manual-edit",
+      "page": "entities/databases/healthcare/dansk-anaestesi-database-dad.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.551Z",
+      "type": "manual-edit",
+      "page": "entities/databases/government/sundhedsvaesenets-organisationsregister-sor.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.563Z",
+      "type": "manual-edit",
+      "page": "entities/databases/clinical/danish-clinical-register-of-emergency-surgery.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.578Z",
+      "type": "manual-edit",
+      "page": "entities/studies/clinical-trials/pulp-trial.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.592Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/halfdan-lauridsen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.630Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/line-rokkedal-jonsson.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.641Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-leadership/lone-winther-jensen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.655Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/marianne-vinbaek.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.666Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/rasmus-haarup-lie.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.678Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/rikke-therkildsen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.697Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-researchers/anne-kirstine-dyrvig.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.707Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-researchers/henrik-nielsen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.720Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-administrators/birgitte-ruhmann.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.735Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/healthcare-oversight/sundhedsvaesenets-kvalitetsinstitut.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.747Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-quality-indicators/surgical-outcomes/indikator-2.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.761Z",
+      "type": "manual-edit",
+      "page": "entities/medical-procedures/anesthesia/ct-skanning.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.777Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/antibiotikabehandling.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.793Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-quality-indicators/surgical-outcomes/indikator-4x.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.804Z",
+      "type": "manual-edit",
+      "page": "entities/studies/clinical-trials/aha-studiet.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.816Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-quality-indicators/surgical-outcomes/indikator-4y.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.830Z",
+      "type": "manual-edit",
+      "page": "topics/cancer-distribution/perforeret-ulcus.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.849Z",
+      "type": "manual-edit",
+      "page": "topics/administrative-systems/danish-civil-registration/eras.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.862Z",
+      "type": "manual-edit",
+      "page": "entities/codes/healthcare-coding/zzp0030a.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.879Z",
+      "type": "manual-edit",
+      "page": "entities/codes/healthcare-coding/zzp0030c.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.890Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/acute-surgery/akut-abdomen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.902Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/healthcare-governance/lkt-akut-kirurgi.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.912Z",
+      "type": "manual-edit",
+      "page": "entities/codes/medical-coding/kjak01.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.923Z",
+      "type": "manual-edit",
+      "page": "entities/codes/medical-coding/kjak03.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.934Z",
+      "type": "manual-edit",
+      "page": "entities/codes/medical-coding/kjak04.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.950Z",
+      "type": "manual-edit",
+      "page": "entities/codes/medical-coding/naaz2.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.961Z",
+      "type": "manual-edit",
+      "page": "entities/codes/medical-coding/babz00.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.974Z",
+      "type": "manual-edit",
+      "page": "entities/codes/medical-coding/naad0.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.985Z",
+      "type": "manual-edit",
+      "page": "entities/codes/medical-coding/dk65.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:25.997Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-quality-indicators/surgical-outcomes/indikator-9b.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.012Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-quality-indicators/surgical-outcomes/indikator-9c.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.032Z",
+      "type": "manual-edit",
+      "page": "entities/scores/clinical-assessment/charlson-score-ge-3.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.048Z",
+      "type": "manual-edit",
+      "page": "topics/administrative-systems/danish-civil-registration/indberetningsvejledning-til-landspatientregisteret.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.058Z",
+      "type": "manual-edit",
+      "page": "entities/systems/healthcare-information-systems/lis.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.071Z",
+      "type": "manual-edit",
+      "page": "entities/systems/healthcare-information-systems/epj.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.089Z",
+      "type": "manual-edit",
+      "page": "entities/variables/healthcare-database/opereret-1.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.102Z",
+      "type": "manual-edit",
+      "page": "entities/variables/healthcare-database/t-0.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.117Z",
+      "type": "manual-edit",
+      "page": "entities/variables/healthcare-database/forloeb-sorkode.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.137Z",
+      "type": "manual-edit",
+      "page": "entities/locations/national/ima.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.149Z",
+      "type": "manual-edit",
+      "page": "entities/locations/national/ita-afsnit.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.226Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-administrators/vera-slyk.md",
+      "reason": "Duplicate page for 'vera-slyk' (entity now lives at entities/people/healthcare-patient-representatives/vera-slyk.md) was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.238Z",
+      "type": "manual-edit",
+      "page": "topics/policy/policy.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.249Z",
+      "type": "manual-edit",
+      "page": "topics/standard/standard.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.264Z",
+      "type": "manual-edit",
+      "page": "topics/performance/performance.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.280Z",
+      "type": "manual-edit",
+      "page": "topics/data-quality/data-quality.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.296Z",
+      "type": "manual-edit",
+      "page": "topics/definition/definition.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.308Z",
+      "type": "manual-edit",
+      "page": "topics/exclusion-criteria/exclusion-criteria.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.324Z",
+      "type": "manual-edit",
+      "page": "topics/regional-comparison/regional-comparison.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.338Z",
+      "type": "manual-edit",
+      "page": "topics/evaluation/evaluation.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.348Z",
+      "type": "manual-edit",
+      "page": "topics/recommendation/recommendation.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.362Z",
+      "type": "manual-edit",
+      "page": "topics/evaluative/evaluative.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.373Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-evidence/clinical-evidence.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.387Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-consequence/clinical-consequence.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.402Z",
+      "type": "manual-edit",
+      "page": "topics/methodological-assessment/methodological-assessment.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.415Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-outcome/clinical-outcome.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.437Z",
+      "type": "manual-edit",
+      "page": "topics/demographic/demographic.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.489Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-1.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.502Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-3.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.527Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-5.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.540Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-5x.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.554Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-5y.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.570Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-8.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.583Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-9.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.596Z",
+      "type": "manual-edit",
+      "page": "comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.610Z",
+      "type": "manual-edit",
+      "page": "comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.625Z",
+      "type": "manual-edit",
+      "page": "comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.643Z",
+      "type": "manual-edit",
+      "page": "comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.659Z",
+      "type": "manual-edit",
+      "page": "comparisons/akut-kirurgi-databasen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.675Z",
+      "type": "manual-edit",
+      "page": "comparisons/oversigt-over-alle-indikatorer.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.691Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.708Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-2.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.723Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-4x.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.737Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-4y.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.752Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-10.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.772Z",
+      "type": "manual-edit",
+      "page": "comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.785Z",
+      "type": "manual-edit",
+      "page": "comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.798Z",
+      "type": "manual-edit",
+      "page": "comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.812Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-9b.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.825Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-9c.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:48:26.838Z",
+      "type": "manual-edit",
+      "page": "comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T08:03:30.106Z",
+      "pageType": "entity",
+      "slug": "indikator-9a",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Den nationale 30-dages mortalitet blandt opererede patienter med Charlson Score = 0 er 4,4 % (95 % CI: 3,4–5,6) i den aktuelle periode [^src3]",
+          "Tælleren for den nationale 30-dages mortalitet blandt opererede patienter med Charlson Score = 0 er 61, og nævneren er 1.390 [^src3]",
+          "Eksklusionsårsager for indikator 9a inkluderer ugyldigt CPR-nummer, patient under 18 år, patient ikke opereret, inaktiv CPR-nummer og Charlson Comorbiditets indeks > 0 [^src4]",
+          "Supplerende indikator til indikator 9a beskriver andelen af patienter, der dør indenfor 30 dage fra tidspunkt for operation, for patienter med Charlson Score 0, svarende til ingen registreret komorbiditet [^src1]"
+        ]
+      }
     }
   ]
 }

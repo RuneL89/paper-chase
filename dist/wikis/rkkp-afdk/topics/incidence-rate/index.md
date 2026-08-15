@@ -4,17 +4,18 @@ type: index
 aliases:
   - Incidence Rate
 wiki: rkkp-afdk
-updated: '2026-08-05T23:32:33.405Z'
+updated: '2026-08-15T00:33:15.438Z'
 children:
   - incidence-rate.md
+  - index.md
 ---
 # Incidence Rate
 
-This folder contains topic pages that track the incidence rates of medical conditions and their secondary complications within the Danish healthcare system. It specifically documents the epidemiological metrics for atrial fibrillation across all Danish regions, alongside the one-year incidence rates of severe complications such as intracranial hemorrhage and heart failure. The data provides critical insights into the national burden of the disease and patient outcomes, grounded in annual clinical database reports.
+This folder tracks the incidence rates of medical conditions and their associated complications within the Danish healthcare registry system. It specifically focuses on the epidemiological metrics for atrial fibrillation, detailing the national and regional frequency of new diagnoses alongside the incidence of severe outcomes like intracranial bleeding and heart failure. By breaking down these rates across different pharmacological treatments, the data provides a critical foundation for assessing the risk-benefit profiles of antithrombotic strategies in routine clinical practice.
 
 ## Pages
 
-- [[incidence-rate|Incidence Rate]] — Tracks the national and regional incidence rates of atrial fibrillation in Denmark, alongside the one-year incidence of secondary complications such as intracranial hemorrhage and heart failure.
+- [[incidence-rate|Incidence Rate]] — Tracks the national and regional incidence of atrial fibrillation and its severe complications, including bleeding events and heart failure, to evaluate treatment safety and epidemiological trends.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder contains topic pages that track the incidence rates of medical condi
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder contains topic pages that track the incidence rates of medical condi
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

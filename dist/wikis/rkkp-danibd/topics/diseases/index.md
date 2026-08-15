@@ -4,31 +4,35 @@ type: index
 aliases:
   - Diseases
 wiki: rkkp-danibd
-updated: '2026-08-05T07:56:34.811Z'
+updated: '2026-08-15T08:01:37.660Z'
 children:
   - gastrointestinal/index.md
   - hepatic-biliary/index.md
+  - index.md
 ---
 # Diseases
 
-This area groups the primary disease conditions tracked by the Danish national quality database for inflammatory bowel disease (DANIBD). It covers the broad clinical and epidemiological framework of gastrointestinal inflammatory bowel diseases, detailing the prevalence and registry criteria for Crohn's disease and ulcerative colitis. Additionally, it includes hepatic and biliary conditions closely linked to IBD, such as Primary Sclerosing Cholangitis, though records for these extraintestinal manifestations remain sparse in the current corpus.
+This folder groups the specific diseases and medical conditions tracked within the scope of the Danish Quality Database for Inflammatory Bowel Disease (DANIBD). It is divided into gastrointestinal conditions, which cover the core inflammatory bowel diseases like Crohn's disease and ulcerative colitis along with their national epidemiological and demographic data. Additionally, it includes hepatic-biliary conditions to document associated comorbidities such as primary sclerosing cholangitis.
 
 ## Pages
 
-- [[topics/diseases/gastrointestinal/index|Gastrointestinal]] — Catalogs the primary gastrointestinal conditions tracked by DANIBD, detailing the epidemiology, demographics, and registry inclusion criteria for IBD, Crohn's disease, and ulcerative colitis.
-- [[topics/diseases/hepatic-biliary/index|Hepatic Biliary]] — Groups hepatic and biliary conditions relevant to the IBD quality database, currently holding a sparse topic page for Primary Sclerosing Cholangitis.
+- [[topics/diseases/gastrointestinal/index|Gastrointestinal]] — Catalogs the primary inflammatory bowel diseases tracked by DANIBD, including Crohn's disease and ulcerative colitis, along with their national epidemiological trends and registry inclusion criteria.
+- [[topics/diseases/hepatic-biliary/index|Hepatic Biliary]] — Covers hepatic and biliary conditions associated with the database's scope, currently serving as a structural placeholder for primary sclerosing cholangitis.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/audit-finding/index|Audit Finding]]
 - Sibling: [[topics/clinical-consensus/index|Clinical Consensus]]
 - Sibling: [[topics/clinical-practice/index|Clinical Practice]]
 - Sibling: [[topics/codes/index|Codes]]
 - Sibling: [[topics/coverage/index|Coverage]]
 - Sibling: [[topics/diagnoses/index|Diagnoses]]
 - Sibling: [[topics/eligibility-criteria/index|Eligibility Criteria]]
+- Sibling: [[topics/healthcare-utilization/index|Healthcare Utilization]]
 - Sibling: [[topics/mission/index|Mission]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/procedural/index|Procedural]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]

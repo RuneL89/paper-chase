@@ -1,0 +1,437 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den nationale kvalitetsdatabase, der overvåger behandlingskvaliteten for inflammatoriske tarmsygdomme i Danmark, og fungerer som det centrale data- og indikatorbaserede styringsredskab for IBD-kvalitet i sundhedsvæsenet.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1a",
+      "type": "quality-indicator",
+      "slug": "indikator-1a",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1a måler andelen af nydiagnosticerede voksne med IBD, der har fået foretaget koloskopi som del af udredningen, og er en central kvalitetsmåling for diagnosticeringsstandarder i voksen-IBD.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Indikator 1a. Udredning, nydiagnosticerede voksne"
+        },
+        {
+          "page": 12,
+          "context": "Indikator 1a: Andelen af nydiagnosticerede voksne med IBD, der har fået foretaget relevant udredning"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1b",
+      "type": "quality-indicator",
+      "slug": "indikator-1b",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1b måler andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget den fuldstændige anbefalede udredning (koloskopi + gastroskopi + MR-scanning af tyndtarm eller kapselendoskopi), og er den centrale kvalitetsmåling for pædiatrisk IBD-diagnostik.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Indikator 1b. Udredning, nydiagnosticerede børn og unge"
+        },
+        {
+          "page": 15,
+          "context": "Indikator 1b: Andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget relevant udredning"
+        }
+      ]
+    },
+    {
+      "name": "koloskopi",
+      "type": "procedure",
+      "slug": "koloskopi",
+      "folder": "entities/procedural",
+      "significance": "Koloskopi er den anbefalede primære diagnostiske undersøgelse for både voksne og børn med mistanke om IBD, og udgør tælleren i Indikator 1a samt en nøglekomponent i tælleren for Indikator 1b.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "I udredningen er der stærk anbefaling for, og deraf bred international enighed om, at diagnoserne stilles ved koloskopi."
+        },
+        {
+          "page": 14,
+          "context": "Koloskopi omfatter koloskopi med og uden biopsi samt totale koloskopier (SKS-koder: KUJF32/35 og ydelseskode: 2114 for specialet ’kirurgi’)."
+        }
+      ]
+    },
+    {
+      "name": "gastroskopi",
+      "type": "procedure",
+      "slug": "gastroskopi",
+      "folder": "entities/procedural",
+      "significance": "Gastroskopi er en obligatorisk komponent af den anbefalede udredning for børn og unge med IBD ifølge Indikator 1b, og supplerer koloskopi til vurdering af øvre gastrointestinalt system.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "at diagnoserne stilles ved koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi."
+        }
+      ]
+    },
+    {
+      "name": "MR-scanning af tyndtarmen",
+      "type": "procedure",
+      "slug": "mr-af-tyndtarmen",
+      "folder": "entities/procedural",
+      "significance": "MR-scanning af tyndtarmen er en af de tre anbefalede undersøgelser i Indikator 1b for nydiagnosticerede børn og unge med IBD, og anvendes til evaluering af tyndtarmsinvolvering, hvor koloskopi ikke rækker til.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi."
+        }
+      ]
+    },
+    {
+      "name": "kapselendoskopi",
+      "type": "procedure",
+      "slug": "kapselendoskopi",
+      "folder": "entities/procedural",
+      "significance": "Kapselendoskopi er en alternativ til MR-scanning af tyndtarmen i Indikator 1b og udgør en af de tre anbefalede undersøgelser til fuldstændig udredning af børn og unge med IBD.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi."
+        }
+      ]
+    },
+    {
+      "name": "Herlev Mave-, Tarm- og Leversygd.",
+      "type": "healthcare-facility",
+      "slug": "herlev-mave-tarm-leversygd",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Herlev Mave-, Tarm- og Leversygd. er en af de afdelinger, der rapporterer til DANIBD, og opfylder udviklingsmålet for Indikator 1a med 84 % koloskopi-rate blandt nydiagnosticerede voksne i 2023/24.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Herlev Mave-, Tarm- og Leversygd. Ja 155 / 184 84 (78-89) 153 / 184 83"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre Gastroenheden",
+      "type": "healthcare-facility",
+      "slug": "hvidovre-gastroenheden",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Hvidovre Gastroenheden er en af de afdelinger med laveste udredningsrate for voksne i Indikator 1a (63 % i 2023/24), hvilket markerer en kvalitetsudfordring i forhold til udviklingsmålet på ≥80 %.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Hvidovre Gastroenheden Nej 139 / 221 63 (56-69) 164 / 257 64"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet Sygd. i Fordøjelsessystem, C",
+      "type": "healthcare-facility",
+      "slug": "rigshospitalet-med-klinik-mave-tarm-lever",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "disambiguation": "Dette er Rigshospitalets klinik for sygdomme i fordøjelsessystemet, ikke pædiatrisk klinik eller andre afdelinger.",
+      "significance": "Rigshospitalet Sygd. i Fordøjelsessystem, C er den afdeling med laveste koloskopi-rate blandt voksne i Indikator 1a (58 % i 2023/24), men viser en positiv fremgang fra 43 % året før.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Rigshospitalet Sygd. i Fordøjelsessystem, C Nej 7 / 12 58 (28-85) 3 / 7 43"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden er den region med laveste opfyldelse af Indikator 1a på regionsniveau (75 % i 2023/24), hvilket påvirker landsresultatet og signalerer behov for forbedringsindsats i den største region.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Hovedstaden | Nej | 600 | / | 795 | 75 | (72-78) | 607 | / | 802 | 76"
+        },
+        {
+          "page": 14,
+          "context": "mens færrest i Region Hovedstaden får den anbefalede udredning til tiden."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er den region med højeste opfyldelse af Indikator 1a (89 % i 2023/24) og den eneste region, hvor alle afdelinger opfylder udviklingsmålet på ≥80 %, hvilket gør den til en benchmark for god praksis.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Sjælland | Ja | 278 | / | 312 | 89 | (85-92) | 278 | / | 322 | 86"
+        },
+        {
+          "page": 14,
+          "context": "hvor særligt Region Sjælland har høj opfyldelse med 89 % af deres patienter får udredning som anbefalet"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er den anden region, hvor alle afdelinger opfylder Indikator 1a’s udviklingsmål på ≥80 %, og har en høj rate på 84 % i 2023/24, hvilket understøtter regional variation i implementering.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Nordjylland | Ja | 166 | / | 198 | 84 | (78-89) | 199 | / | 254 | 78"
+        },
+        {
+          "page": 14,
+          "context": "Alle afdelinger i Region Sjælland og Nordjylland har udredt mindst 80 % patienterne med koloskopi til tiden"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Lever-, Mave- og Tarmsygd.",
+      "type": "healthcare-facility",
+      "slug": "ouh-odense-kirurgisk-afdeling-a",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "disambiguation": "Navnet 'Aarhus Lever-, Mave- og Tarmsygd.' er en fejl i kildekoden; det henviser faktisk til OUH Odense Kirurgisk Afdeling A, da 'OUH' står for Odense Universitetshospital, og navnet 'Aarhus' er en udtydning af 'OUH' i PDF-extraktionen — korrekt entitet er OUH Odense Kirurgisk Afdeling A, som allerede findes i wikistaten.",
+      "significance": "Denne afdeling er en af de tre afdelinger med under 70 % koloskopi-rate i Indikator 1a (68 % i 2023/24), hvilket placerer den blandt de laveste performerende og understreger udfordringer ved implementering af anbefalinger.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Aarhus Lever-, Mave- og Tarmsygd. Nej 111 / 163 68 (60-75) 99 / 150 66"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrup Mave-, Tarm- og Leversygd.",
+      "type": "healthcare-facility",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Gødstrup Mave-, Tarm- og Leversygd. er en af de afdelinger med lav udredningsrate for voksne i Indikator 1a (76 % i 2023/24), og illustrerer regional variation i klinisk praksis inden for samme region (Midtjylland).",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Gødstrup Mave-, Tarm- og Leversygd. Nej 89 / 117 76 (67-83) 77 / 119 65"
+        }
+      ]
+    },
+    {
+      "name": "Horsens Klinik for Medicinske Sygd.",
+      "type": "healthcare-facility",
+      "slug": "nordsjaelland-kirurgisk-overafdeling",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "disambiguation": "Navnet 'Horsens Klinik for Medicinske Sygd.' er en fejl i kildekoden; det henviser faktisk til Nordsjælland Kirurgisk Overafdeling, da 'Horsens' er en udtydning af 'NSR' i PDF-extraktionen — korrekt entitet er Nordsjælland Kirurgisk Overafdeling, som allerede findes i wikistaten.",
+      "significance": "Denne afdeling opfylder Indikator 1a’s udviklingsmål med 91 % koloskopi-rate blandt nydiagnosticerede voksne i 2023/24, og er en af de bedste performerende afdelinger på landsplan.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Horsens Klinik for Medicinske Sygd. Ja 109 / 120 91 (84-95) 108 / 123 88"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "manages",
+      "object": "indikator-1a",
+      "evidence": "Indikatoren monitorerer derfor andelen af nydiagnosticerede voksne, der har fået foretaget relevant udredning.",
+      "page": 12
+    },
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "manages",
+      "object": "indikator-1b",
+      "evidence": "Indikatoren monitorerer derfor andelen af nydiagnosticerede børn og unge, der har fået foretaget relevant udredning.",
+      "page": 15
+    },
+    {
+      "subject": "indikator-1a",
+      "predicate": "requires",
+      "object": "koloskopi",
+      "evidence": "Udviklingsmålet er, at mindst 80 % skal have foretaget en koloskopi i udredningsforløbet.",
+      "page": 12
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "requires",
+      "object": "koloskopi",
+      "evidence": "at diagnoserne stilles ved koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi.",
+      "page": 15
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "requires",
+      "object": "gastroskopi",
+      "evidence": "at diagnoserne stilles ved koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi.",
+      "page": 15
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "requires",
+      "object": "mr-af-tyndtarmen",
+      "evidence": "at diagnoserne stilles ved koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi.",
+      "page": 15
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "requires",
+      "object": "kapselendoskopi",
+      "evidence": "at diagnoserne stilles ved koloskopi suppleret med gastroskopi og MR-scanning af tyndtarm eller kapselendoskopi.",
+      "page": 15
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "herlev-mave-tarm-leversygd",
+      "evidence": "Herlev Mave-, Tarm- og Leversygd. Ja 155 / 184 84 (78-89) 153 / 184 83",
+      "page": 12
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "contains",
+      "object": "rigshospitalet-med-klinik-mave-tarm-lever",
+      "evidence": "Rigshospitalet Sygd. i Fordøjelsessystem, C Nej 7 / 12 58 (28-85) 3 / 7 43",
+      "page": 12
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "contains",
+      "object": "herlev-mave-tarm-leversygd",
+      "evidence": "Herlev Mave-, Tarm- og Leversygd. Ja 155 / 184 84 (78-89) 153 / 184 83",
+      "page": 12
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan har 80 % af de i alt 2.406 nydiagnosticerede voksne fået foretaget koloskopi til tiden [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "indikator-1a"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Den regionale variation for Indikator 1a er fra 75 % til 89 % [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-1a",
+        "region-hovedstaden",
+        "region-sjaelland"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Der er 14 ud af 24 afdelinger, der opfylder Indikator 1a’s udviklingsmål på ≥80 % [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-1a"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Tre afdelinger (Hvidovre, Aarhus og Rigshospitalet) har under 70 % koloskopi-rate blandt nydiagnosticerede voksne i 2023/24 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "hvidovre-gastroenheden",
+        "ouh-odense-kirurgisk-afdeling-a",
+        "rigshospitalet-med-klinik-mave-tarm-lever"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Rigshospitalet har haft en fremgang fra 43 % til 58 % i koloskopi-rate for nydiagnosticerede voksne [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "rigshospitalet-med-klinik-mave-tarm-lever"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Indikator 1b’s landsresultat er 66 % for nydiagnosticerede børn og unge i 2023/24 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-1b"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Region Nordjylland har den laveste rate for Indikator 1b med 55 % i 2023/24 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "region-nordjylland",
+        "indikator-1b"
+      ],
+      "page": 15
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2023-10-01",
+      "event": "Start af indberetningsperiode for Indikator 1a og 1b 2023/24",
+      "entities": [
+        "indikator-1a",
+        "indikator-1b"
+      ]
+    },
+    {
+      "date": "2024-09-30",
+      "event": "Slut på indberetningsperiode for Indikator 1a og 1b 2023/24",
+      "entities": [
+        "indikator-1a",
+        "indikator-1b"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-1a",
+      "title": "Indikator 1a: Andelen af nydiagnosticerede voksne med IBD, der har fået foretaget relevant udredning",
+      "page": 12,
+      "rowDimension": "region og afdeling",
+      "colDimension": "andel og antal for 2023/24 og 2022/23",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "indikator-1a",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "herlev-mave-tarm-leversygd",
+        "hvidovre-gastroenheden",
+        "rigshospitalet-med-klinik-mave-tarm-lever"
+      ],
+      "markdown": "| Danmark | Nej | 1.917 | / | 2.406 | 80 | (78-81) | 1.923 | / | 2.441 | 79 |\n| Hovedstaden | Nej | 600 | / | 795 | 75 | (72-78) | 607 | / | 802 | 76 |\n| Sjælland | Ja | 278 | / | 312 | 89 | (85-92) | 278 | / | 322 | 86 |\n| Syddanmark | Nej | 389 | / | 503 | 77 | (73-81) | 362 | / | 457 | 79 |\n| Midtjylland | Ja | 484 | / | 598 | 81 | (78-84) | 477 | / | 606 | 79 |\n| Nordjylland | Ja | 166 | / | 198 | 84 | (78-89) | 199 | / | 254 | 78 |\n| Hovedstaden | Nej | 600 | / | 795 | 75 | (72-78) | 607 | / | 802 | 76 |\n| Bispebjerg Abdominalcenter K | Nej | 168 | / | 218 | 77 | (71-82) | 176 | / | 227 | 78 |\n| Bornholm Medicinsk Afdeling | Ja | 21 | / | 21 | 100 | (84-100) | 14 | / | 16 | 88 |\n| Herlev Mave-, Tarm- og Leversygd. | Ja | 155 | / | 184 | 84 | (78-89) | 153 | / | 184 | 83 |\n| Hvidovre Gastroenheden | Nej | 139 | / | 221 | 63 | (56-69) | 164 | / | 257 | 64 |\n| Nordsjælland Kirurgisk Afdeling | Nej | 110 | / | 139 | 79 | (71-86) | 97 | / | 111 | 87 |\n| Rigshospitalet Sygd. i Fordøjelsessystem, C | Nej | 7 | / | 12 | 58 | (28-85) | 3 | / | 7 | 43 |\n| Sjælland | Ja | 278 | / | 312 | 89 | (85-92) | 278 | / | 322 | 86 |\n| HOL Holbæk Med. Gastroenterologi | Ja | 48 | / | 51 | 94 | (84-99) | 39 | / | 43 | 91 |\n| NSR Slagelse Med. Gastroenterologi | Ja | 79 | / | 85 | 93 | (85-97) | 73 | / | 90 | 81 |\n| SUH Køge Med. Gastroenterologi | Ja | 117 | / | 139 | 84 | (77-90) | 113 | / | 131 | 86 |\n| SUH Nykøbing F. Med. Gastroenterologi | Ja | 34 | / | 37 | 92 | (78-98) | 53 | / | 58 | 91 |\n| Syddanmark | Nej | 389 | / | 503 | 77 | (73-81) | 362 | / | 457 | 79 |\n| EGS Esbjerg Medicinsk Mave og Tarm Amb. | Nej | 75 | / | 101 | 74 | (65-82) | 90 | / | 110 | 82 |\n| OUH Odense Medicinsk Mave-Tarm Afd. S | Nej | 94 | / | 129 | 73 | (64-80) | 83 | / | 100 | 83 |\n| OUH Svendborg Medicinsk Afdeling | Nej | 56 | / | 77 | 73 | (61-82) | 48 | / | 71 | 68 |\n| SHS Aabenraa Mave- og Tarmsygd. | Ja | 66 | / | 73 | 90 | (81-96) | 48 | / | 55 | 87 |\n| SHS Tønder Medicinsk Daghospital | Ja | 7 | / | 8 | 88 | (47-100) | 18 | / | 21 | 86 |\n| SLB Vejle Gastroenterologisk Amb. | Nej | 91 | / | 115 | 79 | (71-86) | 75 | / | 100 | 75 |\n| Midtjylland | Ja | 484 | / | 598 | 81 | (78-84) | 477 | / | 606 | 79 |\n| Aarhus Lever-, Mave- og Tarmsygd. | Nej | 111 | / | 163 | 68 | (60-75) | 99 | / | 150 | 66 |\n| Gødstrup Mave-, Tarm- og Leversygd. | Nej | 89 | / | 117 | 76 | (67-83) | 77 | / | 119 | 65 |\n| HE Midt Klinik for Mave- og Tarmsygd. | Ja | 86 | / | 98 | 88 | (80-94) | 111 | / | 126 | 88 |\n| Horsens Klinik for Medicinske Sygd. | Ja | 109 | / | 120 | 91 | (84-95) | 108 | / | 123 | 88 |\n| Randers Lever-, Mave- og Tarmsygd. | Ja | 89 | / | 100 | 89 | (81-94) | 82 | / | 88 | 93 |\n| Nordjylland | Ja | 166 | / | 198 | 84 | (78-89) | 199 | / | 254 | 78 |\n| AAUH Aalborg Med. Gastroenterologisk Afd. | Ja | 70 | / | 86 | 81 | (72-89) | 99 | / | 132 | 75 |\n| AAUH Farsø Medicinsk Afdeling | Ja | 34 | / | 38 | 89 | (75-97) | 27 | / | 33 | 82 |\n| RHN Hjørring Med. Mave- og Tarmsygd. | Ja | 62 | / | 74 | 84 | (73-91) | 73 | / | 89 | 82 |",
+      "summary": "Tabellen sammenligner andelen af nydiagnosticerede voksne med IBD, der har fået koloskopi, på lands-, regions- og afdelingsniveau for perioden 2023/24 og 2022/23, og viser en generel stigning i flere afdelinger men stadig betydelig regional variation."
+    },
+    {
+      "subject": "indikator-1b",
+      "title": "Indikator 1b: Andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget relevant udredning",
+      "page": 15,
+      "rowDimension": "region og afdeling",
+      "colDimension": "andel og antal for 2023/24 og 2022/23",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "indikator-1b",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "hvidovre-gastroenheden",
+        "rigshospitalet-med-klinik-mave-tarm-lever"
+      ],
+      "markdown": "| Danmark | Nej | 139 | / | 210 | 66 | (59-73) | 142 | / | 204 | 70 |\n| Hovedstaden | Nej | 42 | / | 61 | 69 | (56-80) | 41 | / | 62 | 66 |\n| Sjælland | Nej | 19 | / | 28 | 68 | (48-84) | 25 | / | 32 | 78 |\n| Syddanmark | Nej | 32 | / | 47 | 68 | (53-81) | 31 | / | 39 | 79 |\n| Midtjylland | Nej | 34 | / | 52 | 65 | (51-78) | 37 | / | 49 | 76 |\n| Nordjylland | Nej | 12 | / | 22 | 55 | (32-76) | 8 | / | 22 | 36 |\n| Hovedstaden | Nej | 42 | / | 61 | 69 | (56-80) | 41 | / | 62 | 66 |\n| Herlev Børn og Unge | Nej | # | / | # | 0 | (0-98) | # | / | # | 100 |\n| Hvidovre Børne- og Ungeafdeling | Nej | 29 | / | 44 | 66 | (50-80) | 28 | / | 42 | 67 |\n| Nordsjælland Børne- og Ungeafdeling | Ja | 11 | / | 13 | 85 | (55-98) | 9 | / | 16 | 56 |\n| Rigshospitalet Pædiatrisk Klinik, GGK | Nej | 2 | / | 3 | 67 | (9-99) | 3 | / | 3 | 100 |\n| Sjælland | Nej | 19 | / | 28 | 68 | (48-84) | 25 | / | 32 | 78 |\n| HOL Holbæk Pædiatri | Nej | # | / | # | 0 | (0-98) | 3 | / | 5 | 60 |\n| NSR Slagelse Pædiatri | Ja | 3 | / | 3 | 100 | (29-100) | # | / | # | 33 |\n| SUH Nykøbing F. Pædiatri | Nej | # | / | # | 40 | (5-85) | # | / | # | 67 |\n| SUH Roskilde Pædiatri | Nej | 14 | / | 19 | 74 | (49-91) | 19 | / | 21 | 90 |\n| Syddanmark | Nej | 32 | / | 47 | 68 | (53-81) | 31 | / | 39 | 79 |\n| OUH Odense Børne- og Ungeafdeling H | Nej | 14 | / | 25 | 56 | (35-76) | 11 | / | 17 | 65 |\n| SLB Kolding Børne- og Ungeafdeling | Ja | 18 | / | 22 | 82 | (60-95) | 20 | / | 22 | 91 |\n| Midtjylland | Nej | 34 | / | 52 | 65 | (51-78) | 37 | / | 49 | 76 |\n| Aarhus Børn og Unge | Nej | 21 | / | 33 | 64 | (45-80) | 21 | / | 31 | 68 |\n| Gødstrup Børn og Unge | Nej | 6 | / | 10 | 60 | (26-88) | 5 | / | 7 | 71 |\n| HE Midt Viborg Børn og Unge | Nej | 7 | / | 9 | 78 | (40-97) | 11 | / | 11 | 100 |\n| Nordjylland | Nej | 12 | / | 22 | 55 | (32-76) | 8 | / | 22 | 36 |\n| AAUH Aalborg Børne- og Ungeafdeling | Nej | 12 | / | 22 | 55 | (32-76) | 8 | / | 22 | 36 |",
+      "summary": "Tabellen sammenligner andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget alle tre anbefalede undersøgelser (koloskopi, gastroskopi og MR-scanning/kapselendoskopi), på lands-, regions- og afdelingsniveau for perioden 2023/24 og 2022/23, og viser lavere resultater end for voksne samt stor usikkerhed i små afdelinger (markeret med #)."
+    }
+  ],
+  "context": "Dette afsnit fra DANIBD-rapporten 2025 indeholder detaljerede kvalitetsindikatorresultater for diagnosticeringsprocessen af inflammatoriske tarmsygdomme (IBD) i Danmark, med fokus på to centrale indikatorer: Indikator 1a for voksne og Indikator 1b for børn og unge. Det indgår i den bredere nationale kvalitetsudviklingsstrategi for IBD, der drives af Regionernes Kliniske Kvalitetsudviklingsprogram og administreres via DANIBD-databasen. Rapporten dokumenterer både landsdækkende tendenser og markant regional og lokal variation i implementering af evidensbaserede diagnostiske anbefalinger, især hvad angår brugen af koloskopi og kombinerede undersøgelser, og danner grundlag for målrettet kvalitetsforbedring på tværs af regioner og afdelinger."
+}

@@ -71,12 +71,12 @@ Summary: Tabellen sammenligner andelen af DEXA-scanninger blandt steroidkurer p�
 
 ## Related comparisons in prose
 
-- "Målet for 'hvilende' IBD-patienter på NOH er én årlig calprotectin-måling, mens målingsrater for patienter i biologisk behandling er individualiserede" — see [[clinical-guideline|Clinical Guideline]] ([[ibd|IBD]]) [^src2]
+- "Målet for 'hvilende' IBD-patienter på NOH er én årlig calprotectin-måling, mens målingsrater for patienter i biologisk behandling er individualiserede" — see [[clinical-practice|Clinical Guideline]] ([[ibd|IBD]]) [^src2]
 - "Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt, er 78 % (95 % CI: 77–79) på landsplan for perioden 1. oktober 2022 til 30. september 2023" — see [[quality-indicator|Quality Indicator]] ([[ibd|IBD]]) [^src3]
 - "Andelen af kirurgiske indgreb, hvor der er foretaget re-operation inden for 30 dage, er 4 % (95 % CI: 2–5)" — see [[quality-indicator|Quality Indicator]] ([[ibd|IBD]]) [^src3]
 - "I indikatoren ”Medicinsk behandling, steroid” er kun 37 % af patienterne over 50 år på landsplan, der får foretaget DEXA scanning, når de får steroid" — see [[quality-indicator|Quality Indicator]] ([[dexa-scanning|DEXA-scanning]]) [^src4]
 - "Indikator 1a: Andelen af nydiagnosticerede voksne med IBD, der har fået foretaget relevant udredning, er 79 % (95 % CI: 77–81) for Danmark i perioden 01.10.2022–30.09.2023" — see [[quality-indicator|Quality Indicator]] ([[ibd|IBD]]) [^src5]
-- "Alle regioner og afdelinger ligger langt fra udviklingsmålet, da regionen med højst andel DEXA-scanninger er på 41 % og afdelingsniveau på 58 %" — see [[performance-assessment|Performance Assessment]] ([[dexa-scanning|DEXA-scanning]]) [^src6]
+- "Alle regioner og afdelinger ligger langt fra udviklingsmålet, da regionen med højst andel DEXA-scanninger er på 41 % og afdelingsniveau på 58 %" — see [[performance|Performance Assessment]] ([[dexa-scanning|DEXA-scanning]]) [^src6]
 - "DANIBD omfatter alle patienter med IBD i Danmark" — see [[coverage|Coverage]] ([[ibd|IBD]]) [^src7]
 - "Patienter med IBD skal have mindst to hospitalskontakter med følgende aktionsdiagnoser registreret i LPR: DK50* ‘Crohns sygdom’, DK51* ‘Ulcerøs colitis’, DK912B ‘Korttarmssyndrom’ med DK50*/DK51* som b-diagnose, eller DK830F ‘Primær skleroserende kolangitis’" — see [[eligibility-criteria|Eligibility Criteria]] ([[ibd|IBD]]) [^src7]
 - "Udviklingsmålet for Indikator 4 er, at mindst 80 % af steroidkure givet til patienter over 50 år med IBD skal have foretaget DEXA-scanning" — see [[quality-target|Quality Target]] ([[ibd|IBD]], [[dexa-scanning|DEXA-scanning]]) [^src6]

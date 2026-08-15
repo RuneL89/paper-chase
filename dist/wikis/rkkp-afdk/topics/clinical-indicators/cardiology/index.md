@@ -4,17 +4,18 @@ type: index
 aliases:
   - Cardiology
 wiki: rkkp-afdk
-updated: '2026-08-05T23:18:57.264Z'
+updated: '2026-08-15T00:12:29.037Z'
 children:
   - hjertesvigtsindikatoren.md
+  - index.md
 ---
 # Cardiology
 
-This folder contains clinical quality metrics focused on cardiological outcomes within the Danish healthcare system. It specifically houses indicators that track the development of heart failure in patients newly diagnosed with atrial fibrillation. The documentation details the epidemiological trends, regional variations, and strict ICD-10 diagnostic criteria used to monitor these cardiovascular complications over time using national registry data.
+This folder groups cardiology-specific clinical quality indicators used to monitor cardiovascular outcomes in the Danish healthcare system. It currently documents the Heart Failure Indicator (Hjertesvigtsindikatoren), a central metric that tracks the proportion of newly diagnosed atrial fibrillation patients who develop heart failure within their first year. By relying on national registry data and strict ICD-10 diagnostic codes, this indicator provides critical insight into early heart failure complications and the effectiveness of ongoing clinical interventions.
 
 ## Pages
 
-- [[hjertesvigtsindikatoren|Hjertesvigtsindikatoren]] — Details the clinical quality metric tracking the proportion of newly diagnosed atrial fibrillation patients who receive a heart failure diagnosis within their first year, including regional variations and underlying registry data.
+- [[hjertesvigtsindikatoren|Hjertesvigtsindikatoren]] — Monitors the incidence of heart failure among newly diagnosed atrial fibrillation patients using National Patient Registry data, highlighting a continuous improvement trend in recent years.
 
 ## Navigation
 

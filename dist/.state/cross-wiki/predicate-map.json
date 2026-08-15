@@ -1,0 +1,759 @@
+[
+  {
+    "canonical": "applies-to-location",
+    "variants": [
+      "applies-to-location",
+      "is-location-for"
+    ]
+  },
+  {
+    "canonical": "audits",
+    "variants": [
+      "audits",
+      "performs-audit-of"
+    ]
+  },
+  {
+    "canonical": "authored-study-comparing",
+    "variants": [
+      "authored-study-comparing"
+    ]
+  },
+  {
+    "canonical": "belongs-to-database",
+    "variants": [
+      "belongs-to-database"
+    ]
+  },
+  {
+    "canonical": "coded-as",
+    "variants": [
+      "coded-as",
+      "is-coded-by"
+    ]
+  },
+  {
+    "canonical": "contains-data-from",
+    "variants": [
+      "contains-data-from",
+      "depends-on-data-from",
+      "relies-on-data-from",
+      "uses-data-from"
+    ]
+  },
+  {
+    "canonical": "contains-data-on",
+    "variants": [
+      "contains-data-on"
+    ]
+  },
+  {
+    "canonical": "contains-hospital",
+    "variants": [
+      "contains-hospital",
+      "includes-hospital"
+    ]
+  },
+  {
+    "canonical": "contains-region",
+    "variants": [
+      "contains-region",
+      "has-subregion"
+    ]
+  },
+  {
+    "canonical": "corrects-data-for",
+    "variants": [
+      "corrects-data-for"
+    ]
+  },
+  {
+    "canonical": "criticizes",
+    "variants": [
+      "criticizes"
+    ]
+  },
+  {
+    "canonical": "data-source",
+    "variants": [
+      "data-source",
+      "provides-source-for"
+    ]
+  },
+  {
+    "canonical": "decided-to-discontinue-national-monitoring-of",
+    "variants": [
+      "decided-to-discontinue-national-monitoring-of"
+    ]
+  },
+  {
+    "canonical": "defines-cohort-for",
+    "variants": [
+      "defines-cohort-for"
+    ]
+  },
+  {
+    "canonical": "depends-on",
+    "variants": [
+      "depends-on",
+      "relies-on"
+    ]
+  },
+  {
+    "canonical": "discusses",
+    "variants": [
+      "discusses"
+    ]
+  },
+  {
+    "canonical": "discusses-alternative-scores",
+    "variants": [
+      "discusses-alternative-scores"
+    ]
+  },
+  {
+    "canonical": "does-not-meet-standard-of",
+    "variants": [
+      "does-not-meet-standard-of",
+      "fails-standard-for"
+    ]
+  },
+  {
+    "canonical": "drives-quality-initiative-for",
+    "variants": [
+      "drives-quality-initiative-for"
+    ]
+  },
+  {
+    "canonical": "excludes-departments-from",
+    "variants": [
+      "excludes-departments-from"
+    ]
+  },
+  {
+    "canonical": "excludes-via",
+    "variants": [
+      "excludes-via",
+      "is-exclusion-criterion-for"
+    ]
+  },
+  {
+    "canonical": "exemplifies-best-practice-for",
+    "variants": [
+      "exemplifies-best-practice-for",
+      "is-best-practice-for"
+    ]
+  },
+  {
+    "canonical": "follows-guidance-from",
+    "variants": [
+      "follows-guidance-from",
+      "is-informed-by-guidelines-from"
+    ]
+  },
+  {
+    "canonical": "governs",
+    "variants": [
+      "governs"
+    ]
+  },
+  {
+    "canonical": "has-been-consulted-on",
+    "variants": [
+      "has-been-consulted-on"
+    ]
+  },
+  {
+    "canonical": "has-chair",
+    "variants": [
+      "has-chair"
+    ]
+  },
+  {
+    "canonical": "has-contact-person",
+    "variants": [
+      "has-contact-person"
+    ]
+  },
+  {
+    "canonical": "has-contributed-to-improvement-of",
+    "variants": [
+      "has-contributed-to-improvement-of"
+    ]
+  },
+  {
+    "canonical": "has-data-in",
+    "variants": [
+      "has-data-in"
+    ]
+  },
+  {
+    "canonical": "has-decision-on",
+    "variants": [
+      "has-decision-on"
+    ]
+  },
+  {
+    "canonical": "has-development-goal",
+    "variants": [
+      "has-development-goal"
+    ]
+  },
+  {
+    "canonical": "has-governing-body",
+    "variants": [
+      "has-governing-body"
+    ]
+  },
+  {
+    "canonical": "has-guidance-reference",
+    "variants": [
+      "has-guidance-reference"
+    ]
+  },
+  {
+    "canonical": "has-high-mortality-in",
+    "variants": [
+      "has-high-mortality-in"
+    ]
+  },
+  {
+    "canonical": "has-highest-epidural-rate-for",
+    "variants": [
+      "has-highest-epidural-rate-for"
+    ]
+  },
+  {
+    "canonical": "has-indicator-2-performance",
+    "variants": [
+      "has-indicator-2-performance"
+    ]
+  },
+  {
+    "canonical": "has-indicator-result",
+    "variants": [
+      "has-indicator-result",
+      "has-indicator-result-for"
+    ]
+  },
+  {
+    "canonical": "has-indicator-source",
+    "variants": [
+      "has-indicator-source"
+    ]
+  },
+  {
+    "canonical": "has-kka-code",
+    "variants": [
+      "has-kka-code"
+    ]
+  },
+  {
+    "canonical": "has-lowest-epidural-rate-for",
+    "variants": [
+      "has-lowest-epidural-rate-for"
+    ]
+  },
+  {
+    "canonical": "has-received-proposal-on",
+    "variants": [
+      "has-received-proposal-on"
+    ]
+  },
+  {
+    "canonical": "has-reference-unit",
+    "variants": [
+      "has-reference-unit"
+    ]
+  },
+  {
+    "canonical": "has-special-function",
+    "variants": [
+      "has-special-function"
+    ]
+  },
+  {
+    "canonical": "has-subpopulation",
+    "variants": [
+      "has-subpopulation"
+    ]
+  },
+  {
+    "canonical": "has-supplementary-analysis",
+    "variants": [
+      "has-supplementary-analysis"
+    ]
+  },
+  {
+    "canonical": "has-supplementary-indicator",
+    "variants": [
+      "has-supplementary-indicator"
+    ]
+  },
+  {
+    "canonical": "has-variable",
+    "variants": [
+      "has-variable"
+    ]
+  },
+  {
+    "canonical": "hosts-code-for",
+    "variants": [
+      "hosts-code-for"
+    ]
+  },
+  {
+    "canonical": "identificerer",
+    "variants": [
+      "identificerer"
+    ]
+  },
+  {
+    "canonical": "identifies-data-inconsistency-in",
+    "variants": [
+      "identifies-data-inconsistency-in"
+    ]
+  },
+  {
+    "canonical": "includes-member",
+    "variants": [
+      "includes-member"
+    ]
+  },
+  {
+    "canonical": "integrates-with",
+    "variants": [
+      "integrates-with"
+    ]
+  },
+  {
+    "canonical": "is-administered-by",
+    "variants": [
+      "is-administered-by"
+    ]
+  },
+  {
+    "canonical": "is-administered-during",
+    "variants": [
+      "is-administered-during"
+    ]
+  },
+  {
+    "canonical": "is-aligned-with",
+    "variants": [
+      "is-aligned-with"
+    ]
+  },
+  {
+    "canonical": "is-analyzed-in",
+    "variants": [
+      "is-analyzed-in"
+    ]
+  },
+  {
+    "canonical": "is-applied-to",
+    "variants": [
+      "is-applied-to"
+    ]
+  },
+  {
+    "canonical": "is-associated-with-improvement-in",
+    "variants": [
+      "is-associated-with-improvement-in",
+      "shows-improvement-in"
+    ]
+  },
+  {
+    "canonical": "is-based-on",
+    "variants": [
+      "is-based-on",
+      "is-developed-under",
+      "is-produced-by",
+      "is-published-by",
+      "is-registered-in",
+      "is-registered-with-code",
+      "is-reported-by",
+      "is-supported-by",
+      "is-supported-by-evidence-from",
+      "is-under-development-by"
+    ]
+  },
+  {
+    "canonical": "is-based-on-data-from",
+    "variants": [
+      "is-based-on-data-from"
+    ]
+  },
+  {
+    "canonical": "is-basis-for",
+    "variants": [
+      "is-basis-for"
+    ]
+  },
+  {
+    "canonical": "is-calculated-from",
+    "variants": [
+      "is-calculated-from"
+    ]
+  },
+  {
+    "canonical": "is-code-from",
+    "variants": [
+      "is-code-from"
+    ]
+  },
+  {
+    "canonical": "is-compared-across",
+    "variants": [
+      "is-compared-across"
+    ]
+  },
+  {
+    "canonical": "is-criterion-for",
+    "variants": [
+      "is-criterion-for",
+      "uses-criterion"
+    ]
+  },
+  {
+    "canonical": "is-defined-by",
+    "variants": [
+      "is-defined-by",
+      "is-defined-in",
+      "uses-definition-from"
+    ]
+  },
+  {
+    "canonical": "is-developed-by",
+    "variants": [
+      "is-developed-by"
+    ]
+  },
+  {
+    "canonical": "is-evaluated-by",
+    "variants": [
+      "is-evaluated-by"
+    ]
+  },
+  {
+    "canonical": "is-included-in-population-definition-of",
+    "variants": [
+      "is-included-in-population-definition-of"
+    ]
+  },
+  {
+    "canonical": "is-included-in-population-of",
+    "variants": [
+      "is-included-in-population-of"
+    ]
+  },
+  {
+    "canonical": "is-managed-by",
+    "variants": [
+      "is-managed-by",
+      "managed-by"
+    ]
+  },
+  {
+    "canonical": "is-managed-under",
+    "variants": [
+      "is-managed-under",
+      "operates-under"
+    ]
+  },
+  {
+    "canonical": "is-measured-by",
+    "variants": [
+      "is-measured-by"
+    ]
+  },
+  {
+    "canonical": "is-measured-in",
+    "variants": [
+      "is-measured-in"
+    ]
+  },
+  {
+    "canonical": "is-member-of",
+    "variants": [
+      "is-member-of",
+      "part-of"
+    ]
+  },
+  {
+    "canonical": "is-part-of",
+    "variants": [
+      "is-part-of"
+    ]
+  },
+  {
+    "canonical": "is-predecessor-of",
+    "variants": [
+      "is-predecessor-of"
+    ]
+  },
+  {
+    "canonical": "is-required-for",
+    "variants": [
+      "is-required-for"
+    ]
+  },
+  {
+    "canonical": "is-responsible-for-revising",
+    "variants": [
+      "is-responsible-for-revising"
+    ]
+  },
+  {
+    "canonical": "is-reviewed-by",
+    "variants": [
+      "is-reviewed-by"
+    ]
+  },
+  {
+    "canonical": "is-supplemented-by",
+    "variants": [
+      "is-supplemented-by"
+    ]
+  },
+  {
+    "canonical": "is-used-for-patient-identification-in",
+    "variants": [
+      "is-used-for-patient-identification-in"
+    ]
+  },
+  {
+    "canonical": "is-used-in",
+    "variants": [
+      "is-used-in",
+      "used-by"
+    ]
+  },
+  {
+    "canonical": "is-used-to-measure",
+    "variants": [
+      "is-used-to-measure"
+    ]
+  },
+  {
+    "canonical": "is-used-to-monitor",
+    "variants": [
+      "is-used-to-monitor"
+    ]
+  },
+  {
+    "canonical": "is-validated-against",
+    "variants": [
+      "is-validated-against",
+      "used-for-validation-of"
+    ]
+  },
+  {
+    "canonical": "leds",
+    "variants": [
+      "leds"
+    ]
+  },
+  {
+    "canonical": "measures",
+    "variants": [
+      "measures",
+      "supports-indicator"
+    ]
+  },
+  {
+    "canonical": "measures-outcome-for",
+    "variants": [
+      "measures-outcome-for"
+    ]
+  },
+  {
+    "canonical": "measures-process-for",
+    "variants": [
+      "measures-process-for"
+    ]
+  },
+  {
+    "canonical": "measures-timeliness-of",
+    "variants": [
+      "measures-timeliness-of"
+    ]
+  },
+  {
+    "canonical": "measures-timing-of",
+    "variants": [
+      "measures-timing-of"
+    ]
+  },
+  {
+    "canonical": "measures-use-of",
+    "variants": [
+      "measures-use-of"
+    ]
+  },
+  {
+    "canonical": "meets-standard-of",
+    "variants": [
+      "meets-standard-of"
+    ]
+  },
+  {
+    "canonical": "meets-target-for",
+    "variants": [
+      "meets-target-for"
+    ]
+  },
+  {
+    "canonical": "performs-preoptimization-for",
+    "variants": [
+      "performs-preoptimization-for"
+    ]
+  },
+  {
+    "canonical": "preceded-and-influenced",
+    "variants": [
+      "preceded-and-influenced"
+    ]
+  },
+  {
+    "canonical": "proposes-to-modify",
+    "variants": [
+      "proposes-to-modify"
+    ]
+  },
+  {
+    "canonical": "provides-codes-for",
+    "variants": [
+      "provides-codes-for",
+      "uses-code"
+    ]
+  },
+  {
+    "canonical": "provides-comment-on",
+    "variants": [
+      "provides-comment-on"
+    ]
+  },
+  {
+    "canonical": "provides-data-for",
+    "variants": [
+      "provides-data-for"
+    ]
+  },
+  {
+    "canonical": "provides-evidence-for",
+    "variants": [
+      "provides-evidence-for",
+      "supports-evidence-for"
+    ]
+  },
+  {
+    "canonical": "provides-guidance-for",
+    "variants": [
+      "provides-guidance-for"
+    ]
+  },
+  {
+    "canonical": "publishes",
+    "variants": [
+      "publishes"
+    ]
+  },
+  {
+    "canonical": "questions-code-application-for",
+    "variants": [
+      "questions-code-application-for"
+    ]
+  },
+  {
+    "canonical": "questions-definition-of",
+    "variants": [
+      "questions-definition-of"
+    ]
+  },
+  {
+    "canonical": "recommends-audit-for",
+    "variants": [
+      "recommends-audit-for"
+    ]
+  },
+  {
+    "canonical": "recommends-use-of-code",
+    "variants": [
+      "recommends-use-of-code"
+    ]
+  },
+  {
+    "canonical": "relates-to-procedure",
+    "variants": [
+      "relates-to-procedure"
+    ]
+  },
+  {
+    "canonical": "reports-to",
+    "variants": [
+      "reports-to"
+    ]
+  },
+  {
+    "canonical": "supports-policy-for",
+    "variants": [
+      "supports-policy-for"
+    ]
+  },
+  {
+    "canonical": "supports-recommendation-for",
+    "variants": [
+      "supports-recommendation-for"
+    ]
+  },
+  {
+    "canonical": "supports-registration-of",
+    "variants": [
+      "supports-registration-of"
+    ]
+  },
+  {
+    "canonical": "supports-use-of",
+    "variants": [
+      "supports-use-of"
+    ]
+  },
+  {
+    "canonical": "udgiver",
+    "variants": [
+      "udgiver"
+    ]
+  },
+  {
+    "canonical": "uses",
+    "variants": [
+      "uses",
+      "uses-criteria"
+    ]
+  },
+  {
+    "canonical": "uses-operation-time-from",
+    "variants": [
+      "uses-operation-time-from"
+    ]
+  },
+  {
+    "canonical": "uses-score",
+    "variants": [
+      "uses-score"
+    ]
+  },
+  {
+    "canonical": "viser-overblik-over",
+    "variants": [
+      "viser-overblik-over"
+    ]
+  },
+  {
+    "canonical": "informs",
+    "variants": [
+      "informs"
+    ]
+  }
+]

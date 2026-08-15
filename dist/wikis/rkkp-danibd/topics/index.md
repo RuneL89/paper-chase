@@ -4,8 +4,9 @@ type: index
 aliases:
   - Topics
 wiki: rkkp-danibd
-updated: '2026-08-05T08:03:24.304Z'
+updated: '2026-08-15T08:08:21.629Z'
 children:
+  - audit-finding/index.md
   - clinical-consensus/index.md
   - clinical-practice/index.md
   - codes/index.md
@@ -13,36 +14,42 @@ children:
   - diagnoses/index.md
   - diseases/index.md
   - eligibility-criteria/index.md
+  - healthcare-utilization/index.md
   - mission/index.md
   - performance/index.md
+  - policy-change/index.md
   - procedural/index.md
   - quality-indicator/index.md
   - quality-indicators/index.md
   - quality-target/index.md
   - treatment/index.md
   - validation/index.md
+  - index.md
 ---
 # Topics
 
-This area groups the core thematic and operational concepts of the Danish Quality Database for Inflammatory Bowel Disease (DANIBD). It covers the registry's foundational elements—its mission, patient eligibility, coverage, and diagnostic validation—alongside the specific diseases, diagnoses, and treatments tracked within the system. Furthermore, it details the clinical consensus, practice guidelines, procedural interventions, and the comprehensive framework of quality indicators, targets, and performance metrics used to evaluate and benchmark IBD care across Danish healthcare regions.
+This area groups the core clinical, operational, and evaluative themes of the Danish Quality Database for Inflammatory Bowel Disease (DANIBD). It covers the registry's foundational mission, patient eligibility criteria, and data validation, alongside the specific diseases, diagnoses, and pharmacological treatments monitored. Furthermore, it details the standardized codes, procedural interventions, quality indicators, and regional performance metrics used to benchmark and improve IBD care across Denmark.
 
 ## Pages
 
-- [[topics/clinical-consensus/index|Clinical Consensus]] — Established medical agreements and standard guidelines for managing IBD and treatment-related complications, such as preventing corticosteroid-induced osteoporosis.
-- [[topics/clinical-practice/index|Clinical Practice]] — Standardized monitoring routines, biomarker utilization like fecal calprotectin, and institutional guidelines for managing IBD and PSC patients.
-- [[topics/codes/index|Codes]] — Standardized clinical and administrative identifiers, including procedure and treatment codes, used to track patient care and benchmark interventions.
-- [[topics/coverage/index|Coverage]] — Patient inclusion scope and data completeness of the DANIBD registry, highlighting its estimated >90% coverage rate for IBD patients in Denmark.
-- [[topics/diagnoses/index|Diagnoses]] — WHO-classified diagnostic codes used to identify and track IBD, gastrointestinal complications, and hepatobiliary conditions within the registry.
-- [[topics/diseases/index|Diseases]] — Primary disease conditions tracked by DANIBD, focusing on the epidemiology of gastrointestinal IBD and related hepatic and biliary conditions like PSC.
-- [[topics/eligibility-criteria/index|Eligibility Criteria]] — Specific diagnostic codes and hospital contact thresholds required for a patient to be registered in the national DANIBD database.
-- [[topics/mission/index|Mission]] — The foundational purpose and strategic objectives of the DANIBD registry to monitor, evaluate, and enhance IBD treatment quality in Denmark.
-- [[topics/performance/index|Performance]] — Systemic performance and regional compliance with clinical quality indicators, highlighting successes and shortcomings in Danish IBD care.
-- [[topics/procedural/index|Procedural]] — Procedural interventions and classifications, such as colonoscopies and surgical re-operations, that form the basis for calculating surgical quality indicators.
-- [[topics/quality-indicator/index|Quality Indicator]] — Specific metrics used to monitor diagnostic, medical, and surgical care standards, including detailed parameters like post-surgical re-operation rates.
-- [[topics/quality-indicators/index|Quality Indicators]] — The comprehensive set of clinical indicators (Indikator 1 through 7) measuring diagnostic completeness, patient education, and therapy monitoring across Danish hospitals.
-- [[topics/quality-target/index|Quality Target]] — Precise clinical benchmarks and thresholds, such as DEXA scan mandates and calprotectin monitoring requirements, used to ensure guideline-concordant care.
-- [[topics/treatment/index|Treatment]] — Medical interventions and pharmacological therapies administered to patients, specifically mapping the usage of biological and targeted synthetic drugs.
-- [[topics/validation/index|Validation]] — Validation of IBD diagnoses within national health registries, detailing the positive predictive value of registry entries compared to clinical databases.
+- [[topics/audit-finding/index|Audit Finding]] — Documents specific audit discrepancies and regional explanations for unmet quality targets, such as miscoded patients or alternative colonoscopy completions.
+- [[topics/clinical-consensus/index|Clinical Consensus]] — Captures established medical agreements and standard protocols, such as preventing osteoporosis from corticosteroid therapy in IBD patients.
+- [[topics/clinical-practice/index|Clinical Practice]] — Details standardized monitoring routines, biomarker tracking like fecal calprotectin, and institutional follow-up protocols for IBD and PSC patients.
+- [[topics/codes/index|Codes]] — Groups the standardized alphanumeric identifiers, including SKS and NPU codes, used to track surgical procedures and biological drug treatments.
+- [[topics/coverage/index|Coverage]] — Outlines the registry's national scope and data completeness, confirming its capture of over 90% of all Danish IBD patients.
+- [[topics/diagnoses/index|Diagnoses]] — Catalogs the WHO-classified ICD-10 diagnosis codes used to identify and track Crohn's disease, ulcerative colitis, and related comorbidities.
+- [[topics/diseases/index|Diseases]] — Groups the specific gastrointestinal and hepatic-biliary conditions tracked within the registry's scope, including their epidemiological trends.
+- [[topics/eligibility-criteria/index|Eligibility Criteria]] — Defines the exact ICD-10 action diagnoses and minimum hospital contact requirements for patient inclusion in the DANIBD registry.
+- [[topics/healthcare-utilization/index|Healthcare Utilization]] — Tracks the frequency of hospital contacts and the ratio of physical versus virtual visits for pediatric and adult IBD and PSC patients.
+- [[topics/mission/index|Mission]] — Outlines the primary strategic objective of DANIBD to systematically monitor, evaluate, and improve the quality of IBD treatment in Denmark.
+- [[topics/performance/index|Performance]] — Evaluates regional and departmental compliance with clinical indicators, highlighting successes in adult colonoscopies and shortfalls in pediatric imaging.
+- [[topics/policy-change/index|Policy Change]] — Documents specific modifications to clinical quality indicator requirements, such as updated mandates for diagnostic endoscopies.
+- [[topics/procedural/index|Procedural]] — Groups key diagnostic and surgical interventions tracked by the registry, including colonoscopies, primary surgeries, and 30-day re-operations.
+- [[topics/quality-indicator/index|Quality Indicator]] — Overviews the specific metrics tracked by the national steering group, from diagnostic workups to surgical re-operation rates that trigger internal audits.
+- [[topics/quality-indicators/index|Quality Indicators]] — Catalogs the comprehensive set of clinical metrics used to monitor IBD care across diagnostics, surgery, biological therapies, and comorbidity surveillance.
+- [[topics/quality-target/index|Quality Target]] — Defines the specific clinical benchmarks and thresholds, such as mandatory DEXA scans and annual biomarker measurements, used to evaluate guideline-concordant care.
+- [[topics/treatment/index|Treatment]] — Details the utilization rates and demographic breakdown of biological and targeted synthetic drugs (BMSL) among pediatric and adult patient cohorts.
+- [[topics/validation/index|Validation]] — Documents the positive predictive value of IBD diagnoses in the national patient register when cross-referenced with the GASTROBIO database.
 
 ## Navigation
 
@@ -55,5 +62,5 @@ This area groups the core thematic and operational concepts of the Danish Qualit
 ## Statistics
 
 - Pages: 0
-- Sub-folders: 15
+- Sub-folders: 18
 - Sources: 0

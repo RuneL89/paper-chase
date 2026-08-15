@@ -1,0 +1,545 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er en national klinisk database, der overvåger kvaliteten af akut kirurgiske forløb i Danmark, og danner grundlag for alle indikatorer og analyser i denne rapport fra siderne 106–110.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality-institutes",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den organisation, der udgiver årsrapporten for Akut Kirurgi Databasen og står bag udarbejdelsen af indikatorsættet og dens evaluering.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/government",
+      "significance": "Landspatientregisteret (LPR) er det primære datagrundlag for Akut Kirurgi Databasen, da det registrerer alle sygehuskontakter i Danmark og sikrer sporing af patientforløb fra ankomst til efterbehandling.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "ASA-score",
+      "type": "score",
+      "slug": "asa-score",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "ASA-score er en central klinisk risikovurdering anvendt i Akut Kirurgi Databasen til at identificere patienter med høj risiko (ASA-score ≥ 3), hvilket danner grundlag for indikator 5 om intermediær indlæggelse.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "ASA-score* ≥ 3 (dvs. lav helbredsstatus før operationen)"
+        },
+        {
+          "page": 107,
+          "context": "* ASA-score er en angivelse af, hvor kritisk syg en patient er. Scoren går fra 1 (rask) til 6 (hjernedød)."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "indicator",
+      "slug": "indikator-1",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 1 måler tidsmæssig administration af antibiotika inden for tre timer efter ankomst til sygehuset for akut kirurgiske patienter, og er en central sikkerhedsindikator med direkte indflydelse på overlevelse.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Indikator 1: Antibiotikabehandling indenfor 3 timer"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "indicator",
+      "slug": "indikator-2",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 2 måler hastigheden af CT-skanning inden for to timer efter ankomst, hvilket er afgørende for diagnostisk præcision og behandlingsplanlægning i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Indikator 2: CT-skanning"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "indicator",
+      "slug": "indikator-3",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 3 måler andelen af patienter, der modtager præoperativ optimering eller går direkte til operation, og er introduceret som ny indikator fra 1. oktober 2022 for at evaluere forberedelsesproces i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Indikator 3: Præoperativ optimering eller direkte til operation"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4x",
+      "type": "indicator",
+      "slug": "indikator-4x",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 4x måler andelen af patienter opereret inden for 6 timer blandt dem, der opereres inden for 48 timer efter ankomst, og fokuserer på de mest akutte tilfælde.",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Indikator 4x: Operation indenfor 6 timer"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4y",
+      "type": "indicator",
+      "slug": "indikator-4y",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 4y måler andelen af ileuspatienter, der opereres inden for 24 timer efter ankomst, og er specifikt rettet mod en defineret diagnosegruppe med akut behov for intervention.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "Indikator 4y: Operation indenfor 24 timer"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "indicator",
+      "slug": "indikator-5",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 5 måler andelen af højriskopatienter (ASA-score ≥ 3 eller > 75 år), der modtager intermediær indlæggelse med monitorering i mindst 24 timer, hvilket er kritisk for komplikationsforebyggelse.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "Indikator 5: Intermediær indlæggelse"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "indicator",
+      "slug": "indikator-6",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 6 måler tidlig mobilisering (opståen fra sengen inden for 24 timer efter operation), som en evidensbaseret strategi til at mindske postoperative komplikationer.",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "Indikator 6: Tidlig mobilisering"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "indicator",
+      "slug": "indikator-7",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 7 måler ernæringsscreening inden for 48 timer efter operation, men er sat på pause pga. manglende valide data, hvilket illustrerer datakvalitetsudfordringer i databasen.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "Indikator 7: Ernæring"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "indicator",
+      "slug": "indikator-8",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 8 måler andelen af patienter, der modtager epidural smertedækning, som anbefales på grund af forbedret smertebehandling, tidligere gastrointestinal genoplivning og reduceret mortalitet.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "Indikator 8: Andel opererede med epidural"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9",
+      "type": "indicator",
+      "slug": "indikator-9",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 9 måler 30-dages mortalitet efter akut kirurgi og er en central outcome-indikator, der viser, at målsætningen på under 12 % blev opfyldt på nationalt niveau i perioden.",
+      "mentions": [
+        {
+          "page": 108,
+          "context": "Indikator 9: Mortalitet indenfor 30 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 10",
+      "type": "indicator",
+      "slug": "indikator-10",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 10 måler 90-dages mortalitet efter akut kirurgi og fungerer som en længerevarende outcome-måling, der også viste målopfyldelse på nationalt niveau med 13,7 % dødsfald.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er en af de fem danske regioner, der indgår i regional sammenligning af indikatorresultater, og fremgår gentagne gange som den region med lavest andel for indikator 3 (5,1 %) og laveste 30-dages mortalitet (9,1 %).",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "I Region Hovedstaden er den kun 5,1 %"
+        },
+        {
+          "page": 107,
+          "context": "30,8 % i Region Hovedstaden"
+        },
+        {
+          "page": 108,
+          "context": "9,1 % i Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Midtjylland er den region med bedste resultater på flere indikatorer, herunder højeste andel antibiotikabehandling inden for 3 timer (47,2 %), højeste andel CT-skanning inden for 2 timer (45,8 %), og højeste andel operation inden for 6 timer (42,0 %).",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Region Midtjylland er højest med 47,2 %."
+        },
+        {
+          "page": 106,
+          "context": "Region Midtjylland klarede sig bedst med 45,8 %."
+        },
+        {
+          "page": 107,
+          "context": "42,0 % i Region Midtjylland."
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/national",
+      "significance": "Region Syddanmark er den region med laveste andel antibiotikabehandling inden for 3 timer (27,2 %), men samtidig højeste andel intermediær indlæggelse (28,5 %) og højeste 30-dages mortalitet (12,3 %).",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Region Syddanmark ligger lavest med 27,2 %,"
+        },
+        {
+          "page": 107,
+          "context": "28,5 % i Region Syddanmark."
+        },
+        {
+          "page": 108,
+          "context": "12,3 % i Region Syddanmark."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er den region med dårligste resultat for CT-skanning (28,2 %) og tidlig mobilisering (27,0 %), men samtidig laveste andel manglende data for ASA-score (1 %) og højeste 24-timers operationandel blandt ileuspatienter (84,2 %).",
+      "mentions": [
+        {
+          "page": 106,
+          "context": "Region Sjælland klarede sig dårligst med 28,2 %,"
+        },
+        {
+          "page": 108,
+          "context": "27,0 % i Region Sjælland"
+        },
+        {
+          "page": 107,
+          "context": "1 % i Region Sjælland"
+        },
+        {
+          "page": 107,
+          "context": "84,2 % i Region Sjælland."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er den region med laveste andel intermediær indlæggelse (10,4 %) og laveste 90-dages mortalitet (12,5 %), samt laveste 24-timers operationandel blandt ileuspatienter (78,8 %).",
+      "mentions": [
+        {
+          "page": 107,
+          "context": "10,4 % i Region Nordjylland"
+        },
+        {
+          "page": 107,
+          "context": "78,8 % i Region Nordjylland"
+        },
+        {
+          "page": 109,
+          "context": "12,5 % i Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Danish Clinical Register of Emergency Surgery",
+      "type": "database",
+      "slug": "danish-clinical-register-of-emergency-surgery",
+      "folder": "entities/databases/clinical",
+      "significance": "Danish Clinical Register of Emergency Surgery er et tidligere navn på Akut Kirurgi Databasen, som fremgår i flere referencer til videnskabelige publikationer på side 109–110 og understøtter kontinuiteten i registerets videnskabelige brug.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "Danish Clinical Register of Emergency Surgery"
+        },
+        {
+          "page": 110,
+          "context": "Danish Clinical Register of Emergency Surgery"
+        }
+      ]
+    },
+    {
+      "name": "PULP trial",
+      "type": "study",
+      "slug": "pulp-trial",
+      "folder": "entities/studies/clinical-trials",
+      "significance": "PULP trial er en national klinisk interventionsstudie om perforeret peptisk ulcer, der har bidraget væsentligt til evidensgrundlaget for Akut Kirurgi Databasen og bl.a. resulterede i udviklingen af PULP-scoren.",
+      "mentions": [
+        {
+          "page": 109,
+          "context": "The PULP trial"
+        },
+        {
+          "page": 110,
+          "context": "The PULP trial"
+        }
+      ]
+    },
+    {
+      "name": "PULP-score",
+      "type": "score",
+      "slug": "pulp-score",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "PULP-score er en prognostisk score udviklet i forbindelse med PULP trial til at forudsige mortalitet ved perforeret peptisk ulcer, og er en del af det videnskabelige grundlag for Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 110,
+          "context": "The Peptic Ulcer Perforation (PULP) score: a predictor of mortality following peptic ulcer perforation."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-based-on",
+      "object": "landspatientregisteret",
+      "evidence": "Data til Akut Kirurgi Databasen dannes på baggrund af Landspatientregisteret (LPR).",
+      "page": 109
+    },
+    {
+      "subject": "indikator-1",
+      "predicate": "has-target",
+      "object": "60-percent",
+      "evidence": "Målet er at > 60 % af patienterne når at få antibiotika indenfor tre timer efter, de er ankommet til sygehuset.",
+      "page": 106
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "has-target",
+      "object": "90-percent",
+      "evidence": "Målet er, at ≥ 90 % af patienterne skal skannes indenfor to timer.",
+      "page": 106
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "has-target",
+      "object": "90-percent",
+      "evidence": "Målet er på mindst 90 %.",
+      "page": 106
+    },
+    {
+      "subject": "indikator-4x",
+      "predicate": "has-target",
+      "object": "90-percent",
+      "evidence": "Målet om, at mindst 90 % skulle opereres inden for 6 timer",
+      "page": 107
+    },
+    {
+      "subject": "indikator-4y",
+      "predicate": "has-target",
+      "object": "90-percent",
+      "evidence": "Målet på mindst 90 %",
+      "page": 107
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "uses-criteria",
+      "object": "asa-score",
+      "evidence": "personer med ASA-score* ≥ 3 (dvs. lav helbredsstatus før operationen) eller som er > 75 år gamle, som personer i høj risiko.",
+      "page": 107
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "has-target",
+      "object": "90-percent",
+      "evidence": "Målsætningen er at ≥ 90 % skal have været oppe.",
+      "page": 108
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "has-target",
+      "object": "60-percent",
+      "evidence": "Målsætningen er > 60 %.",
+      "page": 108
+    },
+    {
+      "subject": "indikator-9",
+      "predicate": "has-target",
+      "object": "12-percent",
+      "evidence": "Målsætningen er at under 12 % dør indenfor 30 dage.",
+      "page": 108
+    },
+    {
+      "subject": "indikator-10",
+      "predicate": "has-target",
+      "object": "18-percent",
+      "evidence": "Målsætningen er at mindre end 18 % dør indenfor 90 dage.",
+      "page": 109
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut udgiver rapporten 'Akut Kirurgi Databasen: Årsrapporten kort fortalt'.",
+      "page": 106
+    }
+  ],
+  "claims": [
+    {
+      "text": "Kun 35,6 % af patienterne fik antibiotika inden for tre timer, hvilket er langt fra målet på 60 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 106
+    },
+    {
+      "text": "Kun 33,5 % af patienterne blev skannet inden for to timer, hvilket er langt fra målet [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 106
+    },
+    {
+      "text": "I årets analyse indgår 3.247 patienter. Af dem fik 463 den ønskede behandling, hvilket svarer til 14,3 % på landsplan [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 106
+    },
+    {
+      "text": "Ud af 865 patienter, der blev opereret inden for 48 timer, blev 294 opereret inden for 6 timer. Det svarer til 34,0 % på landsplan [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4x"
+      ],
+      "page": 107
+    },
+    {
+      "text": "Der var i alt 1.704 patienter, der blev opereret indenfor 24 timer efter ankomst til sygehus, og hvor diagnosen er ileusoperationer uden iskæmi eller perforation. Heraf blev 1.393 opereret indenfor 24 timer, svarende til en andel på 81,7 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4y"
+      ],
+      "page": 107
+    },
+    {
+      "text": "Ud af 1.968 patienter med høj risiko blev 438 (22,3 %) indlagt til særlig overvågning [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 107
+    },
+    {
+      "text": "Ud af 3.250 opererede patienter blev 1.350 mobiliseret inden for 24 timer, hvilket svarer til 41,5 % på landsplan [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 108
+    },
+    {
+      "text": "Ud af de 3.250 opererede i perioden, blev 1.681 bedøvede med epidural. Det svarer til en andel på 51,7 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-8"
+      ],
+      "page": 108
+    },
+    {
+      "text": "Der indgik 3.244 forløb i indikatoranalysen i perioden. Heraf døde 329 personer, svarende til 10,1 % indenfor 30 dage fra ankomst til sygehus [^src1]",
+      "type": "outcome",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 108
+    },
+    {
+      "text": "Der indgik 3.244 patienter i indikatoranalysen i perioden. Heraf døde 444 personer, svarende til 13,7 % indenfor 90 dage fra ankomst til sygehus [^src1]",
+      "type": "outcome",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 109
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2022-10-01",
+      "event": "Indikator 3 blev mulig at registrere fra 1. oktober 2022",
+      "entities": [
+        "indikator-3"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "event": "Udkast til årsrapporten for Akut Kirurgi Databasen blev udgivet",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [],
+  "context": "Dette dokumentudsnit fra siderne 106–110 i AKDB_2025.pdf udgør en del af den årlige kvalitetsrapport for Akut Kirurgi Databasen, udgivet af Sundhedsvæsenets Kvalitetsinstitut. Rapporten præsenterer resultaterne for 10 nationale kvalitetsindikatorer, der dækker hele patientforløbet fra ankomst til sygehuset, gennem diagnosticering og operation, til efterbehandling og outcome. Indikatorerne er designet til at måle både proceskvalitet (f.eks. antibiotikatid, CT-skanningstid) og outcome-kvalitet (f.eks. 30- og 90-dages mortalitet), med fokus på evidensbaserede standarder og regionale variationer. Baggrunden er et bredt videnskabeligt arbejde, herunder PULP trial og Danish Clinical Register of Emergency Surgery, som sammen danner evidensgrundlaget for databasens indikatorsæt og kliniske anbefalinger."
+}

@@ -4,19 +4,20 @@ type: index
 aliases:
   - Epidemiology
 wiki: rkkp-afdk
-updated: '2026-08-05T23:27:26.326Z'
+updated: '2026-08-15T00:25:29.478Z'
 children:
   - epidemiology.md
+  - index.md
   - praevalente-patienter-med-atrieflimren.md
 ---
 # Epidemiology
 
-This folder holds pages detailing the epidemiological landscape of atrial fibrillation in Denmark, tracking national incidence, prevalence, and demographic profiles. It examines the critical clinical balance between preventing thromboembolic events like ischemic stroke and managing the severe bleeding risks associated with anticoagulation therapy. Additionally, it defines the specific prevalent patient populations used as denominators for national quality indicators, enabling consistent evaluation of treatment safety and regional outcomes over time.
+This folder documents the epidemiological profile of atrial fibrillation in Denmark, synthesizing national registry data on incidence, prevalence, and associated cardiovascular complications. It details the demographic characteristics of diagnosed patients and tracks critical outcomes such as ischemic stroke, intracranial bleeding, and heart failure across different regions and health clusters. Furthermore, it formally defines the prevalent patient cohort that serves as the foundational denominator for evaluating the safety of anticoagulation therapies in national healthcare quality indicators.
 
 ## Pages
 
-- [[epidemiology|Epidemiology]] — Provides a comprehensive overview of atrial fibrillation incidence, prevalence, and complication rates in Denmark, highlighting demographic trends, treatment persistence, and the long-term risk of heart failure.
-- [[praevalente-patienter-med-atrieflimren|Prævalente patienter med atrieflimren]] — Defines the specific prevalent patient population used as the denominator for Indicator 7, detailing the criteria for evaluating severe bleeding and anticoagulation safety across regions.
+- [[epidemiology|Epidemiology]] — Comprehensive overview of atrial fibrillation incidence, prevalence, and complication rates in Denmark, including regional disparities and anticoagulation persistence.
+- [[praevalente-patienter-med-atrieflimren|Prævalente patienter med atrieflimren]] — Defines the prevalent patient cohort used as a denominator for national quality indicators, detailing severe bleeding risks and methodological criteria.
 
 ## Navigation
 
@@ -29,12 +30,17 @@ This folder holds pages detailing the epidemiological landscape of atrial fibril
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -50,12 +56,17 @@ This folder holds pages detailing the epidemiological landscape of atrial fibril
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

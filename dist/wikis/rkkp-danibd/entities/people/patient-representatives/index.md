@@ -4,17 +4,18 @@ type: index
 aliases:
   - Patient Representatives
 wiki: rkkp-danibd
-updated: '2026-08-05T07:43:44.889Z'
+updated: '2026-08-15T07:50:21.622Z'
 children:
+  - index.md
   - jannie-jensen.md
 ---
 # Patient Representatives
 
-This folder catalogs individuals who act as patient representatives within national healthcare quality databases, ensuring that the patient perspective is actively integrated into clinical benchmarking and the design of quality indicators. It currently documents the role of a representative on the steering committee for the Danish Quality Database for Inflammatory Bowel Disease (DANIBD), highlighting their contribution to systematizing and improving cross-regional treatment for inflammatory bowel diseases. Every profile includes exact mentions, relationships, and citations back to the original source PDFs.
+This folder catalogs individuals who act as patient representatives within the governance structures of Danish national clinical quality databases. The pages here document how patient advocates participate in steering committees to ensure that the patient perspective is actively integrated into the design, assessment, and implementation of quality indicators for conditions like inflammatory bowel disease (IBD). By capturing these roles, the wiki tracks how patient voices directly influence national healthcare benchmarking and treatment standards.
 
 ## Pages
 
-- [[jannie-jensen|Jannie Jensen]] — Patient representative on the DANIBD steering committee who ensures the patient perspective is integrated into the design and assessment of IBD quality indicators.
+- [[jannie-jensen|Jannie Jensen]] — Patient representative on the DANIBD steering committee, ensuring the patient perspective shapes IBD quality indicators.
 
 ## Navigation
 

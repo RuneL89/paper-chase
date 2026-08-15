@@ -4,17 +4,18 @@ type: index
 aliases:
   - Antiplatelets
 wiki: rkkp-afdk
-updated: '2026-08-05T23:11:45.399Z'
+updated: '2026-08-15T00:02:47.043Z'
 children:
+  - index.md
   - pladehaemmere.md
 ---
 # Antiplatelets
 
-This folder catalogs antiplatelet agents (pladehæmmere) identified in the corpus as pharmaceutical risk factors within cardiovascular care. Specifically, it tracks clinical guidelines and quality indicators that highlight the avoidance of these medications to prevent severe bleeding complications, such as intracranial hemorrhages, in patients with atrial fibrillation.
+This folder catalogs antiplatelet agents mentioned in the corpus, specifically focusing on their role as pharmaceutical risk factors in the management of atrial fibrillation. The available evidence highlights that avoiding these medications, particularly in combination with NSAIDs, is a critical clinical strategy to reduce the incidence of severe bleeding events such as intracranial hemorrhages.
 
 ## Pages
 
-- [[pladehaemmere|pladehæmmere]] — Antiplatelet agents identified as a pharmaceutical risk factor whose avoidance helps reduce intracranial hemorrhages in atrial fibrillation patients.
+- [[pladehaemmere|pladehæmmere]] — Antiplatelet agents identified as a pharmaceutical risk factor whose avoidance is recommended to prevent intracranial hemorrhages in atrial fibrillation patients.
 
 ## Navigation
 

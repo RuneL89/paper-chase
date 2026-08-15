@@ -4,9 +4,10 @@ type: index
 aliases:
   - Regional Authorities
 wiki: rkkp-adhd
-updated: '2026-08-05T19:09:17.174Z'
+updated: '2026-08-15T12:35:35.926Z'
 children:
   - hjemkommune.md
+  - index.md
   - region-hovedstaden.md
   - region-midtjylland.md
   - region-nordjylland.md
@@ -14,15 +15,15 @@ children:
 ---
 # Regional Authorities
 
-This folder catalogs the Danish regional authorities and municipal entities responsible for administering and reporting on psychiatric healthcare and ADHD services. It covers four of Denmark's five regions—Hovedstaden, Midtjylland, Nordjylland, and Sjælland—detailing their diagnostic volumes, performance against national quality indicators, and operational challenges such as capacity constraints and registration anomalies. Additionally, it includes the home municipality (hjemkommune) concept, highlighting its critical role in cross-sectoral collaboration and revised quality metrics for patient care.
+This folder groups the regional administrative authorities and the home municipality concept that govern and deliver psychiatric healthcare services across Denmark, as evaluated by the ADHD Database. The pages detail each region's diagnostic volumes, fulfillment rates for national quality indicators, and operational challenges such as capacity constraints, registration errors, and cross-sectoral collaboration. By tracking these entities, the corpus highlights significant geographic disparities in ADHD assessment timelines, treatment practices, and educational outcomes for youth, revealing how local administrative decisions directly impact clinical data quality and patient care.
 
 ## Pages
 
-- [[hjemkommune]] — The local municipal authority responsible for a patient's primary social and healthcare support, central to revised cross-sectoral collaboration metrics.
-- [[region-hovedstaden|Region Hovedstaden — Hovedstaden]] — The Capital Region's organizational and geographic entity, highlighting its high diagnostic volumes, mixed indicator performance, and strong educational outcomes for youth.
-- [[region-midtjylland|Region Midtjylland — Midtjylland]] — The Central Denmark Region, notable for a severe 2023 data drop followed by a 2024 turnaround driven by improved registration practices and somatic examination prioritization.
-- [[region-nordjylland|Region Nordjylland — Nordjylland]] — The North Denmark Region, which faces capacity constraints requiring private referrals but achieves top marks in specific clinical metrics like medication rates.
-- [[region-sjaelland|Region Sjælland — Sjælland]] — The Zealand Region, characterized by increasing diagnostic volumes but inconsistent quality development and the lowest national performance in early childhood environment observations.
+- [[hjemkommune]] — The local municipal authority responsible for a patient's primary social and healthcare support, acting as the central actor for cross-sectoral collaboration metrics like Indikator 4.
+- [[region-hovedstaden|Region Hovedstaden — Hovedstaden]] — The Capital Region, highlighted for high diagnostic volumes, strong educational outcomes for youth, and mixed performance on clinical quality indicators due to registration difficulties.
+- [[region-midtjylland|Region Midtjylland — Midtjylland]] — The Central Denmark Region, notable for a severe data drop in 2023 followed by a significant statistical turnaround in 2024 driven by improved registration practices and shortened assessment processes.
+- [[region-nordjylland|Region Nordjylland — Nordjylland]] — The North Denmark Region, which faces capacity constraints leading to private sector referrals, yet achieves top marks in specific metrics like medication rates and Indikator 11.
+- [[region-sjaelland|Region Sjælland — Sjælland]] — The Zealand Region, characterized by increasing diagnostic volumes but inconsistent quality development, particularly struggling with early childhood diagnostic timelines.
 
 ## Navigation
 

@@ -75,7 +75,7 @@ Summary: Tabellen lister SMR-procedurekoder for kirurgiske indgreb ved IBD, hvor
 
 ## Related comparisons in prose
 
-- "Der er foretaget 28 re-operationer indenfor 30 dage svarende til 4 %" — see [[quality-metric|Quality Metric]] ([[indikator-6|Indikator 6]]) [^src2]
+- "Der er foretaget 28 re-operationer indenfor 30 dage svarende til 4 %" — see [[quality-indicator|Quality Metric]] ([[indikator-6|Indikator 6]]) [^src2]
 
 ## Sources
 

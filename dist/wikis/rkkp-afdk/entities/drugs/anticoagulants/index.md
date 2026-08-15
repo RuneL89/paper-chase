@@ -4,23 +4,24 @@ type: index
 aliases:
   - Anticoagulants
 wiki: rkkp-afdk
-updated: '2026-08-05T22:48:09.493Z'
+updated: '2026-08-14T23:37:10.436Z'
 children:
   - b01ae07.md
   - b01af01.md
   - b01af02.md
   - b01af03.md
+  - index.md
 ---
 # Anticoagulants
 
-This folder contains the Anatomical Therapeutic Chemical (ATC) classification codes for specific direct oral anticoagulants (DOACs) tracked within the Danish healthcare system. These codes are utilized by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) to measure clinical quality indicators, such as anticoagulation treatment adherence and renal function monitoring, for patients diagnosed with atrial fibrillation. Each page details a specific drug code, its pharmacological classification, and its role in standardizing national cardiovascular care evaluations across Danish regions.
+This folder contains the specific Anatomical Therapeutic Chemical (ATC) classification codes for direct oral anticoagulants (DOACs) tracked within the Danish national clinical quality database for atrial fibrillation. These codes—covering dabigatran, rivaroxaban, apixaban, and edoxaban—serve as foundational pharmacological identifiers used by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) to measure treatment initiation, monitor renal function, and evaluate overall cardiovascular care quality across Danish regions. By standardizing these drug codes, health authorities can accurately calculate denominators for clinical quality indicators and ensure evidence-based treatment standards are met.
 
 ## Pages
 
-- [[b01ae07|B01AE07]] — The ATC code for dabigatran, tracked for anticoagulation treatment and renal monitoring in atrial fibrillation patients.
-- [[b01af01|B01AF01]] — The ATC code for rivaroxaban, used in national quality registries to evaluate cardiovascular care and medication usage.
-- [[b01af02|B01AF02]] — The ATC code for apixaban, serving as a key identifier for measuring treatment wait times and clinical standards across Danish regions.
-- [[b01af03|B01AF03]] — The ATC code for edoxaban, documented in national annual reports to standardize data collection for anticoagulation therapies.
+- [[b01ae07|B01AE07]] — The ATC classification code for dabigatran, tracked to measure anticoagulation treatment and kidney function monitoring in atrial fibrillation patients.
+- [[b01af01|B01AF01]] — The ATC classification code for rivaroxaban, used in national registries to calculate metrics like treatment waiting times and complication rates.
+- [[b01af02|B01AF02]] — The ATC classification code for apixaban, linked to systemic evaluations of diagnostic follow-ups and clinical outcomes for atrial fibrillation.
+- [[b01af03|B01AF03]] — The ATC classification code for edoxaban, utilized to define treatment cohorts and calculate denominators for national quality indicators.
 
 ## Navigation
 

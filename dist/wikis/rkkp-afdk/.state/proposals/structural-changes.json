@@ -1816,6 +1816,141 @@
       "affectedEntities": [
         "esc-guidelines"
       ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/clinical-tools",
+      "reason": "Topic folder created from extracted claims"
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/coding-assignment",
+      "reason": "Topic page 'coding-assignment' created from claims of type 'coding-assignment'",
+      "affectedEntities": [
+        "bfkb",
+        "indikator-8"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/coding-system-specification",
+      "reason": "Topic page 'coding-system-specification' created from claims of type 'coding-system-specification'",
+      "affectedEntities": [
+        "b01aa",
+        "b01ae07",
+        "b01af01",
+        "b01af02",
+        "b01af03",
+        "uxuc80"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/critical-assessment",
+      "reason": "Topic page 'critical-assessment' created from claims of type 'critical-assessment'",
+      "affectedEntities": [
+        "indikator-8",
+        "region-sjaelland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/exclusion-criteria",
+      "reason": "Topic page 'exclusion-criteria' created from claims of type 'exclusion-criteria'",
+      "affectedEntities": [
+        "indikator-8"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/guideline-recommendation",
+      "reason": "Topic page 'guideline-recommendation' created from claims of type 'guideline-recommendation'",
+      "affectedEntities": [
+        "afdk-anbefaler",
+        "patientuddannelse",
+        "tabel-1"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/performance-trend",
+      "reason": "Topic page 'performance-trend' created from claims of type 'performance-trend'",
+      "affectedEntities": [
+        "indikator-2",
+        "region-hovedstaden",
+        "region-nordjylland",
+        "region-sjaelland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/policy-target",
+      "reason": "Topic page 'policy-target' created from claims of type 'policy-target'",
+      "affectedEntities": [
+        "indikator-8"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/quality-improvement-action",
+      "reason": "Topic page 'quality-improvement-action' created from claims of type 'quality-improvement-action'",
+      "affectedEntities": [
+        "indikator-8",
+        "region-sjaelland"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/quality-indicator-result",
+      "reason": "Topic page 'quality-indicator-result' created from claims of type 'quality-indicator-result'",
+      "affectedEntities": [
+        "danmark",
+        "indikator-1",
+        "indikator-15",
+        "indikator-2",
+        "indikator-3",
+        "indikator-4a",
+        "indikator-4b",
+        "indikator-5",
+        "indikator-6",
+        "indikator-7",
+        "indikator-8"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-folder",
+      "path": "topics/quality-indicator-target",
+      "reason": "Topic page 'quality-indicator-target' created from claims of type 'quality-indicator-target'",
+      "affectedEntities": [
+        "indikator-1",
+        "indikator-2",
+        "indikator-3",
+        "indikator-4a",
+        "indikator-4b",
+        "indikator-5",
+        "indikator-6",
+        "indikator-8"
+      ]
+    },
+    {
+      "timestamp": "2026-08-14T19:38:59.186Z",
+      "type": "new-page-type",
+      "path": "policy-decision",
+      "reason": "New entity page type 'policy-decision' discovered during extraction",
+      "affectedEntities": [
+        "udviklingsmaal-95-procent"
+      ]
     }
   ],
   "knownPageTypes": [
@@ -1845,6 +1980,7 @@
     "person",
     "pharmaceutical",
     "policy",
+    "policy-decision",
     "procedure-code",
     "product",
     "publication",

@@ -50,8 +50,8 @@ Summary: Tabellen sammenligner nydiagnostiserede og prævalente PSC-patienter og
 - "Udviklingsmålet for Indikator 7 er, at 80 % af voksne patienter med PSC får foretaget systematisk opfølgning med koloskopi inden for 18 måneder" — see [[quality-indicator|Quality Indicator]] ([[indikator-7|Indikator 7]]) [^src3]
 - "På landsplan har 81 % af patienterne med PSC fået foretaget en koloskopi inden for 18 måneder, hvilket opfylder udviklingsmålet på mindst 80 %" — see [[quality-indicator|Quality Indicator]] ([[indikator-7|Indikator 7]]) [^src3]
 - "Alle fem regioner har et resultat for Indikator 7, der lever op til udviklingsmålet på mindst 80 %, med regional variation fra 79 % til 85 %" — see [[quality-indicator|Quality Indicator]] ([[indikator-7|Indikator 7]]) [^src3]
-- "Danmark har en opfyldelse på 85 % (95 % CI: 81–89) for Indikator 7" — see [[quality-metric|Quality Metric]] ([[indikator-7|Indikator 7]]) [^src4]
-- "Sjælland har en opfyldelse på 70 % (95 % CI: 47–87) for Indikator 7" — see [[quality-metric|Quality Metric]] ([[indikator-7|Indikator 7]]) [^src4]
+- "Danmark har en opfyldelse på 85 % (95 % CI: 81–89) for Indikator 7" — see [[quality-indicator|Quality Metric]] ([[indikator-7|Indikator 7]]) [^src4]
+- "Sjælland har en opfyldelse på 70 % (95 % CI: 47–87) for Indikator 7" — see [[quality-indicator|Quality Metric]] ([[indikator-7|Indikator 7]]) [^src4]
 
 ## Sources
 

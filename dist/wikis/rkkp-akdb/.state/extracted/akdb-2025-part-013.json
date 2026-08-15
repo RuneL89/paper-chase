@@ -1,0 +1,1114 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der bruges til beregning af indikatorer for akut kirurgisk kvalitet i Danmark, herunder median tid til CT-scanning, andel opererede og 30-dages mortalitet blandt patienter med Charlson Score = 0, hvilket gør den central for national kvalitetsmonitorering.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 62,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 63,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 64,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 65,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den offentlige myndighed, der udarbejder og publicerer de supplerende opgørelser fra Akut Kirurgi Databasen, herunder indikatorerne for CT-tid, opereret-andel og 30-dages mortalitet — og dermed ansvarlig for kvalitetsrapporteringen på tværs af regionerne.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 62,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 63,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 64,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 65,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Charlson Score = 0",
+      "type": "score",
+      "slug": "charlson-score-0",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "Charlson Score = 0 er en specifik risikokategori inden for Charlson Comorbiditets-indekset, som bruges som nævnerkriterium i den supplerende indikator for 30-dages mortalitet efter akut kirurgi — og dermed definerer den lavrisikogruppe, hvis overlevelse er et centralt kvalitetsmål.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score = 0"
+        },
+        {
+          "page": 63,
+          "context": "Charlson Score = 0"
+        },
+        {
+          "page": 65,
+          "context": "Mortalitet indenfor 30 dage efter akut kirurgi, Charlson Score = 0"
+        }
+      ]
+    },
+    {
+      "name": "Charlson Comorbiditets indeks",
+      "type": "score",
+      "slug": "charlson-comorbiditets-indeks",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "Charlson Comorbiditets indeks er den anvendte comorbiditetsvurderingsmetode, hvis værdier (herunder > 0) direkte bestemmer eksklusion fra nævnerpopulationen for den supplerende mortalitetsindikator, hvilket gør det afgørende for den rapporterede populationsdefiniton.",
+      "mentions": [
+        {
+          "page": 64,
+          "context": "Patientens Charlson Comorbiditets indeks > 0"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "indicator",
+      "slug": "indikator-2",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 2 er den nationale kvalitetsindikator for median tid fra ankomst til sygehus og frem til CT-scanning ved akut kirurgi, og denne supplerende opgørelse på side 61 præsenterer detaljerede regionale og hospitalsmæssige resultater for netop denne indikator.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Supplerende opgørelse til indikator 2: Mediantid til CT"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9a",
+      "type": "indicator",
+      "slug": "indikator-9a",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 9a er den nationale kvalitetsindikator for 30-dages mortalitet efter akut kirurgi, og de supplerende opgørelser på siderne 63–65 fokuserer specifikt på dens undergruppe for patienter med Charlson Score = 0, hvilket udgør en central risikojusteret variant.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Supplerende indikator til 9a: Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score = 0"
+        },
+        {
+          "page": 65,
+          "context": "Supplerende indikator til indikator 9a: Mortalitet indenfor 30 dage efter akut kirurgi, Charlson Score = 0. Alle opererede."
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/national",
+      "significance": "Danmark er den nationale referenceramme, hvori alle indikatorresultater (CT-tid, opereret-andel, mortalitet) rapporteres som samlet national statistik — og fungerer som benchmark for regionale og hospitalsmæssige sammenligninger i hele dokumentet.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Danmark 3.133 101 174 348"
+        },
+        {
+          "page": 62,
+          "context": "Danmark 9.896 100,00 3.250 32,84 6.646 67,16"
+        },
+        {
+          "page": 63,
+          "context": "Danmark 61 / 1.390 0 (0) 4,4 (3,4-5,6) 6,1 6,5"
+        },
+        {
+          "page": 64,
+          "context": "Årsag Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden Region i alt",
+      "type": "location",
+      "slug": "hovedstaden-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Hovedstaden Region i alt er den regionale samlet enhed for Region Hovedstaden, som rapporterer både nationale og regionale indikatorværdier for CT-tid, opereret-andel og mortalitet — og fungerer som en af de fem primære regionale sammenligningsenheder i databasen.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Hovedstaden Region i alt 971 102 182 336"
+        },
+        {
+          "page": 62,
+          "context": "Hovedstaden Region i alt 2.622 100,00 1.013 38,63 1.609 61,37"
+        },
+        {
+          "page": 63,
+          "context": "Hovedstaden 19 / 440 0 (0) 4,3 (2,6-6,7) 8,5 6,0"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland Region i alt",
+      "type": "location",
+      "slug": "sjaelland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Sjælland Region i alt er den regionale samlet enhed for Region Sjælland, som inkluderer flere sygehuse og rapporterer konsoliderede indikatorværdier for CT-tid, opereret-andel og mortalitet — og dermed er en central sammenligningsenhed i den nationale kvalitetsrapportering.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sjælland Region i alt 596 114 196 440"
+        },
+        {
+          "page": 62,
+          "context": "Sjælland Region i alt 1.641 100,00 617 37,60 1.024 62,40"
+        },
+        {
+          "page": 63,
+          "context": "Sjælland 17 / 259 0 (0) 6,6 (3,9-10,3) 3,6 7,8"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark Region i alt",
+      "type": "location",
+      "slug": "syddanmark-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Syddanmark Region i alt er den regionale samlet enhed for Region Syddanmark, som rapporterer konsoliderede data for alle tre indikatorer (CT-tid, opereret-andel, mortalitet) og udgør én af de fem regionale referencepunkter i analysen.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Syddanmark | Region | i | alt | 635 | 106 | 170 | 396 |"
+        },
+        {
+          "page": 62,
+          "context": "Syddanmark Region i alt 2.095 100,00 653 31,17 1.442 68,83"
+        },
+        {
+          "page": 63,
+          "context": "Syddanmark 9 / 262 0 (0) 3,4 (1,6-6,4) 6,6 6,8"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland Region i alt",
+      "type": "location",
+      "slug": "midtjylland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Midtjylland Region i alt er den regionale samlet enhed for Region Midtjylland, som rapporterer konsoliderede værdier for alle tre supplerende indikatorer og udgør én af de fem regionale benchmark-enheder i rapporten.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Midtjylland Region i alt 638 80 131 264"
+        },
+        {
+          "page": 62,
+          "context": "Midtjylland Region i alt 2.240 100,00 661 29,51 1.579 70,49"
+        },
+        {
+          "page": 63,
+          "context": "Midtjylland 14 / 287 0 (0) 4,9 (2,7-8,0) 4,7 5,5"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland Region i alt",
+      "type": "location",
+      "slug": "nordjylland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Nordjylland Region i alt er den regionale samlet enhed for Region Nordjylland, som rapporterer konsoliderede værdier for alle tre supplerende indikatorer og udgør én af de fem regionale benchmark-enheder i rapporten.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Nordjylland Region i alt 293 114 192 329"
+        },
+        {
+          "page": 62,
+          "context": "Nordjylland Region i alt 1.298 100,00 306 23,57 992 76,43"
+        },
+        {
+          "page": 63,
+          "context": "Nordjylland #/# 0 (0) 1,4 (0,2-5,0) 4,9 8,0"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital er et af de største hospitalsenheder i Region Hovedstaden og rapporterer både CT-tid, opereret-andel og 30-dages mortalitet for Charlson Score = 0 — og dermed er en central del af den regionale og nationale kvalitetsmonitorering.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Amager og Hvidovre Hospital 233 158 262 721"
+        },
+        {
+          "page": 62,
+          "context": "Amager og Hvidovre Hospital 576 100,00 249 43,23 327 56,77"
+        },
+        {
+          "page": 63,
+          "context": "Amager og Hvidovre Hospital 4 / 119 0 (0) 3,4 (0,9-8,4) 6,8 7,3"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital er en af de store hospitalsenheder i Region Hovedstaden og rapporterer detaljerede værdier for alle tre supplerende indikatorer — hvilket gør det afgørende for regional analyse og benchmarking.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Bispebjerg og Frederiksberg Hospital 211 119 199 317"
+        },
+        {
+          "page": 62,
+          "context": "Bispebjerg og Frederiksberg Hospital 537 100,00 221 41,15 316 58,85"
+        },
+        {
+          "page": 63,
+          "context": "Bispebjerg og Frederiksberg Hospital 5 / 106 0 (0) 4,7 (1,5-10,7) 9,6 4,8"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital er et mindre hospital, der rapporterer alle tre supplerende indikatorer, men med lavere antal — hvilket resulterer i bredde af konfidensintervaller og manglende rapportering af nogle værdier som '#/#', hvilket illustrerer udfordringer ved små populationer i kvalitetsmåling.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Bornholms Hospital 14 52 87 133"
+        },
+        {
+          "page": 62,
+          "context": "Bornholms Hospital 81 100,00 14 17,28 67 82,72"
+        },
+        {
+          "page": 63,
+          "context": "Bornholms Hospital #/# 0 (0) 12,5 (0,3-52,7) 0,0 0,0"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital er et stort hospitalscenter i Region Hovedstaden, der rapporterer alle tre supplerende indikatorer med høje antal — hvilket giver robuste estimater, især for 30-dages mortalitet blandt Charlson Score = 0-patienter.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Herlev og Gentofte Hospital 261 87 159 264"
+        },
+        {
+          "page": 62,
+          "context": "Herlev og Gentofte Hospital 759 100,00 266 35,05 493 64,95"
+        },
+        {
+          "page": 63,
+          "context": "Herlev og Gentofte Hospital 4 / 104 0 (0) 3,8 (1,1-9,6) 11,8 3,4"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalerne i Nordsjælland er en samlet enhed for flere hospitalsenheder i Region Hovedstaden og rapporterer konsoliderede værdier for alle tre supplerende indikatorer — hvilket understøtter regional sammenligning uden at afsløre individuelle hospitalsdata.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Hospitalerne i Nordsjælland 207 83 132 228"
+        },
+        {
+          "page": 62,
+          "context": "Hospitalerne i Nordsjælland 524 100,00 217 41,41 307 58,59"
+        },
+        {
+          "page": 63,
+          "context": "Hospitalerne i Nordsjælland #/# 0 (0) 2,1 (0,3-7,5) 4,8 7,5"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er Danmarks største universitetshospital og rapporterer ekstremt høje Q3-værdier for CT-tid samt usædvanligt høje konfidensintervaller for 30-dages mortalitet (f.eks. 33,3 % med 95 % CI: 7,5–70,1), hvilket signalerer usikkerhed i estimatet pga. meget lille tæller (n=3) og nævner (n=9).",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Rigshospitalet 45 130 589 3.962"
+        },
+        {
+          "page": 62,
+          "context": "Rigshospitalet 144 100,00 46 31,94 98 68,06"
+        },
+        {
+          "page": 63,
+          "context": "Rigshospitalet 3 / 9 0 (0) 33,3 (7,5-70,1) 9,1 30,0"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus er et af de sygehuse i Region Sjælland, der rapporterer alle tre supplerende indikatorer — herunder en relativt høj andel opererede (45,62 %) og en 30-dages mortalitet på 4,9 % blandt Charlson Score = 0-patienter.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Holbæk Sygehus 149 84 165 431"
+        },
+        {
+          "page": 62,
+          "context": "Holbæk Sygehus 331 100,00 151 45,62 180 54,38"
+        },
+        {
+          "page": 63,
+          "context": "Holbæk Sygehus 3 / 61 0 (0) 4,9 (1,0-13,7) 3,4 13,3"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er en samlet rapporteringsenhed for tre sygehuse i Region Sjælland, der viser en høj andel opererede (43,00 %) og en 30-dages mortalitet på 7,3 % blandt Charlson Score = 0-patienter — hvilket er den højeste rapporterede værdi blandt alle sygehuse på side 63.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 207 124 252 687"
+        },
+        {
+          "page": 62,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 500 100,00 215 43,00 285 57,00"
+        },
+        {
+          "page": 63,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 6 / 82 0 (0) 7,3 (2,7-15,2) 6,3 5,1"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital er et af de største hospitalscentre i Region Sjælland og rapporterer både CT-tid, opereret-andel og 30-dages mortalitet — hvor sidstnævnte viser en væsentlig variation mellem år (1,8 % i 2023/24 vs. 7,3 % i 2022/23), hvilket rejser spørgsmål om årsagsforhold.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sjællands Universitetshospital 240 119 188 341"
+        },
+        {
+          "page": 62,
+          "context": "Sjællands Universitetshospital 810 100,00 251 30,99 559 69,01"
+        },
+        {
+          "page": 63,
+          "context": "Sjællands Universitetshospit al 8 / 116 0 (0) 6,9 (3,0-13,1) 1,8 7,3"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er en samlet enhed for to sygehuse i Region Syddanmark, der rapporterer alle tre supplerende indikatorer — herunder en ekstremt lav 30-dages mortalitet (1,7 %) i aktuel periode, men med meget bredt konfidensinterval (0,0–9,1 %) pga. lavt antal.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Esbjerg | Sygehus | Grindsted | Sygehus | 132 | 106 | 148 | 264 |"
+        },
+        {
+          "page": 62,
+          "context": "Esbjerg Sygehus Grindsted Sygehus 339 100,00 134 39,53 205 60,47"
+        },
+        {
+          "page": 64,
+          "context": "Esbjerg Sygehus Grindsted Sygehus #/# 0 (0) 1,7 (0,0-9,1) 14,3 2,0"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "ouh-odense-universitetshospital-odense",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg er en samlet enhed for to sygehuse i Region Syddanmark og rapporterer alle tre supplerende indikatorer — herunder en faldende 30-dages mortalitet fra 10,3 % (2022/23) til 4,5 % (aktuel periode), hvilket kan tyde på forbedring eller ændret patientpopulation.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Odense | Universitetshospital | - | Svendborg | 298 | 106 | 179 | 441 |"
+        },
+        {
+          "page": 62,
+          "context": "Odense Universitetshospital - Svendborg 855 100,00 304 35,56 551 64,44"
+        },
+        {
+          "page": 64,
+          "context": "Odense Universitetshospit al - Svendborg 5 / 111 0 (0) 4,5 (1,5-10,2) 4,8 10,3"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt er et stort hospitalscenter i Region Syddanmark og rapporterer alle tre supplerende indikatorer — herunder en markant lav andel opererede (20,38 %) og en 30-dages mortalitet på 0,0 % i aktuel periode (0/43), hvilket er den eneste rapporterede nul-mortalitet blandt alle sygehuse.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sygehus Lillebælt 102 97 159 405"
+        },
+        {
+          "page": 62,
+          "context": "Sygehus Lillebælt 525 100,00 107 20,38 418 79,62"
+        },
+        {
+          "page": 64,
+          "context": "Sygehus Lillebælt 0 / 43 0 (0) 0,0 (0,0-8,2) 7,4 0,0"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland er et stort hospitalscenter i Region Syddanmark og rapporterer alle tre supplerende indikatorer — herunder en 30-dages mortalitet på 6,1 % blandt Charlson Score = 0-patienter, hvilket ligger over national gennemsnitsværdi (4,4 %) i aktuel periode.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sygehus Sønderjylland 103 107 178 677"
+        },
+        {
+          "page": 62,
+          "context": "Sygehus Sønderjylland 376 100,00 108 28,72 268 71,28"
+        },
+        {
+          "page": 64,
+          "context": "Sygehus Sønderjylland 3 / 49 0 (0) 6,1 (1,3-16,9) 0,0 10,6"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er et af Danmarks største universitetshospitaler i Region Midtjylland og rapporterer alle tre supplerende indikatorer — herunder en lav andel opererede (25,61 %) og en 30-dages mortalitet på 3,5 % i 2023/24, men ingen rapportering i aktuel periode (#/#), hvilket tyder på manglende data eller eksklusion.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Aarhus | Universitetshospital | 135 | 75 | 119 | 309 |"
+        },
+        {
+          "page": 62,
+          "context": "Aarhus Universitetshospital 535 100,00 137 25,61 398 74,39"
+        },
+        {
+          "page": 64,
+          "context": "Aarhus Universitetshospit al #/# 0 (0) 3,5 (0,4-12,1) 8,5 3,4"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hospitalsenhed Midt er en af de sygehuse i Region Midtjylland, der rapporterer alle tre supplerende indikatorer — herunder en 30-dages mortalitet på 4,9 % i aktuel periode og en stigning fra 1,8 % i 2023/24 til 3,5 % i 2022/23, hvilket kan tyde på variation i behandlingspraksis eller patientpopulation.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Hospitalsenhed | Midt | 129 | 103 | 150 | 312 |"
+        },
+        {
+          "page": 62,
+          "context": "Hospitalsenhed Midt 445 100,00 134 30,11 311 69,89"
+        },
+        {
+          "page": 64,
+          "context": "Hospitalsenhed Midt 3 / 61 0 (0) 4,9 (1,0-13,7) 1,8 3,5"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er et sygehus i Region Midtjylland, der rapporterer alle tre supplerende indikatorer — herunder en 30-dages mortalitet på 6,5 % i aktuel periode, hvilket er den højeste blandt alle Regionshospitalet-enheder i Midtjylland.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionshospitalet | Gødstrup | 143 | 74 | 126 | 253 |"
+        },
+        {
+          "page": 62,
+          "context": "Regionshospitalet Gødstrup 543 100,00 147 27,07 396 72,93"
+        },
+        {
+          "page": 64,
+          "context": "Regionshospitalet Gødstrup 4 / 62 0 (0) 6,5 (1,8-15,7) 4,5 1,7"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens er et sygehus i Region Midtjylland, der rapporterer alle tre supplerende indikatorer — herunder en 30-dages mortalitet på 5,5 % i aktuel periode og en markant stigning fra 1,6 % i 2023/24 til 12,2 % i 2022/23, hvilket kræver yderligere undersøgelse af baggrund.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionshospitalet | Horsens | 125 | 77 | 136 | 267 |"
+        },
+        {
+          "page": 62,
+          "context": "Regionshospitalet Horsens 333 100,00 131 39,34 202 60,66"
+        },
+        {
+          "page": 64,
+          "context": "Regionshospitalet Horsens 3 / 55 0 (0) 5,5 (1,1-15,1) 1,6 12,2"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er et sygehus i Region Midtjylland, der rapporterer alle tre supplerende indikatorer — herunder en 30-dages mortalitet på 3,8 % i aktuel periode, men ingen rapportering i 2023/24 og 2022/23 (#/#), hvilket tyder på manglende data eller eksklusion i disse perioder.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionshospitalet | Randers | 106 | 79 | 114 | 192 |"
+        },
+        {
+          "page": 62,
+          "context": "Regionshospitalet Randers 384 100,00 112 29,17 272 70,83"
+        },
+        {
+          "page": 64,
+          "context": "Regionshospitalet Randers #/# 0 (0) 3,8 (0,5-13,2) 7,4 9,1"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital er et stort universitetshospital i Region Nordjylland og rapporterer alle tre supplerende indikatorer — herunder en 30-dages mortalitet på 1,2 % i aktuel periode, hvilket er den laveste blandt alle rapporterede værdier for Aalborg Universitetshospital, men med manglende rapportering i tidligere år (#/#).",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Aalborg Universitetshospital 179 143 246 408"
+        },
+        {
+          "page": 62,
+          "context": "Aalborg Universitetshospital 785 100,00 190 24,20 595 75,80"
+        },
+        {
+          "page": 64,
+          "context": "Aalborg Universitetshospit al #/# 0 (0) 1,2 (0,0-6,4) 2,2 9,2"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital, Thisted",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital-thisted",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital, Thisted er en afdeling under Aalborg Universitetshospital i Region Nordjylland og rapporterer en fuldstændig manglende andel opererede (0 %) og en 100 % ikke-opereret-andel — hvilket tyder på enten specialiseret klinisk profil eller datateknisk fejl i registrering.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Aalborg Universitetshospital, Thisted 57 100,00 0 0 57 100,00"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland er et sygehus i Region Nordjylland, der rapporterer alle tre supplerende indikatorer — herunder en 30-dages mortalitet på 1,8 % i aktuel periode, men med betydelig variation i tidligere år (7,0 % i 2023/24 og 5,3 % i 2022/23), hvilket kræver dybere analyse.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Regionshospital Nordjylland 114 86 137 226"
+        },
+        {
+          "page": 62,
+          "context": "Regionshospital Nordjylland 454 100,00 116 25,55 338 74,45"
+        },
+        {
+          "page": 64,
+          "context": "Regionshospital Nordjylland #/# 0 (0) 1,8 (0,0-9,4) 7,0 5,3"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-managed-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen er udarbejdet af Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 61
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "is-measured-in",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Supplerende opgørelse til indikator 2: Mediantid til CT",
+      "page": 61
+    },
+    {
+      "subject": "indikator-9a",
+      "predicate": "is-measured-in",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Supplerende indikator til 9a: Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score = 0",
+      "page": 63
+    },
+    {
+      "subject": "charlson-score-0",
+      "predicate": "is-criterion-for",
+      "object": "indikator-9a",
+      "evidence": "Mortalitet indenfor 30 dage efter akut kirurgi, hvis Charlson Score = 0",
+      "page": 63
+    },
+    {
+      "subject": "charlson-comorbiditets-indeks",
+      "predicate": "is-exclusion-criterion-for",
+      "object": "indikator-9a",
+      "evidence": "Patientens Charlson Comorbiditets indeks > 0",
+      "page": 64
+    },
+    {
+      "subject": "danmark",
+      "predicate": "has-subdivision",
+      "object": "hovedstaden-region-i-alt",
+      "evidence": "Danmark og Hovedstaden Region i alt optræder sammen i tabeller som national og regional enhed",
+      "page": 61
+    },
+    {
+      "subject": "danmark",
+      "predicate": "has-subdivision",
+      "object": "sjaelland-region-i-alt",
+      "evidence": "Danmark og Sjælland Region i alt optræder sammen i tabeller som national og regional enhed",
+      "page": 61
+    },
+    {
+      "subject": "danmark",
+      "predicate": "has-subdivision",
+      "object": "syddanmark-region-i-alt",
+      "evidence": "Danmark og Syddanmark Region i alt optræder sammen i tabeller som national og regional enhed",
+      "page": 61
+    },
+    {
+      "subject": "danmark",
+      "predicate": "has-subdivision",
+      "object": "midtjylland-region-i-alt",
+      "evidence": "Danmark og Midtjylland Region i alt optræder sammen i tabeller som national og regional enhed",
+      "page": 61
+    },
+    {
+      "subject": "danmark",
+      "predicate": "has-subdivision",
+      "object": "nordjylland-region-i-alt",
+      "evidence": "Danmark og Nordjylland Region i alt optræder sammen i tabeller som national og regional enhed",
+      "page": 61
+    },
+    {
+      "subject": "hovedstaden-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "amager-og-hvidovre-hospital",
+      "evidence": "Amager og Hvidovre Hospital er listet under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "hovedstaden-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "bispebjerg-og-frederiksberg-hospitaler",
+      "evidence": "Bispebjerg og Frederiksberg Hospital er listet under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "hovedstaden-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "herlev-og-gentofte-hospital",
+      "evidence": "Herlev og Gentofte Hospital er listet under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "hovedstaden-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "hospitalerne-i-nordsjaelland",
+      "evidence": "Hospitalerne i Nordsjælland er listet under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "hovedstaden-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "rigshospitalet",
+      "evidence": "Rigshospitalet er listet under Hovedstaden Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "sjaelland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "holbaek-sygehus",
+      "evidence": "Holbæk Sygehus er listet under Sjælland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "sjaelland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "naestved-slagese-og-ringsted-sygehuse",
+      "evidence": "Næstved, Slagelse og Ringsted sygehuse er listet under Sjælland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "sjaelland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "sjaellands-universitetshospital",
+      "evidence": "Sjællands Universitetshospital er listet under Sjælland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "syddanmark-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "esbjerg-sygehus-grindsted-sygehus",
+      "evidence": "Esbjerg Sygehus Grindsted Sygehus er listet under Syddanmark Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "syddanmark-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "ouh-odense-universitetshospital-odense",
+      "evidence": "Odense Universitetshospital - Svendborg er listet under Syddanmark Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "syddanmark-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "sygehus-lillebaelt",
+      "evidence": "Sygehus Lillebælt er listet under Syddanmark Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "syddanmark-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "sygehus-soenderjylland",
+      "evidence": "Sygehus Sønderjylland er listet under Syddanmark Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "midtjylland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "aarhus-universitetshospital",
+      "evidence": "Aarhus Universitetshospital er listet under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "midtjylland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "hospitalsenhed-midt",
+      "evidence": "Hospitalsenhed Midt er listet under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "midtjylland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "regionshospitalet-goedstrup",
+      "evidence": "Regionshospitalet Gødstrup er listet under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "midtjylland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "regionshospitalet-horsens",
+      "evidence": "Regionshospitalet Horsens er listet under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "midtjylland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "regionshospitalet-randers",
+      "evidence": "Regionshospitalet Randers er listet under Midtjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "nordjylland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "aalborg-universitetshospital",
+      "evidence": "Aalborg Universitetshospital er listet under Nordjylland Region i alt",
+      "page": 61
+    },
+    {
+      "subject": "nordjylland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "aalborg-universitetshospital-thisted",
+      "evidence": "Aalborg Universitetshospital, Thisted er listet under Nordjylland Region i alt",
+      "page": 62
+    },
+    {
+      "subject": "nordjylland-region-i-alt",
+      "predicate": "includes-hospital",
+      "object": "regionshospital-nordjylland",
+      "evidence": "Regionshospital Nordjylland er listet under Nordjylland Region i alt",
+      "page": 61
+    }
+  ],
+  "claims": [
+    {
+      "text": "Den nationale median tid fra ankomst til sygehus og frem til CT-scanning er 101 minutter [^src1]",
+      "type": "clinical-timing",
+      "entities": [
+        "danmark",
+        "akut-kirurgi-databasen"
+      ],
+      "page": 61
+    },
+    {
+      "text": "Antallet af patienter i den nationale population for indikator 2 er 3.133 [^src1]",
+      "type": "clinical-population",
+      "entities": [
+        "danmark",
+        "indikator-2"
+      ],
+      "page": 61
+    },
+    {
+      "text": "Den nationale andel af opererede patienter er 32,84 % [^src2]",
+      "type": "clinical-proportion",
+      "entities": [
+        "danmark",
+        "indikator-2"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Det nationale antal opererede patienter er 3.250 [^src2]",
+      "type": "clinical-count",
+      "entities": [
+        "danmark",
+        "indikator-2"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Den nationale 30-dages mortalitet blandt opererede patienter med Charlson Score = 0 er 4,4 % (95 % CI: 3,4–5,6) i den aktuelle periode [^src3]",
+      "type": "clinical-outcome",
+      "entities": [
+        "danmark",
+        "indikator-9a",
+        "charlson-score-0"
+      ],
+      "page": 63
+    },
+    {
+      "text": "Tælleren for den nationale 30-dages mortalitet blandt opererede patienter med Charlson Score = 0 er 61, og nævneren er 1.390 [^src3]",
+      "type": "clinical-count",
+      "entities": [
+        "danmark",
+        "indikator-9a",
+        "charlson-score-0"
+      ],
+      "page": 63
+    },
+    {
+      "text": "Eksklusionsårsager for indikator 9a inkluderer ugyldigt CPR-nummer, patient under 18 år, patient ikke opereret, inaktiv CPR-nummer og Charlson Comorbiditets indeks > 0 [^src4]",
+      "type": "exclusion-criteria",
+      "entities": [
+        "indikator-9a",
+        "charlson-comorbiditets-indeks",
+        "cpr-nummer"
+      ],
+      "page": 64
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2024 - 31.08.2025",
+      "event": "Aktuel måleperiode for supplerende indikatorer i Akut Kirurgi Databasen, herunder median CT-tid, andel opererede og 30-dages mortalitet blandt Charlson Score = 0-patienter",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "indikator-2",
+        "indikator-9a",
+        "charlson-score-0"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Tidligere måleperiode for supplerende indikatorer i Akut Kirurgi Databasen",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "indikator-2",
+        "indikator-9a"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere måleperiode for supplerende indikatorer i Akut Kirurgi Databasen",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "indikator-2",
+        "indikator-9a"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "median-ct-time",
+      "title": "Median tid til CT-scanning (minutter)",
+      "page": 61,
+      "rowDimension": "region or hospital",
+      "colDimension": "Q1, Median, Q3",
+      "entities": [
+        "danmark",
+        "hovedstaden-region-i-alt",
+        "sjaelland-region-i-alt",
+        "syddanmark-region-i-alt",
+        "midtjylland-region-i-alt",
+        "nordjylland-region-i-alt",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Region eller sygehus | Antal | Q1 | Median | Q3 |\n| --- | --- | --- | --- | --- |\n| Danmark | 3.133 | 101 | 174 | 348 |\n| Hovedstaden Region i alt | 971 | 102 | 182 | 336 |\n| Amager og Hvidovre Hospital | 233 | 158 | 262 | 721 |\n| Bispebjerg og Frederiksberg Hospital | 211 | 119 | 199 | 317 |\n| Bornholms Hospital | 14 | 52 | 87 | 133 |\n| Herlev og Gentofte Hospital | 261 | 87 | 159 | 264 |\n| Hospitalerne i Nordsjælland | 207 | 83 | 132 | 228 |\n| Rigshospitalet | 45 | 130 | 589 | 3.962 |\n| Sjælland Region i alt | 596 | 114 | 196 | 440 |\n| Holbæk Sygehus | 149 | 84 | 165 | 431 |\n| Næstved, Slagelse og Ringsted sygehuse | 207 | 124 | 252 | 687 |\n| Sjællands Universitetshospital | 240 | 119 | 188 | 341 |\n| Syddanmark Region i alt | 635 | 106 | 170 | 396 |\n| Esbjerg Sygehus Grindsted Sygehus | 132 | 106 | 148 | 264 |\n| Odense Universitetshospital - Svendborg | 298 | 106 | 179 | 441 |\n| Sygehus Lillebælt | 102 | 97 | 159 | 405 |\n| Sygehus Sønderjylland | 103 | 107 | 178 | 677 |\n| Midtjylland Region i alt | 638 | 80 | 131 | 264 |\n| Aarhus Universitetshospital | 135 | 75 | 119 | 309 |\n| Hospitalsenhed Midt | 129 | 103 | 150 | 312 |\n| Regionshospitalet Gødstrup | 143 | 74 | 126 | 253 |\n| Regionshospitalet Horsens | 125 | 77 | 136 | 267 |\n| Regionshospitalet Randers | 106 | 79 | 114 | 192 |\n| Nordjylland Region i alt | 293 | 114 | 192 | 329 |\n| Aalborg Universitetshospital | 179 | 143 | 246 | 408 |\n| Regionshospital Nordjylland | 114 | 86 | 137 | 226 |",
+      "summary": "Tabellen sammenligner median tid til CT-scanning (i minutter) på nationalt, regionalt og hospitalsniveau, hvor Q1, Median og Q3 angiver kvartilerne; Rigshospitalet har ekstremt høje Q3-værdier (3.962 minutter), mens Bornholms Hospital har laveste median (87 minutter)."
+    },
+    {
+      "subject": "operated-proportion",
+      "title": "Andel opererede og ikke-opererede patienter",
+      "page": 62,
+      "rowDimension": "region or hospital",
+      "colDimension": "I alt, Opererede (%), Ikke opererede (%)",
+      "entities": [
+        "danmark",
+        "hovedstaden-region-i-alt",
+        "sjaelland-region-i-alt",
+        "syddanmark-region-i-alt",
+        "midtjylland-region-i-alt",
+        "nordjylland-region-i-alt",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "aalborg-universitetshospital-thisted",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Region eller sygehus | I alt | Opererede | Ikke opererede |\n| --- | --- | --- | --- |\n| Danmark | 9.896 | 3.250 (32,84 %) | 6.646 (67,16 %) |\n| Hovedstaden Region i alt | 2.622 | 1.013 (38,63 %) | 1.609 (61,37 %) |\n| Amager og Hvidovre Hospital | 576 | 249 (43,23 %) | 327 (56,77 %) |\n| Bispebjerg og Frederiksberg Hospital | 537 | 221 (41,15 %) | 316 (58,85 %) |\n| Bornholms Hospital | 81 | 14 (17,28 %) | 67 (82,72 %) |\n| Herlev og Gentofte Hospital | 759 | 266 (35,05 %) | 493 (64,95 %) |\n| Hospitalerne i Nordsjælland | 524 | 217 (41,41 %) | 307 (58,59 %) |\n| Region Hovedstadens Psykiatri | 1 | 0 (0 %) | 1 (100,00 %) |\n| Rigshospitalet | 144 | 46 (31,94 %) | 98 (68,06 %) |\n| Sjælland Region i alt | 1.641 | 617 (37,60 %) | 1.024 (62,40 %) |\n| Holbæk Sygehus | 331 | 151 (45,62 %) | 180 (54,38 %) |\n| Næstved, Slagelse og Ringsted sygehuse | 500 | 215 (43,00 %) | 285 (57,00 %) |\n| Sjællands Universitetshospital | 810 | 251 (30,99 %) | 559 (69,01 %) |\n| Syddanmark Region i alt | 2.095 | 653 (31,17 %) | 1.442 (68,83 %) |\n| Esbjerg Sygehus Grindsted Sygehus | 339 | 134 (39,53 %) | 205 (60,47 %) |\n| Odense Universitetshospital - Svendborg | 855 | 304 (35,56 %) | 551 (64,44 %) |\n| Sygehus Lillebælt | 525 | 107 (20,38 %) | 418 (79,62 %) |\n| Sygehus Sønderjylland | 376 | 108 (28,72 %) | 268 (71,28 %) |\n| Midtjylland Region i alt | 2.240 | 661 (29,51 %) | 1.579 (70,49 %) |\n| Aarhus Universitetshospital | 535 | 137 (25,61 %) | 398 (74,39 %) |\n| Hospitalsenhed Midt | 445 | 134 (30,11 %) | 311 (69,89 %) |\n| Regionshospitalet Gødstrup | 543 | 147 (27,07 %) | 396 (72,93 %) |\n| Regionshospitalet Horsens | 333 | 131 (39,34 %) | 202 (60,66 %) |\n| Regionshospitalet Randers | 384 | 112 (29,17 %) | 272 (70,83 %) |\n| Nordjylland Region i alt | 1.298 | 306 (23,57 %) | 992 (76,43 %) |\n| Aalborg Universitetshospital | 785 | 190 (24,20 %) | 595 (75,80 %) |\n| Aalborg Universitetshospital, Thisted | 57 | 0 (0 %) | 57 (100,00 %) |\n| Psykiatrien Nordjylland | # | # | # |\n| Regionshospital Nordjylland | 454 | 116 (25,55 %) | 338 (74,45 %) |",
+      "summary": "Tabellen viser andelen af opererede og ikke-opererede patienter på nationalt, regionalt og hospitalsniveau, hvor Amager og Hvidovre Hospital har højeste andel opererede (43,23 %) og Sygehus Lillebælt den laveste (20,38 %); Aalborg Universitetshospital, Thisted rapporterer 0 % opererede."
+    },
+    {
+      "subject": "30-day-mortality-charlson-0",
+      "title": "30-dages mortalitet blandt opererede patienter med Charlson Score = 0",
+      "page": 63,
+      "rowDimension": "region or hospital",
+      "colDimension": "Tæller/Nævner, Andel (%), 95% CI, Tidligere år (2023/24 og 2022/23)",
+      "entities": [
+        "danmark",
+        "hovedstaden-region-i-alt",
+        "sjaelland-region-i-alt",
+        "syddanmark-region-i-alt",
+        "midtjylland-region-i-alt",
+        "nordjylland-region-i-alt",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Region eller sygehus | Tæller/Nævner | Andel (%) | 95% CI | 2023/24 | 2022/23 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 61 / 1.390 | 0 (0) | 4,4 (3,4-5,6) | 6,1 | 6,5 |\n| Hovedstaden | 19 / 440 | 0 (0) | 4,3 (2,6-6,7) | 8,5 | 6,0 |\n| Sjælland | 17 / 259 | 0 (0) | 6,6 (3,9-10,3) | 3,6 | 7,8 |\n| Syddanmark | 9 / 262 | 0 (0) | 3,4 (1,6-6,4) | 6,6 | 6,8 |\n| Midtjylland | 14 / 287 | 0 (0) | 4,9 (2,7-8,0) | 4,7 | 5,5 |\n| Nordjylland | #/# | 0 (0) | 1,4 (0,2-5,0) | 4,9 | 8,0 |\n| Hovedstaden | 19 / 440 | 0 (0) | 4,3 (2,6-6,7) | 8,5 | 6,0 |\n| Amager og Hvidovre Hospital | 4 / 119 | 0 (0) | 3,4 (0,9-8,4) | 6,8 | 7,3 |\n| Bispebjerg og Frederiksberg Hospital | 5 / 106 | 0 (0) | 4,7 (1,5-10,7) | 9,6 | 4,8 |\n| Bornholms Hospital | #/# | 0 (0) | 12,5 (0,3-52,7) | 0,0 | 0,0 |\n| Herlev og Gentofte Hospital | 4 / 104 | 0 (0) | 3,8 (1,1-9,6) | 11,8 | 3,4 |\n| Hospitalerne i Nordsjælland | #/# | 0 (0) | 2,1 (0,3-7,5) | 4,8 | 7,5 |\n| Rigshospitalet | 3 / 9 | 0 (0) | 33,3 (7,5-70,1) | 9,1 | 30,0 |\n| Sjælland | 17 / 259 | 0 (0) | 6,6 (3,9-10,3) | 3,6 | 7,8 |\n| Holbæk Sygehus | 3 / 61 | 0 (0) | 4,9 (1,0-13,7) | 3,4 | 13,3 |\n| Næstved, Slagelse og Ringsted sygehuse | 6 / 82 | 0 (0) | 7,3 (2,7-15,2) | 6,3 | 5,1 |\n| Sjællands Universitetshospit al | 8 / 116 | 0 (0) | 6,9 (3,0-13,1) | 1,8 | 7,3 |\n| Syddanmark | 9 / 262 | 0 (0) | 3,4 (1,6-6,4) | 6,6 | 6,8 |\n| Esbjerg Sygehus Grindsted Sygehus | #/# | 0 (0) | 1,7 (0,0-9,1) | 14,3 | 2,0 |\n| Odense Universitetshospit al - Svendborg | 5 / 111 | 0 (0) | 4,5 (1,5-10,2) | 4,8 | 10,3 |\n| Sygehus Lillebælt | 0 / 43 | 0 (0) | 0,0 (0,0-8,2) | 7,4 | 0,0 |\n| Sygehus Sønderjylland | 3 / 49 | 0 (0) | 6,1 (1,3-16,9) | 0,0 | 10,6 |\n| Midtjylland | 14 / 287 | 0 (0) | 4,9 (2,7-8,0) | 4,7 | 5,5 |\n| Aarhus Universitetshospit al | #/# | 0 (0) | 3,5 (0,4-12,1) | 8,5 | 3,4 |\n| Hospitalsenhed Midt | 3 / 61 | 0 (0) | 4,9 (1,0-13,7) | 1,8 | 3,5 |\n| Regionshospitalet Gødstrup | 4 / 62 | 0 (0) | 6,5 (1,8-15,7) | 4,5 | 1,7 |\n| Regionshospitalet Horsens | 3 / 55 | 0 (0) | 5,5 (1,1-15,1) | 1,6 | 12,2 |\n| Regionshospitalet Randers | #/# | 0 (0) | 3,8 (0,5-13,2) | 7,4 | 9,1 |\n| Nordjylland | #/# | 0 (0) | 1,4 (0,2-5,0) | 4,9 | 8,0 |\n| Aalborg Universitetshospit al | #/# | 0 (0) | 1,2 (0,0-6,4) | 2,2 | 9,2 |\n| Regionshospital Nordjylland | #/# | 0 (0) | 1,8 (0,0-9,4) | 7,0 | 5,3 |",
+      "summary": "Tabellen viser 30-dages mortalitet blandt opererede patienter med Charlson Score = 0 på nationalt, regionalt og hospitalsniveau, hvor '0 (0)' indikerer ingen dødsfald i tælleren i den aktuelle periode, men konfidensintervallerne varierer kraftigt — fra 0,0 % (Sygehus Lillebælt) til 33,3 % (Rigshospitalet) — hvilket afspejler usikkerhed i små populationer."
+    }
+  ],
+  "context": "Dette dokumentudsnit fra Akut Kirurgi Databasen (AKDB) udgør siderne 61–65 af et udkast til den nationale kvalitetsrapport for 2026 og fokuserer på tre supplerende kvalitetsindikatorer: (1) median tid til CT-scanning (indikator 2), (2) andel opererede versus ikke-opererede patienter, og (3) 30-dages mortalitet blandt opererede patienter med Charlson Score = 0 (supplerende indikator til indikator 9a). Rapporten er udarbejdet af Sundhedsvæsenets Kvalitetsinstitut og bygger på data fra hele Danmark, organiseret på nationalt, regionalt og hospitalsniveau, hvilket muliggør både benchmarking og identifikation af variationer i klinisk praksis. Tabellerne viser ikke kun punktestimater, men også kvartiler, procentandele og konfidensintervaller, hvilket understreger metodisk rigor og erkendelse af usikkerhed — især ved små populationer, som illustreret ved '#/#'-angivelser og ekstreme konfidensintervaller for Rigshospitalet og Bornholms Hospital. Denne struktur understøtter en evidensbaseret kvalitetsudvikling i det danske sundhedsvæsen."
+}

@@ -1,0 +1,422 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 2",
+      "type": "indicator",
+      "slug": "indikator-2",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 2 er den centrale kvalitetsmåling for CT-skanningstid hos akutte abdominale patienter og danner grundlag for både national og regional evaluering af akut kirurgisk kvalitet i Danmark.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 2: CT-skanning. Forest plot på afdelingsniveau"
+        },
+        {
+          "page": 17,
+          "context": "Indikatorbeskrivelse for indikator 2"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "indicator",
+      "slug": "indikator-3",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 3 måler andelen af patienter, der enten får præoperativ optimering eller går direkte til operation inden for 240 minutter efter ankomst, og er en central indikator for effektivitet og hastighed i akut kirurgisk behandling.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "Indikator 3: Præoperativ optimering eller direkte til operation"
+        }
+      ]
+    },
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den nationale kliniske database, der overvåger kvaliteten af akut kirurgisk behandling i Danmark, og er ansvarlig for indsamling, analyse og rapportering af indikatorer som Indikator 2 og Indikator 3.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 17,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 18,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 19,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 20,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den myndighed, der udgiver og administrerer Akut Kirurgi Databasen samt fastsætter udviklingsmål og vurderer indikatorers gyldighed, herunder bibeholdelse af Indikator 2 med et udviklingsmål på ≥ 90 %.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 17,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 18,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 19,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 20,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den beslutningsmyndighed, der har besluttet at give særlig fokus på Indikator 2 i kommende evidensrapporter, hvilket understreger dens strategiske betydning for kvalitetsudvikling i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "Styregruppen beslutter, at man i forbindelse med kommende evidensrapport vil have fokus på denne indikator."
+        }
+      ]
+    },
+    {
+      "name": "LKT for Akutkirurgi",
+      "type": "healthcare-program",
+      "slug": "lkt-akut-kirurgi",
+      "folder": "entities/healthcare-programs/clinical-quality-improvement",
+      "significance": "LKT for Akutkirurgi er det nationale kliniske kvalitetsprogram, der danner baggrund for udviklingsmålet på ≥ 90 % for Indikator 2 og som nævnes som en drivkraft bag den nationale stigning i målopfyldelse.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Det er igen en pæn stigning i målopfyldelse ift. foregående år og formentlige har LKT for Akutkirurgi bidraget til denne stigning nationalt."
+        },
+        {
+          "page": 18,
+          "context": "hvilket er i overensstemmelse med LKT for Akutkirurgi."
+        }
+      ]
+    },
+    {
+      "name": "Randers",
+      "type": "location",
+      "slug": "randers",
+      "folder": "entities/locations/national",
+      "significance": "Randers refereres til som 'best practice hospital' for Indikator 2 og fremhæves som eksempel på succesfuld kvalitetsforbedring med en forbedring på over 20 %-points over to år.",
+      "disambiguation": "Dette er byen Randers i Region Midtjylland, ikke Regionshospitalet Randers som institution — selvom begge er knyttet til samme geografiske område; konteksten henviser til hospitalsniveau og indsats.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Randers er best practice hospital."
+        },
+        {
+          "page": 17,
+          "context": "Vi anbefaler at der videns udveksles for at alle danske patienter kan drage nytte af sådanne indsatser."
+        }
+      ]
+    },
+    {
+      "name": "American College of Radiology",
+      "type": "organization",
+      "slug": "american-college-of-radiology",
+      "folder": "entities/organizations/medical-professional-bodies",
+      "significance": "American College of Radiology er den internationale professionelle organisation, hvis anbefaling om CT abdomen med kontrast for akutte abdominalsmerter og ileus citeres som evidensgrundlag for brugen af CT i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "American College of radiology anbefaler CT abdomen med kontrast for akutte, ikke lokaliserede, abdominalsmerter og for patienter mistænkt for ileus."
+        }
+      ]
+    },
+    {
+      "name": "Dansk Radiologisk Selskab",
+      "type": "organization",
+      "slug": "dansk-radiologisk-selskab",
+      "folder": "entities/organizations/medical-professional-bodies",
+      "significance": "Dansk Radiologisk Selskab er den nationale faglige sammenslutning, der er blevet hørt om sin holdning til brugen af CT-scanning i akut kirurgi, hvilket indikerer behov for national faglig alignment.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Dansk Radiologisk Selskab er blevet spurgt om holdning."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er den region med laveste nationalt rapporterede andel af patienter skannede inden for 2 timer (28,2 %), hvilket gør den til et centralt benchmark- og forbedringsfokus for Indikator 2.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Regionalt varierede resultaterne fra 28,2 % i Region Sjælland til 45,8 % i Region Midtjylland."
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Midtjylland er den region med højeste nationalt rapporterede andel af patienter skannede inden for 2 timer (45,8 %), hvilket markerer den som en top-performende region for Indikator 2.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Regionalt varierede resultaterne fra 28,2 % i Region Sjælland til 45,8 % i Region Midtjylland."
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus fremhæves som det eneste hospital i tabellen med en meget høj andel (68,0 %) af patienter, der får præoperativ optimering eller direkte til operation inden for 240 minutter, hvilket gør det til et outlier- og potentiel best-practice-eksempel for Indikator 3.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "Holbæk Sygehus Nej 102 / 150 0 (0) 68,0 (59,9-75,4) 50,8 12,4"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er det hospital med højeste andel (39,5 %) blandt de rapporterede for Indikator 3, hvilket placerer det som et af de bedst ydende hospitaler i forhold til præoperativ optimering eller direkte til operation inden for 4 timer.",
+      "mentions": [
+        {
+          "page": 20,
+          "context": "Regionshospitalet Gødstrup Nej 58 / 147 0 (0) 39,5 (31,5-47,8) 17,1 3,1"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-2",
+      "predicate": "is-measured-by",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 2: CT-skanning. Forest plot på afdelingsniveau",
+      "page": 16
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "is-measured-by",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 3: Præoperativ optimering eller direkte til operation",
+      "page": 19
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Akut Kirurgi Databasen\nUdkast 2026.01.05\nSundhedsvæsenets Kvalitetsinstitut",
+      "page": 16
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "decides-focus-on",
+      "object": "indikator-2",
+      "evidence": "Styregruppen beslutter, at man i forbindelse med kommende evidensrapport vil have fokus på denne indikator.",
+      "page": 18
+    },
+    {
+      "subject": "lkt-akut-kirurgi",
+      "predicate": "informs-target-for",
+      "object": "indikator-2",
+      "evidence": "hvilket er i overensstemmelse med LKT for Akutkirurgi.",
+      "page": 18
+    },
+    {
+      "subject": "american-college-of-radiology",
+      "predicate": "recommends",
+      "object": "ct-skanning",
+      "evidence": "American College of radiology anbefaler CT abdomen med kontrast for akutte, ikke lokaliserede, abdominalsmerter og for patienter mistænkt for ileus.",
+      "page": 17
+    },
+    {
+      "subject": "dansk-radiologisk-selskab",
+      "predicate": "consulted-on",
+      "object": "ct-skanning",
+      "evidence": "Dansk Radiologisk Selskab er blevet spurgt om holdning.",
+      "page": 17
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "has-lowest-performance-for",
+      "object": "indikator-2",
+      "evidence": "Regionalt varierede resultaterne fra 28,2 % i Region Sjælland til 45,8 % i Region Midtjylland.",
+      "page": 17
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "has-highest-performance-for",
+      "object": "indikator-2",
+      "evidence": "Regionalt varierede resultaterne fra 28,2 % i Region Sjælland til 45,8 % i Region Midtjylland.",
+      "page": 17
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indikator 2 beskriver andelen af patienter, der får en CT-skanning og som blev skannede indenfor 2 timer efter ankomst til sygehus [^src1]",
+      "type": "definition",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "I alt 3.133 patienter blev skannede, og heraf blev 1.050 skannede indenfor to timer, svarende til en andel på 33,5 % (95 % CI 31,9-35,2) nationalt [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Regionalt varierede resultaterne fra 28,2 % i Region Sjælland til 45,8 % i Region Midtjylland [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-2",
+        "region-sjaelland",
+        "region-midtjylland"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Udviklingsmålet på ≥ 90 % er således langt fra opnået både nationalt og regionalt [^src1]",
+      "type": "evaluation",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Indikator 2 bibeholdes og udviklingsmålet på mindst 90 % er skannet indenfor 120 minutter fastholdes [^src2]",
+      "type": "policy",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 18
+    },
+    {
+      "text": "Andelen af patienter, der får præoperativ optimering eller som går direkte til operation, svarende til indenfor 240 minutter efter ankomst til sygehus [^src3]",
+      "type": "definition",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Danmark: 14,3 % (95 % CI 13,1-15,5) for Indikator 3 i perioden 01.09.2024 – 31.08.2025 [^src3]",
+      "type": "statistical",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Holbæk Sygehus: 68,0 % (95 % CI 59,9-75,4) for Indikator 3 i perioden 01.09.2024 – 31.08.2025 [^src3]",
+      "type": "statistical",
+      "entities": [
+        "indikator-3",
+        "holbaek-sygehus"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Regionshospitalet Gødstrup: 39,5 % (95 % CI 31,5-47,8) for Indikator 3 i perioden 01.09.2024 – 31.08.2025 [^src4]",
+      "type": "statistical",
+      "entities": [
+        "indikator-3",
+        "regionshospitalet-goedstrup"
+      ],
+      "page": 20
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2024",
+      "event": "Start af dataindsamling for Indikator 3 i perioden 01.09.2024 – 31.08.2025",
+      "entities": [
+        "indikator-3"
+      ]
+    },
+    {
+      "date": "31.08.2025",
+      "event": "Afslutning af dataindsamling for Indikator 3 i perioden 01.09.2024 – 31.08.2025",
+      "entities": [
+        "indikator-3"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-3",
+      "title": "Resultater for Indikator 3: Præoperativ optimering eller direkte til operation",
+      "page": 19,
+      "rowDimension": "region or hospital",
+      "colDimension": "percentage per year",
+      "entities": [
+        "indikator-3",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse"
+      ],
+      "markdown": "| Region/Hospital | Uoplyst | Aktuelle år Tæller/ antal | Aktuelle år nævner (%) | Aktuelle år Andel | Aktuelle år 95% CI | Tidligere år 2023/24 Andel | Tidligere år 2022/23 Andel |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 463 / 3.247 | 0 (0) | 14,3 | 13,1-15,5 | 11,1 | 7,0 |\n| Hovedstaden | Nej | 51 / 1.006 | 0 (0) | 5,1 | 3,8-6,6 | 4,4 | 5,0 |\n| Sjælland | Nej | 121 / 618 | 0 (0) | 19,6 | 16,5-22,9 | 12,6 | 5,2 |\n| Syddanmark | Nej | 85 / 655 | 0 (0) | 13,0 | 10,5-15,8 | 10,6 | 3,5 |\n| Midtjylland | Nej | 142 / 662 | 0 (0) | 21,5 | 18,4-24,8 | 18,0 | 15,4 |\n| Nordjylland | Nej | 64 / 306 | 0 (0) | 20,9 | 16,5-25,9 | 17,2 | 4,9 |\n| Hovedstaden | Nej | 51 / 1.006 | 0 (0) | 5,1 | 3,8-6,6 | 4,4 | 5,0 |\n| Amager og Hvidovre Hospital | Nej | 3 / 244 | 0 (0) | 1,2 | 0,3-3,6 | 1,2 | 0,4 |\n| Bispebjerg og Frederiksberg Hospital | Nej | 11 / 220 | 0 (0) | 5,0 | 2,5-8,8 | 2,2 | 5,6 |\n| Bornholms Hospital | Nej | 3 / 14 | 0 (0) | 21,4 | 4,7-50,8 | 15,4 | 31,3 |\n| Herlev og Gentofte Hospital | Nej | 17 / 264 | 0 (0) | 6,4 | 3,8-10,1 | 5,8 | 6,1 |\n| Hospitalerne i Nordsjælland | Nej | 15 / 218 | 0 (0) | 6,9 | 3,9-11,1 | 6,7 | 4,6 |\n| Rigshospitalet | Nej | #/# | 0 (0) | 4,3 | 0,5-14,8 | 3,8 | 3,4 |\n| Sjælland | Nej | 121 / 618 | 0 (0) | 19,6 | 16,5-22,9 | 12,6 | 5,2 |\n| Holbæk Sygehus | Nej | 102 / 150 | 0 (0) | 68,0 | 59,9-75,4 | 50,8 | 12,4 |\n| Næstved, Slagelse og Ringsted sygehuse | Nej | 9 / 215 | 0 (0) | 4,2 | 1,9-7,8 | 2,6 | 3,6 |",
+      "summary": "Tabellen sammenligner andelen af patienter, der modtager præoperativ optimering eller går direkte til operation inden for 240 minutter, på regionalt og hospitalsniveau over tre år, og viser markant variation — især med Holbæk Sygehus som outlier med 68,0 %."
+    },
+    {
+      "subject": "indikator-3-exclusions",
+      "title": "Eksklusionsårsager for Indikator 3",
+      "page": 20,
+      "rowDimension": "exclusion reason",
+      "colDimension": "count per region",
+      "entities": [
+        "indikator-3",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Årsag | Danmark | Hovedstaden | Sjælland | Syddanmark | Midtjylland | Nordjylland |\n| --- | --- | --- | --- | --- | --- | --- |\n| Ugyldigt CPRnummer. | 78 | 30 | 10 | 19 | 11 | 8 |\n| Patienten er under 18 år. | 176 | 66 | 9 | 54 | 36 | 11 |\n| Patienten er ikke opereret. | 6.643 | 1.613 | 1.023 | 1.437 | 1.579 | 991 |\n| Operationen er ikke den første operation i hospitalsopholdet. | 544 | 182 | 76 | 144 | 113 | 29 |",
+      "summary": "Tabellen dokumenterer antallet af patienter ekskluderet fra Indikator 3-beregningen pr. årsag og region, hvor 'Patienten er ikke opereret' er den dominerende eksklusionsgrund med over 6.600 tilfælde nationalt."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af den årlige kvalitetsrapport for Akut Kirurgi Databasen og fokuserer på to centrale indikatorer for akut kirurgisk behandling i Danmark: Indikator 2 (CT-skanning inden for 2 timer) og Indikator 3 (præoperativ optimering eller direkte til operation inden for 4 timer). Chunken indeholder både teknisk definition, statistiske resultater, evidensbaserede anbefalinger fra nationale og internationale faglige organisationer, samt en detaljeret diskussion af klinisk relevans og systemiske udfordringer ved implementering. Den tilhører en bredere narrativ om kvalitetsudvikling i det danske sundhedsvæsen, hvor fokus ligger på at mindske ventetider, forbedre diagnostisk sikkerhed og optimere behandlingsforløb for akutte abdominale patienter gennem standardiserede, målbare indikatorer og tværgående samarbejde mellem kliniske specialer, ledelse og tilsynsmyndigheder."
+}

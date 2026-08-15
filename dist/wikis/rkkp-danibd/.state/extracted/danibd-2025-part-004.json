@@ -1,0 +1,402 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den nationale kvalitetsdatabase, der overvåger behandlingskvalitet og udredningsstandarder for børn og voksne med IBD i Danmark, og dets indikatorer danner grundlag for klinisk udvikling og politiske beslutninger på regionsniveau.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1b",
+      "type": "topic",
+      "slug": "indikator-1b",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1b måler andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget komplet udredning (gastroskopi, koloskopi og MR-scanning/kapselendoskopi), og dens revision på side 18 markerer en væsentlig justering af kliniske standarder i lyset af nye retningslinjer og etisk overvejelse.",
+      "mentions": [
+        {
+          "page": 16,
+          "context": "Indikator 1b: Andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget relevant udredning."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "topic",
+      "slug": "indikator-2",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 2 måler andelen af nydiagnosticerede IBD-patienter, der har modtaget patientundervisning inden for ét år efter diagnosen, og fungerer som en central kvalitetsmåler for patientinvolvering og selvstyring i kronisk sygdomshåndtering.",
+      "mentions": [
+        {
+          "page": 19,
+          "context": "Indikator 2. Undervisning, nydiagnosticerede"
+        },
+        {
+          "page": 20,
+          "context": "Indikator 2: Andelen af nydiagnosticerede patienter med IBD, der har modtaget undervisning inden for ét år efter diagnosen er stillet"
+        }
+      ]
+    },
+    {
+      "name": "ESPGHAN 2025 UC guideline",
+      "type": "organization",
+      "slug": "espgghan-2025-uc-guideline",
+      "folder": "entities/organizations/health-organizations",
+      "significance": "ESPGHAN's 2025 retningslinje for ulcerøs colitis hos børn er den internationale vidensgrundlag, der direkte fører til ændring af Indikator 1b fra krav om tre undersøgelser til to, da den nye retningslinje ikke længere anbefaler rutinemæssig tyndtarmsevaluering ved alle nydiagnosticerede.",
+      "disambiguation": "Dette refererer specifikt til European Society for Paediatric Gastroenterology, Hepatology and Nutrition's opdaterede retningslinje fra 2025 for ulcerøs colitis hos børn — ikke tidligere versioner eller retningslinjer for Crohns sygdom.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "nyeste internationale guidelines for pædiatrisk IBD diagnostik (ESPGHAN 2025 UC guideline)"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Styregruppen for DANIBD er den beslutningskompetente gruppe, der godkender ændringer af kvalitetsindikatorer, herunder den afgørende beslutning på side 18 om at nedjustere Indikator 1b til kun at kræve gastroskopi og koloskopi.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "Efter drøftelse af mulighederne og efterfølgende konsensus i styregruppen ændres Indikator 1b derfor fremover til Gastroskopi + Koloskopi"
+        }
+      ]
+    },
+    {
+      "name": "FPIAC",
+      "type": "medical-condition",
+      "slug": "fpiac",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "Food protein induced allergic proctocolitis (FPIAC) er en almindelig allergisk tilstand hos spædbørn, der ofte fejlkodes som ulcerøs colitis i DANIBD, hvilket påvirker datakvaliteten for Indikator 1b og understreger behovet for bedre kodepraksis blandt pædiatriske læger.",
+      "disambiguation": "FPIAC er en non-IgE-medieret fødevareallergi, typisk mod komælksproteinet, der forårsager blod i afføringen hos velnærede spædbørn — ikke at forveksle med IBD eller infektiøs kolitis.",
+      "mentions": [
+        {
+          "page": 18,
+          "context": "4 børn ”fanget” i DANIBD med en venstresidig ulcerøs colitis diagnose uden relevante undersøgelser, alle 4 patienter er spædbørn med FPIAC tilstand (food protein induced allergic proctocolitis)"
+        }
+      ]
+    },
+    {
+      "name": "MR-scanning af tyndtarmen",
+      "type": "procedure",
+      "slug": "mr-scanning-af-tyndtarmen",
+      "folder": "entities/procedural",
+      "significance": "MR-scanning af tyndtarmen er én af de tre krævede undersøgelser i den oprindelige definition af Indikator 1b, men dens manglende udførelse er den hyppigste årsag til manglende opfyldelse af indikatoren (48 % af manglende tilfælde), hvilket fører til dens fjernelse fra det reviderede krav.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "MR-scanning af tyndtarm/kapselendoskopi (SKS-koder: KUJD02/05 og KUJF32/35 og UXMD25*/WMAMPXYXX/ KUJF92)"
+        }
+      ]
+    },
+    {
+      "name": "Kapselendoskopi",
+      "type": "procedure",
+      "slug": "kapselendoskopi",
+      "folder": "entities/procedural",
+      "significance": "Kapselendoskopi er en alternativ metode til evaluering af tyndtarmen, der sammen med MR-scanning udgør den tredje krævede undersøgelse i den oprindelige Indikator 1b, og dens manglende udførelse er den hyppigste enkelte årsag til indikator-manglende opfyldelse.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "MR-scanning af tyndtarm/kapselendoskopi (SKS-koder: KUJD02/05 og KUJF32/35 og UXMD25*/WMAMPXYXX/ KUJF92)"
+        }
+      ]
+    },
+    {
+      "name": "Gastroskopi",
+      "type": "procedure",
+      "slug": "gastroskopi",
+      "folder": "entities/procedural",
+      "significance": "Gastroskopi er en af de tre undersøgelser i den oprindelige Indikator 1b og bliver en af de to faste krav i den reviderede version, hvilket understreger dens centrale rolle i pædiatrisk IBD-udredning.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi"
+        }
+      ]
+    },
+    {
+      "name": "Koloskopi",
+      "type": "procedure",
+      "slug": "koloskopi",
+      "folder": "entities/procedural",
+      "significance": "Koloskopi er en af de tre undersøgelser i den oprindelige Indikator 1b og bliver en af de to faste krav i den reviderede version, hvilket understreger dens uundværlige rolle i diagnosticering og klassificering af IBD hos børn og unge.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er den region med laveste opfyldelsesgrad af Indikator 1b (55 %) på landsplan, men samtidig med den største fremgang på 19 procentpoint, hvilket illustrerer regional variation i implementering af kvalitetsindikatorer.",
+      "mentions": [
+        {
+          "page": 17,
+          "context": "Region Nordjylland ligger lavest på 55 % til trods for, at der her ses en fremgang på 19 procentpoint fra sidste år."
+        }
+      ]
+    },
+    {
+      "name": "SLB Vejle Gastroenterologisk Amb.",
+      "type": "healthcare-facility",
+      "slug": "slb-vejle-gastroenterologisk-amb",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "SLB Vejle Gastroenterologisk Amb. er en af de få enheder på side 20, der rapporterer højere opfyldelse af Indikator 2 (27 % i 2022/23 og 27 % i 2023/24), og er dermed en positiv outlier i forhold til landsgennemsnittet på 13 %.",
+      "mentions": [
+        {
+          "page": 20,
+          "context": "SLB Vejle Gastroenterologisk Amb. Nej 31 / 115 27 (19-36) 25 / 100 25"
+        }
+      ]
+    },
+    {
+      "name": "SLB Kolding Børne- og Ungeafdeling",
+      "type": "healthcare-facility",
+      "slug": "slb-kolding-boerne-og-ungeafdeling",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "SLB Kolding Børne- og Ungeafdeling er den eneste enhed på side 20, der opfylder udviklingsmålet for Indikator 2 (≥ 80 %), med 82 % i 2023/24, hvilket gør den til en national benchmark for patientundervisning i pædiatrisk IBD.",
+      "mentions": [
+        {
+          "page": 20,
+          "context": "SLB Kolding Børne- og Ungeafdeling Ja 18 / 22 82 (60-95) 6 / 22 27"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-1b",
+      "predicate": "is-monitored-by",
+      "object": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "evidence": "Indikator 1b: Andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget relevant udredning.",
+      "page": 16
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "is-monitored-by",
+      "object": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "evidence": "Indikator 2: Andelen af nydiagnosticerede patienter med IBD, der har modtaget undervisning inden for ét år efter diagnosen er stillet.",
+      "page": 19
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "is-revised-based-on",
+      "object": "espgghan-2025-uc-guideline",
+      "evidence": "nyeste internationale guidelines for pædiatrisk IBD diagnostik (ESPGHAN 2025 UC guideline)",
+      "page": 18
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "is-approved-by",
+      "object": "styregruppen-for-danibd",
+      "evidence": "Efter drøftelse af mulighederne og efterfølgende konsensus i styregruppen ændres Indikator 1b derfor fremover til Gastroskopi + Koloskopi",
+      "page": 18
+    },
+    {
+      "subject": "fpiac",
+      "predicate": "is-misclassified-as",
+      "object": "dk51-ulceroes-colitis",
+      "evidence": "4 børn ”fanget” i DANIBD med en venstresidig ulcerøs colitis diagnose uden relevante undersøgelser, alle 4 patienter er spædbørn med FPIAC tilstand",
+      "page": 18
+    },
+    {
+      "subject": "mr-scanning-af-tyndtarmen",
+      "predicate": "is-part-of",
+      "object": "indikator-1b",
+      "evidence": "gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi",
+      "page": 17
+    },
+    {
+      "subject": "kapselendoskopi",
+      "predicate": "is-part-of",
+      "object": "indikator-1b",
+      "evidence": "gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi",
+      "page": 17
+    },
+    {
+      "subject": "gastroskopi",
+      "predicate": "is-part-of",
+      "object": "indikator-1b",
+      "evidence": "gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi",
+      "page": 17
+    },
+    {
+      "subject": "koloskopi",
+      "predicate": "is-part-of",
+      "object": "indikator-1b",
+      "evidence": "gastroskopi med/uden biopsi OG koloskopi OG MR-scanning af tyndtarm/kapselendoskopi",
+      "page": 17
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "has-indicator-1b-performance",
+      "object": "indikator-1b",
+      "evidence": "Region Nordjylland ligger lavest på 55 % til trods for, at der her ses en fremgang på 19 procentpoint fra sidste år.",
+      "page": 17
+    },
+    {
+      "subject": "slb-kolding-boerne-og-ungeafdeling",
+      "predicate": "has-indicator-2-performance",
+      "object": "indikator-2",
+      "evidence": "SLB Kolding Børne- og Ungeafdeling Ja 18 / 22 82 (60-95) 6 / 22 27",
+      "page": 20
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan har 66 % af de nydiagnosticerede børn og unge fået foretaget en komplet udredning [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1b"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Ingen regioner er tæt på at give den anbefalede udredning på mindst 80 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1b"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Region Nordjylland ligger lavest på 55 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-nordjylland",
+        "indikator-1b"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Der er stor variation på afdelingsniveau fra 55 % til 85 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1b"
+      ],
+      "page": 17
+    },
+    {
+      "text": "34 % af de nydiagnosticerede børn og unge får ikke komplet udredning til tiden [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1b"
+      ],
+      "page": 17
+    },
+    {
+      "text": "21 % af børnene/de unge har ikke fået foretaget nogle af de tre undersøgelser [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1b"
+      ],
+      "page": 17
+    },
+    {
+      "text": "65 % mangler at få foretaget én af undersøgelserne [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1b"
+      ],
+      "page": 17
+    },
+    {
+      "text": "48 % af manglende tilfælde skyldes manglende MR-scanning/kapselendoskopi [^src1]",
+      "type": "performance",
+      "entities": [
+        "mr-scanning-af-tyndtarmen",
+        "kapselendoskopi"
+      ],
+      "page": 17
+    },
+    {
+      "text": "Indikator 1b ændres fremover til kun at kræve gastroskopi + koloskopi [^src2]",
+      "type": "policy-change",
+      "entities": [
+        "indikator-1b",
+        "gastroskopi",
+        "koloskopi"
+      ],
+      "page": 18
+    },
+    {
+      "text": "Indsigt i egen sygdom understøtter patienternes ønske om at være involveret i beslutningstagning om egen behandling [^src3]",
+      "type": "clinical-practice",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 19
+    },
+    {
+      "text": "Landsgennemsnittet for Indikator 2 i perioden 01.10.2023–30.09.2024 er 26 % [^src4]",
+      "type": "performance",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 20
+    },
+    {
+      "text": "SLB Kolding Børne- og Ungeafdeling har en opfyldelsesgrad på 82 % for Indikator 2 i 2023/24 [^src4]",
+      "type": "performance",
+      "entities": [
+        "slb-kolding-boerne-og-ungeafdeling",
+        "indikator-2"
+      ],
+      "page": 20
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2025",
+      "event": "ESPGHAN udgiver ny retningslinje for ulcerøs colitis hos børn, som bliver grundlag for revision af Indikator 1b i DANIBD",
+      "entities": [
+        "espgghan-2025-uc-guideline",
+        "indikator-1b"
+      ]
+    },
+    {
+      "date": "2024",
+      "event": "Data for OUH gennemgås i 2024, hvilket afslører fejlkodning af FPIAC som UC i DANIBD",
+      "entities": [
+        "ouh-odense-kirurgisk-afdeling-a",
+        "fpiac",
+        "dk51-ulceroes-colitis"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-2",
+      "title": "Indikator 2: Andelen af nydiagnosticerede patienter med IBD, der har modtaget undervisning inden for ét år efter diagnosen er stillet",
+      "page": 20,
+      "rowDimension": "regions and departments",
+      "colDimension": "performance per year",
+      "entities": [
+        "indikator-2",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "slb-kolding-boerne-og-ungeafdeling",
+        "slb-vejle-gastroenterologisk-amb"
+      ],
+      "markdown": "| Region/Afdeling | Udviklingsmål | Tæller/ 01.10.2023 - 30.09.2024 | Andel | 95% CI | Antal | Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | ≥ 80% | 675 / 2.625 | 26 | (24-27) | 338 / 2.650 | 13 |\n| Hovedstaden | Nej | 159 / 858 | 19 | (16-21) | 91 / 864 | 11 |\n| Sjælland | Nej | 35 / 340 | 10 | (7-14) | 5 / 355 | 1 |\n| Syddanmark | Nej | 157 / 553 | 28 | (25-32) | 77 / 497 | 15 |\n| Midtjylland | Nej | 252 / 652 | 39 | (35-43) | 142 / 658 | 22 |\n| Nordjylland | Nej | 72 / 222 | 32 | (26-39) | 23 / 276 | 8 |\n| Bispebjerg Abdominalcenter K | Nej | 42 / 218 | 19 | (14-25) | 36 / 227 | 16 |\n| Bornholm Medicinsk Afdeling | Nej | 10 / 21 | 48 | (26-70) | 7 / 16 | 44 |\n| Herlev Børn og Unge | Nej | # /# | 0 | (0-98) | # /# | 0 |\n| Herlev Mave-, Tarm- og Leversygd. | Nej | 52 / 184 | 28 | (22-35) | 38 / 184 | 21 |\n| Hvidovre Børne- og Ungeafdeling | Nej | 0 / 45 | 0 | (0-8) | 0 / 42 | 0 |\n| Hvidovre Gastroenheden | Nej | 19 / 221 | 9 | (5-13) | 9 / 257 | 4 |\n| Nordsjælland Børne- og Ungeafdeling | Nej | # /# | 15 | (2-45) | 0 / 16 | 0 |\n| Nordsjælland Kirurgisk Afdeling | Nej | 34 / 139 | 24 | (18-32) | # /# | 1 |\n| Rigshospitalet Pædiatrisk Klinik, GGK | Nej | 0 / 3 | 0 | (0-71) | 0 / 3 | 0 |\n| Rigshospitalet Sygd. i Fordøjelsessystem, C | Nej | 0 / 13 | 0 | (0-25) | 0 / 7 | 0 |\n| HOL Holbæk Med. Gastroenterologi | Nej | 5 / 51 | 10 | (3-21) | 0 / 43 | 0 |\n| HOL Holbæk Pædiatri | Nej | # /# | 0 | (0-98) | 0 / 5 | 0 |\n| NSR Slagelse Med. Gastroenterologi | Nej | 3 / 85 | 4 | (1-10) | 0 / 90 | 0 |\n| NSR Slagelse Pædiatri | Nej | 0 / 3 | 0 | (0-71) | 0 / 3 | 0 |\n| SUH Køge Med. Gastroenterologi | Nej | 20 / 139 | 14 | (9-21) | 3 / 131 | 2 |\n| SUH Nykøbing F. Med. Gastroenterologi | Nej | 7 / 37 | 19 | (8-35) | # /# | 3 |\n| SUH Nykøbing F. Pædiatri | Nej | 0 / 5 | 0 | (0-52) | 0 / 3 | 0 |\n| SUH Roskilde Pædiatri | Nej | 0 / 19 | 0 | (0-18) | 0 / 22 | 0 |\n| EGS Esbjerg Medicinsk Mave og Tarm Amb. | Nej | 31 / 101 | 31 | (22-41) | 29 / 110 | 26 |\n| OUH Odense Børne- og Ungeafdeling H | Nej | 15 / 25 | 60 | (39-79) | 5 / 17 | 29 |\n| OUH Odense Medicinsk Mave-Tarm Afd. S | Nej | 17 / 131 | 13 | (8-20) | # /# | 2 |\n| OUH Svendborg Medicinsk Afdeling | Nej | 21 / 77 | 27 | (18-39) | 3 / 71 | 4 |\n| SHS Aabenraa Mave- og Tarmsygd. | Nej | 23 / 74 | 31 | (21-43) | 5 / 55 | 9 |\n| SHS Tønder Medicinsk Daghospital | Nej | # /# | 13 | (0-53) | # /# | 10 |\n| SLB Kolding Børne- og Ungeafdeling | Ja | 18 / 22 | 82 | (60-95) | 6 / 22 | 27 |\n| SLB Vejle Gastroenterologisk Amb. | Nej | 31 / 115 | 27 | (19-36) | 25 / 100 | 25 |\n| Aarhus Børn og Unge | Nej | 0 / 34 | 0 | (0-10) | 0 / 33 | 0 |\n| Aarhus Lever-, Mave- og Tarmsygd. | Nej | 76 / 163 | 47 | (39-55) | 58 / 150 | 39 |\n| Gødstrup Børn og Unge | Nej | # /# | 20 | (3-56) | 0 / 7 | 0 |\n| Gødstrup Mave-, Tarm- og Leversygd. | Nej | 51 / 117 | 44 | (34-53) | 31 / 119 | 26 |\n| HE Midt Klinik for Mave- og Tarmsygd. | Nej | 37 / 98 | 38 | (28-48) | 25 / 126 | 20 |\n| HE Midt Viborg Børn og Unge | Nej | 0 / 9 | 0 | (0-34) | 0 / 11 | 0 |\n| Horsens Klinik for Medicinske Sygd. | Nej | 34 / 121 | 28 | (20-37) | 24 / 124 | 19 |\n| Randers Lever-, Mave- og Tarmsygd. | Nej | 52 / 100 | 52 | (42-62) | 4 / 88 | 5 |\n| AAUH Aalborg Børne- og Ungeafdeling | Nej | 5 / 23 | 22 | (7-44) | 0 / 22 | 0 |\n| AAUH Aalborg Med. Gastroenterologisk Afd. | Nej | 44 / 87 | 51 | (40-61) | 18 / 132 | 14 |\n| AAUH Farsø Medicinsk Afdeling | Nej | 12 / 38 | 32 | (18-49) | # /# | 6 |\n| RHN Hjørring Med. Mave- og Tarmsygd. | Nej | 11 / 74 | 15 | (8-25) | 3 / 89 | 3 |",
+      "summary": "Tabellen sammenligner opfyldelsesgraden af Indikator 2 (patientundervisning inden for ét år) på både regions- og afdelingsniveau for to år, og viser en bred variation fra 0 % til 82 %, hvor kun SLB Kolding Børne- og Ungeafdeling opfylder udviklingsmålet på ≥ 80 %."
+    }
+  ],
+  "context": "Dette dokumentudsnit fra DANIBD-rapporten 2025 (sider 16–20) danner en central del af den danske kvalitetsudviklingsindsats for inflammatoriske tarmsygdomme (IBD), især for børn og unge. Det fokuserer på to centrale kvalitetsindikatorer: Indikator 1b, der evaluerer komplet udredning, og Indikator 2, der måler patientundervisning. Udnittet dokumenterer både aktuelle ydelser (fx 66 % komplet udredning på landsplan) og systemiske udfordringer som fejlkodning af FPIAC som IBD samt en dyb diskussion om klinisk relevant udredning i lyset af nye internationale retningslinjer. Den afgørende konklusion er en politisk og klinisk aftalt justering af Indikator 1b, hvilket illustrerer, hvordan data fra DANIBD direkte driver kvalitetsforbedring og evidensbaseret praksisændring i det danske sundhedsvæsen."
+}

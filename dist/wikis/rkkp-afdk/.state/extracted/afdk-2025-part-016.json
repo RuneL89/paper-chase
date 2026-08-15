@@ -1,0 +1,331 @@
+{
+  "entities": [
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er den specifikke rapport, der indeholder statistiske data om forekomst og udvikling af atrieflimren i Danmark og på regionsniveau, hvilket danner grundlag for kvalitetsudvikling inden for sygdommen.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesnets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Den organisation, der har udarbejdet rapporten 'Atrieflimren i Danmark', og som er ansvarlig for kvalitetsmåling og -udvikling i det danske sundhedsvæsen.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Det nationale niveau, hvor incidens- og prævalensdata for atrieflimren samt alders- og CHA₂DS₂-VASc-fordelingsdata præsenteres som reference for regionsdata.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Danmark 3,9 3,7 3,6 3,5 3,6 3,6 3,7 3,7 3,7"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, hvis epidemiologiske data for atrieflimren (incidens, prævalens, alder og CHA₂DS₂-VASc-score) præsenteres sammenlignende i rapporten.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Region Hovedstaden 3,6 3,2 3,2 3,0 2,9 3,0 3,2 3,2 3,2"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, hvis epidemiologiske data for atrieflimren (incidens, prævalens, alder og CHA₂DS₂-VASc-score) præsenteres sammenlignende i rapporten.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Region Sjælland 4,7 4,5 4,1 4,1 4,5 4,2 4,2 4,2 4,1"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, hvis epidemiologiske data for atrieflimren (incidens, prævalens, alder og CHA₂DS₂-VASc-score) præsenteres sammenlignende i rapporten.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Region Syddanmark 4,0 4,0 3,9 3,9 4,1 4,2 4,1 3,9 4,1"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, hvis epidemiologiske data for atrieflimren (incidens, prævalens, alder og CHA₂DS₂-VASc-score) præsenteres sammenlignende i rapporten.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Region Midtjylland 3,5 3,4 3,3 3,3 3,5 3,6 3,7 3,8 3,7"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "En af de fem regioner i Danmark, hvis epidemiologiske data for atrieflimren (incidens, prævalens, alder og CHA₂DS₂-VASc-score) præsenteres sammenlignende i rapporten.",
+      "mentions": [
+        {
+          "page": 76,
+          "context": "Region Nordjylland 4,2 4,1 3,9 3,9 3,9 3,8 4,1 4,0 4,1"
+        }
+      ]
+    },
+    {
+      "name": "CHA2DS2-VASc",
+      "type": "medical-score",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "Den risikoscore, der anvendes til at vurdere tromboembolisk risiko hos patienter med atrieflimren, og hvis fordeling blandt både incidente og prævalente patienter dokumenteres detaljeret i rapporten.",
+      "mentions": [
+        {
+          "page": 77,
+          "context": "Fordeling | af | CHA2DS2-VASc | score | for | de | incidente | patienter"
+        },
+        {
+          "page": 80,
+          "context": "Fordeling | af | CHA2DS2-VASc | score | blandt | de | prævalente | patienter"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-produced-by",
+      "object": "sundhedsvaesnets-kvalitetsinstitut",
+      "evidence": "Rapporten 'Atrieflimren i Danmark' er udarbejdet af Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 76
+    },
+    {
+      "subject": "sundhedsvaesnets-kvalitetsinstitut",
+      "predicate": "has-responsibility-for",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut er ansvarlig for udarbejdelse af rapporten om atrieflimren i Danmark",
+      "page": 76
+    }
+  ],
+  "claims": [
+    {
+      "text": "Incidensen af atrieflimren i Danmark var 3,7 pr. 1000 indbyggere i 2023/2024 og 2024/2025 [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "danmark",
+        "atrieflimren-i-danmark"
+      ],
+      "page": 76
+    },
+    {
+      "text": "Gennemsnitsalderen ved diagnose for incidente patienter med atrieflimren i Danmark var 74 år [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "danmark",
+        "atrieflimren-i-danmark"
+      ],
+      "page": 76
+    },
+    {
+      "text": "Gennemsnitsværdien af CHA₂DS₂-VASc-scoren for incidente patienter med atrieflimren i Danmark var 2,60 [^src1]",
+      "type": "clinical-risk",
+      "entities": [
+        "danmark",
+        "cha2ds2-vasc",
+        "atrieflimren-i-danmark"
+      ],
+      "page": 77
+    },
+    {
+      "text": "Prævalensen af atrieflimren i Region Sjælland var 27,1 pr. 1000 indbyggere i 2024/2025 [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "region-sjaelland",
+        "atrieflimren-i-danmark"
+      ],
+      "page": 78
+    },
+    {
+      "text": "Gennemsnitsalderen ved diagnose for prævalente patienter med atrieflimren i Danmark var 70 år [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "danmark",
+        "atrieflimren-i-danmark"
+      ],
+      "page": 80
+    },
+    {
+      "text": "Gennemsnitsværdien af CHA₂DS₂-VASc-scoren for prævalente patienter med atrieflimren i Danmark var 2,02 [^src1]",
+      "type": "clinical-risk",
+      "entities": [
+        "danmark",
+        "cha2ds2-vasc",
+        "atrieflimren-i-danmark"
+      ],
+      "page": 80
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2016/2017",
+      "event": "Startår for incidensdata for atrieflimren i Danmark og regionerne",
+      "entities": [
+        "atrieflimren-i-danmark",
+        "danmark"
+      ]
+    },
+    {
+      "date": "2020/2021",
+      "event": "Startår for prævalensdata for atrieflimren i regionerne",
+      "entities": [
+        "atrieflimren-i-danmark",
+        "region-hovedstaden"
+      ]
+    },
+    {
+      "date": "2024/2025",
+      "event": "Seneste år for både incidens- og prævalensdata i rapporten",
+      "entities": [
+        "atrieflimren-i-danmark",
+        "danmark"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "incidens-af-atrieflimren",
+      "title": "Udviklingen i incidensen af atrieflimren pr. 1000 indbyggere",
+      "page": 76,
+      "rowDimension": "geografisk område",
+      "colDimension": "incidens pr. 1000 indbyggere per år",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Geografisk område | 2016/2017 | 2017/2018 | 2018/2019 | 2019/2020 | 2020/2021 | 2021/2022 | 2022/2023 | 2023/2024 | 2024/2025 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3,9 | 3,7 | 3,6 | 3,5 | 3,6 | 3,6 | 3,7 | 3,7 | 3,7 |\n| Region Hovedstaden | 3,6 | 3,2 | 3,2 | 3,0 | 2,9 | 3,0 | 3,2 | 3,2 | 3,2 |\n| Region Sjælland | 4,7 | 4,5 | 4,1 | 4,1 | 4,5 | 4,2 | 4,2 | 4,2 | 4,1 |\n| Region Syddanmark | 4,0 | 4,0 | 3,9 | 3,9 | 4,1 | 4,2 | 4,1 | 3,9 | 4,1 |\n| Region Midtjylland | 3,5 | 3,4 | 3,3 | 3,3 | 3,5 | 3,6 | 3,7 | 3,8 | 3,7 |\n| Region Nordjylland | 4,2 | 4,1 | 3,9 | 3,9 | 3,9 | 3,8 | 4,1 | 4,0 | 4,1 |",
+      "summary": "Tabellen sammenligner incidensen af atrieflimren pr. 1000 indbyggere over ni år for Danmark og de fem regioner, hvor Region Sjælland konsekvent viser højest incidens og Region Hovedstaden lavest."
+    },
+    {
+      "subject": "alder-ved-diagnose-incidente",
+      "title": "Alder ved diagnose for incidente patienter",
+      "page": 76,
+      "rowDimension": "geografisk område",
+      "colDimension": "statistiske mål for alder",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Geografisk område | Gennemsnit | Spredning | Median | Minimum | Maximum | Uoplyst | Antal |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 74 | 12 | 76 | 0 | 106 | 0 | 22250 |\n| Region Hovedstaden | 74 | 12 | 76 | 0 | 103 | 0 | 6199 |\n| Sjælland | 74 | 12 | 76 | 18 | 101 | 0 | 3533 |\n| Syddanmark | 74 | 12 | 76 | 13 | 103 | 0 | 5079 |\n| Midtjylland | 74 | 12 | 76 | 0 | 106 | 0 | 5031 |\n| Nordjylland | 75 | 12 | 76 | 14 | 102 | 0 | 2408 |",
+      "summary": "Tabellen viser aldersfordelingen for nydiagnosticerede patienter med atrieflimren, hvor gennemsnitsalderen ligger mellem 74 og 75 år på tværs af områderne, men med variation i minimumsalderen."
+    },
+    {
+      "subject": "cha2ds2-vasc-fordeling-incidente",
+      "title": "Fordeling af CHA2DS2-VASc score for de incidente patienter",
+      "page": 77,
+      "rowDimension": "geografisk område",
+      "colDimension": "antal og procent for hver CHA₂DS₂-VASc-score",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "cha2ds2-vasc"
+      ],
+      "markdown": "| Geografisk område | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | I alt |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 2444 11 | 2691 12 | 5313 24 | 5950 27 | 3489 16 | 1586 7 | 606 3 | 150 1 | 18 0 | 3 0 | 22250 |\n| Region Hovedstaden | 764 12 | 763 12 | 1460 24 | 1607 26 | 935 15 | 445 7 | 175 3 | 46 1 | 3 0 | # 0 | 6199 |\n| Sjælland | 355 10 | 420 12 | 817 23 | 976 28 | 579 16 | 258 7 | 99 3 | 24 1 | 4 0 | # 0 | 3533 |\n| Syddanmark | 547 11 | 601 12 | 1227 24 | 1376 27 | 800 16 | 369 7 | 118 2 | 36 1 | 5 0 | . 0 | 5079 |\n| Midtjylland | 544 11 | 623 12 | 1218 24 | 1338 27 | 782 16 | 348 7 | 144 3 | 30 1 | 3 0 | # 0 | 5031 |\n| Nordjylland | 234 10 | 284 12 | 591 25 | 653 27 | 393 16 | 166 7 | 70 3 | 14 1 | 3 0 | . 0 | 2408 |",
+      "summary": "Tabellen viser antal og procentvis fordeling af CHA₂DS₂-VASc-scorer fra 0 til 9 blandt nydiagnosticerede patienter, hvor de fleste har en score på 2 eller 3, og hvor Region Nordjylland har den højeste andel med score 2."
+    },
+    {
+      "subject": "praevalens-af-atrieflimren",
+      "title": "Udviklingen i prævalensen af atrieflimren pr. 1000 indbyggere",
+      "page": 78,
+      "rowDimension": "geografisk område",
+      "colDimension": "prævalens pr. 1000 indbyggere per år",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Geografisk område | 2020/2021 | 2021/2022 | 2022/2023 | 2023/2024 | 2024/2025 |\n| --- | --- | --- | --- | --- | --- |\n| Region Hovedstaden | 20,3 | 20,1 | 19,8 | 19,8 | 20,2 |\n| Region Sjælland | 26,0 | 26,5 | 26,4 | 26,6 | 27,1 |\n| Region Syddanmark | 24,6 | 25,1 | 25,3 | 25,3 | 25,3 |\n| Region Midtjylland | 21,8 | 22,0 | 21,8 | 22,0 | 22,4 |\n| Region Nordjylland | 24,6 | 24,8 | 24,4 | 24,9 | 25,2 |",
+      "summary": "Tabellen sammenligner prævalensen af atrieflimren pr. 1000 indbyggere over fem år for de fem regioner, hvor Region Sjælland har den højeste prævalens og Region Hovedstaden den laveste."
+    },
+    {
+      "subject": "alder-ved-diagnose-praevalente",
+      "title": "Alder ved diagnose for prævalente patienter",
+      "page": 80,
+      "rowDimension": "geografisk område",
+      "colDimension": "statistiske mål for alder",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Geografisk område | Gennemsnit | Spredning | Median | Minimum | Maximum | Uoplyst | Antal |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 70 | 12 | 72 | 0 | 105 | 0 | 138889 |\n| Region Hovedstaden | 70 | 13 | 72 | 0 | 105 | 0 | 38830 |\n| Sjælland | 70 | 12 | 72 | 0 | 105 | 0 | 23101 |\n| Syddanmark | 71 | 12 | 72 | 0 | 103 | 0 | 31414 |\n| Midtjylland | 70 | 12 | 72 | 0 | 104 | 0 | 30615 |\n| Nordjylland | 71 | 12 | 72 | 0 | 101 | 0 | 14929 |",
+      "summary": "Tabellen viser aldersfordelingen for alle kendte patienter med atrieflimren, hvor gennemsnitsalderen ligger mellem 70 og 71 år på tværs af områderne, og hvor minimumsalderen er ens for de fleste områder."
+    },
+    {
+      "subject": "cha2ds2-vasc-fordeling-praevalente",
+      "title": "Fordeling af CHA2DS2-VASc score blandt de prævalente patienter",
+      "page": 80,
+      "rowDimension": "geografisk område",
+      "colDimension": "antal og procent for hver CHA₂DS₂-VASc-score",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "cha2ds2-vasc"
+      ],
+      "markdown": "| Geografisk område | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | I alt |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 29394 21 | 21650 16 | 36634 26 | 29749 21 | 13675 10 | 5285 4 | 2065 1 | 406 0 | 31 0 | 138889 |\n| Region Hovedstaden | 8729 22 | 5669 15 | 9813 25 | 8356 22 | 4017 10 | 1512 4 | 607 2 | 119 0 | 8 0 | 38830 |\n| Sjælland | 4470 19 | 3477 15 | 6074 26 | 5079 22 | 2471 11 | 1044 5 | 411 2 | 68 0 | 7 0 | 23101 |\n| Syddanmark | 6404 20 | 4858 15 | 8366 27 | 6772 22 | 3274 10 | 1192 4 | 445 1 | 93 0 | 10 0 | 31414 |\n| Midtjylland | 6622 22 | 5121 17 | 8329 27 | 6407 21 | 2609 9 | 1047 3 | 389 1 | 86 0 | 5 0 | 30615 |\n| Nordjylland | 3169 21 | 2525 17 | 4052 27 | 3135 21 | 1304 9 | 490 3 | 213 1 | 40 0 | 1 0 | 14929 |",
+      "summary": "Tabellen viser antal og procentvis fordeling af CHA₂DS₂-VASc-scorer fra 0 til 8 blandt alle kendte patienter med atrieflimren, hvor de fleste har en score på 2 eller 3, og hvor Region Syddanmark og Midtjylland har den højeste andel med score 2."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af rapporten 'Atrieflimren i Danmark' udarbejdet af Sundhedsvæsenets Kvalitetsinstitut og dækker siderne 76–80. Rapporten præsenterer et omfattende epidemiologisk overblik over atrieflimren i Danmark, herunder tidsserier for incidens og prævalens på nationalt og regionalt plan, samt detaljerede analyser af aldersfordeling og CHA₂DS₂-VASc-risikoscore for både nydiagnosticerede (incidente) og allerede kendte (prævalente) patienter. Dataene bruges til at støtte kvalitetsudviklingsindsatsen inden for behandling og forebyggelse af atrieflimren, især i forhold til antikoagulationsbehandling og risikovurdering."
+}

@@ -914,6 +914,329 @@
       "signal": "abbreviation",
       "decidedAt": "2026-08-05T18:23:08.683Z",
       "runId": "2026-08-05T18:23:08.683Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "outcome-target"
+      ],
+      "into": "quality-target",
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "outcome-result"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "mortality"
+      ],
+      "into": "clinical-outcome",
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "causal-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "performance-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "assessment-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "status-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "analytical-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "historical-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "consensus-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "organizational-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "goal-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "evidence-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "request-claim"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "comparative"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "lpr3"
+      ],
+      "into": "landspatientregisteret",
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "naaz42"
+      ],
+      "into": "sks-kode-naaz42",
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "ita"
+      ],
+      "into": "ita-afsnit",
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "laparotomi-aaben"
+      ],
+      "into": "laparotomi",
+      "signal": "model",
+      "decidedAt": "2026-08-15T06:23:09.642Z",
+      "runId": "2026-08-15T06:23:09.642Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "clinical-recommendation"
+      ],
+      "into": "recommendation",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "evidence-based-recommendation"
+      ],
+      "into": "recommendation",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "clinical-timing"
+      ],
+      "into": "clinical-process",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "organizational-performance"
+      ],
+      "into": "performance",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "numerical"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "clinical-population"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "clinical-proportion"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "clinical-count"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "mortality-statistic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "charlson-morbidity-scoring"
+      ],
+      "into": "charlson-comorbiditets-indeks",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "aha-patienter"
+      ],
+      "into": "aha-populationen",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:45:55.350Z",
+      "runId": "2026-08-15T07:45:55.350Z"
     }
   ],
   "splits": []

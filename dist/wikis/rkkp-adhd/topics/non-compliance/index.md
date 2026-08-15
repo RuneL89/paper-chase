@@ -4,17 +4,18 @@ type: index
 aliases:
   - Non Compliance
 wiki: rkkp-adhd
-updated: '2026-08-05T19:22:06.738Z'
+updated: '2026-08-15T12:44:51.356Z'
 children:
+  - index.md
   - non-compliance.md
 ---
 # Non Compliance
 
-This folder documents systemic failures to meet established clinical standards within ADHD treatment across both public and private healthcare providers. It highlights severe shortfalls in quality indicators, notably the complete lack of regional and departmental compliance for Indikator 3 in 2023. Additionally, it covers deficiencies in the private sector, such as the failure to register any patients as having begun ADHD psychoeducation at private hospitals in 2024.
+This folder documents systemic failures to meet established clinical standards and quality indicators within the ADHD treatment corpus. It highlights widespread non-compliance across both public and private healthcare providers, detailing how no regions or departments met the required standards for Indikator 3 in 2023. Additionally, it covers critical deficiencies in the private sector, such as the complete lack of registered ADHD psychoeducation for patients at private hospitals in 2024.
 
 ## Pages
 
-- [[non-compliance|Non Compliance]] — Details systemic failures to meet ADHD clinical standards, highlighting zero compliance for Indikator 3 across all regions and departments in 2023, and a complete lack of registered psychoeducation for patients at private hospitals in 2024.
+- [[non-compliance|Non Compliance]] — Details systemic failures to meet clinical standards, including zero compliance for Indikator 3 across all regions and departments, and missing psychoeducation records in private hospitals.
 
 ## Navigation
 

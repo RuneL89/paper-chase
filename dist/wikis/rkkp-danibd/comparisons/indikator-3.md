@@ -62,7 +62,7 @@ Summary: Tabellen sammenligner andelen af voksne med Crohns sygdom, der har fåe
 
 ## Related comparisons in prose
 
-- "Region Syddanmark er med en opfyldelse på 79 % marginalt fra at opfylde standarden" — see [[quality-metric|Quality Metric]] ([[region-syddanmark|Region Syddanmark]]) [^src2]
+- "Region Syddanmark er med en opfyldelse på 79 % marginalt fra at opfylde standarden" — see [[quality-indicator|Quality Metric]] ([[region-syddanmark|Region Syddanmark]]) [^src2]
 
 ## Sources
 

@@ -4,19 +4,20 @@ type: index
 aliases:
   - Risk Scores
 wiki: rkkp-afdk
-updated: '2026-08-05T23:23:34.565Z'
+updated: '2026-08-15T00:19:06.234Z'
 children:
   - abc-pathway.md
   - cha2ds2-vasc.md
+  - index.md
 ---
 # Risk Scores
 
-This folder contains the primary clinical risk assessment tools and treatment frameworks used to manage atrial fibrillation in the Danish healthcare system. It covers the ABC Pathway, an integrated care model that aligns clinical treatment and patient education with international guidelines, and the CHA2DS2-VASc score, the foundational metric for evaluating stroke risk and determining eligibility for anticoagulation. Together, these pages document how national registries and quality indicators operationalize thromboembolic prevention and balance it against bleeding risks in everyday practice.
+This folder catalogs the primary clinical risk assessment tools and structured care models used to manage atrial fibrillation in Denmark. It holds the CHA2DS2-VASc score, which serves as the strict national threshold for anticoagulation therapy and defines the target populations for multiple healthcare quality indicators. It also contains the ABC Pathway, an integrated treatment framework that embeds this risk score into a broader three-step strategy for stroke prevention, symptom management, and cardiovascular risk reduction.
 
 ## Pages
 
-- [[abc-pathway|ABC Pathway]] — An integrated treatment and patient education model for atrial fibrillation that structures care into stroke avoidance, symptom management, and cardiovascular risk reduction.
-- [[cha2ds2-vasc|CHA2DS2-VASc]] — The primary clinical risk scoring system used to assess thromboembolic risk and determine indications for anticoagulation therapy, heavily integrated into national quality indicators and bleeding safety analyses.
+- [[abc-pathway|ABC Pathway]] — A three-step integrated treatment model for atrial fibrillation that aligns Danish patient education and clinical management with ESC guidelines, using risk scores to guide stroke avoidance.
+- [[cha2ds2-vasc|CHA2DS2-VASc]] — The foundational thromboembolic risk score that dictates anticoagulation eligibility in Denmark (using a strict ≥2 threshold) and defines the denominators for national quality indicators tracking treatment wait times and bleeding complications.
 
 ## Navigation
 

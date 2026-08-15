@@ -4,7 +4,7 @@ type: index
 aliases:
   - Rkkp Danibd
 wiki: rkkp-danibd
-updated: '2026-08-05T08:04:19.650Z'
+updated: '2026-08-15T08:09:03.120Z'
 children:
   - entities/index.md
   - topics/index.md
@@ -14,27 +14,27 @@ children:
 ---
 # Rkkp Danibd
 
-This wiki maps the Danish Quality Database for Inflammatory Bowel Disease (DANIBD) annual reports for 2023 and 2024, tracking national and regional clinical performance across seven quality indicators. It catalogs the real-world entities—hospitals, steering committees, biomarkers, and biologic therapies—that drive IBD care in Denmark, alongside the thematic topics of diagnostic workups, surgical re-operations, and patient education. Every claim and comparison table is traced back to the original ingested PDF documents, providing a fully citable, structured knowledge base for evaluating gastrointestinal healthcare quality.
+This wiki maps the Danish Quality Database for Inflammatory Bowel Diseases (DANIBD), tracking the clinical, operational, and evaluative dimensions of IBD care across Denmark from 2023 to 2025. It synthesizes the registry's annual reports into structured entities, cross-cutting topics, and comparative data tables, allowing readers to trace national quality indicators, regional performance disparities, and specific treatment protocols back to their original source documents. Every factual claim and statistical outlier is grounded in the raw extracted text and provenance records preserved within the corpus.
 
 ## Start Here
 
-- [[topics/quality-indicators/index|Quality Indicators]] — The comprehensive set of clinical metrics (Indikator 1 through 7) measuring diagnostic completeness, patient education, and therapy monitoring.
-- [[entities/healthcare-facilities/index|Healthcare Facilities]] — Hospitals and specialized clinical departments across Denmark participating in the national DANIBD quality monitoring program.
-- [[comparisons/index|Comparisons]] — Cross-sectional data tables evaluating regional and departmental compliance with clinical targets and surgical outcomes.
-- [[topics/diseases/index|Diseases]] — Primary disease conditions tracked by the registry, focusing on the epidemiology of gastrointestinal IBD and related hepatic conditions.
+- [[topics/index|Topics]] — Explore the core clinical and operational themes, including quality indicators, procedural codes, and policy changes governing Danish IBD care.
+- [[entities/index|Entities]] — Browse the named real-world actors, from healthcare facilities and steering committees to specific biologic treatments and biomarkers.
+- [[comparisons/index|Comparisons]] — Dive into the quantitative backbone of the registry, featuring structured data tables on regional performance, demographics, and surgical outcomes.
+- [[documents/index|Documents]] — Read the raw, sequentially extracted text chunks from the 2023, 2024, and 2025 annual reports that ground every claim in this wiki.
 
 ## Pages
 
-- [[comparisons/index|Comparisons]] — Detailed comparison tables and quality indicator evaluations cataloging national, regional, and departmental performance across seven clinical metrics.
-- [[documents/index|Documents]] — Raw extracted text chunks from the 2023 and 2024 DANIBD annual reports, preserving original pagination and structure.
-- [[entities/index|Entities]] — Named real-world entities including hospitals, biomarkers, diseases, treatments, and the people governing Danish IBD quality initiatives.
-- [[sources/index|Sources]] — Provenance manifests for the original ingested PDF documents, detailing file hashes, page counts, and extraction logs.
-- [[topics/index|Topics]] — Core thematic and operational concepts of the DANIBD registry, covering clinical consensus, coverage, diagnoses, and quality targets.
+- [[comparisons/index|Comparisons]] — Structured data tables and comparative analyses from the 2023-2025 annual reports, detailing regional performance, patient demographics, and surgical outcomes.
+- [[documents/index|Documents]] — Raw text chunks extracted sequentially from the 2023, 2024, and 2025 DANIBD annual reports, serving as the foundational source material.
+- [[entities/index|Entities]] — Named real-world entities including biomarkers, diseases, healthcare facilities, organizations, people, and treatments tracked within the registry.
+- [[sources/index|Sources]] — Provenance records for the three ingested annual reports, providing file hashes, page counts, and traceability metadata.
+- [[topics/index|Topics]] — Core clinical, operational, and evaluative themes such as quality indicators, procedural codes, eligibility criteria, and policy changes.
 
 ## Statistics
 
-- Sources: 2
-- Document pages: 16
-- Entity pages: 63
-- Topic pages: 45
-- Comparison pages: 28
+- Sources: 3
+- Document pages: 27
+- Entity pages: 82
+- Topic pages: 56
+- Comparison pages: 43

@@ -23,7 +23,7 @@ aliases:
   - Region Nordjylland
   - Nordjylland
 wiki: rkkp-afdk
-updated: '2026-08-05T21:52:15.992Z'
+updated: '2026-08-14T22:14:36.573Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: >-
@@ -33,22 +33,23 @@ sources:
     pages: >-
       11-15, 111-113, 16-20, 26-30, 31-35, 36-40, 41-45, 71-75, 81-85, 86-90,
       91-95
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: '16-20, 26-30, 31-35, 36-40, 51-55, 6-10, 66-70, 71-75, 76-80, 81-85, 96-98'
 tags:
   - organization
   - location
 ---
-**Region Nordjylland** is the administrative healthcare organization responsible for the northernmost part of Denmark, while **Nordjylland** refers to the geographic and administrative region itself. In the context of the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]], these two entities are intrinsically linked, as the organization manages the healthcare delivery and data reporting for the location. The region is notable for its high performance in treating [[atrieflimren|atrieflimren]] (atrial fibrillation), often outperforming other Danish regions such as [[region-hovedstaden|Region Hovedstaden]], [[region-sjaelland|Region Sjælland]], [[region-syddanmark|Region Syddanmark]], and [[region-midtjylland|Region Midtjylland]].
+# Region Nordjylland — Nordjylland
 
-### Clinical Performance and Standards
-Region Nordjylland stands out as the only region that fulfills the standard for [[indikator-4a]] after 5 years (88%) and for [[indikator-4b]] (95.4%) [^src1]. Specifically, for [[indikator-4b]], which measures the proportion of patients with at least one annual S-creatinin measurement, Region Nordjylland achieved 95.7% in 2023/24, making it the only region to meet the standard [^src8] [^src30]. The region also meets the standard for [[indikator-4a3]] across all follow-up periods [^src8] and maintains a low incidence rate for [[indikator-5]], fulfilling the standard with an incidence of 0.7% (95% CI: 0.6–0.9) in 2023 [^src2] and 0.8% (95% CI: 0.7-1.0) in 2024 [^src30]. For [[indikator-2]], which measures [[antikoagulationsbehandling|antikoagulationsbehandling]], the region achieved 80.2% in 2024 [^src7] and 78.7% in 2023 [^src14], though it did not meet the standard for [[indikator-3]] regarding TSH measurement [^src15]. Furthermore, the region predominantly utilizes the [[npu18016-p-creatinin]] test alongside Region Syddanmark [^src30]. In 2024, the region's result for Indikator 1 was 93.1% [^src6], and it fulfilled standards for [[indikator-4a1]] (92.1%) [^src27] and [[indikator-4a2]] (91.1%) [^src27].
+This article covers both **Region Nordjylland**, the regional health authority and administrative organization, and **Nordjylland**, the geographical region and location within [[danmark|Danmark]]. In national healthcare reporting, the two are intrinsically linked: the administrative body governs the clinical practices and hospitals operating within the geographical boundaries, and both appear as distinct but overlapping entities in the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] registry reports.
 
-### Geographic and Organizational Structure
-The location of Nordjylland is a subdivision of [[danmark|Danmark]] [^src9] [^src22] and contains several key hospitals, including [[aalborg-universitetshospital|Aalborg Universitetshospital]], [[aalborg-universitetshospital-thisted|Aalborg Universitetshospital Thisted]], and [[regionshospital-nordjylland-ven|Regionshospital Nordjylland Ven]] [^src18] [^src26]. Within the region, healthcare is further organized into clusters such as [[sundhedsklynge-nord|Sundhedsklynge Nord]] and [[klynge-nord|Klynge NORD]], both of which fulfill the standards for indicators like [[indikator-4b]] [^src9]. The region also has one specialized medical practice with [[praktiserende-kardiologer|Praktiserende kardiologer]] [^src11].
+Region Nordjylland consistently stands out for its high-quality performance in managing [[atrieflimren|atrieflimren]] (atrial fibrillation). It is the only region that fulfills the standard for [[indikator-4a|Indikator 4a]] after 5 years (88%) and for [[indikator-4b|Indikator 4b]] (95.4%) [^src1]. Furthermore, it is uniquely highlighted as the sole region achieving full standard fulfillment on both indicators during the reporting period [^src1]. It also meets the standard for [[indikator-5|Indikator 5]] with an incidence of 0.7% [^src2]. For [[indikator-2|Indikator 2]], 78.7% of newly diagnosed patients in Nordjylland received the required care [^src24], and the region achieved a 94.9% result for Indikator 1 [^src23]. While no region met the standard for [[indikator-3|Indikator 3]] regarding TSH measurements [^src25], Region Nordjylland actively sought clarification on whether deceased patients are excluded from this calculation [^src5].
 
-### Data Reporting and Governance
-Region Nordjylland actively contributes data to the national database and provides feedback on indicator definitions. For instance, the region has previously analyzed data regarding TSH measurements for [[indikator-3]] and requested clarification on whether patients who die during the period are excluded from the calculation [^src5]. Furthermore, regarding [[indikator-8]] (patient education), the region has asked for clearer definitions of the criteria and questioned the role of municipalities and the steering group's considerations on the matter [^src5]. In the 2024 report, the region provided no additional comments [^src12]. The overall incidence of atrial fibrillation in Denmark was 3.3 per 1000 inhabitants, with Region Nordjylland contributing 2,202 patients to the national total of 19,671 in 2023 [^src3]. Mortality in the region varied between 7.4% and 7.9% regionally [^src25].
+The geographical region of Nordjylland encompasses several key healthcare institutions, including [[aalborg-universitetshospital|Aalborg Universitetshospital]], [[aalborg-universitetshospital-thisted|Aalborg Universitetshospital Thisted]], and [[regionshospital-nordjylland-ven|Regionshospital Nordjylland Ven]] [^src28]. These hospitals contribute data to the national registry, where the national incidence of atrial fibrillation was recorded at 3.3 per 1,000 inhabitants [^src3]. Within Nordjylland, the location is subdivided into healthcare clusters such as [[sundhedsklynge-nord|Sundhedsklynge Nord]] and [[klynge-nord|Klynge NORD]], all of which meet the standards for Indicator 4b [^src9]. The region relies on specific laboratory tests like [[npu18016-p-creatinin|npu18016-p-creatinin]] for creatinine measurements [^src40] and maintains one specialized private practice for [[praktiserende-kardiologer|Praktiserende kardiologer]] [^src11].
 
-***
+Region Nordjylland demonstrates a proactive approach to data governance and quality improvement. The region requested clearer definitions for patient education criteria under [[indikator-8|Indikator 8]] and questioned the role of municipalities in this process [^src5]. This focus on continuous data follow-up highlights the region's commitment to refining clinical pathways and ensuring accurate metric calculations across its hospitals and local health clusters.
+
+In subsequent reports, Region Nordjylland maintained its positive trajectory. It met the standard for [[indikator-4a3|Indikator 4a3]] across all follow-up periods [^src8] and recorded that 95.7% of patients had at least one annual S-creatinin measurement in 2023/24, making it the only region to meet this specific standard [^src40]. By the 2025 report, the region achieved a 96.0% fulfillment rate for Indikator 4b, making it the only region to meet the development target [[udviklingsmaal-90-percent|Udviklingsmål ≥ 90%]] [^src15]. Additionally, Nordjylland was among the three regions that met the development target for the incidence of [[iskaemisk-apopleksi|Iskæmisk apopleksi]] (ischemic stroke), which stood at 1.2% locally [^src16]. The region also demonstrated strong clinical practice, with 952 patients starting [[antikoagulationsbehandling|antikoagulationsbehandling]] within four months prior to diagnosis [^src18]. Despite a somewhat stagnating development in some indicators compared to [[region-hovedstaden|Region Hovedstaden]] [^src41], Nordjylland remains a benchmark for homogeneous and high-quality cardiovascular care in Denmark.
 
 ## Mentions
 
@@ -83,6 +84,18 @@ Der ønskes en tydelig definition af hvilke kriterier der gælder for patientund
 - Page 90: "Nordjylland" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90)
 - Page 91: "Nordjylland | 71 | 12 | 72 | 0 | 102 | 0 | 14784 |" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 91-95)
 - Page 112: "Region Nordjylland" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 111-113)
+- Page 10: "Nordjylland" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 6-10)
+- Page 26: "Nordjylland Ja 1.481 / 1.632 0 (0) 90,7 (89,2-92,1) 1.324 / 1.452 91,2 91,2" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 26-30)
+- Page 31: "Nordjylland Ja 11.440 / 11.918 0 (0) 96,0 (95,6-96,3) 11.022 / 11.520 95,7 95,4" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 31-35)
+- Page 36: "Nordjylland Ja 122 / 14.929 0 (0) 0,8 (0,7-1,0) 125 / 14.777 0,8 0,7" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 36-40)
+- Page 39: "På regionsniveau varierede incidensen fra 0,6% i Region Nordjylland til 1,0% i Region Hovedstaden. Dermed opfylder tre regioner (Nordjylland, Midtjylland og Syddanmark) udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet." (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 36-40)
+- Page 52: "Nordjylland Nej 361 / 2.031 0 (0) 17,8 (16,1-19,5) 325 / 2.113 15,4 2,5" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 51-55)
+- Page 67: "Nordjylland | 952 | 55.1 | 777 | 44.9 | 1729 |" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70)
+- Page 68: "Nordjylland 29 / 2.333 0 (0) 1,2 (0,8-1,8) 28 / 2.418 1,2 1,4" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70)
+- Page 72: "Nordjylland 1.095 / 14.929 0 (0) 7,3 (6,9-7,8) 1.169 / 14.777 7,9 7,6" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 71-75)
+- Page 76: "Region Nordjylland 4,2 4,1 3,9 3,9 3,9 3,8 4,1 4,0 4,1" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 76-80)
+- Page 81: "Region | Nordjylland | 1 |" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85)
+- Page 97: "Region Nordjylland" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98)
 
 ### Nordjylland
 - Page 9: "Nordjylland Ja 1.199 / 1.264 0 (0) 94,9 (93,5-96,0) 1.170 / 1.250 93,6 91,7" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 6-10)
@@ -185,6 +198,18 @@ Antal patienter med atrieflimren 2202 19671"
 Ingen kommentarer"
   Page: 112
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 111-113
+- Subject: region-nordjylland
+  Predicate: achieves-target-for
+  Object: indikator-4b
+  Evidence: "Nordjylland Ja 11.440 / 11.918 0 (0) 96,0 (95,6-96,3)"
+  Page: 31
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 31-35
+- Subject: region-nordjylland
+  Predicate: provides-comment-on
+  Object: atrieflimren-i-danmark
+  Evidence: "Ikke modtaget kommentarer"
+  Page: 97
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 96-98
 
 Incoming (this entity is the OBJECT of these relationships):
 - Subject: npu18016-p-creatinin
@@ -213,6 +238,12 @@ Klynge NORD 11 / 820 0 (0) 1,3 (0,7-2,4) 8 / 754 1,1 1,2"
   Evidence: "Region Nordjylland 1"
   Page: 93
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 91-95
+- Subject: praktiserende-kardiologer
+  Predicate: operates-in
+  Object: (this entity)
+  Evidence: "Region | Nordjylland | 1 |"
+  Page: 81
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
 
 ### Nordjylland
 Outgoing (this entity is the SUBJECT of these relationships):
@@ -359,6 +390,54 @@ Incoming (this entity is the OBJECT of these relationships):
   Type: organizational
   Page: 93
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 91-95
+- Der ses en fortsat positiv udvikling i Region Hovedstaden, imens udviklingen er mere stagnerende i Sjælland og Nordjylland [^src1] (indikator-2, region-hovedstaden, region-sjaelland, region-nordjylland)
+  Type: performance-trend
+  Page: 19
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 16-20
+- På regionsniveau varierede andelen fra 87,2% i Region Hovedstaden til 90,7% i Region Nordjylland [^src1] (region-hovedstaden, region-nordjylland)
+  Type: geographic-distribution
+  Page: 29
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 26-30
+- Kun Region Nordjylland opfylder udviklingsmålet [^src1] (region-nordjylland, udviklingsmaal-90-percent)
+  Type: performance
+  Page: 29
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 26-30
+- På regionsniveau varierede andelen fra 93,2% i Region Hovedstaden til 96,0% i Region Nordjylland [^src1] (region-hovedstaden, region-nordjylland, indikator-4b)
+  Type: performance
+  Page: 34
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 31-35
+- Kun Region Nordjylland opfylder udviklingsmålet [^src1] (region-nordjylland, indikator-4b)
+  Type: performance
+  Page: 34
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 31-35
+- Det er kun Region Nord, der opfylder udviklingsmålet [^src1] (region-nordjylland, indikator-4b)
+  Type: performance
+  Page: 34
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 31-35
+- Den nationale incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren er 0,8% [^src1] (indikator-5, region-hovedstaden, region-sjaelland, region-syddanmark, region-midtjylland, region-nordjylland)
+  Type: epidemiological
+  Page: 39
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 36-40
+- Tre regioner (Nordjylland, Midtjylland og Syddanmark) opfylder udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet [^src1] (region-nordjylland, region-midtjylland, region-syddanmark, region-sjaelland, region-hovedstaden)
+  Type: comparative-result
+  Page: 39
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 36-40
+- I Region Nordjylland blev 952 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 55,1 % af alle patienter i AK-behandling [^src1] (region-nordjylland, antikoagulationsbehandling)
+  Type: clinical-practice
+  Page: 67
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70
+- I Region Nordjylland udviklede 29 ud af 2.333 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,2 % (95 % CI: 0,8–1,8) [^src2] (region-nordjylland, iskaemisk-apopleksi)
+  Type: clinical-outcome
+  Page: 68
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70
+- Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 92 (75,4 %) i Region Nordjylland indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse [^src3] (region-nordjylland, antikoagulationsbehandling, iskaemisk-apopleksi)
+  Type: clinical-practice
+  Page: 69
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70
+- Region Nordjylland har 1 speciallægepraksis for praktiserende kardiologer [^src1] (region-nordjylland, praktiserende-kardiologer)
+  Type: geographic-distribution
+  Page: 81
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
 
 ### Nordjylland
 - Resultatet for Nordjylland for indikator 1 i perioden 01.07.2022–30.06.2023 er 94,9 % (95 % CI: 93,5–96,0) [^src1] (nordjylland, databasen-for-atrieflimren-i-danmark)
@@ -428,21 +507,32 @@ Incoming (this entity is the OBJECT of these relationships):
 [^src10]: AFDK_2024.pdf, pages 86-90
 [^src11]: AFDK_2024.pdf, pages 91-95
 [^src12]: AFDK_2024.pdf, pages 111-113
-[^src13]: AFDK_2023.pdf, pages 6-10
-[^src14]: AFDK_2023.pdf, pages 16-20
-[^src15]: AFDK_2023.pdf, pages 26-30
-[^src16]: AFDK_2023.pdf, pages 31-35
-[^src17]: AFDK_2023.pdf, pages 36-40
-[^src18]: AFDK_2023.pdf, pages 41-45
-[^src19]: AFDK_2023.pdf, pages 56-60
-[^src20]: AFDK_2023.pdf, pages 61-65
-[^src21]: AFDK_2023.pdf, pages 71-75
-[^src22]: AFDK_2023.pdf, pages 86-90
-[^src23]: AFDK_2023.pdf, pages 91-95
-[^src24]: AFDK_2023.pdf, pages 96-100
-[^src25]: AFDK_2023.pdf, pages 106-110
-[^src26]: AFDK_2023.pdf, pages 111-115
-[^src27]: AFDK_2024.pdf, pages 26-30
-[^src28]: AFDK_2024.pdf, pages 31-35
-[^src29]: AFDK_2024.pdf, pages 81-85
-[^src30]: AFDK_2024.pdf, pages 41-45
+[^src13]: AFDK_2025.pdf, pages 6-10
+[^src14]: AFDK_2025.pdf, pages 26-30
+[^src15]: AFDK_2025.pdf, pages 31-35
+[^src16]: AFDK_2025.pdf, pages 36-40
+[^src17]: AFDK_2025.pdf, pages 51-55
+[^src18]: AFDK_2025.pdf, pages 66-70
+[^src19]: AFDK_2025.pdf, pages 71-75
+[^src20]: AFDK_2025.pdf, pages 76-80
+[^src21]: AFDK_2025.pdf, pages 81-85
+[^src22]: AFDK_2025.pdf, pages 96-98
+[^src23]: AFDK_2023.pdf, pages 6-10
+[^src24]: AFDK_2023.pdf, pages 16-20
+[^src25]: AFDK_2023.pdf, pages 26-30
+[^src26]: AFDK_2023.pdf, pages 31-35
+[^src27]: AFDK_2023.pdf, pages 36-40
+[^src28]: AFDK_2023.pdf, pages 41-45
+[^src29]: AFDK_2023.pdf, pages 56-60
+[^src30]: AFDK_2023.pdf, pages 61-65
+[^src31]: AFDK_2023.pdf, pages 71-75
+[^src32]: AFDK_2023.pdf, pages 86-90
+[^src33]: AFDK_2023.pdf, pages 91-95
+[^src34]: AFDK_2023.pdf, pages 96-100
+[^src35]: AFDK_2023.pdf, pages 106-110
+[^src36]: AFDK_2023.pdf, pages 111-115
+[^src37]: AFDK_2024.pdf, pages 26-30
+[^src38]: AFDK_2024.pdf, pages 31-35
+[^src39]: AFDK_2024.pdf, pages 81-85
+[^src40]: AFDK_2024.pdf, pages 41-45
+[^src41]: AFDK_2025.pdf, pages 16-20

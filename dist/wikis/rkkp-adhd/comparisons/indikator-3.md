@@ -46,7 +46,7 @@ Summary: Tabellen viser andelen af udredningsforløb med diagnostisk konference 
 ## Related comparisons in prose
 
 - "Indikator 3 har en standard på ≥ 90 % for andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med speciallæge i børne- og ungdomspsykiatri" — see [[quality-standard|Quality Standard]] (Indikator 3) [^src2]
-- "Standarden for Indikator 3 er fastlagt til 90 %" — see [[standard|Standard]] (Indikator 3) [^src3]
+- "Standarden for Indikator 3 er fastlagt til 90 %" — see [[quality-standard|Standard]] (Indikator 3) [^src3]
 - "Regional variation for Indikator 2b går fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark." — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src4]
 - "Indikator 3 viser 0 % opfyldelse i flere afdelinger, herunder Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium (0 / 406) og Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium (15 / 286 = 5 %)." — see [[performance|Performance]] (Indikator 3) [^src4]
 - "Indikator 3 har en opfyldelsesprocent på 21 % på landsplan" — see [[performance|Performance]] (Indikator 3) [^src3]

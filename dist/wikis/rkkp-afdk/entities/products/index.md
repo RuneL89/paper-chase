@@ -4,17 +4,18 @@ type: index
 aliases:
   - Products
 wiki: rkkp-afdk
-updated: '2026-08-05T23:12:58.546Z'
+updated: '2026-08-15T00:04:39.978Z'
 children:
   - pharmaceuticals/index.md
+  - index.md
 ---
 # Products
 
-This area groups medical products referenced in the Danish atrial fibrillation registry corpus, specifically focusing on pharmaceutical treatments used for anticoagulation. It covers the clinical application, safety monitoring, and comparative efficacy of direct oral anticoagulants and classic warfarin-based therapies in preventing ischemic stroke while managing severe bleeding risks.
+This area groups commercial and technical products tracked within the registry, specifically focusing on pharmaceutical products used for anticoagulation therapy in Danish atrial fibrillation patients. It contains detailed profiles and pharmacovigilance data comparing modern Direct Oral Anticoagulants (DOACs) with traditional vitamin K antagonists like Marevan (warfarin), evaluating their safety, efficacy, and associated clinical quality indicators.
 
 ## Pages
 
-- [[entities/products/pharmaceuticals/index|Pharmaceuticals]] — Anticoagulation therapies for atrial fibrillation, comparing the safety, renal monitoring, and efficacy of direct oral anticoagulants against classic warfarin treatments.
+- [[entities/products/pharmaceuticals/index|Pharmaceuticals]] — Catalogs anticoagulant medications, comparing DOACs and warfarin through pharmacovigilance data, bleeding risks, and clinical quality indicators.
 
 ## Navigation
 

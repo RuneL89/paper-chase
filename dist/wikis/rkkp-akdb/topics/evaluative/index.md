@@ -4,21 +4,23 @@ type: index
 aliases:
   - Evaluative
 wiki: rkkp-akdb
-updated: '2026-08-05T20:55:41.254Z'
+updated: '2026-08-15T09:10:35.070Z'
 children:
   - evaluative.md
+  - index.md
 ---
 # Evaluative
 
-This folder contains topics related to the evaluation and assessment of clinical indicators within the Danish healthcare system, specifically focusing on the AKDB 2024 report. The available evidence highlights the performance of specific indicators, such as Indikator 3, revealing significant shortfalls in meeting development targets across all reporting units. It serves as a focal point for understanding the evaluative outcomes and quality assessments documented in the corpus.
+This folder contains evaluative assessments of the Danish Acute Surgery Database (AKDB) and its clinical quality indicators. It documents whether reporting units are meeting specific development targets, such as the ≥ 90% goal for Indikator 3, and evaluates the database's overall ability to reflect the quality of acute abdominal surgical treatment in Denmark. The included page highlights that while process indicators show general positive trends, no reporting units fulfilled the development target, indicating that specific areas still require focused effort.
 
 ## Pages
 
-- [[evaluative|Evaluative]] — Details the assessment of Indikator 3 from the AKDB 2024 report, highlighting that the 90% development target was completely unmet by all participating organizations.
+- [[evaluative|Evaluative]] — Assesses the fulfillment of development targets for clinical indicators and the overall extent to which the AKDB reflects the quality of acute abdominal surgery in Denmark.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/administrative-change/index|Administrative Change]]
 - Sibling: [[topics/administrative-systems/index|Administrative Systems]]
 - Sibling: [[topics/cancer-distribution/index|Cancer Distribution]]
 - Sibling: [[topics/clinical-assessment/index|Clinical Assessment]]
@@ -28,11 +30,13 @@ This folder contains topics related to the evaluation and assessment of clinical
 - Sibling: [[topics/clinical-indicators/index|Clinical Indicators]]
 - Sibling: [[topics/clinical-metrics/index|Clinical Metrics]]
 - Sibling: [[topics/clinical-outcome/index|Clinical Outcome]]
+- Sibling: [[topics/clinical-process/index|Clinical Process]]
 - Sibling: [[topics/clinical-quality/index|Clinical Quality]]
 - Sibling: [[topics/clinical-quality-indicators/index|Clinical Quality Indicators]]
 - Sibling: [[topics/coding-uncertainty/index|Coding Uncertainty]]
 - Sibling: [[topics/compliance/index|Compliance]]
 - Sibling: [[topics/data-availability/index|Data Availability]]
+- Sibling: [[topics/data-decision/index|Data Decision]]
 - Sibling: [[topics/data-privacy/index|Data Privacy]]
 - Sibling: [[topics/data-quality/index|Data Quality]]
 - Sibling: [[topics/definition/index|Definition]]
@@ -41,15 +45,19 @@ This folder contains topics related to the evaluation and assessment of clinical
 - Sibling: [[topics/demographic/index|Demographic]]
 - Sibling: [[topics/evaluation/index|Evaluation]]
 - Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
+- Sibling: [[topics/governance/index|Governance]]
 - Sibling: [[topics/healthcare-metrics/index|Healthcare Metrics]]
 - Sibling: [[topics/healthcare-performance-indicators/index|Healthcare Performance Indicators]]
 - Sibling: [[topics/inter-hospital-variation/index|Inter Hospital Variation]]
 - Sibling: [[topics/methodological-assessment/index|Methodological Assessment]]
+- Sibling: [[topics/methodological-change/index|Methodological Change]]
 - Sibling: [[topics/performance/index|Performance]]
 - Sibling: [[topics/policy/index|Policy]]
+- Sibling: [[topics/quality-target/index|Quality Target]]
 - Sibling: [[topics/recommendation/index|Recommendation]]
 - Sibling: [[topics/regional-comparison/index|Regional Comparison]]
 - Sibling: [[topics/relevance-assessment/index|Relevance Assessment]]
+- Sibling: [[topics/research-finding/index|Research Finding]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/technical-infrastructure/index|Technical Infrastructure]]
 - Sibling: [[topics/visualizations/index|Visualizations]]

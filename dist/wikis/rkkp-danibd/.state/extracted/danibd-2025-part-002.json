@@ -1,0 +1,716 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den nationale kvalitetsdatabase, der indsamler og rapporterer data om patienter med inflammatoriske tarmsygdomme i Danmark, og fungerer som det centrale overvågnings- og kvalitetsudviklingsredskab for IBD-behandling på tværs af aldersgrupper og regioner.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 6 af 54"
+        }
+      ]
+    },
+    {
+      "name": "IBD",
+      "type": "disease",
+      "slug": "ibd",
+      "folder": "entities/diseases/gastrointestinal",
+      "significance": "IBD er den overordnede diagnosekategori, der dækker Crohns sygdom og colitis ulcerosa, og udgør den centrale patientpopulation, som DANIBD overvåger og rapporterer om.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Karakteristika for børn og unge med IBD"
+        }
+      ]
+    },
+    {
+      "name": "Crohns sygdom",
+      "type": "disease",
+      "slug": "crohns-sygdom",
+      "folder": "entities/diseases/gastrointestinal",
+      "significance": "Crohns sygdom er den hyppigste IBD-diagnose blandt både nydiagnosticerede og prævalente børn og unge i DANIBD-databasen, og udgør en central undergruppe for klinisk og kvalitetsmæssig analyse.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "De nydiagnosticerede børn har oftest Crohns sygdom (53 %)"
+        }
+      ]
+    },
+    {
+      "name": "Colitis ulcerosa",
+      "type": "disease",
+      "slug": "colitis-ulcerosa",
+      "folder": "entities/diseases/gastrointestinal",
+      "significance": "Colitis ulcerosa er den dominerende IBD-diagnose blandt nydiagnosticerede voksne og en væsentlig del af den prævalente voksne population, hvilket gør den central for kvalitetsmonitorering i DANIBD.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Heraf er 7 % nydiagnosticerede med IBD, hvoraf flest blev diagnosticeret med colitis ulcerosa (60 %)"
+        }
+      ]
+    },
+    {
+      "name": "Primær skleroserende kolangitis",
+      "type": "disease",
+      "slug": "psc",
+      "folder": "entities/diseases/hepatic-biliary",
+      "significance": "Primær skleroserende kolangitis (PSC) er en sjælden men klinisk vigtig komorbiditet ved IBD, som DANIBD specifikt overvåger via Indikator 7 og inkluderer i patientkarakteristiktabellerne.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "DK830F Primær skleroserende kolangitis"
+        }
+      ]
+    },
+    {
+      "name": "Korttarmssyndrom",
+      "type": "medical-condition",
+      "slug": "korttarmssyndrom",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "Korttarmssyndrom er en komplikation af IBD-behandling, især efter kirurgi, og inkluderet i DANIBD-tabellerne som en separat diagnosekode (DK912B), hvilket understreger dens relevans for kvalitetsmonitorering.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "DK912B Korttarmssyndrom"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1a",
+      "type": "quality-indicator",
+      "slug": "indikator-1a",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1a måler andelen af nydiagnosticerede voksne med IBD, der får foretaget relevant udredning, og er en central kvalitetsmål for tidlig diagnostisk sikkerhed og behandlingsstart.",
+      "mentions": [
+        {
+          "page": 8,
+          "context": "Antallet af nydiagnosticerede bør derfor vurderes ud fra indikatortabellerne for 1a, hvor tabellen omfatter alle nydiagnosticerede fra forrige års rapport."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1b",
+      "type": "quality-indicator",
+      "slug": "indikator-1b",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1b måler andelen af nydiagnosticerede børn og unge med IBD, der får foretaget relevant udredning, og er en kritisk kvalitetsmål for børnepopulationen, hvor tidlig og fuldstændig udredning er afgørende for langtidshandling.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Antallet af nydiagnosticerede bør derfor vurderes ud fra indikatortabellerne for 1b, hvor tabellen omfatter alle nydiagnosticerede fra forrige års rapport."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "quality-indicator",
+      "slug": "indikator-2",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 2 måler andelen af nydiagnosticerede patienter med IBD, der modtager undervisning inden for ét år efter diagnosen, og afspejler implementeringen af patientuddannelse som en integreret del af behandlingsforløbet.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 2: Andelen af nydiagnosticerede patienter med IBD, der har modtaget undervisning inden for ét år efter diagnosen er stillet"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "quality-indicator",
+      "slug": "indikator-3",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 3 måler koloskopifrekvensen hos voksne med Crohns sygdom efter ileocækal resektion, og er en markør for postoperativ overvågning og risiko for rekurrens.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 3: Andelen af voksne med Crohns sygdom, der har fået foretaget ileocækal resektion, som bliver koloskoperet inden for ét år efter operationen"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4",
+      "type": "quality-indicator",
+      "slug": "indikator-4",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 4 måler DEXA-scanningens anvendelse hos ældre IBD-patienter under steroidbehandling, og er en klinisk sikkerhedsindikator for forebyggelse af osteoporose.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 4: Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "quality-indicator",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 5 måler frekvensen af faeces-calprotectin-måling hos patienter i behandling med BMSL, og er en central biologisk markør for behandlingsrespons og aktivitetsovervågning.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 5: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "quality-indicator",
+      "slug": "indikator-6",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 6 måler reoperationsraten inden for 30 dage efter kirurgiske indgreb, og er en direkte kvalitetsmål for kirurgisk sikkerhed og teknisk udførelse.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 6: Andelen af kirurgiske indgreb, hvor der er foretaget en reoperation inden for 30 dage"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "quality-indicator",
+      "slug": "indikator-7",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 7 måler koloskopifrekvensen hos voksne med primær skleroserende kolangitis (PSC), og er en kritisk screeningindikator for tidlig opdagelse af kolorektalkræft.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 7: Andelen af voksne med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder"
+        }
+      ]
+    },
+    {
+      "name": "BMSL",
+      "type": "treatment",
+      "slug": "bmsl",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BMSL (biologiske og små molekyler) er den overordnede behandlingskategori, som DANIBD bruger til at definere patientgruppen for Indikator 5, og omfatter både biologiske lægemidler og JAK-hæmmere som upadacitinib og tofacitinib.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 5: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt"
+        }
+      ]
+    },
+    {
+      "name": "F-calpro",
+      "type": "biomarker",
+      "slug": "faeces-calprotectin-maaling",
+      "folder": "entities/biomarkers/gastrointestinal",
+      "significance": "F-calpro (faeces-calprotectin-måling) er den specifikke biomarkør, der bruges til at vurdere mucosal aktivitet hos IBD-patienter i behandling med BMSL, og er centralt for overvågning af behandlingsrespons i DANIBD.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 5: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt"
+        }
+      ]
+    },
+    {
+      "name": "DEXA-scanning",
+      "type": "procedure",
+      "slug": "dexa-scanning",
+      "folder": "entities/procedural",
+      "significance": "DEXA-scanning er den standardiserede metode til kvantificering af knogletæthed, som DANIBD kræver dokumenteret ved steroidbehandling hos patienter over 50 år i Indikator 4.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 4: Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning"
+        }
+      ]
+    },
+    {
+      "name": "Ileocækal resektion",
+      "type": "procedure",
+      "slug": "primaert-kirurgisk-indgreb",
+      "folder": "entities/procedural",
+      "significance": "Ileocækal resektion er en specifik kirurgisk procedure for Crohns sygdom, som DANIBD identificerer som kriterium for Indikator 3, og som danner grundlag for postoperativ koloskopiovervågning.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 3: Andelen af voksne med Crohns sygdom, der har fået foretaget ileocækal resektion, som bliver koloskoperet inden for ét år efter operationen"
+        }
+      ]
+    },
+    {
+      "name": "Koloskopi",
+      "type": "procedure",
+      "slug": "koloskopi",
+      "folder": "entities/procedural",
+      "significance": "Koloskopi er den centrale diagnostiske og overvågningsprocedure i DANIBD, anvendt både som første udredningsmetode og som follow-up efter kirurgi eller ved PSC, og er derfor genstand for flere indikatorer (3, 7).",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Indikator 3: Andelen af voksne med Crohns sygdom, der har fået foretaget ileocækal resektion, som bliver koloskoperet inden for ét år efter operationen"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Styregruppen for DANIBD er den faglige ledelsesgruppe, der definerer udviklingsmålene for kvalitetsindikatorerne, herunder de ≥80 %-mål, der angiver ambitionen for klinisk kvalitet i IBD-behandlingen.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Kolonnen udviklingsmål angiver det kvalitetsniveau, som styregruppen ønsker at opnå med indikatormonitoreringen."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "predicate": "monitors",
+      "object": "ibd",
+      "evidence": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) rapporterer om patienter med IBD",
+      "page": 6
+    },
+    {
+      "subject": "indikator-1a",
+      "predicate": "measures",
+      "object": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "evidence": "Antallet af nydiagnosticerede bør derfor vurderes ud fra indikatortabellerne for 1a",
+      "page": 8
+    },
+    {
+      "subject": "indikator-1b",
+      "predicate": "measures",
+      "object": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "evidence": "Antallet af nydiagnosticerede bør derfor vurderes ud fra indikatortabellerne for 1b",
+      "page": 6
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "depends-on",
+      "object": "bmsl",
+      "evidence": "Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt",
+      "page": 10
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "depends-on",
+      "object": "faeces-calprotectin-maaling",
+      "evidence": "Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt",
+      "page": 10
+    },
+    {
+      "subject": "indikator-4",
+      "predicate": "depends-on",
+      "object": "dexa-scanning",
+      "evidence": "Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning",
+      "page": 10
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "depends-on",
+      "object": "primaert-kirurgisk-indgreb",
+      "evidence": "Andelen af voksne med Crohns sygdom, der har fået foretaget ileocækal resektion, som bliver koloskoperet inden for ét år efter operationen",
+      "page": 10
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "depends-on",
+      "object": "psc",
+      "evidence": "Andelen af voksne med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder",
+      "page": 10
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "sets-target-for",
+      "object": "indikator-1a",
+      "evidence": "Kolonnen udviklingsmål angiver det kvalitetsniveau, som styregruppen ønsker at opnå med indikatormonitoreringen.",
+      "page": 10
+    }
+  ],
+  "claims": [
+    {
+      "text": "I perioden 1. oktober 2024 til og med 30. september 2025 har 761 børn og unge med IBD været i kontakt med en hospitalsafdeling [^src1]",
+      "type": "demographic",
+      "entities": [
+        "ibd",
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
+      ],
+      "page": 6
+    },
+    {
+      "text": "31 % af børnene er nydiagnosticerede med IBD i perioden [^src1]",
+      "type": "demographic",
+      "entities": [
+        "ibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "De nydiagnosticerede børn har oftest Crohns sygdom (53 %) [^src1]",
+      "type": "diagnostic",
+      "entities": [
+        "crohns-sygdom"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Nydiagnosticerede børn er hyppigst drenge (60 %) [^src1]",
+      "type": "demographic",
+      "entities": [
+        "ibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Hovedparten af nydiagnosticerede børn bliver diagnosticeret i aldersgruppen 10–17 år (89 %) [^src1]",
+      "type": "demographic",
+      "entities": [
+        "ibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Blandt prævalente børn med IBD er flest diagnosticeret med Crohns sygdom (58 %) [^src1]",
+      "type": "diagnostic",
+      "entities": [
+        "crohns-sygdom"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Blandt prævalente børn med IBD er flest drenge (54 %) [^src1]",
+      "type": "demographic",
+      "entities": [
+        "ibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Blandt prævalente børn med IBD er hovedparten i alderen 10–17 år (94 %) [^src1]",
+      "type": "demographic",
+      "entities": [
+        "ibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Både nydiagnosticerede og prævalente børn har gennemsnitlig 15 kontakter i opgørelsesperioden [^src1]",
+      "type": "healthcare-utilization",
+      "entities": [
+        "ibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "64 % af kontakterne for nydiagnosticerede børn er med fysisk fremmøde [^src1]",
+      "type": "healthcare-utilization",
+      "entities": [
+        "ibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "69 % af kontakterne for prævalente børn er med fysisk fremmøde [^src1]",
+      "type": "healthcare-utilization",
+      "entities": [
+        "ibd"
+      ],
+      "page": 6
+    },
+    {
+      "text": "I alt 34.426 voksne med IBD har været i kontakt med en hospitalsafdeling fra 1. oktober 2024 til og med 30. september 2025 [^src2]",
+      "type": "demographic",
+      "entities": [
+        "ibd",
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
+      ],
+      "page": 8
+    },
+    {
+      "text": "7 % af de voksne med IBD er nydiagnosticerede [^src2]",
+      "type": "demographic",
+      "entities": [
+        "ibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Blandt nydiagnosticerede voksne er flest diagnosticeret med colitis ulcerosa (60 %) [^src2]",
+      "type": "diagnostic",
+      "entities": [
+        "colitis-ulcerosa"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Halvdelen af nydiagnosticerede voksne blev diagnosticeret før de fyldte 40 år (median: 38 år) [^src2]",
+      "type": "demographic",
+      "entities": [
+        "ibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Blandt prævalente voksne med IBD er flest diagnosticeret med colitis ulcerosa (56 %) [^src2]",
+      "type": "diagnostic",
+      "entities": [
+        "colitis-ulcerosa"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Blandt prævalente voksne med IBD er flest kvinder (54 %) [^src2]",
+      "type": "demographic",
+      "entities": [
+        "ibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Medianalderen for prævalente voksne med IBD er 49 år [^src2]",
+      "type": "demographic",
+      "entities": [
+        "ibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Gennemsnitligt antal kontakter for nydiagnosticerede voksne er 11 [^src2]",
+      "type": "healthcare-utilization",
+      "entities": [
+        "ibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Gennemsnitligt antal kontakter for prævalente voksne er 11 [^src2]",
+      "type": "healthcare-utilization",
+      "entities": [
+        "ibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "67 % af kontakterne for nydiagnosticerede voksne er fysiske [^src2]",
+      "type": "healthcare-utilization",
+      "entities": [
+        "ibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "64 % af kontakterne for prævalente voksne er fysiske [^src2]",
+      "type": "healthcare-utilization",
+      "entities": [
+        "ibd"
+      ],
+      "page": 8
+    },
+    {
+      "text": "Indikator 1a har et udviklingsmål på ≥ 80 % [^src3]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-1a",
+        "styregruppen-for-danibd"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 1b har et udviklingsmål på ≥ 80 % [^src3]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-1b",
+        "styregruppen-for-danibd"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 2 har et udviklingsmål på ≥ 80 % [^src3]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-2",
+        "styregruppen-for-danibd"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 3 har et udviklingsmål på ≥ 80 % [^src3]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-3",
+        "styregruppen-for-danibd"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 4 har et udviklingsmål på ≥ 80 % [^src3]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-4",
+        "styregruppen-for-danibd"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 5 har et udviklingsmål på ≥ 80 % [^src3]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-5",
+        "styregruppen-for-danibd"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 6 har et udviklingsmål på ≤ 8 % [^src3]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-6",
+        "styregruppen-for-danibd"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 7 har et udviklingsmål på ≥ 80 % [^src3]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-7",
+        "styregruppen-for-danibd"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 1a havde en opfyldelse på 80 % (95 % CI: 78–81) i årsrapport 2025 [^src3]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-1a"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 1b havde en opfyldelse på 66 % (95 % CI: 59–73) i årsrapport 2025 [^src3]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-1b"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 2 havde en opfyldelse på 26 % (95 % CI: 24–27) i årsrapport 2025 [^src3]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 3 havde en opfyldelse på 64 % (95 % CI: 55–71) i årsrapport 2025 [^src3]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 4 havde en opfyldelse på 36 % (95 % CI: 33–39) i årsrapport 2025 [^src3]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-4"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 5 havde en opfyldelse på 86 % (95 % CI: 85–86) i årsrapport 2025 [^src3]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 6 havde en opfyldelse på 10 % (95 % CI: 8–12) i årsrapport 2025 [^src3]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 10
+    },
+    {
+      "text": "Indikator 7 havde en opfyldelse på 82 % (95 % CI: 78–86) i årsrapport 2025 [^src3]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-7"
+      ],
+      "page": 10
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-10-01",
+      "event": "Start af opgørelsesperioden for DANIBD-årsrapport 2025",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
+      ]
+    },
+    {
+      "date": "2025-09-30",
+      "event": "Afslutning af opgørelsesperioden for DANIBD-årsrapport 2025",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "patientkarakteristika-boern",
+      "title": "Tabel 1. Patientkarakteristika for nydiagnosticerede og prævalente børn med IBD med en kontakt til et hospital i perioden 1. oktober 2024 til og med 30. september 2025",
+      "page": 6,
+      "rowDimension": "patientgruppe",
+      "colDimension": "procentandel og antal",
+      "entities": [
+        "ibd",
+        "crohns-sygdom",
+        "colitis-ulcerosa",
+        "psc",
+        "korttarmssyndrom"
+      ],
+      "markdown": "| | Nydiagnosticerede patienter | Øvrige patienter med en hospitalskontakt i opgørelsesperioden |\n|---|---|---|\n| Patienter i alt | 182 (100) | 579 (100) |\n| Diagnose | | |\n| DK50 Crohns sygdom | 97 (53) | 336 (58) |\n| DK51 Colitis ulcerosa | 83 (46) | 243 (42) |\n| DK830F Primær skleroserende kolangitis | 2 (1) | # (0) |\n| Køn | | |\n| Dreng | 109 (60) | 314 (54) |\n| Pige | 73 (40) | 265 (46) |\n| Alder | | |\n| Gennemsnit, år (Min;Max) | 14 (0;17) | 14 (1;17) |\n| Median, år (Q1;Q3) | 15 (12;17) | 15 (13;17) |\n| Aldersgruppe | | |\n| 0-1 år | 4 (2) | # (0) |\n| 2-5 år | 5 (3) | 7 (1) |\n| 6-9 år | 11 (6) | 29 (5) |\n| 10-17 år | 162 (89) | 542 (94) |\n| Kontakter | | |\n| Gennemsnit, antal (Min;Max) | 15 (1;40) | 15 (1;50) |\n| Median, antal (Q1;Q3) | 14 (8;21) | 13 (8;21) |\n| Kontakttype | | |\n| Fysisk | 1.103 (64) | 3.933 (69) |\n| Virtuel | 616 (36) | 1.745 (31) |",
+      "summary": "Tabellen sammenligner karakteristika for nydiagnosticerede og prævalente børn med IBD, og viser at begge grupper domineres af Crohns sygdom, drenge og aldersgruppen 10–17 år, samt at fysisk kontakt udgør størstedelen af kontakterne."
+    },
+    {
+      "subject": "patientkarakteristika-voksne",
+      "title": "Tabel 2. Patientkarakteristika for nydiagnosticerede og prævalente voksne med en kontakt til et hospital i perioden 1. oktober 2024 til og med 30. september 2025.",
+      "page": 8,
+      "rowDimension": "patientgruppe",
+      "colDimension": "procentandel og antal",
+      "entities": [
+        "ibd",
+        "crohns-sygdom",
+        "colitis-ulcerosa",
+        "psc",
+        "korttarmssyndrom"
+      ],
+      "markdown": "| | Nydiagnosticerede patienter | Øvrige patienter med en hospitalskontakt i opgørelsesperioden |\n|---|---|---|\n| Patienter i alt | 2.475 (100) | 31.951 (100) |\n| Diagnose | | |\n| DK50 Crohns sygdom | 954 (39) | 13.611 (43) |\n| DK51 Colitis ulcerosa | 1.477 (60) | 17.982 (56) |\n| DK830F Primær skleroserende kolangitis | 28 (1) | 281 (1) |\n| DK912B Korttarmssyndrom | 16 (1) | 77 (0) |\n| Køn | | |\n| Kvinde | 1.220 (49) | 17.165 (54) |\n| Mand | 1.255 (51) | 14.786 (46) |\n| Alder | | |\n| Gennemsnit, år (Min;Max) | 43 (18;96) | 49 (18;102) |\n| Median, år (Q1;Q3) | 38 (28;57) | 49 (35;62) |\n| Aldersgruppe | | |\n| 18-29 år | 733 (30) | 4.684 (15) |\n| 30-39 år | 542 (22) | 6.256 (20) |\n| 40-49 år | 324 (13) | 5.545 (17) |\n| 50-59 år | 348 (14) | 6.056 (19) |\n| 60-69 år | 287 (12) | 4.814 (15) |\n| 70-79 år | 183 (7) | 3.309 (10) |\n| 80-89 år | 54 (2) | 1.200 (4) |\n| 90 år eller ældre | 4 (0) | 87 (0) |\n| Kontakter | | |\n| Gennemsnit, antal (Min;Max) | 11 (1;86) | 11 (1;118) |\n| Median, antal (Q1;Q3) | 9 (5;15) | 9 (5;14) |\n| Kontakttype | | |\n| Fysisk | 9.752 (67) | 109.228 (64) |\n| Virtuel | 4.863 (33) | 60.856 (36) |",
+      "summary": "Tabellen sammenligner karakteristika for nydiagnosticerede og prævalente voksne med IBD, og viser at colitis ulcerosa dominerer blandt nydiagnosticerede, mens køn er næsten ligeligt fordelt og alderen er højere blandt prævalente, samt at fysisk kontakt udgør størstedelen af kontakterne."
+    },
+    {
+      "subject": "indikatorresultater",
+      "title": "Tabel 3. Oversigt over de samlede indikatorresultater",
+      "page": 10,
+      "rowDimension": "indikator",
+      "colDimension": "årsrapport og indikatoropfyldelse",
+      "entities": [
+        "indikator-1a",
+        "indikator-1b",
+        "indikator-2",
+        "indikator-3",
+        "indikator-4",
+        "indikator-5",
+        "indikator-6",
+        "indikator-7",
+        "styregruppen-for-danibd"
+      ],
+      "markdown": "| Indikator | Udviklingsmål | Årsrapport 2025 | Årsrapport 2024 | Årsrapport 2023 |\n|---|---|---|---|---|\n| Indikator 1a: Andelen af nydiagnosticerede voksne med IBD, der har fået foretaget relevant udredning | ≥ 80 | 80 (78-81) | 79 | — |\n| Indikator 1b: Andelen af nydiagnosticerede børn og unge med IBD, der har fået foretaget relevant udredning | ≥ 80 | 66 (59-73) | 70 | — |\n| Indikator 2: Andelen af nydiagnosticerede patienter med IBD, der har modtaget undervisning inden for ét år efter diagnosen er stillet | ≥ 80 | 26 (24-27) | 13 | — |\n| Indikator 3: Andelen af voksne med Crohns sygdom, der har fået foretaget ileocækal resektion, som bliver koloskoperet inden for ét år efter operationen | ≥ 80 | 64 (55-71) | 65 | — |\n| Indikator 4: Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning | ≥ 80 | 36 (33-39) | 37 | — |\n| Indikator 5: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt | ≥ 80 | 86 (85-86) | 83 | 79 |\n| Indikator 6: Andelen af kirurgiske indgreb, hvor der er foretaget en reoperation inden for 30 dage | ≤ 8 | 10 (8-12) | 13 | 11 |\n| Indikator 7: Andelen af voksne med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder | ≥ 80 | 82 (78-86) | 80 | 84 |",
+      "summary": "Tabellen viser landsdækkende indikatorresultater for 2025, og fremhæver betydelige forskelle i opfyldelse: Indikator 5 og 7 ligger over målet, mens Indikator 2 og 4 ligger langt under, hvilket signalerer store variationer i implementering af kvalitetsstandarder."
+    }
+  ],
+  "context": "Denne dokumentchunk er en del af DANIBD-årsrapporten for 2025 og beskriver patientkarakteristika og kvalitetsindikatorresultater for børn, unge og voksne med inflammatorisk tarmsygdom (IBD) i Danmark i perioden 1. oktober 2024 til 30. september 2025. Den indeholder detaljerede statistikker over nydiagnosticering, diagnosefordeling, køn, alder, kontaktfrekvens og -type, samt en systematisk rapportering af otte nationale kvalitetsindikatorer, der dækker udredning, undervisning, biologisk overvågning, kirurgisk sikkerhed og screening. Rapporten fremhæver også metodiske begrænsninger, herunder underestimering af nydiagnosticering pga. krav om to hospitalskontakter i samme periode, og forklarer, hvordan indikatorer justeres for at sikre tilstrækkelig opfølgningstid. Denne sektion danner grundlaget for national kvalitetsudvikling og benchmarking mellem regioner og behandlingsenheder."
+}

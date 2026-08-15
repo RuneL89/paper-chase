@@ -4,19 +4,20 @@ type: index
 aliases:
   - Healthcare Governance
 wiki: rkkp-adhd
-updated: '2026-08-05T19:05:05.476Z'
+updated: '2026-08-15T12:32:12.453Z'
 children:
   - danmarks-statistik.md
+  - index.md
   - styregruppen.md
 ---
 # Healthcare Governance
 
-This folder contains organizations responsible for overarching governance, quality management, and national data provision within the Danish healthcare system, specifically concerning ADHD pathways. It includes the central steering committee that audits clinical quality indicators and sets standards for the national ADHD database, as well as the national statistical agency that provides the foundational educational data used to measure systemic outcomes and regional disparities.
+This folder contains the governing and oversight bodies that manage data infrastructure and clinical quality standards for ADHD care in Denmark. It includes the national statistical agency responsible for providing the educational outcome data used in quality indicators, as well as the central steering committee that audits the national ADHD database, defines clinical standards, and revises quality metrics based on evolving psychiatric guidelines. Together, these organizations ensure that national ADHD pathways are measured against reliable population data and governed by multidisciplinary clinical consensus.
 
 ## Pages
 
-- [[danmarks-statistik|Danmarks Statistik]] — The national statistical organization providing comprehensive primary school exam data used to calculate educational quality indicators for youth with ADHD.
-- [[styregruppen|Styregruppen]] — The central steering committee and quality management authority for the national ADHD database, responsible for auditing reports, revising clinical indicators, and ensuring alignment with national psychiatric guidelines.
+- [[danmarks-statistik|Danmarks Statistik]] — The national statistical agency that supplies comprehensive primary school exam data used to calculate educational outcome indicators for youth with ADHD.
+- [[styregruppen|Styregruppen]] — The central steering committee that governs the national ADHD database, audits annual quality reports, and revises clinical quality indicators and standards.
 
 ## Navigation
 

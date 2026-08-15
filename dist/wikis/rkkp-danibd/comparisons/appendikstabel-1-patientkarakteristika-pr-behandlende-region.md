@@ -54,9 +54,9 @@ Summary: Tabellen sammenligner patientkarakteristika — herunder diagnosefordel
 
 ## Related comparisons in prose
 
-- "I Region Sjælland har 94 % af patienterne i BMSL fået systematisk opfølgning" — see [[quality-metric|Quality Metric]] ([[region-sjaelland|Region Sjælland]]) [^src2]
-- "Region Syddanmark er med en opfyldelse på 79 % marginalt fra at opfylde standarden" — see [[quality-metric|Quality Metric]] ([[region-syddanmark|Region Syddanmark]]) [^src2]
-- "Sjælland har en opfyldelse på 70 % (95 % CI: 47–87) for Indikator 7" — see [[quality-metric|Quality Metric]] ([[region-sjaelland|Region Sjælland]]) [^src2]
+- "I Region Sjælland har 94 % af patienterne i BMSL fået systematisk opfølgning" — see [[quality-indicator|Quality Metric]] ([[region-sjaelland|Region Sjælland]]) [^src2]
+- "Region Syddanmark er med en opfyldelse på 79 % marginalt fra at opfylde standarden" — see [[quality-indicator|Quality Metric]] ([[region-syddanmark|Region Syddanmark]]) [^src2]
+- "Sjælland har en opfyldelse på 70 % (95 % CI: 47–87) for Indikator 7" — see [[quality-indicator|Quality Metric]] ([[region-sjaelland|Region Sjælland]]) [^src2]
 - "Regional variation for indikator 1a ligger fra 76 % til 86 % i Region Sjælland" — see [[performance|Performance]] ([[region-sjaelland|Region Sjælland]]) [^src3]
 - "Region Nordjylland har kun 38 % opfyldelse af indikator 1b" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland]]) [^src3]
 

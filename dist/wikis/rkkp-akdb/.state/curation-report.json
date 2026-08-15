@@ -1,67 +1,33 @@
 {
-  "run": "2026-08-05T18:23:08.683Z",
+  "run": "2026-08-15T07:45:55.350Z",
   "topics": {
     "merges": [
       {
         "from": [
-          "decision",
-          "policy-decision"
+          "clinical-recommendation",
+          "evidence-based-recommendation"
         ],
-        "into": "policy"
+        "into": "recommendation"
       },
       {
         "from": [
-          "performance-goal",
-          "performance-standard",
-          "target"
+          "clinical-timing"
         ],
-        "into": "standard"
+        "into": "clinical-process"
       },
       {
         "from": [
-          "regional-variation"
-        ],
-        "into": "regional-comparison"
-      },
-      {
-        "from": [
-          "outcome"
-        ],
-        "into": "clinical-outcome"
-      },
-      {
-        "from": [
-          "exclusion-statistic"
-        ],
-        "into": "exclusion-criteria"
-      },
-      {
-        "from": [
-          "data-inconsistency"
-        ],
-        "into": "data-quality"
-      },
-      {
-        "from": [
-          "alder"
-        ],
-        "into": "demographic"
-      },
-      {
-        "from": [
-          "clinical-metric"
+          "organizational-performance"
         ],
         "into": "performance"
       }
     ],
     "drops": [
-      "trend",
-      "data-volume",
-      "uncertainty-claim",
-      "inclusion-claim",
-      "feasibility-claim",
-      "structural",
-      "registration-method"
+      "numerical",
+      "clinical-population",
+      "clinical-proportion",
+      "clinical-count",
+      "mortality-statistic"
     ],
     "attempts": 1,
     "fallbacks": [],
@@ -70,23 +36,39 @@
       "merges": [
         {
           "from": [
+            "mortality",
+            "outcome"
+          ],
+          "into": "clinical-outcome"
+        },
+        {
+          "from": [
             "healthcare-assessment"
           ],
           "into": "compliance"
         },
         {
           "from": [
+            "data-inconsistency"
+          ],
+          "into": "data-quality"
+        },
+        {
+          "from": [
             "data-exclusion",
-            "exclusion"
+            "exclusion",
+            "exclusion-statistic"
           ],
           "into": "exclusion-criteria"
         },
         {
           "from": [
+            "clinical-metric",
             "clinical-performance",
             "clinical-statistic",
             "healthcare-statistic",
             "hospital-statistic",
+            "outcome-result",
             "performance-result",
             "performance-statistic",
             "population-statistic",
@@ -96,24 +78,36 @@
         },
         {
           "from": [
+            "decision",
             "policy-change",
+            "policy-decision",
             "policy-recommendation"
           ],
           "into": "policy"
         },
         {
           "from": [
+            "outcome-target"
+          ],
+          "into": "quality-target"
+        },
+        {
+          "from": [
             "healthcare-comparison",
-            "regional-statistic"
+            "regional-statistic",
+            "regional-variation"
           ],
           "into": "regional-comparison"
         },
         {
           "from": [
+            "performance-goal",
+            "performance-standard",
             "performance-target",
             "quality-standard",
             "regulatory",
-            "regulatory-standard"
+            "regulatory-standard",
+            "target"
           ],
           "into": "standard"
         }
@@ -141,204 +135,505 @@
         "timeline-milestone",
         "administrative",
         "historical",
-        "technical"
-      ]
-    },
-    "decidedThisRun": {
-      "merges": [
-        {
-          "from": [
-            "decision",
-            "policy-decision"
-          ],
-          "into": "policy",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "performance-goal",
-            "performance-standard",
-            "target"
-          ],
-          "into": "standard",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "regional-variation"
-          ],
-          "into": "regional-comparison",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "outcome"
-          ],
-          "into": "clinical-outcome",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "exclusion-statistic"
-          ],
-          "into": "exclusion-criteria",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "data-inconsistency"
-          ],
-          "into": "data-quality",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "alder"
-          ],
-          "into": "demographic",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "clinical-metric"
-          ],
-          "into": "performance",
-          "signal": "model"
-        }
-      ],
-      "drops": [
+        "technical",
         "trend",
         "data-volume",
         "uncertainty-claim",
         "inclusion-claim",
         "feasibility-claim",
         "structural",
-        "registration-method"
+        "registration-method",
+        "causal-claim",
+        "performance-claim",
+        "assessment-claim",
+        "status-claim",
+        "analytical-claim",
+        "historical-claim",
+        "consensus-claim",
+        "organizational-claim",
+        "goal-claim",
+        "evidence-claim",
+        "request-claim",
+        "comparative"
+      ]
+    },
+    "decidedThisRun": {
+      "merges": [
+        {
+          "from": [
+            "clinical-recommendation",
+            "evidence-based-recommendation"
+          ],
+          "into": "recommendation",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "clinical-timing"
+          ],
+          "into": "clinical-process",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "organizational-performance"
+          ],
+          "into": "performance",
+          "signal": "model"
+        }
+      ],
+      "drops": [
+        "numerical",
+        "clinical-population",
+        "clinical-proportion",
+        "clinical-count",
+        "mortality-statistic"
       ],
       "denials": [
         {
           "from": "charlson-score",
-          "into": "charlson-score-0"
+          "into": "charlson-score-0",
+          "justification": "general vs specific cohort"
         },
         {
           "from": "definition",
-          "into": "definitional"
+          "into": "definitional",
+          "justification": "distinct concepts"
         },
         {
           "from": "evaluative",
-          "into": "evaluation"
+          "into": "evaluation",
+          "justification": "distinct concepts"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-10b"
+          "into": "indikator-10b",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-10c"
+          "into": "indikator-10c",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-5x"
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-5y"
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-9c",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-10",
-          "into": "indikator-10b"
+          "into": "indikator-10b",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-10",
-          "into": "indikator-10c"
+          "into": "indikator-10c",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-10c",
-          "into": "indikator-10b"
+          "into": "indikator-10b",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-11",
-          "into": "indikator-10b"
+          "into": "indikator-10b",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-11",
-          "into": "indikator-10c"
+          "into": "indikator-10c",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-9c",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-5x"
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-5y"
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-9c",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-5x"
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-5y"
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-9c",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4x",
+          "into": "indikator-10",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4x",
+          "into": "indikator-11",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4y",
+          "into": "indikator-10",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4y",
+          "into": "indikator-11",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4y",
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-5x"
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-5y"
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-9c",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-5x",
-          "into": "indikator-10"
+          "into": "indikator-10",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-5x",
-          "into": "indikator-11"
+          "into": "indikator-11",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-5x",
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-5y",
-          "into": "indikator-10"
+          "into": "indikator-10",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-5y",
-          "into": "indikator-11"
+          "into": "indikator-11",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-5y",
-          "into": "indikator-5x"
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-5y",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-5x"
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-5y"
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-9c",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-7",
-          "into": "indikator-5x"
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-7",
-          "into": "indikator-5y"
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-9c",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-8",
-          "into": "indikator-5x"
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-8",
-          "into": "indikator-5y"
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-9c",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-9",
-          "into": "indikator-5x"
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-9",
-          "into": "indikator-5y"
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-9c",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-10",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-11",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-10",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-11",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-4x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-4y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-5x",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-5y",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-9b",
+          "justification": "distinct indicators"
         }
       ]
     },
@@ -360,891 +655,6 @@
         "into": "evaluation",
         "signal": "edit-distance",
         "evidence": "slugs 'evaluative' and 'evaluation' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-1",
-        "into": "indikator-10b",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-1' and 'indikator-10b' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-1",
-        "into": "indikator-10c",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-1' and 'indikator-10c' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-1",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-1' and 'indikator-5x' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-1",
-        "into": "indikator-5y",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-1' and 'indikator-5y' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-10",
-        "into": "indikator-10b",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-10' and 'indikator-10b' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "indikator-10",
-        "into": "indikator-10c",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-10' and 'indikator-10c' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "indikator-10c",
-        "into": "indikator-10b",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-10c' and 'indikator-10b' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "indikator-11",
-        "into": "indikator-10b",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-11' and 'indikator-10b' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-11",
-        "into": "indikator-10c",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-11' and 'indikator-10c' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-3",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-3' and 'indikator-5x' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-3",
-        "into": "indikator-5y",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-3' and 'indikator-5y' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-4",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-4' and 'indikator-5x' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-4",
-        "into": "indikator-5y",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-4' and 'indikator-5y' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-5",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-5' and 'indikator-5x' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "indikator-5",
-        "into": "indikator-5y",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-5' and 'indikator-5y' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "indikator-5x",
-        "into": "indikator-10",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-5x' and 'indikator-10' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-5x",
-        "into": "indikator-11",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-5x' and 'indikator-11' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-5y",
-        "into": "indikator-10",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-5y' and 'indikator-10' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-5y",
-        "into": "indikator-11",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-5y' and 'indikator-11' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-5y",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-5y' and 'indikator-5x' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "indikator-6",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-6' and 'indikator-5x' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-6",
-        "into": "indikator-5y",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-6' and 'indikator-5y' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-7",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-7' and 'indikator-5x' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-7",
-        "into": "indikator-5y",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-7' and 'indikator-5y' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-8",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-8' and 'indikator-5x' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-8",
-        "into": "indikator-5y",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-8' and 'indikator-5y' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-9",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-9' and 'indikator-5x' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "indikator-9",
-        "into": "indikator-5y",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-9' and 'indikator-5y' are edit distance 2 apart (typo variant)"
-      }
-    ],
-    "autoApplied": []
-  },
-  "entities": {
-    "merges": [
-      {
-        "from": [
-          "landspatientregisteret-lpr"
-        ],
-        "into": "landspatientregisteret"
-      },
-      {
-        "from": [
-          "sundhedsvaesnets-kvalitetsinstitut"
-        ],
-        "into": "sundhedsvaesenets-kvalitetsinstitut"
-      },
-      {
-        "from": [
-          "styregruppen-for-databasen"
-        ],
-        "into": "styregruppen"
-      },
-      {
-        "from": [
-          "aha"
-        ],
-        "into": "aha-studiet"
-      },
-      {
-        "from": [
-          "akdb"
-        ],
-        "into": "akut-kirurgi-databasen"
-      },
-      {
-        "from": [
-          "lkt-for-akut-kirurgi"
-        ],
-        "into": "lkt-akut-kirurgi"
-      },
-      {
-        "from": [
-          "rhn"
-        ],
-        "into": "regionshospital-nordjylland"
-      }
-    ],
-    "drops": [],
-    "attempts": 1,
-    "fallbacks": [],
-    "vetoes": [],
-    "fromSticky": {
-      "merges": [
-        {
-          "from": [
-            "birgitte-ruhman"
-          ],
-          "into": "birgitte-ruhmann"
-        },
-        {
-          "from": [
-            "holbaek"
-          ],
-          "into": "holbaek-sygehus"
-        },
-        {
-          "from": [
-            "supplerende-indikator-5x"
-          ],
-          "into": "indikator-5x"
-        },
-        {
-          "from": [
-            "indikator-8-ernaering"
-          ],
-          "into": "indikator-8"
-        },
-        {
-          "from": [
-            "lpr"
-          ],
-          "into": "landspatientregisteret"
-        },
-        {
-          "from": [
-            "nykoebing-falster"
-          ],
-          "into": "nykoebing-f-sygehus"
-        },
-        {
-          "from": [
-            "ouh-odense-universitetshospital-svendborg"
-          ],
-          "into": "odense-universitetshospital-svendborg"
-        },
-        {
-          "from": [
-            "peter-olsen-svenningsen"
-          ],
-          "into": "peter-svenningsen"
-        },
-        {
-          "from": [
-            "regionerne-kliniske-kvalitetsudviklingsprogram"
-          ],
-          "into": "regionernes-kliniske-kvalitetsudviklingsprogram"
-        },
-        {
-          "from": [
-            "regionshospital-nordjylland-ven"
-          ],
-          "into": "regionshospital-nordjylland"
-        },
-        {
-          "from": [
-            "regionshospitalet-godstrup"
-          ],
-          "into": "regionshospitalet-goedstrup"
-        },
-        {
-          "from": [
-            "sor"
-          ],
-          "into": "sor-koder"
-        },
-        {
-          "from": [
-            "sygehusmedicinregisteret-smr"
-          ],
-          "into": "sygehusmedicinregisteret"
-        }
-      ],
-      "drops": [],
-      "clusters": [
-        {
-          "members": [
-            "region-hovedstaden",
-            "hovedstaden"
-          ],
-          "class": 5,
-          "into": "region-hovedstaden",
-          "signal": "region-form",
-          "rationale": "region name-form family"
-        },
-        {
-          "members": [
-            "region-midtjylland",
-            "midtjylland"
-          ],
-          "class": 5,
-          "into": "region-midtjylland",
-          "signal": "region-form",
-          "rationale": "region name-form family"
-        },
-        {
-          "members": [
-            "region-nordjylland",
-            "nordjylland"
-          ],
-          "class": 5,
-          "into": "region-nordjylland",
-          "signal": "region-form",
-          "rationale": "region name-form family"
-        },
-        {
-          "members": [
-            "region-sjaelland",
-            "sjaelland"
-          ],
-          "class": 5,
-          "into": "region-sjaelland",
-          "signal": "region-form",
-          "rationale": "region name-form family"
-        },
-        {
-          "members": [
-            "region-syddanmark",
-            "syddanmark"
-          ],
-          "class": 5,
-          "into": "region-syddanmark",
-          "signal": "region-form",
-          "rationale": "region name-form family"
-        }
-      ]
-    },
-    "decidedThisRun": {
-      "merges": [
-        {
-          "from": [
-            "landspatientregisteret-lpr"
-          ],
-          "into": "landspatientregisteret",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "sundhedsvaesnets-kvalitetsinstitut"
-          ],
-          "into": "sundhedsvaesenets-kvalitetsinstitut",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "styregruppen-for-databasen"
-          ],
-          "into": "styregruppen",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "aha"
-          ],
-          "into": "aha-studiet",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "akdb"
-          ],
-          "into": "akut-kirurgi-databasen",
-          "signal": "abbreviation",
-          "evidence": "corpus text introduces 'Akut Kirurgi DataBasen (AKDB)'"
-        },
-        {
-          "from": [
-            "lkt-for-akut-kirurgi"
-          ],
-          "into": "lkt-akut-kirurgi",
-          "signal": "subsequence",
-          "evidence": "tokens of 'lkt-akut-kirurgi' are a subsequence of 'lkt-for-akut-kirurgi' (name parts [for] dropped)"
-        },
-        {
-          "from": [
-            "rhn"
-          ],
-          "into": "regionshospital-nordjylland",
-          "signal": "abbreviation",
-          "evidence": "corpus text introduces 'Regionshospital Nordjylland (RHN)'"
-        }
-      ],
-      "drops": [],
-      "denials": [
-        {
-          "from": "aalborg-universitetshospital-thisted",
-          "into": "aalborg-universitetshospital",
-          "justification": "Thisted is a distinct hospital site"
-        },
-        {
-          "from": "charlson-score",
-          "into": "charlson-score-0",
-          "justification": "different score values"
-        },
-        {
-          "from": "indikator-1",
-          "into": "indikator-10b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-1",
-          "into": "indikator-10c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-1",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-1",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-1",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-1",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-1",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-1",
-          "into": "indikator-9c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-10",
-          "into": "indikator-10b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-10",
-          "into": "indikator-10c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-10c",
-          "into": "indikator-10b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-11",
-          "into": "indikator-10b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-11",
-          "into": "indikator-10c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-2",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-2",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-2",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-2",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-2",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-2",
-          "into": "indikator-9c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-3",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-3",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-3",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-3",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-3",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-3",
-          "into": "indikator-9c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4",
-          "into": "indikator-9c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4x",
-          "into": "indikator-10",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4x",
-          "into": "indikator-11",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4x",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4y",
-          "into": "indikator-10",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4y",
-          "into": "indikator-11",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4y",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-4y",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5",
-          "into": "indikator-9c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5x",
-          "into": "indikator-10",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5x",
-          "into": "indikator-11",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5y",
-          "into": "indikator-10",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5y",
-          "into": "indikator-11",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-5y",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-6",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-6",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-6",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-6",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-6",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-6",
-          "into": "indikator-9c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-7",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-7",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-7",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-7",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-7",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-7",
-          "into": "indikator-9c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-8",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-8",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-8",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-8",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-8",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-8",
-          "into": "indikator-9c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9",
-          "into": "indikator-9c",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9b",
-          "into": "indikator-10",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9b",
-          "into": "indikator-11",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9b",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9b",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9b",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9b",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9c",
-          "into": "indikator-10",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9c",
-          "into": "indikator-11",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9c",
-          "into": "indikator-4x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9c",
-          "into": "indikator-4y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9c",
-          "into": "indikator-5x",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9c",
-          "into": "indikator-5y",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "indikator-9c",
-          "into": "indikator-9b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "sjaellands-universitetshospital-koege",
-          "into": "sjaellands-universitetshospital",
-          "justification": "Køge is a distinct hospital site"
-        },
-        {
-          "from": "supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau",
-          "into": "aaben-kirurgi",
-          "justification": "graph title vs medical procedure"
-        }
-      ],
-      "clusters": [],
-      "clusterDenials": []
-    },
-    "proposedPairs": [
-      {
-        "from": "aalborg-universitetshospital-thisted",
-        "into": "aalborg-universitetshospital",
-        "signal": "subsequence",
-        "evidence": "tokens of 'aalborg-universitetshospital' are a subsequence of 'aalborg-universitetshospital-thisted' (name parts [thisted] dropped)"
-      },
-      {
-        "from": "akdb",
-        "into": "akut-kirurgi-databasen",
-        "signal": "abbreviation",
-        "evidence": "corpus text introduces 'Akut Kirurgi DataBasen (AKDB)'"
-      },
-      {
-        "from": "charlson-score",
-        "into": "charlson-score-0",
-        "signal": "edit-distance",
-        "evidence": "slugs 'charlson-score' and 'charlson-score-0' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-1",
@@ -1445,12 +855,6 @@
         "evidence": "slugs 'indikator-4x' and 'indikator-11' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "indikator-4x",
-        "into": "indikator-5y",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-4x' and 'indikator-5y' are edit distance 2 apart (typo variant)"
-      },
-      {
         "from": "indikator-4y",
         "into": "indikator-10",
         "signal": "edit-distance",
@@ -1467,12 +871,6 @@
         "into": "indikator-4x",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-4y' and 'indikator-4x' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "indikator-4y",
-        "into": "indikator-5x",
-        "signal": "edit-distance",
-        "evidence": "slugs 'indikator-4y' and 'indikator-5x' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-5",
@@ -1523,6 +921,12 @@
         "evidence": "slugs 'indikator-5x' and 'indikator-11' are edit distance 2 apart (typo variant)"
       },
       {
+        "from": "indikator-5x",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5x' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
         "from": "indikator-5y",
         "into": "indikator-10",
         "signal": "edit-distance",
@@ -1533,6 +937,12 @@
         "into": "indikator-11",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-5y' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5y",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5y' and 'indikator-4x' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-5y",
@@ -1761,18 +1171,1265 @@
         "into": "indikator-9b",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-9c' and 'indikator-9b' are edit distance 1 apart (typo variant)"
+      }
+    ],
+    "autoApplied": []
+  },
+  "entities": {
+    "merges": [
+      {
+        "from": [
+          "charlson-morbidity-scoring"
+        ],
+        "into": "charlson-comorbiditets-indeks"
       },
       {
-        "from": "lkt-for-akut-kirurgi",
-        "into": "lkt-akut-kirurgi",
+        "from": [
+          "aha-patienter"
+        ],
+        "into": "aha-populationen"
+      }
+    ],
+    "drops": [],
+    "attempts": 1,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [
+        {
+          "from": [
+            "aha"
+          ],
+          "into": "aha-studiet"
+        },
+        {
+          "from": [
+            "akdb"
+          ],
+          "into": "akut-kirurgi-databasen"
+        },
+        {
+          "from": [
+            "birgitte-ruhman"
+          ],
+          "into": "birgitte-ruhmann"
+        },
+        {
+          "from": [
+            "holbaek"
+          ],
+          "into": "holbaek-sygehus"
+        },
+        {
+          "from": [
+            "supplerende-indikator-5x"
+          ],
+          "into": "indikator-5x"
+        },
+        {
+          "from": [
+            "indikator-8-ernaering"
+          ],
+          "into": "indikator-8"
+        },
+        {
+          "from": [
+            "ita"
+          ],
+          "into": "ita-afsnit"
+        },
+        {
+          "from": [
+            "landspatientregisteret-lpr",
+            "lpr",
+            "lpr3"
+          ],
+          "into": "landspatientregisteret"
+        },
+        {
+          "from": [
+            "laparotomi-aaben"
+          ],
+          "into": "laparotomi"
+        },
+        {
+          "from": [
+            "lkt-for-akut-kirurgi"
+          ],
+          "into": "lkt-akut-kirurgi"
+        },
+        {
+          "from": [
+            "nykoebing-falster"
+          ],
+          "into": "nykoebing-f-sygehus"
+        },
+        {
+          "from": [
+            "ouh-odense-universitetshospital-svendborg"
+          ],
+          "into": "odense-universitetshospital-svendborg"
+        },
+        {
+          "from": [
+            "peter-olsen-svenningsen"
+          ],
+          "into": "peter-svenningsen"
+        },
+        {
+          "from": [
+            "regionerne-kliniske-kvalitetsudviklingsprogram"
+          ],
+          "into": "regionernes-kliniske-kvalitetsudviklingsprogram"
+        },
+        {
+          "from": [
+            "regionshospital-nordjylland-ven",
+            "rhn"
+          ],
+          "into": "regionshospital-nordjylland"
+        },
+        {
+          "from": [
+            "regionshospitalet-godstrup"
+          ],
+          "into": "regionshospitalet-goedstrup"
+        },
+        {
+          "from": [
+            "naaz42"
+          ],
+          "into": "sks-kode-naaz42"
+        },
+        {
+          "from": [
+            "sor"
+          ],
+          "into": "sor-koder"
+        },
+        {
+          "from": [
+            "styregruppen-for-databasen"
+          ],
+          "into": "styregruppen"
+        },
+        {
+          "from": [
+            "sundhedsvaesnets-kvalitetsinstitut"
+          ],
+          "into": "sundhedsvaesenets-kvalitetsinstitut"
+        },
+        {
+          "from": [
+            "sygehusmedicinregisteret-smr"
+          ],
+          "into": "sygehusmedicinregisteret"
+        }
+      ],
+      "drops": [],
+      "clusters": []
+    },
+    "decidedThisRun": {
+      "merges": [
+        {
+          "from": [
+            "charlson-morbidity-scoring"
+          ],
+          "into": "charlson-comorbiditets-indeks",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "aha-patienter"
+          ],
+          "into": "aha-populationen",
+          "signal": "model"
+        }
+      ],
+      "drops": [],
+      "denials": [
+        {
+          "from": "aalborg-universitetshospital-thisted",
+          "into": "aalborg-universitetshospital"
+        },
+        {
+          "from": "amager-og-hvidovre-hospital",
+          "into": "hvidovre-hospital"
+        },
+        {
+          "from": "charlson-score",
+          "into": "charlson-score-0"
+        },
+        {
+          "from": "herlev-og-gentofte-hospital",
+          "into": "herlev-hospital"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-10b"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-10c"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-9a"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-10",
+          "into": "indikator-10b"
+        },
+        {
+          "from": "indikator-10",
+          "into": "indikator-10c"
+        },
+        {
+          "from": "indikator-10c",
+          "into": "indikator-10b"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-10b"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-10c"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-9a"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-9a"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-9a"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-4x",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-4x",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-4x",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-4y",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-4y",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-4y",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-4y",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-9a"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-5x",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-5x",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-5y",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-5y",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-5y",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-9a"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-9a"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-9a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-9a"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-9a",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-9a",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-9a",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-9a",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-9a",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-9a",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-9a",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "indikator-9a",
+          "into": "indikator-9c"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-9b",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-4x"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-4y"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-5x"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-5y"
+        },
+        {
+          "from": "indikator-9c",
+          "into": "indikator-9b"
+        },
+        {
+          "from": "sjaellands-universitetshospital-koege",
+          "into": "sjaellands-universitetshospital"
+        },
+        {
+          "from": "supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau",
+          "into": "aaben-kirurgi"
+        }
+      ],
+      "clusters": [],
+      "clusterDenials": []
+    },
+    "proposedPairs": [
+      {
+        "from": "aalborg-universitetshospital-thisted",
+        "into": "aalborg-universitetshospital",
         "signal": "subsequence",
-        "evidence": "tokens of 'lkt-akut-kirurgi' are a subsequence of 'lkt-for-akut-kirurgi' (name parts [for] dropped)"
+        "evidence": "tokens of 'aalborg-universitetshospital' are a subsequence of 'aalborg-universitetshospital-thisted' (name parts [thisted] dropped)"
       },
       {
-        "from": "rhn",
-        "into": "regionshospital-nordjylland",
-        "signal": "abbreviation",
-        "evidence": "corpus text introduces 'Regionshospital Nordjylland (RHN)'"
+        "from": "amager-og-hvidovre-hospital",
+        "into": "hvidovre-hospital",
+        "signal": "subsequence",
+        "evidence": "tokens of 'hvidovre-hospital' are a subsequence of 'amager-og-hvidovre-hospital' (name parts [amager, og] dropped)"
+      },
+      {
+        "from": "charlson-score",
+        "into": "charlson-score-0",
+        "signal": "edit-distance",
+        "evidence": "slugs 'charlson-score' and 'charlson-score-0' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "herlev-og-gentofte-hospital",
+        "into": "herlev-hospital",
+        "signal": "subsequence",
+        "evidence": "tokens of 'herlev-hospital' are a subsequence of 'herlev-og-gentofte-hospital' (name parts [og, gentofte] dropped)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-10b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-10b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-10c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-10c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-9a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-9a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-9b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-9c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-10",
+        "into": "indikator-10b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-10' and 'indikator-10b' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-10",
+        "into": "indikator-10c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-10' and 'indikator-10c' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-10c",
+        "into": "indikator-10b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-10c' and 'indikator-10b' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-10b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-10b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-10c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-10c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-9a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-9a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-9b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-9c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-9a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-9a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-9b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-9c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-4x' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-4y' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-9a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-9a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-9b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-9c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4x",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4x' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4x",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4x' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4x",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4x' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4y",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4y' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4y",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4y' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4y",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4y' and 'indikator-4x' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4y",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4y' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-5x' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-5y' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-9a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-9a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-9b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-9c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5x",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5x' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5x",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5x' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5y",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5y' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5y",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5y' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5y",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5y' and 'indikator-5x' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-9a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-9a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-9b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-9c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-9a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-9a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-9b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-9c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-9a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-9a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-9b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-9c' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-9a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-9a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-9b' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-9c' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9a",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9a' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9a",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9a' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9a",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9a' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9a",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9a' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9a",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9a' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9a",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9a' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9a",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9a' and 'indikator-9b' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9a",
+        "into": "indikator-9c",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9a' and 'indikator-9c' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9b",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9b' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9b",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9b' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9b",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9b' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9b",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9b' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9b",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9b' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9b",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9b' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9c",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9c' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9c",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9c' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9c",
+        "into": "indikator-4x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9c' and 'indikator-4x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9c",
+        "into": "indikator-4y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9c' and 'indikator-4y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9c",
+        "into": "indikator-5x",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9c' and 'indikator-5x' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9c",
+        "into": "indikator-5y",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9c' and 'indikator-5y' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9c",
+        "into": "indikator-9b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9c' and 'indikator-9b' are edit distance 1 apart (typo variant)"
       },
       {
         "from": "sjaellands-universitetshospital-koege",
@@ -1788,16 +2445,305 @@
       }
     ],
     "autoApplied": [],
-    "proposedClusters": []
+    "proposedClusters": [
+      {
+        "members": [
+          "region-hovedstaden",
+          "hovedstaden"
+        ],
+        "class": 5,
+        "into": "region-hovedstaden",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'hovedstaden', 2 forms)"
+      },
+      {
+        "members": [
+          "region-midtjylland",
+          "midtjylland"
+        ],
+        "class": 5,
+        "into": "region-midtjylland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'midtjylland', 2 forms)"
+      },
+      {
+        "members": [
+          "region-nordjylland",
+          "nordjylland"
+        ],
+        "class": 5,
+        "into": "region-nordjylland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'nordjylland', 2 forms)"
+      },
+      {
+        "members": [
+          "region-sjaelland",
+          "sjaelland"
+        ],
+        "class": 5,
+        "into": "region-sjaelland",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'sjaelland', 2 forms)"
+      },
+      {
+        "members": [
+          "region-syddanmark",
+          "syddanmark"
+        ],
+        "class": 5,
+        "into": "region-syddanmark",
+        "signal": "region-form",
+        "evidence": "region name-form family (core 'syddanmark', 2 forms)"
+      }
+    ]
   },
-  "manualEditSkips": [],
-  "removedPages": [
-    "entities/databases/healthcare/landspatientregisteret-lpr.md",
-    "entities/organizations/healthcare-oversight/styregruppen-for-databasen.md",
-    "entities/organizations/medical-research/aha.md",
-    "entities/organizations/quality-improvement-teams/lkt-for-akut-kirurgi.md",
-    "topics/healthcare-metrics/demographics/alder.md"
+  "manualEditSkips": [
+    {
+      "page": "topics/healthcare-metrics/demographics/alder.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/visualizations/supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau.md",
+      "concern": "topics",
+      "action": "drop"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-hovedstaden.md",
+      "concern": "entities",
+      "action": "cluster"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-midtjylland.md",
+      "concern": "entities",
+      "action": "cluster"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-nordjylland.md",
+      "concern": "entities",
+      "action": "cluster"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-sjaelland.md",
+      "concern": "entities",
+      "action": "cluster"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-syddanmark.md",
+      "concern": "entities",
+      "action": "cluster"
+    },
+    {
+      "page": "topics/clinical-indicators/acute-surgery/aha-patienter.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/clinical-indicators/acute-surgery/aha-populationen.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/healthcare-metrics/demographics/alder.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/methodological-change/methodological-change.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/research-finding/research-finding.md",
+      "concern": "topics",
+      "action": "drop"
+    },
+    {
+      "page": "topics/visualizations/supplerende-graf-med-aaben-kirurgi-over-tid-paa-regionalt-niveau.md",
+      "concern": "topics",
+      "action": "drop"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-hovedstaden.md",
+      "concern": "entities",
+      "action": "cluster"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-midtjylland.md",
+      "concern": "entities",
+      "action": "cluster"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-nordjylland.md",
+      "concern": "entities",
+      "action": "cluster"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-sjaelland.md",
+      "concern": "entities",
+      "action": "cluster"
+    },
+    {
+      "page": "entities/organizations/regional-health-authorities/region-syddanmark.md",
+      "concern": "entities",
+      "action": "cluster"
+    }
   ],
-  "rewrittenLinks": [],
+  "removedPages": [],
+  "rewrittenLinks": [
+    {
+      "path": "comparisons/akut-kirurgi-databasen.md",
+      "hash": "6e7459f3adec175a4d045670e6264490667e9a928dc976ce4da15201f729c770"
+    },
+    {
+      "path": "comparisons/eksklusion-aarsag.md",
+      "hash": "33d95dd3427462a496544d77f4d1571a7941a9355b20366a1b667cd24b89b573"
+    },
+    {
+      "path": "comparisons/eksklusion-ugyldigt-cpr-nummer-under-18-aar-ikke-opereret-osv.md",
+      "hash": "2a10b55477de0368a6e53920f390e78fe0fc66ca6bc2ca0111b5821423ae74dc"
+    },
+    {
+      "path": "comparisons/fordeling-af-alder-for-opererede-01-09-2022-31-08-2023.md",
+      "hash": "ee66a320f23b1bbdbe265cb744d6896663266cb75946a41d38147abad92391d3"
+    },
+    {
+      "path": "comparisons/indikator-1.md",
+      "hash": "a4b3094e2625e9025a25a101e0556bd42baf4aba85c431bcbc63c6ba12958d0e"
+    },
+    {
+      "path": "comparisons/indikator-10.md",
+      "hash": "a156b0a80ae82a156e9b4cce63ecafe7db17f2f8adf2492655b143ba66b90b2e"
+    },
+    {
+      "path": "comparisons/indikator-2.md",
+      "hash": "65a86029993b14d357202f505d0c46f8900516c8d1a2c39ae67252005fdc1039"
+    },
+    {
+      "path": "comparisons/indikator-3.md",
+      "hash": "5f56b310aedd33920728f525da366e633fd0b12ba7c4f7716a0be12d533d9289"
+    },
+    {
+      "path": "comparisons/indikator-4.md",
+      "hash": "0e774e8c90a100a03d056d025ef62ecbad729453e7538af46a0b775d633d3746"
+    },
+    {
+      "path": "comparisons/indikator-4x.md",
+      "hash": "86b8004bfd93387e683fc3e55354a2ab68d6bf7de4000ec660c72688b745cb7b"
+    },
+    {
+      "path": "comparisons/indikator-4y.md",
+      "hash": "b8f64497dc83398ef7ba63b9d88795a7a66f3b3d7e3b13a9f40aa3ebf9b75932"
+    },
+    {
+      "path": "comparisons/indikator-5.md",
+      "hash": "5078bde64c7a3da54140bdbfe8affbad2502cc221bb8d3cfdc17be41364e8fa7"
+    },
+    {
+      "path": "comparisons/indikator-5x.md",
+      "hash": "f0a825185aac024bcfcc494e78215dc5085ad55523e05eaf74d9e3ac9c3ec8ca"
+    },
+    {
+      "path": "comparisons/indikator-5y.md",
+      "hash": "0a840c819fda2526ee87d172b81caa258b26f4b42967b182963fe8cebfa821f9"
+    },
+    {
+      "path": "comparisons/indikator-8.md",
+      "hash": "2b4fd0aad0ef8e85e6d6421096131fe52dbdb5cf39e9e99d8a80eaff3241c00c"
+    },
+    {
+      "path": "comparisons/indikator-9.md",
+      "hash": "5230f99def4c61ccf25cae93dfc798a3959e8284da1565b589e937758df22b48"
+    },
+    {
+      "path": "comparisons/indikator-9b.md",
+      "hash": "ad9bf13ea02316a48842f8bc104ee61d4ce7c9a17d8d2e9b296efc63d29e8dbf"
+    },
+    {
+      "path": "comparisons/indikator-9c.md",
+      "hash": "3e035610107453e5ea36d059693a3216ad44e4c52e95b1f1e63d2f124f797582"
+    },
+    {
+      "path": "comparisons/indikatorer-for-akutte-hoejrisiko-abdominalkirurgiske-patienter-paa-danske-sygehuse.md",
+      "hash": "b9fea5dfd2a6140bb20c32039e29776e4e0fe9a36ec2b287d1997319b915eae8"
+    },
+    {
+      "path": "comparisons/indikatoropfyldelse-efter-region-og-hospital.md",
+      "hash": "478e4fbe450882c73bb50f386f36d72f6d0407429e776ac8618719353d118ee9"
+    },
+    {
+      "path": "comparisons/median-tid-fra-ankomst-til-sygehus-til-modtagelse-af-antibiotika-minutter.md",
+      "hash": "b26b0a5f9e39fa0e2dafc491d96c48718e3aedfcfbca97d213b1f9302cb68fd0"
+    },
+    {
+      "path": "comparisons/oversigt-over-alle-indikatorer.md",
+      "hash": "0ea241f4aa0ff5d2b73b7c60c251f834b02e0dd4b5dcc8d05947d830795a48d4"
+    },
+    {
+      "path": "comparisons/resultater-for-indikator-11-mortalitet-indenfor-90-dage-efter-akut-kirurgi.md",
+      "hash": "c38647992f28b8e933096e9d1cc62a17e4fd264250b80f4e4990897efa5d4b68"
+    },
+    {
+      "path": "comparisons/supplerende-indikator-til-10b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+      "hash": "486fc86ced975751a47a6871e7066e9c84fa03949bebbea53948f19ef311d700"
+    },
+    {
+      "path": "comparisons/supplerende-indikator-til-indikator-9a-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-0-alle-opererede.md",
+      "hash": "096388e580a2c1caf6a0b693a4ade5b06d7d53b5808af9a2d685ad0560bfe203"
+    },
+    {
+      "path": "comparisons/supplerende-indikator-til-indikator-9b-mortalitet-indenfor-30-dage-efter-akut-kirurgi-hvis-charlson-score-1-eller-2-alle-opererede.md",
+      "hash": "2e92391db3fd49f7876641239eecc72dfdff32e02f2941f6dcad841a2f56a12e"
+    },
+    {
+      "path": "comparisons/supplerende-opgoerelse-af-asa-score-for-opererede-boxplot.md",
+      "hash": "403b9dadddcedf2f051ae1b71fb940561bc0dcdc6891900274c15761d9825a56"
+    },
+    {
+      "path": "comparisons/supplerende-opgoerelse-over-fordelingen-af-cancer-01-09-2022-31-08-2023.md",
+      "hash": "fdae9b438469532ea04004b6eb818ee86a5b9164459f35d110ec726528b2def9"
+    },
+    {
+      "path": "entities/organizations/regional-health-authorities/region-hovedstaden.md",
+      "hash": "748bebcd0a5e392607d1cd6a22719e2865e99694074f0439b5564017d1bceb8a"
+    },
+    {
+      "path": "entities/organizations/regional-health-authorities/region-midtjylland.md",
+      "hash": "5f79d54ffa60015c56530bed9fb23dcdc5ad679c9ad3545e6e669032f6c4b817"
+    },
+    {
+      "path": "entities/organizations/regional-health-authorities/region-nordjylland.md",
+      "hash": "cb75de89ecf8fb5c35668e1c1b2e93497dadd99f065f23d74ce8063e1d7a0cc2"
+    },
+    {
+      "path": "entities/organizations/regional-health-authorities/region-sjaelland.md",
+      "hash": "c8e5f222f6f27f2d2785a51ed40040b8f3af0532bcbb9f8d7d436ff0da025ea3"
+    },
+    {
+      "path": "entities/organizations/regional-health-authorities/region-syddanmark.md",
+      "hash": "f8587e327d169e48ab88f1ddf8e4f8914edeaa8b86d613975c8fb91c43a5e35f"
+    },
+    {
+      "path": "topics/clinical-indicators/acute-surgery/aha-patienter.md",
+      "hash": "5a3ef89b577bd959b353d7b78d4062f845e8fd0971ec8ae0a520c8e4b38fcd57"
+    },
+    {
+      "path": "topics/clinical-indicators/acute-surgery/akut-abdomen.md",
+      "hash": "96fa9f95cde088ab367583ffc81487333b682f80cb2b82514255564ef29c854d"
+    },
+    {
+      "path": "topics/clinical-indicators/acute-surgery/indikator-9.md",
+      "hash": "f5aa9000dee1fb46101242820c6f89f5d3b5f814203e47cadb8fb9e5f4634b2a"
+    },
+    {
+      "path": "topics/clinical-quality-indicators/surgical-outcomes/indikator-2.md",
+      "hash": "10eab2125780c0e575df43ded6084a3fcbc729e1c8724c2e6c41280599eff1b2"
+    },
+    {
+      "path": "topics/performance/performance.md",
+      "hash": "3d596d720e41506c987706883f15d5a2385f7fe09d7119e19cf48e9504bf0f58"
+    }
+  ],
   "splitReversals": []
 }

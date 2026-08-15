@@ -2,7 +2,7 @@
 title: atrieflimren
 type: entity
 wiki: rkkp-afdk
-updated: '2026-08-05T19:38:56.847Z'
+updated: '2026-08-14T19:47:50.885Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: '101-105, 106-110, 11-15, 116-120, 6-10, 61-65, 66-70, 96-100'
@@ -10,21 +10,20 @@ sources:
     pages: >-
       101-105, 11-15, 21-25, 31-35, 41-45, 51-55, 6-10, 66-70, 86-90, 91-95,
       96-100
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: '41-45, 61-65, 91-95'
 tags:
   - medical-condition
 ---
-# Atrieflimren
+**Atrieflimren** (Atrial Fibrillation) is a major cardiovascular condition and the central disease focus of the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]], a national clinical quality database managed by the [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] (RKKP) [^src7]. The condition is associated with an increased risk of severe complications, including [[iskaemisk-apopleksi|ischemic stroke]], [[hjertesvigtsindikatoren|heart failure]], dementia, and death [^src18]. In [[danmark|Denmark]], more than 20,000 citizens are diagnosed annually, and over 130,000 live with the disease [^src18], [^src19]. The true prevalence is likely underestimated due to a significant number of undiagnosed cases [^src19]. The incidence rate was 3.7 per 1,000 inhabitants in 2023/2024, with the average age of incident patients being 74 years [^src13]. Furthermore, the lifetime risk of developing heart failure after an atrial fibrillation diagnosis is 40% [^src19].
 
-**Atrieflimren** (Atrial Fibrillation) is a cardiovascular medical condition and the central focus of the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (Danish Atrial Fibrillation Database). Monitored by the [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] (RKKP), the condition is a major public health priority in [[danmark|Denmark]], where more than 20,000 citizens are diagnosed annually and over 130,000 live with the disease [^src17]. Atrieflimren is associated with a significantly increased risk of severe complications, including [[iskaemisk-apopleksi|ischemic stroke]], [[hjertesvigtsindikatoren|heart failure]], dementia, and death [^src17]. 
+To monitor and improve care, the RKKP tracks the disease through a comprehensive set of clinical quality indicators. Risk assessment for stroke is primarily conducted using the [[cha2ds2-vasc|CHA2DS2-VASc]] score; in 2023/2024, the average score for incident patients was 1.75, and 60.21% had a score of ≥2, indicating a need for [[antikoagulationsbehandling|anticoagulation therapy]] [^src13]. [[indikator-1|Indikator 1]] measures the proportion of newly diagnosed patients with a CHA2DS2-VASc score ≥2 who begin anticoagulation within 30 days, with a national standard of ≥90% [^src7]. National performance has successfully met this standard, with 92% of eligible patients initiating treatment within the required timeframe [^src2], [^src8]. Treatment frequently involves [[doac|DOAC]] (Direct Oral Anticoagulants) or [[marevan|Marevan]], and [[indikator-4b|Indikator 4b]] monitors renal function via annual P-creatinin or S-creatinin measurements for patients on DOACs [^src7], [^src11].
 
-Epidemiological data from the 2023/2024 reporting period shows an incidence rate of 3.7 per 1,000 inhabitants [^src13]. The average age of incident patients is 74 years [^src13], and the average [[cha2ds2-vasc|CHA2DS2-VASc]] score is 1.75, with 60.21% of incident patients scoring ≥2, indicating a clinical need for [[antikoagulationsbehandling|anticoagulation therapy]] [^src13]. The mortality rate for prevalent patients was 7.3% nationally between July 1, 2023, and June 30, 2024 [^src13], while 12.5% of newly diagnosed patients died within one year of their diagnosis [^src13].
+Diagnostic and follow-up procedures are also strictly monitored. [[indikator-2|Indikator 2]] tracks the use of [[ekkokardiografi|echocardiography]] within a specific window around the diagnosis date (standard ≥80%) [^src7], while [[indikator-3|Indikator 3]] ensures the measurement of [[thyreoideastimulerende-hormon-tsh|thyroid-stimulating hormone (TSH)]] to rule out thyroid-induced arrhythmias (standard ≥95%) [^src7]. Furthermore, [[indikator-8|Indikator 8]] measures the delivery of structured [[patientuddannelse|patient education]] within the first year of diagnosis [^src7]. 
 
-To ensure high-quality care and patient safety, RKKP tracks multiple clinical quality indicators for atrieflimren. These include the timely initiation of anticoagulation therapy within 30 days of diagnosis (Indikator 1) [^src7], the performance of [[ekkokardiografi|echocardiography]] (Indikator 2) [^src7], and the measurement of [[thyreoideastimulerende-hormon-tsh|TSH]] to rule out thyroid dysfunction (Indikator 3) [^src7]. Long-term treatment adherence is measured at 1, 2, and 5 years post-diagnosis (Indikator 4a) [^src10], and renal function monitoring for patients on [[doac|DOAC]] therapy is also tracked (Indikator 4b) [^src11]. Furthermore, the database monitors severe adverse outcomes, such as the incidence of ischemic stroke (Indikator 5) [^src11] and [[intrakraniel-bloedning|intracranial bleeding]] (Indikator 6) [^src12]. 
-
-Beyond pharmacological and diagnostic interventions, structured [[patientuddannelse|patient education]] is a core component of the national care pathway. Coded via the [[bfkb|BFKB]] intervention code (Indikator 8), patient education is strongly recommended based on international ESC guidelines and national rehabilitation guidelines to improve outcomes and integrate the ABC Pathway [^src15].
+Patient safety and clinical outcomes are evaluated through complication and mortality indicators. [[indikator-5|Indikator 5]] and [[indikator-6|Indikator 6]] track the incidence of ischemic stroke and [[intrakraniel-bloedning|intracranial bleeding]], respectively, among prevalent patients [^src7]. The introduction of DOACs is expected to reduce the risk of intracranial bleeding over time compared to older treatments [^src3]. Mortality is also closely monitored; the mortality rate for prevalent patients was 7.3% in the 2023–2024 period, and 12.5% of newly diagnosed patients died within one year [^src13]. Data for these indicators are primarily sourced from the [[landspatientregisteret|Danish National Patient Register]], the Danish Medicines Statistics Registry, and the [[cpr-registeret|Civil Registration System (CPR)]] [^src8], [^src13]. While the validity of the atrial fibrillation diagnosis in the Landspatientregisteret is considered very high based on validation studies [^src19], some clinical diagnoses may not be registered if competing diseases dominate the patient's clinical course [^src19].
 
 ## Mentions
-
 - Page 6: "Databasen for Atrieflimren i Danmark" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 6-10)
 - Page 7: "nydiagnosticerede patienter med atrieflimren" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 6-10)
 - Page 8: "nydiagnosticerede patienter med atrieflimren" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 6-10)
@@ -78,10 +77,12 @@ Beyond pharmacological and diagnostic interventions, structured [[patientuddanne
 - Page 103: "Atrieflimren i Danmark" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105)
 - Page 104: "nydiagnosticerede patienter med atrieflimren" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105)
 - Page 105: "nydiagnosticerede patienter med atrieflimren" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105)
+- Page 41: "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren." (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 41-45)
+- Page 42: "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 41-45)
+- Page 45: "blandt prævalente patienter med atrieflimren" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 41-45)
 
 ## Relationships
-
-**Outgoing (this entity is the SUBJECT of these relationships):**
+Outgoing (this entity is the SUBJECT of these relationships):
 - Subject: atrieflimren
   Predicate: is-subject-of-indicator
   Object: databasen-for-atrieflimren-i-danmark
@@ -203,7 +204,7 @@ Beyond pharmacological and diagnostic interventions, structured [[patientuddanne
   Page: 105
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105
 
-**Incoming (this entity is the OBJECT of these relationships):**
+Incoming (this entity is the OBJECT of these relationships):
 - Subject: doac
   Predicate: is-treatment-for
   Object: (this entity)
@@ -734,7 +735,7 @@ underkoder"
   Evidence: "Sundhedsklyngen SUH har et resultat på 91,5% for Indikator 1"
   Page: 11
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- Subject: sundhedsklyngen-slagelse
+- Subject: sundhedsklyngen-slagelese
   Predicate: has-indicator-result
   Object: (this entity)
   Evidence: "Sundhedsklyngen Slagelse har et resultat på 93,4% for Indikator 1"
@@ -792,12 +793,6 @@ underkoder"
   Predicate: has-indicator-result
   Object: (this entity)
   Evidence: "Randersklyngen har et resultat på 93,5% for Indikator 1"
-  Page: 11
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- Subject: klynge-midt
-  Predicate: has-indicator-result
-  Object: (this entity)
-  Evidence: "Klynge MIDT har et resultat på 93,9% for Indikator 1"
   Page: 11
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
 - Subject: klynge-nord
@@ -878,237 +873,337 @@ underkoder"
   Evidence: "Regionernes Kliniske Kvalitetsudviklingsprogram udgiver rapporten 'Atrieflimren i Danmark'"
   Page: 96
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 96-100
+- Subject: intrakraniel-bloedning
+  Predicate: is-complication-of
+  Object: (this entity)
+  Evidence: "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren."
+  Page: 41
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 41-45
+- Subject: indikator-15
+  Predicate: measures-outcome-of
+  Object: (this entity)
+  Evidence: "Indikator 15: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år."
+  Page: 61
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 61-65
 
 ## Claims
-
-**methodological**
 - Indikator 1 undersøger ventetiden fra diagnosticering til opstart i antikoagulationsbehandling blandt patienter nydiagnosticeret med atrieflimren i perioden 1. juli 2022 til 30. juni 2023 [^src1] (indikator-1, atrieflimren, antikoagulationsbehandling)
+  Type: methodological
   Page: 15
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 11-15
-
-**performance**
 - På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral antikoagulationsbehandling senest 30 dage efter diagnosticering [^src1] (indikator-1, atrieflimren, antikoagulationsbehandling, cha2ds2-vasc)
+  Type: performance
   Page: 15
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 11-15
-- På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral AK-behandling senest 30 dage efter diagnosticering [^src1] (atrieflimren, antikoagulationsbehandling, cha2ds2-vasc, danmark)
-  Page: 14
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- Standarden på ≥ 90% er således opfyldt på landsplan og har ligget kontinuerligt over grænsen de sidste tre årsrapportsperioder [^src1] (atrieflimren, antikoagulationsbehandling, danmark)
-  Page: 14
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- På regionsplan varierede andelen mellem 91 – 93% og standarden er således opfyldt i alle regioner [^src1] (atrieflimren, antikoagulationsbehandling, region-hovedstaden, region-sjaelland, region-syddanmark, region-midtjylland, region-nordjylland)
-  Page: 14
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- Regionernes resultater er meget homogene, men Midtjylland og Nordjylland har marginalt højere målopfyldelse (ca. 93%) end de øvrige (ca. 91%) [^src1] (atrieflimren, antikoagulationsbehandling, region-midtjylland, region-nordjylland)
-  Page: 14
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- På Sundhedklyngeniveau opfylder langt størstedelen af klyngerne (18/22) standarden [^src1] (atrieflimren, antikoagulationsbehandling)
-  Page: 14
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- I de fire klynger hvor standarden ikke er opfyldt ligger målopfyldelsen i niveauet 87,5-89,9% [^src1] (atrieflimren, antikoagulationsbehandling)
-  Page: 14
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- Ca. 56% af patienterne havde indløst en recept vedrørende oral AK-behandling inden for 120 dage op til diagnosen stilles i hospitalsregi [^src1] (atrieflimren, antikoagulationsbehandling)
-  Page: 14
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- På landsplan fik 76% af de nydiagnosticerede patienter med atrieflimren målt TSH i perioden fra 60 dage før til 30 dage efter diagnosedatoen [^src1] (indikator-3, atrieflimren, thyreoideastimulerende-hormon-tsh)
-  Page: 24
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 21-25
-- På landsplan fik 93,9% den prævalente population af patienter med atrieflimren, som var i DOAC-behandling, målt p-creatinin mindst én gang årligt [^src1] (indikator-4b, atrieflimren, doac)
-  Page: 43
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 41-45
-
-**prognostic**
 - Forventet risiko for intrakraniel blødning vil aftage over tid som følge af introduktionen af DOAC [^src1] (doac, atrieflimren)
+  Type: prognostic
   Page: 66
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 66-70
-
-**clinical-outcome**
 - Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler iskæmisk apopleksi inden for 1 år, var 1,1 % i Danmark i perioden 01.07.2021–30.06.2022 [^src1] (atrieflimren, iskaemisk-apopleksi, danmark)
+  Type: clinical-outcome
   Page: 96
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 96-100
 - Andelen af nydiagnosticerede patienter med atrieflimren, som får intrakraniel blødning inden for 1 år, var 0,7 % i Danmark i perioden 01.07.2021–30.06.2022 [^src1] (atrieflimren, intrakraniel-bloedning, danmark)
+  Type: clinical-outcome
   Page: 99
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 96-100
-- I perioden 01.07.2018–30.06.2019 var den nationale andel af patienter med atrieflimren, der modtog antikoagulationsbehandling, 87,3 % (95 % CI: 86,5–88,1) [^src1] (danmark, atrieflimren, antikoagulationsbehandling)
-  Page: 34
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
-- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Nordjylland 91,1 % (95 % CI: 88,7–93,0) [^src1] (region-nordjylland, atrieflimren, antikoagulationsbehandling)
-  Page: 34
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
-- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Sundhedsklynge Bornholm 80,0 % (95 % CI: 67,7–89,2) [^src1] (sundhedsklynge-bornholm, atrieflimren, antikoagulationsbehandling)
-  Page: 34
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
-- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Klynge NORD 94,1 % (95 % CI: 90,3–96,7) [^src1] (klynge-nord, atrieflimren, antikoagulationsbehandling)
-  Page: 34
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
-- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Klynge SYD 94,3 % (95 % CI: 88,5–97,7) [^src1] (klynge-syd, atrieflimren, antikoagulationsbehandling)
-  Page: 35
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
-- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Klynge VEST 83,1 % (95 % CI: 73,3–90,5) [^src1] (klynge-vest, atrieflimren, antikoagulationsbehandling)
-  Page: 35
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
-
-**epidemiological**
 - I Danmark udgjorde antallet af prævalente atrieflimren-patienter med intrakraniel blødning 711 ud af 134.710 patienter, hvilket svarer til 0,53 % [^src1] (atrieflimren, intrakraniel-bloedning, danmark)
+  Type: epidemiological
   Page: 98
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 96-100
-- Danmark: Gennemsnitsalder for atrieflimren-patienter er 70 år, spredning 12, median 72, minimum 0, maximum 105, antal prævalente patienter 136420. [^src1] (atrieflimren)
-  Page: 91
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 91-95
-- På landsplan er incidensen af apopleksi blandt prævalente patienter med atrieflimren 0,8% (95% CI: 0,8-0,9) [^src3] (indikator-5, atrieflimren, iskaemisk-apopleksi)
-  Page: 45
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 41-45
-- I den aktuelle opgørelsesperiode (01.07.2023 - 30.06.2024) blev 0,5% af de prævalente patienter med atrieflimren indlagt med intrakraniel blødning [^src1] (indikator-6, atrieflimren, intrakraniel-bloedning)
-  Page: 54
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 51-55
-
-**mortality-statistic**
 - Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden var 7,6% på landsplan [^src1] (danmark, atrieflimren)
+  Type: mortality-statistic
   Page: 109
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 106-110
 - Andelen der dør 1 år efter diagnose er 13,1% med en regional variation på 12,6-14,1% [^src1] (atrieflimren)
+  Type: mortality-statistic
   Page: 109
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 106-110
-
-**incidence-statistic**
 - Indikator 16: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år, var 6,5% (95% CI: 6,1–6,8) for Danmark i perioden 01.07.2021 – 30.06.2022 [^src2] (danmark, atrieflimren, hjertesvigt)
+  Type: incidence-statistic
   Page: 110
   Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 106-110
-
-**quality-standard**
 - Indikator 1 har standarden ≥ 90 % for andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret) [^src1] (atrieflimren, antikoagulationsbehandling, indikator-1)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 2 har standarden ≥ 80 % for andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src1] (atrieflimren, ekkokardiografi, indikator-2)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 3 har standarden ≥ 95 % for andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato [^src1] (atrieflimren, thyreoideastimulerende-hormon-tsh, indikator-3)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 4a1 har standarden ≥ 90 % for andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 1 år efter indeksdato [^src1] (atrieflimren, antikoagulationsbehandling, indikator-4a1)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 4a2 har standarden ≥ 90 % for andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato [^src1] (atrieflimren, antikoagulationsbehandling, indikator-4a2)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 4a3 har standarden ≥ 90 % for andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato [^src1] (atrieflimren, antikoagulationsbehandling, indikator-4a3)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 4b har standarden ≥ 95 % for andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt [^src1] (atrieflimren, doac, s-creatinin, indikator-4b)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 5 har standarden ≤ 0,8 % for incidensen af apopleksi blandt prævalente patienter med atrieflimren [^src1] (atrieflimren, iskaemisk-apopleksi, indikator-5)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 6 har standarden ≤ 0,6 % for incidensen af intrakraniel blødning blandt prævalente patienter med atrieflimren [^src1] (atrieflimren, intrakraniel-bloedning, indikator-6)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 7 har ingen angivet standard, men rapporterer incidensen af alvorlig blødning (tillempede ISTH-kriterier) blandt prævalente patienter med atrieflimren [^src1] (atrieflimren, intrakraniel-bloedning, international-society-of-thrombosis-and-hemostasis, indikator-7)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
 - Indikator 8 har standarden ≥ 50 % for andelen af nydiagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet [^src1] (atrieflimren, struktureret-undervisningsprogram, indikator-8)
+  Type: quality-standard
   Page: 6
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 6-10
-
-**policy**
 - Standarden for Indikator 1 er ≥ 90% [^src1] (atrieflimren, antikoagulationsbehandling)
+  Type: policy
   Page: 11
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- Indikatoren og standarden fastholdes [^src1] (atrieflimren, antikoagulationsbehandling)
+- På landsplan blev 92% af de nydiagnosticerede atrieflimren patienter med en CHA2DS2-VASc score ≥2 sat i oral AK-behandling senest 30 dage efter diagnosticering [^src1] (atrieflimren, antikoagulationsbehandling, cha2ds2-vasc, danmark)
+  Type: performance
   Page: 14
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-
-**clinical-indicator**
+- Standarden på ≥ 90% er således opfyldt på landsplan og har ligget kontinuerligt over grænsen de sidste tre årsrapportsperioder [^src1] (atrieflimren, antikoagulationsbehandling, danmark)
+  Type: performance
+  Page: 14
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
+- På regionsplan varierede andelen mellem 91 – 93% og standarden er således opfyldt i alle regioner [^src1] (atrieflimren, antikoagulationsbehandling, region-hovedstaden, region-sjaelland, region-syddanmark, region-midtjylland, region-nordjylland)
+  Type: performance
+  Page: 14
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
+- Regionernes resultater er meget homogene, men Midtjylland og Nordjylland har marginalt højere målopfyldelse (ca. 93%) end de øvrige (ca. 91%) [^src1] (atrieflimren, antikoagulationsbehandling, region-midtjylland, region-nordjylland)
+  Type: performance
+  Page: 14
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
+- På Sundhedklyngeniveau opfylder langt størstedelen af klyngerne (18/22) standarden [^src1] (atrieflimren, antikoagulationsbehandling)
+  Type: performance
+  Page: 14
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
+- I de fire klynger hvor standarden ikke er opfyldt ligger målopfyldelsen i niveauet 87,5-89,9% [^src1] (atrieflimren, antikoagulationsbehandling)
+  Type: performance
+  Page: 14
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
+- Ca. 56% af patienterne havde indløst en recept vedrørende oral AK-behandling inden for 120 dage op til diagnosen stilles i hospitalsregi [^src1] (atrieflimren, antikoagulationsbehandling)
+  Type: performance
+  Page: 14
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
+- Indikatoren og standarden fastholdes [^src1] (atrieflimren, antikoagulationsbehandling)
+  Type: policy
+  Page: 14
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
 - Indikator 2: Ekkokardiografi: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src1] (atrieflimren, ekkokardiografi)
+  Type: clinical-indicator
   Page: 15
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 11-15
-- Gennemsnitsalderen for incidente patienter med atrieflimren i Danmark var 74 år [^src1] (atrieflimren, danmark)
-  Page: 88
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
-- Gennemsnits-CHA2DS2-VASc-scoren for incidente patienter med atrieflimren i Danmark var 1,75 [^src1] (atrieflimren, danmark, cha2ds2-vasc)
-  Page: 89
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
-- 60,21% af de incidente patienter med atrieflimren i Danmark havde en CHA2DS2-VASc-score på ≥2 [^src1] (atrieflimren, danmark, cha2ds2-vasc)
-  Page: 90
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
-
-**clinical-practice-decision**
+- På landsplan fik 76% af de nydiagnosticerede patienter med atrieflimren målt TSH i perioden fra 60 dage før til 30 dage efter diagnosedatoen [^src1] (indikator-3, atrieflimren, thyreoideastimulerende-hormon-tsh)
+  Type: performance
+  Page: 24
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 21-25
 - Indikator 4a måler andelen af patienter med atrieflimren med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter diagnosen atrieflimren [^src1] (indikator-4a, atrieflimren, antikoagulationsbehandling)
+  Type: clinical-practice-decision
   Page: 32
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
 - Indikator 4a3 måler andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 5 år efter indeksdato [^src1] (indikator-4a3, atrieflimren, antikoagulationsbehandling)
+  Type: clinical-practice-decision
   Page: 33
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
-
-**healthcare-quality-standards**
 - Standarden for behandlingsdækning med antikoagulation hos patienter med atrieflimren er ≥ 90 % [^src1] (standard-90-percent, atrieflimren, antikoagulationsbehandling)
+  Type: healthcare-quality-standards
   Page: 31
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
-
-**incidence-rate**
-- På landsplan udvikler 0,8% af den incidente population intrakraniel blødning 1 år efter diagnosen atrieflimren er stillet [^src1] (atrieflimren, intrakraniel-bloedning)
+- I perioden 01.07.2018–30.06.2019 var den nationale andel af patienter med atrieflimren, der modtog antikoagulationsbehandling, 87,3 % (95 % CI: 86,5–88,1) [^src1] (danmark, atrieflimren, antikoagulationsbehandling)
+  Type: clinical-outcome
+  Page: 34
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
+- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Nordjylland 91,1 % (95 % CI: 88,7–93,0) [^src1] (region-nordjylland, atrieflimren, antikoagulationsbehandling)
+  Type: clinical-outcome
+  Page: 34
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
+- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Sundhedsklynge Bornholm 80,0 % (95 % CI: 67,7–89,2) [^src1] (sundhedsklynge-bornholm, atrieflimren, antikoagulationsbehandling)
+  Type: clinical-outcome
+  Page: 34
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
+- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Klynge NORD 94,1 % (95 % CI: 90,3–96,7) [^src1] (klynge-nord, atrieflimren, antikoagulationsbehandling)
+  Type: clinical-outcome
+  Page: 34
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
+- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Klynge SYD 94,3 % (95 % CI: 88,5–97,7) [^src1] (klynge-syd, atrieflimren, antikoagulationsbehandling)
+  Type: clinical-outcome
+  Page: 35
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
+- I perioden 01.07.2018–30.06.2019 var andelen af patienter med atrieflimren, der modtog antikoagulationsbehandling, i Klynge VEST 83,1 % (95 % CI: 73,3–90,5) [^src1] (klynge-vest, atrieflimren, antikoagulationsbehandling)
+  Type: clinical-outcome
+  Page: 35
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 31-35
+- På landsplan fik 93,9% den prævalente population af patienter med atrieflimren, som var i DOAC-behandling, målt p-creatinin mindst én gang årligt [^src1] (indikator-4b, atrieflimren, doac)
+  Type: performance
+  Page: 43
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 41-45
+- På landsplan er incidensen af apopleksi blandt prævalente patienter med atrieflimren 0,8% (95% CI: 0,8-0,9) [^src3] (indikator-5, atrieflimren, iskaemisk-apopleksi)
+  Type: epidemiological
+  Page: 45
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 41-45
+- I den aktuelle opgørelsesperiode (01.07.2023 - 30.06.2024) blev 0,5% af de prævalente patienter med atrieflimren indlagt med intrakraniel blødning [^src1] (indikator-6, atrieflimren, intrakraniel-bloedning)
+  Type: epidemiological
   Page: 54
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 51-55
-- Incidensen af atrieflimren i Danmark var 3,7 pr. 1000 indbyggere i 2023/2024 [^src1] (atrieflimren, danmark)
-  Page: 87
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
-
-**clinical-risk**
+- På landsplan udvikler 0,8% af den incidente population intrakraniel blødning 1 år efter diagnosen atrieflimren er stillet [^src1] (atrieflimren, intrakraniel-bloedning)
+  Type: incidence-rate
+  Page: 54
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 51-55
 - Atrieflimren er forbundet med øget risiko for slagtilfælde, hjertesvigt, demens, og død [^src2] (atrieflimren)
+  Type: clinical-risk
   Page: 67
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 66-70
-
-**epidemiology**
 - Flere end 20.000 danskere diagnosticeres årligt med atrieflimren og flere end 130.000 danskere lever med sygdommen [^src2] (atrieflimren)
+  Type: epidemiology
   Page: 67
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 66-70
-
-**mortality-rate**
 - Mortaliteten for prævalente patienter med atrieflimren var 7,3% på landsplan i perioden 1. juli 2023 til 30. juni 2024 [^src1] (atrieflimren, danmark)
+  Type: mortality-rate
   Page: 86
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
 - Andelen af nydiagnosticerede patienter med atrieflimren, der dør inden for 1 år, var 12,5% [^src1] (atrieflimren, danmark)
+  Type: mortality-rate
   Page: 86
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
-
-**procedural**
+- Incidensen af atrieflimren i Danmark var 3,7 pr. 1000 indbyggere i 2023/2024 [^src1] (atrieflimren, danmark)
+  Type: incidence-rate
+  Page: 87
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
+- Gennemsnitsalderen for incidente patienter med atrieflimren i Danmark var 74 år [^src1] (atrieflimren, danmark)
+  Type: clinical-indicator
+  Page: 88
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
+- Gennemsnits-CHA2DS2-VASc-scoren for incidente patienter med atrieflimren i Danmark var 1,75 [^src1] (atrieflimren, danmark, cha2ds2-vasc)
+  Type: clinical-indicator
+  Page: 89
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
+- 60,21% af de incidente patienter med atrieflimren i Danmark havde en CHA2DS2-VASc-score på ≥2 [^src1] (atrieflimren, danmark, cha2ds2-vasc)
+  Type: clinical-indicator
+  Page: 90
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 86-90
+- Danmark: Gennemsnitsalder for atrieflimren-patienter er 70 år, spredning 12, median 72, minimum 0, maximum 105, antal prævalente patienter 136420. [^src1] (atrieflimren)
+  Type: epidemiological
+  Page: 91
+  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 91-95
 - Indrapportering af indikator 8, patientuddannelse/-undervisning til AFDK skal kodes i journalen med BFKB-koden: "Patientuddannelse i atrieflimren" [^src3] (indikator-8, bfkb, atrieflimren)
+  Type: procedural
   Page: 97
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 96-100
 - Ved datafangst måles andelen af ny-diagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram inden for det 1. år efter at diagnosen er stillet [^src3] (indikator-8, atrieflimren, patientuddannelse)
+  Type: procedural
   Page: 97
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 96-100
-
-**quality-indicator**
 - Indikator 1 måler andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations-behandling (hvor antikoagulations-behandling er indiceret) [^src1] (atrieflimren, antikoagulationsbehandling)
+  Type: quality-indicator
   Page: 104
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105
 - Indikator 2 måler andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src1] (atrieflimren, ekkokardiografi)
+  Type: quality-indicator
   Page: 104
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105
 - Indikator 3 måler andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 60 dage før til 30 dage efter 1. diagnosedato [^src1] (atrieflimren, thyreoideastimulerende-hormon-tsh)
+  Type: quality-indicator
   Page: 105
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105
-
-**definition**
 - For indikator 2 er nævneren hele den incidente population [^src1] (atrieflimren)
+  Type: definition
   Page: 104
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105
 - For indikator 3 er nævneren hele den incidente population [^src1] (atrieflimren)
+  Type: definition
   Page: 105
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105
+- I alt blev 0,6% af de prævalente patienter med atrieflimren indlagt med intrakraniel blødning i den aktuelle opgørelsesperiode og udviklingsmålet (0,6%) er således opfyldt [^src1] (intrakraniel-bloedning, atrieflimren, udviklingsmaal)
+  Type: clinical-outcome
+  Page: 45
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 41-45
+- De seneste to år var andelen 0,5%, men det er for tidligt at tale om en stigning af betydning [^src1] (intrakraniel-bloedning, atrieflimren)
+  Type: clinical-outcome
+  Page: 45
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 41-45
+- På regionalt niveau varierer andelen fra 0,5-0,7% [^src1] (intrakraniel-bloedning, atrieflimren)
+  Type: clinical-outcome
+  Page: 45
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 41-45
+- På klyngeniveau varierer andelen fra 0,3-1,1% [^src1] (intrakraniel-bloedning, atrieflimren)
+  Type: clinical-outcome
+  Page: 45
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 41-45
+- Livstidsrisikoen for hjertesvigt efter atrieflimren er 40%, og hjertesvigt er globalt den hyppigste kardiovaskulære dødsårsag blandt patienter med atrieflimren. [^src1] (atrieflimren, hjertesvigt)
+  Type: epidemiological
+  Page: 62
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 61-65
+- Flere end 20.000 danskere diagnosticeres årligt med atrieflimren og flere end 130.000 danskere lever med sygdommen. [^src1] (atrieflimren)
+  Type: epidemiological
+  Page: 63
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 61-65
+- Den sande prævalens af atrieflimren undervurderes, idet screeningsundersøgelser har påvist, at der findes et betydeligt antal patienter med uerkendt atrieflimren (Svennberg et al. Circulation 2015;131:2176-84). [^src1] (atrieflimren, databasen-for-atrieflimren-i-danmark)
+  Type: limitation
+  Page: 64
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 61-65
+- Der vil formentlig forekomme patienter med atrieflimren og andre konkurrerende sygdomme, hvor atrieflimren ikke bliver indberettet til Landspatientregisteret til trods for, at diagnosen er blevet stillet klinisk. [^src1] (atrieflimren, landspatientregisteret)
+  Type: limitation
+  Page: 64
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 61-65
+- Patientforløb, validitet er ikke opgjort, men skønnes meget høj på baggrund af tidligere valideringsstudier i Landspatientregisteret af atrieflimren diagnosen (se bl.a. Sundbøl et al. BMJ Open. 2016;6(11):e01283 og Rix et al. Scand Cardiovasc J. 2012;46:149-53). [^src1] (landspatientregisteret, atrieflimren)
+  Type: validation
+  Page: 65
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 61-65
+- Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 150 dage før til 30 dage efter 1. diagnosedato [^src1] (thyreoideastimulerende-hormon-tsh, atrieflimren)
+  Type: quality-indicator
+  Page: 91
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 4a: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population hvor det er indiceret) [^src1] (antikoagulationsbehandling, atrieflimren)
+  Type: quality-indicator
+  Page: 92
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 4b: Andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt [^src1] (antikoagulationsbehandling, p-creatinin, atrieflimren)
+  Type: quality-indicator
+  Page: 92
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren [^src1] (iskaemisk-apopleksi, atrieflimren)
+  Type: quality-indicator
+  Page: 93
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren [^src1] (intrakraniel-bloedning, atrieflimren)
+  Type: quality-indicator
+  Page: 93
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 7: Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren [^src1] (alvorlig-bloedning, atrieflimren)
+  Type: quality-indicator
+  Page: 93
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 8: Andelen af nydiagnosticerede patienter med atrieflimren, som har fået et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet [^src1] (patientuddannelse, atrieflimren)
+  Type: quality-indicator
+  Page: 95
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
 
 ## Timeline
-
-- 2019: Risom udgiver den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med atrieflimren med stærk anbefaling for patientuddannelse (risom-2019, atrieflimren, patientuddannelse)
-- 2020: Palm et al. publicerer en meta-analyse, der viser 22% reduktion i død og genindlæggelse ved patientuddannelse for atrieflimren (palm-et-al-2020, patientuddannelse, atrieflimren)
-- 2021: ESC guidelines fra Hindricks et al. anbefaler patientuddannelse til patienter med atrieflimren og danner grundlag for ABC Pathway (esc-guidelines, atrieflimren, abc-pathway)
 - 2022-07-01: Start af dataindsamlingsperiode for Indikator 1 (1. juli 2022) (atrieflimren, antikoagulationsbehandling)
 - 2023-07-01: Start af aktuel årspériode for Indikator 1 (01.07.2023 - 30.06.2024) (atrieflimren, antikoagulationsbehandling)
-- 2023-07-01: Start af opgørelsesperiode for mortalitet blandt prævalente patienter med atrieflimren (atrieflimren)
 - 2024-06-30: Slut på aktuel årspériode for Indikator 1 (01.07.2023 - 30.06.2024) (atrieflimren, antikoagulationsbehandling)
+- 2023-07-01: Start af opgørelsesperiode for mortalitet blandt prævalente patienter med atrieflimren (atrieflimren)
 - 2024-06-30: Slut på opgørelsesperiode for mortalitet blandt prævalente patienter med atrieflimren (atrieflimren)
+- 2020: Palm et al. publicerer en meta-analyse, der viser 22% reduktion i død og genindlæggelse ved patientuddannelse for atrieflimren (palm-et-al-2020, patientuddannelse, atrieflimren)
+- 2019: Risom udgiver den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med atrieflimren med stærk anbefaling for patientuddannelse (risom-2019, atrieflimren, patientuddannelse)
+- 2021: ESC guidelines fra Hindricks et al. anbefaler patientuddannelse til patienter med atrieflimren og danner grundlag for ABC Pathway (esc-guidelines, atrieflimren, abc-pathway)
+- 2015: Svennberg et al. publicerede studie i Circulation, der påviste eksistensen af et betydeligt antal patienter med uerkendt atrieflimren. (atrieflimren)
+- 2016: Sundbøl et al. publicerede valideringsstudie i BMJ Open om atrieflimren diagnosen i Landspatientregisteret. (landspatientregisteret, atrieflimren)
+- 2012: Rix et al. publicerede valideringsstudie i Scand Cardiovasc J om atrieflimren diagnosen i Landspatientregisteret. (landspatientregisteret, atrieflimren)
 
 ## Sources
 
@@ -1128,6 +1223,9 @@ underkoder"
 [^src14]: AFDK_2024.pdf, pages 91-95
 [^src15]: AFDK_2024.pdf, pages 96-100
 [^src16]: AFDK_2024.pdf, pages 101-105
-[^src17]: AFDK_2024.pdf, pages 66-70
-[^src18]: AFDK_2023.pdf, pages 61-65
-[^src19]: AFDK_2023.pdf, pages 101-105
+[^src17]: AFDK_2025.pdf, pages 41-45
+[^src18]: AFDK_2024.pdf, pages 66-70
+[^src19]: AFDK_2025.pdf, pages 61-65
+[^src20]: AFDK_2025.pdf, pages 91-95
+[^src21]: AFDK_2023.pdf, pages 61-65
+[^src22]: AFDK_2023.pdf, pages 101-105

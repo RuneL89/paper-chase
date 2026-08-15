@@ -1,0 +1,562 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 10",
+      "type": "indicator",
+      "slug": "indikator-10",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 10 er den centrale mortalitetsindikator for akut kirurgi, der måler andelen af opererede patienter, der dør inden for 90 dage fra operation, og fungerer som en nøglekvalitetsmåling i AKDB-rapporteringen.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Indikator 10: Mortalitet indenfor 90 dage for opererede. Forest plot på afdelingsniveau"
+        },
+        {
+          "page": 57,
+          "context": "Indikator 10 beskriver andelen af patienter, der dør indenfor 90 dage fra tidspunkt for operation for alle med relevant operation og diagnose."
+        }
+      ]
+    },
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/healthcare",
+      "significance": "Akut Kirurgi Databasen (AKDB) er den nationale kliniske kvalitetsdatabase, der overvåger behandlingskvaliteten for akut kirurgiske patienter i Danmark, og er det primære datagrundlag for alle indikatorer nævnt i dette afsnit.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 57,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 58,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 59,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 60,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige myndighed for udarbejdelse og publicering af årsrapporten for Akut Kirurgi Databasen og har ledelsesansvar for indikatorudviklingen og -vurderingen i denne kontekst.",
+      "mentions": [
+        {
+          "page": 56,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 57,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 58,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 59,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 60,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 10b",
+      "type": "indicator",
+      "slug": "indikator-10b",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 10b er en supplerende version af Indikator 10, der anvendes til yderligere analyse af mortalitet i relation til patientsammensætning og komorbiditet, og er specifikt omtalt i forbindelse med vurdering af Charlson-score og aldersjustering.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Resultater af indikatoranalysen for supplerende indikator 10"
+        },
+        {
+          "page": 58,
+          "context": "Vurdering af indikator supplerende 10"
+        }
+      ]
+    },
+    {
+      "name": "Charlson Scoren",
+      "type": "score",
+      "slug": "charlson-score",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "Charlson Scoren er en komorbiditetsvurderingsscore, der anvendes til at stratificere patienter i grupperne 0, 1–2 og ≥3 for at belyse sammenhængen mellem komorbiditet og 90-dages mortalitet i Indikator 10 og dens supplerende version.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Charlson Scoren ønskes indført, sådan at mortalitetsindikatorerne (Indikator 10, 11 og supplerende til indikator 10 og 11) kan opdeles baseret på komorbiditet i grupperne 0, 1 -2 og ≥ 3."
+        }
+      ]
+    },
+    {
+      "name": "ASA",
+      "type": "score",
+      "slug": "asa-score",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "ASA-scoren (American Society of Anesthesiologists Physical Status Classification System) er en præoperativ risikovurdering, der bruges sammen med Charlson-score og alder til at justere for patientsammensætning ved vurdering af Indikator 10.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Den bør vurderes i lyset af populations sammensætning ift Charlson co-morbidity scorer, ASA og alder, (supplerende tabeller)."
+        }
+      ]
+    },
+    {
+      "name": "KJAK01*",
+      "type": "medical-code",
+      "slug": "kjak01",
+      "folder": "entities/codes/medical-coding",
+      "significance": "KJAK01* er en proceduralkode for laparoskopisk drænage af bughule, der er inkluderet i populationen for Akut Kirurgi Databasen for at sikre fuldstændig inklusion af relevante patienter på tværs af sygehuse med forskellig kodepraksis.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Populationsdannelse udvides med koderne KJAK01*, KJAK03* og KJAK04* fordi det er procedurer, der på nogle sygehuse anvendes i behandlingen af de relevante patienter."
+        },
+        {
+          "page": 58,
+          "context": "• KJAK01 Laparoskopisk drænage af bughule"
+        }
+      ]
+    },
+    {
+      "name": "KJAK03*",
+      "type": "medical-code",
+      "slug": "kjak03",
+      "folder": "entities/codes/medical-coding",
+      "significance": "KJAK03* er en proceduralkode for laparotomi og peritoneal lavage, der er udvidet til at indgå i populationen for Akut Kirurgi Databasen for at sikre ensartet registrering af relevante akutkirurgiske procedurer uanset lokalt kodevalg.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Populationsdannelse udvides med koderne KJAK01*, KJAK03* og KJAK04* fordi det er procedurer, der på nogle sygehuse anvendes i behandlingen af de relevante patienter."
+        },
+        {
+          "page": 58,
+          "context": "• KJAK03 Laparotomi og peritoneal lavage"
+        }
+      ]
+    },
+    {
+      "name": "KJAK04*",
+      "type": "medical-code",
+      "slug": "kjak04",
+      "folder": "entities/codes/medical-coding",
+      "significance": "KJAK04* er en proceduralkode for laparoskopi og peritoneal lavage, der er integreret i populationen for Akut Kirurgi Databasen for at imødegå variation i kodepraksis og sikre fuld dækning af relevante patientgrupper.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Populationsdannelse udvides med koderne KJAK01*, KJAK03* og KJAK04* fordi det er procedurer, der på nogle sygehuse anvendes i behandlingen af de relevante patienter."
+        },
+        {
+          "page": 58,
+          "context": "• KJAK04 Laparoskopi og peritoneal lavage"
+        }
+      ]
+    },
+    {
+      "name": "NAAZ2",
+      "type": "medical-code",
+      "slug": "naaz2",
+      "folder": "entities/codes/medical-coding",
+      "significance": "NAAZ2 er en kode for anæstesiologisk præoperativ optimering, der er indført i databasen for at muliggøre overvågning af præoperativ optimering, hvilket hidtil ikke har været muligt at monitorere grundet manglende kode.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "NAAZ2 (Anæstesiologisk præoperativ optimering). Koden er indført på baggrund af et ønske om at sikre, patienterne optimeres præoperativt."
+        }
+      ]
+    },
+    {
+      "name": "BABZ00",
+      "type": "medical-code",
+      "slug": "babz00",
+      "folder": "entities/codes/medical-coding",
+      "significance": "BABZ00 er en kode for anlæggelse af epiduralkateter, der nu indsamles direkte fra LPR for at supplere data fra Dansk Anaestesi Database og forbedre beregningen af Indikator 9.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "BABZ00 (Anlæggelse af epiduralkateter) og NAAD0* (Epidural blokade) angiver, om der er brugt epidural i behandlingen af patienten."
+        }
+      ]
+    },
+    {
+      "name": "NAAD0*",
+      "type": "medical-code",
+      "slug": "naad0",
+      "folder": "entities/codes/medical-coding",
+      "significance": "NAAD0* er en kode for epidural blokade, der indsamles fra LPR for at styrke datagrundlaget for beregning af Indikator 9 (andelen af patienter med epidural i forbindelse med operation).",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "BABZ00 (Anlæggelse af epiduralkateter) og NAAD0* (Epidural blokade) angiver, om der er brugt epidural i behandlingen af patienten."
+        }
+      ]
+    },
+    {
+      "name": "DK65*",
+      "type": "medical-code",
+      "slug": "dk65",
+      "folder": "entities/codes/medical-coding",
+      "significance": "DK65* er en proceduralkode, hvis betydning for populationen blev analyseret i 2022, og som blev fastholdt i databasen da analysen viste, at kun 1,7 % af operationerne havde denne kode — hvilket ikke påvirkede resultaterne væsentligt.",
+      "mentions": [
+        {
+          "page": 59,
+          "context": "Til årsrapport 2022 blev undersøgt, om operationer med koden DK65* er afgørende for populationen på en måde, så det påvirker resultaterne."
+        },
+        {
+          "page": 59,
+          "context": "Analysen viste, at der var 1,7 % operationer med koden DK65*, hvorfor den ikke blev fjernet fra databasens population."
+        }
+      ]
+    },
+    {
+      "name": "LPR",
+      "type": "database",
+      "slug": "lpr",
+      "folder": "entities/databases/government",
+      "significance": "Landspatientregisteret (LPR) er den officielle danske registerdatabase, der nu bruges som primær kilde til indberetning af epidural-relaterede procedurer (BABZ00 og NAAD0*) samt til justering af operationsstarttidspunkt til knivtid start i stedet for anæstesi-start.",
+      "mentions": [
+        {
+          "page": 58,
+          "context": "Desuden er det værd at bemærke, at den LPR opdaterer indberetningsvejledningen sådan at tidspunktet for operationsstart fremover skal svare til tidspunktet for knivtid start."
+        },
+        {
+          "page": 58,
+          "context": "Denne oplysning har hidtil været indsamlet med Dansk Anaestesi Database som datakilde, men for at optimere datagrundlaget ønskes nu at supplere med data fra LPR til beregning af indikator 9"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "indicator",
+      "slug": "indikator-1",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 1 måler antibiotikabehandling inden for 3 timer efter ankomst til sygehus og er genstand for supplerende analyse på grund af meget lav målopfyldelse, hvilket leder til beregning af median tid til antibiotika-modtagelse.",
+      "mentions": [
+        {
+          "page": 60,
+          "context": "Supplerende opgørelse til Indikator 1: Antibiotikabehandling indenfor 3 timer"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er en af de fem regioner i Danmark og viser den laveste 90-dages mortalitet blandt regionerne (12,5 %), hvilket bidrager til national opfyldelse af udviklingsmålet på < 18 %.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Regionalt varierede andelen fra 12,5 % i Region Nordjylland til 15,2 % i Region Syddanmark."
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/national",
+      "significance": "Region Syddanmark er en af de fem regioner i Danmark og viser den højeste 90-dages mortalitet blandt regionerne (15,2 %), men opfylder stadig udviklingsmålet på < 18 %.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Regionalt varierede andelen fra 12,5 % i Region Nordjylland til 15,2 % i Region Syddanmark."
+        }
+      ]
+    },
+    {
+      "name": "LKT Akutkirurgi",
+      "type": "healthcare-program",
+      "slug": "lkt-akut-kirurgi",
+      "folder": "entities/healthcare-programs/clinical-quality-initiatives",
+      "significance": "LKT Akutkirurgi er en klinisk kvalitetsudviklingsprogram under Danske Regioner, hvis indsats antages at have bidraget til den markante stigning i 90-dages overlevelse i 2025, men hvor en stigning i mortaliteten også ses inden for det seneste år.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Alle regioner har oplevet forbedringer i overlevelse de seneste tre år, med en markant stigning i 90-dages overlevelse i 2025, formentlig som følge af kvalitetsindsatsen under LKT Akutkirurgi i regi af Danske Regioner."
+        }
+      ]
+    },
+    {
+      "name": "sundhedsreformen",
+      "type": "policy",
+      "slug": "sundhedsreformen",
+      "folder": "topics/policy/healthcare-reform",
+      "significance": "Sundhedsreformen er en kommende politisk reform, der forventes at påvirke overgangen fra hospitalssektoren til primærsektoren og dermed blive centralt for fremtidige indsatser mod dødsfald i perioden fra dag 30 til dag 90 efter indgreb.",
+      "mentions": [
+        {
+          "page": 57,
+          "context": "Det forventes, at dette område vil være i fokus i forbindelse med implementeringen af sundhedsreformen."
+        },
+        {
+          "page": 57,
+          "context": "Dette afventer hospitalernes overtagelse af området i forbindelse med sundhedsreformen."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-10",
+      "predicate": "is-calculated-from",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 10 beskriver andelen af patienter, der dør indenfor 90 dage fra tidspunkt for operation for alle med relevant operation og diagnose.",
+      "page": 57
+    },
+    {
+      "subject": "indikator-10b",
+      "predicate": "is-supplementary-version-of",
+      "object": "indikator-10",
+      "evidence": "Resultater af indikatoranalysen for supplerende indikator 10",
+      "page": 57
+    },
+    {
+      "subject": "charlson-score",
+      "predicate": "is-used-for-stratification-in",
+      "object": "indikator-10",
+      "evidence": "Charlson Scoren ønskes indført, sådan at mortalitetsindikatorerne (Indikator 10, 11 og supplerende til indikator 10 og 11) kan opdeles baseret på komorbiditet i grupperne 0, 1 -2 og ≥ 3.",
+      "page": 58
+    },
+    {
+      "subject": "asa-score",
+      "predicate": "is-used-for-adjustment-in",
+      "object": "indikator-10",
+      "evidence": "Den bør vurderes i lyset af populations sammensætning ift Charlson co-morbidity scorer, ASA og alder, (supplerende tabeller).",
+      "page": 57
+    },
+    {
+      "subject": "kjak01",
+      "predicate": "is-included-in-population-of",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Populationsdannelse udvides med koderne KJAK01*, KJAK03* og KJAK04* fordi det er procedurer, der på nogle sygehuse anvendes i behandlingen af de relevante patienter.",
+      "page": 58
+    },
+    {
+      "subject": "kjak03",
+      "predicate": "is-included-in-population-of",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Populationsdannelse udvides med koderne KJAK01*, KJAK03* og KJAK04* fordi det er procedurer, der på nogle sygehuse anvendes i behandlingen af de relevante patienter.",
+      "page": 58
+    },
+    {
+      "subject": "kjak04",
+      "predicate": "is-included-in-population-of",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Populationsdannelse udvides med koderne KJAK01*, KJAK03* og KJAK04* fordi det er procedurer, der på nogle sygehuse anvendes i behandlingen af de relevante patienter.",
+      "page": 58
+    },
+    {
+      "subject": "naaz2",
+      "predicate": "is-introduced-to-enable-monitoring-of",
+      "object": "indikator-4",
+      "evidence": "Oplysningen skal indgå i Indikator 4, der har været ønsket siden overgangen til LPR3 fordi der mangler viden om i hvor høj grad patienterne er præoperativt optimerede før de går til operation.",
+      "page": 58
+    },
+    {
+      "subject": "babz00",
+      "predicate": "is-data-source-for",
+      "object": "indikator-9",
+      "evidence": "Denne oplysning har hidtil været indsamlet med Dansk Anaestesi Database som datakilde, men for at optimere datagrundlaget ønskes nu at supplere med data fra LPR til beregning af indikator 9 (Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen).",
+      "page": 58
+    },
+    {
+      "subject": "naad0",
+      "predicate": "is-data-source-for",
+      "object": "indikator-9",
+      "evidence": "Denne oplysning har hidtil været indsamlet med Dansk Anaestesi Database som datakilde, men for at optimere datagrundlaget ønskes nu at supplere med data fra LPR til beregning af indikator 9 (Andelen af patienter, der har fået anlagt epidural i forbindelse med operationen).",
+      "page": 58
+    },
+    {
+      "subject": "dk65",
+      "predicate": "was-analyzed-for-impact-on",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Til årsrapport 2022 blev undersøgt, om operationer med koden DK65* er afgørende for populationen på en måde, så det påvirker resultaterne.",
+      "page": 59
+    },
+    {
+      "subject": "lpr",
+      "predicate": "is-primary-data-source-for",
+      "object": "indikator-9",
+      "evidence": "Denne oplysning har hidtil været indsamlet med Dansk Anaestesi Database som datakilde, men for at optimere datagrundlaget ønskes nu at supplere med data fra LPR til beregning af indikator 9",
+      "page": 58
+    },
+    {
+      "subject": "lpr",
+      "predicate": "is-updating-reporting-guidance-for",
+      "object": "operations-start-time",
+      "evidence": "Desuden er det værd at bemærke, at den LPR opdaterer indberetningsvejledningen sådan at tidspunktet for operationsstart fremover skal svare til tidspunktet for knivtid start.",
+      "page": 58
+    },
+    {
+      "subject": "indikator-1",
+      "predicate": "has-supplementary-analysis-on",
+      "object": "median-time-to-antibiotics",
+      "evidence": "Den meget lave målopfyldelse for indikator 1 har givet anledning til en supplerende analyse over mediantiden fra ankomst til sygehus til patienten har modtaget antibiotika",
+      "page": 60
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "has-lowest-90-day-mortality-in",
+      "object": "indikator-10",
+      "evidence": "Regionalt varierede andelen fra 12,5 % i Region Nordjylland til 15,2 % i Region Syddanmark.",
+      "page": 57
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "has-highest-90-day-mortality-in",
+      "object": "indikator-10",
+      "evidence": "Regionalt varierede andelen fra 12,5 % i Region Nordjylland til 15,2 % i Region Syddanmark.",
+      "page": 57
+    },
+    {
+      "subject": "lkt-akut-kirurgi",
+      "predicate": "is-associated-with-improvement-in",
+      "object": "indikator-10",
+      "evidence": "Alle regioner har oplevet forbedringer i overlevelse de seneste tre år, med en markant stigning i 90-dages overlevelse i 2025, formentlig som følge af kvalitetsindsatsen under LKT Akutkirurgi i regi af Danske Regioner.",
+      "page": 57
+    },
+    {
+      "subject": "sundhedsreformen",
+      "predicate": "is-expected-to-affect",
+      "object": "transition-to-primary-care",
+      "evidence": "Det forventes, at dette område vil være i fokus i forbindelse med implementeringen af sundhedsreformen.",
+      "page": 57
+    }
+  ],
+  "claims": [
+    {
+      "text": "Der indgik 3.244 patienter i indikatoranalysen i perioden. Heraf døde 444 personer, svarende til 13,7 % (95 % CI: 12,5-14,9) indenfor 90 dage fra ankomst til sygehus [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Således var udviklingsmålet på < 18 % opfyldt på nationalt niveau [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Regionalt varierede andelen fra 12,5 % i Region Nordjylland til 15,2 % i Region Syddanmark [^src1]",
+      "type": "regional-comparison",
+      "entities": [
+        "region-nordjylland",
+        "region-syddanmark",
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Blandt de indberettende enheder opfyldte 19 af de 20 udviklingsmålet i perioden [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "En væsentlig andel af dødsfaldene – ca. 30 % – forekommer i perioden fra dag 30 til dag 90 efter indgrebet [^src1]",
+      "type": "clinical-consequence",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "Udviklingsmålet bør sænkes til 15% på baggrund af national succes over de sidste 5 år, dette forventes fra rapport 2026 [^src1]",
+      "type": "recommendation",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 57
+    },
+    {
+      "text": "I årsrapporten 2025 udgår oversigt over fordeling af alder og fordeling af køn [^src1]",
+      "type": "administrative-change",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 58
+    },
+    {
+      "text": "Gennemsnittet er ca 65 år, mens medianen er ca 70 år [^src1]",
+      "type": "demographic",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 58
+    },
+    {
+      "text": "Analysen viste, at der var 1,7 % operationer med koden DK65*, hvorfor den ikke blev fjernet fra databasens population [^src1]",
+      "type": "data-decision",
+      "entities": [
+        "dk65",
+        "akut-kirurgi-databasen"
+      ],
+      "page": 59
+    },
+    {
+      "text": "Den mediane tid fra ankomst til sygehus og frem til modtagelse af antibiotika er 4,6 timers nationalt [^src1]",
+      "type": "clinical-process",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 60
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2025",
+      "event": "Markant stigning i 90-dages overlevelse observeret, formentlig som følge af kvalitetsindsatsen under LKT Akutkirurgi",
+      "entities": [
+        "lkt-akut-kirurgi",
+        "indikator-10"
+      ]
+    },
+    {
+      "date": "2026.01.05",
+      "event": "Udkast til årsrapport 2026 udgivet af Sundhedsvæsenets Kvalitetsinstitut",
+      "entities": [
+        "sundhedsvaesenets-kvalitetsinstitut",
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "median-time-to-antibiotics",
+      "title": "Median tid til antibiotika-modtagelse efter ankomst til sygehus",
+      "page": 60,
+      "rowDimension": "region or hospital unit",
+      "colDimension": "Q1, Median, Q3 in minutes",
+      "entities": [
+        "indikator-1",
+        "lpr"
+      ],
+      "markdown": "| Region | Antal | Q1 | Median | Q3 |\n| --- | --- | --- | --- | --- |\n| Danmark | 3.111 | 130 | 272 | 644 |\n| Region Hovedstaden i alt | 994 | 152 | 277 | 575 |\n| Amager og Hvidovre Hospital | 240 | 214 | 393 | 917 |\n| Bispebjerg og Frederiksberg Hospital | 217 | 141 | 263 | 509 |\n| Bornholms Hospital | 14 | 55 | 130 | 228 |\n| Herlev og Gentofte Hospital | 260 | 179 | 262 | 400 |\n| Hospitalerne i Nordsjælland | 217 | 84 | 183 | 415 |\n| Rigshospitalet | 46 | 277 | 550 | 1.521 |\n| Sjælland Region i alt | 609 | 136 | 253 | 550 |\n| Holbæk Sygehus | 150 | 69 | 195 | 459 |\n| Næstved, Slagelse og Ringsted sygehuse | 211 | 157 | 292 | 648 |\n| Sjællands Universitetshospital | 248 | 122 | 257 | 567 |\n| Syddanmark Region i alt | 578 | 166 | 390 | 1.288 |\n| Esbjerg Sygehus Grindsted Sygehus | 111 | 159 | 323 | 746 |\n| Odense Universitetshospital - Svendborg | 264 | 192 | 428 | 1.411 |\n| Sygehus Lillebælt | 101 | 243 | 461 | 1.615 |\n| Sygehus Sønderjylland | 102 | 104 | 314 | 1.046 |\n| Midtjylland Region i alt | 633 | 76 | 205 | 504 |\n| Aarhus Universitetshospital | 137 | 48 | 171 | 393 |\n| Hospitalsenhed Midt | 119 | 90 | 261 | 585 |\n| Regionshospitalet Gødstrup | 145 | 111 | 239 | 633 |\n| Regionshospitalet Horsens | 122 | 69 | 154 | 519 |\n| Regionshospitalet Randers | 110 | 76 | 171 | 380 |\n| Nordjylland Region i alt | 297 | 119 | 279 | 721 |\n| Aalborg Universitetshospital | 184 | 121 | 373 | 866 |\n| Regionshospital Nordjylland | 113 | 117 | 238 | 471 |",
+      "summary": "Tabellen viser median tid (i minutter) fra ankomst til sygehus til antibiotika-modtagelse for Indikator 1, med stor spredning mellem første og tredje kvartil, især på større hospitaler som Rigshospitalet og Aalborg Universitetshospital."
+    }
+  ],
+  "context": "Dette dokumentudsnit (sider 56–60) er en del af udkastet til årsrapporten 2026 for Akut Kirurgi Databasen og fokuserer på evaluering, udvikling og metodisk justering af kvalitetsindikatorer—primært Indikator 10 (90-dages mortalitet for opererede) og dens supplerende version. Det indgår i den bredere narrative om klinisk kvalitetsudvikling i dansk akut kirurgi, hvor data fra Landspatientregisteret (LPR) og standardiserede kodningssystemer (som KJAK- og DK65-koder) bruges til at sikre robusthed og sammenlignelighed på tværs af regioner og hospitaler. Rapporten diskuterer også implikationer af sundhedsreformen for patientovergang og identificerer behov for procesindikatorer, især i forhold til samarbejde med primærsektoren, og indeholder detaljerede supplerende analyser af antibiotikabehandlingstid (Indikator 1) og populationskarakteristika som alder, komorbiditet og præoperativ optimering."
+}

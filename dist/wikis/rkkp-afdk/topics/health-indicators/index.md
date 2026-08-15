@@ -4,19 +4,20 @@ type: index
 aliases:
   - Health Indicators
 wiki: rkkp-afdk
-updated: '2026-08-05T23:29:27.471Z'
+updated: '2026-08-15T00:29:27.365Z'
 children:
+  - index.md
   - indikator-3.md
   - indikator-6.md
 ---
 # Health Indicators
 
-This folder contains national clinical quality and safety indicators used in Denmark to monitor the care of patients with atrial fibrillation. Specifically, it covers Indikator 3, which tracks the proportion of newly diagnosed patients receiving a TSH (thyroid-stimulating hormone) measurement to identify underlying endocrine causes, and Indikator 6, which measures the incidence of intracranial hemorrhage among prevalent patients to ensure anticoagulation treatments are not causing severe bleeding complications. Both pages detail the methodologies, data sources, quality standards, and regional performance variations associated with these metrics.
+This folder contains specific healthcare quality indicators used to monitor the diagnostic workup and treatment safety of patients with atrial fibrillation in Denmark. The pages detail the clinical rationale, national quality standards, and longitudinal performance data for each metric, such as thyroid-stimulating hormone (TSH) screening and the incidence of intracranial bleeding. Each indicator page synthesizes regional compliance rates, data collection challenges, and governance decisions made by the RKKP steering committee, with all claims traced back to the annual AFDK reports.
 
 ## Pages
 
-- [[indikator-3|Indikator 3]] — Tracks the proportion of newly diagnosed atrial fibrillation patients who receive a TSH measurement within a specific timeframe, highlighting national shortfalls and data collection challenges.
-- [[indikator-6|Indikator 6]] — Monitors the incidence of intracranial hemorrhage among prevalent atrial fibrillation patients as a safety metric for over-anticoagulation, comparing bleeding rates across different therapies and regions.
+- [[indikator-3|Indikator 3]] — Tracks the proportion of newly diagnosed atrial fibrillation patients receiving a TSH test to screen for underlying thyroid disease, including regional compliance gaps and LABKA coding issues.
+- [[indikator-6|Indikator 6]] — Measures the incidence of intracranial bleeding among prevalent atrial fibrillation patients as a safety metric for anticoagulation treatment, comparing outcomes across regions and anticoagulant types.
 
 ## Navigation
 
@@ -29,13 +30,18 @@ This folder contains national clinical quality and safety indicators used in Den
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
 - Sibling: [[topics/healthcare-quality-standards/index|Healthcare Quality Standards]]
@@ -50,12 +56,17 @@ This folder contains national clinical quality and safety indicators used in Den
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

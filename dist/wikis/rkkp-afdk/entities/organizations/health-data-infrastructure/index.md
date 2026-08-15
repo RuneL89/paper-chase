@@ -4,19 +4,20 @@ type: index
 aliases:
   - Health Data Infrastructure
 wiki: rkkp-afdk
-updated: '2026-08-05T22:57:59.048Z'
+updated: '2026-08-14T23:46:03.823Z'
 children:
+  - index.md
   - laegemiddelstatistikregisteret.md
   - rkkp-videncenter.md
 ---
 # Health Data Infrastructure
 
-This folder groups the analytical units and national registries that provide the data-processing and prescription-tracking backbone for Denmark's clinical quality evaluations. It contains the central registry responsible for capturing medicinal product prescriptions and redemptions, which is essential for measuring anticoagulation treatment coverage and persistence in atrial fibrillation patients. Additionally, it includes the dedicated analytical unit within RKKP that conducts the core statistical analyses underpinning the Danish Atrial Fibrillation Database's annual quality reports.
+This folder groups the data infrastructure and analytical organizations that power Denmark's healthcare quality assurance programs for atrial fibrillation. It contains the national registry that tracks medicinal product prescriptions and redemptions, providing the foundational data needed to calculate clinical quality indicators for anticoagulation treatments. It also includes the dedicated analytical unit within the Regional Clinical Quality Development Program (RKKP) that produces the core statistical analyses for the national annual reports on atrial fibrillation.
 
 ## Pages
 
-- [[laegemiddelstatistikregisteret|Lægemiddelstatistikregisteret]] — The national registry tracking medicinal product prescriptions and redemptions, serving as a primary data source for calculating clinical quality indicators like anticoagulation therapy initiation and persistence.
-- [[rkkp-videncenter|"AFDK's Videncenter"]] — The analytical unit operating under RKKP that prepares and conducts the core data analyses for the Danish Atrial Fibrillation Database annual reports.
+- [[laegemiddelstatistikregisteret|Lægemiddelstatistikregisteret]] — The Danish National Registry of Medicinal Product Statistics, which tracks prescription redemptions and provides essential data for calculating cardiovascular quality indicators like anticoagulation therapy initiation and persistence.
+- [[rkkp-videncenter|"AFDK's Videncenter"]] — The analytical unit under RKKP (SundK) responsible for preparing the core analyses and data sections of the national annual reports on atrial fibrillation.
 
 ## Navigation
 

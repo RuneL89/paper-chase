@@ -4,31 +4,36 @@ type: index
 aliases:
   - Procedure Codes
 wiki: rkkp-danibd
-updated: '2026-08-05T07:50:44.337Z'
+updated: '2026-08-15T07:56:30.897Z'
 children:
   - bike1-undervisning-i-inflammatorisk-tarmsygdom.md
+  - index.md
   - kjah00-eksplorativ-laparotomi.md
   - kjah01-laparoskopi.md
+  - kjfb00-tyndtarmsresektion.md
   - kjfb20-21-30-31.md
   - kjfb21-laparoskopisk-ileocokal-resektion.md
+  - kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi.md
   - kjfh11-laparoskopisk-kolektomi-og-ileostomi.md
   - kujf32-35.md
   - npu-kode.md
 ---
 # Procedure Codes
 
-This folder contains specific SKS (Sundhedsvæsenets Klassifikations System) and NPU procedure codes used within the Danish healthcare system and the DANIBD registry to track clinical interventions, surgeries, and patient education for inflammatory bowel disease (IBD). These codes serve as the technical mechanisms for measuring national quality indicators, such as postoperative colonoscopies, reoperation rates, and patient education completion. By standardizing the registration of procedures like laparoscopic resections, exploratory laparotomies, and point-of-care calprotectin testing, this area provides the quantitative foundation for evaluating and benchmarking IBD care across Danish regions.
+This folder catalogues the standardized SKS and NPU procedure codes used within the Danish healthcare system and the DANIBD registry to track surgical interventions, postoperative follow-ups, and patient education for inflammatory bowel disease (IBD). These alphanumeric identifiers serve as the technical foundation for national quality indicators, enabling the precise measurement of reoperation rates, postoperative colonoscopies, and educational outreach across regions. By standardizing how procedures like laparoscopies, bowel resections, and calprotectin point-of-care tests are registered in the National Patient Registry, this area ensures reliable cross-departmental benchmarking and evidence-based quality monitoring in Danish IBD care.
 
 ## Pages
 
-- [[bike1-undervisning-i-inflammatorisk-tarmsygdom|BIKE1 - Undervisning i inflammatorisk tarmsygdom]] — Tracks the completion of patient education within one year of an IBD diagnosis, serving as the registration mechanism for Indikator 2.
-- [[kjah00-eksplorativ-laparotomi|KJAH00]] — Records exploratory laparotomies, identified as the most frequent reoperation procedure in the tracked IBD cohort.
-- [[kjah01-laparoskopi|KJAH01]] — Designates laparoscopy procedures, utilized to track surgical interventions and reoperations under Indikator 6.
-- [[kjfb20-21-30-31|KJFB20/21/30/31]] — Defines ileocecal resection and right-sided hemicolectomy procedures, forming the numerator for postoperative colonoscopy tracking in Indikator 3.
-- [[kjfb21-laparoskopisk-ileocokal-resektion|KJFB21]] — Specifically tracks laparoscopic ileocecal resections, representing a significant portion of surgical interventions for IBD patients.
-- [[kjfh11-laparoskopisk-kolektomi-og-ileostomi|KJFH11]] — Classifies laparoscopic colectomy and ileostomy, recorded as the second most frequent surgical procedure in the reporting period.
-- [[kujf32-35|KUJF32/35]] — Defines colonoscopies performed with or without biopsy, used to measure postoperative follow-up care within one year of surgery for Indikator 3.
-- [[npu-kode|NPU-kode]] — Covers local laboratory codes like PTP00001 for point-of-care fecal calprotectin measurements, integrated to track Indikator 5 at specific hospitals.
+- [[bike1-undervisning-i-inflammatorisk-tarmsygdom|BIKE1 - Undervisning i inflammatorisk tarmsygdom]] — Tracks the registration of patient education sessions to measure quality indicator 2 for newly diagnosed IBD patients.
+- [[kjah00-eksplorativ-laparotomi|KJAH00]] — Records exploratory laparotomies, noted as the most frequent reoperation procedure in recent DANIBD reporting.
+- [[kjah01-laparoskopi|KJAH01]] — Designates laparoscopies, serving as a key metric for tracking surgical interventions and reoperations under indicator 6.
+- [[kjfb00-tyndtarmsresektion|KJFB00]] — Classifies small bowel resections, representing a specific percentage of all surgical procedures performed on IBD patients.
+- [[kjfb20-21-30-31|KJFB20/21/30/31]] — Groups codes for ileocecal resections and right-sided hemicolectomies, defining the surgical numerator for postoperative colonoscopy tracking in indicator 3.
+- [[kjfb21-laparoskopisk-ileocokal-resektion|KJFB21]] — Specifically tracks laparoscopic ileocecal resections, highlighting a significant portion of surgical interventions for IBD.
+- [[kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi|KJFG40]] — Registers revisions of enterostomies or colostomies without laparotomy, contributing to the overall surgical procedure statistics.
+- [[kjfh11-laparoskopisk-kolektomi-og-ileostomi|KJFH11]] — Logs laparoscopic colectomies and ileostomies, ranking as the second most frequently recorded surgical procedure in the 2024 report.
+- [[kujf32-35|KUJF32/35]] — Defines colonoscopies with or without biopsies, acting as the technical mechanism to verify postoperative follow-up care within one year of surgery.
+- [[npu-kode|NPU-kode]] — Details local laboratory codes, such as point-of-care fecal calprotectin measurements, integrated into the registry to track biologic treatment monitoring.
 
 ## Navigation
 
@@ -37,6 +42,6 @@ This folder contains specific SKS (Sundhedsvæsenets Klassifikations System) and
 
 ## Statistics
 
-- Pages: 8
+- Pages: 10
 - Sub-folders: 0
 - Sources: 0

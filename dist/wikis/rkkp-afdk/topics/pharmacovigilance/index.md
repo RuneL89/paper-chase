@@ -4,17 +4,18 @@ type: index
 aliases:
   - Pharmacovigilance
 wiki: rkkp-afdk
-updated: '2026-08-05T23:39:58.650Z'
+updated: '2026-08-15T00:42:23.648Z'
 children:
+  - index.md
   - pharmacovigilance.md
 ---
 # Pharmacovigilance
 
-This folder covers the surveillance of medication safety and clinical outcomes within the Danish healthcare system, specifically focusing on anticoagulation therapies for atrial fibrillation. It compares the risks of severe and intracranial bleeding between direct oral anticoagulants (DOAC) and traditional vitamin K antagonists like Marevan. The included page details national data on adverse event rates and tracks how effectively these medications prevent ischemic strokes in real-world settings.
+This folder covers the ongoing safety and efficacy monitoring of medical treatments, with a specific focus on anticoagulation therapy for atrial fibrillation. It details national registry data from 2023 to 2025 that compares Direct Oral Anticoagulants (DOACs) against traditional vitamin K antagonists like Marevan. By tracking critical outcomes such as intracranial bleeding, severe bleeding, and ischemic stroke rates, these pharmacovigilance efforts provide the evidence base needed to balance stroke prevention against the risk of life-threatening hemorrhages.
 
 ## Pages
 
-- [[pharmacovigilance|Pharmacovigilance]] — Tracks the safety, bleeding complications, and real-world preventative effectiveness of anticoagulation therapies like DOAC and Marevan in Danish atrial fibrillation patients.
+- [[pharmacovigilance|Pharmacovigilance]] — Tracks national registry data from 2023 to 2025 comparing the safety profiles of DOACs and Marevan, specifically monitoring rates of intracranial bleeding, severe bleeding, and ischemic stroke in atrial fibrillation patients.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder covers the surveillance of medication safety and clinical outcomes w
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -49,11 +55,16 @@ This folder covers the surveillance of medication safety and clinical outcomes w
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

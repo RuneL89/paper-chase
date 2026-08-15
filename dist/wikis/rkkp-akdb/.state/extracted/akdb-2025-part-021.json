@@ -1,0 +1,303 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er en klinisk database til kvalitetsmonitorering af akut højrisiko abdominalkirurgi i Danmark, baseret på data fra Landspatientregisteret (LPR), og danner grundlag for beregning af kvalitetsindikatorer og regional validering.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality-institutes",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den organisation, der udgiver og styrer Akut Kirurgi Databasen, herunder dens inklusionskriterier, populationsdannelse og indikatorberegninger, og som har ansvaret for kvalitetsudvikling i det danske sundhedsvæsen.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/government",
+      "significance": "Landspatientregisteret (LPR) er den primære datakilde for Akut Kirurgi Databasen, hvor alle patientkontakter registreres, og hvorfra inklusionskriterierne (fysisk fremmøde, akut prioritet, diagnose- og procedurekoder) uddrages til populationsdannelse.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "Kontakterne* identificeres i LPR."
+        },
+        {
+          "page": 103,
+          "context": "Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Organisationsregister",
+      "type": "database",
+      "slug": "sundhedsvaesenets-organisationsregister-sor",
+      "folder": "entities/databases/government",
+      "significance": "Sundhedsvæsenets Organisationsregister (SOR) er brugt til eksklusion af kontakter på afdelinger med gynækologi og obstetrik samt urologi, og fungerer som et register over alle aktører i det danske sundhedsvæsen.",
+      "disambiguation": "Dette er ikke at forveksle med Sundhedsvæsenets Kvalitetsinstitut eller Landspatientregisteret; SOR er specifikt et organisationsregister over sundhedsaktører.",
+      "mentions": [
+        {
+          "page": 101,
+          "context": "jf. SOR*"
+        },
+        {
+          "page": 101,
+          "context": "*SOR står for Sundhedsvæsenets Organisationsregister og er et register over alle aktører i det danske sundhedsvæsen."
+        }
+      ]
+    },
+    {
+      "name": "AHA-populationen",
+      "type": "medical-concept",
+      "slug": "aha-populationen",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "AHA-populationen (Akut Højrisiko Abdominalkirurgi) er den specifikke målpopulation, som Akut Kirurgi Databasen er designet til at monitorere kvaliteten for, og som defineres ved kombination af relevante diagnose- og procedurekoder i LPR.",
+      "mentions": [
+        {
+          "page": 103,
+          "context": "AHA-populationen (Akut Højrisiko Abdominalkirurgi)"
+        }
+      ]
+    },
+    {
+      "name": "LIS",
+      "type": "system",
+      "slug": "lis",
+      "folder": "entities/systems/healthcare-information-systems",
+      "significance": "LIS (regionale ledelsesinformationssystemer) er de systemer, hvori data fra Akut Kirurgi Databasen har været tilgængelige siden september 2020, og som bruges til lokal validering af populationen mod klinisk praksis.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "Data på population og indikatorer har været tilgængelige i de regionale ledelsesinformationssystemer (LIS) siden september 2020."
+        }
+      ]
+    },
+    {
+      "name": "EPJ",
+      "type": "system",
+      "slug": "epj",
+      "folder": "entities/systems/healthcare-information-systems",
+      "significance": "EPJ (Elektronisk Patientjournal) er det lokale journalsystem, som bruges som reference ved lokal validering af Akut Kirurgi Databasens data, især ved sammenligning af antal patienter, identitet og operationsdatoer.",
+      "mentions": [
+        {
+          "page": 104,
+          "context": "sammenligne de to. Her følger en guide til, hvordan man får lavet et udtræk fra LIS, så man kan sammenholde med EPJ."
+        },
+        {
+          "page": 105,
+          "context": "At antallet af patienter, stemmer overens med EPJ'en."
+        }
+      ]
+    },
+    {
+      "name": "Opereret = 1",
+      "type": "variable",
+      "slug": "opereret-1",
+      "folder": "entities/variables/healthcare-database",
+      "significance": "Opereret = 1 er en variabel i Akut Kirurgi Databasen, der identificerer patienter, som både har en inklusionsdiagnose og en inklusionsprocedure, og som derfor udgør den primære analysepolygon for indikatorberegninger.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "Patientpopulationen som har en inklusions diagnose og operation: Variablen Opereret = 1."
+        }
+      ]
+    },
+    {
+      "name": "T_0",
+      "type": "variable",
+      "slug": "t-0",
+      "folder": "entities/variables/healthcare-database",
+      "significance": "T_0 er en variabel i Akut Kirurgi Databasen, der anvendes til periodeafgrænsning i dataudtræk, og som sikrer, at kun data fra den relevante analyseperiode (her 1. september 2024 til 31. august 2025) medtages.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "Periodeafgrænsning: Variablen T_0 benyttes."
+        }
+      ]
+    },
+    {
+      "name": "Forloeb_SORKode",
+      "type": "variable",
+      "slug": "forloeb-sorkode",
+      "folder": "entities/variables/healthcare-database",
+      "significance": "Forloeb_SORKode er en variabel i Akut Kirurgi Databasen, der anvendes på hospitalsniveau til at identificere og analysere patientforløb i relation til SOR-kodning af afdelinger, og som understøtter lokal validering og regional sammenligning.",
+      "mentions": [
+        {
+          "page": 105,
+          "context": "På hospitalsniveau: Variablen Forloeb_SORKode"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-based-on",
+      "object": "landspatientregisteret",
+      "evidence": "Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR.",
+      "page": 103
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-published-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen\nUdkast 2026.01.05\nSundhedsvæsenets Kvalitetsinstitut",
+      "page": 101
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "uses-exclusion-criteria-from",
+      "object": "sundhedsvaesenets-organisationsregister-sor",
+      "evidence": "Kontakter registreret på afdelinger med følgende specialer, jf. SOR*:\n- Gynækologi og obstetrik\n- Urologi",
+      "page": 101
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "has-analytical-unit",
+      "object": "aha-populationen",
+      "evidence": "Populationen i databasen er den population, man ønsker at monitorere kvaliteten for, dvs. AHA-populationen (Akut Højrisiko Abdominalkirurgi).",
+      "page": 103
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "provides-data-to",
+      "object": "lis",
+      "evidence": "Data på population og indikatorer har været tilgængelige i de regionale ledelsesinformationssystemer (LIS) siden september 2020.",
+      "page": 104
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-validated-against",
+      "object": "epj",
+      "evidence": "At antallet af patienter, stemmer overens med EPJ'en.\n• At det er de rigtige patienter.\n• At dato for operation er korrekt.",
+      "page": 105
+    }
+  ],
+  "claims": [
+    {
+      "text": "Denne rapport inkluderer 3.778 patienter, som blev opererede og 6.646 patienter med en relevant diagnose, men som ikke blev opererede i perioden 1. september 2024 til 31. august 2025 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 103
+    },
+    {
+      "text": "Udtrækket til analyserne er foretaget d. 14/11-2025 [^src1]",
+      "type": "procedural",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 103
+    },
+    {
+      "text": "År 2024-2025: Total = 10.424, Opererede = 3.778, Ikke-opererede = 6.646, Andel opererede = 36 % [^src1]",
+      "type": "statistical",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 103
+    },
+    {
+      "text": "År 2023-2024: Total = 9.906, Opererede = 3.668, Ikke-opererede = 6.238, Andel opererede = 37 % [^src1]",
+      "type": "statistical",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 103
+    },
+    {
+      "text": "År 2022-2023*: Total = 10.013, Opererede = 3.697, Ikke-opererede = 6.316, Andel opererede = 37 % [^src1]",
+      "type": "statistical",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 103
+    },
+    {
+      "text": "År 2021-2022: Total = 8.718, Opererede = 3.134, Ikke-opererede = 5.584, Andel opererede = 36 % [^src1]",
+      "type": "statistical",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 103
+    },
+    {
+      "text": "År 2020-2021: Total = 12.389, Opererede = 2.600, Ikke-opererede = 9.789, Andel opererede = 21 % [^src1]",
+      "type": "statistical",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 103
+    },
+    {
+      "text": "År 2019-2020: Total = 11.780, Opererede = 6.932, Ikke-opererede = 4.848, Andel opererede = 59 % [^src1]",
+      "type": "statistical",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "page": 103
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-09-01",
+      "event": "Start af analyseperioden for rapporten, som omfatter patienter fra 1. september 2024 til 31. august 2025",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2025-08-31",
+      "event": "Slut på analyseperioden for rapporten, som omfatter patienter fra 1. september 2024 til 31. august 2025",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2025-11-14",
+      "event": "Udtræk af data til analyserne blev foretaget",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2020-09-01",
+      "event": "Data fra Akut Kirurgi Databasen blev første gang tilgængelige i de regionale ledelsesinformationssystemer (LIS)",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "lis"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "title": "Antallet af patienter i databasen, antal opererede, antal ikke-opererede og andelen af opererede patienter i perioden siden overgangen til LPR",
+      "page": 103,
+      "rowDimension": "år",
+      "colDimension": "antal og andel",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ],
+      "markdown": "| År | Total | Opererede | Ikke-opererede | Andel opererede |\n| --- | --- | --- | --- | --- |\n| 2024-2025 | 10.424 | 3.778 | 6.646 | 36 | % |\n| 2023-2024 | 9.906 | 3.668 | 6.238 | 37 | % |\n| 2022-2023* | 10.013 | 3.697 | 6.316 | 37 | % |\n| 2021-2022 | 8.718 | 3.134 | 5.584 | 36 | % |\n| 2020-2021 | 12.389 | 2.600 | 9.789 | 21 | % |\n| 2019-2020 | 11.780 | 6.932 | 4.848 | 59 | % |",
+      "summary": "Tabellen viser årlig udvikling i antal patienter i Akut Kirurgi Databasen siden 2019-2020, med en markant faldende andel af opererede patienter fra 59 % i 2019-2020 til 21 % i 2020-2021, efterfulgt af stabilisering på ca. 36-37 % fra 2021-2022 til 2024-2025."
+    }
+  ],
+  "context": "Dette dokumentstykke er en del af udkastet til Akut Kirurgi Databasens (AKDB) rapport fra 2026, som beskriver metodologien bag databasens populationsdannelse, inklusions- og eksklusionskriterier, datagrundlag og valideringsprocedurer. Det indgår i en bredere narrativ om implementeringen af kliniske kvalitetsdatabaser i Danmark baseret på Landspatientregisteret, med fokus på at sikre, at AKDB korrekt fanget den målgruppe af patienter med akut højrisiko abdominalkirurgi (AHA-populationen), og at data kan valideres lokalt mod elektroniske patientjournaler (EPJ) og regionale ledelsesinformationssystemer (LIS). Den beskriver også en strategisk tilgang til at håndtere ændringer i registreringspraksis gennem supplerende indikatorer for ikke-opererede patienter og systematisk validering i flere regioner."
+}

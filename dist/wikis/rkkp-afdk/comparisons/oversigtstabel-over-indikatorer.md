@@ -4,20 +4,24 @@ type: comparison
 aliases:
   - Oversigtstabel over indikatorer
 wiki: rkkp-afdk
-updated: '2026-08-05T21:57:58.210Z'
+updated: '2026-08-14T22:17:07.798Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: '1-5, 111-115, 26-30, 46-50, 51-55, 6-10, 7, 76-80, 81-85, 86-90'
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: 66-70
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: 61-65
 tags:
   - comparison
 ---
-The [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] utilizes a structured set of clinical quality indicators to monitor and evaluate the care of patients diagnosed with atrial fibrillation [^src1]. This framework compares eight distinct indicator areas, balancing process adherence with clinical outcomes to ensure comprehensive patient management [^src1]. Because this data represents a single snapshot of the indicator framework, it establishes the baseline standards and structural priorities of the database but does not provide longitudinal data to assess whether these targets are being met or how performance trends over time.
+The **Oversigtstabel over indikatorer** provides a comprehensive framework of clinical quality indicators for the management of atrial fibrillation, as tracked by the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] [^src1]. Rather than comparing performance outcomes across different hospitals or regions, this table establishes the baseline target standards for eight distinct clinical metrics, categorizing them into process and outcome indicators [^src1].
 
-The indicators are divided into two main categories: process metrics and outcome metrics. The process indicators focus on the timeliness and quality of interventions, setting rigorous compliance thresholds. The highest process standards demand that at least 95% of patients receive specific monitoring, such as thyroid-stimulating hormone (TSH) measurements around the time of diagnosis (Indicator 3) and annual P-creatinine measurements for patients on direct oral anticoagulants (Indicator 4b) [^src1]. Anticoagulation therapy initiation within 30 days (Indicator 1) and long-term treatment maintenance over 1, 2, and 5-year follow-ups (Indicator 4a) require a ≥ 90% compliance rate [^src1]. Conversely, the lowest process target is set for structured patient education, which aims for a ≥ 50% compliance rate within the first year post-diagnosis (Indicator 8) [^src1]. 
+When evaluating the strictness of the established benchmarks, the most stringent process targets are applied to diagnostic and monitoring protocols. Specifically, the measurement of Thyroid Stimulating Hormone (TSH) around the time of diagnosis and the annual monitoring of renal function (P-creatinin) for patients on direct oral anticoagulants (DOACs) both demand a compliance rate of ≥ 95% [^src1]. Similarly, the initiation of anticoagulation therapy and its long-term continuation at one, two, and five years require a ≥ 90% standard [^src1]. In contrast, the lowest process target is set for patient education, where the standard expects only ≥ 50% of newly diagnosed patients to receive a structured educational program within a year of diagnosis [^src1].
 
-On the outcome side, the framework tracks the incidence of severe complications among prevalent atrial fibrillation patients. The targets for these adverse events are kept strictly low to minimize harm: the incidence of ischemic stroke is capped at ≤ 0.8 (Indicator 5), and intracranial hemorrhage is capped at ≤ 0.6 (Indicator 6) [^src1]. A notable outlier in this comparison is Indicator 7, which tracks the incidence of severe bleeding based on modified ISTH criteria. Unlike the other outcome metrics, this indicator currently lacks a defined numerical standard ("Standard ikke fastsat"), highlighting an area where benchmarking is still under development or deemed too variable for a strict threshold [^src1].
+For outcome indicators, the framework sets strict incidence limits for adverse events among prevalent atrial fibrillation patients. The incidence of ischemic stroke is capped at a standard of ≤ 0.8, and intracranial bleeding is capped at ≤ 0.6 [^src1]. However, Indicator 7, which tracks the incidence of severe bleeding based on modified ISTH criteria, stands out as a notable outlier; it is the only metric in the framework that currently lacks a defined numerical standard ("Standard ikke fastsat") [^src1].
+
+Because the provided evidence consists of only a single dated table section from 2023, it is impossible to identify longitudinal trends, such as whether these targets have been tightened or relaxed over time, or to assess whether actual clinical performance meets or misses these goals [^src1]. The data serves strictly as a definitional baseline for quality assurance rather than a report of achieved results.
 
 ## Table: AFDK_2023.pdf, p. 7
 
@@ -35,9 +39,9 @@ Rows compare: indikatorområde · Columns show: indikator, type, standard
 | Incidens alvorlig blødning | 7. Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren | Resultat | Standard ikke fastsat |
 | Patientuddannelse/undervisning | 8. Andelen af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet | Proces | ≥ 50% |
 
-**Entities:** [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]
+Entities: databasen-for-atrieflimren-i-danmark
 
-**Summary:** Tabellen præsenterer en oversigt over otte kliniske kvalitetsindikatorer for atrieflimren-behandling, hvoraf de første seks har fastsatte numeriske standarder, mens indikator 7 mangler standard.
+Summary: Tabellen præsenterer en oversigt over otte kliniske kvalitetsindikatorer for atrieflimren-behandling, hvoraf de første seks har fastsatte numeriske standarder, mens indikator 7 mangler standard.
 
 ## Related comparisons in prose
 
@@ -75,12 +79,15 @@ Rows compare: indikatorområde · Columns show: indikator, type, standard
 - "Der vil formentlig forekomme patienter med atrieflimren og andre konkurrerende sygdomme, hvor atrieflimren ikke bliver indberettet til Landspatientregisteret til trods for, at diagnosen er blevet stillet klinisk" — see [[limitation|Limitation]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src8]
 - "Den sande prævalens af atrieflimren undervurderes, idet screeningsundersøgelser har påvist, at der findes et betydeligt antal patienter med uerkendt atrieflimren (Svennberg et al. Circulation 2015;131:2176-84)" — see [[limitation|Limitation]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src9]
 - "AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis" — see [[limitation|Limitation]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src9]
+- "Den sande prævalens af atrieflimren undervurderes, idet screeningsundersøgelser har påvist, at der findes et betydeligt antal patienter med uerkendt atrieflimren (Svennberg et al. Circulation 2015;131:2176-84)." — see [[limitation|Limitation]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src12]
+- "AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis." — see [[limitation|Limitation]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src12]
 - "AFDK er udelukkende baseret på patienter, som er blevet diagnosticeret med atrieflimren i forbindelse med en hospitalsindlæggelse, inklusiv ambulante hospitalskontakter" — see [[coverage-limitation|Coverage Limitation]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src8]
 - "AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis eller speciallæge praksis" — see [[coverage-limitation|Coverage Limitation]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src8]
 - "Incidens af atrieflimren i opgørelsesperioden/året for Danmark er 3,3 pr. 1000 indbyggere" — see [[incidence-rate|Incidence Rate]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src8]
 - "10 % af alle patienter med atrieflimren i Danmark døde i opgørelsesperioden" — see [[mortality-rate|Mortality Rate]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src8]
 - "Patienterne ser et stort behov for et tilbud om et struktureret undervisningsforløb kort tid efter, diagnosen er stillet" — see [[patient-perspective|Patient Perspective]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src9]
 - "Komplethedsgraden af patientregistreringen i AFDK defineres som: antal patienter med atrieflimren i databasen / total antal patienter med atrieflimren" — see [[methodological-definition|Methodological Definition]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src9]
+- "Komplethedsgraden af patientregistreringen i AFDK defineres som: antal patienter med atrieflimren i databasen / total antal patienter med atrieflimren." — see [[methodological-definition|Methodological Definition]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src12]
 - "Patientforløb, validitet er ikke opgjort, men skønnes meget høj på baggrund af tidligere valideringsstudier i Landspatientregisteret af atrieflimren diagnosen (se bl.a. Sundbøl et al. BMJ Open. 2016;6(11):e01283 og Rix et al. Scand Cardiovasc J. 2012;46:149-53)" — see [[validation|Validation]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src9]
 - "Indberettede data per patient, validitet er ikke opgjort i forbindelse med AFDK, men skønnes høj. De anvendte registre og dataelementer har generelt høj validitet" — see [[validation|Validation]] ([[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]]) [^src9]
 
@@ -97,3 +104,4 @@ Rows compare: indikatorområde · Columns show: indikator, type, standard
 [^src9]: AFDK_2024.pdf, pages 66-70
 [^src10]: AFDK_2023.pdf, pages 86-90
 [^src11]: AFDK_2023.pdf, pages 111-115
+[^src12]: AFDK_2025.pdf, pages 61-65

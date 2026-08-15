@@ -1,0 +1,378 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 7",
+      "type": "quality-indicator",
+      "slug": "indikator-7",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 7 er den nationale kvalitetsindikator for incidens af alvorlig blødning blandt prævalente patienter med atrieflimren i Danmark, baseret på tilpassede ISTH-kriterier, og udgør en central måling af sikkerheden ved antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Indikator 7: Incidens alvorlig blødning"
+        },
+        {
+          "page": 47,
+          "context": "Indikator 7. Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "International Society of Thrombosis and Hemostasis",
+      "type": "organization",
+      "slug": "international-society-of-thrombosis-and-hemostasis",
+      "folder": "entities/organizations/medical-societies",
+      "significance": "Den internationale faglige sammenslutning, hvis blødningsskriterier er tilpasset og anvendt som definitionsmæssig grundlag for Indikator 7's måling af alvorlig blødning.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier"
+        },
+        {
+          "page": 47,
+          "context": "tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier"
+        }
+      ]
+    },
+    {
+      "name": "alvorlig blødning",
+      "type": "clinical-condition",
+      "slug": "alvorlig-bloedning",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "Den kliniske begivenhed, der udgør indikatorens primære udfaldsvariabel, defineret som akut indlæggelse med blødning og specifikt klassificeret som intrakraniel, gastrointestinal, urinvejs- eller lungeblødning.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Indikator 7: Incidens alvorlig blødning"
+        },
+        {
+          "page": 50,
+          "context": "Større blødning er defineret som en akut indlæggelse med blødning og er identificeret via data fra Landspatientregistret. Alvorlige blødninger defineres som intrakranielle blødninger, gastrointestinale blødninger, urinvejsblødninger og blødninger fra lungerne."
+        }
+      ]
+    },
+    {
+      "name": "prævalente patienter med atrieflimren",
+      "type": "patient-population",
+      "slug": "praevalente-patienter-med-atrieflimren",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "Den definerede målgruppe for Indikator 7, hvori tælleren og nævneren beregnes, og som danner den epidemiologiske basis for incidensmålingen.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren."
+        },
+        {
+          "page": 47,
+          "context": "Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregistret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Det nationale sundhedsdataregister, der anvendes til identifikation af akutte indlæggelser med blødning som del af datagrundlaget for Indikator 7.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Større blødning er defineret som en akut indlæggelse med blødning og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "intrakraniel blødning",
+      "type": "clinical-condition",
+      "slug": "intrakraniel-bloedning",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "En af de fire specifikke typer alvorlig blødning, der indgår i definitionen af Indikator 7's udfaldsvariabel.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Alvorlige blødninger defineres som intrakranielle blødninger, gastrointestinale blødninger, urinvejsblødninger og blødninger fra lungerne."
+        }
+      ]
+    },
+    {
+      "name": "gastrointestinal blødning",
+      "type": "clinical-condition",
+      "slug": "gastrointestinal-bloedning",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "En af de fire specifikke typer alvorlig blødning, der indgår i definitionen af Indikator 7's udfaldsvariabel.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Alvorlige blødninger defineres som intrakranielle blødninger, gastrointestinale blødninger, urinvejsblødninger og blødninger fra lungerne."
+        }
+      ]
+    },
+    {
+      "name": "urinvejsblødning",
+      "type": "clinical-condition",
+      "slug": "urinvejsbloedning",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "En af de fire specifikke typer alvorlig blødning, der indgår i definitionen af Indikator 7's udfaldsvariabel.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Alvorlige blødninger defineres som intrakranielle blødninger, gastrointestinale blødninger, urinvejsblødninger og blødninger fra lungerne."
+        }
+      ]
+    },
+    {
+      "name": "lungeblødning",
+      "type": "clinical-condition",
+      "slug": "lungebloedning",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "En af de fire specifikke typer alvorlig blødning, der indgår i definitionen af Indikator 7's udfaldsvariabel.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "Alvorlige blødninger defineres som intrakranielle blødninger, gastrointestinale blødninger, urinvejsblødninger og blødninger fra lungerne."
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "drug-class",
+      "slug": "doac",
+      "folder": "entities/drugs/anticoagulants",
+      "significance": "Klassen af direkte orale antikoagulantia, som i Appendiks sammenlignes med marevan mht. forekomst af alvorlig blødning blandt patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "I Appendiks er det vist hvor stor en andel af patienter i behandling med DOAC og/eller marevan, eller ingen af disse, der har haft en alvorlig blødning i årsrapportsperioden. Andelen af patienter med alvorlig blødning er 2,40% for DOAC og 2,54% for marevan."
+        }
+      ]
+    },
+    {
+      "name": "marevan",
+      "type": "pharmaceutical",
+      "slug": "marevan",
+      "folder": "entities/pharmaceuticals/anticoagulants",
+      "significance": "Et specifikt antikoagulantium (warfarin), som i Appendiks sammenlignes med DOAC mht. forekomst af alvorlig blødning blandt patienter med atrieflimren.",
+      "mentions": [
+        {
+          "page": 50,
+          "context": "I Appendiks er det vist hvor stor en andel af patienter i behandling med DOAC og/eller marevan, eller ingen af disse, der har haft en alvorlig blødning i årsrapportsperioden. Andelen af patienter med alvorlig blødning er 2,40% for DOAC og 2,54% for marevan."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Den danske myndighed, der udgiver rapporten 'Atrieflimren i Danmark' og står bag udviklingen og overvågningen af Indikator 7.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 47,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 48,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 49,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 50,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Geodatastyrelsen",
+      "type": "organization",
+      "slug": "geodatastyrelsen",
+      "folder": "entities/organizations/regions",
+      "significance": "Den offentlige myndighed, hvis geodata (UTM32/EUREF89, maj 2015) anvendes til produktionen af Danmarkskortet for Indikator 7 på sundhedsklyngeniveau.",
+      "mentions": [
+        {
+          "page": 46,
+          "context": "Indeholder data fra Geodatastyrelsen, UTM32/EUREF89, maj 2015"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge",
+      "type": "organizational-structure",
+      "slug": "sundhedsklynge",
+      "folder": "topics/organizational",
+      "significance": "Den regionale organisatoriske struktur, som bruges til at stratificere og rapportere Indikator 7-data på underregionsniveau, herunder navngivne klynger som Bornholm, Byen, Midt osv.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Sundhedsklynge Bornholm"
+        },
+        {
+          "page": 47,
+          "context": "Sundhedsklynge Byen"
+        },
+        {
+          "page": 47,
+          "context": "Sundhedsklynge Midt"
+        },
+        {
+          "page": 47,
+          "context": "Sundhedsklynge Nord"
+        },
+        {
+          "page": 47,
+          "context": "Sundhedsklynge Syd"
+        }
+      ]
+    },
+    {
+      "name": "regioner",
+      "type": "location",
+      "slug": "regioner",
+      "folder": "entities/locations/regions",
+      "significance": "De fem administrative regioner i Danmark, som udgør det primære niveau for regional analyse og rapportering af Indikator 7, herunder Hovedstaden, Sjælland, Syddanmark, Midtjylland og Nordjylland.",
+      "mentions": [
+        {
+          "page": 47,
+          "context": "Danmark 3.092 / 138.889 ... Hovedstaden 830 / 38.830 ... Sjælland 523 / 23.101 ... Syddanmark 717 / 31.414 ... Midtjylland 674 / 30.615 ... Nordjylland 348 / 14.929"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-7",
+      "predicate": "is-defined-by",
+      "object": "international-society-of-thrombosis-and-hemostasis",
+      "evidence": "Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier)",
+      "page": 46
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Større blødning er defineret som en akut indlæggelse med blødning og er identificeret via data fra Landspatientregistret.",
+      "page": 50
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "is-published-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Atrieflimren i Danmark Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 46
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "uses-geodata-from",
+      "object": "geodatastyrelsen",
+      "evidence": "Indeholder data fra Geodatastyrelsen, UTM32/EUREF89, maj 2015",
+      "page": 46
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "is-stratified-by",
+      "object": "sundhedsklynge",
+      "evidence": "Sundhedsklynge Bornholm ... Sundhedsklynge Byen ... Sundhedsklynge Midt ... Sundhedsklynge Nord ... Sundhedsklynge Syd",
+      "page": 47
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "is-stratified-by",
+      "object": "regioner",
+      "evidence": "Danmark ... Hovedstaden ... Sjælland ... Syddanmark ... Midtjylland ... Nordjylland",
+      "page": 47
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt blev 2,2% af de prævalente patienter med atrieflimren indlagt med alvorlig blødning i løbet af opgørelsesperioden [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "praevalente-patienter-med-atrieflimren",
+        "alvorlig-bloedning"
+      ],
+      "page": 50
+    },
+    {
+      "text": "Der ses ingen reel udvikling i andelen nationalt i løbet af de seneste tre årsrapportsperioder [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "indikator-7"
+      ],
+      "page": 50
+    },
+    {
+      "text": "På regionsniveau varierede andelen som blev indlagt med alvorlig blødning mellem 2,1-2,3% [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "regioner",
+        "alvorlig-bloedning"
+      ],
+      "page": 50
+    },
+    {
+      "text": "På klyngeniveau varierede andelen med alvorlig blødning mellem 1,9-2,7% [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "sundhedsklynge",
+        "alvorlig-bloedning"
+      ],
+      "page": 50
+    },
+    {
+      "text": "Andelen af patienter med alvorlig blødning er 2,40% for DOAC og 2,54% for marevan [^src1]",
+      "type": "comparative-result",
+      "entities": [
+        "doac",
+        "marevan",
+        "alvorlig-bloedning"
+      ],
+      "page": 50
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2024 - 30.06.2025",
+      "event": "Aktuel opgørelsesperiode for Indikator 7",
+      "entities": [
+        "indikator-7"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Tidligere opgørelsesperiode for Indikator 7",
+      "entities": [
+        "indikator-7"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere opgørelsesperiode for Indikator 7",
+      "entities": [
+        "indikator-7"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-7",
+      "title": "Indikator 7: Incidens af alvorlig blødning på regions- og klyngeniveau",
+      "page": 47,
+      "rowDimension": "administrative enheder",
+      "colDimension": "andele og konfidensintervaller",
+      "entities": [
+        "regioner",
+        "sundhedsklynge",
+        "indikator-7"
+      ],
+      "markdown": "| Enhed | Tæller / nævner | opfyldt (%) | Andel | 95% CI | 2023/24 Andel | 2022/23 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 3.092 / 138.889 | 0 (0) | 2,2 | (2,1-2,3) | 2,1 | 2,2 |\n| Hovedstaden | 830 / 38.830 | 0 (0) | 2,1 | (2,0-2,3) | 2,2 | 2,3 |\n| Sjælland | 523 / 23.101 | 0 (0) | 2,3 | (2,1-2,5) | 2,2 | 2,0 |\n| Syddanmark | 717 / 31.414 | 0 (0) | 2,3 | (2,1-2,5) | 2,1 | 2,4 |\n| Midtjylland | 674 / 30.615 | 0 (0) | 2,2 | (2,0-2,4) | 1,9 | 1,9 |\n| Nordjylland | 348 / 14.929 | 0 (0) | 2,3 | (2,1-2,6) | 2,2 | 2,2 |\n| Sundhedsklynge Bornholm | 36 / 1.318 | 0 (0) | 2,7 | (1,9-3,8) | 2,3 | 2,4 |\n| Sundhedsklynge Byen | 200 / 10.622 | 0 (0) | 1,9 | (1,6-2,2) | 1,9 | 2,1 |\n| Sundhedsklynge Midt | 263 / 11.163 | 0 (0) | 2,4 | (2,1-2,7) | 2,5 | 2,2 |\n| Sundhedsklynge Nord | 191 / 9.193 | 0 (0) | 2,1 | (1,8-2,4) | 2,3 | 2,6 |\n| Sundhedsklynge Syd | 140 / 6.534 | 0 (0) | 2,1 | (1,8-2,5) | 2,0 | 2,4 |\n| Sundhedsklyngen Holbæk | 101 / 5.088 | 0 (0) | 2,0 | (1,6-2,4) | 2,2 | 1,9 |\n| Sundhedsklyngen Nykøbing F | 121 / 4.666 | 0 (0) | 2,6 | (2,2-3,1) | 2,0 | 2,0 |\n| Sundhedsklyngen SUH | 178 / 7.437 | 0 (0) | 2,4 | (2,1-2,8) | 2,5 | 2,2 |\n| Sundhedsklyngen Slagelse | 123 / 5.910 | 0 (0) | 2,1 | (1,7-2,5) | 2,2 | 2,1 |\n| Sundhedsklynge Fyn | 322 / 11.706 | 0 (0) | 2,8 | (2,5-3,1) | 2,5 | 2,9 |\n| Sundhedsklynge Lillebælt | 135 / 7.112 | 0 (0) | 1,9 | (1,6-2,2) | 2,1 | 2,0 |\n| Sundhedsklynge Sydvestjylland | 123 / 6.182 | 0 (0) | 2,0 | (1,7-2,4) | 1,6 | 2,1 |\n| Sundhedsklynge Sønderjylland | 137 / 6.414 | 0 (0) | 2,1 | (1,8-2,5) | 2,0 | 2,0 |\n| Aarhusklyngen | 129 / 6.151 | 0 (0) | 2,1 | (1,8-2,5) | 2,1 | 2,3 |\n| Gødstrupklyngen | 179 / 7.283 | 0 (0) | 2,5 | (2,1-2,8) | 1,9 | 1,9 |\n| Horsensklyngen | 106 / 5.216 | 0 (0) | 2,0 | (1,7-2,5) | 1,7 | 1,4 |\n| Midtklyngen | 136 / 6.216 | 0 (0) | 2,2 | (1,8-2,6) | 2,2 | 1,8 |\n| Randersklyngen | 124 / 5.749 | 0 (0) | 2,2 | (1,8-2,6) | 1,8 | 2,1 |\n| Klynge MIDT | 119 / 5.505 | 0 (0) | 2,2 | (1,8-2,6) | 2,1 | 2,5 |\n| Klynge NORD | 121 / 4.828 | 0 (0) | 2,5 | (2,1-3,0) | 2,5 | 2,2 |\n| Klynge SYD | 59 / 2.813 | 0 (0) | 2,1 | (1,6-2,7) | 2,1 | 2,0 |\n| Klynge VEST | 49 / 1.783 | 0 (0) | 2,7 | (2,0-3,6) | 2,1 | 1,6 |",
+      "summary": "Tabellen sammenligner incidensen af alvorlig blødning (i procent) på både regions- og sundhedsklynge-niveau for Danmark og dens underenheder, med angivelse af tæller/nævner, opfyldelsesgrad, punktestimat, 95%-konfidensinterval og historiske værdier for de to tidligere perioder."
+    }
+  ],
+  "context": "Dette dokumentudsnit er en del af den årlige rapport 'Atrieflimren i Danmark', udgivet af Sundhedsvæsenets Kvalitetsinstitut, og fokuserer på Indikator 7 — en national kvalitetsindikator, der måler incidensen af alvorlig blødning blandt patienter med eksisterende atrieflimren. Denne indikator er et centralt redskab til at overvåge sikkerheden ved antikoagulationsbehandling i den danske sundhedsvæsen, og udgør en integreret del af Regionsrådets kvalitetsudviklingsprogram. Rapporten præsenterer data på flere administrative niveauer — nationalt, regionsmæssigt og ned til sundhedsklyngeniveau — og inkluderer både statistisk analyse (inkl. konfidensintervaller) og metodisk dokumentation af definitioner, datagrundlag og eksklusionskriterier. Indikatoren er knyttet til internationalt anerkendte kriterier fra ISTH og bygger på registerdata fra Landspatientregistret."
+}

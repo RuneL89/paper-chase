@@ -4,19 +4,20 @@ type: index
 aliases:
   - Products
 wiki: rkkp-adhd
-updated: '2026-08-05T19:15:24.681Z'
+updated: '2026-08-15T12:40:22.594Z'
 children:
   - assessment-tools/index.md
   - clinical-assessment-tools/index.md
+  - index.md
 ---
 # Products
 
-This folder groups the standardized instruments and interview methods used to assess and diagnose ADHD in Danish child and adolescent psychiatry. It covers broader psychiatric assessment tools undergoing reevaluation for resource constraints, alongside the specific manualized diagnostic interviews tracked to fulfill national clinical quality indicators. Together, these areas document the intersection of diagnostic procedures, clinical guidelines, and systemic healthcare administration.
+This folder groups the diagnostic and assessment instruments utilized within Danish child and adolescent psychiatry, specifically for evaluating ADHD and its comorbidities in patients aged 6 to 17. It encompasses both broad psychiatric assessment tools, whose mandatory universal use is currently being reevaluated to alleviate systemic resource constraints, and specific manualized clinical interviews approved to fulfill national quality indicator 2b. Together, these products represent the standardized methods tracked by the national quality monitoring framework to ensure diagnostic certainty and address geographic inequalities in care.
 
 ## Pages
 
-- [[entities/products/assessment-tools/index|Assessment Tools]] — Specific psychiatric assessment instruments, including full semi-structured interviews, and how their mandatory use is being reevaluated to address resource constraints.
-- [[entities/products/clinical-assessment-tools/index|Clinical Assessment Tools]] — The three approved manualized diagnostic interview methods used to systematically assess ADHD symptoms and comorbidities in patients aged 6 to 17.
+- [[entities/products/assessment-tools/index|Assessment Tools]] — General psychiatric assessment instruments, such as the PSE, whose universal application is being reevaluated to address healthcare resource constraints.
+- [[entities/products/clinical-assessment-tools/index|Clinical Assessment Tools]] — Manualized and semi-structured diagnostic interviews, including DAWBA and Kiddie-SADS, approved to assess core ADHD symptoms and fulfill national quality indicator 2b.
 
 ## Navigation
 

@@ -4,23 +4,28 @@ type: index
 aliases:
   - Locations
 wiki: rkkp-akdb
-updated: '2026-08-05T20:21:49.126Z'
+updated: '2026-08-15T08:29:58.324Z'
 children:
   - national/index.md
+  - regions/index.md
+  - index.md
 ---
 # Locations
 
-This area groups geographic entities and physical locations relevant to the Danish Acute Surgery Database (AKDB). It currently encompasses national-level locations, covering the country-wide aggregate benchmark for Denmark as well as specialized intensive care departments that play a key role in clinical coding rules and the operationalization of quality indicators.
+This folder groups the geographical and administrative locations relevant to the Danish Acute Surgery Database (AKDB) quality reports. It is divided into national benchmarks and specific clinical wards, alongside the five administrative regions of Denmark. Together, these sub-folders map the geographical landscape where acute surgical quality indicators, mortality rates, and compliance metrics are measured, reported, and compared across the country.
 
 ## Pages
 
-- [[entities/locations/national/index|National]] — National-level geographic entities and specialized hospital departments, including the Denmark aggregate benchmark and intensive care units relevant to clinical coding and quality goals.
+- [[entities/locations/national/index|National]] — National and sub-national locations, including overarching country statistics, high-performing hospitals, and specific clinical wards used as benchmarks in acute surgery quality reports.
+- [[entities/locations/regions/index|Regions]] — The five administrative regions of Denmark, detailing their respective clinical indicator performance, constituent hospitals, and demographic baselines for acute surgical outcomes.
 
 ## Navigation
 
 - Parent: [[entities/index|Entities]]
 - Sibling: [[entities/codes/index|Codes]]
 - Sibling: [[entities/databases/index|Databases]]
+- Sibling: [[entities/indicators/index|Indicators]]
+- Sibling: [[entities/medical-conditions/index|Medical Conditions]]
 - Sibling: [[entities/medical-procedures/index|Medical Procedures]]
 - Sibling: [[entities/organizations/index|Organizations]]
 - Sibling: [[entities/people/index|People]]
@@ -32,5 +37,5 @@ This area groups geographic entities and physical locations relevant to the Dani
 ## Statistics
 
 - Pages: 0
-- Sub-folders: 1
+- Sub-folders: 2
 - Sources: 0

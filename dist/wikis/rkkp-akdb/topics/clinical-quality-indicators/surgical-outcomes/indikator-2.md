@@ -4,102 +4,81 @@ type: entity
 aliases:
   - Indikator 2
 wiki: rkkp-akdb
-updated: '2026-08-05T19:25:43.206Z'
+updated: '2026-08-15T06:25:59.442Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '11-15, 16-20, 6-10, 96-100'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: '106-110, 11-15, 111-115, 16-20, 6-10, 61-65'
 tags:
   - indicator
 ---
 
-**Indikator 2** is a clinical process indicator used within the [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] to measure the proportion of patients who receive a [[ct-skanning|CT-skanning]] within two hours (120 minutes) of arriving at the hospital [^src1]. It serves as a critical metric for evaluating diagnostic speed and logistical efficiency in acute abdominal surgery across the Danish healthcare system [^src1]. 
-
-The official performance standard and development target for Indikator 2 require that at least 90% of eligible patients be scanned within this two-hour window [^src1]. This threshold is directly aligned with the clinical guidelines established by [[lkt-akut-kirurgi|LKT Akutkirurgi]] [^src3]. The clinical rationale behind this strict timeframe is to ensure that patients suspected of suffering from severe conditions—such as bowel ischemia, perforated hollow organs, or ileus—can undergo necessary surgical interventions within six hours of admission [^src3]. 
-
-Despite these clear targets, national performance data for the period between September 1, 2023, and August 31, 2024, reveals significant shortfalls. Out of 3,073 eligible patients, only 995 received a CT scan within the required timeframe, resulting in a national compliance rate of just 32.4% (95% CI: 30.7–34.1) [^src2]. Consequently, the 90% development target was not achieved [^src3]. Regional disparities were also pronounced, with compliance rates ranging from a low of 25.9% in [[region-sjaelland|Region Sjælland]] to a high of 41.8% in [[region-midtjylland|Region Midtjylland]] [^src3]. Another national result presentation notes that 30.1% of patients were scanned within 2 hours [^src3]. Overall, only 32.4% of patients were scanned within two hours, which is far from the target [^src4].
-
-In light of these systemic logistical challenges, the [[styregruppen|Styregruppen]] has decided to prioritize Indikator 2 for focused review in an upcoming evidence report [^src3]. Clinical recommendations continue to emphasize that CT scanning with contrast should be initiated as rapidly as possible for high-risk patients to facilitate timely surgical treatment [^src3].
-
 ## Mentions
-- Page 6: "Indikator 2: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 6-10)
-- Page 11: "Indikator 2: CT-skanning" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 11-15)
-- Page 16: "Indikator 2: CT-skanning. Forest plot på afdelingsniveau" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20)
-- Page 96: "Indikator 2: CT-skanning" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 96-100)
+
+- Page 6: "Indikator 2: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus" [^src1]
+- Page 11: "Indikator 2: CT-skanning" [^src2]
+- Page 16: "Indikator 2: CT-skanning. Forest plot på afdelingsniveau" [^src3]
+- Page 96: "Indikator 2: CT-skanning" [^src4]
+- Page 6: "Indikator 2: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus" [^src5]
+- Page 7: "Indikator 2: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 120 minutter efter ankomst til sygehus" [^src5]
+- Page 14: "Indikator 2: CT-skanning" [^src6]
+- Page 16: "Indikator 2: CT-skanning. Forest plot på afdelingsniveau" [^src7]
+- Page 16: "Indikator 2: CT-skanning. Trendgraf over resultater på regionalt niveau" [^src7]
+- Page 17: "Indikatorbeskrivelse for indikator 2" [^src7]
+- Page 17: "Resultater af indikatoranalysen for indikator 2" [^src7]
+- Page 18: "Vurdering af indikator 2" [^src7]
+- Page 61: "Supplerende opgørelse til indikator 2: Mediantid til CT" [^src8]
+- Page 106: "Indikator 2: CT-skanning" [^src9]
+- Page 115: "Indikator 2: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 2 timer efter ankomst til
+sygehus." [^src10]
 
 ## Relationships
-- Subject: indikator-2
-  Predicate: measures-timing-of
-  Object: ct-skanning
-  Evidence: "Indikator 2: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor to timer (120 minutter) efter ankomst til sygehus"
-  Page: 11
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 11-15
-- Subject: indikator-2
-  Predicate: is-measured-by
-  Object: akut-kirurgi-databasen
-  Evidence: "Indikator 2: CT-skanning. Forest plot på afdelingsniveau"
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- Subject: indikator-2
-  Predicate: is-aligned-with
-  Object: lkt-akut-kirurgi
-  Evidence: "Udviklingsmålet er at mindst 90 % skannes indenfor 120 minutter, hvilket er i overensstemmelse med LKT for Akutkirurgi."
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- Subject: indikator-2
-  Predicate: is-reviewed-by
-  Object: styregruppen
-  Evidence: "Styregruppen beslutter, at man i forbindelse med kommende evidensrapport vil have fokus på denne indikator."
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
+
+- [[ct-skanning|CT-skanning]] — Measures Timing Of [^src2]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Measured By [^src3]
+- [[lkt-akut-kirurgi|LKT Akutkirurgi]] — Is Aligned With [^src3]
+- [[styregruppen|Styregruppen]] — Is Reviewed By [^src3]
+- [[ct-skanning|CT-skanning]] — Measures Timing Of [^src5]
+- [[ct-skanning|CT-skanning]] — Measures Timeliness Of [^src6]
+- [[90-percent]] — Has Development Goal [^src6]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Measured By [^src7]
+- [[lkt-akut-kirurgi|LKT Akutkirurgi]] — Has Development Goal [^src7]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Supplemented By [^src8]
+- [[90-percent]] — Has Target [^src9]
+- [[region-nordjylland|Region Nordjylland — Nordjylland]] — Is Assessed By [^src10]
+- [[regionshospitalet-randers|Regionshospitalet Randers]] — Is Best Practice For (incoming) — "Randers er best practice hospital." [^src7]
+- [[american-college-of-radiology|American College of radiology]] — Provides Guidance For (incoming) — "American College of radiology anbefaler CT abdomen med kontrast for akutte, ikke lokaliserede, abdominalsmerter og for patienter mistænkt for ileus." [^src7]
+- [[dansk-radiologisk-selskab|Dansk Radiologisk Selskab]] — Has Been Consulted On (incoming) — "Dansk Radiologisk Selskab er blevet spurgt om holdning." [^src7]
+- [[styregruppen|Styregruppen]] — Has Decision On (incoming) — "Styregruppen beslutter, at man i forbindelse med kommende evidensrapport vil have fokus på denne indikator." [^src7]
 
 ## Claims
-- Indikator 2 har en standard på ≥ 90 % for andelen af CT-skannede patienter, der får udført CT-skanning inden for to timer efter ankomst til sygehus [^src1] (indikator-2)
-  Type: performance-standard
-  Page: 6
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 6-10
-- Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor to timer (120 minutter) efter ankomst til sygehus, har udviklingsmål på ≥ 90 % [^src1] (indikator-2)
-  Type: performance-target
-  Page: 11
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 11-15
-- I perioden 01.09.2023 – 31.08.2024 blev der for Danmark registreret 995 patienter med CT-skanning inden for to timer ud af 3.073 i nævneren, svarende til 32,4 % (95 % CI: 30,7–34,1) [^src1] (indikator-2)
-  Type: performance
-  Page: 11
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 11-15
-- Indikator 2 beskriver andelen af patienter, der får en CT-skanning og som blev skannede indenfor 2 timer efter ankomst til sygehus [^src1] (indikator-2)
-  Type: definition
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- I alt 3.073 patienter blev skannede, og heraf blev 995 skannede indenfor to timer, svarende til en andel på 32,4 % (95 % CI 30,7–34,1) nationalt [^src1] (indikator-2)
-  Type: statistical
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- Udviklingsmålet på ≥ 90 % var således ikke opnået [^src1] (indikator-2)
-  Type: evaluation
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- Regionalt varierede resultaterne fra 25,9 % i Region Sjælland til 41,8 % i Region Midtjylland [^src1] (indikator-2, region-sjaelland, region-midtjylland)
-  Type: statistical
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- Resultatet nationalt viser at 30,1 % af patienterne er scannet inden for 2 timer [^src1] (indikator-2)
-  Type: statistical
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- Det anbefales at alle patienter med mistanke om tarm iskæmi, perforeret hulorgan eller ileus gennemgår CT scanning med kontrast så hurtigt som muligt i deres indlæggelsesforløb [^src1] (indikator-2)
-  Type: recommendation
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- CT-scanning bør startes indenfor 2 timer da vi ønsker at disse patienter opereres indenfor 6 timer efter indlæggelse [^src1] (indikator-2)
-  Type: recommendation
-  Page: 16
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 16-20
-- Kun 32,4 % af patienterne blev skannet inden for to timer, hvilket er langt fra målet [^src1] (indikator-2)
-  Type: performance
-  Page: 96
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 96-100
 
-## Timeline
-(none)
+- Indikator 2 har en standard på ≥ 90 % for andelen af CT-skannede patienter, der får udført CT-skanning inden for to timer efter ankomst til sygehus [^src1] ([[indikator-2|Indikator 2]])
+- Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor to timer (120 minutter) efter ankomst til sygehus, har udviklingsmål på ≥ 90 % [^src2] ([[indikator-2|Indikator 2]])
+- I perioden 01.09.2023 – 31.08.2024 blev der for Danmark registreret 995 patienter med CT-skanning inden for to timer ud af 3.073 i nævneren, svarende til 32,4 % (95 % CI: 30,7–34,1) [^src2] ([[indikator-2|Indikator 2]])
+- Indikator 2 beskriver andelen af patienter, der får en CT-skanning og som blev skannede indenfor 2 timer efter ankomst til sygehus [^src3] ([[indikator-2|Indikator 2]])
+- I alt 3.073 patienter blev skannede, og heraf blev 995 skannede indenfor to timer, svarende til en andel på 32,4 % (95 % CI 30,7–34,1) nationalt [^src3] ([[indikator-2|Indikator 2]])
+- Udviklingsmålet på ≥ 90 % var således ikke opnået [^src3] ([[indikator-2|Indikator 2]])
+- Regionalt varierede resultaterne fra 25,9 % i Region Sjælland til 41,8 % i Region Midtjylland [^src3] ([[indikator-2|Indikator 2]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-midtjylland|Region Midtjylland — Midtjylland]])
+- Resultatet nationalt viser at 30,1 % af patienterne er scannet inden for 2 timer [^src3] ([[indikator-2|Indikator 2]])
+- Det anbefales at alle patienter med mistanke om tarm iskæmi, perforeret hulorgan eller ileus gennemgår CT scanning med kontrast så hurtigt som muligt i deres indlæggelsesforløb [^src3] ([[indikator-2|Indikator 2]])
+- CT-scanning bør startes indenfor 2 timer da vi ønsker at disse patienter opereres indenfor 6 timer efter indlæggelse [^src3] ([[indikator-2|Indikator 2]])
+- Kun 32,4 % af patienterne blev skannet inden for to timer, hvilket er langt fra målet [^src4] ([[indikator-2|Indikator 2]])
+- Indikator 2 har et udviklingsmål på ≥ 90 % for andelen af CT-skannede patienter, der får lavet CT-skanning inden for 120 minutter efter ankomst til sygehus [^src5] ([[indikator-2|Indikator 2]], [[ct-skanning|CT-skanning]])
+- For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 2 på landsplan 33,5 % (95 % CI: 31,9–35,2) [^src5] ([[indikator-2|Indikator 2]], [[danmark|Danmark]])
+- Udviklingsmål for Indikator 2 er ≥ 90 % [^src6] ([[indikator-2|Indikator 2]])
+- Danmark: Andel = 33,5 % (95% CI: 31,9–35,2) i perioden 01.09.2024 – 31.08.2025 [^src6] ([[indikator-2|Indikator 2]], [[region-hovedstaden|Region Hovedstaden — Hovedstaden]])
+- Bornholms Hospital: Andel = 71,4 % (95% CI: 41,9–91,6) i perioden 01.09.2024 – 31.08.2025 [^src6] ([[indikator-2|Indikator 2]], [[bornholms-hospital|Bornholms Hospital]])
+- Regionshospitalet Randers: Andel = 55,7 % (95% CI: 45,7–65,3) i perioden 01.09.2024 – 31.08.2025 [^src6] ([[indikator-2|Indikator 2]], [[regionshospitalet-randers|Regionshospitalet Randers]])
+- Aarhus Universitetshospital: Andel = 51,1 % (95% CI: 42,4–59,8) i perioden 01.09.2024 – 31.08.2025 [^src6] ([[indikator-2|Indikator 2]], [[aarhus-universitetshospital|Aarhus Universitetshospital]])
+- Regionshospital Nordjylland: Andel = 42,1 % (95% CI: 32,9–51,7) i perioden 01.09.2024 – 31.08.2025 [^src6] ([[indikator-2|Indikator 2]], [[regionshospital-nordjylland|Regionshospital Nordjylland]])
+- Indikator 2 beskriver andelen af patienter, der får en CT-skanning og som blev skannede indenfor 2 timer efter ankomst til sygehus [^src7] ([[indikator-2|Indikator 2]])
+- I alt 3.133 patienter blev skannede, og heraf blev 1.050 skannede indenfor to timer, svarende til en andel på 33,5 % (95 % CI 31,9-35,2) nationalt [^src7] ([[indikator-2|Indikator 2]])
+- Regionalt varierede resultaterne fra 28,2 % i Region Sjælland til 45,8 % i Region Midtjylland [^src7] ([[indikator-2|Indikator 2]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-midtjylland|Region Midtjylland — Midtjylland]])
+- Udviklingsmålet på ≥ 90 % er således langt fra opnået både nationalt og regionalt [^src7] ([[indikator-2|Indikator 2]])
+- Kun 33,5 % af patienterne blev skannet inden for to timer, hvilket er langt fra målet [^src9] ([[indikator-2|Indikator 2]])
+- Region Nordjylland konkluderer, at udfordringen ved indikator 2 (CT-skanning inden for 2 timer) ikke ligger i mangel på CT-kapacitet, men i manglende identifikation og henvisning af AHA-patienter [^src10] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[indikator-2|Indikator 2]], [[aha-populationen|AHA-patienter]])
 
 ## Sources
 
@@ -107,3 +86,10 @@ In light of these systemic logistical challenges, the [[styregruppen|Styregruppe
 [^src2]: AKDB_2024.pdf, pages 11-15
 [^src3]: AKDB_2024.pdf, pages 16-20
 [^src4]: AKDB_2024.pdf, pages 96-100
+[^src5]: AKDB_2025.pdf, pages 6-10
+[^src6]: AKDB_2025.pdf, pages 11-15
+[^src7]: AKDB_2025.pdf, pages 16-20
+[^src8]: AKDB_2025.pdf, pages 61-65
+[^src9]: AKDB_2025.pdf, pages 106-110
+[^src10]: AKDB_2025.pdf, pages 111-115
+

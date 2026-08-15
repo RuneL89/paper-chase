@@ -1,0 +1,498 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 15",
+      "type": "quality-indicator",
+      "slug": "indikator-15",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 15 måler andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år, og er en central kvalitetsmåling i AFDK-rapporten for at vurdere sekundær forebyggelse og behandlingskvalitet.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Indikator 15: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år."
+        }
+      ]
+    },
+    {
+      "name": "Hjertesvigtsindikatoren",
+      "type": "quality-indicator",
+      "slug": "hjertesvigtsindikatoren",
+      "folder": "topics/quality-indicators/cardiovascular",
+      "significance": "Hjertesvigtsindikatoren er den operationelle definition af Indikator 15 og specificerer beregningsgrundlaget ved at kræve fravær af tidligere hjertesvigtsdiagnose samt brug af specifikke ICD-10-koder fra Landspatientregisteret.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigtsindikatoren opgøres for ny diagnosticerede patienter med en atrieflimren-diagnose, som ikke havde en hjertesvigtsdiagnose i forvejen."
+        }
+      ]
+    },
+    {
+      "name": "Databasen for Atrieflimren i Danmark",
+      "type": "database",
+      "slug": "databasen-for-atrieflimren-i-danmark",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Databasen for Atrieflimren i Danmark (AFDK) er en landsdækkende klinisk kvalitetsdatabase, der monitorerer behandlingskvaliteten for patienter med atrieflimren og danner grundlag for Indikator 15 og andre kvalitetsmål.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Databasen for Atrieflimren i Danmark (AFDK) er en landsdækkende klinisk kvalitetsdatabase, som skal monitorere og forbedre kvaliteten af behandlingen af atrieflimren i Danmark."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den institution, der udgiver rapporten om atrieflimren i Danmark og står bag udformningen og vurderingen af Indikator 15 og hjertesvigtsindikatoren.",
+      "mentions": [
+        {
+          "page": 61,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 62,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 63,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 64,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 65,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregisteret er det primære datakilde til identifikation af patienter med atrieflimren og hjertesvigt i AFDK, idet diagnoser registreres via ICD-10-koder (f.eks. DI50*, DI110*), og det danner grundlag for både incident og prævalent population.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "og er identificeret via data fra Landspatientregistret."
+        },
+        {
+          "page": 63,
+          "context": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregisteret og i praksissystemerne hos de praktiserende kardiologer med ICD-10 diagnosen DI48 (inkl. alle subkoder)."
+        },
+        {
+          "page": 64,
+          "context": "Patienter, som er registreret med atrieflimren i forbindelse med en hospitalsindlæggelse, inklusiv ambulante hospitalskontakter og kontakter til praktiserende kardiologer. Patienterne er identificeret via et udtræk fra Landspatientregisteret samt praksissystemerne..."
+        }
+      ]
+    },
+    {
+      "name": "DI48",
+      "type": "diagnosis-code",
+      "slug": "di48",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI48 er den ICD-10-kode, der definerer atrieflimren som diagnose i AFDK, og danner grundlag for inklusion af både incidente og prævalente patienter i databasen.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "med ICD-10 diagnosen DI48 (inkl. alle subkoder)."
+        },
+        {
+          "page": 64,
+          "context": "med ICD-10 diagnosen DI48 (inkl. alle subkoder) som enten aktions- eller bidiagnose."
+        }
+      ]
+    },
+    {
+      "name": "DI50*",
+      "type": "diagnosis-code",
+      "slug": "di50-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI50* er en gruppe ICD-10-koder, der anvendes til at identificere hjertesvigt i Landspatientregisteret og danner del af definitionen af hjertesvigtsindikatoren i Indikator 15.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "DI110*",
+      "type": "diagnosis-code",
+      "slug": "di110-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI110* er en gruppe ICD-10-koder, der anvendes til at identificere hjertesvigt i Landspatientregisteret og danner del af definitionen af hjertesvigtsindikatoren i Indikator 15.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "DI130*",
+      "type": "diagnosis-code",
+      "slug": "di130-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI130* er en gruppe ICD-10-koder, der anvendes til at identificere hjertesvigt i Landspatientregisteret og danner del af definitionen af hjertesvigtsindikatoren i Indikator 15.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "DI132*",
+      "type": "diagnosis-code",
+      "slug": "di132-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI132* er en gruppe ICD-10-koder, der anvendes til at identificere hjertesvigt i Landspatientregisteret og danner del af definitionen af hjertesvigtsindikatoren i Indikator 15.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "DI420*",
+      "type": "diagnosis-code",
+      "slug": "di420-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI420* er en gruppe ICD-10-koder, der anvendes til at identificere hjertesvigt i Landspatientregisteret og danner del af definitionen af hjertesvigtsindikatoren i Indikator 15.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "DI426*",
+      "type": "diagnosis-code",
+      "slug": "di426-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI426* er en gruppe ICD-10-koder, der anvendes til at identificere hjertesvigt i Landspatientregisteret og danner del af definitionen af hjertesvigtsindikatoren i Indikator 15.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "DI427*",
+      "type": "diagnosis-code",
+      "slug": "di427-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI427* er en gruppe ICD-10-koder, der anvendes til at identificere hjertesvigt i Landspatientregisteret og danner del af definitionen af hjertesvigtsindikatoren i Indikator 15.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "DI428*",
+      "type": "diagnosis-code",
+      "slug": "di428-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI428* er en gruppe ICD-10-koder, der anvendes til at identificere hjertesvigt i Landspatientregisteret og danner del af definitionen af hjertesvigtsindikatoren i Indikator 15.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "DI429*",
+      "type": "diagnosis-code",
+      "slug": "di429-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI429* er en gruppe ICD-10-koder, der anvendes til at identificere hjertesvigt i Landspatientregisteret og danner del af definitionen af hjertesvigtsindikatoren i Indikator 15.",
+      "mentions": [
+        {
+          "page": 62,
+          "context": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*) og er identificeret via data fra Landspatientregistret."
+        }
+      ]
+    },
+    {
+      "name": "Dansk Cardiologisk Selskab",
+      "type": "organization",
+      "slug": "dansk-cardiologisk-selskab",
+      "folder": "entities/organizations/medical-societies",
+      "significance": "Dansk Cardiologisk Selskab er den faglige organisation, der foranker AFDK, og bidrager til sikring af behandlingskvalitet og ensretning af indsatsen for patienter med atrieflimren i henhold til kliniske retningslinjer.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "AFDK er forankret i Dansk Cardiologisk Selskab (DCS) og skal medvirke til at sikre en høj kvalitet i behandlingen og plejen, samt ensrette indsatsen for patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsdatastyrelsen",
+      "type": "organization",
+      "slug": "sundhedsdatastyrelsen",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "Sundhedsdatastyrelsen er den myndighed, der har godkendt AFDK og gør indrapportering lovpligtig for sygehuse og på sigt også lægepraksis, hvilket understøtter datadækningsgraden for Indikator 15.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "Med Sundhedsdatastyrelsens godkendelse af AFDK bliver det ved implementeringen af databasen lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere."
+        }
+      ]
+    },
+    {
+      "name": "RADS",
+      "type": "standard",
+      "slug": "rads",
+      "folder": "entities/standards/medical-guidelines",
+      "significance": "RADS (Regionale Akutte Diagnostik og BehandlingsStandarder) er en af de kliniske retningslinjer, hvis efterlevelse AFDK har til formål at øge, og som dermed påvirker kvaliteten af behandlingen, der måles via Indikator 15.",
+      "mentions": [
+        {
+          "page": 63,
+          "context": "samt øge efterlevelse af de kliniske retningslinjer (RADS og Dansk Cardiologisk Selskab)."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-15",
+      "predicate": "measures-outcome-of",
+      "object": "atrieflimren",
+      "evidence": "Indikator 15: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år.",
+      "page": 61
+    },
+    {
+      "subject": "indikator-15",
+      "predicate": "is-defined-by",
+      "object": "hjertesvigtsindikatoren",
+      "evidence": "Hjertesvigtsindikatoren opgøres for ny diagnosticerede patienter med en atrieflimren-diagnose, som ikke havde en hjertesvigtsdiagnose i forvejen.",
+      "page": 62
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "og er identificeret via data fra Landspatientregistret.",
+      "page": 62
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-forankret-in",
+      "object": "dansk-cardiologisk-selskab",
+      "evidence": "AFDK er forankret i Dansk Cardiologisk Selskab (DCS)",
+      "page": 63
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "is-godkendt-by",
+      "object": "sundhedsdatastyrelsen",
+      "evidence": "Med Sundhedsdatastyrelsens godkendelse af AFDK bliver det ved implementeringen af databasen lovpligtigt for alle sygehuse og på sigt lægepraksis at indrapportere.",
+      "page": 63
+    },
+    {
+      "subject": "databasen-for-atrieflimren-i-danmark",
+      "predicate": "uses-diagnosis-code",
+      "object": "di48",
+      "evidence": "Patienter med atrieflimren omfatter patienter, som er blevet registreret i Landspatientregisteret og i praksissystemerne hos de praktiserende kardiologer med ICD-10 diagnosen DI48 (inkl. alle subkoder).",
+      "page": 63
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-diagnosis-code",
+      "object": "di50-star",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*)",
+      "page": 62
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-diagnosis-code",
+      "object": "di110-star",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*)",
+      "page": 62
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-diagnosis-code",
+      "object": "di130-star",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*)",
+      "page": 62
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-diagnosis-code",
+      "object": "di132-star",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*)",
+      "page": 62
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-diagnosis-code",
+      "object": "di420-star",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*)",
+      "page": 62
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-diagnosis-code",
+      "object": "di426-star",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*)",
+      "page": 62
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-diagnosis-code",
+      "object": "di427-star",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*)",
+      "page": 62
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-diagnosis-code",
+      "object": "di428-star",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*)",
+      "page": 62
+    },
+    {
+      "subject": "hjertesvigtsindikatoren",
+      "predicate": "uses-diagnosis-code",
+      "object": "di429-star",
+      "evidence": "Hjertesvigt er defineret som en hospitalskontakt med hjertesvigt som A eller B diagnose (DI50*, DI110*, DI130*, DI132*, DI420*, DI426*, DI427*, DI428*, DI429*)",
+      "page": 62
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indenfor det første år efter AF diagnosen blev 5,8% registreret med en hjertesvigtsdiagnose. Der ses et kontinuerligt fald i andelen på tværs af år. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-15",
+        "hjertesvigtsindikatoren"
+      ],
+      "page": 62
+    },
+    {
+      "text": "På regionalt niveau varierer andelen fra 5,4-7,2%. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-15",
+        "hjertesvigtsindikatoren"
+      ],
+      "page": 62
+    },
+    {
+      "text": "På klyngeniveau varierer andelen fra 4,5-9%. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-15",
+        "hjertesvigtsindikatoren"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Livstidsrisikoen for hjertesvigt efter atrieflimren er 40%, og hjertesvigt er globalt den hyppigste kardiovaskulære dødsårsag blandt patienter med atrieflimren. [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "atrieflimren",
+        "hjertesvigt"
+      ],
+      "page": 62
+    },
+    {
+      "text": "Flere end 20.000 danskere diagnosticeres årligt med atrieflimren og flere end 130.000 danskere lever med sygdommen. [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "atrieflimren"
+      ],
+      "page": 63
+    },
+    {
+      "text": "Komplethedsgraden af patientregistreringen i AFDK defineres som: antal patienter med atrieflimren i databasen / total antal patienter med atrieflimren. [^src1]",
+      "type": "methodological-definition",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 64
+    },
+    {
+      "text": "Den sande prævalens af atrieflimren undervurderes, idet screeningsundersøgelser har påvist, at der findes et betydeligt antal patienter med uerkendt atrieflimren (Svennberg et al. Circulation 2015;131:2176-84). [^src1]",
+      "type": "limitation",
+      "entities": [
+        "atrieflimren",
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 64
+    },
+    {
+      "text": "AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis. [^src1]",
+      "type": "limitation",
+      "entities": [
+        "databasen-for-atrieflimren-i-danmark"
+      ],
+      "page": 64
+    },
+    {
+      "text": "Der vil formentlig forekomme patienter med atrieflimren og andre konkurrerende sygdomme, hvor atrieflimren ikke bliver indberettet til Landspatientregisteret til trods for, at diagnosen er blevet stillet klinisk. [^src1]",
+      "type": "limitation",
+      "entities": [
+        "atrieflimren",
+        "landspatientregisteret"
+      ],
+      "page": 64
+    },
+    {
+      "text": "Patientforløb, validitet er ikke opgjort, men skønnes meget høj på baggrund af tidligere valideringsstudier i Landspatientregisteret af atrieflimren diagnosen (se bl.a. Sundbøl et al. BMJ Open. 2016;6(11):e01283 og Rix et al. Scand Cardiovasc J. 2012;46:149-53). [^src1]",
+      "type": "validation",
+      "entities": [
+        "landspatientregisteret",
+        "atrieflimren"
+      ],
+      "page": 65
+    },
+    {
+      "text": "Indikatoren fastholdes, men ændres med tilbagevirkende kraft så der måles på forekomsten af hjertesvigtsdiagnose i perioden 3 måneder efter atrieflimren diagnose til 12 måneder efter. [^src1]",
+      "type": "policy-decision",
+      "entities": [
+        "indikator-15",
+        "hjertesvigtsindikatoren"
+      ],
+      "page": 62
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2015",
+      "event": "Svennberg et al. publicerede studie i Circulation, der påviste eksistensen af et betydeligt antal patienter med uerkendt atrieflimren.",
+      "entities": [
+        "atrieflimren"
+      ]
+    },
+    {
+      "date": "2016",
+      "event": "Sundbøl et al. publicerede valideringsstudie i BMJ Open om atrieflimren diagnosen i Landspatientregisteret.",
+      "entities": [
+        "landspatientregisteret",
+        "atrieflimren"
+      ]
+    },
+    {
+      "date": "2012",
+      "event": "Rix et al. publicerede valideringsstudie i Scand Cardiovasc J om atrieflimren diagnosen i Landspatientregisteret.",
+      "entities": [
+        "landspatientregisteret",
+        "atrieflimren"
+      ]
+    }
+  ],
+  "tables": [],
+  "context": "Dette dokumentchunk udgør siderne 61–65 af AFDK-rapporten 2025 og fokuserer på Indikator 15, der måler forekomsten af hjertesvigt inden for 1 år efter ny diagnose af atrieflimren. Chunken indeholder den tekniske definition af indikatoren, dens beregningsgrundlag i Landspatientregisteret via specifikke ICD-10-koder, resultaterne fra seneste måling (5,8%), samt en detaljeret diskussion af begrænsninger knyttet til datagrundlaget — herunder manglende dækning af almen praksis, underregistrering af uerkendt atrieflimren og DRG-betingede indberetningsproblemer. Den indgår i en bredere narrativ om kvalitetsudvikling i behandlingen af atrieflimren gennem AFDK, som er en landsdækkende database forankret i Dansk Cardiologisk Selskab og godkendt af Sundhedsdatastyrelsen."
+}

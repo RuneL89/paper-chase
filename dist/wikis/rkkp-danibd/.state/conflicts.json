@@ -117,6 +117,925 @@
           "DANIBD omfatter alle patienter med IBD i Danmark, der har mindst to hospitalskontakter med aktionsdiagnoser DK50*, DK51*, DK830F eller DK912B i Landspatientregisteret [^src1]"
         ]
       }
+    },
+    {
+      "timestamp": "2026-08-15T07:06:59.838Z",
+      "type": "manual-edit",
+      "page": "topics/diagnoses/ibd/dk50-crohns-sygdom.md",
+      "reason": "Curation topics sticky merge of 'dk50-crohns-sygdom' into 'crohns-sygdom' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:06:59.848Z",
+      "type": "manual-edit",
+      "page": "topics/diagnoses/hepatobiliary/dk830f-primaer-skleroserende-kolangitis.md",
+      "reason": "Curation topics sticky merge of 'dk830f-primaer-skleroserende-kolangitis' into 'primaer-skleroserende-kolangitis' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:35.986Z",
+      "type": "manual-edit",
+      "page": "topics/diagnoses/ibd/dk51-ulceroes-colitis.md",
+      "reason": "Curation topics merge of 'dk51-ulceroes-colitis' into 'colitis-ulcerosa' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.032Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicator/re-operationsrate.md",
+      "reason": "Curation topics merge of 're-operationsrate' into 're-operation' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.046Z",
+      "type": "manual-edit",
+      "page": "topics/diagnoses/ibd/dk50-crohns-sygdom.md",
+      "reason": "Curation topics merge of 'dk50-crohns-sygdom' into 'crohns-sygdom' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.055Z",
+      "type": "manual-edit",
+      "page": "topics/diagnoses/hepatobiliary/dk830f-primaer-skleroserende-kolangitis.md",
+      "reason": "Curation topics merge of 'dk830f-primaer-skleroserende-kolangitis' into 'primaer-skleroserende-kolangitis' (topic) skipped: page was manually edited or has no recorded hash. Kept for review."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.081Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/health-databases/dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.093Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/health-authorities/regionernes-kliniske-kvalitetsudviklingsprogram.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.103Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/health-committees/styregruppen-for-danibd.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.116Z",
+      "type": "manual-edit",
+      "page": "entities/people/health-leaders/lone-larsen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.126Z",
+      "type": "manual-edit",
+      "page": "topics/diseases/gastrointestinal/inflammatoriske-tarmsygdomme.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.139Z",
+      "type": "manual-edit",
+      "page": "topics/diseases/gastrointestinal/crohns-sygdom.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.148Z",
+      "type": "manual-edit",
+      "page": "topics/diseases/gastrointestinal/colitis-ulcerosa.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.159Z",
+      "type": "manual-edit",
+      "page": "entities/medical-conditions/gastrointestinal/ibd.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.173Z",
+      "type": "manual-edit",
+      "page": "entities/medical-conditions/gastrointestinal/korttarmssyndrom.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.186Z",
+      "type": "manual-edit",
+      "page": "entities/treatments/gastrointestinal/bmsl.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.196Z",
+      "type": "manual-edit",
+      "page": "entities/classification-systems/medical/montreal.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.207Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicators/ibd/indikator-4.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.219Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicators/ibd/indikator-6.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.229Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicators/ibd/indikator-7.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.239Z",
+      "type": "manual-edit",
+      "page": "entities/databases/national-health-registers/laboratoriedatabasen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.254Z",
+      "type": "manual-edit",
+      "page": "entities/diseases/ibd-comorbidities/psc.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.265Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/rigshospitalet-med-klinik-mave-tarm-lever.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.275Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/nordsjaelland-kirurgisk-overafdeling.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.287Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/slb-vejle-medicinsk-afdeling.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.297Z",
+      "type": "manual-edit",
+      "page": "entities/databases/health-registries/landspatientregisteret.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.311Z",
+      "type": "manual-edit",
+      "page": "entities/people/researchers/jacobsen-ha-et-al.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.321Z",
+      "type": "manual-edit",
+      "page": "entities/databases/health-registries/gastrobio.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.336Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/jens-kjeldsen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.346Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/niels-qvist.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.356Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/inge-nordgaard-lassen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.368Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/ida-vind.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.378Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/johan-burisch.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.390Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/else-kjaer-mikkelsen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.401Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/torben-knudsen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.418Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/henning-glerup.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.429Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/ole-thorlacius-ussing.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.441Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/marianne-kajbaek-vester-andersen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.451Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/rasmus-gaardskaer-nielsen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.461Z",
+      "type": "manual-edit",
+      "page": "entities/people/healthcare-professionals/mohamed-attaubi.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.471Z",
+      "type": "manual-edit",
+      "page": "entities/people/patient-representatives/jannie-jensen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.484Z",
+      "type": "manual-edit",
+      "page": "entities/people/epidemiologists/anne-mette-falstie-jensen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.499Z",
+      "type": "manual-edit",
+      "page": "entities/people/data-governance/esra-oztoprak.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.511Z",
+      "type": "manual-edit",
+      "page": "entities/people/data-managers/jakob-riis.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.522Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-nordjylland.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.534Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-syddanmark.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.543Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-hovedstaden.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.553Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-midtjylland.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.564Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/regional-health-authorities/region-sjaelland.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.580Z",
+      "type": "manual-edit",
+      "page": "topics/diagnoses/ibd/dk50-crohns-sygdom.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.591Z",
+      "type": "manual-edit",
+      "page": "topics/diagnoses/ibd/dk51-ulceroes-colitis.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.603Z",
+      "type": "manual-edit",
+      "page": "topics/diagnoses/hepatobiliary/dk830f-primaer-skleroserende-kolangitis.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.613Z",
+      "type": "manual-edit",
+      "page": "topics/diagnoses/gastrointestinal/dk912b-korttarmssyndrom.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.625Z",
+      "type": "manual-edit",
+      "page": "topics/codes/procedure-codes/bike1-undervisning-i-inflammatorisk-tarmsygdom.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.635Z",
+      "type": "manual-edit",
+      "page": "topics/codes/treatment-codes/bohj18a1-behandling-med-infliximab.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.644Z",
+      "type": "manual-edit",
+      "page": "topics/codes/treatment-codes/bohj18a3-behandling-med-adalimumab.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.655Z",
+      "type": "manual-edit",
+      "page": "topics/codes/treatment-codes/bohj18a4-behandling-med-golimumab.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.673Z",
+      "type": "manual-edit",
+      "page": "topics/codes/treatment-codes/bohj18b3-behandling-med-ustekinumab.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.686Z",
+      "type": "manual-edit",
+      "page": "topics/codes/treatment-codes/bohj19h4-behandling-med-vedolizumab.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.696Z",
+      "type": "manual-edit",
+      "page": "topics/codes/treatment-codes/bohj28d-behandling-med-tofacitinib.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.708Z",
+      "type": "manual-edit",
+      "page": "entities/products/health-it/constant-care.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.718Z",
+      "type": "manual-edit",
+      "page": "entities/biomarkers/gastrointestinal/calprotectin.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.727Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/health-authorities/sundhedsvaesenets-kvalitetsinstitut.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.743Z",
+      "type": "manual-edit",
+      "page": "entities/biomarkers/gastrointestinal/faeces-calprotectin-maaling.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.753Z",
+      "type": "manual-edit",
+      "page": "entities/procedural/dexa-scanning.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.766Z",
+      "type": "manual-edit",
+      "page": "entities/procedural/mr-af-tyndtarmen.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.776Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicators/ibd/indikator-1a.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.788Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicators/ibd/indikator-1b.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.798Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/hvidovre.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.809Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/ouh-svendborg.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.823Z",
+      "type": "manual-edit",
+      "page": "entities/medical-conditions/gastrointestinal/veo-ibd.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.835Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/health-organizations/dansk-paediatrisk-selskab.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.846Z",
+      "type": "manual-edit",
+      "page": "entities/organizations/health-organizations/espgghan.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.856Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicators/ibd/indikator-2.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.867Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicators/ibd/indikator-3.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.878Z",
+      "type": "manual-edit",
+      "page": "topics/codes/procedure-codes/kjfb20-21-30-31.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.889Z",
+      "type": "manual-edit",
+      "page": "topics/codes/procedure-codes/kujf32-35.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.905Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/ouh-odense-medicinsk-mave-tarm-afd-s.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.916Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/hvidovre-gastroenheden.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.926Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/herlev-mave-tarm-leversygd.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.938Z",
+      "type": "manual-edit",
+      "page": "entities/products/health-it/upadacitinib.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.949Z",
+      "type": "manual-edit",
+      "page": "entities/products/health-it/filgotinib.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.959Z",
+      "type": "manual-edit",
+      "page": "entities/products/health-it/risankizumab.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.971Z",
+      "type": "manual-edit",
+      "page": "entities/products/health-it/mirikizumab.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.986Z",
+      "type": "manual-edit",
+      "page": "entities/products/health-it/ozanimod.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:36.999Z",
+      "type": "manual-edit",
+      "page": "entities/databases/health-registries/sygehusmedicinregisteret.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.009Z",
+      "type": "manual-edit",
+      "page": "topics/codes/procedure-codes/npu-kode.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.020Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/nordsjaellands-hospital.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.030Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicators/ibd/indikator-5.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.042Z",
+      "type": "manual-edit",
+      "page": "topics/procedural/re-operation.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.052Z",
+      "type": "manual-edit",
+      "page": "topics/procedural/primaert-kirurgisk-indgreb.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.065Z",
+      "type": "manual-edit",
+      "page": "entities/diseases/gastrointestinal/kolorektalkraeft.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.078Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicator/re-operationsrate.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.089Z",
+      "type": "manual-edit",
+      "page": "topics/procedural/koloskopi.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.099Z",
+      "type": "manual-edit",
+      "page": "topics/codes/procedure-codes/kjfb21-laparoskopisk-ileocokal-resektion.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.111Z",
+      "type": "manual-edit",
+      "page": "topics/codes/procedure-codes/kjfh11-laparoskopisk-kolektomi-og-ileostomi.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.121Z",
+      "type": "manual-edit",
+      "page": "topics/codes/procedure-codes/kjah01-laparoskopi.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.132Z",
+      "type": "manual-edit",
+      "page": "topics/codes/procedure-codes/kjah00-eksplorativ-laparotomi.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.146Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/ouh-odense-kirurgisk-afdeling-a.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.158Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/aarhus-universitetshospital.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.169Z",
+      "type": "manual-edit",
+      "page": "entities/healthcare-facilities/hospitals/regionshospitalet-goedstrup.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.180Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicators/ibd/indikator-1.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.190Z",
+      "type": "manual-edit",
+      "page": "entities/medical-conditions/gastrointestinal/anastomoselaekage.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.291Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-practice/clinical-practice.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.308Z",
+      "type": "manual-edit",
+      "page": "topics/quality-indicator/quality-indicator.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.321Z",
+      "type": "manual-edit",
+      "page": "topics/performance/performance.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.332Z",
+      "type": "manual-edit",
+      "page": "topics/mission/mission.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.342Z",
+      "type": "manual-edit",
+      "page": "topics/coverage/coverage.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.353Z",
+      "type": "manual-edit",
+      "page": "topics/eligibility-criteria/eligibility-criteria.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.367Z",
+      "type": "manual-edit",
+      "page": "topics/validation/validation.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.378Z",
+      "type": "manual-edit",
+      "page": "topics/treatment/treatment.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.392Z",
+      "type": "manual-edit",
+      "page": "topics/quality-target/quality-target.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.406Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-consensus/clinical-consensus.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.428Z",
+      "type": "manual-edit",
+      "page": "comparisons/patientkarakteristika-for-nydiagnosticerede-og-praevalente-boern-med-ibd-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2022-til-og-med-30-september-2023.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.442Z",
+      "type": "manual-edit",
+      "page": "comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2022-til-og-med-30-september-2023.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.453Z",
+      "type": "manual-edit",
+      "page": "comparisons/tabel-4-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.472Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-4-andelen-af-patienter-med-ibd-i-behandling-med-bmsl-der-faar-maalt-f-calpro-mindst-en-gang-aarligt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.486Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-6.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.501Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-7.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.512Z",
+      "type": "manual-edit",
+      "page": "comparisons/appendikstabel-1-patientkarakteristika-pr-behandlende-region.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.526Z",
+      "type": "manual-edit",
+      "page": "comparisons/appendikstabel-2-afdelinger-der-har-indrapporteret-undervisningskoder-i-perioden-indikator-2.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.540Z",
+      "type": "manual-edit",
+      "page": "comparisons/appendikstabel-3-karakteristika-for-patienter-i-behandling-med-bmsl-indikator-4.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.555Z",
+      "type": "manual-edit",
+      "page": "comparisons/appendikstabel-4-type-og-antal-behandlinger-med-bmsl-indikator-4.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.570Z",
+      "type": "manual-edit",
+      "page": "comparisons/appendikstabel-5-typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.583Z",
+      "type": "manual-edit",
+      "page": "comparisons/appendikstabel-6-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.599Z",
+      "type": "manual-edit",
+      "page": "comparisons/appendikstabel-7-karakteristika-for-patienter-med-psc-indikator-7.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.612Z",
+      "type": "manual-edit",
+      "page": "comparisons/tabel-1-patientkarakteristika-for-nydiagnosticerede-og-praevalente-boern-med-ibd-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2023-til-og-med-30-september-2024.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.625Z",
+      "type": "manual-edit",
+      "page": "comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2023-til-og-med-30-september-2024.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.640Z",
+      "type": "manual-edit",
+      "page": "comparisons/tabel-3-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.654Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-1a-andelen-af-nydiagnosticerede-voksne-med-ibd-der-har-faaet-foretaget-relevant-udredning.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.667Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-1b.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.679Z",
+      "type": "manual-edit",
+      "page": "comparisons/aarsag-til-ikke-opfyldt-indikator.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.692Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-3.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.706Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-4-andelen-af-steroidkure-givet-til-patienter-over-50-aar-med-ibd-hvor-patienten-har-faaet-foretaget-dexa-scanning.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.721Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-5-andelen-af-patienter-i-behandling-med-bmsl-der-faar-maalt-f-calprotectin-mindst-en-gang-aarligt.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.735Z",
+      "type": "manual-edit",
+      "page": "comparisons/indikator-2.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.748Z",
+      "type": "manual-edit",
+      "page": "comparisons/karakteristika-for-patienter-i-behandling-med-bmsl-paa-landsplan-indikator-5.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.762Z",
+      "type": "manual-edit",
+      "page": "comparisons/type-og-antal-behandlinger-med-bmsl-indikator-5.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.774Z",
+      "type": "manual-edit",
+      "page": "comparisons/typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.785Z",
+      "type": "manual-edit",
+      "page": "comparisons/typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:09:37.796Z",
+      "type": "manual-edit",
+      "page": "comparisons/karakteristika-for-patienter-med-psc-indikator-7.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-15T07:15:14.090Z",
+      "pageType": "entity",
+      "slug": "slb-kolding-boerne-og-ungeafdeling",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "SLB Kolding Børne- og Ungeafdeling har en opfyldelsesgrad på 82 % for Indikator 2 i 2023/24 [^src4]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T07:18:24.690Z",
+      "pageType": "entity",
+      "slug": "kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "KJFG40 - Revision af enterostomi el. kolostomi u. laparotomi udgør 5,9 % af alle kirurgiske indgreb på IBD-patienter [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T07:19:08.591Z",
+      "pageType": "entity",
+      "slug": "kjfb00-tyndtarmsresektion",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "KJFB00 - Tyndtarmsresektion udgør 5,8 % af alle kirurgiske indgreb på IBD-patienter [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T07:21:16.686Z",
+      "pageType": "entity",
+      "slug": "abdominalcenter-k-bispebjerg-hospital",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": []
+      }
+    },
+    {
+      "timestamp": "2026-08-15T07:24:39.359Z",
+      "pageType": "topic",
+      "slug": "policy-change",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Indikator 1b ændres fremover til kun at kræve gastroskopi + koloskopi [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-15T07:25:30.988Z",
+      "pageType": "topic",
+      "slug": "audit-finding",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Region Hovedstaden rapporterer, at 18 af de 29 patienter, der ikke opfylder indikator 1a, er fuldt koloskoperet ved privat praktiserende kirurg eller gastroenterolog [^src2]",
+          "Region Hovedstaden rapporterer, at nogle af de 29 patienter, der ikke opfylder indikator 1a, er fejlkodede, ikke nydiagnosticerede eller resecteret grundet tidligere c coli [^src2]"
+        ]
+      }
     }
   ]
 }

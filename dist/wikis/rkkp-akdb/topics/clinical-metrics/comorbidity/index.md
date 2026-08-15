@@ -4,19 +4,20 @@ type: index
 aliases:
   - Comorbidity
 wiki: rkkp-akdb
-updated: '2026-08-05T20:45:05.274Z'
+updated: '2026-08-15T08:57:23.587Z'
 children:
   - charlson-score-0.md
   - charlson-score-1-2.md
+  - index.md
 ---
 # Comorbidity
 
-This folder groups specific clinical indicators used within the Akut Kirurgi Databasen to stratify acute surgery patients by their comorbidity burden using the Charlson Comorbidity Index. The enclosed pages detail 30-day postoperative mortality rates for distinct patient cohorts: those with no registered comorbidities and those with mild to moderate underlying diseases. By isolating these groups, healthcare administrators can benchmark treatment safety, identify regional and hospital-level variations, and evaluate targeted quality improvement initiatives across Denmark.
+This folder groups specific strata of the Charlson Comorbidity Index used to evaluate 30-day mortality following acute surgery in Denmark. It isolates patient outcomes based on their comorbidity burden, specifically tracking those with no registered comorbidity and those with mild comorbidity. These pages serve as supplementary clinical indicators to the primary acute surgery mortality metrics, providing detailed hospital- and region-level breakdowns of postoperative survival.
 
 ## Pages
 
-- [[charlson-score-0|Charlson Score = 0]] — Details the 30-day mortality rate for acute surgery patients with no registered comorbidities, serving as a baseline for evaluating pure surgical mortality.
-- [[charlson-score-1-2|Charlson Score = 1 eller 2]] — Tracks the 30-day postoperative mortality for patients with mild to moderate comorbidity, highlighting significant regional and hospital-level variations in clinical outcomes.
+- [[charlson-score-0|Charlson Score = 0]] — Details 30-day mortality rates for acute surgery patients with no registered comorbidity, acting as a supplementary indicator to Indikator 9a with national and hospital-level data.
+- [[charlson-score-1-2|Charlson Score = 1 eller 2]] — Tracks 30-day mortality for acute surgery patients with mild comorbidity, functioning as a supplementary metric to Indikator 9b with extensive regional and hospital breakdowns.
 
 ## Navigation
 

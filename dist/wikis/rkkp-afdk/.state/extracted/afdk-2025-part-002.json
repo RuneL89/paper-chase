@@ -1,0 +1,915 @@
+{
+  "entities": [
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er den centrale rapport, der dokumenterer kvalitetsindikatorer for behandlingen af atrieflimren i det danske sundhedsvæsen, og fungerer som grundlag for overvågning og udvikling af klinisk praksis.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenes-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Dette er den organisation, der udgiver rapporten og står bag udviklingen og overvågningen af de præsenterede kvalitetsindikatorer for atrieflimren.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "quality-indicator",
+      "slug": "indikator-1",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 1 måler ventetiden fra diagnosticering til påbegyndelse af antikoagulationsbehandling for nydiagnosticerede patienter med atrieflimren, hvor behandling er indiceret, og er en central procesindikator med et udviklingsmål på ≥ 90 %.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret)."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "quality-indicator",
+      "slug": "indikator-2",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 2 måler andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi inden for et defineret tidsrum omkring diagnosetidspunktet, og er en procesindikator med udviklingsmål på ≥ 80 %.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 2: Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "quality-indicator",
+      "slug": "indikator-3",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 3 måler andelen af nydiagnosticerede patienter med atrieflimren, der får målt thyreoideastimulerende hormon (TSH) inden for et defineret tidsrum omkring diagnosetidspunktet, og er en procesindikator med udviklingsmål på ≥ 95 %.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4a",
+      "type": "quality-indicator",
+      "slug": "indikator-4a",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 4a måler andelen af patienter med atrieflimren og indikation for antikoagulationsbehandling, der modtager behandling to år efter indeksdato, og er en procesindikator med udviklingsmål på ≥ 90 %.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 4a: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling 2 år efter indeksdato."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4b",
+      "type": "quality-indicator",
+      "slug": "indikator-4b",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 4b måler andelen af prævalente patienter med atrieflimren, der modtager direkte orale antikoagulantia (DOAC), og som har mindst én årlig måling af S-creatinin, og er en procesindikator med udviklingsmål på ≥ 95 %.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 4b: Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "quality-indicator",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 5 måler incidensen af apopleksi blandt prævalente patienter med atrieflimren baseret på Landspatientregisteret (LPR), og er en resultatindikator med udviklingsmål på ≤ 0,8 %.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren (LPR-baseret)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "quality-indicator",
+      "slug": "indikator-6",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 6 måler incidensen af intrakraniel blødning blandt prævalente patienter med atrieflimren, og er en resultatindikator med udviklingsmål på ≤ 0,6 %.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "quality-indicator",
+      "slug": "indikator-7",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 7 måler incidensen af alvorlig blødning blandt prævalente patienter med atrieflimren efter tilpassede International Society of Thrombosis and Hemostasis (ISTH)-kriterier, og er en resultatindikator uden angivet udviklingsmål i denne chunk.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 7: Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "quality-indicator",
+      "slug": "indikator-8",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 8 måler andelen af nydiagnosticerede patienter med atrieflimren, der får et struktureret undervisningsprogram inden for det første år efter diagnosen, og er en procesindikator med udviklingsmål på ≥ 50 %.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 8: Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF)."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 15",
+      "type": "quality-indicator",
+      "slug": "indikator-15",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 15 måler andelen af nydiagnosticerede patienter med atrieflimren, der udvikler hjertesvigt inden for ét år, og er en resultatindikator uden angivet udviklingsmål i denne chunk.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Indikator 15: Andelen af nydiagnosticerede patienter med atrieflimren, som udvikler hjertesvigt inden for 1 år"
+        }
+      ]
+    },
+    {
+      "name": "antikoagulationsbehandling",
+      "type": "medical-intervention",
+      "slug": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Antikoagulationsbehandling er en central farmakologisk intervention ved atrieflimren, der formål er at forebygge tromboemboliske komplikationer som apopleksi, og er centralt i flere af de præsenterede kvalitetsindikatorer.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "antikoagulations behandling"
+        }
+      ]
+    },
+    {
+      "name": "ekkokardiografi",
+      "type": "medical-intervention",
+      "slug": "ekkokardiografi",
+      "folder": "entities/medical-interventions/diagnostics",
+      "significance": "Ekkokardiografi er en vigtig diagnostisk undersøgelse ved atrieflimren, der bruges til at vurdere hjertets struktur og funktion, og er målt i Indikator 2.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "ekkokardiografi"
+        }
+      ]
+    },
+    {
+      "name": "thyreoideastimulerende hormon",
+      "type": "biomarker",
+      "slug": "thyreoideastimulerende-hormon-tsh",
+      "folder": "entities/biomarkers/endocrine",
+      "significance": "Thyreoideastimulerende hormon (TSH) er en endokrin biomarkør, hvis måling er anbefalet ved atrieflimren for at udelukke thyreoideasygdom som potentielt bidragende faktor, og er målt i Indikator 3.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "TSH"
+        }
+      ]
+    },
+    {
+      "name": "Direkte Orale antikoagulantia",
+      "type": "drug-class",
+      "slug": "doac",
+      "folder": "entities/codes/drug-classes",
+      "significance": "Direkte Orale antikoagulantia (DOAC) er en moderne klasse af antikoagulante lægemidler, der anvendes ved atrieflimren, og som specifikt omtales i Indikator 4b.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "Direkte Orale antikoagulantia (DOAC)"
+        }
+      ]
+    },
+    {
+      "name": "S-creatinin",
+      "type": "biomarker",
+      "slug": "s-creatinin",
+      "folder": "entities/biomarkers",
+      "significance": "S-creatinin er en laboratorieparameter, der anvendes til at vurdere nyrefunktion, hvilket er afgørende for dosering og sikkerhed ved behandling med DOAC, og er målt i Indikator 4b.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "S-creatinin"
+        }
+      ]
+    },
+    {
+      "name": "International Society of Thrombosis and Hemostasis",
+      "type": "organization",
+      "slug": "international-society-of-thrombosis-and-hemostasis",
+      "folder": "entities/organizations/medical-societies",
+      "significance": "International Society of Thrombosis and Hemostasis (ISTH) er en international faglig sammenslutning, hvis kriterier for alvorlig blødning anvendes i Indikator 7.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "International Society of Thrombosis and Hemostasis (ISTH)"
+        }
+      ]
+    },
+    {
+      "name": "struktureret undervisningsprogram",
+      "type": "medical-intervention",
+      "slug": "struktureret-undervisningsprogram",
+      "folder": "entities/medical-interventions/education",
+      "significance": "Et struktureret undervisningsprogram er en ikke-farmakologisk intervention, der sigter mod at forbedre patienters viden og selvstyring ved atrieflimren, og er målt i Indikator 8.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "struktureret undervisningsprogram"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "lpr-registeret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregisteret (LPR) er det nationale register for hospitaler, der anvendes som datakilde til beregning af apopleksincidensen i Indikator 5.",
+      "mentions": [
+        {
+          "page": 6,
+          "context": "LPR-baseret"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Danmark er det geografiske område, for hvilket de samlede kvalitetsindikatorresultater præsenteres i rapporten.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Region Hovedstaden er en af de fem regioner i Danmark, hvis indikatorresultater præsenteres i detaljer i Indikator 1-tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Sjælland er en af de fem regioner i Danmark, hvis indikatorresultater præsenteres i detaljer i Indikator 1-tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Region Syddanmark er en af de fem regioner i Danmark, hvis indikatorresultater præsenteres i detaljer i Indikator 1-tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Midtjylland er en af de fem regioner i Danmark, hvis indikatorresultater præsenteres i detaljer i Indikator 1-tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Nordjylland er en af de fem regioner i Danmark, hvis indikatorresultater præsenteres i detaljer i Indikator 1-tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Bornholm",
+      "type": "organization",
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Bornholm er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklynge Bornholm"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Byen",
+      "type": "organization",
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Byen er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklynge Byen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Midt",
+      "type": "organization",
+      "slug": "sundhedsklynge-midt",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Midt er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklynge Midt"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Nord",
+      "type": "organization",
+      "slug": "sundhedsklynge-nord",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Nord er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklynge Nord"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Syd",
+      "type": "organization",
+      "slug": "sundhedsklynge-syd",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Syd er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklynge Syd"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Holbæk",
+      "type": "organization",
+      "slug": "sundhedsklyngen-holbaek",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklyngen Holbæk er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklyngen Holbæk"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Nykøbing F",
+      "type": "organization",
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklyngen Nykøbing F er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklyngen Nykøbing F"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen SUH",
+      "type": "organization",
+      "slug": "sundhedsklyngen-suh",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklyngen SUH er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklyngen SUH"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Slagelse",
+      "type": "organization",
+      "slug": "sundhedsklyngen-slagelse",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklyngen Slagelse er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklyngen Slagelse"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Fyn",
+      "type": "organization",
+      "slug": "sundhedsklynge-fyn",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Fyn er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklynge Fyn"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Lillebælt",
+      "type": "organization",
+      "slug": "sundhedsklynge-lillebaelt",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Lillebælt er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklynge Lillebælt"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sydvestjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-sydvestjylland",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Sydvestjylland er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklynge Sydvestjylland"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sønderjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Sønderjylland er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Sundhedsklynge Sønderjylland"
+        }
+      ]
+    },
+    {
+      "name": "Aarhusklyngen",
+      "type": "organization",
+      "slug": "aarhusklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Aarhusklyngen er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Aarhusklyngen"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrupklyngen",
+      "type": "organization",
+      "slug": "goedstrupklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Gødstrupklyngen er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Gødstrupklyngen"
+        }
+      ]
+    },
+    {
+      "name": "Horsensklyngen",
+      "type": "organization",
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Horsensklyngen er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Horsensklyngen"
+        }
+      ]
+    },
+    {
+      "name": "Midtklyngen",
+      "type": "organization",
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Midtklyngen er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Midtklyngen"
+        }
+      ]
+    },
+    {
+      "name": "Randersklyngen",
+      "type": "organization",
+      "slug": "randersklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Randersklyngen er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Randersklyngen"
+        }
+      ]
+    },
+    {
+      "name": "Klynge MIDT",
+      "type": "organization",
+      "slug": "klynge-midt",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Klynge MIDT er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Klynge MIDT"
+        }
+      ]
+    },
+    {
+      "name": "Klynge NORD",
+      "type": "organization",
+      "slug": "klynge-nord",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Klynge NORD er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Klynge NORD"
+        }
+      ]
+    },
+    {
+      "name": "Klynge SYD",
+      "type": "organization",
+      "slug": "klynge-syd",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Klynge SYD er en lokal sundhedsklynge, hvis indikatorresultater for Indikator 1 præsenteres i tabellen på side 10.",
+      "mentions": [
+        {
+          "page": 10,
+          "context": "Klynge SYD"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-published-by",
+      "object": "sundhedsvaesenes-kvalitetsinstitut",
+      "evidence": "Atrieflimren i Danmark\nSundhedsvæsenets Kvalitetsinstitut",
+      "page": 6
+    },
+    {
+      "subject": "indikator-1",
+      "predicate": "measures",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling",
+      "page": 6
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "measures",
+      "object": "ekkokardiografi",
+      "evidence": "Andel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato",
+      "page": 6
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "measures",
+      "object": "thyreoideastimulerende-hormon-tsh",
+      "evidence": "Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 2 måneder før, til 1 måned efter 1. diagnosedato",
+      "page": 6
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "measures",
+      "object": "s-creatinin",
+      "evidence": "Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt",
+      "page": 6
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "concerns-drug-class",
+      "object": "doac",
+      "evidence": "Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt",
+      "page": 6
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "uses-criteria-from",
+      "object": "international-society-of-thrombosis-and-hemostasis",
+      "evidence": "Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier)",
+      "page": 6
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "uses-data-source",
+      "object": "lpr-registeret",
+      "evidence": "Incidens af apopleksi blandt prævalente patienter med atrieflimren (LPR-baseret)",
+      "page": 6
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "measures",
+      "object": "struktureret-undervisningsprogram",
+      "evidence": "Andel af nydiagnosticerede patienter med atrieflimren som får et struktureret undervisningsprogram indenfor det 1. år efter at diagnosen er stillet (specifik kode for AF)",
+      "page": 6
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indikator 1 har et udviklingsmål på ≥ 90 % [^src1]",
+      "type": "quality-indicator-target",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 2 har et udviklingsmål på ≥ 80 % [^src1]",
+      "type": "quality-indicator-target",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 3 har et udviklingsmål på ≥ 95 % [^src1]",
+      "type": "quality-indicator-target",
+      "entities": [
+        "indikator-3"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 4a har et udviklingsmål på ≥ 90 % [^src1]",
+      "type": "quality-indicator-target",
+      "entities": [
+        "indikator-4a"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 4b har et udviklingsmål på ≥ 95 % [^src1]",
+      "type": "quality-indicator-target",
+      "entities": [
+        "indikator-4b"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 5 har et udviklingsmål på ≤ 0,8 % [^src1]",
+      "type": "quality-indicator-target",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 6 har et udviklingsmål på ≤ 0,6 % [^src1]",
+      "type": "quality-indicator-target",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 6
+    },
+    {
+      "text": "Indikator 8 har et udviklingsmål på ≥ 50 % [^src1]",
+      "type": "quality-indicator-target",
+      "entities": [
+        "indikator-8"
+      ],
+      "page": 6
+    },
+    {
+      "text": "For Indikator 1 var andelen for hele Danmark 91,6 % (95 % CI: 91,2–92,0) i perioden 01.07.2024–30.06.2025 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-1",
+        "danmark"
+      ],
+      "page": 10
+    },
+    {
+      "text": "For Indikator 2 var andelen for hele Danmark 81,0 % (95 % CI: 80,4–81,5) i perioden 01.04.2024–31.03.2025 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-2",
+        "danmark"
+      ],
+      "page": 7
+    },
+    {
+      "text": "For Indikator 3 var andelen for hele Danmark 83,2 % (95 % CI: 82,7–83,7) i perioden 01.07.2024–30.06.2025 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-3",
+        "danmark"
+      ],
+      "page": 7
+    },
+    {
+      "text": "For Indikator 4a var andelen for hele Danmark 88,2 % (95 % CI: 87,7–88,7) i perioden 01.07.2022–30.06.2023 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-4a",
+        "danmark"
+      ],
+      "page": 7
+    },
+    {
+      "text": "For Indikator 4b var andelen for hele Danmark 94,3 % (95 % CI: 94,1–94,4) i perioden 01.07.2024–30.06.2025 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-4b",
+        "danmark"
+      ],
+      "page": 7
+    },
+    {
+      "text": "For Indikator 5 var incidensen for hele Danmark 0,8 % (95 % CI: 0,8–0,9) i perioden 01.07.2024–30.06.2025 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-5",
+        "danmark"
+      ],
+      "page": 7
+    },
+    {
+      "text": "For Indikator 6 var incidensen for hele Danmark 0,6 % (95 % CI: 0,5–0,6) i perioden 01.07.2024–30.06.2025 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-6",
+        "danmark"
+      ],
+      "page": 7
+    },
+    {
+      "text": "For Indikator 7 var incidensen for hele Danmark 2,2 % (95 % CI: 2,1–2,3) i perioden 01.07.2024–30.06.2025 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-7",
+        "danmark"
+      ],
+      "page": 7
+    },
+    {
+      "text": "For Indikator 8 var andelen for hele Danmark 19,2 % (95 % CI: 18,6–19,7) i perioden 01.07.2023–30.06.2024 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-8",
+        "danmark"
+      ],
+      "page": 7
+    },
+    {
+      "text": "For Indikator 15 var andelen for hele Danmark 5,8 % (95 % CI: 5,5–6,2) i perioden 01.07.2024–30.06.2025 [^src2]",
+      "type": "quality-indicator-result",
+      "entities": [
+        "indikator-15",
+        "danmark"
+      ],
+      "page": 7
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-07-01",
+      "event": "Start af målingsperiode for Indikator 1, Indikator 2, Indikator 3, Indikator 4b, Indikator 5, Indikator 6, Indikator 7 og Indikator 15",
+      "entities": [
+        "indikator-1",
+        "indikator-2",
+        "indikator-3",
+        "indikator-4b",
+        "indikator-5",
+        "indikator-6",
+        "indikator-7",
+        "indikator-15"
+      ]
+    },
+    {
+      "date": "2024-04-01",
+      "event": "Start af målingsperiode for Indikator 2",
+      "entities": [
+        "indikator-2"
+      ]
+    },
+    {
+      "date": "2022-07-01",
+      "event": "Start af målingsperiode for Indikator 4a",
+      "entities": [
+        "indikator-4a"
+      ]
+    },
+    {
+      "date": "2023-07-01",
+      "event": "Start af målingsperiode for Indikator 8",
+      "entities": [
+        "indikator-8"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-1",
+      "title": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulations behandling (hvor antikoagulations behandling er indiceret)",
+      "page": 10,
+      "rowDimension": "geografisk-enheder",
+      "colDimension": "resultat-periode",
+      "entities": [
+        "indikator-1",
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelse",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd"
+      ],
+      "markdown": "| Geografisk enhed | Udviklingsmål | Uoplyst | Aktuelle år Tæller/ antal | 01.07.2024 - 30.06.2025 Andel 95% CI | 2023/24 Andel | 2022/23 Andel |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Ja | 15.312 / 16.717 | 0 (0) | 91,6 (91,2-92,0) | 91,6 | 91,1 |\n| Hovedstaden | Ja | 4.123 / 4.566 | 0 (0) | 90,3 (89,4-91,1) | 90,4 | 90,1 |\n| Sjælland | Ja | 2.420 / 2.670 | 0 (0) | 90,6 (89,5-91,7) | 91,2 | 90,1 |\n| Syddanmark | Ja | 3.539 / 3.848 | 0 (0) | 92,0 (91,1-92,8) | 90,8 | 89,6 |\n| Midtjylland | Ja | 3.501 / 3.790 | 0 (0) | 92,4 (91,5-93,2) | 92,9 | 93,2 |\n| Nordjylland | Ja | 1.729 / 1.843 | 0 (0) | 93,8 (92,6-94,9) | 93,7 | 94,2 |\n| Sundhedsklynge Bornholm | Nej | 147 / 167 | 0 (0) | 88,0 (82,1-92,5) | 90,9 | 96,3 |\n| Sundhedsklynge Byen | Nej | 1.068 / 1.197 | 0 (0) | 89,2 (87,3-90,9) | 88,3 | 89,2 |\n| Sundhedsklynge Midt | Ja | 1.279 / 1.401 | 0 (0) | 91,3 (89,7-92,7) | 91,3 | 89,6 |\n| Sundhedsklynge Nord | Ja | 956 / 1.046 | 0 (0) | 91,4 (89,5-93,0) | 91,6 | 89,6 |\n| Sundhedsklynge Syd | Nej | 673 / 755 | 0 (0) | 89,1 (86,7-91,3) | 90,2 | 91,6 |\n| Sundhedsklyngen Holbæk | Nej | 552 / 621 | 0 (0) | 88,9 (86,1-91,3) | 91,2 | 90,3 |\n| Sundhedsklyngen Nykøbing F | Ja | 499 / 545 | 0 (0) | 91,6 (88,9-93,8) | 87,4 | 87,2 |\n| Sundhedsklyngen SUH | Ja | 760 / 835 | 0 (0) | 91,0 (88,9-92,9) | 92,2 | 91,8 |\n| Sundhedsklyngen Slagelse | Ja | 609 / 669 | 0 (0) | 91,0 (88,6-93,1) | 93,2 | 90,1 |\n| Sundhedsklynge Fyn | Nej | 1.305 / 1.461 | 0 (0) | 89,3 (87,6-90,9) | 90,5 | 89,2 |\n| Sundhedsklynge Lillebælt | Ja | 822 / 864 | 0 (0) | 95,1 (93,5-96,5) | 91,6 | 93,1 |\n| Sundhedsklynge Sydvestjylland | Ja | 687 / 744 | 0 (0) | 92,3 (90,2-94,1) | 90,0 | 87,0 |\n| Sundhedsklynge Sønderjylland | Ja | 725 / 779 | 0 (0) | 93,1 (91,1-94,7) | 91,2 | 89,2 |\n| Aarhusklyngen | Ja | 763 / 840 | 0 (0) | 90,8 (88,7-92,7) | 91,6 | 93,1 |\n| Gødstrupklyngen | Ja | 823 / 907 | 0 (0) | 90,7 (88,7-92,5) | 92,6 | 92,2 |\n| Horsensklyngen | Ja | 623 / 659 | 0 (0) | 94,5 (92,5-96,1) | 92,9 | 92,5 |\n| Midtklyngen | Ja | 638 / 676 | 0 (0) | 94,4 (92,4-96,0) | 93,2 | 93,6 |\n| Randersklyngen | Ja | 654 / 708 | 0 (0) | 92,4 (90,2-94,2) | 94,2 | 94,8 |\n| Klynge MIDT | Ja | 662 / 707 | 0 (0) | 93,6 (91,6-95,3) | 94,9 | 92,5 |\n| Klynge NORD | Ja | 565 / 595 | 0 (0) | 95,0 (92,9-96,6) | 92,7 | 95,1 |\n| Klynge SYD | Ja | 311 / 332 | 0 (0) | 93,7 (90,5-96,0) | 93,8 | 94,8 |",
+      "summary": "Tabellen sammenligner resultaterne for Indikator 1 på tværs af regioner og sundhedsklynger i Danmark for perioden 01.07.2024–30.06.2025, og viser, at de fleste enheder opfylder udviklingsmålet på ≥ 90 %, mens nogle klynger som Bornholm, Byen og Holbæk ligger under."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af rapporten 'Atrieflimren i Danmark' udgivet af Sundhedsvæsenets Kvalitetsinstitut og dækker siderne 6–10. Det beskriver et sæt nationalt fastsatte kvalitetsindikatorer for diagnose, behandling og opfølgning af patienter med atrieflimren i det danske sundhedsvæsen. Chunken præsenterer både definitionerne af 10 centrale indikatorer (fra Indikator 1 til Indikator 15), deres udviklingsmål og de seneste målte resultater på nationalt, regionalt og lokalt (sundhedsklynge-) niveau. Rapporten fungerer som et værktøj til kvalitetsudvikling og benchmarking, og dens indhold er centralt for politisk og klinisk styring af kardiovaskulær kvalitet i Danmark."
+}

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Clinical Practice
 wiki: rkkp-afdk
-updated: '2026-08-05T23:20:48.983Z'
+updated: '2026-08-15T00:15:29.564Z'
 children:
   - clinical-practice.md
+  - index.md
 ---
 # Clinical Practice
 
-This folder documents the real-world execution of medical care, specifically focusing on the timing of interventions for atrial fibrillation management. The available evidence details the initiation of anticoagulation treatment, revealing a distinct bifurcation in care pathways where therapy begins either months before a formal diagnosis or shortly after hospital discharge. It provides a factual baseline for understanding how clinical decisions translate into actual treatment timelines.
+This folder covers the clinical management of atrial fibrillation (AF) in Denmark, focusing on pharmacological interventions and structured patient education. It tracks the timely initiation of anticoagulation treatment across Danish regions and evaluates quality metrics, such as anticoagulation use among AF patients admitted with ischemic stroke. The material also details specific patient education programs, including group sessions at Herlev og Gentofte Hospital and broader theoretical frameworks for collaborative care.
 
 ## Pages
 
-- [[clinical-practice|Clinical Practice]] — Details the timing of anticoagulation treatment initiation for atrial fibrillation patients, highlighting a split between pre-diagnostic and post-discharge care pathways.
+- [[clinical-practice|Clinical Practice]] — Details AF care pathways in Denmark, including anticoagulation initiation rates, regional variations, stroke-related quality metrics, and structured patient education programs.
 
 ## Navigation
 
@@ -26,13 +27,18 @@ This folder documents the real-world execution of medical care, specifically foc
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder documents the real-world execution of medical care, specifically foc
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

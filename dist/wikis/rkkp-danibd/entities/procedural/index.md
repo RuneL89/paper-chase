@@ -4,19 +4,24 @@ type: index
 aliases:
   - Procedural
 wiki: rkkp-danibd
-updated: '2026-08-05T07:45:25.202Z'
+updated: '2026-08-15T07:51:51.206Z'
 children:
   - dexa-scanning.md
+  - gastroskopi.md
+  - index.md
+  - kapselendoskopi.md
   - mr-af-tyndtarmen.md
 ---
 # Procedural
 
-This folder catalogs specific diagnostic and imaging procedures utilized in the clinical management and quality assessment of inflammatory bowel disease (IBD) within the Danish healthcare system. The contained pages detail interventions such as bone density assessments for older patients on systemic steroids and small intestine MRIs for pediatric cases, highlighting their function as tracked quality indicators in the national DANIBD registry. By documenting regional compliance shortfalls and systemic underutilization, these entries provide insight into the operational gaps and administrative challenges facing Danish IBD care.
+This folder catalogs diagnostic medical procedures used in the clinical evaluation and quality assurance of inflammatory bowel disease (IBD) patients in Denmark. The pages detail specific imaging and endoscopic techniques—such as DEXA scanning for bone density, gastroscopy, capsule endoscopy, and small intestine MRI—that form the core of national quality metrics like Indicator 1b and Indicator 4 in the DANIBD registry. Each entry tracks the clinical guidelines, regional compliance rates, and systemic coding challenges associated with performing these procedures on pediatric, youth, and adult IBD patients.
 
 ## Pages
 
-- [[dexa-scanning|DEXA-scanning]] — A bone mineral density assessment tracked as a national quality indicator for IBD patients over 50 on systemic steroids, revealing significant regional compliance shortfalls against the 80% target.
-- [[mr-af-tyndtarmen|MR af tyndtarmen]] — An advanced small intestine imaging procedure required in the clinical workup for newly diagnosed pediatric IBD patients, currently problematized by the DANIBD steering committee for its 31% underutilization rate.
+- [[dexa-scanning|DEXA-scanning]] — Diagnostic bone density scanning tracked as Indicator 4 to prevent osteoporosis in IBD patients over 50 receiving systemic steroids.
+- [[gastroskopi]] — Upper gastrointestinal endoscopy required alongside colonoscopy for the complete diagnostic workup of pediatric IBD patients under Indicator 1b.
+- [[kapselendoskopi]] — Capsule endoscopy used as an alternative to MRI for visualizing the small bowel in children and adolescents, tracked via specific SKS procedure codes.
+- [[mr-af-tyndtarmen|MR af tyndtarmen]] — Magnetic resonance imaging of the small intestine, a critical but sometimes underutilized diagnostic tool for newly diagnosed young IBD patients.
 
 ## Navigation
 
@@ -34,6 +39,6 @@ This folder catalogs specific diagnostic and imaging procedures utilized in the 
 
 ## Statistics
 
-- Pages: 2
+- Pages: 4
 - Sub-folders: 0
 - Sources: 0

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Indicators
 wiki: rkkp-adhd
-updated: '2026-08-05T19:20:49.181Z'
+updated: '2026-08-15T12:43:54.609Z'
 children:
+  - index.md
   - indikator-7a-7b.md
 ---
 # Indicators
 
-This folder contains specific quality metrics used to evaluate patient and educational outcomes within the Danish ADHD Database. It currently documents Indikator 7a+7b, which measures whether patients successfully pass the primary school leaving examination (*folkeskolens afgangseksamen*). The included page details how this metric is assessed in annual reports and highlights regional feedback regarding its implementation, systemic capacity limitations, and the need to integrate patient recovery processes.
+This folder groups specific measurable metrics used to evaluate the quality and outcomes of ADHD care in the Danish healthcare system. It currently documents Indikator 7a+7b, a metric from the Danish ADHD Database that tracks whether patients have passed the primary school leaving examination. The included page details the indicator's evaluation in the 2023–2024 annual report and highlights regional feedback, such as Region Zealand's emphasis on integrating the patient's recovery process into the metric's application.
 
 ## Pages
 
-- [[indikator-7a-7b|Indikator 7a+7b]] — A quality metric tracking whether ADHD patients pass the primary school leaving examination, including regional feedback on its application and systemic challenges.
+- [[indikator-7a-7b|Indikator 7a+7b]] — A quality indicator from the Danish ADHD Database measuring the pass rate of the primary school leaving examination among patients, including regional feedback on its application.
 
 ## Navigation
 

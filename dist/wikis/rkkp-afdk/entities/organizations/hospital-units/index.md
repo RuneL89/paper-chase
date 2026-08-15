@@ -4,17 +4,18 @@ type: index
 aliases:
   - Hospital Units
 wiki: rkkp-afdk
-updated: '2026-08-05T23:03:10.254Z'
+updated: '2026-08-14T23:52:11.512Z'
 children:
   - faelles-akut-modtagelse.md
+  - index.md
 ---
 # Hospital Units
 
-This folder catalogs specific hospital departments and units that operate within the broader healthcare organizations documented in the corpus. It currently highlights an emergency receiving unit whose localized blood testing workflows inadvertently disrupted national data extraction for quality indicators, illustrating the practical friction between clinical efficiency and standardized registry reporting.
+This folder catalogs specific clinical or operational departments within larger hospital organizations that are explicitly named in the source documents. It currently documents the Fælles Akut Modtagelse (emergency receiving unit) at Sygehus Sønderjylland, highlighting how its local workflow decisions regarding bundled laboratory test packages directly impacted national data capture and quality indicator reporting.
 
 ## Pages
 
-- [[faelles-akut-modtagelse|Fælles Akut Modtagelse]] — An emergency receiving unit at Sygehus Sønderjylland whose bundled thyroid-stimulating hormone (TSH) testing practice caused data capture failures for national quality indicators.
+- [[faelles-akut-modtagelse|Fælles Akut Modtagelse]] — The emergency receiving unit at Sygehus Sønderjylland, noted for its bundled TSH testing practice that inadvertently caused data collection failures for Indikator 3.
 
 ## Navigation
 

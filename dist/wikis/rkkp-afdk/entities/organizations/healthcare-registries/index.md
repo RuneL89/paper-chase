@@ -4,12 +4,12 @@ type: index
 aliases:
   - Healthcare Registries
 wiki: rkkp-afdk
-updated: '2026-08-05T23:01:55.457Z'
+updated: '2026-08-14T23:50:32.889Z'
 children:
   - aarhusklyngen.md
   - goedstrupklyngen.md
   - horsensklyngen.md
-  - klynge-midt.md
+  - index.md
   - klynge-nord.md
   - klynge-syd.md
   - klynge-vest.md
@@ -29,30 +29,29 @@ children:
 ---
 # Healthcare Registries
 
-This folder contains the local healthcare clusters (sundhedsklynger) across Denmark's regions that are monitored by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP). Each page details a specific cluster's performance against national clinical quality indicators for the treatment of atrial fibrillation, including anticoagulation therapy initiation, long-term treatment coverage, echocardiography usage, and patient outcomes like stroke incidence and severe bleeding. These entities serve as the geographic and organizational units for benchmarking cardiovascular care and driving hierarchical quality improvement within the Danish healthcare system.
+This folder catalogs the local healthcare clusters (sundhedsklynger) across Denmark's five regions that serve as the primary geographic and organizational units for monitoring atrial fibrillation (AFDK) care. Evaluated by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), these clusters are benchmarked against national clinical quality indicators such as timely anticoagulation initiation, echocardiography execution, long-term treatment coverage, and structured patient education. The pages detail each cluster's specific compliance rates, epidemiological outcomes like stroke incidence, and unique operational challenges, providing a granular view of regional variations in Danish cardiovascular quality improvement.
 
 ## Pages
 
-- [[aarhusklyngen|Aarhusklyngen]] — A Region Midtjylland cluster that met the national standard for timely anticoagulation initiation and contributes to national stroke incidence mapping.
-- [[goedstrupklyngen|Gødstrupklyngen]] — A Region Midtjylland cluster that met initial treatment standards but was identified as failing the 5-year treatment coverage benchmark.
-- [[horsensklyngen|Horsensklyngen]] — A top-performing Region Midtjylland cluster that achieved the highest goal fulfillment rate for Indikator 3 among Danish health clusters.
-- [[klynge-midt|Klynge MIDT]] — A Region Midtjylland cluster that met standards for timely treatment initiation and 1- and 2-year coverage, but missed the target for annual P-creatinine measurements.
-- [[klynge-nord|Klynge NORD]] — A Region Nordjylland cluster that fulfilled national standards for timely anticoagulation therapy and long-term treatment coverage.
-- [[klynge-syd|Klynge SYD]] — A Region Syddanmark cluster that successfully met the national target for timely treatment initiation and 5-year anticoagulation coverage.
-- [[klynge-vest|Klynge VEST]] — A Region Syddanmark cluster recognized for meeting the standard for timely anticoagulation therapy initiation.
-- [[midtklyngen|Midtklyngen]] — The only cluster where patients met the national standard for receiving structured patient education within their first year of diagnosis.
-- [[randersklyngen|Randersklyngen]] — A Region Midtjylland cluster with strong anticoagulation initiation metrics, though it fell slightly short of the standard for structured patient education.
-- [[sundhedsklynge-bornholm|Sundhedsklynge Bornholm]] — A Region Syddanmark cluster that met initial treatment standards but fell short on the use of echocardiography as a diagnostic tool.
-- [[sundhedsklynge-byen|Sundhedsklynge Byen]] — A Region Hovedstaden cluster that failed to meet the national standard threshold for the timely initiation of anticoagulation therapy.
-- [[sundhedsklynge-fyn|Sundhedsklynge Fyn]] — A Region Syddanmark cluster that fulfilled the standard for timely anticoagulation treatment initiation and is tracked in national stroke mapping.
-- [[sundhedsklynge-lillebaelt|Sundhedsklynge Lillebælt]] — A Region Syddanmark cluster that recorded the highest proportion of echocardiography execution among all evaluated clusters.
-- [[sundhedsklynge-midt|Sundhedsklynge Midt]] — A Region Midtjylland cluster that successfully met the national standard for the timely initiation of anticoagulation therapy.
-- [[sundhedsklynge-nord|Sundhedsklynge Nord]] — A Region Nordjylland cluster that achieved the required benchmark for timely anticoagulation therapy initiation.
-- [[sundhedsklynge-soenderjylland|Sundhedsklynge Sønderjylland]] — A Region Syddanmark cluster that met initial treatment standards but recorded the lowest goal achievement rate for Indikator 3.
-- [[sundhedsklynge-syd|Sundhedsklynge Syd]] — A Region Syddanmark cluster that failed to meet the standard for timely treatment initiation and recorded the lowest 2-year treatment coverage.
-- [[sundhedsklynge-sydvestjylland|Sundhedsklynge Sydvestjylland]] — A Region Syddanmark cluster that fell short of the required standard for timely treatment and failed the 5-year treatment persistence benchmark.
-- [[sundhedsklyngen-holbaek|Sundhedsklyngen Holbæk]] — A Region Sjælland cluster that successfully met the national standard for timely anticoagulation therapy initiation.
-- [[sundhedsklyngen-nykoebing-f|Sundhedsklyngen Nykøbing F]] — A Region Sjælland cluster that failed the standard for timely treatment initiation and recorded the lowest 1-year treatment coverage.
+- [[aarhusklyngen|Aarhusklyngen]] — A Region Midtjylland cluster noted for meeting the national standard for timely anticoagulation initiation and tracked for stroke incidence and long-term outcomes.
+- [[goedstrupklyngen|Gødstrupklyngen]] — A Region Midtjylland cluster that meets initial treatment standards but faces documented challenges in 5-year anticoagulation treatment coverage.
+- [[horsensklyngen|Horsensklyngen]] — A top-performing Region Midtjylland cluster that achieved the highest national performance for TSH measurement at the time of a new diagnosis.
+- [[klynge-nord|Klynge NORD]] — A Region Nordjylland cluster recognized for meeting the standard for timely anticoagulation therapy and evaluated across multiple long-term outcome metrics.
+- [[klynge-syd|Klynge SYD]] — A Region Syddanmark cluster with strong historical performance in anticoagulation treatment coverage and initial therapy initiation.
+- [[klynge-vest|Klynge VEST]] — A Region Syddanmark cluster evaluated for adverse outcomes, including the incidence of severe bleeding and heart failure within a year of diagnosis.
+- [[midtklyngen|Midtklyngen]] — A Region Midtjylland cluster that uniquely meets national development targets for both long-term treatment coverage and structured patient education.
+- [[randersklyngen|Randersklyngen]] — A Region Midtjylland cluster noted for strong initial anticoagulation compliance and being close to the standard for structured patient education.
+- [[sundhedsklynge-bornholm|Sundhedsklynge Bornholm]] — A Region Syddanmark cluster that meets initial treatment standards but falls short on national targets for echocardiography execution.
+- [[sundhedsklynge-byen|Sundhedsklynge Byen]] — A Region Hovedstaden cluster identified among those with the lowest performance levels for timely anticoagulation initiation.
+- [[sundhedsklynge-fyn|Sundhedsklynge Fyn]] — A Region Syddanmark cluster mapped for regional stroke incidence and tracked for long-term anticoagulation persistence and kidney function monitoring.
+- [[sundhedsklynge-lillebaelt|Sundhedsklynge Lillebælt]] — A Region Syddanmark cluster that recorded the highest proportion of echocardiography execution among all national clusters.
+- [[sundhedsklynge-midt|Sundhedsklynge Midt]] — A Region Midtjylland cluster meeting initial treatment standards and mapped for epidemiological stroke incidence alongside regional peers.
+- [[sundhedsklynge-nord|Sundhedsklynge Nord]] — A Region Nordjylland cluster that meets initial therapy standards but struggles with long-term treatment coverage and patient education metrics.
+- [[sundhedsklynge-soenderjylland|Sundhedsklynge Sønderjylland]] — A Region Syddanmark cluster with mixed performance, notably recording the lowest national performance for TSH measurement due to local coding issues.
+- [[sundhedsklynge-syd|Sundhedsklynge Syd]] — A Region Syddanmark cluster that failed to meet the national standard for initial anticoagulation and recorded the lowest 2-year treatment coverage.
+- [[sundhedsklynge-sydvestjylland|Sundhedsklynge Sydvestjylland]] — A Region Syddanmark cluster identified as one of only four that failed to meet the standard for 5-year treatment coverage.
+- [[sundhedsklyngen-holbaek|Sundhedsklyngen Holbæk]] — A Region Sjælland cluster meeting the standard for timely anticoagulation initiation and tracked for severe bleeding and heart failure outcomes.
+- [[sundhedsklyngen-nykoebing-f|Sundhedsklyngen Nykøbing F]] — A Region Sjælland cluster that failed to meet the initial treatment standard and recorded the lowest proportion for 1-year treatment coverage.
 
 ## Navigation
 
@@ -73,6 +72,6 @@ This folder contains the local healthcare clusters (sundhedsklynger) across Denm
 
 ## Statistics
 
-- Pages: 20
+- Pages: 19
 - Sub-folders: 0
 - Sources: 0

@@ -3,7 +3,7 @@ title: Index of Indexes
 type: index
 aliases:
   - Index of Indexes
-updated: '2026-08-05T23:51:40.667Z'
+updated: '2026-08-15T12:54:55.611Z'
 children:
   - rkkp-adhd/index.md
   - rkkp-afdk/index.md
@@ -18,15 +18,18 @@ Built from the 2023 and 2024 annual reports of Denmark's national clinical quali
 
 ## Wikis
 
-- [[rkkp-adhd/index|Rkkp Adhd]] — The 2023 and 2024 annual reports of the Danish ADHD Database, mapping the national ecosystem for ADHD quality monitoring across Denmark's five healthcare regions. It documents the involved psychiatric facilities, governance organizations, and patient populations, alongside analytical topics ranging from clinical performance shortfalls and regional disparities to educational outcomes. Readers can use it to trace systemic compliance issues and benchmark regional departments against national clinical quality indicators.
-- [[rkkp-afdk/index|Rkkp Afdk]] — The 2023 and 2024 annual reports of the Danish Atrial Fibrillation Database (AFDK) under the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) — the national health authorities, regional administrations, hospitals, anticoagulant therapies, and risk scoring systems behind them, and the clinical and epidemiological topics that connect the reports, from patient demographics to comparative quality indicators across Danish regions.
-- [[rkkp-akdb/index|Rkkp Akdb]] — The 2023 and 2024 annual reports of the Danish Acute Surgery Database (AKDB), detailing the hospitals, regional health authorities, and clinical scoring systems that monitor acute surgical care in Denmark. It maps the clinical quality indicators and operational frameworks connecting these entities, covering topics from antibiotic administration and surgical response times to mortality rates and hospital-level compliance.
-- [[rkkp-danibd/index|Rkkp Danibd]] — The 2023 and 2024 annual reports of Denmark's national quality registry for inflammatory bowel disease, documenting clinical care across hospital departments and regions through seven quality indicators, treatment patterns, patient demographics, and surgical outcomes.
+- [[rkkp-adhd/index|Rkkp Adhd]] — The 2023 and 2024 annual reports of the Danish ADHD Database, mapping the national healthcare and quality monitoring ecosystem across public and private providers. It details the facilities, organizations, medications, and professionals involved in ADHD care, alongside evaluations of regional performance, demographic outcomes, and systemic data challenges against specific clinical and educational quality indicators.
+- [[rkkp-afdk/index|Rkkp Afdk]] — The 2023, 2024, and 2025 annual reports of the Danish Atrial Fibrillation Database (AFDK) and the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) detail the hospitals, health authorities, pharmaceuticals, and medical codes driving Danish atrial fibrillation care. It tracks national cardiovascular healthcare performance through clinical guidelines, epidemiological trends, and regional comparisons of patient outcomes and quality indicators.
+- [[rkkp-akdb/index|Rkkp Akdb]] — Danish Clinical Register of Emergency Surgery (Akut Kirurgi Databasen, AKDB) annual reports from 2023 to 2025, detailing clinical quality indicators, mortality outcomes, and surgical timelines for acute abdominal surgery across Denmark. The collection catalogs the hospitals, medical procedures, and risk scores driving these outcomes, alongside structured comparisons of regional hospital performance and postoperative survival rates stratified by patient comorbidity.
+- [[rkkp-danibd/index|Rkkp Danibd]] — The 2023 to 2025 annual reports of the Danish Quality Database for Inflammatory Bowel Diseases (DANIBD), mapping the healthcare facilities, biologic treatments, and steering committees behind Denmark's IBD care. It covers clinical and operational themes like quality indicators and policy changes, while providing structured comparisons of regional performance, patient demographics, and surgical outcomes traced back to the raw registry documents.
+## Cross-Wiki Discovery
+
+- [[cross-wiki/index|Cross-Wiki Discovery]] — derived workspace-level artifacts: the cross-wiki entity registry, relationship graph, and topic clusters.
 
 ## Statistics
 
 - Wikis: 4
-- Sources: 8
-- Document pages: 131
-- Entity pages: 526
-- Topic pages: 206
+- Sources: 11
+- Document pages: 186
+- Entity pages: 604
+- Topic pages: 246

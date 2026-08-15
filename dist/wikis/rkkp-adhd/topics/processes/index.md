@@ -4,21 +4,22 @@ type: index
 aliases:
   - Processes
 wiki: rkkp-adhd
-updated: '2026-08-05T19:28:15.240Z'
+updated: '2026-08-15T12:49:08.975Z'
 children:
   - adhd-pakkeforloeb.md
   - adhd-udredningsforlob.md
+  - index.md
   - koordinerende-netvaerksmoede.md
 ---
 # Processes
 
-This folder covers the core clinical and administrative workflows within the Danish ADHD treatment pathway, specifically focusing on how patients are assessed and treated. It details the standardized diagnostic assessment process, the structured treatment framework constrained by a 9-hour package limit, and the cross-sectoral coordinating network meetings that were historically tracked but later retired due to chronic non-compliance. Together, these pages illustrate the procedural boundaries, registration requirements, and structural challenges that shape ADHD care and quality measurement in the healthcare system.
+This folder contains standardized sequences of actions and clinical workflows within the Danish ADHD healthcare system. It covers the structured treatment framework (ADHD-pakkeforløb), the diagnostic assessment process (ADHD-udredningsforløb), and cross-sectoral coordination efforts like the coordinating network meeting (koordinerende netværksmøde). These pages detail how these processes are defined, registered, and evaluated against national quality indicators, highlighting structural limitations and ongoing strategic revisions to improve patient care.
 
 ## Pages
 
-- [[adhd-pakkeforloeb|ADHD-pakkeforløb]] — The standardized 9-hour treatment framework for ADHD patients, whose limited scope creates structural barriers to incorporating meaningful psychotherapy into adult care.
-- [[adhd-udredningsforlob|ADHD-udredningsforløb]] — The clinical diagnostic assessment procedure for children and youth, detailing the specific registration codes and 90-day rules used when an initial ADHD suspicion is disproven.
-- [[koordinerende-netvaerksmoede|koordinerende netværksmøde]] — A cross-sectoral coordination process historically tracked by Indikator 4, which was retired after consistently failing to meet its 90-day target across regions.
+- [[adhd-pakkeforloeb|ADHD-pakkeforløb]] — The standardized 9-hour treatment package for ADHD patients, scrutinized for its structural inability to incorporate meaningful psychotherapy.
+- [[adhd-udredningsforlob|ADHD-udredningsforløb]] — The clinical diagnostic assessment process for children and youth, including specific registration codes for disproven suspicions and ongoing indicator revisions.
+- [[koordinerende-netvaerksmoede|koordinerende netværksmøde]] — A cross-sectoral coordination meeting originally tracked by Indicator 4, which was retired due to chronic failure to meet targets and replaced by a more realistic municipal contact metric.
 
 ## Navigation
 

@@ -4,26 +4,29 @@ type: index
 aliases:
   - Medical Procedures
 wiki: rkkp-akdb
-updated: '2026-08-05T20:23:03.135Z'
+updated: '2026-08-15T08:32:02.094Z'
 children:
   - anesthesia/index.md
   - surgical/index.md
+  - index.md
 ---
 # Medical Procedures
 
-This folder groups medical procedures tracked and benchmarked within the Danish healthcare system, specifically in the context of acute abdominal surgery. It is divided into perioperative and diagnostic care—covering epidural analgesia and CT scanning—and the surgical interventions themselves, such as open surgery. Together, these sub-folders document how specific clinical workflows and operative techniques are quantified, monitored for mortality and quality outcomes, and compared across regions to guide national healthcare development.
+This folder groups the core clinical interventions and operative techniques tracked within the Danish acute surgery quality assessments. It is divided into two main areas: anesthesia, which covers pain management strategies and the timeliness of diagnostic imaging, and surgical, which details specific operative methods like open surgery and laparoscopy alongside post-operative mobilization protocols. Together, these sub-folders map the procedural pathways and clinical quality indicators used to evaluate and benchmark acute abdominal care across hospitals.
 
 ## Pages
 
-- [[entities/medical-procedures/anesthesia/index|Anesthesia]] — Perioperative care and diagnostic imaging, including epidural analgesia and CT scanning, tracked for their impact on mortality and treatment timelines in acute abdominal surgery.
-- [[entities/medical-procedures/surgical/index|Surgical]] — Specific surgical interventions, currently focusing on open surgery benchmarked against minimally invasive techniques to evaluate regional treatment patterns.
+- [[entities/medical-procedures/anesthesia/index|Anesthesia]] — Medical procedures and diagnostic interventions critical to the acute care pathway, specifically epidural analgesia and the timeliness of CT scans.
+- [[entities/medical-procedures/surgical/index|Surgical]] — Specific surgical procedures and post-operative interventions, including the distinction between open and minimally invasive surgery and standardized mobilization definitions.
 
 ## Navigation
 
 - Parent: [[entities/index|Entities]]
 - Sibling: [[entities/codes/index|Codes]]
 - Sibling: [[entities/databases/index|Databases]]
+- Sibling: [[entities/indicators/index|Indicators]]
 - Sibling: [[entities/locations/index|Locations]]
+- Sibling: [[entities/medical-conditions/index|Medical Conditions]]
 - Sibling: [[entities/organizations/index|Organizations]]
 - Sibling: [[entities/people/index|People]]
 - Sibling: [[entities/scores/index|Scores]]

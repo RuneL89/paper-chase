@@ -1,0 +1,579 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der bruges til at overvåge og evaluere kvalitetsindikatorer for akut kirurgi i Danmark, herunder indikator 5 og indikator 6, og danner grundlaget for rapporteringen på siderne 36–40.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 37,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 38,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 39,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 40,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige myndighed, der udarbejder og vurderer kvalitetsindikatorerne i Akut Kirurgi Databasen, herunder indikator 5 og indikator 6, og står bag udkastet fra 2026.01.05 præsenteret på siderne 36–40.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 37,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 38,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 39,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 40,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "quality-indicator",
+      "slug": "indikator-5",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 5 er en klinisk kvalitetsindikator, der måler postoperativ observation af højrisiko patienter (alder ≥75 år eller ASA ≥3) på intensiv- eller intermediær afdeling, og dens vurdering på side 36 danner grundlaget for diskussionen om kodning med NABB/NABE/NABC samt mulig fremtidig anvendelse af SOR-koder.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Vurdering af indikator 5"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "quality-indicator",
+      "slug": "indikator-6",
+      "folder": "entities/quality-indicators/surgical-outcomes",
+      "significance": "Indikator 6 er en central kvalitetsindikator for tidlig mobilisering inden for 24 timer efter operation, som analyseres detaljeret på siderne 37–40 med regionale og hospitalsmæssige resultater, udviklingsmål og evidensbaserede anbefalinger baseret på ERAS og kliniske studier.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "Indikator 6: Tidlig mobilisering"
+        },
+        {
+          "page": 39,
+          "context": "Indikator 6: Tidlig mobilisering. Forest plot på afdelingsniveau"
+        },
+        {
+          "page": 40,
+          "context": "Indikatorbeskrivelse for indikator 6"
+        }
+      ]
+    },
+    {
+      "name": "NABB",
+      "type": "medical-code",
+      "slug": "nabb",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "NABB er en SOR-kode, der bruges til registrering af intensiv terapi og er obligatorisk ved indlæggelse på intensiv afdeling; den indgår i definitionen af indikator 5 og understøtter adskillelsen mellem intensiv og opvågningsafdelingsobservation på side 36.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "kodet med NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation)"
+        }
+      ]
+    },
+    {
+      "name": "NABE",
+      "type": "medical-code",
+      "slug": "nabe",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "NABE er en SOR-kode til registrering af intensiv observation og anvendes sammen med NABB og NABC i definitionen af indikator 5 på side 36 til at identificere højrisiko patienters postoperative observationstid.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "kodet med NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation)"
+        }
+      ]
+    },
+    {
+      "name": "NABC",
+      "type": "medical-code",
+      "slug": "nabc",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "NABC er en SOR-kode til registrering af intermediær observation og er en del af kriterierne for inklusion i indikator 5 på side 36, hvor den bidrager til at definere hvilke patienter tælles med i vurderingen af tidlig postoperativ observation.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "kodet med NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation)"
+        }
+      ]
+    },
+    {
+      "name": "SOR-koder",
+      "type": "code",
+      "slug": "sor-koder",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "SOR-koder er en dansk klassifikation til registrering af behandling og afdelingsforløb, og AKDB undersøger muligheden for at anvende dem til at identificere opvågningsafdelingsobservation i stedet for kun NABB/NABE/NABC, som nævnes som en fremtidig forbedringsmulighed på side 36.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "AKDB vil afsøge muligheden for at anvendes SOR koder til at afgøre, om en højrisikopatient har været observeret de første 24 timer postoperativt på en afdeling med et behandlingsniveau svarende til en opvågningsafdeling."
+        }
+      ]
+    },
+    {
+      "name": "ASA",
+      "type": "score",
+      "slug": "asa-score",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "ASA-score er en klinisk risikoscore, der anvendes i definitionen af højrisiko patienter for indikator 5, hvor patienter med ASA ≥3 inkluderes sammen med dem, der er 75 år eller ældre, hvilket fremhæves på side 36.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "patienter med alder 75 år eller ASA 3 er kodet med NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation)"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "hospital",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus fremhæves på side 36 som en enhed, der for andet år i træk har øget andelen af højrisiko patienter, der observeres tæt de første 24 timer postoperativt, og viser også højt resultat for indikator 6 (58,3 %) på side 37.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Holbæk Sygehus og Bornholms Hospital fremhæves som enheder, der for andet år i træk har øget andelen af højrisiko patienter, der observeres tæt de første 24 timer postoperativt."
+        },
+        {
+          "page": 37,
+          "context": "Holbæk Sygehus Nej 88 / 151 0 (0) 58,3 (50,0-66,2) 55,7 60,7"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "hospital",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital fremhæves på side 36 som en enhed, der for andet år i træk har øget andelen af højrisiko patienter, der observeres tæt de første 24 timer postoperativt, og viser det højeste nationale resultat for indikator 6 blandt alle hospitaler (71,4 %) på side 37.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Holbæk Sygehus og Bornholms Hospital fremhæves som enheder, der for andet år i træk har øget andelen af højrisiko patienter, der observeres tæt de første 24 timer postoperativt."
+        },
+        {
+          "page": 37,
+          "context": "Bornholms Hospital Nej 10 / 14 0 (0) 71,4 (41,9-91,6) 61,5 43,8"
+        }
+      ]
+    },
+    {
+      "name": "LPR",
+      "type": "database",
+      "slug": "lpr",
+      "folder": "entities/databases/healthcare",
+      "significance": "LPR (Landspatientregisteret) er det nationale register, hvor mobilisering registreres via specifikke koder (ZZP0030A og ZZP0030C), som defineres i indikator 6’s beskrivelse på side 40 og er centralt for dataindsamlingen til AKDB.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering)."
+        }
+      ]
+    },
+    {
+      "name": "ZZP0030A",
+      "type": "medical-code",
+      "slug": "zzp0030a",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "ZZP0030A er en specifik kode i Landspatientregisteret, der bruges til at registrere, at tidlig mobilisering er påbegyndt, og er en af de to koder, der definerer mobilisering for indikator 6 på side 40.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "ZZP0030A (tidlig mobilisering påbegyndt)"
+        }
+      ]
+    },
+    {
+      "name": "ZZP0030C",
+      "type": "medical-code",
+      "slug": "zzp0030c",
+      "folder": "entities/codes/healthcare-coding",
+      "significance": "ZZP0030C er en specifik kode i Landspatientregisteret, der bruges til at registrere, at der vurderes ingen indikation for tidlig mobilisering, og er den anden kode, der definerer mobilisering for indikator 6 på side 40.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "ZZP0030C (vurderet ingen indikation for tidlig mobilisering)"
+        }
+      ]
+    },
+    {
+      "name": "ERAS",
+      "type": "healthcare-program",
+      "slug": "eras",
+      "folder": "entities/healthcare-programs",
+      "significance": "ERAS (Enhanced Recovery After Surgery) er et evidensbaseret multimodalt program, der danner evidensgrundlaget for anbefalingen om tidlig mobilisering allerede det første postoperative døgn for akutte højrisiko patienter, som fremføres på side 40.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Med udgangspunkt i “Enhanced Recovery After Surgery” (ERAS), skal mobilisering ske på det første postoperative døgn."
+        },
+        {
+          "page": 40,
+          "context": "Akutte mave-tarm kirurgiske patienter opereret for ileus og perforeret hulorgan er generelt dårligt mobiliserede post-operativt... På baggrund af ERAS-forløbene... anbefales det, at patienter opereret akut for ileus og perforeret hulorgan mobiliseres på samme måde som ERAS-patienter..."
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/national",
+      "significance": "Danmark er den nationale referenceenhed, hvis resultater for indikator 6 (41,5 %) og eksklusionsgrunde (f.eks. 79 patienter med ugyldigt CPR-nummer) præsenteres på side 38 og 40 som benchmark for regionale og hospitalsmæssige sammenligninger.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "Danmark Nej 1.350 / 3.250 0 (0) 41,5 (39,8-43,3) 34,4 27,9"
+        },
+        {
+          "page": 38,
+          "context": "Eksklusion: Ugyldigt CPRnummer. 79 31 10 19 11 8"
+        },
+        {
+          "page": 40,
+          "context": "I alt 1.350 af de 3.250 opererede patienter i opgørelsesperioden blev mobiliserede indenfor 24 timer efter operation, svarende til at 41,5 % nationalt blev mobiliserede indenfor 24 timer efter operation (95 % CI: 39,8-43,3)."
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er en af de fem regioner, hvis resultater for indikator 6 (34,0 %) og eksklusionsgrunde (31 patienter med ugyldigt CPR-nummer) præsenteres på side 37 og 38 som en del af den regionale sammenligning.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "Hovedstaden Nej 344 / 1.013 0 (0) 34,0 (31,0-37,0) 29,8 25,4"
+        },
+        {
+          "page": 38,
+          "context": "Eksklusion: Ugyldigt CPRnummer. 79 31 10 19 11 8"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er en af de fem regioner, hvis resultater for indikator 6 (27,1 %) og eksklusionsgrunde (10 patienter med ugyldigt CPR-nummer) præsenteres på side 37 og 38 som en del af den regionale sammenligning, og som viser den laveste andel af tidlig mobilisering blandt regionerne.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "Sjælland Nej 167 / 617 0 (0) 27,1 (23,6-30,8) 23,8 29,6"
+        },
+        {
+          "page": 38,
+          "context": "Eksklusion: Ugyldigt CPRnummer. 79 31 10 19 11 8"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/national",
+      "significance": "Region Syddanmark er en af de fem regioner, hvis resultater for indikator 6 (50,8 %) og eksklusionsgrunde (19 patienter med ugyldigt CPR-nummer) præsenteres på side 37 og 38 som en del af den regionale sammenligning.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "Syddanmark Nej 332 / 653 0 (0) 50,8 (46,9-54,7) 45,2 24,4"
+        },
+        {
+          "page": 38,
+          "context": "Eksklusion: Ugyldigt CPRnummer. 79 31 10 19 11 8"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Midtjylland er en af de fem regioner, hvis resultater for indikator 6 (57,8 %) og eksklusionsgrunde (11 patienter med ugyldigt CPR-nummer) præsenteres på side 37 og 38 som en del af den regionale sammenligning, og som viser den højeste andel af tidlig mobilisering blandt regionerne.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "Midtjylland Nej 382 / 661 0 (0) 57,8 (53,9-61,6) 44,3 43,6"
+        },
+        {
+          "page": 38,
+          "context": "Eksklusion: Ugyldigt CPRnummer. 79 31 10 19 11 8"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er en af de fem regioner, hvis resultater for indikator 6 (40,8 %) og eksklusionsgrunde (8 patienter med ugyldigt CPR-nummer) præsenteres på side 37 og 38 som en del af den regionale sammenligning.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "Nordjylland Nej 125 / 306 0 (0) 40,8 (35,3-46,6) 20,6 3,9"
+        },
+        {
+          "page": 38,
+          "context": "Eksklusion: Ugyldigt CPRnummer. 79 31 10 19 11 8"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-developed-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen er udarbejdet af Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 36
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "is-defined-using",
+      "object": "nabb",
+      "evidence": "Indikator 5 dækker patienter kodet med NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation)",
+      "page": 36
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "is-defined-using",
+      "object": "nabe",
+      "evidence": "Indikator 5 dækker patienter kodet med NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation)",
+      "page": 36
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "is-defined-using",
+      "object": "nabc",
+      "evidence": "Indikator 5 dækker patienter kodet med NABB (intensiv terapi), NABE (intensiv observation) eller NABC (intermediær observation)",
+      "page": 36
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "uses-criteria-based-on",
+      "object": "asa-score",
+      "evidence": "Patienter med alder ≥75 år eller ASA ≥3 er kodet med NABB, NABE eller NABC",
+      "page": 36
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "is-defined-in",
+      "object": "lpr",
+      "evidence": "Mobilisering registreres i LPR ved at angive koderne ZZP0030A og ZZP0030C",
+      "page": 40
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "is-evidenced-by",
+      "object": "eras",
+      "evidence": "Med udgangspunkt i “Enhanced Recovery After Surgery” (ERAS), skal mobilisering ske på det første postoperative døgn",
+      "page": 40
+    },
+    {
+      "subject": "holbaek-sygehus",
+      "predicate": "has-improved-performance-on",
+      "object": "indikator-5",
+      "evidence": "Holbæk Sygehus og Bornholms Hospital fremhæves som enheder, der for andet år i træk har øget andelen af højrisiko patienter, der observeres tæt de første 24 timer postoperativt",
+      "page": 36
+    },
+    {
+      "subject": "bornholms-hospital",
+      "predicate": "has-improved-performance-on",
+      "object": "indikator-5",
+      "evidence": "Holbæk Sygehus og Bornholms Hospital fremhæves som enheder, der for andet år i træk har øget andelen af højrisiko patienter, der observeres tæt de første 24 timer postoperativt",
+      "page": 36
+    }
+  ],
+  "claims": [
+    {
+      "text": "Tallene for 2024-25 dækker udelukkende indberetninger, hvor patienter med alder ≥75 år eller ASA ≥3 er kodet med NABB, NABE eller NABC og hvor forskel på start og sluttidspunkt er over 24 timer [^src1]",
+      "type": "methodological",
+      "entities": [
+        "indikator-5",
+        "asa-score",
+        "nabb",
+        "nabe",
+        "nabc"
+      ],
+      "page": 36
+    },
+    {
+      "text": "For hospitaler, der anvender en opvågningsafdeling til postoperativ observation, må resultatet formodes at underrapporterer i forhold til, hvad der i virkeligheden er praksis [^src1]",
+      "type": "methodological",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 36
+    },
+    {
+      "text": "Andelen af patienter, der mobiliseres indenfor 24 timer efter operation, er defineret som indikator 6 [^src1]",
+      "type": "definition",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Udviklingsmålet for indikator 6 er ≥ 90 % [^src1]",
+      "type": "target",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Nationalt blev 41,5 % af de 3.250 opererede patienter mobiliseret indenfor 24 timer efter operation (95 % CI: 39,8–43,3) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "danmark",
+        "indikator-6"
+      ],
+      "page": 40
+    },
+    {
+      "text": "Regionalt varierede andelen af tidlig mobilisering fra 27,1 % i Region Sjælland til 57,8 % i Region Midtjylland [^src1]",
+      "type": "statistical",
+      "entities": [
+        "region-sjaelland",
+        "region-midtjylland",
+        "indikator-6"
+      ],
+      "page": 40
+    },
+    {
+      "text": "Ingen af de indberettende enheder opfyldte udviklingsmålet på ≥ 90 % for indikator 6 [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-6"
+      ],
+      "page": 40
+    },
+    {
+      "text": "Mobilisering registreres i LPR ved at angive koderne ZZP0030A (tidlig mobilisering påbegyndt) og ZZP0030C (vurderet ingen indikation for tidlig mobilisering) [^src1]",
+      "type": "procedural",
+      "entities": [
+        "lpr",
+        "zzp0030a",
+        "zzp0030c",
+        "indikator-6"
+      ],
+      "page": 40
+    },
+    {
+      "text": "Med udgangspunkt i “Enhanced Recovery After Surgery” (ERAS), skal mobilisering ske på det første postoperative døgn [^src1]",
+      "type": "evidence-based-recommendation",
+      "entities": [
+        "eras",
+        "indikator-6"
+      ],
+      "page": 40
+    },
+    {
+      "text": "Patienter opereret akut for ileus og perforeret hulorgan anbefales at mobiliseres allerede det første postoperative døgn [^src1]",
+      "type": "clinical-recommendation",
+      "entities": [
+        "indikator-6",
+        "eras"
+      ],
+      "page": 40
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-09-01",
+      "event": "Start af opgørelsesperioden for indikator 6 (01.09.2024 – 31.08.2025)",
+      "entities": [
+        "indikator-6"
+      ]
+    },
+    {
+      "date": "2025-08-31",
+      "event": "Slut på opgørelsesperioden for indikator 6 (01.09.2024 – 31.08.2025)",
+      "entities": [
+        "indikator-6"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "event": "Udkast til rapporten fra Sundhedsvæsenets Kvalitetsinstitut udgivet",
+      "entities": [
+        "sundhedsvaesenets-kvalitetsinstitut",
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-6",
+      "title": "Resultater for indikator 6 på regionalt og hospitalsmæssigt niveau",
+      "page": 37,
+      "rowDimension": "regions and hospitals",
+      "colDimension": "indikator performance per year",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "holbaek-sygehus",
+        "bornholms-hospital"
+      ],
+      "markdown": "| Enhed | Uoplyst | Aktuelle år Tæller/ antal | Aktuelle år nævner (%) | Andel 95% CI | Andel 2023/24 | Andel 2022/23 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 1.350 / 3.250 | 0 (0) | 41,5 (39,8-43,3) | 34,4 | 27,9 |\n| Hovedstaden | Nej | 344 / 1.013 | 0 (0) | 34,0 (31,0-37,0) | 29,8 | 25,4 |\n| Sjælland | Nej | 167 / 617 | 0 (0) | 27,1 (23,6-30,8) | 23,8 | 29,6 |\n| Syddanmark | Nej | 332 / 653 | 0 (0) | 50,8 (46,9-54,7) | 45,2 | 24,4 |\n| Midtjylland | Nej | 382 / 661 | 0 (0) | 57,8 (53,9-61,6) | 44,3 | 43,6 |\n| Nordjylland | Nej | 125 / 306 | 0 (0) | 40,8 (35,3-46,6) | 20,6 | 3,9 |\n| Holbæk Sygehus | Nej | 88 / 151 | 0 (0) | 58,3 (50,0-66,2) | 55,7 | 60,7 |\n| Bornholms Hospital | Nej | 10 / 14 | 0 (0) | 71,4 (41,9-91,6) | 61,5 | 43,8 |",
+      "summary": "Tabellen sammenligner andelen af tidlig mobilisering (indikator 6) for Danmark, regioner og udvalgte hospitaler over tre år, og viser en generel stigning i andelen samt store regionale variationer fra 27,1 % i Region Sjælland til 57,8 % i Region Midtjylland."
+    },
+    {
+      "subject": "indikator-6-exclusions",
+      "title": "Eksklusionsgrunde for indikator 6 på regionalt niveau",
+      "page": 38,
+      "rowDimension": "exclusion reasons",
+      "colDimension": "number of patients per region",
+      "entities": [
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Årsag | Danmark | Hovedstaden | Sjælland | Syddanmark | Midtjylland | Nordjylland |\n| --- | --- | --- | --- | --- | --- | --- |\n| Ugyldigt CPRnummer. | 79 | 31 | 10 | 19 | 11 | 8 |\n| Patienten er under 18 år. | 177 | 67 | 9 | 53 | 36 | 12 |\n| Patienten er ikke opereret. | 6.646 | 1.609 | 1.024 | 1.442 | 1.579 | 992 |\n| Operationen er ikke den første operation i hospitalsopholdet. | 544 | 188 | 77 | 143 | 107 | 29 |",
+      "summary": "Tabellen viser antallet af patienter ekskluderet fra indikator 6 på grund af ugyldigt CPR-nummer, alderskrav, manglende operation eller sekundær operation, og fremhæver 'Patienten er ikke opereret' som den dominerende eksklusionsgrund på tværs af regionerne."
+    }
+  ],
+  "context": "Dette dokumentchunk (siderne 36–40) er en del af et udkast fra Sundhedsvæsenets Kvalitetsinstitut til rapporten for Akut Kirurgi Databasen fra 2026.01.05, der fokuserer på kvalitetsovervågning af akut kirurgi i det danske sundhedsvæsen. Chunken indeholder teknisk og metodisk analyse af to centrale kvalitetsindikatorer — indikator 5 (postoperativ observation af højrisiko patienter) og indikator 6 (tidlig mobilisering) — med særlig vægt på definitionsrammer, datakilder (LPR, SOR-koder), regionale og hospitalsmæssige resultater samt evidensbaserede anbefalinger knyttet til ERAS-principper. Den indgår i en bredere narrativ om systematisk kvalitetsudvikling gennem standardiserede indikatorer, kodning og evidensbaseret praksisændring i akut kirurgi."
+}

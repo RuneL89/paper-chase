@@ -4,17 +4,18 @@ type: index
 aliases:
   - Healthcare Oversight
 wiki: rkkp-akdb
-updated: '2026-08-05T20:26:22.156Z'
+updated: '2026-08-15T08:34:54.316Z'
 children:
+  - index.md
   - sundhedsvaesenets-kvalitetsinstitut.md
 ---
 # Healthcare Oversight
 
-This folder catalogs organizations dedicated to monitoring, evaluating, and improving the quality of healthcare delivery in Denmark. It currently features the national institute responsible for evidence-based quality development, which oversees major clinical registries like the Acute Surgery Database, defines standardized process and outcome indicators, and publishes annual benchmarking reports to drive continuous clinical improvement across regional hospitals.
+This folder contains organizations responsible for overseeing, evaluating, and ensuring the quality of healthcare services and clinical databases in Denmark. It currently documents Sundhedsvæsenets Kvalitetsinstitut, the national institute that publishes, manages, and develops the Akut Kirurgi Databasen and its associated clinical quality indicators. The records here detail the institute's administrative authority over database reporting, its role in releasing both draft and final clinical evaluations, and its designated contact personnel.
 
 ## Pages
 
-- [[sundhedsvaesenets-kvalitetsinstitut|Sundhedsvæsenets Kvalitetsinstitut]] — The Danish Healthcare Quality Institute, which governs the Acute Surgery Database and publishes national clinical quality indicators and annual benchmarking reports.
+- [[sundhedsvaesenets-kvalitetsinstitut|Sundhedsvæsenets Kvalitetsinstitut]] — The national institute responsible for publishing, managing, and developing the Akut Kirurgi Databasen and its clinical quality indicators.
 
 ## Navigation
 

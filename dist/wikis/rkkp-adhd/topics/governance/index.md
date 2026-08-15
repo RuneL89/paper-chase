@@ -4,17 +4,18 @@ type: index
 aliases:
   - Governance
 wiki: rkkp-adhd
-updated: '2026-08-05T19:20:08.241Z'
+updated: '2026-08-15T12:43:21.313Z'
 children:
   - governance.md
+  - index.md
 ---
 # Governance
 
-This folder covers the governance and oversight of ADHD quality improvement initiatives. It details how the steering committee (Styregruppen) evaluates and adjusts clinical indicators in response to systemic pressures, such as rising patient volumes and a shortage of specialist doctors. The contents also track legislative shifts, including new diagnostic privileges for specialist psychologists, and document pending structural decisions regarding the classification of specific quality metrics like Indikator 11.
+This folder covers the governance and oversight structures of the ADHD quality improvement initiatives. It details the role of the steering committee (Styregruppen) in evaluating and adjusting clinical indicators based on systemic capacities, workforce shortages, and legislative shifts. Specifically, it tracks the committee's prioritization of Indikator 3 driven by rising patient volumes and new diagnostic rights for specialist psychologists, alongside pending decisions on reclassifying supplementary metrics like Indikator 11.
 
 ## Pages
 
-- [[governance|Governance]] — Details the steering committee's oversight of ADHD quality indicators, including operational adjustments for Indikator 3 and the potential reclassification of Indikator 11.
+- [[governance|Governance]] — Details the steering committee's oversight of ADHD quality initiatives, including their focus on Indikator 3 due to workforce and legislative changes, and pending decisions on Indikator 11.
 
 ## Navigation
 

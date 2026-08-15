@@ -1,0 +1,495 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der overvåger og rapporterer kvalitetsindikatorer for akut kirurgi i Danmark, herunder antibiotikabehandling og CT-skanning, og danner grundlag for national kvalitetsudvikling inden for akut abdominal kirurgi.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige myndighed, der udarbejder og vedligeholder indikatorbeskrivelserne og analyserne i Akut Kirurgi Databasen, herunder fastlæggelse af udviklingsmål og vurdering af indikatorers anvendelighed.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "indicator",
+      "slug": "indikator-1",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 1 er en central kvalitetsindikator for tidlig antibiotikabehandling ved akut kirurgi, som måler andelen af patienter, der modtager antibiotika inden for tre timer efter ankomst til sygehus, og som bruges til national overvågning og regional sammenligning.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Indikator 1: Antibiotikabehandling. Forest plot på afdelingsniveau"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "indicator",
+      "slug": "indikator-2",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 2 er en klinisk kvalitetsindikator, der måler andelen af patienter med angivet operationstidspunkt og foretaget CT-skanning, der får udført CT-skanning inden for to timer efter ankomst til sygehus, og som anvendes til at evaluere diagnosticeringens hastighed i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Indikator 2: CT-skanning"
+        }
+      ]
+    },
+    {
+      "name": "Sygehusmedicinregisteret",
+      "type": "database",
+      "slug": "sygehusmedicinregisteret",
+      "folder": "entities/databases/clinical",
+      "significance": "Sygehusmedicinregisteret er den primære kilde til antibiotikadata for Akut Kirurgi Databasen, hvorfra AKDB henter information om antibiotikabehandling til beregning af Indikator 1.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Indikatoren afhænger af data i Sygehusmedicinregisteret, hvorfra AKDB henter informationer om antibiotika."
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/national",
+      "significance": "Region Syddanmark er en af de fem regioner i Danmark, der viser den laveste andel af patienter, der modtog antibiotika inden for tre timer efter ankomst (27,2 %), og dermed en nøgleaktør i analysen af regional variation for Indikator 1.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Regionalt varierede andelen af patienter, der fik antibiotika indenfor tre timer efter ankomst til sygehus fra 27,2 % i Region Syddanmark til 47,2 % i Region Midtjylland."
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Midtjylland er den region i Danmark med den højeste andel af patienter, der modtog antibiotika inden for tre timer efter ankomst (47,2 %), og dermed en benchmark-region for Indikator 1.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Regionalt varierede andelen af patienter, der fik antibiotika indenfor tre timer efter ankomst til sygehus fra 27,2 % i Region Syddanmark til 47,2 % i Region Midtjylland."
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er en af de fem regioner i Danmark, der har oplevet et lille fald i andelen af patienter, der modtog antibiotika inden for tre timer efter ankomst, og som samtidig viser en lav andel af CT-scannede patienter inden for to timer (30,5 %).",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Region Hovedstaden og Region Nordjylland er faldet en lille smule i andel fra sidste år til i år"
+        },
+        {
+          "page": 14,
+          "context": "Hovedstaden Nej 296 / 971 0 (0) 30,5 (27,6-33,5) 33,1 30,1"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er en af de fem regioner i Danmark, der har oplevet et lille fald i andelen af patienter, der modtog antibiotika inden for tre timer efter ankomst, og som samtidig viser den laveste andel af CT-scannede patienter inden for to timer blandt alle regioner (28,7 %).",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Region Hovedstaden og Region Nordjylland er faldet en lille smule i andel fra sidste år til i år"
+        },
+        {
+          "page": 14,
+          "context": "Nordjylland Nej 84 / 293 0 (0) 28,7 (23,6-34,2) 28,5 20,3"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er en af de fem regioner i Danmark, der viser en lav andel af patienter, der modtog antibiotika inden for tre timer efter ankomst (28,2 %), og som også har en lav andel af CT-scannede patienter inden for to timer (28,2 %).",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Regionalt varierede andelen af patienter, der fik antibiotika indenfor tre timer efter ankomst til sygehus fra 27,2 % i Region Syddanmark til 47,2 % i Region Midtjylland."
+        },
+        {
+          "page": 14,
+          "context": "Sjælland Nej 168 / 596 0 (0) 28,2 (24,6-32,0) 26,0 25,1"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er en af de indberettende enheder, der opnår den højeste andel af CT-scannede patienter inden for to timer (51,1 %) blandt alle listede hospitaler i Indikator 2-tabellen, og dermed en regional reference for effektiv CT-diagnostik.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Aarhus Universitetshospital Nej 69 / 135 0 (0) 51,1 (42,4-59,8) 45,1 45,5"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er en af de indberettende enheder, der opnår den højeste andel af CT-scannede patienter inden for to timer (55,7 %) blandt alle listede hospitaler i Indikator 2-tabellen, og dermed en national reference for effektiv CT-diagnostik.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Regionshospitalet Randers Nej 59 / 106 0 (0) 55,7 (45,7-65,3) 49,2 38,3"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital er en af de indberettende enheder, der opnår den højeste andel af antibiotikabehandling inden for tre timer blandt de nævnte hospitaler (71,4 %), og dermed en eksempel på lokal succes i implementering af tidlig antibiotikabehandling.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Bornholms Hospital Nej 10 / 14 0 (0) 71,4 (41,9-91,6) 42,3 62,1"
+        }
+      ]
+    },
+    {
+      "name": "CT-skanning",
+      "type": "medical-procedure",
+      "slug": "ct-skanning",
+      "folder": "entities/medical-procedures/diagnostic",
+      "significance": "CT-skanning er en kritisk diagnostisk procedure i akut kirurgi, der prioriteres over antibiotikaindgivelse i logistiske beslutninger, og hvis tidsmæssige udførelse udgør basis for Indikator 2.",
+      "mentions": [
+        {
+          "page": 13,
+          "context": "Fx vil en CT-skanning altid blive prioriteret før indgift af antibiotika."
+        }
+      ]
+    },
+    {
+      "name": "Antibiotikabehandling",
+      "type": "treatment",
+      "slug": "antibiotikabehandling",
+      "folder": "entities/treatments/anti-infective",
+      "significance": "Antibiotikabehandling er en livreddende behandling ved akut abdominal kirurgi, hvor tidlig indgift er associeret med reduceret mortalitet i AHA- og ELPQUICK-studierne, og som danner grundlag for Indikator 1.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Indikator 1: Antibiotikabehandling. Forest plot på afdelingsniveau"
+        }
+      ]
+    },
+    {
+      "name": "AHA-studiet",
+      "type": "study",
+      "slug": "aha-studiet",
+      "folder": "entities/studies/clinical-trials",
+      "significance": "AHA-studiet er et klinisk studie, der har demonstreret, at tidlig antibiotikabehandling kan forbedre mortaliteten ved akut abdominal kirurgi, og som derfor underbygger evidensgrundlaget for Indikator 1.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "I AHA og ELPQUICK studierne, der begge har forbedret mortalitet, er tidlig antibiotikabehandling et af de tiltag, der har været med til at sænke mortaliteten på akut abdominal kirurgi."
+        }
+      ]
+    },
+    {
+      "name": "ELPQUICK-studiet",
+      "type": "study",
+      "slug": "elpquick",
+      "folder": "entities/studies/clinical-trials",
+      "significance": "ELPQUICK-studiet er et klinisk studie, der har vist, at tidlig antibiotikabehandling forbedrer mortaliteten ved akut abdominal kirurgi, og som derfor styrker evidensgrundlaget for Indikator 1.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "I AHA og ELPQUICK studierne, der begge har forbedret mortalitet, er tidlig antibiotikabehandling et af de tiltag, der har været med til at sænke mortaliteten på akut abdominal kirurgi."
+        }
+      ]
+    },
+    {
+      "name": "Perforeret hulorgan",
+      "type": "medical-condition",
+      "slug": "perforeret-hulorgan",
+      "folder": "entities/medical-conditions/acute-surgical",
+      "significance": "Perforeret hulorgan er en alvorlig akut kirurgisk tilstand, hvor tidlig antibiotikabehandling er kritisk for at bremse infektionsudviklingen, og som derfor definerer en undergruppe af patienter, hvor tidsaspektet for antibiotika er særligt presserende.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Det anbefales derfor at man iværksætter antibiotika hurtigst muligt på patienter mistænkt for svær ileus, perforeret hulorgan eller iskæmi, uanset om der er feber eller påvirkede infektionstal."
+        }
+      ]
+    },
+    {
+      "name": "Svær ileus",
+      "type": "medical-condition",
+      "slug": "svaer-ileus",
+      "folder": "entities/medical-conditions/acute-surgical",
+      "significance": "Svær ileus er en alvorlig akut kirurgisk tilstand, hvor tidlig antibiotikabehandling er kritisk for at mindske fysiologisk stress og forhindre komplikationer, og som derfor definerer en undergruppe af patienter, hvor tidsaspektet for antibiotika er særligt presserende.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Det anbefales derfor at man iværksætter antibiotika hurtigst muligt på patienter mistænkt for svær ileus, perforeret hulorgan eller iskæmi, uanset om der er feber eller påvirkede infektionstal."
+        }
+      ]
+    },
+    {
+      "name": "Iskæmi",
+      "type": "medical-condition",
+      "slug": "iskaemi",
+      "folder": "entities/medical-conditions/acute-surgical",
+      "significance": "Iskæmi er en alvorlig akut kirurgisk tilstand, hvor tidlig antibiotikabehandling anbefales for at bremse infektionsudviklingen, og som derfor definerer en undergruppe af patienter, hvor tidsaspektet for antibiotika er særligt presserende.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Det anbefales derfor at man iværksætter antibiotika hurtigst muligt på patienter mistænkt for svær ileus, perforeret hulorgan eller iskæmi, uanset om der er feber eller påvirkede infektionstal."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "depends-on",
+      "object": "sygehusmedicinregisteret",
+      "evidence": "Indikatoren afhænger af data i Sygehusmedicinregisteret, hvorfra AKDB henter informationer om antibiotika.",
+      "page": 12
+    },
+    {
+      "subject": "indikator-1",
+      "predicate": "is-based-on",
+      "object": "antibiotikabehandling",
+      "evidence": "Indikator 1 beskriver andelen af patienter, der kommer i antibiotisk behandling indenfor tre timer efter ankomst til sygehus.",
+      "page": 12
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "is-based-on",
+      "object": "ct-skanning",
+      "evidence": "Indikator 2: CT-skanning. Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor to timer (120 minutter) efter ankomst til sygehus",
+      "page": 14
+    },
+    {
+      "subject": "aha-studiet",
+      "predicate": "supports-evidence-for",
+      "object": "indikator-1",
+      "evidence": "I AHA og ELPQUICK studierne, der begge har forbedret mortalitet, er tidlig antibiotikabehandling et af de tiltag, der har været med til at sænke mortaliteten på akut abdominal kirurgi.",
+      "page": 12
+    },
+    {
+      "subject": "elpquick",
+      "predicate": "supports-evidence-for",
+      "object": "indikator-1",
+      "evidence": "I AHA og ELPQUICK studierne, der begge har forbedret mortalitet, er tidlig antibiotikabehandling et af de tiltag, der har været med til at sænke mortaliteten på akut abdominal kirurgi.",
+      "page": 12
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Akut Kirurgi Databasen\nUdkast 2026.01.05\nSundhedsvæsenets Kvalitetsinstitut",
+      "page": 11
+    }
+  ],
+  "claims": [
+    {
+      "text": "Indikator 1 beskriver andelen af patienter, der kommer i antibiotisk behandling indenfor tre timer efter ankomst til sygehus [^src1]",
+      "type": "definition",
+      "entities": [
+        "indikator-1",
+        "antibiotikabehandling"
+      ],
+      "page": 12
+    },
+    {
+      "text": "I alt 1.107 patienter modtog antibiotika indenfor 3 timer ud af de 3.111 med angivet operationstidspunkt [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Andelen var således på 35,6 % (95 % CI: 33,9 – 37,3), hvilket er langt fra udviklingsmålet på > 60 % [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Regionalt varierede andelen af patienter, der fik antibiotika indenfor tre timer efter ankomst til sygehus fra 27,2 % i Region Syddanmark til 47,2 % i Region Midtjylland [^src1]",
+      "type": "statistical",
+      "entities": [
+        "region-syddanmark",
+        "region-midtjylland",
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "En enkelt af de indberettende enheder opfyldte udviklingsmålet på > 60 % i perioden [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Supplerende analyse til indikator 1 viser, at 3.634 patienter i alt modtog antibiotika [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Den mediane tid fra ankomst til antibiotika var 4,6 timer (IQR: 2,1-11,2) [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 12
+    },
+    {
+      "text": "Det blev forrige år vedtaget, at tid for indgift fremadrettet skulle ændres til 3 timer i stedet for 1 time, som det har været tidligere [^src1]",
+      "type": "policy",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 13
+    },
+    {
+      "text": "På nationalt plan er der sket store forbedringer af andelen af patienter, der har fået i antibiotisk behandling indenfor 3 timer efter ankomst [^src1]",
+      "type": "trend",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 13
+    },
+    {
+      "text": "Tidsgrænsen fastholdes på 3 timer efter ankomst ud fra argumentet, at det er en afvejning for at undgå forsinkelse af CT-skanning [^src1]",
+      "type": "policy",
+      "entities": [
+        "indikator-1",
+        "ct-skanning"
+      ],
+      "page": 13
+    },
+    {
+      "text": "Udviklingsmålet for Indikator 2 er ≥ 90 % [^src1]",
+      "type": "policy",
+      "entities": [
+        "indikator-2"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Danmark: 33,5 % (95% CI: 31,9–35,2) af patienter fik CT-skanning inden for to timer [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-2",
+        "region-syddanmark"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Region Midtjylland: 45,8 % (95% CI: 41,9–49,7) af patienter fik CT-skanning inden for to timer [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-2",
+        "region-midtjylland"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Regionshospitalet Randers: 55,7 % (95% CI: 45,7–65,3) af patienter fik CT-skanning inden for to timer [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-2",
+        "regionshospitalet-randers"
+      ],
+      "page": 15
+    },
+    {
+      "text": "Aarhus Universitetshospital: 51,1 % (95% CI: 42,4–59,8) af patienter fik CT-skanning inden for to timer [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-2",
+        "aarhus-universitetshospital"
+      ],
+      "page": 15
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2024 - 31.08.2025",
+      "event": "Aktuelle år for Indikator 2-data, hvor andele og konfidensintervaller beregnes for alle regioner og hospitaler.",
+      "entities": [
+        "indikator-2"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Tidligere år for Indikator 2-data, anvendt til sammenligning af udvikling over tid.",
+      "entities": [
+        "indikator-2"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere år for Indikator 2-data, anvendt til sammenligning af udvikling over tid.",
+      "entities": [
+        "indikator-2"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-2",
+      "title": "Indikator 2: CT-skanning",
+      "page": 14,
+      "rowDimension": "regioner og hospitaler",
+      "colDimension": "andel af CT-scannede patienter inden for to timer",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "aarhus-universitetshospital",
+        "regionshospitalet-randers",
+        "bornholms-hospital"
+      ],
+      "markdown": "| Årsag Danmark | Hovedstaden | Sjælland | Syddanmark | Midtjylland | Nordjylland |\n| --- | --- | --- | --- | --- | --- |\n| Eksklusion: Ugyldigt CPR-nummer. | 78 | 30 | 10 | 19 | 11 | 8 |\n| Patienten er under 18 år. | 176 | 66 | 9 | 54 | 36 | 11 |\n| Patienten er ikke opereret. | 6.643 | 1.613 | 1.023 | 1.437 | 1.579 | 991 |\n| Patienten er ikke CT-scannet. | 114 | 35 | 22 | 20 | 24 | 13 |\n| Operationen er ikke den første operation i hospitalsopholdet. | 544 | 182 | 76 | 144 | 113 | 29 |",
+      "summary": "Tabellen præsenterer antallet af ekskluderede patienter for Indikator 2 fordelt på årsag og region, hvilket viser, at 'Patienten er ikke opereret' er den dominerende eksklusionsårsag på nationalt plan."
+    }
+  ],
+  "context": "Dette dokumentchunk udgør siderne 11–15 af 'Akut Kirurgi Databasen' udkast fra januar 2026 og indeholder tekniske og kliniske detaljer for to centrale kvalitetsindikatorer: Indikator 1 (antibiotikabehandling inden for tre timer) og Indikator 2 (CT-skanning inden for to timer). Det indgår i en bredere national kvalitetsudviklingsindsats for akut kirurgi, ledet af Sundhedsvæsenets Kvalitetsinstitut, og bygger på data fra Sygehusmedicinregisteret og andre nationale registre. Chunken fokuserer på statistisk analyse, regional variation, evidensgrundlag fra kliniske studier (AHA og ELPQUICK), og praktiske barrierer som prioritering af CT-skanning frem for antibiotika, samt redegør for politiske justeringer af tidsmål og udviklingsmål. Den danner del af et systematisk overvågningsprogram, der skal sikre tidlig diagnose og behandling ved livstruende akutte kirurgiske tilstande som perforeret hulorgan, svær ileus og iskæmi."
+}

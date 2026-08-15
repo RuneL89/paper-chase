@@ -4,19 +4,20 @@ type: index
 aliases:
   - Systems
 wiki: rkkp-afdk
-updated: '2026-08-05T23:15:25.718Z'
+updated: '2026-08-15T00:07:30.052Z'
 children:
   - health-information-systems/index.md
   - laboratory-information-systems/index.md
+  - index.md
 ---
 # Systems
 
-This area catalogs the digital infrastructure and information systems deployed across the Danish healthcare sector to register clinical data, track patient procedures, and monitor quality metrics. It groups shared health information systems used in hospitals, documenting how specific platforms can introduce data limitations like the underreporting of procedures to national registries, alongside national laboratory information systems that record biomarker measurements. By tracking these systems, researchers and administrators can identify how internal coding structures and shared platforms create systemic barriers that hinder the extraction of complete data needed for national clinical quality reports.
+This folder catalogs the core software systems that underpin the Danish healthcare data infrastructure, focusing on how technical pipelines impact national quality reporting. It covers health information systems that manage regional hospital workflows and aggregate national performance indicators, alongside laboratory information systems that register biochemical test results. Together, these areas document how software limitations, internal coding inconsistencies, and data routing workarounds directly affect the completeness and validity of nationwide healthcare registries.
 
 ## Pages
 
-- [[entities/systems/health-information-systems/index|Health Information Systems]] — Catalogs shared hospital platforms and their systemic impact on national clinical data, such as the underreporting of echocardiography procedures to registries.
-- [[entities/systems/laboratory-information-systems/index|Laboratory Information Systems]] — Documents national systems used to register biomarker measurements, detailing how inconsistent internal coding structures impede data extraction for atrial fibrillation quality indicators.
+- [[entities/systems/health-information-systems/index|Health Information Systems]] — Regional and national platforms like Sundhedsplatformen and SundK that manage clinical workflows and calculate quality indicators, while introducing significant data blind spots.
+- [[entities/systems/laboratory-information-systems/index|Laboratory Information Systems]] — Specialized software like LABKA used to register clinical laboratory data, highlighting the coding inconsistencies and technical workarounds required to feed national registries.
 
 ## Navigation
 

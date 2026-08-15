@@ -1,0 +1,371 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den nationale kvalitetsdatabase, der overvåger behandlingskvaliteten af inflammatoriske tarmsygdomme i Danmark, og det er den primære institution, der udvikler, implementerer og rapporterer på Indikator 7 om PSC-opfølgning med koloskopi.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        },
+        {
+          "page": 37,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        },
+        {
+          "page": 38,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        },
+        {
+          "page": 39,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        },
+        {
+          "page": 40,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 7",
+      "type": "quality-indicator",
+      "slug": "indikator-7",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 7 er en central kvalitetsmåling i DANIBD-rapporten, der kvantificerer andelen af voksne patienter med primær skleroserende kolangitis (PSC), der modtager systematisk koloskopisk opfølgning inden for 18 måneder, og den er direkte knyttet til forebyggelse af kolorektalkræft.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Indikator 7. PSC, opfølgning"
+        },
+        {
+          "page": 36,
+          "context": "Indikator 7: Andelen af voksne med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder"
+        },
+        {
+          "page": 37,
+          "context": "Indikator 7: Andelen af voksne med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder."
+        }
+      ]
+    },
+    {
+      "name": "primær skleroserende kolangitis (PSC)",
+      "type": "disease",
+      "slug": "primar-skleroserende-kolangitis-psc",
+      "folder": "entities/diseases/hepatic-biliary",
+      "significance": "PSC er en kronisk lever- og galdevejssygdom, der er stærkt assiceret med øget risiko for kolorektalkræft hos IBD-patienter, og den udgør derfor den centrale patientgruppe, som Indikator 7 fokuserer på.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "primær skleroserende kolangitis (PSC)"
+        },
+        {
+          "page": 36,
+          "context": "patienter med PSC"
+        },
+        {
+          "page": 37,
+          "context": "Patienter med PSC defineres som patienter med PSC som a-diagnose med IBD som b-diagnose og omvendt, samt PSC som a-diagnose for patienter, der tidligere har haft minimum to IBD a-diagnoser."
+        },
+        {
+          "page": 40,
+          "context": "DK830F ‘Primær skleroserende kolangitis’"
+        }
+      ]
+    },
+    {
+      "name": "kolorektalkræft",
+      "type": "disease",
+      "slug": "kolorektalkraeft",
+      "folder": "entities/diseases/gastrointestinal",
+      "significance": "Kolorektalkræft er en livstruende komplikation, der udgør en af de hyppigste dødsårsager blandt IBD-patienter, især dem med PSC, og det er derfor den kliniske drivkraft bag Indikator 7s fokus på koloskopisk overvågning.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Kolorektalkræft udgør fortsat en af de hyppigste dødsårsager blandt patienter med IBD."
+        },
+        {
+          "page": 36,
+          "context": "patienter med primær skleroserende kolangitis (PSC) også er i markant øget risiko for at udvikle kolorektalkræft."
+        }
+      ]
+    },
+    {
+      "name": "koloskopi",
+      "type": "procedure",
+      "slug": "koloskopi",
+      "folder": "topics/procedural",
+      "significance": "Koloskopi er den anbefalede diagnostiske og forebyggende undersøgelse til tidlig opdagelse af kolorektalkræft hos patienter med PSC, og den udgør den målte handling i Indikator 7.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Indikatoren monitorerer derfor andelen af patienter med PSC, der får foretaget koloskopi."
+        },
+        {
+          "page": 36,
+          "context": "Andelen af voksne med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder"
+        },
+        {
+          "page": 37,
+          "context": "Opfølgningen kan foretages af hospital og i speciallægepraksis, hvorfor koloskopi omfatter koloskopi med/uden biopsi samt totale koloskopier foretaget hos praktiserende speciallæger (SKS-koder: KUJF32/35 og ydelseskode: 2114 for specialet ’kirurgi’)."
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "region",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden er den region med lavest opfyldelse af Indikator 7 i 2023/24 og 2024/25 (78 %), hvilket fremhæves som en væsentlig regional variation i rapporten.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Hovedstaden | Nej | 152 | / | 195 | 78 | (71-84) | 134 | / | 174 | 77 | 84"
+        },
+        {
+          "page": 37,
+          "context": "Der ses i år en stor regional variation fra højest i Region Nordjylland med 94 % til lavest i Region Hovedstaden med 78 %."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "region",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er den region med højeste opfyldelse af Indikator 7 i 2024/25 (94 %), hvilket fremhæves som ekstremt i sammenligning med andre regioner.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Nordjylland | Ja | 17 | / | 18 | 94 | (73-100) | 10 | / | 12 | 83 | 81"
+        },
+        {
+          "page": 37,
+          "context": "Der ses i år en stor regional variation fra højest i Region Nordjylland med 94 % til lavest i Region Hovedstaden med 78 %."
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Styregruppen for DANIBD er den beslutningskompetente enhed, der vurderer og fastholder udviklingsmålet for Indikator 7 samt bemærker manglende store ændringer i målopfyldelsen.",
+      "mentions": [
+        {
+          "page": 38,
+          "context": "Styregruppen bemærker, at der ikke er de store ændringer. Indikatoren er vigtig, og der er generelt en acceptabel målopfyldelse."
+        },
+        {
+          "page": 38,
+          "context": "Vurdering af udviklingsmålet\nUdviklingsmålet fastholdes."
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret (LPR)",
+      "type": "database",
+      "slug": "landspatientregisteret-lpr",
+      "folder": "entities/databases/national-health-registers",
+      "significance": "Landspatientregisteret (LPR) er det centrale register, der anvendes til at identificere patienter med IBD og PSC i DANIBD, herunder til at definere patientgrundlaget via aktionsdiagnoser og hospitalskontakter.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Landpatientregisteret (LPR)"
+        },
+        {
+          "page": 40,
+          "context": "Patienter med IBD skal have mindst to hospitalskontakter^ med følgende aktionsdiagnoser registreret i LPR:"
+        }
+      ]
+    },
+    {
+      "name": "KUJF32/35",
+      "type": "procedure-code",
+      "slug": "kujf32-35",
+      "folder": "topics/codes/procedure-codes",
+      "significance": "KUJF32/35 er de specifikke SKS-koder, der bruges til at identificere koloskopier udført i speciallægepraksis i forbindelse med Indikator 7's beregningsregler.",
+      "mentions": [
+        {
+          "page": 37,
+          "context": "SKS-koder: KUJF32/35 og ydelseskode: 2114 for specialet ’kirurgi’"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "predicate": "develops-and-reports-on",
+      "object": "indikator-7",
+      "evidence": "Indikatoren monitorerer derfor andelen af patienter med PSC, der får foretaget koloskopi.",
+      "page": 36
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "measures",
+      "object": "koloskopi",
+      "evidence": "Indikatoren monitorerer derfor andelen af patienter med PSC, der får foretaget koloskopi.",
+      "page": 36
+    },
+    {
+      "subject": "indikator-7",
+      "predicate": "targets-patients-with",
+      "object": "primar-skleroserende-kolangitis-psc",
+      "evidence": "Indikator 7: Andelen af voksne med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder",
+      "page": 36
+    },
+    {
+      "subject": "primar-skleroserende-kolangitis-psc",
+      "predicate": "increases-risk-of",
+      "object": "kolorektalkraeft",
+      "evidence": "patienter med primær skleroserende kolangitis (PSC) også er i markant øget risiko for at udvikle kolorektalkræft.",
+      "page": 36
+    },
+    {
+      "subject": "koloskopi",
+      "predicate": "is-recommended-for",
+      "object": "primar-skleroserende-kolangitis-psc",
+      "evidence": "Der er derfor stærk evidens for og bred international enighed om, at tilbyde alle patienter med PSC årlige systematiske opfølgninger.",
+      "page": 36
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "evaluates-and-maintains",
+      "object": "indikator-7",
+      "evidence": "Styregruppen bemærker, at der ikke er de store ændringer. [...] Vurdering af udviklingsmålet\nUdviklingsmålet fastholdes.",
+      "page": 38
+    },
+    {
+      "subject": "landspatientregisteret-lpr",
+      "predicate": "defines-patient-cohort-for",
+      "object": "indikator-7",
+      "evidence": "Patienter med IBD skal have mindst to hospitalskontakter^ med følgende aktionsdiagnoser registreret i LPR: [...] DK830F ‘Primær skleroserende kolangitis’",
+      "page": 40
+    },
+    {
+      "subject": "kujf32-35",
+      "predicate": "codes-for",
+      "object": "koloskopi",
+      "evidence": "koloskopi omfatter koloskopi med/uden biopsi samt totale koloskopier foretaget hos praktiserende speciallæger (SKS-koder: KUJF32/35 og ydelseskode: 2114 for specialet ’kirurgi’).",
+      "page": 37
+    }
+  ],
+  "claims": [
+    {
+      "text": "Udviklingsmålet for Indikator 7 er, at 80 % af patienter med PSC får foretaget systematisk opfølgning med koloskopi inden for 18 måneder [^src1]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-7",
+        "primar-skleroserende-kolangitis-psc",
+        "koloskopi"
+      ],
+      "page": 36
+    },
+    {
+      "text": "I alt 396 patienter med PSC har været kontrolleret i perioden, hvoraf 49 er nydiagnosticerede [^src2]",
+      "type": "epidemiological",
+      "entities": [
+        "primar-skleroserende-kolangitis-psc"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Patienter med PSC er oftest mænd (65 %) og gennemsnitsalderen er 47 år [^src2]",
+      "type": "demographic",
+      "entities": [
+        "primar-skleroserende-kolangitis-psc"
+      ],
+      "page": 37
+    },
+    {
+      "text": "På landsplan har 82 % af patienterne fået foretaget en koloskopi inden for 18 måneder, hvilket er en fremgang på 2 procentpoint ift. sidste år [^src2]",
+      "type": "performance",
+      "entities": [
+        "indikator-7",
+        "primar-skleroserende-kolangitis-psc",
+        "koloskopi"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Der ses i år en stor regional variation fra højest i Region Nordjylland med 94 % til lavest i Region Hovedstaden med 78 % [^src2]",
+      "type": "performance",
+      "entities": [
+        "region-nordjylland",
+        "region-hovedstaden",
+        "indikator-7"
+      ],
+      "page": 37
+    },
+    {
+      "text": "Alle undersøgelser, på nær 3, er foretaget i hospitalsregi, og i 74 % af de foretagne koloskopier er der udtaget biopsi [^src2]",
+      "type": "procedural",
+      "entities": [
+        "koloskopi"
+      ],
+      "page": 37
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.10.2024 - 30.09.2025",
+      "event": "Opgørelsesperiode for Indikator 7 i DANIBD-rapporten",
+      "entities": [
+        "indikator-7",
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Forrige opgørelsesperiode for Indikator 7",
+      "entities": [
+        "indikator-7"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere opgørelsesperiode for Indikator 7",
+      "entities": [
+        "indikator-7"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-7",
+      "title": "Indikator 7: Andelen af voksne med primær skleroserende kolangitis (PSC), der får foretaget koloskopi inden for 18 måneder",
+      "page": 36,
+      "rowDimension": "region og sygehusafdeling",
+      "colDimension": "andel og antal i 2024/25 og tidligere år",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "bispebjerg-abdominalcenter",
+        "herlev-mave-tarm-og-leversygd",
+        "hvidovre-gastroenheden",
+        "nordsjaelland-kirurgisk-afdeling",
+        "rigshospitalet-sygd-i-fordojelsessystem",
+        "nsr-slagelse-med-gastroenterologi",
+        "suh-koeged-med-gastroenterologi",
+        "egs-esbjerg-medicinsk-mave-og-tarm-amb",
+        "ouh-odense-medicinsk-mave-tarm-afd-s",
+        "ouh-svendborg-medicinsk-afdeling",
+        "shs-aabenraa-mave-og-tarmsygd",
+        "slb-vejle-gastroenterologisk-amb",
+        "aarhus-lever-mave-og-tarmsygd",
+        "he-midt-klinik-for-mave-og-tarmsygd",
+        "horsens-klinik-for-medicinske-sygd",
+        "aauh-aalborg-med-gastroenterologisk-afd"
+      ],
+      "markdown": "| | | | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| | | Tæller/ | | | | | | | | |\n| | | 01.10.2024 -<br>30.09.2025 | 2023/24 | 2022/23 |\n| | | | | | | | | | | |\n| Danmark | Ja | 325 | / | 396 | 82 | (78-86) | 291 | / | 365 | 80 | 84 |\n| Hovedstaden | Nej | 152 | / | 195 | 78 | (71-84) | 134 | / | 174 | 77 | 84 |\n| Sjælland | Nej | 19 | / | 24 | 79 | (58-93) | 22 | / | 26 | 85 | 73 |\n| Syddanmark | Ja | 62 | / | 71 | 87 | (77-94) | 57 | / | 70 | 81 | 85 |\n| Midtjylland | Ja | 75 | / | 88 | 85 | (76-92) | 68 | / | 83 | 82 | 87 |\n| Nordjylland | Ja | 17 | / | 18 | 94 | (73-100) | 10 | / | 12 | 83 | 81 |\n| Hovedstaden | Nej | 152 | / | 195 | 78 | (71-84) | 134 | / | 174 | 77 | 84 |\n| Bispebjerg Abdominalcenter K | Ja | 3 | / | 3 | 100 | (29-100) | 5 | / | 5 | 100 |\n| Herlev Mave-, Tarm- og Leversygd. | Ja | 30 | / | 35 | 86 | (70-95) | 22 | / | 29 | 76 | 81 |\n| Hvidovre Gastroenheden | Nej | 42 | / | 56 | 75 | (62-86) | 36 | / | 46 | 78 | 87 |\n| Nordsjælland Kirurgisk Afdeling | Ja | 4 | / | 4 | 100 | (40-100) | 3 | / | 3 | 100 | 100 |\n| Rigshospitalet Sygd. i Fordøjelsessystem, C | Nej | 73 | / | 97 | 75 | (65-83) | 68 | / | 91 | 75 | 82 |\n| Sjælland | Nej | 19 | / | 24 | 79 | (58-93) | 22 | / | 26 | 85 | 73 |\n| NSR Slagelse Med. Gastroenterologi | Ja | # | / | # | 100 | (3-100) |\n| SUH Køge Med. Gastroenterologi | Nej | 18 | / | 23 | 78 | (56-93) | 22 | / | 26 | 85 | 75 |\n| Syddanmark | Ja | 62 | / | 71 | 87 | (77-94) | 57 | / | 70 | 81 | 85 |\n| EGS Esbjerg Medicinsk Mave og Tarm Amb. | Ja | 18 | / | 19 | 95 | (74-100) | 20 | / | 21 | 95 | 94 |\n| OUH Odense Medicinsk Mave-Tarm Afd. S | Ja | 36 | / | 42 | 86 | (71-95) | 25 | / | 35 | 71 | 85 |\n| OUH Svendborg Medicinsk Afdeling | Nej | # | / | # | 0 | (0-98) | # | / | # | 33 | 33 |\n| SHS Aabenraa Mave- og Tarmsygd. | Nej | # | / | # | 67 | (9-99) | 3 | / | 3 | 100 | 100 |\n| SLB Vejle Gastroenterologisk Amb. | Ja | 6 | / | 6 | 100 | (54-100) | 8 | / | 8 | 100 | 83 |\n| Midtjylland | Ja | 75 | / | 88 | 85 | (76-92) | 68 | / | 83 | 82 | 87 |\n| Aarhus Lever-, Mave- og Tarmsygd. | Ja | 74 | / | 86 | 86 | (77-93) | 67 | / | 81 | 83 | 89 |\n| HE Midt Klinik for Mave- og Tarmsygd. | Nej | # | / | # | 0 | (0-98) | # | / | # | 100 | 100 |\n| Horsens Klinik for Medicinske Sygd. | Ja | # | / | # | 100 | (3-100) |\n| Nordjylland | Ja | 17 | / | 18 | 94 | (73-100) | 10 | / | 12 | 83 | 81 |\n| AAUH Aalborg Med. Gastroenterologisk Afd. | Ja | 17 | / | 18 | 94 | (73-100) | 10 | / | 12 | 83 | 80 |",
+      "summary": "Tabellen sammenligner opfyldelsen af Indikator 7 på både nationalt, regionalt og afdelingsniveau for perioden 2024/25 samt tidligere år, og viser en bred variation i andelen af PSC-patienter, der får koloskopi inden for 18 måneder, fra 0 % til 100 %."
+    }
+  ],
+  "context": "Denne dokumentchunk er en del af DANIBD-rapporten for 2025 og fokuserer specifikt på Indikator 7, som måler kvaliteten af koloskopisk opfølgning af patienter med primær skleroserende kolangitis (PSC) i Danmark. Den indgår i en bredere narrativ om kvalitetsstyring af behandlingen af inflammatoriske tarmsygdomme (IBD), hvor PSC udgør en særlig risikogruppe for kolorektalkræft. Chunken præsenterer data, beregningsregler, diskussion af resultater og organisatoriske rammer for indikatoren, og den er en integreret del af et systematisk kvalitetsmonitoreringsprogram, der støttes af nationale registre og styres af en faglig styregruppe."
+}

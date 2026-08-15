@@ -4,19 +4,20 @@ type: index
 aliases:
   - Populations
 wiki: rkkp-adhd
-updated: '2026-08-05T19:13:20.217Z'
+updated: '2026-08-15T12:39:11.885Z'
 children:
   - adhd/index.md
   - general/index.md
+  - index.md
 ---
 # Populations
 
-This folder groups the demographic cohorts and baseline populations used in the Danish ADHD-DATABASEN to monitor and benchmark national quality indicators. It contains the specific ADHD treatment and diagnostic populations tracked across the care pathway, alongside the general Danish youth population used as a baseline to highlight structural educational disparities and contextualize outcomes like primary school exam pass rates.
+This folder groups the demographic and clinical cohorts that serve as the foundational denominators and baselines for the Danish ADHD quality monitoring reports. It is divided into the specific ADHD populations tracked in the national database—covering both diagnostic and treatment pathways—and the general youth population data used to benchmark educational outcomes. Together, these cohorts allow analysts to measure clinical processes, track long-term societal achievements, and contextualize the educational disparities faced by young people with ADHD.
 
 ## Pages
 
-- [[entities/populations/adhd/index|Adhd]] — The primary course-based demographic cohorts for ADHD treatment and diagnostic assessment, serving as denominators for national quality indicators and educational outcomes.
-- [[entities/populations/general/index|General]] — The baseline demographic groups of general Danish youth used to benchmark educational outcomes and contextualize disparities among youth with ADHD.
+- [[entities/populations/adhd/index|Adhd]] — The primary course-based demographic cohorts tracked within the Danish ADHD-DATABASEN, covering both the treatment and diagnostic populations used to evaluate clinical and societal quality indicators.
+- [[entities/populations/general/index|General]] — Baseline demographic groups, specifically the general Danish youth population, used to benchmark educational outcomes and contextualize disparities against the ADHD cohorts.
 
 ## Navigation
 

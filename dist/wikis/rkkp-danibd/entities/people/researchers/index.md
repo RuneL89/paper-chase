@@ -4,17 +4,18 @@ type: index
 aliases:
   - Researchers
 wiki: rkkp-danibd
-updated: '2026-08-05T07:44:15.670Z'
+updated: '2026-08-15T07:50:46.196Z'
 children:
+  - index.md
   - jacobsen-ha-et-al.md
 ---
 # Researchers
 
-This folder contains researchers whose published studies provide the epidemiological and technical evidence base for the clinical databases tracked in this wiki. The pages here detail authors of pivotal validation research, such as population-based studies that verify the accuracy of diagnostic codes in national patient registries. By confirming the reliability of these data sources, their work justifies the use of registry data for patient inclusion and the calculation of national quality indicators.
+This folder catalogs the researchers and academic groups whose published studies provide the epidemiological and methodological foundation for the Danish IBD database (DANIBD). The pages here detail authors of pivotal validation studies that verify the accuracy of national health registries, such as confirming the high positive predictive value of IBD diagnoses in the Danish National Patient Registry. By establishing the reliability of these diagnostic codes, the researchers documented in this folder enable the registry's coverage rates and quality indicators to be trusted and utilized in annual reports.
 
 ## Pages
 
-- [[jacobsen-ha-et-al|Jacobsen HA et al.]] — Authors of a 2022 population-based validation study that confirmed the high positive predictive value of IBD diagnoses in the Danish National Patient Registry.
+- [[jacobsen-ha-et-al|Jacobsen HA et al.]] — Authors of a pivotal 2022 validation study confirming the high positive predictive value of IBD diagnoses in the Danish National Patient Registry.
 
 ## Navigation
 

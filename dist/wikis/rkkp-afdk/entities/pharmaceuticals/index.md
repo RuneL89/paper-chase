@@ -4,19 +4,20 @@ type: index
 aliases:
   - Pharmaceuticals
 wiki: rkkp-afdk
-updated: '2026-08-05T23:12:07.241Z'
+updated: '2026-08-15T00:03:22.207Z'
 children:
   - analgesics/index.md
   - antiplatelets/index.md
+  - index.md
 ---
 # Pharmaceuticals
 
-This folder groups pharmaceutical agents identified in the corpus as clinical risk factors within cardiovascular care, specifically for patients with atrial fibrillation. It synthesizes guidelines and quality indicators regarding analgesics, such as NSAIDs, and antiplatelet agents (pladehæmmere), documenting the clinical recommendation to avoid these medications to prevent severe bleeding complications like intracranial hemorrhages.
+This area groups pharmaceutical entities identified in the corpus as significant risk factors for severe bleeding complications, including intracranial hemorrhages, in patients being treated for atrial fibrillation. It specifically covers analgesics, such as NSAIDs, and antiplatelet agents, highlighting clinical recommendations and behavioral interventions to avoid these medications in order to reduce adverse bleeding events.
 
 ## Pages
 
-- [[entities/pharmaceuticals/analgesics/index|Analgesics]] — Catalogs non-steroidal anti-inflammatory drugs (NSAIDs) and their clinical implications, specifically highlighting them as risk factors for severe bleeding events in atrial fibrillation patients.
-- [[entities/pharmaceuticals/antiplatelets/index|Antiplatelets]] — Tracks antiplatelet agents identified as pharmaceutical risk factors, focusing on guidelines for their avoidance to reduce intracranial hemorrhages.
+- [[entities/pharmaceuticals/analgesics/index|Analgesics]] — Catalogs non-steroidal anti-inflammatory drugs (NSAIDs) tracked as notable risk factors for severe bleeding complications in atrial fibrillation patients.
+- [[entities/pharmaceuticals/antiplatelets/index|Antiplatelets]] — Groups antiplatelet agents identified as pharmaceutical risk factors whose avoidance is recommended to prevent severe bleeding events like intracranial hemorrhages.
 
 ## Navigation
 

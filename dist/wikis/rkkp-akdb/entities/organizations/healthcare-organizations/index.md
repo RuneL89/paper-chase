@@ -4,17 +4,18 @@ type: index
 aliases:
   - Healthcare Organizations
 wiki: rkkp-akdb
-updated: '2026-08-05T20:25:49.918Z'
+updated: '2026-08-15T08:34:28.244Z'
 children:
+  - index.md
   - regionernes-kliniske-kvalitetsudviklingsprogram.md
 ---
 # Healthcare Organizations
 
-This folder catalogs organizational bodies responsible for driving national clinical quality development and healthcare analytics in Denmark. It currently profiles the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), the central knowledge center and institutional authority that administers the Akut Kirurgi Databasen (AKDB), publishes annual surgical quality reports, and coordinates clinical data submissions from Denmark's regional health authorities.
+This folder catalogs formal institutions and programs that operate within the Danish healthcare system, specifically those dedicated to clinical quality development and database administration. It currently contains the entity profile for the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP), the central body that manages, publishes, and oversees clinical registries like the Akut Kirurgi Databasen. By tracking these organizations, the wiki maps the institutional backbone responsible for coordinating regional health reporting and driving evidence-based quality improvements across Denmark's hospitals.
 
 ## Pages
 
-- [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] — The Danish knowledge center and organizational body that administers the Akut Kirurgi Databasen (AKDB) and coordinates national clinical quality reporting for acute abdominal surgery.
+- [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] — The central program responsible for managing, publishing, and developing clinical quality databases such as the Akut Kirurgi Databasen across Danish regions.
 
 ## Navigation
 

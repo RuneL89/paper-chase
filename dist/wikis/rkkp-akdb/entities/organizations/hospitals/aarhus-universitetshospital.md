@@ -4,74 +4,79 @@ type: entity
 aliases:
   - Aarhus Universitetshospital
 wiki: rkkp-akdb
-updated: '2026-08-05T18:54:35.683Z'
+updated: '2026-08-15T06:25:59.274Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '41-45, 56-60, 6-10, 61-65, 71-75'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '51-55, 6-10, 61-65, 66-70, 71-75'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: >-
+      11-15, 41-45, 6-10, 61-65, 66-70, 71-75, 76-80, 81-85, 86-90, 91-95,
+      96-100
 tags:
   - organization
 ---
-Aarhus Universitetshospital is a major hospital located in [[region-midtjylland|Region Midtjylland]], Denmark. It is a key participant in the national clinical quality monitoring programs for acute high-risk abdominal surgery, managed by the Danish Regions' Clinical Quality Development Programme (RKKP). The hospital's performance is systematically evaluated across multiple process and outcome indicators in the annual Acute Surgery Database (AKDB) reports.
-
-For the reporting period of September 1, 2022, to August 31, 2023, Aarhus Universitetshospital achieved a compliance rate of 46.7% for [[indikator-1|Indikator 1]] [^src1]. This result was notably the highest proportion among all hospitals in Region Midtjylland for that specific indicator during that timeframe. The hospital also demonstrated compliance with the standard for [[indikator-9|Indikator 9]], achieving a 70.5% rate (98 out of 139 eligible patients) for the same 2022–2023 period [^src2].
-
-The hospital's clinical outcomes are closely monitored regarding 30-day mortality after acute surgery, with data stratified by patient comorbidity. In the 2022–2023 period, 3 out of 45 patients (6.7%) with a [[charlson-score-1-2|Charlson Score = 1 eller 2]] died within 30 days of surgery [^src4]. In the subsequent reporting period from September 1, 2023, to August 31, 2024, the hospital recorded 10 deaths within 30 days among 37 included patients with a Charlson Score of 1 or 2, tracked under [[indikator-9b|Indikator 9b]] [^src9]. Furthermore, for patients with higher comorbidity (Charlson Score ≥ 3), the hospital also recorded 10 deaths within 30 days out of 37 included patients, tracked under [[indikator-9c|Indikator 9c]] [^src9].
-
-Beyond specific quality indicators, the hospital's patient demographics—including age distributions and the prevalence of cancer diagnoses among acute surgical patients—are continuously tracked to support risk adjustment, benchmarking, and clinical quality development across the Danish healthcare system [^src3] [^src5] [^src10].
 
 ## Mentions
-- Page 9: "Aarhus Universitetshospital Nej 64 / 137 0 (0) 46,7 (38,1-55,4) 34,5 27,3" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 6-10)
-- Page 41: "Aarhus Universitetshospital" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 41-45)
-- Page 56: "Aarhus Universitetshospital" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60)
-- Page 61: "Aarhus Universitetshospital 3 / 45 0 (0) 6,7 (1,4-18,3) 12,5 15,8" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65)
-- Page 71: "Aarhus Universitetshospital 170 21,2 56,00 71,00 63,47 78,00" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 71-75)
-- Page 6: "Aarhus Universitetshospit al Nej 65 / 139 0 (0) 46,8 (38,3-55,4) 47,5 34,5" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 6-10)
-- Page 51: "Aarhus Universitetshospital Nej 21 / 140 0 (0) 15,0 (9,5-22,0) 8,6 11,6" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 51-55)
-- Page 61: "Aarhus Universitetshospital 5 / 56 0 (0) 8,9 (3,0-19,6) 3,4 6,8" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 61-65)
-- Page 66: "Aarhus Universitetshospital" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70)
-- Page 71: "Aarhus Universitetshospital 172 21,3 54,50 71,00 63,17 78,00" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 71-75)
+
+- Page 9: "Aarhus Universitetshospital Nej 64 / 137 0 (0) 46,7 (38,1-55,4) 34,5 27,3" [^src1]
+- Page 41: "Aarhus Universitetshospital" [^src2]
+- Page 56: "Aarhus Universitetshospital" [^src3]
+- Page 61: "Aarhus Universitetshospital 3 / 45 0 (0) 6,7 (1,4-18,3) 12,5 15,8" [^src4]
+- Page 71: "Aarhus Universitetshospital 170 21,2 56,00 71,00 63,47 78,00" [^src5]
+- Page 6: "Aarhus Universitetshospit al Nej 65 / 139 0 (0) 46,8 (38,3-55,4) 47,5 34,5" [^src6]
+- Page 51: "Aarhus Universitetshospital Nej 21 / 140 0 (0) 15,0 (9,5-22,0) 8,6 11,6" [^src7]
+- Page 61: "Aarhus Universitetshospital 5 / 56 0 (0) 8,9 (3,0-19,6) 3,4 6,8" [^src8]
+- Page 66: "Aarhus Universitetshospital" [^src9]
+- Page 71: "Aarhus Universitetshospital 172 21,3 54,50 71,00 63,17 78,00" [^src10]
+- Page 10: "Aarhus
+Universitetshospit
+al
+Nej 70 / 137 0 (0) 51,1 (42,4-59,7) 47,9 48,3" [^src11]
+- Page 61: "Aarhus | Universitetshospital | 135 | 75 | 119 | 309 |" [^src12]
+- Page 62: "Aarhus Universitetshospital 535 100,00 137 25,61 398 74,39" [^src12]
+- Page 64: "Aarhus Universitetshospit al #/# 0 (0) 3,5 (0,4-12,1) 8,5 3,4" [^src12]
+- Page 68: "Aarhus Universitetshospit al" [^src13]
+- Page 72: "Aarhus Universitetshospit al 4 / 31 0 (0) 12,9 (3,6-29,8) 27,0 18,9" [^src14]
+- Page 77: "Aarhus
+Universitetshospit
+al
+#/# 0 (0) 15,4 (1,9-45,4) 0,0 12,5" [^src15]
+- Page 82: "Aarhus
+Universitetshospit
+al
+4 / 58 0 (0) 6,9 (1,9-16,7) 8,0 3,3" [^src16]
+- Page 84: "Aarhus
+Universitetshospit
+al
+6 / 58 0 (0) 10,3 (3,9-21,2) 10,0 5,0" [^src16]
+- Page 87: "Aarhus Universitetshospit al Ja 62 / 78 0 (0) 79,5 (68,8-87,8) 75,0 73,9" [^src17]
+- Page 89: "Aarhus Universitetshospit al Ja 36 / 59 0 (0) 61,0 (47,4-73,5) 70,8 67,3" [^src17]
+- Page 91: "Aarhus Universitetshospital 137 100,00 78 56,93 59 43,07" [^src18]
+- Page 97: "Aarhus | Universitetshospital | 1.00 | 6.00 | 12.00 | 23.00" [^src19]
+- Page 98: "Aarhus | Universitetshospital | 1.00 | 5.00 | 11.00 | 23.00" [^src19]
+- Page 99: "Aarhus | Universitetshospital | 0.00 | 5.00 | 10.00 | 18.00" [^src19]
 
 ## Relationships
-Outgoing (this entity is the SUBJECT of these relationships):
-- Subject: aarhus-universitetshospital
-  Predicate: has-indicator-result
-  Object: indikator-1
-  Evidence: "Aarhus Universitetshospital Nej 64 / 137 0 (0) 46,7 (38,1-55,4) 34,5 27,3"
-  Page: 9
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 6-10
-- Subject: aarhus-universitetshospital
-  Predicate: meets-standard-of
-  Object: indikator-9
-  Evidence: "Aarhus Universitetshospital Ja 98 / 139 0 (0) 70,5 (62,2-77,9) 63,7 68,6"
-  Page: 41
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 41-45
 
-Incoming (this entity is the OBJECT of these relationships):
-- Subject: region-midtjylland
-  Predicate: contains-hospital
-  Object: (this entity)
-  Evidence: "Midtjylland 24 / 225 [...] Aarhus Universitetshospital 3 / 45"
-  Page: 61
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65
+- [[indikator-1|Indikator 1]] — Has Indicator Result [^src1]
+- [[indikator-9|Indikator 9]] — Meets Standard Of [^src2]
+- [[region-midtjylland|Region Midtjylland — Midtjylland]] — Contains Hospital (incoming) — "Midtjylland 24 / 225 [...] Aarhus Universitetshospital 3 / 45" [^src4]
+- [[region-midtjylland|Region Midtjylland — Midtjylland]] — Contains Hospital (incoming) — "Midtjylland
+Aarhus
+Universitetshospit
+al
+Nej 70 / 137 0 (0) 51,1 (42,4-59,7) 47,9 48,3" [^src11]
 
 ## Claims
-- Aarhus Universitetshospital: 3 / 45 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (6,7 %; 95 % CI: 1,4-18,3) [^src1] (aarhus-universitetshospital, charlson-score-1-2)
-  Type: hospital-statistic
-  Page: 61
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65
-- For perioden 01.09.2023 – 31.08.2024 blev der registreret 10 patienter med død inden for 30 dage efter akut kirurgi ved Aarhus Universitetshospital blandt 37 inkluderede patienter med Charlson Score = 1 eller 2 [^src1] (aarhus-universitetshospital, indikator-9b)
-  Type: clinical-outcome
-  Page: 66
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70
-- For perioden 01.09.2023 – 31.08.2024 blev der registreret 10 patienter med død inden for 30 dage efter akut kirurgi ved Aarhus Universitetshospital blandt 37 inkluderede patienter med Charlson Score ≥ 3 [^src1] (aarhus-universitetshospital, indikator-9c)
-  Type: clinical-outcome
-  Page: 66
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70
 
-## Timeline
-(none)
+- Aarhus Universitetshospital: 3 / 45 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (6,7 %; 95 % CI: 1,4-18,3) [^src4] ([[aarhus-universitetshospital|Aarhus Universitetshospital]], [[charlson-score-1-2|Charlson Score = 1 eller 2]])
+- For perioden 01.09.2023 – 31.08.2024 blev der registreret 10 patienter med død inden for 30 dage efter akut kirurgi ved Aarhus Universitetshospital blandt 37 inkluderede patienter med Charlson Score = 1 eller 2 [^src9] ([[aarhus-universitetshospital|Aarhus Universitetshospital]], [[indikator-9b|Indikator 9b]])
+- For perioden 01.09.2023 – 31.08.2024 blev der registreret 10 patienter med død inden for 30 dage efter akut kirurgi ved Aarhus Universitetshospital blandt 37 inkluderede patienter med Charlson Score ≥ 3 [^src9] ([[aarhus-universitetshospital|Aarhus Universitetshospital]], [[indikator-9c|Indikator 9c]])
+- Aarhus Universitetshospital: Andel = 51,1 % (95% CI: 42,4–59,8) i perioden 01.09.2024 – 31.08.2025 [^src20] ([[indikator-2|Indikator 2]], [[aarhus-universitetshospital|Aarhus Universitetshospital]])
+- Aarhus Universitetshospital: 71,5 % (95 % CI: 63,2–78,9) af opererede patienter har fået anlagt epidural i 2024/25 [^src21] ([[indikator-8|Indikator 8]], [[aarhus-universitetshospital|Aarhus Universitetshospital]])
+- Aarhus Universitetshospital er det eneste hospital, der opnår > 60 % andel af epidural ved laparoskopi (61,0 %) [^src17] ([[aarhus-universitetshospital|Aarhus Universitetshospital]], [[epidural]], [[laparoskopi]])
 
 ## Sources
 
@@ -85,3 +90,15 @@ Incoming (this entity is the OBJECT of these relationships):
 [^src8]: AKDB_2024.pdf, pages 61-65
 [^src9]: AKDB_2024.pdf, pages 66-70
 [^src10]: AKDB_2024.pdf, pages 71-75
+[^src11]: AKDB_2025.pdf, pages 6-10
+[^src12]: AKDB_2025.pdf, pages 61-65
+[^src13]: AKDB_2025.pdf, pages 66-70
+[^src14]: AKDB_2025.pdf, pages 71-75
+[^src15]: AKDB_2025.pdf, pages 76-80
+[^src16]: AKDB_2025.pdf, pages 81-85
+[^src17]: AKDB_2025.pdf, pages 86-90
+[^src18]: AKDB_2025.pdf, pages 91-95
+[^src19]: AKDB_2025.pdf, pages 96-100
+[^src20]: AKDB_2025.pdf, pages 11-15
+[^src21]: AKDB_2025.pdf, pages 41-45
+

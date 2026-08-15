@@ -937,6 +937,190 @@
       "signal": "edit-distance",
       "decidedAt": "2026-08-05T19:14:58.847Z",
       "runId": "2026-08-05T19:14:58.847Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundhedsklyngen-slagelse"
+      ],
+      "into": "sundhedsklyngen-slagelese",
+      "signal": "alias",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "standarden"
+      ],
+      "into": "standard",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "supplerende-indikator-hjertesvigt-efter-atrieflimren"
+      ],
+      "into": "hjertesvigtsindikatoren",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "source-reference"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "supplerende-analyser-7"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "indikator"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "lpr-registeret"
+      ],
+      "into": "landspatientregisteret",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "np27547-p-thyrotropin"
+      ],
+      "into": "npu27547-p-thyrotropin",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "klynge-midt"
+      ],
+      "into": "midtklyngen",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "patientundervisning"
+      ],
+      "into": "patientuddannelse",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundhedsvaesenes-kvalitetsinstitut"
+      ],
+      "into": "sundhedsvaesenets-kvalitetsinstitut",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundhedsvaesnets-kvalitetsinstitut"
+      ],
+      "into": "sundhedsvaesenets-kvalitetsinstitut",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundhedsklyngen-slagelese"
+      ],
+      "into": "sundhedsklyngen-slagelse",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundk-s-videncenter"
+      ],
+      "into": "rkkp-videncenter",
+      "signal": "model",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "rkkp-regionernes-kliniske-kvalitetsudviklingsprogram"
+      ],
+      "into": "regionernes-kliniske-kvalitetsudviklingsprogram",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "signe-stelling-risom"
+      ],
+      "into": "signe-risom",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundhedsklynge"
+      ],
+      "into": "sundhedsklynger",
+      "signal": "edit-distance",
+      "decidedAt": "2026-08-14T19:35:12.842Z",
+      "runId": "2026-08-14T19:35:12.842Z"
     }
   ],
   "splits": []

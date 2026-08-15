@@ -4,7 +4,7 @@ type: index
 aliases:
   - Entities
 wiki: rkkp-adhd
-updated: '2026-08-05T19:16:22.494Z'
+updated: '2026-08-15T12:40:51.196Z'
 children:
   - codes/index.md
   - facilities/index.md
@@ -13,20 +13,21 @@ children:
   - people/index.md
   - populations/index.md
   - products/index.md
+  - index.md
 ---
 # Entities
 
-This folder catalogs the concrete, named entities that make up the Danish national ADHD quality monitoring ecosystem. It groups the institutional and physical infrastructure—such as the organizations governing care, the facilities delivering it, and the professionals driving clinical standards—alongside the specific clinical tools, administrative codes, and pharmacological treatments used in daily practice. Together with the demographic cohorts tracked to benchmark diagnostic and educational outcomes, these areas map the entire operational landscape of ADHD assessment and treatment across Denmark.
+This area groups the core named entities that constitute the Danish ADHD healthcare and quality monitoring ecosystem. It encompasses the physical facilities and specialized organizations delivering and governing care, the healthcare professionals operating within them, and the specific patient and general populations being tracked. Additionally, it catalogs the pharmacological treatments, standardized diagnostic assessment products, and clinical process codes used to measure, evaluate, and benchmark national quality indicators for ADHD care across Denmark.
 
 ## Pages
 
-- [[entities/codes/index|Codes]] — Administrative and clinical process markers used to track patient pathways and determine database inclusions.
-- [[entities/facilities/index|Facilities]] — Physical healthcare locations and outpatient departments reporting data to the national quality database.
-- [[entities/medications/index|Medications]] — Pharmacological treatments, including stimulants and non-stimulants, tracked for quality indicators and regional coverage.
-- [[entities/organizations/index|Organizations]] — The institutional landscape of Danish ADHD care, spanning national governance bodies, regional authorities, hospitals, and specialized clinics.
-- [[entities/people/index|People]] — Healthcare professionals and committee members driving the governance, clinical practice, and quality assurance of psychiatric care.
-- [[entities/populations/index|Populations]] — Demographic cohorts and baseline youth populations used to monitor national quality indicators and benchmark educational outcomes.
-- [[entities/products/index|Products]] — Standardized psychiatric assessment instruments and manualized diagnostic interviews used to evaluate patients.
+- [[entities/codes/index|Codes]] — Standardized classification codes and process markers used to track diagnostic conclusions and exclusions within the national registry.
+- [[entities/facilities/index|Facilities]] — Physical healthcare sites, primarily specialized psychiatric outpatient clinics, evaluated for their diagnostic and treatment performance against national quality standards.
+- [[entities/medications/index|Medications]] — Pharmacological substances, including stimulants and non-stimulants, monitored to measure treatment coverage and regional variations in ADHD care.
+- [[entities/organizations/index|Organizations]] — Formal institutions, regional authorities, hospitals, and governance bodies that deliver, manage, and establish clinical standards for ADHD healthcare in Denmark.
+- [[entities/people/index|People]] — Healthcare professionals, including clinical leaders and specialist practitioners, who govern, operate, and deliver ADHD care and manage the national database.
+- [[entities/populations/index|Populations]] — Demographic and clinical cohorts, encompassing both specific ADHD patient groups and general youth baselines, used to evaluate clinical processes and benchmark educational outcomes.
+- [[entities/products/index|Products]] — Diagnostic and assessment instruments, ranging from broad psychiatric tools to specific manualized interviews, utilized to ensure diagnostic certainty in child and adolescent psychiatry.
 
 ## Navigation
 

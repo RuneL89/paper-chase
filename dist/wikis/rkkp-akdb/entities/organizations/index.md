@@ -4,7 +4,7 @@ type: index
 aliases:
   - Organizations
 wiki: rkkp-akdb
-updated: '2026-08-05T20:31:04.401Z'
+updated: '2026-08-15T08:40:05.759Z'
 children:
   - healthcare-administration/index.md
   - healthcare-authority/index.md
@@ -18,32 +18,35 @@ children:
   - medical-research/index.md
   - regional-health-authorities/index.md
   - regions/index.md
+  - index.md
 ---
 # Organizations
 
-This folder catalogs the institutional landscape of the Danish healthcare system, specifically focusing on the organizations that govern, administer, and deliver acute surgical care. It encompasses the national registries, regulatory authorities, and governance bodies that establish clinical quality standards, alongside the individual hospitals and regional health authorities that report data and execute patient care. Together, these entities map the complete organizational ecosystem supporting the Danish Acute Surgery Database (AKDB) and national quality development initiatives.
+This folder maps the institutional ecosystem of the Danish healthcare system as it relates to the Acute Surgery Database and national clinical quality monitoring. It covers the individual hospitals reporting surgical outcomes, the regional authorities organizing care, and the national bodies governing data standards, registries, and oversight. By grouping these entities, the wiki traces the complete chain of organizations—from local hospital departments and professional societies to central steering committees and data authorities—that generate, manage, and act upon clinical healthcare data in Denmark.
 
 ## Pages
 
-- [[entities/organizations/healthcare-administration/index|Healthcare Administration]] — Administrative and technical bodies that establish methodological standards and analytical guidelines for national health registries.
-- [[entities/organizations/healthcare-authority/index|Healthcare Authority]] — National regulatory agencies that govern healthcare data standards and approve clinical coding for quality reporting.
-- [[entities/organizations/healthcare-databases/index|Healthcare Databases]] — Core national clinical quality databases and foundational registries used to track surgical outcomes and patient pathways.
-- [[entities/organizations/healthcare-governance/index|Healthcare Governance]] — Steering groups and quality committees that oversee clinical indicator development and database management.
-- [[entities/organizations/healthcare-organizations/index|Healthcare Organizations]] — Central knowledge centers and institutional bodies that administer national clinical quality programs and coordinate data submissions.
-- [[entities/organizations/healthcare-oversight/index|Healthcare Oversight]] — National institutes dedicated to monitoring healthcare delivery, defining quality indicators, and publishing benchmarking reports.
-- [[entities/organizations/healthcare-systems/index|Healthcare Systems]] — Digital infrastructure and registration systems used to extract and report clinical data across the healthcare sector.
-- [[entities/organizations/hospitals/index|Hospitals]] — Individual hospitals and hospital groups participating in national quality monitoring, detailing their clinical performance and data quality.
-- [[entities/organizations/medical-professional-bodies/index|Medical Professional Bodies]] — National and international medical associations that provide clinical guidelines informing acute surgical practices and quality indicators.
-- [[entities/organizations/medical-research/index|Medical Research]] — Clinical research initiatives and cohort studies that provide the empirical evidence base for national surgical quality indicators.
-- [[entities/organizations/regional-health-authorities/index|Regional Health Authorities]] — The five administrative regional bodies responsible for healthcare delivery and geographical data reporting in Denmark.
-- [[entities/organizations/regions/index|Regions]] — Aggregate statistical entities for the five Danish regions, consolidating hospital data for national benchmarking and risk adjustment.
+- [[entities/organizations/healthcare-administration/index|Healthcare Administration]] — Administrative and technical working groups that standardize healthcare data definitions and methodologies for national registries.
+- [[entities/organizations/healthcare-authority/index|Healthcare Authority]] — Regulatory bodies like the Danish Health Data Authority that approve medical codes and validate data quality for clinical indicators.
+- [[entities/organizations/healthcare-databases/index|Healthcare Databases]] — Core national and clinical registries, including the Acute Surgery Database and foundational patient and medication registers.
+- [[entities/organizations/healthcare-governance/index|Healthcare Governance]] — Steering committees and quality-improvement teams that oversee clinical standards and drive national initiatives for acute surgery.
+- [[entities/organizations/healthcare-organizations/index|Healthcare Organizations]] — Formal institutions and central programs, such as RKKP, that manage and publish clinical quality databases across Danish regions.
+- [[entities/organizations/healthcare-oversight/index|Healthcare Oversight]] — National institutes responsible for evaluating, publishing, and ensuring the quality of healthcare services and clinical database reporting.
+- [[entities/organizations/healthcare-systems/index|Healthcare Systems]] — Technical infrastructure and national reporting systems used to extract and submit clinical data, including their operational limitations.
+- [[entities/organizations/hospitals/index|Hospitals]] — Individual Danish hospitals and hospital networks reporting acute surgery performance metrics, mortality outcomes, and process indicator compliance.
+- [[entities/organizations/medical-professional-bodies/index|Medical Professional Bodies]] — National and international medical societies providing clinical guidelines, expert consultations, and quality development frameworks.
+- [[entities/organizations/medical-research/index|Medical Research]] — Clinical studies and research initiatives that provide the foundational evidence supporting the registry's quality indicators.
+- [[entities/organizations/regional-health-authorities/index|Regional Health Authorities]] — The five Danish regional health authorities responsible for organizing acute surgical care and reporting regional performance variations.
+- [[entities/organizations/regions/index|Regions]] — Aggregate geographical and administrative data pages compiling regional totals for surgical volumes, demographics, and mortality rates.
 
 ## Navigation
 
 - Parent: [[entities/index|Entities]]
 - Sibling: [[entities/codes/index|Codes]]
 - Sibling: [[entities/databases/index|Databases]]
+- Sibling: [[entities/indicators/index|Indicators]]
 - Sibling: [[entities/locations/index|Locations]]
+- Sibling: [[entities/medical-conditions/index|Medical Conditions]]
 - Sibling: [[entities/medical-procedures/index|Medical Procedures]]
 - Sibling: [[entities/people/index|People]]
 - Sibling: [[entities/scores/index|Scores]]

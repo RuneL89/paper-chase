@@ -2,18 +2,16 @@
 title: standarden
 type: entity
 wiki: rkkp-afdk
-updated: '2026-08-05T21:15:29.114Z'
+updated: '2026-08-14T21:10:56.964Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: 51-55
 tags:
   - policy
 ---
-**Standarden** is a clinical quality policy target established within the Danish healthcare system's annual atrial fibrillation reporting framework. Specifically, it defines the maximum acceptable threshold for a severe adverse event: the incidence of intracranial bleeding among prevalent patients diagnosed with atrial fibrillation. The established limit for this standard is strictly set at ≤ 0.6% [^src1].
+**Standarden** (the standard) refers to the specific policy threshold established for [[indikator-6|Indikator 6]] within the Danish healthcare system's quality measurement framework. It sets the maximum acceptable incidence rate of intracranial bleeding among prevalent patients with atrial fibrillation at ≤ 0.6% [^src1]. This metric is a critical component of the annual "Atrial Fibrillation in Denmark" report published by the Regions' Clinical Quality Development Programme (RKKP), which evaluates the safety of anticoagulation treatments using data from the Danish National Patient Registry (Landspatientregisteret). 
 
-This policy is directly applied to [[indikator-6|Indikator 6]], a key performance indicator that evaluates the safety of anticoagulation treatments by tracking these specific bleeding complications [^src1]. The indicator relies on data from the Danish National Patient Register (Landspatientregisteret), utilizing specific diagnosis codes to monitor patient safety across different treatment types (such as DOACs versus Marevan) and risk profiles (CHA2DS2-VASc) [^src1]. The standard serves as a critical benchmark for clinical practice and safety profiling within the broader quality measurement framework governed by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP).
-
-In the most recent assessment, the ≤ 0.6% safety standard was successfully achieved. The data confirmed that the target was met not only at the aggregate national level but also individually within all Danish regions, indicating uniform adherence to the safety policy across the country [^src1].
+The primary purpose of this standard is to ensure patient safety while managing stroke risk in atrial fibrillation populations. According to the report's findings, the ≤ 0.6% threshold for Indikator 6 was successfully met both at the national level and across all individual regions [^src1]. This indicates that current clinical practices and anticoagulation management strategies are effectively keeping severe bleeding complications below the mandated policy limit.
 
 ## Mentions
 - Page 51: "Standard ≤ 0,6%" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 51-55)

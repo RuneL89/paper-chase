@@ -2410,3 +2410,18 @@
   Result: COMPLIANT — user-directed extension implemented.
   Tests: pending (npm test + npx tsc --noEmit to be run before closeout).
   Checked By: Main agent
+
+[2026-08-15] Phase 24 Live UAT Acceptance
+  Changed: `.state/phase-24-status.json` (UAT section updated to 7 passed / 1 pending), runtime wiki outputs in `dist/wikis/` refreshed for rkkp-adhd, rkkp-afdk, rkkp-akdb, rkkp-danibd; new 2025 report PDFs and synthesized document pages for rkkp-afdk, rkkp-akdb, rkkp-danibd; `dist/wikis/cross-wiki/` artifacts regenerated (37 entities, 133 edges, 10 topic clusters, 5 hypothesis signals)
+  Vision Docs Checked: `Implementation Plan/PHASE_24_cross_wiki_discovery.md` §4 UATs 24.1–24.8
+  Verification:
+    - UAT 24.1: 37 multi-wiki entities in `dist/wikis/cross-wiki/entities.md`; sample member pages cite sources in frontmatter.
+    - UAT 24.2: 128/133 relationship edges qualify; `relationships.md` contains path-qualified wikilinks.
+    - UAT 24.3: 10 multi-wiki topic clusters; cluster pages have `members` frontmatter, no `sources` frontmatter, and link to member topics.
+    - UAT 24.5: No uncertain candidates produced; none appear in `entities.md` (vacuous pass).
+    - UAT 24.6: 120 canonical predicate groups in `predicate-map.json`; all graph predicates canonicalized.
+    - UAT 24.7: 5/5 hypothesis signals span ≥2 wikis with confidence and evidence pointers.
+    - UAT 24.8 (partial): Fingerprint covers all 4 wikis and 850 content pages; actual skip-on-unchanged not destructively re-run.
+    - UAT 24.4 (LLM-failure fallback) not destructively tested.
+  Result: COMPLIANT — live UATs accepted by user; remaining UAT 24.4 and 24.8 full skip are deferred watch-items.
+  Checked By: Main agent (orchestrator)

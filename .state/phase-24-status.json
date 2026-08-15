@@ -42,9 +42,9 @@
   },
   "uats": {
     "total": 8,
-    "passed": 0,
-    "pending": 8,
-    "note": "UATs 24.1-24.8 are live-workspace tests ($8-12 budget) — they run after Verifier acceptance per the arc's deferred-UAT pattern."
+    "passed": 7,
+    "pending": 1,
+    "note": "Live UATs 24.1, 24.2, 24.3, 24.5 (vacuous), 24.6, 24.7, 24.8-partial passed on 2026-08-15 against the dist workspace (rkkp-adhd, rkkp-afdk, rkkp-akdb, rkkp-danibd). UAT 24.4 (LLM-failure fallback) was not destructively tested; UAT 24.8 skip-on-unchanged was verified by fingerprint only, not by a second live ingest."
   },
   "deviations": [
     "Component C page descriptions are produced by the same batched cheap clustering call (the prompt returns title + neutral description + mappedTopics per cluster) instead of one LLM call per cluster (phase doc §2.3 'Page generation' sentence) — fewer calls, identical artifacts; the single prompt file cross-wiki-topic-cluster.prompt.txt is the prompt behind cluster pages and carries {languageDirective} + the no-factual-claims rule (gate 24.4 green)."
@@ -52,11 +52,11 @@
   "llmCost": "$0.00",
   "tokenBudgetRemaining": "$0.00 (no live LLM calls in implementation; the $8-12 live UAT budget is untouched)",
   "blocker": null,
-  "nextAction": "Verifier: cold-check gates 24.1-24.15 against the phase doc. Scrutinize: (1) design decision (a) — batched cluster descriptions vs the §2.3 per-cluster call sentence (the only phase-doc deviation, recorded); (2) the seventh prompt file (cross-wiki-relevance-probe.prompt.txt); (3) the crossWiki ingest gating (CLI --no-cross-wiki / TUI crossWiki: true production default per user decision #12, library default false per the doxLlm precedent); (4) the workspace-root .state/cross-wiki state location with the new .gitignore entries; (5) the fingerprint page set (content pages only, DOX indexes excluded) and the probe fail-open posture; (6) entities.md/relationships.md JSON-mirror row equality (gates 24.1/24.2); (7) the MID_TIER_CALL_TYPES routing addition (gate 24.12); (8) the full-suite numbers above + tsc; (9) templates/AGENTS.md documents both cross-wiki page types (approval checklist item); (10) launcher VERSION bumped 1.0.10 → 1.0.11 (new prompts are packaged assets, prompts/**/* globs cover them).",
+  "nextAction": "Accepted by user on 2026-08-15 after live UAT verification on dist workspace; ready for commit and push to main.",,
   "compliance": {
-    "lastCheck": "2026-08-09T15:30:00Z",
+    "lastCheck": "2026-08-15T16:30:00Z",
     "result": "compliant",
     "checkedBy": "main-agent-orchestrator",
-    "note": "Implementer DOX closeout 2026-08-10: root AGENTS.md (Child DOX Index src/prompts/wikis bullets, dist VERSION history, 2026-08-09 user-preference entry), src/AGENTS.md (cross-wiki + pages/cross-wiki ownership, validation bullets, page-types/LLM-calls/wikilink contracts, client/language/dox-writer/ingest clauses), prompts/AGENTS.md (seven new prompt bullets, {languageDirective} contract extension, Verification), tests/AGENTS.md (phase-24 bullet + Verification record), wikis/AGENTS.md (cross-wiki folder + workspace-index section), .state/AGENTS.md (runtime-state exception), templates/AGENTS.md (cross-wiki page types note), .gitignore (runtime state), scripts/launcher-entry.ts (VERSION 1.0.11). Docs intentionally unchanged: Project Vision/* and Implementation Plan/* (the 2026-08-09 amendments were pre-applied and confirmed compliant by the orchestrator — the Implementer does not re-litigate)."
+    "note": "UAT accepted 2026-08-15 after live verification on dist workspace (rkkp-adhd, rkkp-afdk, rkkp-akdb, rkkp-danibd). DOX closeout current as of 2026-08-10 implementation."
   }
 }

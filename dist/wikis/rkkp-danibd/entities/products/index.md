@@ -4,17 +4,18 @@ type: index
 aliases:
   - Products
 wiki: rkkp-danibd
-updated: '2026-08-05T07:46:54.766Z'
+updated: '2026-08-15T07:52:56.747Z'
 children:
   - health-it/index.md
+  - index.md
 ---
 # Products
 
-This folder groups commercial and digital products utilized within the Danish healthcare system, specifically focusing on tools and therapies for Inflammatory Bowel Disease (IBD). It currently contains a single sub-folder dedicated to health IT, which catalogs a remote patient monitoring application and several modern pharmaceutical treatments. These pharmaceutical entries document new administrative tracking codes assigned in the Danish National Patient Registry in 2024 to facilitate precise national quality evaluation and outcome monitoring.
+This area catalogs tangible and digital health-related artifacts used within the Danish healthcare system, specifically focusing on tools and therapies for Inflammatory Bowel Disease (IBD). It groups digital monitoring applications and modern pharmaceutical treatments, highlighting how these products are tracked and integrated into national clinical quality reporting through new administrative registry codes.
 
 ## Pages
 
-- [[entities/products/health-it/index|Health It]] — Digital health applications and modern pharmaceutical therapies for IBD, including recent registry coding updates for national quality tracking.
+- [[entities/products/health-it/index|Health It]] — Digital health applications and pharmaceutical IBD treatments, including remote monitoring tools and modern drugs integrated into the Danish National Patient Register.
 
 ## Navigation
 

@@ -1,0 +1,147 @@
+{
+  "generated": "2026-08-15T13:19:57.939Z",
+  "hypotheses": [
+    {
+      "summary": "Amager og Hvidovre Hospital exhibits extreme cross-domain performance divergence, failing Indikator 1 for atrial fibrillation while simultaneously exemplifying best practice for Indikator 9 in acute surgery, maintaining the highest epidural rate, and registering the highest number of IBD patients receiving biological treatments.",
+      "type": "cross-domain-performance-divergence",
+      "confidence": "high",
+      "entities": [
+        "amager-og-hvidovre-hospital"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "evidence": [
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "amager-og-hvidovre-hospital → exemplifies-best-practice-for → indikator-9"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "amager-og-hvidovre-hospital → has-highest-epidural-rate-for → indikator-8"
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "topicCluster": "performance"
+        }
+      ]
+    },
+    {
+      "summary": "ASA-score is explicitly compared across all five Danish regions within the contexts of both acute surgery and IBD, suggesting that regional disparities in patient comorbidity profiles are a recognized cross-domain factor in evaluating clinical quality and outcomes.",
+      "type": "cross-domain-regional-comparison",
+      "confidence": "high",
+      "entities": [
+        "danmark"
+      ],
+      "wikis": [
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "evidence": [
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "asa-score → is-compared-across → region-hovedstaden"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "asa-score → is-compared-across → region-midtjylland"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "danmark → contains-region → region-hovedstaden"
+        }
+      ]
+    },
+    {
+      "summary": "Landspatientregisteret serves as the foundational data source for identifying patients and calculating indicators across the ADHD, AFDK, AKDB, and DANIBD databases, meaning any systemic coding errors or extraction delays in LPR would simultaneously compromise national quality monitoring across all four distinct clinical domains.",
+      "type": "systemic-data-dependency",
+      "confidence": "high",
+      "entities": [
+        "landspatientregisteret"
+      ],
+      "wikis": [
+        "rkkp-adhd",
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "evidence": [
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "landspatientregisteret → provides-data-for → akut-kirurgi-databasen"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "landspatientregisteret → provides-codes-for → indikator-10"
+        },
+        {
+          "wiki": "rkkp-adhd",
+          "topicCluster": "data-quality"
+        }
+      ]
+    },
+    {
+      "summary": "Regionshospital Nordjylland questions the application of SKS-koden NAAZ42 and identifies data inconsistencies in Indikator 10, while Landspatientregisteret is the national registry hosting this code and providing data for the indicator, highlighting a potential friction point between local hospital auditing and national registry coding standards.",
+      "type": "coding-standard-friction",
+      "confidence": "high",
+      "entities": [
+        "regionshospital-nordjylland",
+        "landspatientregisteret"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "evidence": [
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "regionshospital-nordjylland → questions-code-application-for → sks-kode-naaz42"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "landspatientregisteret → hosts-code-for → sks-kode-naaz42"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "regionshospital-nordjylland → identifies-data-inconsistency-in → indikator-10"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "landspatientregisteret → provides-codes-for → indikator-10"
+        }
+      ]
+    },
+    {
+      "summary": "Styregruppen, Regionernes Kliniske Kvalitetsudviklingsprogram, and Sundhedsvæsenets Kvalitetsinstitut collectively govern, administer, and publish reports across the ADHD, AFDK, AKDB, and DANIBD databases, revealing a highly centralized national apparatus for clinical quality monitoring.",
+      "type": "centralized-governance",
+      "confidence": "high",
+      "entities": [
+        "styregruppen",
+        "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "sundhedsvaesenets-kvalitetsinstitut"
+      ],
+      "wikis": [
+        "rkkp-adhd",
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "evidence": [
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "styregruppen → governs → akut-kirurgi-databasen"
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "relationship": "sundhedsvaesenets-kvalitetsinstitut → publishes → akut-kirurgi-databasen"
+        },
+        {
+          "wiki": "rkkp-adhd",
+          "topicCluster": "governance"
+        }
+      ]
+    }
+  ]
+}

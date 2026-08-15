@@ -4,21 +4,22 @@ type: index
 aliases:
   - Healthcare Metrics
 wiki: rkkp-akdb
-updated: '2026-08-05T20:57:16.642Z'
+updated: '2026-08-15T09:12:58.124Z'
 children:
   - demographics/index.md
 ---
 # Healthcare Metrics
 
-This area groups metrics used to evaluate and analyze healthcare delivery, specifically focusing on the demographic characteristics of patient populations. It currently covers demographic variables such as patient age, detailing how these factors are tracked in clinical databases and analyzed to identify variations across Denmark's regional health authorities.
+This area groups metrics used to analyze and assess healthcare quality, performance, and patient populations within the corpus. It currently focuses on demographic variables, specifically tracking patient characteristics like age to evaluate variations and surgical outcomes across different regions in the Danish healthcare system.
 
 ## Pages
 
-- [[topics/healthcare-metrics/demographics/index|Demographics]] — Demographic variables tracked in healthcare metrics, including analyses of patient age distributions and regional boxplot comparisons.
+- [[topics/healthcare-metrics/demographics/index|Demographics]] — Demographic variables such as patient age used for healthcare analysis, including regional comparisons across Denmark's five regions.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/administrative-change/index|Administrative Change]]
 - Sibling: [[topics/administrative-systems/index|Administrative Systems]]
 - Sibling: [[topics/cancer-distribution/index|Cancer Distribution]]
 - Sibling: [[topics/clinical-assessment/index|Clinical Assessment]]
@@ -28,11 +29,13 @@ This area groups metrics used to evaluate and analyze healthcare delivery, speci
 - Sibling: [[topics/clinical-indicators/index|Clinical Indicators]]
 - Sibling: [[topics/clinical-metrics/index|Clinical Metrics]]
 - Sibling: [[topics/clinical-outcome/index|Clinical Outcome]]
+- Sibling: [[topics/clinical-process/index|Clinical Process]]
 - Sibling: [[topics/clinical-quality/index|Clinical Quality]]
 - Sibling: [[topics/clinical-quality-indicators/index|Clinical Quality Indicators]]
 - Sibling: [[topics/coding-uncertainty/index|Coding Uncertainty]]
 - Sibling: [[topics/compliance/index|Compliance]]
 - Sibling: [[topics/data-availability/index|Data Availability]]
+- Sibling: [[topics/data-decision/index|Data Decision]]
 - Sibling: [[topics/data-privacy/index|Data Privacy]]
 - Sibling: [[topics/data-quality/index|Data Quality]]
 - Sibling: [[topics/definition/index|Definition]]
@@ -42,14 +45,18 @@ This area groups metrics used to evaluate and analyze healthcare delivery, speci
 - Sibling: [[topics/evaluation/index|Evaluation]]
 - Sibling: [[topics/evaluative/index|Evaluative]]
 - Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
+- Sibling: [[topics/governance/index|Governance]]
 - Sibling: [[topics/healthcare-performance-indicators/index|Healthcare Performance Indicators]]
 - Sibling: [[topics/inter-hospital-variation/index|Inter Hospital Variation]]
 - Sibling: [[topics/methodological-assessment/index|Methodological Assessment]]
+- Sibling: [[topics/methodological-change/index|Methodological Change]]
 - Sibling: [[topics/performance/index|Performance]]
 - Sibling: [[topics/policy/index|Policy]]
+- Sibling: [[topics/quality-target/index|Quality Target]]
 - Sibling: [[topics/recommendation/index|Recommendation]]
 - Sibling: [[topics/regional-comparison/index|Regional Comparison]]
 - Sibling: [[topics/relevance-assessment/index|Relevance Assessment]]
+- Sibling: [[topics/research-finding/index|Research Finding]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/technical-infrastructure/index|Technical Infrastructure]]
 - Sibling: [[topics/visualizations/index|Visualizations]]

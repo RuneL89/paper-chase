@@ -4,17 +4,18 @@ type: index
 aliases:
   - Standard
 wiki: rkkp-afdk
-updated: '2026-08-05T23:46:06.608Z'
+updated: '2026-08-15T00:52:35.722Z'
 children:
+  - index.md
   - standard.md
 ---
 # Standard
 
-This folder contains the specific clinical quality targets and benchmarks established for the diagnosis, treatment, and monitoring of patients with atrial fibrillation in the Danish healthcare system. Defined and tracked by the AFDK under the RKKP umbrella, these standards serve as the definitive measures of good clinical practice, setting minimum compliance rates for interventions like anticoagulation and echocardiography, as well as maximum acceptable incidence rates for severe outcomes like ischemic stroke and intracranial bleeding.
+This folder contains the conceptual framework for clinical quality standards within the Danish Atrial Fibrillation Database (AFDK). It details the specific quantitative thresholds and target benchmarks established by the AFDK steering group and the Regional Clinical Qualityity Development Program (RKKP) to define good clinical practice. The included page outlines the exact percentage targets for diagnostic tests, treatment initiation and retention, patient education, and maximum acceptable incidence rates for severe adverse events like stroke and bleeding.
 
 ## Pages
 
-- [[standard|Standard]] — Outlines the numerical thresholds and compliance targets for the eight primary clinical indicators governing atrial fibrillation care, including treatment wait times, long-term medication adherence, and patient education.
+- [[standard|Standard]] — Details the exact quantitative thresholds for AFDK's clinical quality indicators, including targets for echocardiography, anticoagulation therapy, and caps on adverse events.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder contains the specific clinical quality targets and benchmarks establ
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -49,12 +55,17 @@ This folder contains the specific clinical quality targets and benchmarks establ
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]
 - Sibling: [[topics/validation/index|Validation]]

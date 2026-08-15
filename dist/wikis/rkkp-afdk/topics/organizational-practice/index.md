@@ -4,17 +4,18 @@ type: index
 aliases:
   - Organizational Practice
 wiki: rkkp-afdk
-updated: '2026-08-05T23:37:50.466Z'
+updated: '2026-08-15T00:39:36.346Z'
 children:
+  - index.md
   - organizational-practice.md
 ---
 # Organizational Practice
 
-This folder documents the structural and operational habits of specialized healthcare providers, particularly regarding patient engagement and education. It centers on the multidisciplinary Atrieflimren-klinik within Hospitalsenhed Midt, illustrating how the clinic has integrated continuous educational initiatives for patients and their families into its foundational operations since 2012.
+This folder covers the structural and operational models used to deliver patient treatment and education within atrial fibrillation care. It documents multidisciplinary approaches, such as specialized hospital clinics maintaining a continuous focus on educating patients and their relatives, as well as collaborative models that integrate external specialists like practicing cardiologists into public healthcare pathways to manage patient volume and ensure comprehensive care.
 
 ## Pages
 
-- [[organizational-practice|Organizational Practice]] — Explores the operational model of the Atrieflimren-klinik, highlighting its sustained commitment to patient and relative education since its establishment.
+- [[organizational-practice|Organizational Practice]] — Details the structural and operational models in atrial fibrillation care, including multidisciplinary clinic approaches to patient education and the integration of practicing cardiologists into public pathways.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder documents the structural and operational habits of specialized healt
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder documents the structural and operational habits of specialized healt
 - Sibling: [[topics/organizational-change/index|Organizational Change]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

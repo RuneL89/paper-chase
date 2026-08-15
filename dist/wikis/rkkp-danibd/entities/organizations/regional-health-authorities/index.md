@@ -4,8 +4,9 @@ type: index
 aliases:
   - Regional Health Authorities
 wiki: rkkp-danibd
-updated: '2026-08-05T07:39:35.766Z'
+updated: '2026-08-15T07:46:44.881Z'
 children:
+  - index.md
   - region-hovedstaden.md
   - region-midtjylland.md
   - region-nordjylland.md
@@ -14,15 +15,15 @@ children:
 ---
 # Regional Health Authorities
 
-This folder contains the five administrative healthcare regions of Denmark that participate in the Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD). Each page details the region's specific patient demographics, diagnostic distributions for inflammatory bowel disease (IBD) and related conditions, and their performance against national quality indicators. The pages also capture each region's formal feedback, operational improvements, and clinical leadership contributions to the national registry's steering committee, with all claims traced back to the DANIBD annual reports.
+This folder catalogs the five Danish administrative regions that participate in the national quality database for inflammatory bowel disease (DANIBD). Each page details a specific region's IBD patient demographics, diagnostic distributions, and clinical workload based on annual registry data. Furthermore, the pages document how each regional health authority performs against national quality indicators and outline their formal feedback, operational challenges, and targeted workflow improvements.
 
 ## Pages
 
-- [[region-hovedstaden|Region Hovedstaden]] — Handles the highest absolute number of IBD cases nationally and provides extensive clinical data and steering committee members to DANIBD.
-- [[region-midtjylland|Region Midtjylland]] — A major contributor to the national IBD patient burden that has actively critiqued specific quality metrics like diagnostic workups and re-operation rates.
-- [[region-nordjylland|Region Nordjylland]] — Tracks regional IBD demographics and has outlined specific workflow changes to improve compliance with patient education and DEXA-scanning indicators.
-- [[region-sjaelland|Region Sjælland]] — Contributes clinical data and leadership to the national registry, with documented regional variations in adult diagnostic workup performance.
-- [[region-syddanmark|Region Syddanmark]] — Demonstrates leading performance in patient education and follow-up quality indicators, and conducts internal audits to drive local clinical improvements.
+- [[region-hovedstaden|Region Hovedstaden]] — Handles the highest national volume of IBD patients and contributes extensive clinical data and steering committee members to DANIBD.
+- [[region-midtjylland|Region Midtjylland]] — Manages a substantial IBD patient cohort and provides constructive criticism on national quality metrics like diagnostic workups and re-operation rates.
+- [[region-nordjylland|Region Nordjylland]] — Registers over 3,500 IBD patients and outlines specific workflow changes to improve performance on patient education and DEXA-scanning indicators.
+- [[region-sjaelland|Region Sjælland]] — Contributes key clinical data and leadership to the DANIBD steering group while demonstrating specific regional variations in adult diagnostic workups.
+- [[region-syddanmark|Region Syddanmark]] — Demonstrates leading performance in meeting national development goals for patient education and follow-up, alongside conducting targeted internal audits.
 
 ## Navigation
 

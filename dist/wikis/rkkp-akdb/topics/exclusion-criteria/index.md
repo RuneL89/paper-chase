@@ -4,21 +4,23 @@ type: index
 aliases:
   - Exclusion Criteria
 wiki: rkkp-akdb
-updated: '2026-08-05T20:56:12.498Z'
+updated: '2026-08-15T09:11:23.187Z'
 children:
   - exclusion-criteria.md
+  - index.md
 ---
 # Exclusion Criteria
 
-This folder documents the systematic exclusion criteria applied within the Akut Kirurgi Databasen to filter patient data before calculating clinical quality indicators like Indikator 1 and Indikator 10. The enclosed page details how demographic, administrative, and clinical factors—such as invalid CPR numbers, age under 18, inactive civil registration status, and specific Charlson Comorbidity Index scores—are used to omit irrelevant or inaccurately documented cases. By tracking thousands of these omitted cases, the database maintains the statistical integrity of its surgical outcome assessments.
+This folder documents the exclusion criteria applied to patient cohorts within the Danish Acute Surgery Database (AKDB). It details the specific clinical and administrative reasons patients are removed from indicator calculations, such as invalid CPR numbers, age under 18, lack of surgical intervention, or specific Charlson Comorbidity Index scores. By tracking these exact exclusion counts, the database ensures that quality indicators and outcome metrics are evaluated only on the appropriate target populations.
 
 ## Pages
 
-- [[exclusion-criteria|Exclusion Criteria]] — Details the demographic, administrative, and clinical comorbidity filters used to exclude patients from acute surgery quality indicator calculations.
+- [[exclusion-criteria|Exclusion Criteria]] — Details the specific reasons and exact patient counts excluded from AKDB clinical indicator calculations, such as invalid CPR numbers, age under 18, and Charlson Comorbidity Index thresholds.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/administrative-change/index|Administrative Change]]
 - Sibling: [[topics/administrative-systems/index|Administrative Systems]]
 - Sibling: [[topics/cancer-distribution/index|Cancer Distribution]]
 - Sibling: [[topics/clinical-assessment/index|Clinical Assessment]]
@@ -28,11 +30,13 @@ This folder documents the systematic exclusion criteria applied within the Akut 
 - Sibling: [[topics/clinical-indicators/index|Clinical Indicators]]
 - Sibling: [[topics/clinical-metrics/index|Clinical Metrics]]
 - Sibling: [[topics/clinical-outcome/index|Clinical Outcome]]
+- Sibling: [[topics/clinical-process/index|Clinical Process]]
 - Sibling: [[topics/clinical-quality/index|Clinical Quality]]
 - Sibling: [[topics/clinical-quality-indicators/index|Clinical Quality Indicators]]
 - Sibling: [[topics/coding-uncertainty/index|Coding Uncertainty]]
 - Sibling: [[topics/compliance/index|Compliance]]
 - Sibling: [[topics/data-availability/index|Data Availability]]
+- Sibling: [[topics/data-decision/index|Data Decision]]
 - Sibling: [[topics/data-privacy/index|Data Privacy]]
 - Sibling: [[topics/data-quality/index|Data Quality]]
 - Sibling: [[topics/definition/index|Definition]]
@@ -41,15 +45,19 @@ This folder documents the systematic exclusion criteria applied within the Akut 
 - Sibling: [[topics/demographic/index|Demographic]]
 - Sibling: [[topics/evaluation/index|Evaluation]]
 - Sibling: [[topics/evaluative/index|Evaluative]]
+- Sibling: [[topics/governance/index|Governance]]
 - Sibling: [[topics/healthcare-metrics/index|Healthcare Metrics]]
 - Sibling: [[topics/healthcare-performance-indicators/index|Healthcare Performance Indicators]]
 - Sibling: [[topics/inter-hospital-variation/index|Inter Hospital Variation]]
 - Sibling: [[topics/methodological-assessment/index|Methodological Assessment]]
+- Sibling: [[topics/methodological-change/index|Methodological Change]]
 - Sibling: [[topics/performance/index|Performance]]
 - Sibling: [[topics/policy/index|Policy]]
+- Sibling: [[topics/quality-target/index|Quality Target]]
 - Sibling: [[topics/recommendation/index|Recommendation]]
 - Sibling: [[topics/regional-comparison/index|Regional Comparison]]
 - Sibling: [[topics/relevance-assessment/index|Relevance Assessment]]
+- Sibling: [[topics/research-finding/index|Research Finding]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/technical-infrastructure/index|Technical Infrastructure]]
 - Sibling: [[topics/visualizations/index|Visualizations]]

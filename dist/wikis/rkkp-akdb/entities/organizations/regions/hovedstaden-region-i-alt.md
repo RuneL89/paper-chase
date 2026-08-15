@@ -4,88 +4,48 @@ type: entity
 aliases:
   - Hovedstaden Region i alt
 wiki: rkkp-akdb
-updated: '2026-08-05T19:05:55.435Z'
+updated: '2026-08-15T06:25:59.353Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '56-60, 71-75'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '61-65, 71-75'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: '61-65, 76-80, 86-90, 91-95, 96-100'
 tags:
   - organization
 ---
-**Hovedstaden Region i alt** (Capital Region Total) is the aggregate statistical and reporting entity for the Capital Region of [[danmark|Danmark]] within the national clinical quality databases for acute surgery. It functions as the comprehensive data unit that consolidates patient records from all major hospitals in the region, enabling national-level analysis of patient composition, comorbidities, and cancer distribution among acutely operated patients.
-
-As a structural component of the [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] (RKKP), this regional aggregate is essential for benchmarking and evaluating clinical quality indicators [^src1]. The data compiled under this entity directly supports the assessment of critical metrics, such as 30-day and 90-day postoperative mortality, particularly for vulnerable cohorts like patients with high comorbidity (Charlson Comorbidity Index ≥ 3) and those with concurrent cancer diagnoses. The aggregated statistics are central to the annual reports of the Acute Surgery Database (AKDB), specifically covering periods such as September 1, 2022, to August 31, 2023.
-
-In terms of clinical demographics, the aggregate unit provides detailed breakdowns of cancer prevalence among surgical patients. For instance, in the 2023 reporting cycle, the region recorded 1,095 operated patients, of which 54 (1.71%) had gastrointestinal cancers, 4 (0.13%) had gynecological cancers, 19 (0.60%) had other types of cancer, and 1,018 (32.31%) had no cancer diagnosis [^src1]. Broader demographic and age-distribution tables also track the region's total surgical volume, noting 1,294 cases in one 2023 dataset [^src2] and 1,296 cases in the subsequent 2024 publication [^src4]. Furthermore, the entity aggregates specific mortality outcomes and confidence intervals for risk-adjusted indicators [^src3].
-
-The regional total is composed of data submitted by its constituent hospital units. These include [[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]], [[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]], [[bornholms-hospital|Bornholms Hospital]], [[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]], and [[rigshospitalet|Rigshospitalet]], all of which are listed under this regional umbrella in national quality tables [^src1].
 
 ## Mentions
 
-- Page 56: "Hovedstaden Region i alt" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60)
-- Page 71: "Hovedstaden Region i alt 1.294 100,0 53,00 69,00 64,26 78,00" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 71-75)
-- Page 61: "Hovedstaden Region i alt 36 / 421 0 (0) 8,6 (6,1-11,6) 6,1 6,7" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 61-65)
-- Page 71: "Hovedstaden Region i alt 1.296 100,0 53,50 69,00 64,28 78,00" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 71-75)
+- Page 56: "Hovedstaden Region i alt" [^src1]
+- Page 71: "Hovedstaden Region i alt 1.294 100,0 53,00 69,00 64,26 78,00" [^src2]
+- Page 61: "Hovedstaden Region i alt 36 / 421 0 (0) 8,6 (6,1-11,6) 6,1 6,7" [^src3]
+- Page 71: "Hovedstaden Region i alt 1.296 100,0 53,50 69,00 64,28 78,00" [^src4]
+- Page 61: "Hovedstaden Region i alt 971 102 182 336" [^src5]
+- Page 62: "Hovedstaden Region i alt 2.622 100,00 1.013 38,63 1.609 61,37" [^src5]
+- Page 63: "Hovedstaden 19 / 440 0 (0) 4,3 (2,6-6,7) 8,5 6,0" [^src5]
+- Page 76: "Hovedstaden 8 / 80 0 (0) 10,0 (4,4-18,8) 16,9 22,5" [^src6]
+- Page 86: "Hovedstaden Ja 313 / 438 0 (0) 71,5 (67,0-75,6) 63,7 71,1" [^src7]
+- Page 88: "Hovedstaden Nej 267 / 575 0 (0) 46,4 (42,3-50,6) 43,9 43,7" [^src7]
+- Page 91: "Hovedstaden Region i alt 1.013 100,00 438 43,24 575 56,76" [^src8]
+- Page 97: "Hovedstaden | Region | i | alt | 0.00 | 4.00 | 8.00 | 20.00" [^src9]
+- Page 98: "Hovedstaden | Region | i | alt | 0.00 | 4.00 | 8.00 | 17.00" [^src9]
+- Page 99: "Hovedstaden | Region | i | alt | 0.00 | 5.00 | 9.00 | 18.00" [^src9]
 
 ## Relationships
 
-Outgoing (this entity is the SUBJECT of these relationships):
-- Subject: hovedstaden-region-i-alt
-  Predicate: is-part-of
-  Object: regionernes-kliniske-kvalitetsudviklingsprogram
-  Evidence: "Hovedstaden Region i alt er en del af Regionernes Kliniske Kvalitetsudviklingsprogram"
-  Page: 56
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60
-
-Incoming (this entity is the OBJECT of these relationships):
-- Subject: amager-og-hvidovre-hospital
-  Predicate: is-part-of
-  Object: (this entity)
-  Evidence: "Amager og Hvidovre Hospital er listet under Hovedstaden Region i alt i tabellen"
-  Page: 56
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60
-- Subject: bispebjerg-og-frederiksberg-hospitaler
-  Predicate: is-part-of
-  Object: (this entity)
-  Evidence: "Bispebjerg og Frederiksberg Hospitaler er listet under Hovedstaden Region i alt i tabellen"
-  Page: 56
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60
-- Subject: bornholms-hospital
-  Predicate: is-part-of
-  Object: (this entity)
-  Evidence: "Bornholms Hospital er listet under Hovedstaden Region i alt i tabellen"
-  Page: 56
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60
-- Subject: herlev-og-gentofte-hospital
-  Predicate: is-part-of
-  Object: (this entity)
-  Evidence: "Herlev og Gentofte Hospital er listet under Hovedstaden Region i alt i tabellen"
-  Page: 56
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60
-- Subject: rigshospitalet
-  Predicate: is-part-of
-  Object: (this entity)
-  Evidence: "Rigshospitalet er listet under Hovedstaden Region i alt i tabellen"
-  Page: 56
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60
-- Subject: danmark
-  Predicate: has-subregion
-  Object: (this entity)
-  Evidence: "Danmark 9.906 100,00 ... Hovedstaden Region i alt 2.794 100,00"
-  Page: 61
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 61-65
+- [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] — Is Part Of [^src1]
+- [[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]] — Is Part Of (incoming) — "Amager og Hvidovre Hospital er listet under Hovedstaden Region i alt i tabellen" [^src1]
+- [[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]] — Is Part Of (incoming) — "Bispebjerg og Frederiksberg Hospitaler er listet under Hovedstaden Region i alt i tabellen" [^src1]
+- [[bornholms-hospital|Bornholms Hospital]] — Is Part Of (incoming) — "Bornholms Hospital er listet under Hovedstaden Region i alt i tabellen" [^src1]
+- [[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]] — Is Part Of (incoming) — "Herlev og Gentofte Hospital er listet under Hovedstaden Region i alt i tabellen" [^src1]
+- [[rigshospitalet|Rigshospitalet]] — Is Part Of (incoming) — "Rigshospitalet er listet under Hovedstaden Region i alt i tabellen" [^src1]
+- [[danmark|Danmark]] — Has Subregion (incoming) — "Danmark 9.906 100,00 ... Hovedstaden Region i alt 2.794 100,00" [^src3]
 
 ## Claims
 
-- Hovedstaden Region i alt: 1.095 opererede patienter, hvoraf 54 (1,71 %) havde gastrointestinale kræftsygdomme, 4 (0,13 %) gynækologiske kræftsygdomme, 19 (0,60 %) resten af kræftsygdomme og 1.018 (32,31 %) ingen kræftdiagnose [^src1] (hovedstaden-region-i-alt)
-  Type: cancer-distribution
-  Page: 56
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60
-
-## Timeline
-
-(none)
+- Hovedstaden Region i alt: 1.095 opererede patienter, hvoraf 54 (1,71 %) havde gastrointestinale kræftsygdomme, 4 (0,13 %) gynækologiske kræftsygdomme, 19 (0,60 %) resten af kræftsygdomme og 1.018 (32,31 %) ingen kræftdiagnose [^src1] ([[hovedstaden-region-i-alt|Hovedstaden Region i alt]])
 
 ## Sources
 
@@ -93,3 +53,9 @@ Incoming (this entity is the OBJECT of these relationships):
 [^src2]: AKDB_2023.pdf, pages 71-75
 [^src3]: AKDB_2024.pdf, pages 61-65
 [^src4]: AKDB_2024.pdf, pages 71-75
+[^src5]: AKDB_2025.pdf, pages 61-65
+[^src6]: AKDB_2025.pdf, pages 76-80
+[^src7]: AKDB_2025.pdf, pages 86-90
+[^src8]: AKDB_2025.pdf, pages 91-95
+[^src9]: AKDB_2025.pdf, pages 96-100
+

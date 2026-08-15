@@ -4,17 +4,18 @@ type: index
 aliases:
   - Gastrointestinal
 wiki: rkkp-danibd
-updated: '2026-08-05T07:53:19.174Z'
+updated: '2026-08-15T07:59:00.118Z'
 children:
   - dk912b-korttarmssyndrom.md
+  - index.md
 ---
 # Gastrointestinal
 
-This folder catalogs specific diagnosis codes for gastrointestinal conditions tracked within the Danish national quality database for inflammatory bowel diseases (DANIBD). It currently documents the coding and epidemiological tracking of short bowel syndrome, a severe complication of IBD, providing exact patient counts and quality monitoring data extracted from recent national annual reports.
+This folder contains diagnosis codes related to gastrointestinal conditions tracked within the Danish Quality Database for Inflammatory Bowel Disease (DANIBD). Currently, it holds a single page detailing the WHO-classified code for short bowel syndrome, recognized as a severe complication of inflammatory bowel disease. The documented code illustrates how national registry appendices capture specific patient counts to monitor epidemiological data, evaluate surgical interventions, and benchmark clinical quality indicators across annual reporting periods.
 
 ## Pages
 
-- [[dk912b-korttarmssyndrom|DK912B Korttarmssyndrom]] — Documents the WHO-classified code for short bowel syndrome, including its role in DANIBD's quality monitoring and specific patient count data from the 2023 and 2024 annual reports.
+- [[dk912b-korttarmssyndrom|DK912B Korttarmssyndrom]] — Details the WHO-classified diagnosis code for short bowel syndrome and its use in DANIBD registry tables to track patient counts and benchmark IBD care.
 
 ## Navigation
 

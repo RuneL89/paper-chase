@@ -4,19 +4,20 @@ type: index
 aliases:
   - Cities
 wiki: rkkp-afdk
-updated: '2026-08-05T22:50:20.469Z'
+updated: '2026-08-14T23:39:14.338Z'
 children:
   - aarhus.md
+  - index.md
   - toender.md
 ---
 # Cities
 
-This folder catalogs specific Danish cities and municipalities tracked in the Danish Atrial Fibrillation Database (AFDK) annual reports. Each page details the local area's performance on clinical quality indicators, such as ischemic stroke complications and anticoagulation treatment adherence among atrial fibrillation patients. These geographic profiles enable regional benchmarking and guide targeted healthcare quality improvements across Denmark.
+This folder catalogs specific Danish cities that serve as geographic units for evaluating clinical quality and patient outcomes in the national atrial fibrillation registries. The pages detail municipal-level benchmarking data from the Danish Atrial Fibrillation Database (AFDK) annual reports, tracking critical indicators like ischemic stroke and intracranial hemorrhage rates. By isolating these urban centers, the corpus provides targeted insights into local healthcare performance and the effectiveness of regional treatment strategies.
 
 ## Pages
 
-- [[aarhus|Århus]] — A municipality in the Central Denmark Region evaluated for AFDK clinical indicators, including ischemic stroke rates and early anticoagulation treatment.
-- [[toender|Tønder]] — A town and municipality in the Region of Southern Denmark tracked for atrial fibrillation patient outcomes and complication metrics.
+- [[aarhus|Århus]] — A city in the Central Denmark Region with documented municipal-level metrics on ischemic stroke and treatment adherence for atrial fibrillation patients.
+- [[toender|Tønder]] — A town in the Region of Southern Denmark tracked for clinical quality indicators, including specific complication rates and anticoagulation outcomes.
 
 ## Navigation
 

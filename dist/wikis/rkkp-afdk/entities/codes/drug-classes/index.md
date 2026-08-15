@@ -4,17 +4,18 @@ type: index
 aliases:
   - Drug Classes
 wiki: rkkp-afdk
-updated: '2026-08-05T22:42:14.340Z'
+updated: '2026-08-14T23:29:47.288Z'
 children:
   - b01aa.md
+  - index.md
 ---
 # Drug Classes
 
-This folder contains Anatomical Therapeutic Chemical (ATC) classification codes for specific drug classes tracked within the Danish healthcare system's clinical quality databases. These codes are essential for standardizing data collection on pharmacological treatments, such as oral anticoagulation therapy, enabling reliable comparisons of cardiovascular care practices across Danish regions.
+This folder contains Anatomical Therapeutic Chemical (ATC) classification codes that represent broad categories of medications tracked within the Danish healthcare system's quality assurance programs. Currently, it houses the specific code for vitamin K antagonists, a primary class of oral anticoagulants. These codes are utilized by the Danish Database for Atrial Fibrillation (AFDK) to accurately identify treated patients, measure the quality of care, and monitor the overall prevalence of oral anticoagulant use across all Danish regions.
 
 ## Pages
 
-- [[b01aa|B01AA]] — The ATC classification code for Vitamin K antagonists, used to track and measure the quality of oral anticoagulation treatment in patients with atrial fibrillation.
+- [[b01aa|B01AA]] — The ATC classification code for vitamin K antagonists, used to track oral anticoagulation therapy in atrial fibrillation patients.
 
 ## Navigation
 

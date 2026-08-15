@@ -4,17 +4,18 @@ type: index
 aliases:
   - Comorbidity Scoring
 wiki: rkkp-akdb
-updated: '2026-08-05T20:45:34.953Z'
+updated: '2026-08-15T08:57:47.423Z'
 children:
   - charlson-comorbiditets-indeks.md
+  - index.md
 ---
 # Comorbidity Scoring
 
-This folder contains documentation on standardized prognostic scales used to quantify the pre-existing disease burden of patients within the Danish Acute Surgery Database (AKDB). It currently holds the page for the Charlson Comorbidity Index, explaining how this scoring system stratifies acute surgery patients by their risk of 30-day mortality. The index is also shown to be a critical component in defining patient cohorts for supplementary clinical quality indicators and applying exclusion criteria in database reporting.
+This folder contains documentation on comorbidity scoring systems used to assess patient risk profiles prior to acute surgery. Specifically, it covers the Charlson Comorbidity Index, detailing how it is calculated from a 10-year diagnostic history and applied to stratify patients or define exclusion criteria for various clinical quality indicators in the Danish Acute Surgery Database. By capturing pre-operative risk factors present at admission, these scoring mechanisms are essential for contextualizing mortality outcomes and adjusting surgical quality metrics.
 
 ## Pages
 
-- [[charlson-comorbiditets-indeks|Charlson Comorbiditets indeks]] — Details the use of the Charlson Comorbidity Index to stratify acute surgery patients by 30-day mortality risk and define cohorts for specific quality indicators.
+- [[charlson-comorbiditets-indeks|Charlson Comorbiditets indeks]] — Details the Charlson Comorbidity Index, its calculation from a 10-year diagnostic history, and its application in defining patient exclusions and supplementary clinical quality indicators.
 
 ## Navigation
 

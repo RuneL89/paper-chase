@@ -4,17 +4,18 @@ type: index
 aliases:
   - General
 wiki: rkkp-adhd
-updated: '2026-08-05T19:12:55.131Z'
+updated: '2026-08-15T12:38:54.876Z'
 children:
   - baggrundspopulationen-2023.md
+  - index.md
 ---
 # General
 
-This folder holds the baseline demographic groups used to benchmark the educational outcomes of youth with ADHD in national quality monitoring reports. It contains the general Danish youth population, providing the standard pass rates for the primary school leaving exam against which ADHD assessment and treatment populations are compared to highlight structural educational disparities.
+This folder holds the baseline demographic groups used to benchmark clinical and educational outcomes for youth with ADHD in the national quality monitoring reports. It currently contains the general Danish youth population data, which provides the comparative pass rates for primary school leaving exams needed to evaluate structural educational disparities. These baseline figures are essential for contextualizing the educational lag observed among young people in ADHD assessment and treatment pathways.
 
 ## Pages
 
-- [[baggrundspopulationen-2023|Baggrundspopulationen 2023]] — The general Danish youth population serving as the baseline benchmark for educational outcomes, including an 86% pass rate for the primary school leaving exam, used to contextualize the educational lag among youth with ADHD.
+- [[baggrundspopulationen-2023|Baggrundspopulationen 2023]] — The general Danish youth population used as a baseline to benchmark primary school exam pass rates against ADHD assessment and treatment groups.
 
 ## Navigation
 

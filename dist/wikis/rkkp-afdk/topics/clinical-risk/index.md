@@ -4,17 +4,18 @@ type: index
 aliases:
   - Clinical Risk
 wiki: rkkp-afdk
-updated: '2026-08-05T23:22:09.396Z'
+updated: '2026-08-15T00:17:13.771Z'
 children:
   - clinical-risk.md
+  - index.md
 ---
 # Clinical Risk
 
-This folder covers the adverse health outcomes and severe complications associated with specific medical conditions. It currently documents the clinical risks linked to atrial fibrillation, detailing its association with increased rates of stroke, heart failure, dementia, and mortality based on national registry reports.
+This folder covers the assessment and quantification of clinical risk for patients with atrial fibrillation in Denmark. It details the severe complications associated with the condition, such as stroke, heart failure, and dementia, and explains how healthcare providers use standardized tools like the CHA₂DS₂-VASc score to evaluate thromboembolic risk and guide anticoagulant therapy. The included page also tracks national risk profiles, comparing average risk scores between newly diagnosed and existing patient cohorts to inform resource allocation and care quality.
 
 ## Pages
 
-- [[clinical-risk|Clinical Risk]] — Details the severe complications of atrial fibrillation, including its association with stroke, heart failure, dementia, and death.
+- [[clinical-risk|Clinical Risk]] — Details the use of the CHA₂DS₂-VASc score to quantify thromboembolic risk and guide anticoagulant therapy for atrial fibrillation patients in Denmark, including national average scores for incident and prevalent cohorts.
 
 ## Navigation
 
@@ -26,13 +27,18 @@ This folder covers the adverse health outcomes and severe complications associat
 - Sibling: [[topics/clinical-practice-decision/index|Clinical Practice Decision]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder covers the adverse health outcomes and severe complications associat
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

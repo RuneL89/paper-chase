@@ -1,0 +1,296 @@
+{
+  "entities": [
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er den officielle rapport fra Sundhedsvæsenets Kvalitetsinstitut om kvaliteten af behandlingen af atrieflimren i Danmark, som danner grundlag for indikatoropgørelserne på side 11–15.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Atrieflimren i Danmark\nSundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesnets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Den organisation, der udgiver rapporten 'Atrieflimren i Danmark' og står bag udviklingsmålene og indikatoropgørelserne for kvaliteten af atrieflimren-behandling i Danmark.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Atrieflimren i Danmark\nSundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1",
+      "type": "quality-indicator",
+      "slug": "indikator-1",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "En central kvalitetsindikator for behandling af nydiagnosticerede patienter med atrieflimren, der måler andelen af patienter, der starter antikoagulationsbehandling inden for 30 dage efter diagnosticering, hvor behandling er indiceret.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra\ndiagnosticering til opstart i antikoagulationsbehandling (hvor antikoagulationsbehandling er indiceret)."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "quality-indicator",
+      "slug": "indikator-2",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "En kvalitetsindikator for diagnostisk proces ved atrieflimren, der måler andelen af nydiagnosticerede patienter, der har fået udført ekkokardiografi inden for et tidsrum på 9 måneder omkring første diagnosedato.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Indikator 2: Ekkokardiografi\nAndel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før\ntil 3 måneder efter 1. diagnosedato."
+        }
+      ]
+    },
+    {
+      "name": "Antikoagulationsbehandling",
+      "type": "medical-intervention",
+      "slug": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Den behandlingsform, som indikator 1 måler tidlig opstart af hos nydiagnosticerede atrieflimren-patienter, og som er centralt for forebyggelse af iskæmisk apopleksi.",
+      "mentions": [
+        {
+          "page": 12,
+          "context": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra\ndiagnosticering til opstart i antikoagulationsbehandling (hvor antikoagulationsbehandling er indiceret)."
+        }
+      ]
+    },
+    {
+      "name": "Ekkokardiografi",
+      "type": "medical-intervention",
+      "slug": "ekkokardiografi",
+      "folder": "entities/medical-interventions/diagnostics",
+      "significance": "Den diagnostiske undersøgelse, som indikator 2 måler anvendelsen af hos nydiagnosticerede atrieflimren-patienter, og som er nødvendig for at vurdere hjertefunktion og strukturelle hjerteforandringer.",
+      "mentions": [
+        {
+          "page": 15,
+          "context": "Indikator 2: Ekkokardiografi\nAndel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før\ntil 3 måneder efter 1. diagnosedato."
+        }
+      ]
+    },
+    {
+      "name": "CHA₂DS₂-VASc",
+      "type": "clinical-tool",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "Den risikoscore, der anvendes til at vurdere behov for antikoagulationsbehandling hos patienter med atrieflimren, og som bruges til at definere eksklusion i indikator 1.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "5.113 Patienten har ikke indikation for AK-behandling (CHAD2DS2-VASc < 2)"
+        }
+      ]
+    },
+    {
+      "name": "Lægemiddelstatistikregistret",
+      "type": "database",
+      "slug": "laegemiddelstatistikregisteret",
+      "folder": "entities/databases/healthcare-registers",
+      "significance": "Et nationalt register, der indeholder data om indløste recepter, og som bruges sammen med Landspatientregisteret til beregning af indikator 1.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registers",
+      "significance": "Et nationalt register over hospitalssygdomstilfælde, der bruges til at identificere diagnosedato for atrieflimren og til beregning af indikator 1.",
+      "mentions": [
+        {
+          "page": 14,
+          "context": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregisteret (LPR)."
+        }
+      ]
+    },
+    {
+      "name": "Klynge VEST",
+      "type": "organization",
+      "slug": "klynge-vest",
+      "folder": "entities/organizations/regions",
+      "significance": "En af de fem sundhedsklynger i Danmark, hvis resultater for indikator 1 vises eksemplarisk i tabellen på side 11, hvor den opfylder udviklingsmålet på ≥90%.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Klynge VEST Ja 191 / 209 0 (0) 91,4 (86,7-94,8) 168 / 181 92,8 96,1"
+        }
+      ]
+    },
+    {
+      "name": "Udviklingsmål ≥ 90%",
+      "type": "quality-indicator",
+      "slug": "udviklingsmaal-90-percent",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Det nationale udviklingsmål for indikator 1, som fastsætter en minimumsmål for andelen af nydiagnosticerede atrieflimren-patienter, der starter antikoagulationsbehandling inden for 30 dage.",
+      "mentions": [
+        {
+          "page": 11,
+          "context": "Udviklingsmål Uoplyst Aktuelle år Tidligere år\n≥ 90% Tæller/ antal 01.07.2024 - 30.06.2025 2023/24 2022/23"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "sundhedsvaesnets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Atrieflimren i Danmark\nSundhedsvæsenets Kvalitetsinstitut",
+      "page": 11
+    },
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "contains-indicator",
+      "object": "indikator-1",
+      "evidence": "Indikator 1: Andel af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra\ndiagnosticering til opstart i antikoagulationsbehandling (hvor antikoagulationsbehandling er indiceret).",
+      "page": 12
+    },
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "contains-indicator",
+      "object": "indikator-2",
+      "evidence": "Indikator 2: Ekkokardiografi\nAndel af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før\ntil 3 måneder efter 1. diagnosedato.",
+      "page": 15
+    },
+    {
+      "subject": "indikator-1",
+      "predicate": "uses-data-from",
+      "object": "laegemiddelstatistikregisteret",
+      "evidence": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregisteret (LPR).",
+      "page": 14
+    },
+    {
+      "subject": "indikator-1",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Indikatoren er baseret på data fra Lægemiddelstatistikregistret og Landspatientregisteret (LPR).",
+      "page": 14
+    },
+    {
+      "subject": "indikator-1",
+      "predicate": "excludes-based-on",
+      "object": "cha2ds2-vasc",
+      "evidence": "5.113 Patienten har ikke indikation for AK-behandling (CHAD2DS2-VASc < 2)",
+      "page": 14
+    },
+    {
+      "subject": "klynge-vest",
+      "predicate": "has-indicator-result-for",
+      "object": "indikator-1",
+      "evidence": "Klynge VEST Ja 191 / 209 0 (0) 91,4 (86,7-94,8) 168 / 181 92,8 96,1",
+      "page": 11
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan blev 91,6% af de nydiagnosticerede atrieflimren-patienter med indikation for AK-behandling sat i oral AK-behandling senest 30 dage efter diagnosticering [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Udviklingsmålet på ≥90% er dermed opfyldt på nationalt niveau [^src1]",
+      "type": "performance",
+      "entities": [
+        "udviklingsmaal-90-percent"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Resultaterne har ligget stabilt over grænsen de seneste tre årsrapporter [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 14
+    },
+    {
+      "text": "På regionsniveau varierede andelen mellem 90,3% og 93,8% [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 14
+    },
+    {
+      "text": "17 ud af 22 klynger opfylder udviklingsmålet [^src1]",
+      "type": "performance",
+      "entities": [
+        "klynge-vest",
+        "udviklingsmaal-90-percent"
+      ],
+      "page": 14
+    },
+    {
+      "text": "I de fem klynger, hvor udviklingsmålet ikke opfyldes, ligger resultaterne mellem 88–89% [^src1]",
+      "type": "performance",
+      "entities": [
+        "udviklingsmaal-90-percent"
+      ],
+      "page": 14
+    },
+    {
+      "text": "Ca. 55% af patienterne havde indløst en recept vedrørende oral AK-behandling inden for 120 dage op til diagnosen stilles i hospitalsregi [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-1"
+      ],
+      "page": 14
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2024 - 30.06.2025",
+      "event": "Aktuel år for indikator 1-opgørelse",
+      "entities": [
+        "indikator-1"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Tidligere år for indikator 1-opgørelse",
+      "entities": [
+        "indikator-1"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere år for indikator 1-opgørelse",
+      "entities": [
+        "indikator-1"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-1",
+      "title": "Udviklingsmål Uoplyst Aktuelle år Tidligere år",
+      "page": 11,
+      "rowDimension": "klynge",
+      "colDimension": "resultat per år",
+      "entities": [
+        "klynge-vest",
+        "udviklingsmaal-90-percent"
+      ],
+      "markdown": "| Klynge | Uoplyst | Aktuelle år | Tidligere år |\n| --- | --- | --- | --- |\n| VEST | Ja | 191 / 209 0 (0) 91,4 (86,7-94,8) | 168 / 181 92,8 96,1 |",
+      "summary": "Tabellen viser resultaterne for indikator 1 på klyngeniveau for Klynge VEST, herunder tæller/nævner, konfidensinterval og sammenligning med tidligere år."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af den årlige rapport 'Atrieflimren i Danmark' udgivet af Sundhedsvæsenets Kvalitetsinstitut, som monitorerer kvaliteten af behandlingen af atrieflimren gennem en række standardiserede kvalitetsindikatorer. Chunken fokuserer specifikt på to centrale indikatorer: Indikator 1, der måler tidslig opstart af antikoagulationsbehandling, og Indikator 2, der måler udførelsen af ekkokardiografi. Det beskriver metodikken bag indikator 1, herunder datagrundlag (Lægemiddelstatistikregistret og Landspatientregisteret), eksklusionskriterier (fx manglende dansk bopæl eller lav CHA₂DS₂-VASc-score), samt resultaterne for både nationalt, regions- og klyngeniveau, hvori det konkluderes, at udviklingsmålet på ≥90% er opfyldt på nationalt plan og i de fleste regioner og klynger."
+}

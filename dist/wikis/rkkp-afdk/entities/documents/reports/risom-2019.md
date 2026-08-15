@@ -4,7 +4,7 @@ type: entity
 aliases:
   - 'Risom, 2019'
 wiki: rkkp-afdk
-updated: '2026-08-05T19:19:42.023Z'
+updated: '2026-08-14T19:38:57.796Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: 96-100

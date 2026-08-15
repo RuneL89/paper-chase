@@ -4,17 +4,18 @@ type: index
 aliases:
   - National Health Registers
 wiki: rkkp-danibd
-updated: '2026-08-05T07:32:22.113Z'
+updated: '2026-08-15T07:40:15.246Z'
 children:
+  - index.md
   - laboratoriedatabasen.md
 ---
 # National Health Registers
 
-This folder catalogs national-level health registers that act as foundational data sources for Denmark's healthcare quality monitoring systems. It currently contains the national register of laboratory tests, which supplies essential biomarker measurements—such as fecal calprotectin—to evaluate treatment quality indicators for inflammatory bowel disease. While critical for registry-driven monitoring, these national databases face ongoing challenges regarding data integration and coding uncertainties across different healthcare systems.
+This folder contains national-level health registers in Denmark that serve as foundational data sources for healthcare quality monitoring and clinical databases like DANIBD. It currently holds the national register for laboratory tests, which supplies critical biomarker measurements such as fecal calprotectin used to evaluate quality indicators for inflammatory bowel disease (IBD) care. While essential for evidence-based monitoring, the documentation of these registers also highlights ongoing data integration and coding challenges across national and local health systems.
 
 ## Pages
 
-- [[laboratoriedatabasen|Laboratoriedatabasen]] — The national Danish register of laboratory tests, providing critical biomarker data like fecal calprotectin for monitoring IBD treatment quality.
+- [[laboratoriedatabasen|Laboratoriedatabasen]] — The national Danish register of laboratory tests, supplying critical biomarker data like fecal calprotectin to evaluate IBD treatment quality and follow-up.
 
 ## Navigation
 

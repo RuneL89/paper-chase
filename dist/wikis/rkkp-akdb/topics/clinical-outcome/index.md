@@ -4,21 +4,23 @@ type: index
 aliases:
   - Clinical Outcome
 wiki: rkkp-akdb
-updated: '2026-08-05T20:46:41.845Z'
+updated: '2026-08-15T08:59:04.923Z'
 children:
   - clinical-outcome.md
+  - index.md
 ---
 # Clinical Outcome
 
-This folder documents the clinical outcomes of acute surgery patients in Denmark, focusing primarily on 30-day and 90-day mortality rates tracked by the Akut Kirurgi Databasen. It details how these outcomes are evaluated using specific quality indicators and stratified by the Charlson Comorbidity Index to account for patient risk. The included page provides both national mortality averages and granular, hospital-level breakdowns to highlight regional variations in surgical survival rates.
+This folder covers the clinical outcomes of acute surgical interventions in Denmark, with a primary focus on post-operative mortality. The material details 30-day and 90-day survival rates across national, regional, and hospital levels, stratified by patient comorbidity using the Charlson Score. It synthesizes data from the Acute Surgery Database (AKDB) to evaluate specific quality indicators and highlight inter-hospital variations in surgical performance.
 
 ## Pages
 
-- [[clinical-outcome|Clinical Outcome]] — Details 30-day and 90-day mortality rates for acute surgery patients across Denmark, stratified by Charlson Comorbidity Index scores and broken down by region and hospital.
+- [[clinical-outcome|Clinical Outcome]] — Details 30-day and 90-day mortality rates for acute surgery patients across Danish hospitals and regions, stratified by Charlson comorbidity scores and linked to specific AKDB quality indicators.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/administrative-change/index|Administrative Change]]
 - Sibling: [[topics/administrative-systems/index|Administrative Systems]]
 - Sibling: [[topics/cancer-distribution/index|Cancer Distribution]]
 - Sibling: [[topics/clinical-assessment/index|Clinical Assessment]]
@@ -27,11 +29,13 @@ This folder documents the clinical outcomes of acute surgery patients in Denmark
 - Sibling: [[topics/clinical-indicator/index|Clinical Indicator]]
 - Sibling: [[topics/clinical-indicators/index|Clinical Indicators]]
 - Sibling: [[topics/clinical-metrics/index|Clinical Metrics]]
+- Sibling: [[topics/clinical-process/index|Clinical Process]]
 - Sibling: [[topics/clinical-quality/index|Clinical Quality]]
 - Sibling: [[topics/clinical-quality-indicators/index|Clinical Quality Indicators]]
 - Sibling: [[topics/coding-uncertainty/index|Coding Uncertainty]]
 - Sibling: [[topics/compliance/index|Compliance]]
 - Sibling: [[topics/data-availability/index|Data Availability]]
+- Sibling: [[topics/data-decision/index|Data Decision]]
 - Sibling: [[topics/data-privacy/index|Data Privacy]]
 - Sibling: [[topics/data-quality/index|Data Quality]]
 - Sibling: [[topics/definition/index|Definition]]
@@ -41,15 +45,19 @@ This folder documents the clinical outcomes of acute surgery patients in Denmark
 - Sibling: [[topics/evaluation/index|Evaluation]]
 - Sibling: [[topics/evaluative/index|Evaluative]]
 - Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
+- Sibling: [[topics/governance/index|Governance]]
 - Sibling: [[topics/healthcare-metrics/index|Healthcare Metrics]]
 - Sibling: [[topics/healthcare-performance-indicators/index|Healthcare Performance Indicators]]
 - Sibling: [[topics/inter-hospital-variation/index|Inter Hospital Variation]]
 - Sibling: [[topics/methodological-assessment/index|Methodological Assessment]]
+- Sibling: [[topics/methodological-change/index|Methodological Change]]
 - Sibling: [[topics/performance/index|Performance]]
 - Sibling: [[topics/policy/index|Policy]]
+- Sibling: [[topics/quality-target/index|Quality Target]]
 - Sibling: [[topics/recommendation/index|Recommendation]]
 - Sibling: [[topics/regional-comparison/index|Regional Comparison]]
 - Sibling: [[topics/relevance-assessment/index|Relevance Assessment]]
+- Sibling: [[topics/research-finding/index|Research Finding]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/technical-infrastructure/index|Technical Infrastructure]]
 - Sibling: [[topics/visualizations/index|Visualizations]]

@@ -1,38 +1,27 @@
 {
-  "run": "2026-08-05T06:08:15.589Z",
+  "run": "2026-08-15T07:06:59.824Z",
   "topics": {
     "merges": [
       {
         "from": [
-          "performance-assessment"
+          "contact-frequency",
+          "contact-type"
         ],
-        "into": "performance"
+        "into": "healthcare-utilization"
       },
       {
         "from": [
-          "dk50-crohns-sygdom"
+          "quality-indicator-result"
         ],
-        "into": "crohns-sygdom"
-      },
-      {
-        "from": [
-          "dk830f-primaer-skleroserende-kolangitis"
-        ],
-        "into": "primaer-skleroserende-kolangitis"
+        "into": "quality-indicator"
       }
     ],
     "drops": [
-      "operational",
-      "demographic",
-      "epidemiological",
-      "procedural",
-      "organizational",
-      "administrative",
-      "clinical",
-      "evaluative",
-      "timeline",
-      "performance-statistic",
-      "treatment-statistic"
+      "clinical-statistic",
+      "biological-fact",
+      "definition",
+      "technical",
+      "comparative"
     ],
     "attempts": 1,
     "fallbacks": [],
@@ -61,6 +50,7 @@
         {
           "from": [
             "departmental-performance",
+            "performance-assessment",
             "regional-performance"
           ],
           "into": "performance"
@@ -78,36 +68,7 @@
         "surgical-count",
         "timeline-distribution",
         "systemic-observation",
-        "statistical"
-      ]
-    },
-    "decidedThisRun": {
-      "merges": [
-        {
-          "from": [
-            "performance-assessment"
-          ],
-          "into": "performance",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "dk50-crohns-sygdom"
-          ],
-          "into": "crohns-sygdom",
-          "signal": "subsequence",
-          "evidence": "tokens of 'crohns-sygdom' are a subsequence of 'dk50-crohns-sygdom' (name parts [dk50] dropped)"
-        },
-        {
-          "from": [
-            "dk830f-primaer-skleroserende-kolangitis"
-          ],
-          "into": "primaer-skleroserende-kolangitis",
-          "signal": "subsequence",
-          "evidence": "tokens of 'primaer-skleroserende-kolangitis' are a subsequence of 'dk830f-primaer-skleroserende-kolangitis' (name parts [dk830f] dropped)"
-        }
-      ],
-      "drops": [
+        "statistical",
         "operational",
         "demographic",
         "epidemiological",
@@ -119,176 +80,35 @@
         "timeline",
         "performance-statistic",
         "treatment-statistic"
-      ],
-      "denials": []
-    },
-    "proposedPairs": [
-      {
-        "from": "dk50-crohns-sygdom",
-        "into": "crohns-sygdom",
-        "signal": "subsequence",
-        "evidence": "tokens of 'crohns-sygdom' are a subsequence of 'dk50-crohns-sygdom' (name parts [dk50] dropped)"
-      },
-      {
-        "from": "dk830f-primaer-skleroserende-kolangitis",
-        "into": "primaer-skleroserende-kolangitis",
-        "signal": "subsequence",
-        "evidence": "tokens of 'primaer-skleroserende-kolangitis' are a subsequence of 'dk830f-primaer-skleroserende-kolangitis' (name parts [dk830f] dropped)"
-      }
-    ],
-    "autoApplied": []
-  },
-  "entities": {
-    "merges": [
-      {
-        "from": [
-          "f-calprotectin"
-        ],
-        "into": "calprotectin"
-      },
-      {
-        "from": [
-          "noh"
-        ],
-        "into": "nordsjaellands-hospital"
-      },
-      {
-        "from": [
-          "aarhus"
-        ],
-        "into": "aarhus-universitetshospital"
-      },
-      {
-        "from": [
-          "godstrup"
-        ],
-        "into": "regionshospitalet-goedstrup"
-      },
-      {
-        "from": [
-          "dexa-skanning"
-        ],
-        "into": "dexa-scanning"
-      },
-      {
-        "from": [
-          "smr"
-        ],
-        "into": "sygehusmedicinregisteret"
-      }
-    ],
-    "drops": [],
-    "attempts": 1,
-    "fallbacks": [],
-    "vetoes": [],
-    "fromSticky": {
-      "merges": [
-        {
-          "from": [
-            "f-calpro"
-          ],
-          "into": "calprotectin"
-        },
-        {
-          "from": [
-            "danibd"
-          ],
-          "into": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
-        },
-        {
-          "from": [
-            "lpr"
-          ],
-          "into": "landspatientregisteret"
-        },
-        {
-          "from": [
-            "praevaer-skleroserende-kolangitis"
-          ],
-          "into": "psc"
-        },
-        {
-          "from": [
-            "rkkp"
-          ],
-          "into": "regionernes-kliniske-kvalitetsudviklingsprogram"
-        },
-        {
-          "from": [
-            "styreguppen"
-          ],
-          "into": "styregruppen-for-danibd"
-        }
-      ],
-      "drops": [],
-      "clusters": []
+      ]
     },
     "decidedThisRun": {
       "merges": [
         {
           "from": [
-            "primaer-skleroserende-kolangitis"
+            "contact-frequency",
+            "contact-type"
           ],
-          "into": "psc",
-          "signal": "alias",
-          "evidence": "title 'Primær skleroserende kolangitis' is an exact frontmatter alias of 'psc'"
-        },
-        {
-          "from": [
-            "f-calprotectin"
-          ],
-          "into": "calprotectin",
+          "into": "healthcare-utilization",
           "signal": "model"
         },
         {
           "from": [
-            "noh"
+            "quality-indicator-result"
           ],
-          "into": "nordsjaellands-hospital",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "aarhus"
-          ],
-          "into": "aarhus-universitetshospital",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "godstrup"
-          ],
-          "into": "regionshospitalet-goedstrup",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "dexa-skanning"
-          ],
-          "into": "dexa-scanning",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "smr"
-          ],
-          "into": "sygehusmedicinregisteret",
-          "signal": "abbreviation",
-          "evidence": "corpus text introduces 'Sygehusmedicinregisteret (SMR)'"
+          "into": "quality-indicator",
+          "signal": "subsequence",
+          "evidence": "tokens of 'quality-indicator' are a subsequence of 'quality-indicator-result' (name parts [result] dropped)"
         }
       ],
-      "drops": [],
+      "drops": [
+        "clinical-statistic",
+        "biological-fact",
+        "definition",
+        "technical",
+        "comparative"
+      ],
       "denials": [
-        {
-          "from": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
-          "into": "inflammatoriske-tarmsygdomme",
-          "justification": "database vs disease category"
-        },
-        {
-          "from": "dk50-crohns-sygdom",
-          "into": "crohns-sygdom",
-          "justification": "diagnosis code vs disease"
-        },
         {
           "from": "indikator-1",
           "into": "indikator-1a",
@@ -364,6 +184,446 @@
           "into": "indikator-1b",
           "justification": "distinct quality indicators"
         }
+      ]
+    },
+    "proposedPairs": [
+      {
+        "from": "dk50-crohns-sygdom",
+        "into": "crohns-sygdom",
+        "signal": "subsequence",
+        "evidence": "tokens of 'crohns-sygdom' are a subsequence of 'dk50-crohns-sygdom' (name parts [dk50] dropped)"
+      },
+      {
+        "from": "dk830f-primaer-skleroserende-kolangitis",
+        "into": "primaer-skleroserende-kolangitis",
+        "signal": "subsequence",
+        "evidence": "tokens of 'primaer-skleroserende-kolangitis' are a subsequence of 'dk830f-primaer-skleroserende-kolangitis' (name parts [dk830f] dropped)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-1a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-1a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
+        "into": "indikator-1b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-1b' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1b",
+        "into": "indikator-1a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1b' and 'indikator-1a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-1a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-1a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-1b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-1b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-1a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-1a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
+        "into": "indikator-1b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-1b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-1a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-1a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4",
+        "into": "indikator-1b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4' and 'indikator-1b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-1a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-1a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-5",
+        "into": "indikator-1b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-5' and 'indikator-1b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-1a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-1a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-6",
+        "into": "indikator-1b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-6' and 'indikator-1b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-1a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-1a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7",
+        "into": "indikator-1b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7' and 'indikator-1b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "quality-indicator-result",
+        "into": "quality-indicator",
+        "signal": "subsequence",
+        "evidence": "tokens of 'quality-indicator' are a subsequence of 'quality-indicator-result' (name parts [result] dropped)"
+      }
+    ],
+    "autoApplied": []
+  },
+  "entities": {
+    "merges": [
+      {
+        "from": [
+          "primaer-skleroserende-kolangitis-psc"
+        ],
+        "into": "psc"
+      },
+      {
+        "from": [
+          "praemaert-kirurgisk-indgreb"
+        ],
+        "into": "primaert-kirurgisk-indgreb"
+      },
+      {
+        "from": [
+          "kjfh11"
+        ],
+        "into": "kjfh11-laparoskopisk-kolektomi-og-ileostomi"
+      },
+      {
+        "from": [
+          "kjfb21"
+        ],
+        "into": "kjfb21-laparoskopisk-ileocokal-resektion"
+      },
+      {
+        "from": [
+          "kjah01"
+        ],
+        "into": "kjah01-laparoskopi"
+      },
+      {
+        "from": [
+          "kjah00"
+        ],
+        "into": "kjah00-eksplorativ-laparotomi"
+      },
+      {
+        "from": [
+          "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd"
+        ],
+        "into": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
+      },
+      {
+        "from": [
+          "mr-scanning-af-tyndtarmen"
+        ],
+        "into": "mr-af-tyndtarmen"
+      },
+      {
+        "from": [
+          "ouh-odense-svendborg"
+        ],
+        "into": "ouh-svendborg"
+      },
+      {
+        "from": [
+          "sundhedsvaesenets-kvalitetsinstitut-sundk"
+        ],
+        "into": "sundhedsvaesenets-kvalitetsinstitut"
+      }
+    ],
+    "drops": [],
+    "attempts": 2,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [
+        {
+          "from": [
+            "aarhus"
+          ],
+          "into": "aarhus-universitetshospital"
+        },
+        {
+          "from": [
+            "f-calpro",
+            "f-calprotectin"
+          ],
+          "into": "calprotectin"
+        },
+        {
+          "from": [
+            "danibd"
+          ],
+          "into": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme"
+        },
+        {
+          "from": [
+            "dexa-skanning"
+          ],
+          "into": "dexa-scanning"
+        },
+        {
+          "from": [
+            "lpr"
+          ],
+          "into": "landspatientregisteret"
+        },
+        {
+          "from": [
+            "noh"
+          ],
+          "into": "nordsjaellands-hospital"
+        },
+        {
+          "from": [
+            "praevaer-skleroserende-kolangitis",
+            "primaer-skleroserende-kolangitis"
+          ],
+          "into": "psc"
+        },
+        {
+          "from": [
+            "rkkp"
+          ],
+          "into": "regionernes-kliniske-kvalitetsudviklingsprogram"
+        },
+        {
+          "from": [
+            "godstrup"
+          ],
+          "into": "regionshospitalet-goedstrup"
+        },
+        {
+          "from": [
+            "styreguppen"
+          ],
+          "into": "styregruppen-for-danibd"
+        },
+        {
+          "from": [
+            "smr"
+          ],
+          "into": "sygehusmedicinregisteret"
+        }
+      ],
+      "drops": [],
+      "clusters": []
+    },
+    "decidedThisRun": {
+      "merges": [
+        {
+          "from": [
+            "landspatientregisteret-lpr"
+          ],
+          "into": "landspatientregisteret",
+          "signal": "alias",
+          "evidence": "title 'Landspatientregisteret (LPR)' is an exact frontmatter alias of 'landspatientregisteret'"
+        },
+        {
+          "from": [
+            "primar-skleroserende-kolangitis-psc"
+          ],
+          "into": "primaer-skleroserende-kolangitis-psc",
+          "signal": "transliteration",
+          "evidence": "slugs identical after Danish transliteration collapse ('primar-skleroserende-kolangitis-psc' ≡ 'primaer-skleroserende-kolangitis-psc')"
+        },
+        {
+          "from": [
+            "primaer-skleroserende-kolangitis-psc"
+          ],
+          "into": "psc",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "praemaert-kirurgisk-indgreb"
+          ],
+          "into": "primaert-kirurgisk-indgreb",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "kjfh11"
+          ],
+          "into": "kjfh11-laparoskopisk-kolektomi-og-ileostomi",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "kjfb21"
+          ],
+          "into": "kjfb21-laparoskopisk-ileocokal-resektion",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "kjah01"
+          ],
+          "into": "kjah01-laparoskopi",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "kjah00"
+          ],
+          "into": "kjah00-eksplorativ-laparotomi",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd"
+          ],
+          "into": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+          "signal": "subsequence",
+          "evidence": "tokens of 'dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme' are a subsequence of 'dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd' (name parts [danibd] dropped)"
+        },
+        {
+          "from": [
+            "mr-scanning-af-tyndtarmen"
+          ],
+          "into": "mr-af-tyndtarmen",
+          "signal": "subsequence",
+          "evidence": "tokens of 'mr-af-tyndtarmen' are a subsequence of 'mr-scanning-af-tyndtarmen' (name parts [scanning] dropped)"
+        },
+        {
+          "from": [
+            "ouh-odense-svendborg"
+          ],
+          "into": "ouh-svendborg",
+          "signal": "subsequence",
+          "evidence": "tokens of 'ouh-svendborg' are a subsequence of 'ouh-odense-svendborg' (name parts [odense] dropped)"
+        },
+        {
+          "from": [
+            "sundhedsvaesenets-kvalitetsinstitut-sundk"
+          ],
+          "into": "sundhedsvaesenets-kvalitetsinstitut",
+          "signal": "subsequence",
+          "evidence": "tokens of 'sundhedsvaesenets-kvalitetsinstitut' are a subsequence of 'sundhedsvaesenets-kvalitetsinstitut-sundk' (name parts [sundk] dropped)"
+        }
+      ],
+      "drops": [],
+      "denials": [
+        {
+          "from": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+          "into": "inflammatoriske-tarmsygdomme",
+          "justification": "database vs disease"
+        },
+        {
+          "from": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+          "into": "inflammatoriske-tarmsygdomme",
+          "justification": "database vs disease"
+        },
+        {
+          "from": "dk50-crohns-sygdom",
+          "into": "crohns-sygdom",
+          "justification": "code vs disease"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-1a",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-1b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-1b",
+          "into": "indikator-1a",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-1a",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-1b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-1a",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-1b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-1a",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4",
+          "into": "indikator-1b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-1a",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-5",
+          "into": "indikator-1b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-1a",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-6",
+          "into": "indikator-1b",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-1a",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-7",
+          "into": "indikator-1b",
+          "justification": "distinct indicators"
+        }
       ],
       "clusters": [],
       "clusterDenials": []
@@ -374,6 +634,18 @@
         "into": "inflammatoriske-tarmsygdomme",
         "signal": "subsequence",
         "evidence": "tokens of 'inflammatoriske-tarmsygdomme' are a subsequence of 'dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme' (name parts [dansk, kvalitetsdatabase, for] dropped)"
+      },
+      {
+        "from": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+        "into": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+        "signal": "subsequence",
+        "evidence": "tokens of 'dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme' are a subsequence of 'dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd' (name parts [danibd] dropped)"
+      },
+      {
+        "from": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+        "into": "inflammatoriske-tarmsygdomme",
+        "signal": "subsequence",
+        "evidence": "tokens of 'inflammatoriske-tarmsygdomme' are a subsequence of 'dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd' (name parts [dansk, kvalitetsdatabase, for, danibd] dropped)"
       },
       {
         "from": "dk50-crohns-sygdom",
@@ -472,34 +744,154 @@
         "evidence": "slugs 'indikator-7' and 'indikator-1b' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "smr",
-        "into": "sygehusmedicinregisteret",
-        "signal": "abbreviation",
-        "evidence": "corpus text introduces 'Sygehusmedicinregisteret (SMR)'"
+        "from": "mr-scanning-af-tyndtarmen",
+        "into": "mr-af-tyndtarmen",
+        "signal": "subsequence",
+        "evidence": "tokens of 'mr-af-tyndtarmen' are a subsequence of 'mr-scanning-af-tyndtarmen' (name parts [scanning] dropped)"
+      },
+      {
+        "from": "ouh-odense-svendborg",
+        "into": "ouh-svendborg",
+        "signal": "subsequence",
+        "evidence": "tokens of 'ouh-svendborg' are a subsequence of 'ouh-odense-svendborg' (name parts [odense] dropped)"
+      },
+      {
+        "from": "sundhedsvaesenets-kvalitetsinstitut-sundk",
+        "into": "sundhedsvaesenets-kvalitetsinstitut",
+        "signal": "subsequence",
+        "evidence": "tokens of 'sundhedsvaesenets-kvalitetsinstitut' are a subsequence of 'sundhedsvaesenets-kvalitetsinstitut-sundk' (name parts [sundk] dropped)"
       }
     ],
     "autoApplied": [
       {
-        "from": "primaer-skleroserende-kolangitis",
-        "into": "psc",
+        "from": "landspatientregisteret-lpr",
+        "into": "landspatientregisteret",
         "signal": "alias",
-        "evidence": "title 'Primær skleroserende kolangitis' is an exact frontmatter alias of 'psc'"
+        "evidence": "title 'Landspatientregisteret (LPR)' is an exact frontmatter alias of 'landspatientregisteret'"
+      },
+      {
+        "from": "primar-skleroserende-kolangitis-psc",
+        "into": "primaer-skleroserende-kolangitis-psc",
+        "signal": "transliteration",
+        "evidence": "slugs identical after Danish transliteration collapse ('primar-skleroserende-kolangitis-psc' ≡ 'primaer-skleroserende-kolangitis-psc')"
       }
     ],
     "proposedClusters": []
   },
-  "manualEditSkips": [],
-  "removedPages": [
-    "entities/organizations/hospitals/noh.md",
-    "entities/databases/national-health-registers/smr.md",
-    "topics/diagnoses/ibd/dk50-crohns-sygdom.md",
-    "topics/diagnoses/hepatobiliary/dk830f-primaer-skleroserende-kolangitis.md",
-    "topics/operational/operational.md",
-    "topics/demographic/demographic.md",
-    "topics/epidemiological/epidemiological.md",
-    "topics/procedural/procedural.md",
-    "topics/organizational/organizational.md"
+  "manualEditSkips": [
+    {
+      "page": "topics/diagnoses/ibd/dk50-crohns-sygdom.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/diagnoses/hepatobiliary/dk830f-primaer-skleroserende-kolangitis.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/diagnoses/ibd/dk51-ulceroes-colitis.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/quality-indicator/re-operationsrate.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/diagnoses/ibd/dk50-crohns-sygdom.md",
+      "concern": "topics",
+      "action": "merge"
+    },
+    {
+      "page": "topics/diagnoses/hepatobiliary/dk830f-primaer-skleroserende-kolangitis.md",
+      "concern": "topics",
+      "action": "merge"
+    }
   ],
-  "rewrittenLinks": [],
+  "removedPages": [],
+  "rewrittenLinks": [
+    {
+      "path": "comparisons/appendikstabel-1-patientkarakteristika-pr-behandlende-region.md",
+      "hash": "272c6ec5a7a476a1c7f6311abcee768be0c6f9d97bb53255be902a3e9c215fd9"
+    },
+    {
+      "path": "comparisons/appendikstabel-5-typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md",
+      "hash": "9a83b835580ec0836a3296641ec3aca01e85f6175617129b4e60c0410bf144b9"
+    },
+    {
+      "path": "comparisons/appendikstabel-6-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+      "hash": "e6b31486727d726d59b86b2a6c25aca3cc8e9bb18ab4668763d97ead06d1e5a5"
+    },
+    {
+      "path": "comparisons/appendikstabel-7-karakteristika-for-patienter-med-psc-indikator-7.md",
+      "hash": "182b258edd7d9c48de8192531e94ec62d679930cc44a69f5876688514bfb6eee"
+    },
+    {
+      "path": "comparisons/indikator-1b.md",
+      "hash": "6ed40ef160ceba6f2e5f9c2e63d11b626a68db92d4359bf9e3005680f32512c6"
+    },
+    {
+      "path": "comparisons/indikator-2.md",
+      "hash": "d973e3607fc480b00c67bc285adcfa718cb3a5bfa5d380e8c8cbdfdb859e188a"
+    },
+    {
+      "path": "comparisons/indikator-3.md",
+      "hash": "35d6a724dfa9ba20800b9bc2832a440bb9f526ab928fae4f53e4d92209924866"
+    },
+    {
+      "path": "comparisons/indikator-4-andelen-af-patienter-med-ibd-i-behandling-med-bmsl-der-faar-maalt-f-calpro-mindst-en-gang-aarligt.md",
+      "hash": "7c0edf049f857cf56bc8f304983809a40e0e56da0f6c4f2e3f9921e6f0f8735f"
+    },
+    {
+      "path": "comparisons/indikator-4-andelen-af-steroidkure-givet-til-patienter-over-50-aar-med-ibd-hvor-patienten-har-faaet-foretaget-dexa-scanning.md",
+      "hash": "e9df710aa507034bc0666a4972c136591704c65d69d325d1970c8a9bbfb65d71"
+    },
+    {
+      "path": "comparisons/indikator-5-andelen-af-patienter-i-behandling-med-bmsl-der-faar-maalt-f-calprotectin-mindst-en-gang-aarligt.md",
+      "hash": "c8853eb656fec1b7a804d3722c5b8093d45cba8b52c21c8cc72b30017af133c8"
+    },
+    {
+      "path": "comparisons/indikator-6.md",
+      "hash": "06ba3b01be6dd596f766df935da66f2ad8cb105d9390786754fd7fe647dc67b8"
+    },
+    {
+      "path": "comparisons/indikator-7.md",
+      "hash": "9f65544e97dcb6b3cf405f187343891270a26dae7a7cbdf855e9ac5075210095"
+    },
+    {
+      "path": "comparisons/karakteristika-for-patienter-med-psc-indikator-7.md",
+      "hash": "e4b1619bb6c2cc068b82387e9c6ce08390fba22b73a7d002eefb27a074fe02eb"
+    },
+    {
+      "path": "comparisons/tabel-1-patientkarakteristika-for-nydiagnosticerede-og-praevalente-boern-med-ibd-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2023-til-og-med-30-september-2024.md",
+      "hash": "152b3a8985310204fe22b707724fb9791b7eaea0d87815ba4fa6e82e336cddb0"
+    },
+    {
+      "path": "comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2022-til-og-med-30-september-2023.md",
+      "hash": "ef030c4fd0103f02115bee33519efcb93f89f5b604badc7737ce7f85411c82ba"
+    },
+    {
+      "path": "comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2023-til-og-med-30-september-2024.md",
+      "hash": "7f45e4dd3415a2cf1e1bcc6c542ca6f1c6efd91f383f0d2baf7578ccd716c576"
+    },
+    {
+      "path": "comparisons/tabel-3-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+      "hash": "356d5ea3f81de2e0b9e526f58752c62e1d60f99d0280812c90c1ffccf1b52e31"
+    },
+    {
+      "path": "comparisons/tabel-4-oversigt-over-indikatorresultaterne-paa-landsplan.md",
+      "hash": "d4a9ee818f9c9c0f1a9d9b7e1db385510a6d93f8a6202d168411ccf5c95f86a4"
+    },
+    {
+      "path": "comparisons/typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md",
+      "hash": "b46cee58cffef9458446567b9100686c77286edcd5540d6262d91717687f5640"
+    },
+    {
+      "path": "comparisons/typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md",
+      "hash": "9db9d60916738bbfd29502fe46aaf0e84e39153c09b9c09df08f56a5dc482bc6"
+    }
+  ],
   "splitReversals": []
 }

@@ -7,24 +7,19 @@ aliases:
     Supplerende indikator 5x: Operation indenfor 6 timer (360 minutter)
     (Perforation, iskæmi, blødning)
 wiki: rkkp-akdb
-updated: '2026-08-05T20:06:08.447Z'
+updated: '2026-08-15T06:25:59.723Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '21, 21-25, 26-30, 51-55, 56-60, 6-10, 61-65, 91-95'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '11-15, 31-35, 41-45, 46-50, 51-55, 6-10, 61-65, 71-75'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: >-
+      111-115, 31-35, 36-40, 46-50, 51-55, 56-60, 6-10, 61-65, 71-75, 76-80,
+      81-85
 tags:
   - comparison
 ---
-Indikator 5x is a supplementary healthcare quality indicator that measures the proportion of patients who are operated on within six hours due to perforation, ischemia, or bleeding [^src1]. The national standard for this indicator is set at a minimum fulfillment rate of 90% [^src1]. An analysis of the 2023 data reveals a widespread failure to meet this target across [[danmark|Danmark]], with the national average sitting at just 21.2% [^src1]. 
-
-At the regional level, all five regions failed to meet the 90% standard [^src1]. [[region-midtjylland|Region Midtjylland]] performed the best among the regions at 27.2%, while [[region-syddanmark|Region Syddanmark]] recorded the lowest regional fulfillment at 17.8% [^src1]. 
-
-At the hospital level, the variation is stark, ranging from 6.3% to 100.0% [^src1]. [[nykoebing-f-sygehus|Nykøbing F Sygehus]] is the only hospital to officially meet the target, achieving 100.0%; however, this is based on a very small, anonymized patient volume (indicated by a 95% CI of 2.5-100.0) [^src1]. [[bornholms-hospital|Bornholms Hospital]] also shows a high fulfillment rate of 54.5%, but similarly suffers from a small sample size of just 11 patients [^src1]. 
-
-Conversely, the trailers are significantly below the national average. [[rigshospitalet|Rigshospitalet]] recorded the lowest fulfillment rate at just 6.3%, followed by [[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]] at 10.9% [^src1]. Because the available data consists of only a single snapshot from 2023, no longitudinal trends regarding improvement or decline can be established. Ultimately, Indikator 5x highlights a systemic challenge in acute surgical response times across the Danish healthcare system, with nearly all major hospitals and regions falling drastically short of the clinical standard [^src1].
-
-The broader methodology, clinical guidelines, and additional quality indicators are detailed across the 2023 and 2024 reports [^src2][^src3][^src4][^src5][^src6][^src7][^src8][^src9][^src10][^src11][^src12][^src13][^src14][^src15][^src16].
 
 ## Table: AKDB_2023.pdf, p. 21
 
@@ -48,9 +43,9 @@ Rows compare: region or hospital · Columns show: tæller/nævner, opfyldt, ande
 | Nykøbing F Sygehus | Ja | #/# | 100,0 (2,5-100,0) |
 | Næstved, Slagelse og Ringsted sygehuse | Nej | 10 / 64 | 15,6 (7,8-26,9) |
 
-Entities: danmark, region-hovedstaden, region-sjaelland, region-syddanmark, region-midtjylland, region-nordjylland, amager-og-hvidovre-hospital, bispebjerg-og-frederiksberg-hospitaler, bornholms-hospital, herlev-og-gentofte-hospital, hospitalerne-i-nordsjaelland, rigshospitalet, holbaek-sygehus, nykoebing-f-sygehus, naestved-slagese-og-ringsted-sygehuse
+Entities: [[danmark|Danmark]], [[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]], [[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]], [[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]], [[bornholms-hospital|Bornholms Hospital]], [[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]], [[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]], [[rigshospitalet|Rigshospitalet]], [[holbaek-sygehus|Holbæk Sygehus]], [[nykoebing-f-sygehus|Nykøbing F Sygehus]], [[naestved-slagese-og-ringsted-sygehuse|Næstved, Slagelse og Ringsted sygehuse]]
 
-Summary: Tabellen sammenligner resultaterne for supplerende indikator 5x på regionalt og hospitalsniveau, og viser stor variation i andelen af patienter opereret inden for 6 timer for perforation, iskæmi eller blødning — fra 6,3 % ved Rigshospitalet til 100,0 % ved Nykøbing F Sygehus — samt generelt lav opfyldelse af standarden på ≥ 90 %.
+Summary: Tabellen sammenligner resultaterne for supplerende indikator 5x på regionalt og hospitalsniveau, og viser stor variation i andelen af patienter opereret inden for 6 timer for perforation, iskæmi eller blødning — fra 6,3 % ved Rigshospitalet til 100,0 % ved Nykøbing F Sygehus — samt generelt lav opfyldelse af standarden på ≥ 90 %. [^src1]
 
 ## Related comparisons in prose
 
@@ -62,79 +57,130 @@ Summary: Tabellen sammenligner resultaterne for supplerende indikator 5x på reg
 - "For Indikator 1 var andelen i Region Nordjylland i perioden 01.09.2022–31.08.2023 29,3 % (95 % CI: 23,7–35,5)" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src2]
 - "For Indikator 1 var andelen ved Bornholms Hospital i perioden 01.09.2022–31.08.2023 63,3 % (95 % CI: 43,9–80,1)" — see [[performance|Performance]] ([[bornholms-hospital|Bornholms Hospital]]) [^src2]
 - "Region Hovedstaden har igennem de seneste +2 år øget indrapporteringsfrekvensen fra ca. 65% til 75%" — see [[performance|Performance]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src3]
-- "Amager og Hvidovre Hospital: 7 / 90 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (7,8 %; 95 % CI: 3,2-15,4)" — see [[hospital-statistic|Hospital Statistic]] ([[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]]) [^src4]
-- "Bispebjerg og Frederiksberg Hospitaler: 5 / 83 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (6,0 %; 95 % CI: 2,0-13,5)" — see [[hospital-statistic|Hospital Statistic]] ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]]) [^src4]
-- "Bornholms Hospital: 0 / 7 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (0,0 %; 95 % CI: 0,0-41,0)" — see [[hospital-statistic|Hospital Statistic]] ([[bornholms-hospital|Bornholms Hospital]]) [^src4]
-- "Herlev og Gentofte Hospital: 13 / 117 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (11,1 %; 95 % CI: 6,1-18,3)" — see [[hospital-statistic|Hospital Statistic]] ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]]) [^src4]
-- "Hospitalerne i Nordsjælland: 8 / 69 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (11,6 %; 95 % CI: 5,1-21,6)" — see [[hospital-statistic|Hospital Statistic]] ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]]) [^src4]
-- "Rigshospitalet: 3 / 30 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (10,0 %; 95 % CI: 2,1-26,5)" — see [[hospital-statistic|Hospital Statistic]] ([[rigshospitalet|Rigshospitalet]]) [^src4]
-- "Holbæk Sygehus: 12 / 48 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (25,0 %; 95 % CI: 13,6-39,6)" — see [[hospital-statistic|Hospital Statistic]] ([[holbaek-sygehus|Holbæk Sygehus]]) [^src4]
-- "Nykøbing F Sygehus: #/# døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (100,0 %; 95 % CI: 2,5-100,0)" — see [[hospital-statistic|Hospital Statistic]] ([[nykoebing-f-sygehus|Nykøbing F Sygehus]]) [^src4]
-- "Næstved, Slagelse og Ringsted sygehuse: 6 / 59 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (10,2 %; 95 % CI: 3,8-20,8)" — see [[hospital-statistic|Hospital Statistic]] ([[naestved-slagese-og-ringsted-sygehuse|Næstved, Slagelse og Ringsted sygehuse]]) [^src4]
-- "For Indikator 1 var den nationale opfyldelse i perioden 01.09.2023–31.08.2024 34,4 % (95 % CI: 32,7–36,1)" — see [[performance-result|Performance Result]] ([[danmark|Danmark]]) [^src5]
-- "For Indikator 1 var opfyldelsen i Region Hovedstaden i perioden 01.09.2023–31.08.2024 33,1 % (95 % CI: 30,2–36,1)" — see [[performance-result|Performance Result]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src5]
-- "For Indikator 1 var opfyldelsen i Region Sjælland i perioden 01.09.2023–31.08.2024 36,3 % (95 % CI: 32,3–40,4)" — see [[performance-result|Performance Result]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src5]
-- "For Indikator 1 var opfyldelsen i Region Syddanmark i perioden 01.09.2023–31.08.2024 22,5 % (95 % CI: 19,2–26,0)" — see [[performance-result|Performance Result]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src5]
-- "For Indikator 1 var opfyldelsen i Region Midtjylland i perioden 01.09.2023–31.08.2024 44,6 % (95 % CI: 40,8–48,4)" — see [[performance-result|Performance Result]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src5]
-- "For Indikator 1 var opfyldelsen i Region Nordjylland i perioden 01.09.2023–31.08.2024 36,7 % (95 % CI: 30,4–43,4)" — see [[performance-result|Performance Result]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src5]
-- "Nationalt blev 242 ud af 1.141 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 21,2 % (95 % CI: 18,9–23,7)" — see [[performance-statistic|Performance Statistic]] ([[danmark|Danmark]]) [^src6]
-- "I Region Hovedstaden blev 80 ud af 406 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 19,7 % (95 % CI: 15,9–23,9)" — see [[performance-statistic|Performance Statistic]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src6]
-- "I Region Sjælland blev 38 ud af 191 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 19,9 % (95 % CI: 14,5–26,3)" — see [[performance-statistic|Performance Statistic]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src6]
-- "I Region Syddanmark blev 37 ud af 208 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 17,8 % (95 % CI: 12,8–23,7)" — see [[performance-statistic|Performance Statistic]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src6]
-- "I Region Midtjylland blev 66 ud af 243 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 27,2 % (95 % CI: 21,7–33,2)" — see [[performance-statistic|Performance Statistic]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src6]
-- "I Region Nordjylland blev 21 ud af 93 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 22,6 % (95 % CI: 14,6–32,4)" — see [[performance-statistic|Performance Statistic]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src6]
-- "Amager og Hvidovre Hospital havde en andel på 10,9 % (95 % CI: 5,6–18,7) for supplerende indikator 5x" — see [[performance-statistic|Performance Statistic]] ([[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]]) [^src6]
-- "Bispebjerg og Frederiksberg Hospitaler havde en andel på 22,6 % (95 % CI: 14,2–33,0) for supplerende indikator 5x" — see [[performance-statistic|Performance Statistic]] ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]]) [^src6]
-- "Bornholms Hospital havde en andel på 54,5 % (95 % CI: 23,4–83,3) for supplerende indikator 5x" — see [[performance-statistic|Performance Statistic]] ([[bornholms-hospital|Bornholms Hospital]]) [^src6]
-- "Herlev og Gentofte Hospital havde en andel på 21,8 % (95 % CI: 13,7–32,0) for supplerende indikator 5x" — see [[performance-statistic|Performance Statistic]] ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]]) [^src6]
-- "Hospitalerne i Nordsjælland havde en andel på 25,3 % (95 % CI: 16,7–35,5) for supplerende indikator 5x" — see [[performance-statistic|Performance Statistic]] ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]]) [^src6]
-- "Rigshospitalet havde et punktestimat på 6,3 % (95 % CI: 0,8–20,8) for supplerende indikator 5x" — see [[performance-statistic|Performance Statistic]] ([[rigshospitalet|Rigshospitalet]]) [^src6]
-- "Holbæk Sygehus havde en andel på 26,8 % (95 % CI: 14,2–42,9) for supplerende indikator 5x" — see [[performance-statistic|Performance Statistic]] ([[holbaek-sygehus|Holbæk Sygehus]]) [^src6]
-- "Nykøbing F Sygehus opfyldte standarden for supplerende indikator 5x med 100,0 % (95 % CI: 2,5–100,0)" — see [[performance-statistic|Performance Statistic]] ([[nykoebing-f-sygehus|Nykøbing F Sygehus]]) [^src6]
-- "Næstved, Slagelse og Ringsted sygehuse havde en andel på 15,6 % (95 % CI: 7,8–26,9) for supplerende indikator 5x" — see [[performance-statistic|Performance Statistic]] ([[naestved-slagese-og-ringsted-sygehuse|Næstved, Slagelse og Ringsted sygehuse]]) [^src6]
-- "Nykøbing F Sygehus har en rapporteret 90-dages mortalitet på 100,0 % (95 % CI: 15,8–100,0) for Indikator 11, men med manglende tæller/nævner-data ('#/#')" — see [[data-quality|Data Quality]] ([[nykoebing-f-sygehus|Nykøbing F Sygehus]]) [^src7]
-- "Andelen af patienter, der mangler information, varierer fra 1 % i Region Sjælland til 15 % i Region Midtjylland" — see [[data-quality|Data Quality]] ([[region-sjaelland|Region Sjælland — Sjælland]], [[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src8]
-- "5 % af observationerne mangler informationer, primært i Region Midtjylland" — see [[data-quality|Data Quality]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src8]
-- "Regionalt varierede andelen fra 9,9 % i Region Midtjylland til 14,1 % i Region Nordjylland for Indikator 10" — see [[regional-comparison|Regional Comparison]] ([[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src7]
-- "Regionalt varierede andelen af patienter, der fik antibiotika indenfor tre timer efter ankomst til sygehus fra 22,5 % i Region Syddanmark til 44,6 % i Region Midtjylland" — see [[regional-comparison|Regional Comparison]] ([[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src9]
-- "Regionalt varierede andelen af intermediær indlæggelse fra 17,2 % i Region Nordjylland til 27,0 % i Region Syddanmark" — see [[regional-comparison|Regional Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src8]
-- "Regionalt varierede andelen fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden" — see [[regional-comparison|Regional Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src10]
-- "Regionalt varierede andelen for indikator 5y fra 9,0 % i Region Nordjylland til 19,9 % i Region Hovedstaden" — see [[healthcare-comparison|Healthcare Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src11]
-- "Danmark: 122 / 1.090 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (11,2 %; 95 % CI: 9,4-13,2)" — see [[regional-statistic|Regional Statistic]] ([[danmark|Danmark]]) [^src4]
-- "Hovedstaden: 36 / 396 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (9,1 %; 95 % CI: 6,4-12,4)" — see [[regional-statistic|Regional Statistic]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src4]
-- "Sjælland: 28 / 180 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (15,6 %; 95 % CI: 10,6-21,7)" — see [[regional-statistic|Regional Statistic]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src4]
-- "Syddanmark: 21 / 213 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (9,9 %; 95 % CI: 6,2-14,7)" — see [[regional-statistic|Regional Statistic]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src4]
-- "Midtjylland: 24 / 225 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (10,7 %; 95 % CI: 7,0-15,5)" — see [[regional-statistic|Regional Statistic]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src4]
-- "Nordjylland: 13 / 76 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (17,1 %; 95 % CI: 9,4-27,5)" — see [[regional-statistic|Regional Statistic]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src4]
-- "Regionalt varierede andelen fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark" — see [[regional-variation|Regional Variation]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src12]
-- "Amager og Hvidovre Hospital: 256 opererede patienter, hvoraf 15 (0,48 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]]) [^src13]
-- "Bispebjerg og Frederiksberg Hospitaler: 231 opererede patienter, hvoraf 14 (0,44 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]]) [^src13]
-- "Bornholms Hospital: 30 opererede patienter, hvoraf ingen havde kræftdiagnose" — see [[cancer-distribution|Cancer Distribution]] ([[bornholms-hospital|Bornholms Hospital]]) [^src13]
-- "Herlev og Gentofte Hospital: 306 opererede patienter, hvoraf 19 (0,60 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]]) [^src13]
-- "Hospitalerne i Nordsjælland: 214 opererede patienter, hvoraf 4 (0,13 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]]) [^src13]
-- "Rigshospitalet: 58 opererede patienter, hvoraf 3 (0,10 %) havde resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[rigshospitalet|Rigshospitalet]]) [^src13]
-- "Andelen af patienter med høj mortalitetsrisiko (ASA ≥ 3 eller alder ≥ 75 år), der monitoreres ≥ 24 timer postoperativt på et intermediært eller lignende afsnit, er 22,9 % (95 % CI: 21,1–24,8)" — see [[clinical-quality|Clinical Quality]] ([[danmark|Danmark]]) [^src8]
-- "Der er stor forskel mellem sygehusene i forhold til at tilbyde smertebehandling med epiduralkateter" — see [[inter-hospital-variation|Inter Hospital Variation]] ([[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]], [[naestved-slagese-og-ringsted-sygehuse|Næstved, Slagelse og Ringsted sygehuse]]) [^src12]
-- "Nationalt var andelen af patienter, der døde indenfor 90 dage fra operationsdato, 16,6 % (95 % CI: 15,4–18,0) i perioden 01.09.2023 – 31.08.2024" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src14]
-- "For Indikator 10 var antallet af døde patienter 529 ud af 3.179 forløb på nationalt plan" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src14]
-- "Danmark: 143 / 1.144 patienter døde indenfor 30 dage efter akut kirurgi ved Charlson Score = 1 eller 2, svarende til 12,5 % (95 % CI: 10,6-14,6)" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src15]
-- "For Danmark i perioden 01/09/2022 – 31/08/2023 var antallet af opererede 3.745, medianalderen 70,00 år og gennemsnitsalderen 65,46 år" — see [[demographic|Demographic]] ([[danmark|Danmark]]) [^src16]
+- "Holbæk Sygehus og Bornholms Hospital fremhæves som enheder, der for andet år i træk har øget andelen af højrisiko patienter, der observeres tæt de første 24 timer postoperativt" — see [[performance|Performance]] ([[holbaek-sygehus|Holbæk Sygehus]], [[bornholms-hospital|Bornholms Hospital]]) [^src4]
+- "Holbæk Sygehus har en mobiliseringsrate på 58,3 % (95 % CI: 50,0–66,2) for indikator 6" — see [[performance|Performance]] ([[holbaek-sygehus|Holbæk Sygehus]]) [^src4]
+- "Bornholms Hospital har en mobiliseringsrate på 71,4 % (95 % CI: 41,9–91,6) for indikator 6" — see [[performance|Performance]] ([[bornholms-hospital|Bornholms Hospital]]) [^src4]
+- "Region Sjælland rapporterer en opfyldelse af indikator 6 (tidlig mobilisering) på 70–80 %, men konstaterer stadig registreringsproblemer" — see [[performance|Performance]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src5]
+- "Region Nordjylland konkluderer, at udfordringen ved indikator 2 (CT-skanning inden for 2 timer) ikke ligger i mangel på CT-kapacitet, men i manglende identifikation og henvisning af AHA-patienter" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src5]
+- "Den mediane tid fra ankomst til sygehus og frem til CT-scanning for hele Danmark er 101 minutter" — see [[performance|Clinical Metric]] ([[danmark|Danmark]]) [^src6]
+- "Andelen af opererede blandt alle registrerede patienter i Danmark er 32,84 %" — see [[performance|Clinical Metric]] ([[danmark|Danmark]]) [^src6]
+- "Amager og Hvidovre Hospital: 7 / 90 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (7,8 %; 95 % CI: 3,2-15,4)" — see [[performance|Hospital Statistic]] ([[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]]) [^src7]
+- "Bispebjerg og Frederiksberg Hospitaler: 5 / 83 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (6,0 %; 95 % CI: 2,0-13,5)" — see [[performance|Hospital Statistic]] ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]]) [^src7]
+- "Bornholms Hospital: 0 / 7 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (0,0 %; 95 % CI: 0,0-41,0)" — see [[performance|Hospital Statistic]] ([[bornholms-hospital|Bornholms Hospital]]) [^src7]
+- "Herlev og Gentofte Hospital: 13 / 117 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (11,1 %; 95 % CI: 6,1-18,3)" — see [[performance|Hospital Statistic]] ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]]) [^src7]
+- "Hospitalerne i Nordsjælland: 8 / 69 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (11,6 %; 95 % CI: 5,1-21,6)" — see [[performance|Hospital Statistic]] ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]]) [^src7]
+- "Rigshospitalet: 3 / 30 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (10,0 %; 95 % CI: 2,1-26,5)" — see [[performance|Hospital Statistic]] ([[rigshospitalet|Rigshospitalet]]) [^src7]
+- "Holbæk Sygehus: 12 / 48 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (25,0 %; 95 % CI: 13,6-39,6)" — see [[performance|Hospital Statistic]] ([[holbaek-sygehus|Holbæk Sygehus]]) [^src7]
+- "Nykøbing F Sygehus: #/# døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (100,0 %; 95 % CI: 2,5-100,0)" — see [[performance|Hospital Statistic]] ([[nykoebing-f-sygehus|Nykøbing F Sygehus]]) [^src7]
+- "Næstved, Slagelse og Ringsted sygehuse: 6 / 59 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (10,2 %; 95 % CI: 3,8-20,8)" — see [[performance|Hospital Statistic]] ([[naestved-slagese-og-ringsted-sygehuse|Næstved, Slagelse og Ringsted sygehuse]]) [^src7]
+- "For Indikator 1 var den nationale opfyldelse i perioden 01.09.2023–31.08.2024 34,4 % (95 % CI: 32,7–36,1)" — see [[performance|Performance Result]] ([[danmark|Danmark]]) [^src8]
+- "For Indikator 1 var opfyldelsen i Region Hovedstaden i perioden 01.09.2023–31.08.2024 33,1 % (95 % CI: 30,2–36,1)" — see [[performance|Performance Result]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src8]
+- "For Indikator 1 var opfyldelsen i Region Sjælland i perioden 01.09.2023–31.08.2024 36,3 % (95 % CI: 32,3–40,4)" — see [[performance|Performance Result]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src8]
+- "For Indikator 1 var opfyldelsen i Region Syddanmark i perioden 01.09.2023–31.08.2024 22,5 % (95 % CI: 19,2–26,0)" — see [[performance|Performance Result]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src8]
+- "For Indikator 1 var opfyldelsen i Region Midtjylland i perioden 01.09.2023–31.08.2024 44,6 % (95 % CI: 40,8–48,4)" — see [[performance|Performance Result]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src8]
+- "For Indikator 1 var opfyldelsen i Region Nordjylland i perioden 01.09.2023–31.08.2024 36,7 % (95 % CI: 30,4–43,4)" — see [[performance|Performance Result]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src8]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 1 på landsplan 35,6 % (95 % CI: 33,9–37,3)" — see [[performance|Performance Result]] ([[danmark|Danmark]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 2 på landsplan 33,5 % (95 % CI: 31,9–35,2)" — see [[performance|Performance Result]] ([[danmark|Danmark]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 3 på landsplan 14,3 % (95 % CI: 13,1–15,5)" — see [[performance|Performance Result]] ([[danmark|Danmark]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 4x på landsplan 34,0 % (95 % CI: 30,8–37,3)" — see [[performance|Performance Result]] ([[danmark|Danmark]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 4y på landsplan 81,7 % (95 % CI: 79,8–83,6)" — see [[performance|Performance Result]] ([[danmark|Danmark]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 5 på landsplan 22,3 % (95 % CI: 20,4–24,2)" — see [[performance|Performance Result]] ([[danmark|Danmark]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 6 på landsplan 41,5 % (95 % CI: 39,8–43,3)" — see [[performance|Performance Result]] ([[danmark|Danmark]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 8 på landsplan 51,7 % (95 % CI: 50,0–53,5)" — see [[performance|Performance Result]] ([[danmark|Danmark]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 1 i Region Midtjylland 47,2 % (95 % CI: 43,3–51,2), hvilket er den højeste regionale opfyldelse blandt de fem regioner" — see [[performance|Performance Result]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 1 i Bornholms Hospital 64,3 % (95 % CI: 35,1–87,2), hvilket er den højeste hospitalelige opfyldelse blandt alle rapporterede hospitaler" — see [[performance|Performance Result]] ([[bornholms-hospital|Bornholms Hospital]]) [^src9]
+- "Nationalt blev 242 ud af 1.141 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 21,2 % (95 % CI: 18,9–23,7)" — see [[performance|Performance Statistic]] ([[danmark|Danmark]]) [^src10]
+- "I Region Hovedstaden blev 80 ud af 406 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 19,7 % (95 % CI: 15,9–23,9)" — see [[performance|Performance Statistic]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src10]
+- "I Region Sjælland blev 38 ud af 191 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 19,9 % (95 % CI: 14,5–26,3)" — see [[performance|Performance Statistic]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src10]
+- "I Region Syddanmark blev 37 ud af 208 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 17,8 % (95 % CI: 12,8–23,7)" — see [[performance|Performance Statistic]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src10]
+- "I Region Midtjylland blev 66 ud af 243 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 27,2 % (95 % CI: 21,7–33,2)" — see [[performance|Performance Statistic]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src10]
+- "I Region Nordjylland blev 21 ud af 93 patienter opereret inden for 6 timer for perforation, iskæmi eller blødning, svarende til en andel på 22,6 % (95 % CI: 14,6–32,4)" — see [[performance|Performance Statistic]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src10]
+- "Amager og Hvidovre Hospital havde en andel på 10,9 % (95 % CI: 5,6–18,7) for supplerende indikator 5x" — see [[performance|Performance Statistic]] ([[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]]) [^src10]
+- "Bispebjerg og Frederiksberg Hospitaler havde en andel på 22,6 % (95 % CI: 14,2–33,0) for supplerende indikator 5x" — see [[performance|Performance Statistic]] ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]]) [^src10]
+- "Bornholms Hospital havde en andel på 54,5 % (95 % CI: 23,4–83,3) for supplerende indikator 5x" — see [[performance|Performance Statistic]] ([[bornholms-hospital|Bornholms Hospital]]) [^src10]
+- "Herlev og Gentofte Hospital havde en andel på 21,8 % (95 % CI: 13,7–32,0) for supplerende indikator 5x" — see [[performance|Performance Statistic]] ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]]) [^src10]
+- "Hospitalerne i Nordsjælland havde en andel på 25,3 % (95 % CI: 16,7–35,5) for supplerende indikator 5x" — see [[performance|Performance Statistic]] ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]]) [^src10]
+- "Rigshospitalet havde et punktestimat på 6,3 % (95 % CI: 0,8–20,8) for supplerende indikator 5x" — see [[performance|Performance Statistic]] ([[rigshospitalet|Rigshospitalet]]) [^src10]
+- "Holbæk Sygehus havde en andel på 26,8 % (95 % CI: 14,2–42,9) for supplerende indikator 5x" — see [[performance|Performance Statistic]] ([[holbaek-sygehus|Holbæk Sygehus]]) [^src10]
+- "Nykøbing F Sygehus opfyldte standarden for supplerende indikator 5x med 100,0 % (95 % CI: 2,5–100,0)" — see [[performance|Performance Statistic]] ([[nykoebing-f-sygehus|Nykøbing F Sygehus]]) [^src10]
+- "Næstved, Slagelse og Ringsted sygehuse havde en andel på 15,6 % (95 % CI: 7,8–26,9) for supplerende indikator 5x" — see [[performance|Performance Statistic]] ([[naestved-slagese-og-ringsted-sygehuse|Næstved, Slagelse og Ringsted sygehuse]]) [^src10]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 9 på landsplan 10,1 % (95 % CI: 9,1–11,2)" — see [[performance|Outcome Result]] ([[danmark|Danmark]]) [^src9]
+- "For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 10 på landsplan 13,7 % (95 % CI: 12,5–14,9)" — see [[performance|Outcome Result]] ([[danmark|Danmark]]) [^src9]
+- "Nykøbing F Sygehus har en rapporteret 90-dages mortalitet på 100,0 % (95 % CI: 15,8–100,0) for Indikator 11, men med manglende tæller/nævner-data ('#/#')" — see [[data-quality|Data Quality]] ([[nykoebing-f-sygehus|Nykøbing F Sygehus]]) [^src11]
+- "Andelen af patienter, der mangler information, varierer fra 1 % i Region Sjælland til 15 % i Region Midtjylland" — see [[data-quality|Data Quality]] ([[region-sjaelland|Region Sjælland — Sjælland]], [[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src12]
+- "5 % af observationerne mangler informationer, primært i Region Midtjylland" — see [[data-quality|Data Quality]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src12]
+- "4 % af observationerne mangler informationer, primært i Region Midtjylland" — see [[data-quality|Data Quality]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src13]
+- "Ugyldigt CPR-nummer udgjorde 79 af de totale eksklusioner på nationalt plan" — see [[data-quality|Data Quality]] ([[danmark|Danmark]]) [^src14]
+- "Regionalt varierede andelen fra 9,9 % i Region Midtjylland til 14,1 % i Region Nordjylland for Indikator 10" — see [[regional-comparison|Regional Comparison]] ([[region-midtjylland|Region Midtjylland — Midtjylland]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src11]
+- "Regionalt varierede andelen af patienter, der fik antibiotika indenfor tre timer efter ankomst til sygehus fra 22,5 % i Region Syddanmark til 44,6 % i Region Midtjylland" — see [[regional-comparison|Regional Comparison]] ([[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src15]
+- "Regionalt varierede andelen af intermediær indlæggelse fra 17,2 % i Region Nordjylland til 27,0 % i Region Syddanmark" — see [[regional-comparison|Regional Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src12]
+- "Regionalt varierede andelen fra 6,8 % i Region Nordjylland til 33,1 % i Region Hovedstaden" — see [[regional-comparison|Regional Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src16]
+- "Den regionale variation – fra 78,8 % i Region Nordjylland til 84,2 % i Region Sjælland – indikerer, at forskelle i organisering, kapacitet og klinisk praksis kan have betydning for resultaterne" — see [[regional-comparison|Regional Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-sjaelland|Region Sjælland — Sjælland]]) [^src13]
+- "Regionalt varierede andelen fra 10,4 % i Region Nordjylland til 28,5 % i Region Syddanmark" — see [[regional-comparison|Regional Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src13]
+- "Regionalt varierede andelen af tidlig mobilisering fra 27,1 % i Region Sjælland til 57,8 % i Region Midtjylland" — see [[regional-comparison|Regional Comparison]] ([[region-sjaelland|Region Sjælland — Sjælland]], [[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src4]
+- "Regionalt varierede andelen fra 40,5 % i Region Nordjylland til 57,3 % i Region Hovedstaden" — see [[regional-comparison|Regional Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src17]
+- "Regionalt varierede andelen fra 9,1 % i Region Hovedstaden til 12,3 % i Region Syddanmark" — see [[regional-comparison|Regional Comparison]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src18]
+- "Regionalt varierede andelen fra 12,5 % i Region Nordjylland til 15,2 % i Region Syddanmark" — see [[regional-comparison|Regional Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src19]
+- "Regionalt varierede andelen for indikator 5y fra 9,0 % i Region Nordjylland til 19,9 % i Region Hovedstaden" — see [[regional-comparison|Healthcare Comparison]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src20]
+- "Danmark: 122 / 1.090 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (11,2 %; 95 % CI: 9,4-13,2)" — see [[regional-comparison|Regional Statistic]] ([[danmark|Danmark]]) [^src7]
+- "Hovedstaden: 36 / 396 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (9,1 %; 95 % CI: 6,4-12,4)" — see [[regional-comparison|Regional Statistic]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src7]
+- "Sjælland: 28 / 180 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (15,6 %; 95 % CI: 10,6-21,7)" — see [[regional-comparison|Regional Statistic]] ([[region-sjaelland|Region Sjælland — Sjælland]]) [^src7]
+- "Syddanmark: 21 / 213 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (9,9 %; 95 % CI: 6,2-14,7)" — see [[regional-comparison|Regional Statistic]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src7]
+- "Midtjylland: 24 / 225 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (10,7 %; 95 % CI: 7,0-15,5)" — see [[regional-comparison|Regional Statistic]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src7]
+- "Nordjylland: 13 / 76 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (17,1 %; 95 % CI: 9,4-27,5)" — see [[regional-comparison|Regional Statistic]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src7]
+- "Regionalt varierede andelen fra 41,9 % i Region Nordjylland til 56,8 % i Region Syddanmark" — see [[regional-comparison|Regional Variation]] ([[region-nordjylland|Region Nordjylland — Nordjylland]], [[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src21]
+- "Amager og Hvidovre Hospital: 256 opererede patienter, hvoraf 15 (0,48 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]]) [^src22]
+- "Bispebjerg og Frederiksberg Hospitaler: 231 opererede patienter, hvoraf 14 (0,44 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]]) [^src22]
+- "Bornholms Hospital: 30 opererede patienter, hvoraf ingen havde kræftdiagnose" — see [[cancer-distribution|Cancer Distribution]] ([[bornholms-hospital|Bornholms Hospital]]) [^src22]
+- "Herlev og Gentofte Hospital: 306 opererede patienter, hvoraf 19 (0,60 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[herlev-og-gentofte-hospital|Herlev og Gentofte Hospital]]) [^src22]
+- "Hospitalerne i Nordsjælland: 214 opererede patienter, hvoraf 4 (0,13 %) havde gastrointestinale kræftsygdomme og 4 (0,13 %) resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[hospitalerne-i-nordsjaelland|Hospitalerne i Nordsjælland]]) [^src22]
+- "Rigshospitalet: 58 opererede patienter, hvoraf 3 (0,10 %) havde resten af kræftsygdomme" — see [[cancer-distribution|Cancer Distribution]] ([[rigshospitalet|Rigshospitalet]]) [^src22]
+- "Intern audit bekræfter, at hovedparten af de afdøde patienter ved Rigshospitalet var sekundært visiterede med betydelig komorbiditet eller avanceret vaskulær patologi" — see [[clinical-evidence|Clinical Evidence]] ([[rigshospitalet|Rigshospitalet]]) [^src5]
+- "Andelen af patienter med høj mortalitetsrisiko (ASA ≥ 3 eller alder ≥ 75 år), der monitoreres ≥ 24 timer postoperativt på et intermediært eller lignende afsnit, er 22,9 % (95 % CI: 21,1–24,8)" — see [[clinical-quality|Clinical Quality]] ([[danmark|Danmark]]) [^src12]
+- "Der er stor forskel mellem sygehusene i forhold til at tilbyde smertebehandling med epiduralkateter" — see [[inter-hospital-variation|Inter Hospital Variation]] ([[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]], [[naestved-slagese-og-ringsted-sygehuse|Næstved, Slagelse og Ringsted sygehuse]]) [^src21]
+- "Nationalt var andelen af patienter, der døde indenfor 90 dage fra operationsdato, 16,6 % (95 % CI: 15,4–18,0) i perioden 01.09.2023 – 31.08.2024" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src23]
+- "For Indikator 10 var antallet af døde patienter 529 ud af 3.179 forløb på nationalt plan" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src23]
+- "Danmark: 143 / 1.144 patienter døde indenfor 30 dage efter akut kirurgi ved Charlson Score = 1 eller 2, svarende til 12,5 % (95 % CI: 10,6-14,6)" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src24]
+- "30-dages mortaliteten blandt opererede patienter med Charlson Score = 0 i Danmark er 4,4 % (95 % CI: 3,4–5,6) for perioden 2023/24" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src6]
+- "For Rigshospitalet er 30-dages mortaliteten blandt opererede patienter med Charlson Score = 0 33,3 % (95 % CI: 7,5–70,1) for perioden 2023/24" — see [[clinical-outcome|Clinical Outcome]] ([[rigshospitalet|Rigshospitalet]]) [^src6]
+- "30-dages-mortaliteten for indikator 4y i Danmark var 5,4 % (95 % CI: 4,3–6,8) i 2023/24" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src25]
+- "90-dages-mortaliteten for indikator 4y i Danmark var 7,4 % (95 % CI: 6,1–8,9) i 2023/24" — see [[clinical-outcome|Clinical Outcome]] ([[danmark|Danmark]]) [^src25]
+- "Amager og Hvidovre Hospital havde 0 % 30-dages-mortalitet (0/100) for indikator 4y i 2023/24" — see [[clinical-outcome|Clinical Outcome]] ([[amager-og-hvidovre-hospital|Amager og Hvidovre Hospital]]) [^src25]
+- "Bispebjerg og Frederiksberg Hospital havde 9,7 % 90-dages-mortalitet (10/103) for indikator 4y i 2023/24" — see [[clinical-outcome|Clinical Outcome]] ([[bispebjerg-og-frederiksberg-hospitaler|Bispebjerg og Frederiksberg Hospitaler]]) [^src25]
+- "Bornholms Hospital havde 20,0 % 30-dages-mortalitet (95 % CI: 0,5–71,6) for indikator 4y i 2023/24" — see [[clinical-outcome|Clinical Outcome]] ([[bornholms-hospital|Bornholms Hospital]]) [^src25]
+- "Den forhøjede 30- og 90-dages mortalitet ved Rigshospitalet afspejler i betydelig grad en selekteret tertiær population med høj sygdomsgrad" — see [[clinical-outcome|Clinical Outcome]] ([[rigshospitalet|Rigshospitalet]]) [^src5]
+- "For indikator 4x er 30-dages-mortaliteten i Danmark 12,3 % (95 % CI: 8,8–16,7) for perioden 01.09.2024 – 31.08.2025" — see [[clinical-outcome|Mortality]] ([[danmark|Danmark]]) [^src26]
+- "For indikator 4x er 90-dages-mortaliteten i Danmark 13,0 % (95 % CI: 9,4–17,4) for perioden 01.09.2024 – 31.08.2025" — see [[clinical-outcome|Mortality]] ([[danmark|Danmark]]) [^src26]
+- "For Danmark i perioden 01/09/2022 – 31/08/2023 var antallet af opererede 3.745, medianalderen 70,00 år og gennemsnitsalderen 65,46 år" — see [[demographic|Demographic]] ([[danmark|Danmark]]) [^src27]
+- "Region Hovedstaden identificerer tre primære udfordringer ved indledende bedømmelse af patienter med muligt akut abdomen: (1) patienter, der initialt vurderes eller indlægges under anden diagnose; (2) patienter med atypisk symptompræsentation eller begrænset evne til at formidle symptomer; (3) patienter, der under behandling for anden sygdom pådrager sig hul på hulorgan" — see [[clinical-assessment|Clinical Assessment]] ([[region-hovedstaden|Region Hovedstaden — Hovedstaden]]) [^src5]
 
 ## Sources
 
 [^src1]: AKDB_2023.pdf, pages 21
 [^src2]: AKDB_2023.pdf, pages 6-10
 [^src3]: AKDB_2023.pdf, pages 91-95
-[^src4]: AKDB_2023.pdf, pages 61-65
-[^src5]: AKDB_2024.pdf, pages 6-10
-[^src6]: AKDB_2023.pdf, pages 21-25
-[^src7]: AKDB_2023.pdf, pages 51-55
-[^src8]: AKDB_2024.pdf, pages 31-35
-[^src9]: AKDB_2024.pdf, pages 11-15
-[^src10]: AKDB_2024.pdf, pages 41-45
-[^src11]: AKDB_2023.pdf, pages 26-30
-[^src12]: AKDB_2024.pdf, pages 46-50
-[^src13]: AKDB_2023.pdf, pages 56-60
-[^src14]: AKDB_2024.pdf, pages 51-55
-[^src15]: AKDB_2024.pdf, pages 61-65
-[^src16]: AKDB_2024.pdf, pages 71-75
+[^src4]: AKDB_2025.pdf, pages 36-40
+[^src5]: AKDB_2025.pdf, pages 111-115
+[^src6]: AKDB_2025.pdf, pages 61-65
+[^src7]: AKDB_2023.pdf, pages 61-65
+[^src8]: AKDB_2024.pdf, pages 6-10
+[^src9]: AKDB_2025.pdf, pages 6-10
+[^src10]: AKDB_2023.pdf, pages 21-25
+[^src11]: AKDB_2023.pdf, pages 51-55
+[^src12]: AKDB_2024.pdf, pages 31-35
+[^src13]: AKDB_2025.pdf, pages 31-35
+[^src14]: AKDB_2025.pdf, pages 71-75
+[^src15]: AKDB_2024.pdf, pages 11-15
+[^src16]: AKDB_2024.pdf, pages 41-45
+[^src17]: AKDB_2025.pdf, pages 46-50
+[^src18]: AKDB_2025.pdf, pages 51-55
+[^src19]: AKDB_2025.pdf, pages 56-60
+[^src20]: AKDB_2023.pdf, pages 26-30
+[^src21]: AKDB_2024.pdf, pages 46-50
+[^src22]: AKDB_2023.pdf, pages 56-60
+[^src23]: AKDB_2024.pdf, pages 51-55
+[^src24]: AKDB_2024.pdf, pages 61-65
+[^src25]: AKDB_2025.pdf, pages 81-85
+[^src26]: AKDB_2025.pdf, pages 76-80
+[^src27]: AKDB_2024.pdf, pages 71-75
+

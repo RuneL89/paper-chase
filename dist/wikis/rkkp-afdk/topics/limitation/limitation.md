@@ -2,78 +2,54 @@
 title: Limitation
 type: topic
 wiki: rkkp-afdk
-updated: '2026-08-05T21:37:28.736Z'
+updated: '2026-08-14T21:47:16.795Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: '121-121, 81-85'
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: '16-20, 66-70'
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: '61-65, 71-75'
 tags:
   - limitation
 ---
 # Limitation
 
-The **Limitation** topic encompasses the various structural, systemic, and operational constraints affecting data completeness and accuracy within the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK) and its associated quality indicators. These limitations range from inherent coverage gaps in patient populations to technical failures in data capture across regional health platforms.
+In the context of the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK) and its associated clinical quality indicators, "Limitation" encompasses the methodological, systemic, and coverage-related constraints that affect data accuracy and performance evaluation. These limitations arise from the database's inclusion criteria, systemic data capture failures, and the inherent complexities of comparing hospital performance.
 
-### Coverage and Prevalence Limitations
-The AFDK is fundamentally restricted in its patient coverage. It exclusively relies on patients diagnosed with atrial fibrillation during hospital admissions, which includes ambulatory hospital contacts [^src1]. Consequently, the database currently excludes patients who are treated solely in general practice or by private specialist practitioners [^src1]. Furthermore, the true prevalence of atrial fibrillation in the population is systematically underestimated by the database; screening studies have demonstrated a significant number of patients living with unrecognized atrial fibrillation [^src1], [^src3]. There is also a risk of underreporting for patients with atrial fibrillation and competing comorbidities, where the diagnosis is made clinically but never formally registered in the [[landspatientregisteret|Landspatientregisteret]] [^src1].
+## Coverage and Prevalence Constraints
+The AFDK is exclusively based on patients diagnosed with [[atrieflimren|atrieflimren]] during hospital admissions or outpatient contacts [^src1]. It currently excludes patients who are treated solely in general practice or by private specialists [^src1]. Because of this restricted scope, the true prevalence of atrial fibrillation is systematically underestimated; screening studies have demonstrated a significant number of undiagnosed cases in the general population [^src1], [^src3], [^src4]. Furthermore, patients presenting with atrial fibrillation alongside other competing diseases may not have their atrial fibrillation diagnosis reported to the [[landspatientregisteret|Landspatientregisteret]], even when the diagnosis is made clinically [^src1], [^src4].
 
-### Data Collection and Reporting Issues
-Operational workflows and cross-sector referrals introduce significant data blind spots. For instance, when hospital departments refer patients to private hospitals, the subsequent treatment courses often fail to fulfill the requirements of [[indikator-2|Indikator 2]] due to missing data from the private facilities [^src2]. Additionally, validation efforts have uncovered a substantial lack of performance reporting for echocardiography procedures to the [[landspatientregisteret|Landspatientregisteret]], a problem that is particularly pronounced in departments operating under the [[sundhedsplatformen|Sundhedsplatformen]] [^src2].
+## Data Collection and Systemic Failures
+Systemic and administrative workflows frequently disrupt data capture, directly impacting the fulfillment of clinical indicators. For [[indikator-2|Indikator 2]], some departments refer patients to private hospitals, resulting in missing data that causes these departments to fail the indicator [^src2]. Additionally, validation work has revealed significant underreporting of echocardiography procedures to the Landspatientregisteret, particularly from departments operating under the [[sundhedsplatformen|Sundhedsplatformen]] electronic health record system [^src2]. 
 
-### System and Local Constraints
-Technical limitations in how local laboratories code blood tests also hinder quality monitoring. At [[sygehus-soenderjylland|Sygehus Sønderjylland]], the low target fulfillment for [[indikator-3|Indikator 3]] was traced back to the [[fælles-akut-modtagelse|Fælles Akut Modtagelse]] (FAM), where "diagnostic TSH" is ordered as part of a broader blood test package rather than as an individual test [^src4]. Audits revealed that TSH tests bundled in these packages are assigned a local blood test code instead of the official NPU code required for data extraction. As a result, these tests are entirely missed by the [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] (RKKP) data capture systems, and it remains technically unfeasible for RKKP to capture data using these local codes [^src4].
+Similar data collection issues affect [[indikator-3|Indikator 3]]. [[sygehus-soenderjylland|Sygehus Sønderjylland]] identified that its low target fulfillment was caused by the [[faelles-akut-modtagelse|Fælles Akut Modtagelse]] ordering "diagnostic TSH" as part of a bundled blood test package rather than as an individual test [^src6]. Audits showed that bundled TSH tests are reported using local blood test codes instead of the official NPU codes required by the [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] (RKKP) for data extraction [^src6]. It remains a persistent system limitation that RKKP cannot capture data from these local codes [^src6].
+
+## Interpretation and Case-Mix
+When evaluating hospital-level performance, raw indicator data can be misleading without accounting for patient demographics. For [[indikator-9|Indikator 9]], there is a significant risk that observed differences between hospitals are attributable to varying patient populations (case-mix) rather than actual differences in the quality of treatment provided [^src5].
 
 ## Claims
-
 - Patientregistreringen i AFDK vil kun afspejle patienter med erkendt atrieflimren. Den sande prævalens af atrieflimren undervurderes således, idet screeningsundersøgelser har påvist, at der findes et betydeligt antal patienter med uerkendt atrieflimren (Svennberg et al. Circulation 2015;131:2176-84) [^src1] (databasen-for-atrieflimren-i-danmark)
-  Type: limitation
-  Page: 81
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 81-85
 - Der vil formentlig forekomme patienter med atrieflimren og andre konkurrerende sygdomme, hvor atrieflimren ikke bliver indberettet til Landspatientregisteret til trods for, at diagnosen er blevet stillet klinisk [^src1] (databasen-for-atrieflimren-i-danmark, landspatientregisteret)
-  Type: limitation
-  Page: 81
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 81-85
 - Nogle afdelinger henviser patienter til privathospitaler, hvilket medfører, at disse forløb ikke opfylder indikatoren grundet manglende data fra privathospitalet [^src1] (indikator-2)
-  Type: limitation
-  Page: 19
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 16-20
 - Valideringsarbejde har vist en betydelig grad af manglende ydelses-rapportering af ekkokardiografi til Landspatientregisteret, især fra afdelinger under Sundhedsplatformen [^src1] (indikator-2, sundhedsplatformen, landspatientregisteret)
-  Type: limitation
-  Page: 19
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 16-20
 - Den sande prævalens af atrieflimren undervurderes, idet screeningsundersøgelser har påvist, at der findes et betydeligt antal patienter med uerkendt atrieflimren (Svennberg et al. Circulation 2015;131:2176-84) [^src3] (databasen-for-atrieflimren-i-danmark)
-  Type: limitation
-  Page: 68
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 66-70
 - AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis [^src3] (databasen-for-atrieflimren-i-danmark)
-  Type: limitation
-  Page: 68
-  Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 66-70
+- Den sande prævalens af atrieflimren undervurderes, idet screeningsundersøgelser har påvist, at der findes et betydeligt antal patienter med uerkendt atrieflimren (Svennberg et al. Circulation 2015;131:2176-84). [^src1] (atrieflimren, databasen-for-atrieflimren-i-danmark)
+- AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis. [^src1] (databasen-for-atrieflimren-i-danmark)
+- Der vil formentlig forekomme patienter med atrieflimren og andre konkurrerende sygdomme, hvor atrieflimren ikke bliver indberettet til Landspatientregisteret til trods for, at diagnosen er blevet stillet klinisk. [^src1] (atrieflimren, landspatientregisteret)
+- Der er betydelig risiko for, at forskellene på hospitalsniveau kan tilskrives forskellige populationer (case-mix) snarere end forskelle i behandlingskvaliteten [^src1] (indikator-9)
 - AFDK er udelukkende baseret på patienter, som er blevet diagnosticeret med atrieflimren i forbindelse med en hospitalsindlæggelse, inklusiv ambulante hospitalskontakter [^src1] (databasen-for-atrieflimren-i-danmark)
-  Type: coverage-limitation
-  Page: 81
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 81-85
 - AFDK omfatter ikke aktuelt patienter, som udelukkende behandles i almen praksis eller speciallæge praksis [^src1] (databasen-for-atrieflimren-i-danmark)
-  Type: coverage-limitation
-  Page: 81
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 81-85
 - Sygehus Sønderjylland har identificeret at den lave målopfyldelse for Indikator 3 skyldes, at man på Sygehus Sønderjyllands Fælles Akut Modtagelse bestiller ”diagnostisk TSH” som en del af en blodprøvepakke i stedet for TSH enkeltvis [^src1] (sygehus-soenderjylland, indikator-3, faelles-akut-modtagelse)
-  Type: data-collection-issue
-  Page: 121
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 121-121
 - Auditering har vist, at TSH prøver der indgår i pakker ikke er med i den datafangst der laves fra RKKP, da TSH i ”pakken” afrapporteres på en lokal blodprøve kode og ikke den officielle NPU kode, som RKKP anvender til datafangst [^src1] (regionernes-kliniske-kvalitetsudviklingsprogram, faelles-akut-modtagelse)
-  Type: data-collection-issue
-  Page: 121
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 121-121
 - Det er fortsat ikke muligt for RKKP at sikre datafangst på disse koder [^src1] (regionernes-kliniske-kvalitetsudviklingsprogram)
-  Type: system-limitation
-  Page: 121
-  Source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 121-121
 
 ## Sources
 
 [^src1]: AFDK_2023.pdf, pages 81-85
 [^src2]: AFDK_2024.pdf, pages 16-20
 [^src3]: AFDK_2024.pdf, pages 66-70
-[^src4]: AFDK_2023.pdf, pages 121-121
+[^src4]: AFDK_2025.pdf, pages 61-65
+[^src5]: AFDK_2025.pdf, pages 71-75
+[^src6]: AFDK_2023.pdf, pages 121-121

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Analgesics
 wiki: rkkp-afdk
-updated: '2026-08-05T23:11:23.628Z'
+updated: '2026-08-15T00:02:24.935Z'
 children:
+  - index.md
   - nsaid.md
 ---
 # Analgesics
 
-This folder catalogs analgesic medications referenced in the corpus, specifically focusing on non-steroidal anti-inflammatory drugs (NSAIDs) and their clinical implications for patients with atrial fibrillation. The included page documents how NSAIDs are identified as a significant risk factor for severe bleeding events, such as intracranial hemorrhages, and outlines the clinical interventions recommending their avoidance to improve patient outcomes.
+This folder catalogs pharmaceutical entities classified as analgesics, specifically focusing on non-steroidal anti-inflammatory drugs (NSAIDs). Within the context of the Danish Atrial Fibrillation Database, these medications are tracked as a significant risk factor for severe bleeding complications, including intracranial hemorrhages, in patients being treated for atrial fibrillation. The included pages outline clinical recommendations to avoid these drugs as a key behavioral and medical intervention for reducing adverse bleeding events.
 
 ## Pages
 
-- [[nsaid|NSAID]] — Documents the role of non-steroidal anti-inflammatory drugs as a risk factor for severe bleeding complications in atrial fibrillation patients and the clinical guidance to avoid their use.
+- [[nsaid|NSAID]] — A class of non-steroidal anti-inflammatory drugs identified in clinical reports as a notable risk factor for severe bleeding complications in atrial fibrillation patients.
 
 ## Navigation
 

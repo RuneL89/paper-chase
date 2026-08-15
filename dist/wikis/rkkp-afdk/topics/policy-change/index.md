@@ -4,17 +4,18 @@ type: index
 aliases:
   - Policy Change
 wiki: rkkp-afdk
-updated: '2026-08-05T23:40:39.750Z'
+updated: '2026-08-15T00:43:09.199Z'
 children:
+  - index.md
   - policy-change.md
 ---
 # Policy Change
 
-This folder documents methodological updates and administrative policy shifts that affect clinical reporting and calculation standards within the corpus. Specifically, it covers major transitions in how quality indicators are measured, such as the 2023 mandate restricting the calculation of Indikator 8 to a single standardized SKS code. These pages trace the direct impact of such regulatory decisions on data collection, metric simplification, and annual reporting practices.
+This folder contains topics related to methodological updates and policy shifts in clinical reporting and calculation standards. Specifically, it documents the 2023 mandate that restricts the measurement of Indikator 8 to a single standardized SKS code (BFKB), simplifying future reporting by retiring older, additional codes.
 
 ## Pages
 
-- [[policy-change|Policy Change]] — Details the 2023 methodological shift restricting the measurement of Indikator 8 to the single SKS code "BFKB", marking the final inclusion of older codes in annual calculations.
+- [[policy-change|Policy Change]] — Details the 2023 methodological update that restricts the calculation of Indikator 8 to the single SKS code BFKB, marking the final year older codes are included.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder documents methodological updates and administrative policy shifts th
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -49,11 +55,16 @@ This folder documents methodological updates and administrative policy shifts th
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

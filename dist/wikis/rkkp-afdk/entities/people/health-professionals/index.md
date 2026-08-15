@@ -4,37 +4,44 @@ type: index
 aliases:
   - Health Professionals
 wiki: rkkp-afdk
-updated: '2026-08-05T23:08:39.131Z'
+updated: '2026-08-14T23:59:02.870Z'
 children:
   - axel-brandes.md
   - dorte-damgaard.md
   - dorthe-svenstrup.md
   - henrik-rasmussen.md
+  - henrik-vadmann.md
   - ina-qvist.md
+  - index.md
   - jeppe-launbjerg.md
   - louisa-marguerite-christensen.md
   - margit-brinck.md
+  - michael-nielsen.md
   - ole-dyg-pedersen.md
   - palle-mark-christensen.md
+  - signe-risom.md
   - ulla-davidsen.md
 ---
 # Health Professionals
 
-This folder catalogs the medical professionals, nurses, and general practitioners who govern and guide Denmark's national clinical quality initiatives for atrial fibrillation. The individuals profiled here primarily serve on the steering committee for the Danish Atrial Fibrillation Database (AFDK) or lead specialized interdisciplinary clinics. Their collective work ensures that cardiovascular care standards, data validity, and structured patient education programs remain evidence-based and uniformly applied across both hospital and primary care sectors.
+This folder catalogs physicians, nurses, and medical consultants who hold leadership, clinical, or advisory roles in Denmark's national atrial fibrillation quality assurance efforts. Most of these professionals serve on the steering group for the Danish Atrial Fibrillation Database (AFDK) or lead specific regional clinics and patient education initiatives. Their pages document their institutional affiliations, committee memberships, and contributions to cardiovascular healthcare governance, with every role traced back to the annual AFDK reports.
 
 ## Pages
 
-- [[axel-brandes|Axel Brandes]] — Professor and Chief Physician who chairs the AFDK steering group and the broader Atrieflimren i Danmark initiative.
-- [[dorte-damgaard|Dorte Damgaard]] — Chief Physician and PhD at Aarhus University Hospital serving on the AFDK steering group to oversee data validity and descriptive reporting.
-- [[dorthe-svenstrup|Dorthe Svenstrup]] — Lead consultant who drives structured patient education at the interdisciplinary Atrial Fibrillation clinic at Hospitalsenhed Midt.
-- [[henrik-rasmussen|Henrik Rasmussen]] — Substitute medical consultant representing the general practice quality database DAK-E on the AFDK steering group.
-- [[ina-qvist|Ina Qvist]] — Nurse and PhD at Aarhus University Hospital contributing to the AFDK steering group's oversight of national registry data.
-- [[jeppe-launbjerg|Jeppe Launbjerg]] — Practicing cardiologist based in Hillerød who brings private practice perspectives to the AFDK steering group.
-- [[louisa-marguerite-christensen|Louisa Marguerite Christensen]] — Chief Physician and PhD at Bispebjerg and Frederiksberg Hospitals acting as a knowledge-based contributor to AFDK clinical quality indicators.
-- [[margit-brinck|Margit Brinck]] — Nurse at Odense University Hospital ensuring frontline and patient-centered perspectives are integrated into AFDK governance.
-- [[ole-dyg-pedersen|Ole Dyg Pedersen]] — Chief Physician at Zealand University Hospital who serves as a chairperson and key governance figure for the national AFDK database.
-- [[palle-mark-christensen|Palle Mark Christensen]] — General practitioner from Otterup integrating primary care and cross-sectoral insights into the AFDK steering group.
-- [[ulla-davidsen|Ulla Davidsen]] — Chief Physician and MPK at Bispebjerg and Frederiksberg Hospital involved in national registry oversight and evidence-based treatment monitoring.
+- [[axel-brandes|Axel Brandes]] — Professor and leading chief physician who chairs the AFDK steering group and the Atrial Fibrillation in Denmark database.
+- [[dorte-damgaard|Dorte Damgaard]] — Chief physician and PhD at Aarhus University Hospital serving on the AFDK steering group.
+- [[dorthe-svenstrup|Dorthe Svenstrup]] — Leading physician at Hospitalsenhed Midt who drives structured patient education initiatives and serves on the AFDK steering group.
+- [[henrik-rasmussen|Henrik Rasmussen]] — Substitute medical consultant representing DAK-E on the AFDK steering group.
+- [[henrik-vadmann|Henrik Vadmann]] — Consultant physician at Regionshospitalet Nordjylland providing regional medical representation on the AFDK steering group.
+- [[ina-qvist|Ina Qvist]] — Nurse and PhD at Aarhus University Hospital contributing to the AFDK steering group's oversight of national cardiovascular data.
+- [[jeppe-launbjerg|Jeppe Launbjerg]] — Practicing cardiologist at Hjertelægerne i Hillerød and member of the AFDK steering group.
+- [[louisa-marguerite-christensen|Louisa Marguerite Christensen]] — Chief physician and PhD at Bispebjerg and Frederiksberg Hospitals involved in AFDK governance and clinical quality indicator development.
+- [[margit-brinck|Margit Brinck]] — Nurse at Odense University Hospital contributing to the multidisciplinary AFDK steering group.
+- [[michael-nielsen|Michael Nielsen]] — Medical specialist at Hjerteklinik Nordjylland representing the Association of Practicing Specialists on the AFDK steering group.
+- [[ole-dyg-pedersen|Ole Dyg Pedersen]] — Chief physician at Zealand University Hospital who serves as chairperson for the Atrial Fibrillation in Denmark database and its steering group.
+- [[palle-mark-christensen|Palle Mark Christensen]] — General practitioner in Otterup providing a primary care perspective to the AFDK steering group.
+- [[signe-risom|Signe Risom]] — Cardiology nurse and PhD at Herlev and Gentofte Hospital recognized for leading group teaching programs for newly diagnosed atrial fibrillation patients.
+- [[ulla-davidsen|Ulla Davidsen]] — Chief physician at Bispebjerg and Frederiksberg Hospital contributing to the interdisciplinary governance of the AFDK database.
 
 ## Navigation
 
@@ -45,6 +52,6 @@ This folder catalogs the medical professionals, nurses, and general practitioner
 
 ## Statistics
 
-- Pages: 11
+- Pages: 14
 - Sub-folders: 0
 - Sources: 0

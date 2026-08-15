@@ -4,23 +4,22 @@ type: index
 aliases:
   - Health Registries
 wiki: rkkp-afdk
-updated: '2026-08-05T23:00:24.550Z'
+updated: '2026-08-14T23:48:35.542Z'
 children:
   - atrieflimren-i-danmark.md
+  - index.md
   - laboratorieregistret.md
-  - sundhedsklyngen-slagelese.md
   - sygesikringsregisteret.md
 ---
 # Health Registries
 
-This folder catalogs national and regional health registries and databases that supply critical clinical, laboratory, and administrative data for monitoring healthcare quality in Denmark. It includes the primary national database for atrial fibrillation treatment quality, registries providing essential laboratory and echocardiography data for calculating clinical quality indicators, and specific regional health clusters tracked for benchmarking and governance. Every page details the registry's operational scope, data sources, and its specific role in the broader national quality assurance infrastructure.
+This folder contains national health registries and clinical quality databases that form the backbone of Denmark's healthcare data infrastructure for monitoring and evaluating patient care. It includes the primary registry for atrial fibrillation (Atrieflimren i Danmark), which tracks epidemiology, treatment safety, and clinical outcomes, alongside foundational data sources like the Laboratorieregistret for kidney function monitoring and the Sygesikringsregisteret for tracking primary care procedures such as echocardiography. Together, these registries supply the standardized, population-based data required to calculate national clinical quality indicators and guide cardiovascular health policy.
 
 ## Pages
 
-- [[atrieflimren-i-danmark|Atrieflimren i Danmark]] — The national clinical quality database monitoring treatment quality, anticoagulation, and outcomes for patients with atrial fibrillation in Denmark.
-- [[laboratorieregistret|Laboratorieregistret]] — A national registry providing essential laboratory data, such as plasma creatinine measurements, used to calculate quality indicators for kidney function monitoring.
-- [[sundhedsklyngen-slagelese|Sundhedsklyngen Slagelse]] — A locally organized healthcare cluster tracked in national reports for benchmarking clinical quality indicators, including heart failure development and mortality rates.
-- [[sygesikringsregisteret|Sygesikringsregisteret]] — A national health register tracking billing and service codes for procedures like echocardiography in private specialist clinics, used to evaluate diagnostic quality indicators.
+- [[atrieflimren-i-danmark|Atrieflimren i Danmark]] — The national clinical quality database monitoring care, treatment, and outcomes for patients with atrial fibrillation, including epidemiology and safety indicators.
+- [[laboratorieregistret|Laboratorieregistret]] — A national health data registry providing plasma creatinine measurements essential for assessing kidney function in patients on anticoagulant therapy.
+- [[sygesikringsregisteret|Sygesikringsregisteret]] — A registry tracking primary care and specialist service claims, utilized here to capture echocardiography procedure data for cardiovascular quality indicators.
 
 ## Navigation
 
@@ -41,6 +40,6 @@ This folder catalogs national and regional health registries and databases that 
 
 ## Statistics
 
-- Pages: 4
+- Pages: 3
 - Sub-folders: 0
 - Sources: 0

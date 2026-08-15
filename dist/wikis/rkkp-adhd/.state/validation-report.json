@@ -3,102 +3,6 @@
   "links": {
     "broken": [
       {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-10.md",
-        "link": "regulatory-standard|Regulatory Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-10.md",
-        "link": "clinical-practice|Clinical Practice"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-10.md",
-        "link": "quality-assessment|Quality Assessment"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-2a.md",
-        "link": "regulatory-standard|Regulatory Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-2a.md",
-        "link": "clinical-practice|Clinical Practice"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-2a.md",
-        "link": "quality-assessment|Quality Assessment"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-2b-andelen-af-udredningsforloeb-blandt-6-17-aarige-hvor-der-senest-120-dage-efter-start-af-adhd-udredning-er-foretaget-enten-manualiseret-diagnostisk-interview-eller-miljoeobservation.md",
-        "link": "regulatory-standard|Regulatory Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-2b-andelen-af-udredningsforloeb-blandt-6-17-aarige-hvor-der-senest-120-dage-efter-start-af-adhd-udredning-er-foretaget-enten-manualiseret-diagnostisk-interview-eller-miljoeobservation.md",
-        "link": "clinical-practice|Clinical Practice"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-2b-andelen-af-udredningsforloeb-blandt-6-17-aarige-hvor-der-senest-120-dage-efter-start-af-adhd-udredning-er-foretaget-enten-manualiseret-diagnostisk-interview-eller-miljoeobservation.md",
-        "link": "quality-assessment|Quality Assessment"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-2b.md",
-        "link": "regulatory-standard|Regulatory Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-2b.md",
-        "link": "clinical-practice|Clinical Practice"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-2b.md",
-        "link": "quality-assessment|Quality Assessment"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-3-andelen-af-udredningsforloeb-hvor-der-er-afholdt-diagnostisk-konference-med-deltagelse-af-speciallaege-i-boerne-og-ungdomspsykiatri-senest-120-dage-efter-start-af-adhd-udredning.md",
-        "link": "standard|Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-3.md",
-        "link": "standard|Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-4.md",
-        "link": "standard|Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-5.md",
-        "link": "regulatory-standard|Regulatory Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-5.md",
-        "link": "clinical-practice|Clinical Practice"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikator-5.md",
-        "link": "quality-assessment|Quality Assessment"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikatoroversigt.md",
-        "link": "standard|Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikatoroversigt.md",
-        "link": "standard|Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/indikatoroversigt.md",
-        "link": "clinical-practice|Clinical Practice"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/oversigt-over-de-samlede-indikatorresultater.md",
-        "link": "standard|Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/oversigt-over-de-samlede-indikatorresultater.md",
-        "link": "standard|Standard"
-      },
-      {
-        "page": "wikis/rkkp-adhd/comparisons/oversigt-over-de-samlede-indikatorresultater.md",
-        "link": "clinical-practice|Clinical Practice"
-      },
-      {
         "page": "wikis/rkkp-adhd/entities/facilities/psychiatry-clinics/bua-psykiatrisk-klinik-for-unge.md",
         "link": "1-percent|1-percent"
       },
@@ -116,7 +20,7 @@
       },
       {
         "page": "wikis/rkkp-adhd/entities/organizations/psychiatry-clinics/vejle-bup-ambulatorium.md",
-        "link": "indicator-2b|indicator-2b"
+        "link": "indicator-2b"
       },
       {
         "page": "wikis/rkkp-adhd/entities/organizations/regional-authorities/region-hovedstaden.md",
@@ -133,18 +37,6 @@
       {
         "page": "wikis/rkkp-adhd/entities/organizations/regional-authorities/region-nordjylland.md",
         "link": "indicator-2b|indicator-2b"
-      },
-      {
-        "page": "wikis/rkkp-adhd/entities/organizations/regions/region-syddanmark.md",
-        "link": "aabennraa-bupa"
-      },
-      {
-        "page": "wikis/rkkp-adhd/entities/organizations/regions/region-syddanmark.md",
-        "link": "odense-bupa"
-      },
-      {
-        "page": "wikis/rkkp-adhd/entities/organizations/regions/region-syddanmark.md",
-        "link": "vejle-bupa"
       },
       {
         "page": "wikis/rkkp-adhd/entities/products/assessment-tools/pse.md",
@@ -232,16 +124,17 @@
       "wikis/rkkp-adhd/entities/people/healthcare-professionals/mette-hedelund.md",
       "wikis/rkkp-adhd/entities/populations/general/baggrundspopulationen-2023.md",
       "wikis/rkkp-adhd/topics/indicators/indikator-7a-7b.md",
-      "wikis/rkkp-adhd/topics/low-performance/low-performance.md"
+      "wikis/rkkp-adhd/topics/low-performance/low-performance.md",
+      "wikis/rkkp-adhd/topics/policy/mental-health-strategy/dmpg-retningslinje.md"
     ],
-    "totalLinks": 3673,
+    "totalLinks": 3671,
     "totalPages": 192
   },
   "citations": {
     "invalid": [],
     "missingSource": [],
     "missingFrontmatterSource": [],
-    "totalCitations": 716
+    "totalCitations": 714
   },
   "schema": {
     "invalid": [],

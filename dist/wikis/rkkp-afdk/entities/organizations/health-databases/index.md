@@ -4,19 +4,20 @@ type: index
 aliases:
   - Health Databases
 wiki: rkkp-afdk
-updated: '2026-08-05T22:58:32.344Z'
+updated: '2026-08-14T23:46:34.562Z'
 children:
   - danstroke.md
   - databasen-for-atrieflimren-i-danmark.md
+  - index.md
 ---
 # Health Databases
 
-This folder catalogs national clinical quality databases in Denmark that track specific medical conditions to monitor and improve healthcare performance. It contains the primary registry for atrial fibrillation (AFDK), which evaluates treatment standards like anticoagulation and patient education across all regions, alongside DanStroke, a former stroke registry that was recently superseded by the National Patient Registry for official indicator calculations due to data completeness issues.
+This folder contains national clinical quality databases used to monitor and improve healthcare treatment in Denmark. It includes the primary registry for atrial fibrillation care, which tracks clinical indicators and patient outcomes across regions, as well as a historical stroke database that was previously used to measure ischemic stroke incidence before being replaced by the National Patient Register.
 
 ## Pages
 
-- [[danstroke|DanStroke]] — A former national clinical database for stroke cases, now excluded from primary quality indicator calculations due to reporting gaps caused by system migrations.
-- [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] — The nationwide clinical quality database (AFDK) that monitors atrial fibrillation treatment, tracking indicators such as anticoagulation therapy, TSH screening, and structured patient education.
+- [[danstroke|DanStroke]] — A former national database for stroke registration that historically tracked ischemic stroke incidence for atrial fibrillation patients before being replaced by the National Patient Register due to reporting issues.
+- [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] — The nationwide clinical quality database (AFDK) that monitors atrial fibrillation treatment, tracking indicators like anticoagulation therapy, TSH measurement, and patient education across Danish regions and health clusters.
 
 ## Navigation
 

@@ -4,25 +4,26 @@ type: index
 aliases:
   - Organizations
 wiki: rkkp-danibd
-updated: '2026-08-05T07:40:15.052Z'
+updated: '2026-08-15T07:47:15.234Z'
 children:
   - health-authorities/index.md
   - health-committees/index.md
   - health-databases/index.md
   - health-organizations/index.md
   - regional-health-authorities/index.md
+  - index.md
 ---
 # Organizations
 
-This folder groups the organizational entities that govern, manage, and participate in Danish national healthcare quality initiatives, with a specific focus on inflammatory bowel disease (IBD). It encompasses the administrative authorities and professional medical societies that set clinical standards, the steering committees and national registries that monitor treatment outcomes, and the five regional health authorities that deliver patient care and report clinical data. Together, these organizations form the governance, operational, and clinical backbone of the Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD).
+This folder groups the institutional bodies, administrative regions, professional societies, and registries that govern, monitor, and deliver healthcare quality development in Denmark, specifically concerning inflammatory bowel disease (IBD). It encompasses the national authorities that oversee clinical data, the steering committees that define quality indicators, the central registries that track patient outcomes, the medical associations that establish pediatric guidelines, and the five Danish regions that execute and report on these clinical standards.
 
 ## Pages
 
-- [[entities/organizations/health-authorities/index|Health Authorities]] — Official administrative bodies responsible for clinical quality development, measurement, and oversight within the national healthcare system.
-- [[entities/organizations/health-committees/index|Health Committees]] — Steering committees and advisory groups that oversee national clinical quality databases and develop evidence-based care indicators.
-- [[entities/organizations/health-databases/index|Health Databases]] — National clinical quality registries established to monitor, evaluate, and improve specific treatment pathways like IBD.
-- [[entities/organizations/health-organizations/index|Health Organizations]] — Professional medical societies that establish clinical standards and guidelines, particularly for pediatric gastroenterology.
-- [[entities/organizations/regional-health-authorities/index|Regional Health Authorities]] — The five administrative healthcare regions of Denmark that deliver care, track patient demographics, and report performance metrics to national registries.
+- [[entities/organizations/health-authorities/index|Health Authorities]] — National and regional administrative bodies that act as data controllers and publishers for clinical quality monitoring and compliance.
+- [[entities/organizations/health-committees/index|Health Committees]] — Professional coordination bodies and steering committees that govern database oversight, define evidence-based quality indicators, and channel hospital feedback.
+- [[entities/organizations/health-databases/index|Health Databases]] — National quality registries that aggregate patient data to benchmark clinical performance and ensure equitable, evidence-based care.
+- [[entities/organizations/health-organizations/index|Health Organizations]] — National and international professional medical associations whose clinical guidelines dictate pediatric care standards and quality metrics.
+- [[entities/organizations/regional-health-authorities/index|Regional Health Authorities]] — The five Danish administrative regions participating in the national IBD database, detailing their patient demographics, workloads, and performance against quality targets.
 
 ## Navigation
 

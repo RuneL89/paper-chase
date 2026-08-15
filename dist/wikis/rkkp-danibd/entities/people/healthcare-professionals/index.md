@@ -4,11 +4,13 @@ type: index
 aliases:
   - Healthcare Professionals
 wiki: rkkp-danibd
-updated: '2026-08-05T07:42:56.559Z'
+updated: '2026-08-15T07:49:43.001Z'
 children:
   - else-kjaer-mikkelsen.md
+  - eva-nielsen.md
   - henning-glerup.md
   - ida-vind.md
+  - index.md
   - inge-nordgaard-lassen.md
   - jens-kjeldsen.md
   - johan-burisch.md
@@ -21,22 +23,23 @@ children:
 ---
 # Healthcare Professionals
 
-This folder catalogs the medical professionals and clinical leaders who serve on the steering committee for the Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD). These individuals represent Denmark's five regional health authorities and include chief physicians, professors, clinical lecturers, and specialty nurses. Their collective work drives the national strategy for systematizing inflammatory bowel disease (IBD) treatment, overseeing cross-regional quality measurements, standardized coding, and the development of evidence-based clinical guidelines.
+This folder catalogs the medical and nursing professionals who serve on the steering committee for the Danish Quality Database for Inflammatory Bowel Disease (DANIBD). These individuals represent Denmark's five healthcare regions, bringing clinical, academic, and administrative leadership to the national effort to systematize and improve IBD treatment. The pages detail their specific roles—ranging from chief physicians and clinical professors to nursing directors and resident physicians—and document their contributions to cross-regional quality measurement, standardized coding, and the development of evidence-based treatment guidelines.
 
 ## Pages
 
 - [[else-kjaer-mikkelsen|Else Kjær Mikkelsen]] — Specialty responsible nurse representing Region Midtjylland on the DANIBD steering committee.
-- [[henning-glerup|Henning Glerup]] — Consultant physician with special responsibility representing Region Midtjylland.
-- [[ida-vind|Ida Vind]] — Chief physician and clinical lecturer representing the Capital Region of Denmark.
-- [[inge-nordgaard-lassen|Inge Nordgaard Lassen]] — Chief physician and Doctor of Medicine providing clinical leadership for the Capital Region.
-- [[jens-kjeldsen|Jens Kjeldsen]] — Chief physician and professor representing the Region of Southern Denmark.
-- [[johan-burisch|Johan Burisch]] — Consultant physician holding dual doctoral degrees, representing the Capital Region.
-- [[marianne-kajbaek-vester-andersen|Marianne Kajbæk Vester-Andersen]] — Chief physician and clinical lecturer representing Region Zealand.
-- [[mohamed-attaubi|Mohamed Attauabi]] — Resident physician representing the Capital Region, bringing younger medical professionals into the registry's strategic leadership.
-- [[niels-qvist|Niels Qvist]] — Professor and chief physician representing the Region of Southern Denmark.
-- [[ole-thorlacius-ussing|Ole Thorlacius-Ussing]] — Chief physician and Doctor of Medicine representing the North Denmark Region.
-- [[rasmus-gaardskaer-nielsen|Rasmus Gaardskær Nielsen]] — Chief physician and clinical lecturer representing the Region of Southern Denmark.
-- [[torben-knudsen|Torben Knudsen]] — Clinical professor and leading consultant representing the Region of Southern Denmark.
+- [[eva-nielsen|Eva Nielsen]] — Nursing director for the Region of Southern Denmark and member of the DANIBD steering group.
+- [[henning-glerup|Henning Glerup]] — Consultant physician with special responsibility representing Region Midtjylland on the DANIBD steering group.
+- [[ida-vind|Ida Vind]] — Chief physician and clinical lecturer for the Capital Region of Denmark serving on the DANIBD steering committee.
+- [[inge-nordgaard-lassen|Inge Nordgaard Lassen]] — Chief physician and Doctor of Medicine representing the Capital Region of Denmark on the DANIBD steering group.
+- [[jens-kjeldsen|Jens Kjeldsen]] — Chief physician, professor, and PhD representing the Region of Southern Denmark on the DANIBD steering committee.
+- [[johan-burisch|Johan Burisch]] — Consultant physician holding both a Doctor of Medical Science and a PhD, representing the Capital Region of Denmark.
+- [[marianne-kajbaek-vester-andersen|Marianne Kajbæk Vester-Andersen]] — Chief physician, PhD, and clinical lecturer representing Region Zealand on the DANIBD steering committee.
+- [[mohamed-attaubi|Mohamed Attauabi]] — Resident physician representing the Capital Region of Denmark, marking the inclusion of younger medical professionals in the registry's strategic leadership.
+- [[niels-qvist|Niels Qvist]] — Medical doctor, professor, and chief physician representing the Region of Southern Denmark on the DANIBD steering committee.
+- [[ole-thorlacius-ussing|Ole Thorlacius-Ussing]] — Medical doctor and chief physician representing Region Nordjylland on the DANIBD steering group.
+- [[rasmus-gaardskaer-nielsen|Rasmus Gaardskær Nielsen]] — Chief physician, PhD, and clinical lecturer representing the Region of Southern Denmark on the DANIBD steering group.
+- [[torben-knudsen|Torben Knudsen]] — Clinical professor and leading consultant holding both a Doctor of Medical Science and a PhD, representing the Region of Southern Denmark.
 
 ## Navigation
 
@@ -50,6 +53,6 @@ This folder catalogs the medical professionals and clinical leaders who serve on
 
 ## Statistics
 
-- Pages: 12
+- Pages: 13
 - Sub-folders: 0
 - Sources: 0

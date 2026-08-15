@@ -1,0 +1,1243 @@
+{
+  "entities": [
+    {
+      "name": "Axel Brandes",
+      "type": "person",
+      "slug": "axel-brandes",
+      "folder": "entities/people/health-professionals",
+      "significance": "Axel Brandes er formand for styregruppen for AFDK og fremstår som ledende overlæge og professor ved Esbjerg og Grindsted Sygehus, hvilket understreger hans kliniske og akademiske autoritet i atrieflimren-området i Danmark.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Formandskab Axel Brandes, Professor, ledende overlæge, dr.med. Esbjerg og Grindsted sygehus, Syddansk Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Ole Dyg Pedersen",
+      "type": "person",
+      "slug": "ole-dyg-pedersen",
+      "folder": "entities/people/health-professionals",
+      "significance": "Ole Dyg Pedersen er en overläge ved Sjællands Universitetshospital og medlem af AFDK-styregruppen, hvilket placerer ham som en central klinisk aktør i national kvalitetsudvikling inden for atrieflimren.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Ole Dyg Pedersen, Overlæge, Sjællands Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Ulla Dam-Schmidt",
+      "type": "person",
+      "slug": "ulla-dam-schmidt",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Ulla Dam-Schmidt er sygeplejerske med klinisk specialfunktion ved Bispebjerg og Frederiksberg Hospital og medlem af AFDK-styregruppen, hvilket markerer hendes rolle som faglig repræsentant for sygeplejen i kvalitetsarbejdet.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Ulla Dam-Schmidt, Sygeplejerske med klinisk specialfunktion, SD, MKS. Bispebjerg og Frederiksberg Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Margit Brinck",
+      "type": "person",
+      "slug": "margit-brinck",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Margit Brinck er sygeplejerske ved Odense Universitetshospital og medlem af AFDK-styregruppen, hvilket understreger dens repræsentation af sygeplejefaglige perspektiver fra Region Syddanmark.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Margit Brinck, Sygeplejerske, Odense Universitetshospital"
+        }
+      ]
+    },
+    {
+      "name": "Ulla Davidsen",
+      "type": "person",
+      "slug": "ulla-davidsen",
+      "folder": "entities/people/health-professionals",
+      "significance": "Ulla Davidsen er overlæge ved Bispebjerg og Frederiksberg Hospital og medlem af AFDK-styregruppen, hvilket bekræfter hendes kliniske ekspertise og deltagelse i national kvalitetskoordination.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Ulla Davidsen, Overlæge, MPK, Bispebjerg og Frederiksberg Hospital"
+        }
+      ]
+    },
+    {
+      "name": "Louisa Marguerite Christensen",
+      "type": "person",
+      "slug": "louisa-marguerite-christensen",
+      "folder": "entities/people/health-professionals",
+      "significance": "Louisa Marguerite Christensen er overlæge og ph.d. ved Bispebjerg og Frederiksberg Hospital og medlem af AFDK-styregruppen, hvilket fremhæver hendes kombinerede kliniske og forskningsbaserede bidrag til atrieflimren-kvalitetsarbejdet.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Louisa Marguerite Christensen, Overlæge, ph.d., Bispebjerg og Frederiksberg Hospitaler"
+        }
+      ]
+    },
+    {
+      "name": "Signe Stelling Risom",
+      "type": "person",
+      "slug": "signe-stelling-risom",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Signe Stelling Risom er sygeplejerske og ph.d. ved Herlev og Gentofte Hospital og medlem af AFDK-styregruppen, hvilket understreger dens rolle som fagligt kvalificeret sygeplejeforsker i kvalitetsudviklingsarbejdet.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Signe Stelling Risom, Sygeplejerske, ph.d., Herlev og Gentofte hospital"
+        }
+      ]
+    },
+    {
+      "name": "Dorthe Svenstrup",
+      "type": "person",
+      "slug": "dorthe-svenstrup",
+      "folder": "entities/people/health-professionals",
+      "significance": "Dorthe Svenstrup er ledende overlæge og ph.d. ved Hospitalsenhed Midt og medlem af AFDK-styregruppen, hvilket markerer hendes ledende rolle i Region Midtjylland og dens bidrag til national kvalitetskoordination.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Dorthe Svenstrup, Ledende overlæge, ph.d., Hospitalsenhed Midt"
+        }
+      ]
+    },
+    {
+      "name": "Palle Mark Christensen",
+      "type": "person",
+      "slug": "palle-mark-christensen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Palle Mark Christensen er praktiserende læge ved Lægerne Lærkevej i Otterup og medlem af AFDK-styregruppen, hvilket sikrer repræsentation af almen praksis i kvalitetsarbejdet for atrieflimren.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Palle Mark Christensen, Praktiserende læge, Lægerne Lærkevej, Otterup"
+        }
+      ]
+    },
+    {
+      "name": "Henrik Vadmann",
+      "type": "person",
+      "slug": "henrik-vadmann",
+      "folder": "entities/people/health-professionals",
+      "significance": "Henrik Vadmann er afdelingslæge ved Regionshospitalet Nordjylland og medlem af AFDK-styregruppen, hvilket understreger regional medicinsk repræsentation fra Region Nordjylland.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Henrik Vadmann, Afdelingslæge, Regionshospitalet Nordjylland, Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Inge Mølgaard",
+      "type": "person",
+      "slug": "inge-molgaard",
+      "folder": "entities/people/patient-representatives",
+      "significance": "Inge Mølgaard er patientrepræsentant i AFDK-styregruppen og sikrer, at patientperspektivet integreres direkte i udviklingen af kvalitetsindikatorer og -analyser for atrieflimren.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Inge Mølgaard, Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Robert Bedsted",
+      "type": "person",
+      "slug": "robert-bedsted",
+      "folder": "entities/people/patient-representatives",
+      "significance": "Robert Bedsted er patientrepræsentant i AFDK-styregruppen og bidrager til at sikre, at patienternes oplevelser og behov er centrale i kvalitetsudviklingsarbejdet.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Robert Bedsted, Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Michael Nielsen",
+      "type": "person",
+      "slug": "michael-nielsen",
+      "folder": "entities/people/health-professionals",
+      "significance": "Michael Nielsen er speciallæge ved Hjerteklinik Nordjylland og repræsentant for Foreningen af praktiserende speciallæger i AFDK-styregruppen, hvilket sikrer faglig specialisering og organisationens syn på kvalitetsarbejdet.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Michael Nielsen, Speciallæge, Hjerteklinik Nordjylland, Foreningen af praktiserende speciallæger"
+        }
+      ]
+    },
+    {
+      "name": "Mette Ringtved",
+      "type": "person",
+      "slug": "mette-ringtved",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Mette Ringtved er sygeplejefaglig direktør ved Regionshospitalet Horsens og medlem af AFDK-styregruppen, hvilket understreger ledelsesmæssig sygeplejefaglig repræsentation i kvalitetskoordinationen.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Mette Ringtved, Sygeplejefaglig direktør, Regionshospitalet Horsens, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Inge Øster",
+      "type": "person",
+      "slug": "inge-oster",
+      "folder": "entities/people/health-researchers",
+      "significance": "Inge Øster er klinisk epidemiolog og cand.scient.san. ved Sundhedsvæsenets Kvalitetsinstitut (SundK) og bidrager med epidemiologisk ekspertise til AFDK's analyser og rapportering.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Kliniske epidemiologer Inge Øster, Cand.scient.san., SundK"
+        }
+      ]
+    },
+    {
+      "name": "Anders Møller Schlünsen",
+      "type": "person",
+      "slug": "anders-moller-schlunsen",
+      "folder": "entities/people/health-researchers",
+      "significance": "Anders Møller Schlünsen er epidemiolog og ph.d. ved Sundhedsvæsenets Kvalitetsinstitut (SundK) og fungerer både som klinisk epidemiolog og kontaktperson for den dataansvarlige myndighed i AFDK, hvilket gør ham centralt ansvarlig for datavalidering og vidensformidling.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Anders Møller Schlünsen, Epidemiolog, Ph.d., SundK"
+        },
+        {
+          "page": 66,
+          "context": "Kontaktperson og repræsentant for den dataansvarlige myndighed Anders Møller Schlünsen, Epidemiolog, Ph.d., SundK"
+        }
+      ]
+    },
+    {
+      "name": "Miriam Grijota Chousa",
+      "type": "person",
+      "slug": "miriam-grijota-chousa",
+      "folder": "entities/people/health-researchers",
+      "significance": "Miriam Grijota Chousa er biostatistiker og datamanager ved Sundhedsvæsenets Kvalitetsinstitut (SundK) og står for statistisk analyse og datahantering i AFDK's supplerende analyser.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Statistiker/Datamanager Miriam Grijota Chousa, Biostatistiker SundK"
+        }
+      ]
+    },
+    {
+      "name": "Chresten Gamborg Puggaard",
+      "type": "person",
+      "slug": "chresten-gamborg-puggaard",
+      "folder": "entities/people/health-researchers",
+      "significance": "Chresten Gamborg Puggaard er cand.polit. og datamanager ved Sundhedsvæsenets Kvalitetsinstitut (SundK) og bidrager med dataanalysekompetence til AFDK's kvantitative arbejde.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Chresten Gamborg Puggaard, Cand. polit., Datamanager, SundK"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den nationale myndighed, der udgiver rapporten 'Atrieflimren i Danmark' og står bag AFDK's kvalitetsarbejde, herunder supplerende analyser og indikatorudvikling.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Atrieflimren i Danmark Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "AFDK",
+      "type": "organization",
+      "slug": "afdk",
+      "folder": "entities/organizations/health-registries",
+      "significance": "AFDK (Atrieflimren i Danmark) er det nationale register for atrieflimren, der driver kvalitetsudvikling og overvågning via indikatorer og supplerende analyser, som dokumenteret i rapporten.",
+      "mentions": [
+        {
+          "page": 66,
+          "context": "Atrieflimren i Danmark Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Hovedstaden er en af de fem regioner, hvis data indgår i AFDK's supplerende analyser om ventetid til antikoagulationsbehandling og incidens af iskæmisk apopleksi, hvilket illustrerer regional variation i behandlingskvalitet.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Region Hovedstaden 2086 50.6 2037 49.4 4123"
+        },
+        {
+          "page": 68,
+          "context": "Hovedstaden 72 / 6.106 0 (0) 1,2 (0,9-1,5) 83 / 5.888 1,4 1,3"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Sjælland er en af de fem regioner, hvis data indgår i AFDK's supplerende analyser om ventetid til antikoagulationsbehandling og incidens af iskæmisk apopleksi, hvilket illustrerer regional variation i behandlingskvalitet.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Sjælland | 1221 | 50.5 | 1199 | 49.5 | 2420 |"
+        },
+        {
+          "page": 68,
+          "context": "Sjælland 49 / 3.566 0 (0) 1,4 (1,0-1,8) 54 / 3.554 1,5 1,3"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Syddanmark er en af de fem regioner, hvis data indgår i AFDK's supplerende analyser om ventetid til antikoagulationsbehandling og incidens af iskæmisk apopleksi, hvilket illustrerer regional variation i behandlingskvalitet.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Syddanmark | 1900 | 53.7 | 1639 | 46.3 | 3539 |"
+        },
+        {
+          "page": 68,
+          "context": "Syddanmark 49 / 4.780 0 (0) 1,0 (0,8-1,4) 63 / 4.977 1,3 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Midtjylland er en af de fem regioner, hvis data indgår i AFDK's supplerende analyser om ventetid til antikoagulationsbehandling og incidens af iskæmisk apopleksi, hvilket illustrerer regional variation i behandlingskvalitet.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Midtjylland | 1970 | 56.3 | 1532 | 43.7 | 3502 |"
+        },
+        {
+          "page": 68,
+          "context": "Midtjylland 36 / 5.061 0 (0) 0,7 (0,5-1,0) 46 / 4.915 0,9 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regions",
+      "significance": "Region Nordjylland er en af de fem regioner, hvis data indgår i AFDK's supplerende analyser om ventetid til antikoagulationsbehandling og incidens af iskæmisk apopleksi, hvilket illustrerer regional variation i behandlingskvalitet.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Nordjylland | 952 | 55.1 | 777 | 44.9 | 1729 |"
+        },
+        {
+          "page": 68,
+          "context": "Nordjylland 29 / 2.333 0 (0) 1,2 (0,8-1,8) 28 / 2.418 1,2 1,4"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Bornholm",
+      "type": "organization",
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Bornholm er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklynge Bornholm #/# 0 (0) 0,9 (0,1-3,2) 3 / 195 1,5 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Byen",
+      "type": "organization",
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Byen er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklynge Byen 20 / 1.655 0 (0) 1,2 (0,7-1,9) 16 / 1.616 1,0 1,4"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Midt",
+      "type": "organization",
+      "slug": "sundhedsklynge-midt",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Midt er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklynge Midt 23 / 1.782 0 (0) 1,3 (0,8-1,9) 31 / 1.755 1,8 1,5"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Nord",
+      "type": "organization",
+      "slug": "sundhedsklynge-nord",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Nord er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklynge Nord 19 / 1.467 0 (0) 1,3 (0,8-2,0) 13 / 1.291 1,0 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Syd",
+      "type": "organization",
+      "slug": "sundhedsklynge-syd",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Syd er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklynge Syd 8 / 980 0 (0) 0,8 (0,4-1,6) 20 / 1.031 1,9 1,3"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Holbæk",
+      "type": "organization",
+      "slug": "sundhedsklyngen-holbaek",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklyngen Holbæk er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklyngen Holbæk 15 / 822 0 (0) 1,8 (1,0-3,0) 13 / 750 1,7 1,2"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Nykøbing F",
+      "type": "organization",
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklyngen Nykøbing F er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklyngen Nykøbing F 14 / 721 0 (0) 1,9 (1,1-3,2) 12 / 753 1,6 2,3"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen SUH",
+      "type": "organization",
+      "slug": "sundhedsklyngen-suh",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklyngen SUH er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklyngen SUH 9 / 1.148 0 (0) 0,8 (0,4-1,5) 21 / 1.139 1,8 0,7"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Slagelse",
+      "type": "organization",
+      "slug": "sundhedsklyngen-slagelse",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklyngen Slagelse er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklyngen Slagelse 11 / 875 0 (0) 1,3 (0,6-2,2) 8 / 912 0,9 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Fyn",
+      "type": "organization",
+      "slug": "sundhedsklynge-fyn",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Fyn er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklynge Fyn 23 / 1.814 0 (0) 1,3 (0,8-1,9) 26 / 1.934 1,3 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Lillebælt",
+      "type": "organization",
+      "slug": "sundhedsklynge-lillebaelt",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Lillebælt er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklynge Lillebælt 10 / 1.016 0 (0) 1,0 (0,5-1,8) 12 / 1.086 1,1 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sydvestjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-sydvestjylland",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Sydvestjylland er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklynge Sydvestjylland 12 / 898 0 (0) 1,3 (0,7-2,3) 15 / 935 1,6 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sønderjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Sundhedsklynge Sønderjylland er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Sundhedsklynge Sønderjylland 4 / 1.052 0 (0) 0,4 (0,1-1,0) 10 / 1.022 1,0 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Aarhusklyngen",
+      "type": "organization",
+      "slug": "aarhusklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Aarhusklyngen er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Aarhusklyngen 7 / 1.115 0 (0) 0,6 (0,3-1,3) 16 / 1.078 1,5 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrupklyngen",
+      "type": "organization",
+      "slug": "goedstrupklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Gødstrupklyngen er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Gødstrupklyngen 6 / 1.209 0 (0) 0,5 (0,2-1,1) 7 / 1.075 0,7 0,8"
+        }
+      ]
+    },
+    {
+      "name": "Horsensklyngen",
+      "type": "organization",
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Horsensklyngen er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Horsensklyngen 5 / 795 0 (0) 0,6 (0,2-1,5) 8 / 876 0,9 0,6"
+        }
+      ]
+    },
+    {
+      "name": "Midtklyngen",
+      "type": "organization",
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Midtklyngen er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Midtklyngen 9 / 988 0 (0) 0,9 (0,4-1,7) 7 / 997 0,7 0,3"
+        }
+      ]
+    },
+    {
+      "name": "Randersklyngen",
+      "type": "organization",
+      "slug": "randersklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Randersklyngen er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Randersklyngen 9 / 954 0 (0) 0,9 (0,4-1,8) 8 / 889 0,9 0,9"
+        }
+      ]
+    },
+    {
+      "name": "Klynge MIDT",
+      "type": "organization",
+      "slug": "klynge-midt",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Klynge MIDT er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Klynge MIDT 11 / 901 0 (0) 1,2 (0,6-2,2) 7 / 865 0,8 1,9"
+        }
+      ]
+    },
+    {
+      "name": "Klynge NORD",
+      "type": "organization",
+      "slug": "klynge-nord",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Klynge NORD er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Klynge NORD 11 / 752 0 (0) 1,5 (0,7-2,6) 11 / 819 1,3 1,1"
+        }
+      ]
+    },
+    {
+      "name": "Klynge SYD",
+      "type": "organization",
+      "slug": "klynge-syd",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Klynge SYD er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 69,
+          "context": "Klynge SYD 6 / 434 0 (0) 1,4 (0,5-3,0) 5 / 460 1,1 1,0"
+        }
+      ]
+    },
+    {
+      "name": "Klynge VEST",
+      "type": "organization",
+      "slug": "klynge-vest",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Klynge VEST er en lokal sundhedsklynge, hvis data indgår i AFDK's supplerende analyser om incidens af iskæmisk apopleksi, hvilket illustrerer variation i kvalitet på mikroniveau.",
+      "mentions": [
+        {
+          "page": 69,
+          "context": "Klynge VEST #/# 0 (0) 0,4 (0,0-2,2) 5 / 274 1,8 1,5"
+        }
+      ]
+    },
+    {
+      "name": "Antikoagulationsbehandling",
+      "type": "medical-intervention",
+      "slug": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Antikoagulationsbehandling er en central klinisk intervention for forebyggelse af iskæmisk apopleksi hos patienter med atrieflimren, og dens timing og omfang er et centralt fokus i AFDK's supplerende analyser.",
+      "mentions": [
+        {
+          "page": 67,
+          "context": "Supplerende analyser 1: Ventetid til antikoagulations behandling"
+        },
+        {
+          "page": 69,
+          "context": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type, som har indløst recept på oral AK-behandling indenfor 100 dage før dato for indlæggelse med apopleksi"
+        }
+      ]
+    },
+    {
+      "name": "Iskæmisk apopleksi",
+      "type": "medical-condition",
+      "slug": "iskaemisk-apopleksi",
+      "folder": "topics/medical-conditions/neurological",
+      "significance": "Iskæmisk apopleksi er en alvorlig komplikation af atrieflimren og udgør den primære kliniske udfaldsmåling i AFDK's Indikator 13 og supplerende analyser, hvilket understreger dens betydning for kvalitetsmåling.",
+      "mentions": [
+        {
+          "page": 68,
+          "context": "Supplerende analyser 5: Incidens Iskæmisk Apopleksi"
+        },
+        {
+          "page": 68,
+          "context": "Indikator 13: Andelen af nydiagnosticerede patienter med atriflimren, som udvikler iskæmisk apopleksi inden for 1 år"
+        }
+      ]
+    },
+    {
+      "name": "Intrakraniel blødning",
+      "type": "medical-condition",
+      "slug": "intrakraniel-bloedning",
+      "folder": "topics/medical-conditions/neurological",
+      "significance": "Intrakraniel blødning er en alvorlig bivirkning af antikoagulationsbehandling og udgør et centralt sikkerhedsudfald i AFDK's Supplerende analyser 6, hvilket illustrerer balancen mellem effekt og risiko.",
+      "mentions": [
+        {
+          "page": 69,
+          "context": "Supplerende analyser 6: Intrakraniel blødning"
+        }
+      ]
+    },
+    {
+      "name": "CHA₂DS₂-VASc",
+      "type": "clinical-score",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "CHA₂DS₂-VASc-scoren bruges til risikovurdering af iskæmisk apopleksi hos patienter med atrieflimren og er anvendt i AFDK's analyse af intrakraniel blødning for at karakterisere patientpopulationen.",
+      "mentions": [
+        {
+          "page": 70,
+          "context": "CHA2DS2VASc/CHA2DS2VA Score blandt prævalente atrieflimren patienter med intrakraniel blødning"
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "pharmaceutical",
+      "slug": "doac",
+      "folder": "entities/pharmaceuticals/anticoagulants",
+      "significance": "DOAC'er (direkte orale antikoagulantia) er en moderne klasse af antikoagulantia, hvis anvendelse og sammenligning med Marevan er analyseret i AFDK's supplerende analyser for at vurdere sikkerhed og effekt.",
+      "mentions": [
+        {
+          "page": 69,
+          "context": "AK-behandling 107541 99.14 936 0.86DOAC Marevan 5043 99.12 45 0.88 Både DOAC og Marevan 779 95.94 33 4.06 Hverken DOAC eller Marevan 26609 99.42 155 0.58"
+        }
+      ]
+    },
+    {
+      "name": "Marevan",
+      "type": "pharmaceutical",
+      "slug": "marevan",
+      "folder": "entities/pharmaceuticals/anticoagulants",
+      "significance": "Marevan (warfarin) er et klassisk antikoagulantium, hvis anvendelse og sammenligning med DOAC'er er analyseret i AFDK's supplerende analyser for at vurdere sikkerhed og effekt.",
+      "mentions": [
+        {
+          "page": 69,
+          "context": "AK-behandling 107541 99.14 936 0.86DOAC Marevan 5043 99.12 45 0.88 Både DOAC og Marevan 779 95.94 33 4.06 Hverken DOAC eller Marevan 26609 99.42 155 0.58"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "axel-brandes",
+      "predicate": "is-chair-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Formandskab Axel Brandes, Professor, ledende overlæge, dr.med. Esbjerg og Grindsted sygehus, Syddansk Universitetshospital",
+      "page": 66
+    },
+    {
+      "subject": "ole-dyg-pedersen",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Ole Dyg Pedersen, Overlæge, Sjællands Universitetshospital",
+      "page": 66
+    },
+    {
+      "subject": "ulla-dam-schmidt",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Ulla Dam-Schmidt, Sygeplejerske med klinisk specialfunktion, SD, MKS. Bispebjerg og Frederiksberg Hospital",
+      "page": 66
+    },
+    {
+      "subject": "margit-brinck",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Margit Brinck, Sygeplejerske, Odense Universitetshospital",
+      "page": 66
+    },
+    {
+      "subject": "ulla-davidsen",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Ulla Davidsen, Overlæge, MPK, Bispebjerg og Frederiksberg Hospital",
+      "page": 66
+    },
+    {
+      "subject": "louisa-marguerite-christensen",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Louisa Marguerite Christensen, Overlæge, ph.d., Bispebjerg og Frederiksberg Hospitaler",
+      "page": 66
+    },
+    {
+      "subject": "signe-stelling-risom",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Signe Stelling Risom, Sygeplejerske, ph.d., Herlev og Gentofte hospital",
+      "page": 66
+    },
+    {
+      "subject": "dorthe-svenstrup",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Dorthe Svenstrup, Ledende overlæge, ph.d., Hospitalsenhed Midt",
+      "page": 66
+    },
+    {
+      "subject": "palle-mark-christensen",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Palle Mark Christensen, Praktiserende læge, Lægerne Lærkevej, Otterup",
+      "page": 66
+    },
+    {
+      "subject": "henrik-vadmann",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Henrik Vadmann, Afdelingslæge, Regionshospitalet Nordjylland, Region Nordjylland",
+      "page": 66
+    },
+    {
+      "subject": "inge-molgaard",
+      "predicate": "is-patient-representative-in",
+      "object": "afdk-styregruppe",
+      "evidence": "Inge Mølgaard, Patientrepræsentant",
+      "page": 66
+    },
+    {
+      "subject": "robert-bedsted",
+      "predicate": "is-patient-representative-in",
+      "object": "afdk-styregruppe",
+      "evidence": "Robert Bedsted, Patientrepræsentant",
+      "page": 66
+    },
+    {
+      "subject": "michael-nielsen",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Michael Nielsen, Speciallæge, Hjerteklinik Nordjylland, Foreningen af praktiserende speciallæger",
+      "page": 66
+    },
+    {
+      "subject": "mette-ringtved",
+      "predicate": "is-member-of",
+      "object": "afdk-styregruppe",
+      "evidence": "Mette Ringtved, Sygeplejefaglig direktør, Regionshospitalet Horsens, Region Midtjylland",
+      "page": 66
+    },
+    {
+      "subject": "inge-oster",
+      "predicate": "works-for",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Kliniske epidemiologer Inge Øster, Cand.scient.san., SundK",
+      "page": 66
+    },
+    {
+      "subject": "anders-moller-schlunsen",
+      "predicate": "works-for",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Anders Møller Schlünsen, Epidemiolog, Ph.d., SundK",
+      "page": 66
+    },
+    {
+      "subject": "miriam-grijota-chousa",
+      "predicate": "works-for",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Statistiker/Datamanager Miriam Grijota Chousa, Biostatistiker SundK",
+      "page": 66
+    },
+    {
+      "subject": "chresten-gamborg-puggaard",
+      "predicate": "works-for",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Chresten Gamborg Puggaard, Cand. polit., Datamanager, SundK",
+      "page": 66
+    },
+    {
+      "subject": "anders-moller-schlunsen",
+      "predicate": "is-contact-person-for",
+      "object": "data-responsible-authority",
+      "evidence": "Kontaktperson og repræsentant for den dataansvarlige myndighed Anders Møller Schlünsen, Epidemiolog, Ph.d., SundK",
+      "page": 66
+    }
+  ],
+  "claims": [
+    {
+      "text": "I Danmark blev 8.129 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 53,1 % af alle patienter i AK-behandling [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "danmark",
+        "antikoagulationsbehandling"
+      ],
+      "page": 67
+    },
+    {
+      "text": "I Region Hovedstaden blev 2.086 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 50,6 % af alle patienter i AK-behandling [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-hovedstaden",
+        "antikoagulationsbehandling"
+      ],
+      "page": 67
+    },
+    {
+      "text": "I Region Sjælland blev 1.221 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 50,5 % af alle patienter i AK-behandling [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-sjaelland",
+        "antikoagulationsbehandling"
+      ],
+      "page": 67
+    },
+    {
+      "text": "I Region Syddanmark blev 1.900 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 53,7 % af alle patienter i AK-behandling [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-syddanmark",
+        "antikoagulationsbehandling"
+      ],
+      "page": 67
+    },
+    {
+      "text": "I Region Midtjylland blev 1.970 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 56,3 % af alle patienter i AK-behandling [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-midtjylland",
+        "antikoagulationsbehandling"
+      ],
+      "page": 67
+    },
+    {
+      "text": "I Region Nordjylland blev 952 patienter startet på antikoagulationsbehandling inden for 4 måneder inden diagnose, hvilket udgør 55,1 % af alle patienter i AK-behandling [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-nordjylland",
+        "antikoagulationsbehandling"
+      ],
+      "page": 67
+    },
+    {
+      "text": "I Danmark udviklede 235 ud af 21.846 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,1 % (95 % CI: 0,9–1,2) [^src2]",
+      "type": "clinical-outcome",
+      "entities": [
+        "danmark",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 68
+    },
+    {
+      "text": "I Region Hovedstaden udviklede 72 ud af 6.106 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,2 % (95 % CI: 0,9–1,5) [^src2]",
+      "type": "clinical-outcome",
+      "entities": [
+        "region-hovedstaden",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 68
+    },
+    {
+      "text": "I Region Sjælland udviklede 49 ud af 3.566 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,4 % (95 % CI: 1,0–1,8) [^src2]",
+      "type": "clinical-outcome",
+      "entities": [
+        "region-sjaelland",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 68
+    },
+    {
+      "text": "I Region Syddanmark udviklede 49 ud af 4.780 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,0 % (95 % CI: 0,8–1,4) [^src2]",
+      "type": "clinical-outcome",
+      "entities": [
+        "region-syddanmark",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 68
+    },
+    {
+      "text": "I Region Midtjylland udviklede 36 ud af 5.061 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 0,7 % (95 % CI: 0,5–1,0) [^src2]",
+      "type": "clinical-outcome",
+      "entities": [
+        "region-midtjylland",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 68
+    },
+    {
+      "text": "I Region Nordjylland udviklede 29 ud af 2.333 nydiagnosticerede patienter med atrieflimren iskæmisk apopleksi inden for 1 år, hvilket svarer til en andel på 1,2 % (95 % CI: 0,8–1,8) [^src2]",
+      "type": "clinical-outcome",
+      "entities": [
+        "region-nordjylland",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 68
+    },
+    {
+      "text": "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 772 (67,3 %) indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse [^src3]",
+      "type": "clinical-practice",
+      "entities": [
+        "danmark",
+        "antikoagulationsbehandling",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 248 (64,8 %) i Region Hovedstaden indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse [^src3]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-hovedstaden",
+        "antikoagulationsbehandling",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 117 (59,1 %) i Region Sjælland indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse [^src3]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-sjaelland",
+        "antikoagulationsbehandling",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 183 (73,5 %) i Region Syddanmark indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse [^src3]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-syddanmark",
+        "antikoagulationsbehandling",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 132 (67,7 %) i Region Midtjylland indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse [^src3]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-midtjylland",
+        "antikoagulationsbehandling",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af alle patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi/apopleksi af ukendt type, havde 92 (75,4 %) i Region Nordjylland indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelse [^src3]",
+      "type": "clinical-practice",
+      "entities": [
+        "region-nordjylland",
+        "antikoagulationsbehandling",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af de 139.972 prævalente patienter med atrieflimren udviklede 1.169 (0,83 %) iskæmisk apopleksi i opgørelsesperioden [^src4]",
+      "type": "clinical-outcome",
+      "entities": [
+        "danmark",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af de 107.541 prævalente patienter med atrieflimren og på DOAC-behandling udviklede 936 (0,86 %) iskæmisk apopleksi i opgørelsesperioden [^src4]",
+      "type": "clinical-outcome",
+      "entities": [
+        "doac",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af de 5.043 prævalente patienter med atrieflimren og på Marevan-behandling udviklede 45 (0,88 %) iskæmisk apopleksi i opgørelsesperioden [^src4]",
+      "type": "clinical-outcome",
+      "entities": [
+        "marevan",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af de 779 prævalente patienter med atrieflimren og på både DOAC og Marevan udviklede 33 (4,06 %) iskæmisk apopleksi i opgørelsesperioden [^src4]",
+      "type": "clinical-outcome",
+      "entities": [
+        "doac",
+        "marevan",
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af de 26.609 prævalente patienter med atrieflimren uden DOAC eller Marevan udviklede 155 (0,58 %) iskæmisk apopleksi i opgørelsesperioden [^src4]",
+      "type": "clinical-outcome",
+      "entities": [
+        "iskaemisk-apopleksi"
+      ],
+      "page": 69
+    },
+    {
+      "text": "Af de 140.344 prævalente patienter med atrieflimren udviklede 797 (0,56 %) intrakraniel blødning i opgørelsesperioden [^src5]",
+      "type": "clinical-outcome",
+      "entities": [
+        "danmark",
+        "intrakraniel-bloedning"
+      ],
+      "page": 70
+    },
+    {
+      "text": "Af de 107.855 prævalente patienter med atrieflimren og på antikoagulationsbehandling udviklede 622 (0,57 %) intrakraniel blødning i opgørelsesperioden [^src5]",
+      "type": "clinical-outcome",
+      "entities": [
+        "antikoagulationsbehandling",
+        "intrakraniel-bloedning"
+      ],
+      "page": 70
+    },
+    {
+      "text": "Af de 5.056 prævalente patienter med atrieflimren og på Marevan udviklede 32 (0,63 %) intrakraniel blødning i opgørelsesperioden [^src5]",
+      "type": "clinical-outcome",
+      "entities": [
+        "marevan",
+        "intrakraniel-bloedning"
+      ],
+      "page": 70
+    },
+    {
+      "text": "Af de 807 prævalente patienter med atrieflimren og på både DOAC og Marevan udviklede 5 (0,62 %) intrakraniel blødning i opgørelsesperioden [^src5]",
+      "type": "clinical-outcome",
+      "entities": [
+        "doac",
+        "marevan",
+        "intrakraniel-bloedning"
+      ],
+      "page": 70
+    },
+    {
+      "text": "Af de 26.626 prævalente patienter med atrieflimren uden DOAC eller Marevan udviklede 138 (0,52 %) intrakraniel blødning i opgørelsesperioden [^src5]",
+      "type": "clinical-outcome",
+      "entities": [
+        "intrakraniel-bloedning"
+      ],
+      "page": 70
+    }
+  ],
+  "timeline": [],
+  "tables": [
+    {
+      "subject": "ventetid-til-antikoagulationsbehandling",
+      "title": "Start på AK behandling",
+      "page": 67,
+      "rowDimension": "region",
+      "colDimension": "antal og procent",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "danmark"
+      ],
+      "markdown": "| Region | Antal | % | Antal | % | Antal |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 8129 | 53.1 | 7184 | 46.9 | 15313 |\n| Region Hovedstaden | 2086 | 50.6 | 2037 | 49.4 | 4123 |\n| Sjælland | 1221 | 50.5 | 1199 | 49.5 | 2420 |\n| Syddanmark | 1900 | 53.7 | 1639 | 46.3 | 3539 |\n| Midtjylland | 1970 | 56.3 | 1532 | 43.7 | 3502 |\n| Nordjylland | 952 | 55.1 | 777 | 44.9 | 1729 |",
+      "summary": "Tabellen viser antal og procent af patienter i antikoagulationsbehandling, der startede behandlingen enten inden for 4 måneder inden diagnose eller inden for 30 dage efter udskrivelse, fordelt på regioner og nationalt."
+    },
+    {
+      "subject": "incidens-iskaemisk-apopleksi",
+      "title": "Indikator 13: Andelen af nydiagnosticerede patienter med atriflimren, som udvikler iskæmisk apopleksi inden for 1 år",
+      "page": 68,
+      "rowDimension": "region eller sundhedsklynge",
+      "colDimension": "tæller, nævner, andel og konfidensinterval",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelse",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd",
+        "klynge-vest",
+        "danmark"
+      ],
+      "markdown": "| Region eller sundhedsklynge | Tæller/ antal | nævner (%) | Andel | 95% CI | Antal | Andel | Andel |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 235 / 21.846 | 0 (0) | 1,1 (0,9-1,2) | 274 / 21.752 | 1,3 | 1,1 |\n| Hovedstaden | 72 / 6.106 | 0 (0) | 1,2 (0,9-1,5) | 83 / 5.888 | 1,4 | 1,3 |\n| Sjælland | 49 / 3.566 | 0 (0) | 1,4 (1,0-1,8) | 54 / 3.554 | 1,5 | 1,3 |\n| Syddanmark | 49 / 4.780 | 0 (0) | 1,0 (0,8-1,4) | 63 / 4.977 | 1,3 | 0,9 |\n| Midtjylland | 36 / 5.061 | 0 (0) | 0,7 (0,5-1,0) | 46 / 4.915 | 0,9 | 0,7 |\n| Nordjylland | 29 / 2.333 | 0 (0) | 1,2 (0,8-1,8) | 28 / 2.418 | 1,2 | 1,4 |\n| Sundhedsklynge Bornholm | #/# | 0 (0) | 0,9 (0,1-3,2) | 3 / 195 | 1,5 | 1,1 |\n| Sundhedsklynge Byen | 20 / 1.655 | 0 (0) | 1,2 (0,7-1,9) | 16 / 1.616 | 1,0 | 1,4 |\n| Sundhedsklynge Midt | 23 / 1.782 | 0 (0) | 1,3 (0,8-1,9) | 31 / 1.755 | 1,8 | 1,5 |\n| Sundhedsklynge Nord | 19 / 1.467 | 0 (0) | 1,3 (0,8-2,0) | 13 / 1.291 | 1,0 | 1,0 |\n| Sundhedsklynge Syd | 8 / 980 | 0 (0) | 0,8 (0,4-1,6) | 20 / 1.031 | 1,9 | 1,3 |\n| Sundhedsklyngen Holbæk | 15 / 822 | 0 (0) | 1,8 (1,0-3,0) | 13 / 750 | 1,7 | 1,2 |\n| Sundhedsklyngen Nykøbing F | 14 / 721 | 0 (0) | 1,9 (1,1-3,2) | 12 / 753 | 1,6 | 2,3 |\n| Sundhedsklyngen SUH | 9 / 1.148 | 0 (0) | 0,8 (0,4-1,5) | 21 / 1.139 | 1,8 | 0,7 |\n| Sundhedsklyngen Slagelse | 11 / 875 | 0 (0) | 1,3 (0,6-2,2) | 8 / 912 | 0,9 | 1,1 |\n| Sundhedsklynge Fyn | 23 / 1.814 | 0 (0) | 1,3 (0,8-1,9) | 26 / 1.934 | 1,3 | 0,9 |\n| Sundhedsklynge Lillebælt | 10 / 1.016 | 0 (0) | 1,0 (0,5-1,8) | 12 / 1.086 | 1,1 | 0,9 |\n| Sundhedsklynge Sydvestjylland | 12 / 898 | 0 (0) | 1,3 (0,7-2,3) | 15 / 935 | 1,6 | 0,9 |\n| Sundhedsklynge Sønderjylland | 4 / 1.052 | 0 (0) | 0,4 (0,1-1,0) | 10 / 1.022 | 1,0 | 1,0 |\n| Aarhusklyngen | 7 / 1.115 | 0 (0) | 0,6 (0,3-1,3) | 16 / 1.078 | 1,5 | 1,0 |\n| Gødstrupklyngen | 6 / 1.209 | 0 (0) | 0,5 (0,2-1,1) | 7 / 1.075 | 0,7 | 0,8 |\n| Horsensklyngen | 5 / 795 | 0 (0) | 0,6 (0,2-1,5) | 8 / 876 | 0,9 | 0,6 |\n| Midtklyngen | 9 / 988 | 0 (0) | 0,9 (0,4-1,7) | 7 / 997 | 0,7 | 0,3 |\n| Randersklyngen | 9 / 954 | 0 (0) | 0,9 (0,4-1,8) | 8 / 889 | 0,9 | 0,9 |\n| Klynge MIDT | 11 / 901 | 0 (0) | 1,2 (0,6-2,2) | 7 / 865 | 0,8 | 1,9 |\n| Klynge NORD | 11 / 752 | 0 (0) | 1,5 (0,7-2,6) | 11 / 819 | 1,3 | 1,1 |\n| Klynge SYD | 6 / 434 | 0 (0) | 1,4 (0,5-3,0) | 5 / 460 | 1,1 | 1,0 |\n| Klynge VEST | #/# | 0 (0) | 0,4 (0,0-2,2) | 5 / 274 | 1,8 | 1,5 |",
+      "summary": "Tabellen viser incidensen af iskæmisk apopleksi inden for 1 år blandt nydiagnosticerede patienter med atrieflimren, fordelt på regioner og sundhedsklynger, samt tidligere års tal og konfidensintervaller."
+    },
+    {
+      "subject": "andel-af-atrieflimren-patienter-indlagt-med-iskaemisk-apopleksi",
+      "title": "Andel af atrieflimren patienter indlagt med iskæmisk apopleksi/apopleksi af ukendt type, som har indløst recept på oral AK-behandling indenfor 100 dage før dato for indlæggelse med apopleksi",
+      "page": 69,
+      "rowDimension": "region",
+      "colDimension": "antal og procent",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "danmark"
+      ],
+      "markdown": "| Region | Ja | % | Nej | % | I alt |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | 772 | 67.3 | 375 | 32.7 | 1147 |\n| Region Hovedstaden | 248 | 64.8 | 135 | 35.2 | 383 |\n| Sjælland | 117 | 59.1 | 81 | 40.9 | 198 |\n| Syddanmark | 183 | 73.5 | 66 | 26.5 | 249 |\n| Midtjylland | 132 | 67.7 | 63 | 32.3 | 195 |\n| Nordjylland | 92 | 75.4 | 30 | 24.6 | 122 |",
+      "summary": "Tabellen viser andelen af patienter med atrieflimren, der blev indlagt med iskæmisk apopleksi og havde indløst recept på oral antikoagulationsbehandling inden for 100 dage før indlæggelsen, fordelt på regioner."
+    },
+    {
+      "subject": "praevalente-patienter-med-atrieflimren-der-udvikler-iskaemisk-apopleksi",
+      "title": "Prævalente patienter med atrieflimren, der udvikler iskæmisk apopleksi i opgørelses perioden (LPR-baseret)",
+      "page": 69,
+      "rowDimension": "behandlingskategori",
+      "colDimension": "antal og procent",
+      "entities": [
+        "doac",
+        "marevan",
+        "antikoagulationsbehandling"
+      ],
+      "markdown": "| Behandlingskategori | Iskæmisk apopleksi | 0 | % | 1 | % |\n| --- | --- | --- | --- | --- | --- |\n| Alle | | 139972 | 99.17 | 1169 | 0.83 |\n| AK-behandling | | 107541 | 99.14 | 936 | 0.86 |\n| DOAC | | | | | |\n| Marevan | | 5043 | 99.12 | 45 | 0.88 |\n| Både DOAC og Marevan | | 779 | 95.94 | 33 | 4.06 |\n| Hverken DOAC eller Marevan | | 26609 | 99.42 | 155 | 0.58 |",
+      "summary": "Tabellen viser fordelingen af prævalente patienter med atrieflimren, der udvikler iskæmisk apopleksi, fordelt efter antikoagulationsbehandlingsstatus, inklusive DOAC, Marevan og ingen behandling."
+    },
+    {
+      "subject": "cha2ds2-vasc-score-blandt-praevalente-atrieflimren-patienter-med-intrakraniel-bloedning",
+      "title": "CHA2DS2VASc/CHA2DS2VA Score blandt prævalente atrieflimren patienter med intrakraniel blødning",
+      "page": 70,
+      "rowDimension": "region",
+      "colDimension": "antal og procent per CHA2DS2-VASc-score",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "danmark",
+        "cha2ds2-vasc"
+      ],
+      "markdown": "| Region | 0 | % | 1 | % | 2 | % | 3 | % | 4 | % | 5 | % | 6 | % | 7 | % | I alt |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Danmark | 50 | 6.3 | 101 | 12.7 | 222 | 27.9 | 225 | 28.2 | 122 | 15.3 | 49 | 6.1 | 23 | 2.9 | 5 | 0.6 | 797 |\n| Region Hovedstaden | 8 | 4.1 | 23 | 11.7 | 47 | 24.0 | 56 | 28.6 | 33 | 16.8 | 17 | 8.7 | 10 | 5.1 | # | 1.0 | 196 |\n| Sjælland | 9 | 6.7 | 13 | 9.7 | 35 | 26.1 | 36 | 26.9 | 28 | 20.9 | 11 | 8.2 | # | 0.7 | # | 0.7 | 134 |\n| Syddanmark | 8 | 5.1 | 26 | 16.5 | 40 | 25.3 | 42 | 26.6 | 30 | 19.0 | 6 | 3.8 | 5 | 3.2 | # | 0.6 | 158 |\n| Midtjylland | 20 | 9.8 | 30 | 14.6 | 60 | 29.3 | 55 | 26.8 | 22 | 10.7 | 13 | 6.3 | 4 | 2.0 | # | 0.5 | 205 |\n| Nordjylland | 5 | 4.8 | 9 | 8.7 | 40 | 38.5 | 36 | 34.6 | 9 | 8.7 | # | 1.9 | 3 | 2.9 | 0 | 0 | 104 |",
+      "summary": "Tabellen viser fordelingen af CHA2DS2-VASc-score blandt prævalente patienter med atrieflimren, der udvikler intrakraniel blødning, fordelt på regioner."
+    },
+    {
+      "subject": "praevalente-patienter-med-atrieflimren-der-udvikler-intrakraniel-bloedning",
+      "title": "Prævalente patienter med atrieflimren, der udvikler intrakraniel blødning i opgørelses perioden",
+      "page": 70,
+      "rowDimension": "behandlingskategori",
+      "colDimension": "antal og procent",
+      "entities": [
+        "doac",
+        "marevan",
+        "antikoagulationsbehandling"
+      ],
+      "markdown": "| Behandlingskategori | Intrakraniel blødning | Nej | % | Ja | % |\n| --- | --- | --- | --- | --- | --- |\n| Alle | | 140344 | 99.44 | 797 | 0.56 |\n| AK-behandling | | 107855 | 99.43 | 622 | 0.57 |\n| DOAC | | | | | |\n| Marevan | | 5056 | 99.37 | 32 | 0.63 |\n| Både DOAC og Marevan | | 807 | 99.38 | 5 | 0.62 |\n| Hverken DOAC eller Marevan | | 26626 | 99.48 | 138 | 0.52 |",
+      "summary": "Tabellen viser fordelingen af prævalente patienter med atrieflimren, der udvikler intrakraniel blødning, fordelt efter antikoagulationsbehandlingsstatus, inklusive DOAC, Marevan og ingen behandling."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af rapporten 'Atrieflimren i Danmark' udgivet af Sundhedsvæsenets Kvalitetsinstitut og dækker siderne 66-70, som indeholder detaljeret information om AFDK-styregruppens sammensætning samt supplerende analyser af ventetid til antikoagulationsbehandling, incidens af iskæmisk apopleksi og intrakraniel blødning blandt patienter med atrieflimren. Rapporten er en central kilde til kvalitetsmåling og klinisk udvikling i dansk sundhedsvæsen, hvor data fra hele landet og på regionalt og lokalt niveau (herunder sundhedsklynger) analyseres for at identificere variationer og muligheder for forbedring. Styregruppens sammensætning afspejler en bred faglig og patientrepræsentativ base, mens analyserne fokuserer på kritiske kliniske udfald og behandlingspraksis relateret til antikoagulation."
+}

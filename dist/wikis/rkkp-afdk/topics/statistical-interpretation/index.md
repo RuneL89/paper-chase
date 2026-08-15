@@ -4,17 +4,18 @@ type: index
 aliases:
   - Statistical Interpretation
 wiki: rkkp-afdk
-updated: '2026-08-05T23:46:41.124Z'
+updated: '2026-08-15T00:53:27.120Z'
 children:
+  - index.md
   - statistical-interpretation.md
 ---
 # Statistical Interpretation
 
-This folder documents the methodological framework used by the Regionernes Kliniske Kvalitetsudviklingsprogram to evaluate clinical quality indicators against predefined standards. It details the application of 95% confidence intervals to determine whether a hospital department's performance genuinely deviates from a target or if the observed variance is simply statistical noise, ensuring objective and fair clinical quality assessments.
+This folder documents the statistical methodology used by the Regionernes Kliniske Kvalitetsudviklingsprogram to evaluate clinical quality indicators against predefined standards. It explains how 95% confidence intervals determine whether a hospital department's performance represents a statistically significant deviation from a target or is simply random variation. This rigorous approach ensures that clinical quality assessments remain objective and prevents departments from being unfairly judged for statistical noise.
 
 ## Pages
 
-- [[statistical-interpretation|Statistical Interpretation]] — Explains how 95% confidence intervals are used to assess whether clinical indicator values significantly differ from established standards or merely represent random variation.
+- [[statistical-interpretation|Statistical Interpretation]] — Explains the use of 95% confidence intervals to assess whether clinical indicator values significantly differ from established standards or are due to random chance.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder documents the methodological framework used by the Regionernes Klini
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -49,12 +55,17 @@ This folder documents the methodological framework used by the Regionernes Klini
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/validation/index|Validation]]

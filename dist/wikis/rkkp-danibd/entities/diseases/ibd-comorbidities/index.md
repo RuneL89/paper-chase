@@ -4,17 +4,18 @@ type: index
 aliases:
   - Ibd Comorbidities
 wiki: rkkp-danibd
-updated: '2026-08-05T07:33:57.892Z'
+updated: '2026-08-15T07:41:32.636Z'
 children:
+  - index.md
   - psc.md
 ---
 # Ibd Comorbidities
 
-This folder catalogs medical conditions that frequently occur alongside inflammatory bowel disease (IBD) and require specialized monitoring within the Danish healthcare system. It currently documents primary sclerosing cholangitis (PSC), a chronic liver disease that significantly increases a patient's risk of colorectal cancer. Because of this elevated risk, PSC patients must undergo systematic annual colonoscopies, a clinical practice tracked nationally through the DANIBD registry's quality indicators.
+This folder groups specific medical conditions that act as comorbidities to Inflammatory Bowel Disease (IBD). It currently documents Primary Sclerosing Cholangitis (PSC), a chronic liver disease that significantly elevates the risk of colorectal cancer in IBD patients. Because of this heightened risk, PSC patients require systematic annual colonoscopy follow-ups, the compliance of which is rigorously tracked as a national quality indicator by the Danish Quality Database for Inflammatory Bowel Disease (DANIBD).
 
 ## Pages
 
-- [[psc|Primær skleroserende kolangitis (PSC)]] — Details the demographic profile, diagnostic criteria, and national compliance rates for the mandatory 18-month colonoscopy screening program aimed at preventing colorectal cancer in PSC patients.
+- [[psc|Primær skleroserende kolangitis (PSC)]] — A chronic liver disease strongly associated with IBD that elevates colorectal cancer risk and requires systematic annual colonoscopy monitoring tracked by DANIBD's Indicator 7.
 
 ## Navigation
 

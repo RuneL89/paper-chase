@@ -5,22 +5,19 @@ aliases:
   - Holbæk Sygehus
   - Holbæk
 wiki: rkkp-akdb
-updated: '2026-08-05T18:46:35.186Z'
+updated: '2026-08-15T06:25:59.251Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '21-25, 36-40, 51-55, 56-60, 6-10, 61-65, 71-75'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '21-25, 51-55, 6-10, 61-65, 71-75'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: >-
+      16-20, 21-25, 26-30, 31-35, 36-40, 6-10, 61-65, 66-70, 71-75, 76-80,
+      81-85, 86-90, 91-95
 tags:
   - organization
 ---
-# Holbæk Sygehus
-
-Holbæk Sygehus is a hospital located in [[region-sjaelland|Region Sjælland]], Denmark. It participates in the national clinical quality monitoring program for acute high-risk abdominal surgical patients, administered by the Danish Regions' Clinical Quality Development Programme (RKKP). The hospital's performance is systematically tracked across multiple process and outcome indicators to evaluate safety, efficiency, and treatment quality in acute surgical pathways [^src1] [^src8].
-
-The hospital's compliance with [[indikator-1|Indikator 1]] (antibiotic treatment within 3 hours) was recorded at 39.1% for the period from September 1, 2022, to August 31, 2023 [^src1]. In the following reporting period (2023–2024), this rate improved to 46.6% [^src7]. For the supplementary [[indikator-5x|Indikator 5x]], which measures the speed of surgical intervention for life-threatening conditions, the hospital reported a rate of 26.8% [^src2]. Regarding outcome indicators, Holbæk Sygehus recorded a 90-day mortality rate of 20.3% for [[indikator-11|Indikator 11]], thereby failing to meet the required standard [^src4]. Additionally, for 30-day mortality among patients with mild to moderate comorbidity ([[charlson-score-1-2|Charlson Score = 1 eller 2]]), 12 out of 48 patients died, yielding a mortality rate of 25.0% [^src5].
-
-Despite national struggles with [[indikator-3|Indikator 3]] (preoperative optimization), Holbæk Sygehus is specifically highlighted as a best-practice example. The 2024 RKKP report notes that the hospital demonstrates how significant improvements can be driven by initiatives that address the cultural aspects of clinical workflows, serving as a model for national knowledge sharing [^src8]. The hospital's patient demographics, including age distribution and the prevalence of cancer diagnoses among surgical patients, are also closely monitored to support risk adjustment and benchmarking [^src6] [^src12].
 
 ## Mentions
 
@@ -35,28 +32,49 @@ Despite national struggles with [[indikator-3|Indikator 3]] (preoperative optimi
 - Page 51: "Holbæk Sygehus Ja 22 / 131 0 (0) 16,8 (10,8-24,3) 19,7 27,7" [^src9]
 - Page 61: "Holbæk Sygehus #/# 0 (0) 3,4 (0,4-11,9) 13,3 5,6" [^src10]
 - Page 71: "Holbæk Sygehus 143 24,0 60,00 72,00 67,83 77,00" [^src11]
-- Page 56: "Holbæk" [^src12]
+- Page 9: "Holbæk Sygehus Nej 71 / 150 0 (0) 47,3 (39,1-55,6) 47,0 40,3" [^src12]
+- Page 19: "Holbæk Sygehus" [^src13]
+- Page 19: "Holbæk Sygehus Nej 102 / 150 0 (0) 68,0 (59,9-75,4) 50,8 12,4" [^src13]
+- Page 22: "Holbæk sygehus viser, at målopfyldelsen flyttes markant med en målrettet indsats." [^src14]
+- Page 27: "Holbæk Sygehus Ja 77 / 85 0 (0) 90,6 (82,3-95,8) 91,7 79,7" [^src15]
+- Page 31: "Holbæk og Rigshospitalet præsterer over målopfyldelse og kan fungere som referenceenheder." [^src16]
+- Page 32: "Holbæk Sygehus Nej 39 / 79 0 (0) 49,4 (37,9-60,9) 39,0 29,5" [^src16]
+- Page 36: "Holbæk Sygehus" [^src17]
+- Page 37: "Holbæk Sygehus" [^src17]
+- Page 61: "Holbæk Sygehus 149 84 165 431" [^src18]
+- Page 62: "Holbæk Sygehus 331 100,00 151 45,62 180 54,38" [^src18]
+- Page 63: "Holbæk Sygehus 3 / 61 0 (0) 4,9 (1,0-13,7) 3,4 13,3" [^src18]
+- Page 67: "Holbæk Sygehus" [^src19]
+- Page 71: "Holbæk Sygehus 8 / 32 0 (0) 25,0 (11,5-43,4) 36,0 17,9" [^src20]
+- Page 76: "Holbæk Sygehus #/# 0 (0) 5,0 (0,1-24,9) 17,6 38,5" [^src21]
+- Page 81: "Holbæk Sygehus 6 / 77 0 (0) 7,8 (2,9-16,2) 5,5 12,5" [^src22]
+- Page 84: "Holbæk Sygehus 9 / 77 0 (0) 11,7 (5,5-21,0) 9,1 12,5" [^src22]
+- Page 86: "Holbæk Sygehus Ja 26 / 41 0 (0) 63,4 (46,9-77,9) 72,5 60,0" [^src23]
+- Page 89: "Holbæk Sygehus Nej 63 / 110 0 (0) 57,3 (47,5-66,7) 52,7 47,2" [^src23]
+- Page 91: "Holbæk Sygehus 151 100,00 41 27,15 110 72,85" [^src24]
+- Page 56: "Holbæk" [^src25]
 
 ## Relationships
 
-**Outgoing**
-- Subject: holbaek-sygehus | Predicate: has-indicator-result | Object: indikator-1 | Evidence: "Holbæk Sygehus Nej 45 / 115 0 (0) 39,1 (30,2-48,7) 32,0 38,1" | Page: 9 [^src1]
-- Subject: holbaek-sygehus | Predicate: fails-standard-for | Object: indikator-11 | Evidence: "Holbæk Sygehus Nej 24 / 118 0 (0) 20,3 (13,5-28,7) 27,7 31,8" | Page: 51 [^src4]
-- Subject: holbaek-sygehus | Predicate: exemplifies-best-practice-for | Object: indikator-3 | Evidence: "Holbæk Hospital viser at der med en indsats der blandt andet adresserer det kulturelle aspekt kan flyttes meget." | Page: 21 [^src8]
-
-**Incoming**
-- Subject: region-sjaelland | Predicate: contains-hospital | Object: (this entity) | Evidence: "Holbæk Sygehus er beliggende i Region Sjælland" | Page: 21 [^src2]
-- Subject: region-sjaelland | Predicate: contains-hospital | Object: (this entity) | Evidence: "Sjælland 28 / 180 [...] Holbæk Sygehus 12 / 48" | Page: 61 [^src5]
+- [[indikator-1|Indikator 1]] — Has Indicator Result [^src1]
+- [[indikator-11|Indikator 11]] — Fails Standard For [^src4]
+- [[indikator-3|Indikator 3]] — Exemplifies Best Practice For [^src8]
+- [[indikator-3|Indikator 3]] — Exemplifies Best Practice For [^src14]
+- [[indikator-4y|Indikator 4y]] — Meets Target For [^src15]
+- [[region-sjaelland|Region Sjælland — Sjælland]] — Contains Hospital (incoming) — "Holbæk Sygehus er beliggende i Region Sjælland" [^src2]
+- [[region-sjaelland|Region Sjælland — Sjælland]] — Contains Hospital (incoming) — "Sjælland 28 / 180 [...] Holbæk Sygehus 12 / 48" [^src5]
+- [[region-sjaelland|Region Sjælland — Sjælland]] — Contains Hospital (incoming) — "Sjælland
+Holbæk Sygehus Nej 71 / 150 0 (0) 47,3 (39,1-55,6) 47,0 40,3" [^src12]
+- [[indikator-4y|Indikator 4y]] — Has Reference Unit (incoming) — "Holbæk og Rigshospitalet præsterer over målopfyldelse og kan fungere som referenceenheder." [^src16]
 
 ## Claims
 
-- Holbæk Sygehus havde en andel på 26,8 % (95 % CI: 14,2–42,9) for supplerende indikator 5x [^src1] (holbaek-sygehus, indikator-5x)
-- Holbæk Sygehus har en 90-dages mortalitet på 20,3 % (95 % CI: 13,5–28,7) for Indikator 11 og opfylder derfor ikke standarden [^src1] (holbaek-sygehus, indikator-11)
-- Holbæk Sygehus: 12 / 48 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (25,0 %; 95 % CI: 13,6-39,6) [^src1] (holbaek-sygehus, charlson-score-1-2)
-
-## Timeline
-
-*(No timeline events recorded for this entity.)*
+- Holbæk Sygehus havde en andel på 26,8 % (95 % CI: 14,2–42,9) for supplerende indikator 5x [^src2] ([[holbaek-sygehus|Holbæk Sygehus]], [[indikator-5x|Indikator 5x]])
+- Holbæk Sygehus har en 90-dages mortalitet på 20,3 % (95 % CI: 13,5–28,7) for Indikator 11 og opfylder derfor ikke standarden [^src4] ([[holbaek-sygehus|Holbæk Sygehus]], [[indikator-11|Indikator 11]])
+- Holbæk Sygehus: 12 / 48 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (25,0 %; 95 % CI: 13,6-39,6) [^src5] ([[holbaek-sygehus|Holbæk Sygehus]], [[charlson-score-1-2|Charlson Score = 1 eller 2]])
+- Holbæk Sygehus opnåede en andel på 68,0 % (95 % CI 59,9-75,4) for indikator 3 i perioden 01.09.2024–31.08.2025 [^src13] ([[indikator-3|Indikator 3]], [[holbaek-sygehus|Holbæk Sygehus]])
+- Holbæk Sygehus og Bornholms Hospital fremhæves som enheder, der for andet år i træk har øget andelen af højrisiko patienter, der observeres tæt de første 24 timer postoperativt [^src17] ([[holbaek-sygehus|Holbæk Sygehus]], [[bornholms-hospital|Bornholms Hospital]])
+- Holbæk Sygehus har en mobiliseringsrate på 58,3 % (95 % CI: 50,0–66,2) for indikator 6 [^src17] ([[holbaek-sygehus|Holbæk Sygehus]])
 
 ## Sources
 
@@ -71,4 +89,18 @@ Despite national struggles with [[indikator-3|Indikator 3]] (preoperative optimi
 [^src9]: AKDB_2024.pdf, pages 51-55
 [^src10]: AKDB_2024.pdf, pages 61-65
 [^src11]: AKDB_2024.pdf, pages 71-75
-[^src12]: AKDB_2023.pdf, pages 56-60
+[^src12]: AKDB_2025.pdf, pages 6-10
+[^src13]: AKDB_2025.pdf, pages 16-20
+[^src14]: AKDB_2025.pdf, pages 21-25
+[^src15]: AKDB_2025.pdf, pages 26-30
+[^src16]: AKDB_2025.pdf, pages 31-35
+[^src17]: AKDB_2025.pdf, pages 36-40
+[^src18]: AKDB_2025.pdf, pages 61-65
+[^src19]: AKDB_2025.pdf, pages 66-70
+[^src20]: AKDB_2025.pdf, pages 71-75
+[^src21]: AKDB_2025.pdf, pages 76-80
+[^src22]: AKDB_2025.pdf, pages 81-85
+[^src23]: AKDB_2025.pdf, pages 86-90
+[^src24]: AKDB_2025.pdf, pages 91-95
+[^src25]: AKDB_2023.pdf, pages 56-60
+

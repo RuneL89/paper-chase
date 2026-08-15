@@ -1,43 +1,44 @@
 {
-  "run": "2026-08-05T19:14:58.847Z",
+  "run": "2026-08-14T19:35:12.842Z",
   "topics": {
     "merges": [
       {
         "from": [
-          "performance-data",
-          "result"
-        ],
-        "into": "performance"
-      },
-      {
-        "from": [
-          "healthcare-quality-standards",
           "standard-80-percent",
-          "standard-90-percent"
+          "standard-90-percent",
+          "standarden"
         ],
         "into": "standard"
       },
       {
         "from": [
-          "clinical-policy"
+          "supplerende-indikator-hjertesvigt-efter-atrieflimren"
         ],
-        "into": "clinical-guideline"
-      },
-      {
-        "from": [
-          "clinical-indicator"
-        ],
-        "into": "clinical-indicators"
+        "into": "hjertesvigtsindikatoren"
       }
     ],
     "drops": [
-      "policy"
+      "source-reference",
+      "supplerende-analyser-7",
+      "indikator"
     ],
     "attempts": 1,
     "fallbacks": [],
     "vetoes": [],
     "fromSticky": {
       "merges": [
+        {
+          "from": [
+            "clinical-policy"
+          ],
+          "into": "clinical-guideline"
+        },
+        {
+          "from": [
+            "clinical-indicator"
+          ],
+          "into": "clinical-indicators"
+        },
         {
           "from": [
             "epidemiological"
@@ -68,7 +69,9 @@
           "from": [
             "clinical-performance",
             "healthcare-performance",
-            "quality-performance"
+            "performance-data",
+            "quality-performance",
+            "result"
           ],
           "into": "performance"
         },
@@ -76,9 +79,12 @@
           "from": [
             "clinical-standard",
             "health-standard",
+            "healthcare-quality-standards",
             "healthcare-standard",
             "policy-standard",
             "quality-standard",
+            "standard-80-percent",
+            "standard-90-percent",
             "target"
           ],
           "into": "standard"
@@ -118,192 +124,258 @@
         "governance-question",
         "population-definition",
         "metric-definition",
-        "methodology"
+        "methodology",
+        "policy"
       ]
     },
     "decidedThisRun": {
       "merges": [
         {
           "from": [
-            "performance-data",
-            "result"
-          ],
-          "into": "performance",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "healthcare-quality-standards",
             "standard-80-percent",
-            "standard-90-percent"
+            "standard-90-percent",
+            "standarden"
           ],
           "into": "standard",
           "signal": "model"
         },
         {
           "from": [
-            "clinical-policy"
+            "supplerende-indikator-hjertesvigt-efter-atrieflimren"
           ],
-          "into": "clinical-guideline",
+          "into": "hjertesvigtsindikatoren",
           "signal": "model"
-        },
-        {
-          "from": [
-            "clinical-indicator"
-          ],
-          "into": "clinical-indicators",
-          "signal": "edit-distance",
-          "evidence": "slugs 'clinical-indicator' and 'clinical-indicators' are edit distance 1 apart (typo variant)"
         }
       ],
       "drops": [
-        "policy"
+        "source-reference",
+        "supplerende-analyser-7",
+        "indikator"
       ],
       "denials": [
         {
           "from": "clinical-practice-decision",
           "into": "clinical-practice",
-          "justification": "decision is distinct from practice"
+          "justification": "distinct aspect"
         },
         {
           "from": "clinical-risk-distribution",
           "into": "clinical-risk",
-          "justification": "distribution is specific statistical aspect"
+          "justification": "distinct aspect"
         },
         {
           "from": "definition",
           "into": "definitional",
-          "justification": "meta-descriptor"
+          "justification": "meta-descriptors"
         },
         {
           "from": "indikator-1",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-1",
+          "into": "indikator-4a1",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-1",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-11",
+          "into": "indikator-4a1",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-12",
+          "into": "indikator-4a2",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-13",
+          "into": "indikator-4a3",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-2",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-2",
+          "into": "indikator-4a2",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-2",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-3",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-3",
+          "into": "indikator-4a3",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-3",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4a",
           "into": "indikator-10",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4a",
+          "into": "indikator-11",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4a",
           "into": "indikator-12",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4a",
           "into": "indikator-13",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4a",
+          "into": "indikator-15",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4a",
           "into": "indikator-16",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4b",
           "into": "indikator-10",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-11",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4b",
           "into": "indikator-12",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4b",
           "into": "indikator-13",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-15",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4b",
           "into": "indikator-16",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-4b",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a1",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a2",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-4b",
+          "into": "indikator-4a3",
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-5",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-5",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-6",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-6",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-7",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-7",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-8",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
         },
         {
           "from": "indikator-8",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-4a",
+          "justification": "distinct indicators"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-4b",
+          "justification": "distinct indicators"
         },
         {
           "from": "quality-indicator-definition",
           "into": "quality-indicator",
-          "justification": "definition is meta-descriptor"
+          "justification": "distinct aspect"
+        },
+        {
+          "from": "quality-indicator-result",
+          "into": "quality-indicator",
+          "justification": "distinct aspect"
+        },
+        {
+          "from": "quality-indicator-target",
+          "into": "quality-indicator",
+          "justification": "distinct aspect"
         }
       ]
     },
     "proposedPairs": [
-      {
-        "from": "clinical-indicator",
-        "into": "clinical-indicators",
-        "signal": "edit-distance",
-        "evidence": "slugs 'clinical-indicator' and 'clinical-indicators' are edit distance 1 apart (typo variant)"
-      },
       {
         "from": "clinical-practice-decision",
         "into": "clinical-practice",
@@ -330,15 +402,45 @@
       },
       {
         "from": "indikator-1",
+        "into": "indikator-4a1",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-1' and 'indikator-4a1' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-1",
         "into": "indikator-4b",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-1' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-11",
+        "into": "indikator-4a1",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-11' and 'indikator-4a1' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-12",
+        "into": "indikator-4a2",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-12' and 'indikator-4a2' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-13",
+        "into": "indikator-4a3",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-13' and 'indikator-4a3' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-2",
         "into": "indikator-4a",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-2' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2",
+        "into": "indikator-4a2",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2' and 'indikator-4a2' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-2",
@@ -354,6 +456,12 @@
       },
       {
         "from": "indikator-3",
+        "into": "indikator-4a3",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-3' and 'indikator-4a3' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-3",
         "into": "indikator-4b",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-3' and 'indikator-4b' are edit distance 2 apart (typo variant)"
@@ -363,6 +471,12 @@
         "into": "indikator-10",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-4a' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4a",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4a' and 'indikator-11' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-4a",
@@ -378,6 +492,12 @@
       },
       {
         "from": "indikator-4a",
+        "into": "indikator-15",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4a' and 'indikator-15' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4a",
         "into": "indikator-16",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-4a' and 'indikator-16' are edit distance 2 apart (typo variant)"
@@ -387,6 +507,12 @@
         "into": "indikator-10",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-4b' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-11' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-4b",
@@ -402,6 +528,12 @@
       },
       {
         "from": "indikator-4b",
+        "into": "indikator-15",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-15' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
         "into": "indikator-16",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-4b' and 'indikator-16' are edit distance 2 apart (typo variant)"
@@ -411,6 +543,24 @@
         "into": "indikator-4a",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-4b' and 'indikator-4a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a1",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a1' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a2",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a2' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-4b",
+        "into": "indikator-4a3",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-4b' and 'indikator-4a3' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-5",
@@ -461,10 +611,34 @@
         "evidence": "slugs 'indikator-8' and 'indikator-4b' are edit distance 2 apart (typo variant)"
       },
       {
+        "from": "indikator-9",
+        "into": "indikator-4a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-4a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-4b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-4b' are edit distance 2 apart (typo variant)"
+      },
+      {
         "from": "quality-indicator-definition",
         "into": "quality-indicator",
         "signal": "subsequence",
         "evidence": "tokens of 'quality-indicator' are a subsequence of 'quality-indicator-definition' (name parts [definition] dropped)"
+      },
+      {
+        "from": "quality-indicator-result",
+        "into": "quality-indicator",
+        "signal": "subsequence",
+        "evidence": "tokens of 'quality-indicator' are a subsequence of 'quality-indicator-result' (name parts [result] dropped)"
+      },
+      {
+        "from": "quality-indicator-target",
+        "into": "quality-indicator",
+        "signal": "subsequence",
+        "evidence": "tokens of 'quality-indicator' are a subsequence of 'quality-indicator-target' (name parts [target] dropped)"
       }
     ],
     "autoApplied": []
@@ -473,57 +647,64 @@
     "merges": [
       {
         "from": [
-          "bfkb-kode"
-        ],
-        "into": "bfkb"
-      },
-      {
-        "from": [
-          "chad2ds2-vasc"
-        ],
-        "into": "cha2ds2-vasc"
-      },
-      {
-        "from": [
-          "landspatientregisteret-lpr"
+          "lpr-registeret"
         ],
         "into": "landspatientregisteret"
       },
       {
         "from": [
-          "np04998-p-kreatinin"
+          "np27547-p-thyrotropin"
         ],
-        "into": "s-creatinin"
+        "into": "npu27547-p-thyrotropin"
       },
       {
         "from": [
-          "rkkp-styregruppe"
+          "klynge-midt"
         ],
-        "into": "afdk-styregruppe"
+        "into": "midtklyngen"
       },
       {
         "from": [
-          "tsh"
+          "patientundervisning"
         ],
-        "into": "thyreoideastimulerende-hormon-tsh"
+        "into": "patientuddannelse"
       },
       {
         "from": [
-          "npu04998-p-creatinin"
+          "sundhedsvaesenes-kvalitetsinstitut",
+          "sundhedsvaesnets-kvalitetsinstitut"
         ],
-        "into": "npu04998-p-kreatinin"
+        "into": "sundhedsvaesenets-kvalitetsinstitut"
       },
       {
         "from": [
-          "npu18016-p-creatinin"
-        ],
-        "into": "npu18016-p-kreatinin"
-      },
-      {
-        "from": [
-          "sundhedsklyngen-slagese"
+          "sundhedsklyngen-slagelese"
         ],
         "into": "sundhedsklyngen-slagelse"
+      },
+      {
+        "from": [
+          "sundk-s-videncenter"
+        ],
+        "into": "rkkp-videncenter"
+      },
+      {
+        "from": [
+          "rkkp-regionernes-kliniske-kvalitetsudviklingsprogram"
+        ],
+        "into": "regionernes-kliniske-kvalitetsudviklingsprogram"
+      },
+      {
+        "from": [
+          "signe-stelling-risom"
+        ],
+        "into": "signe-risom"
+      },
+      {
+        "from": [
+          "sundhedsklynge"
+        ],
+        "into": "sundhedsklynger"
       }
     ],
     "drops": [],
@@ -534,13 +715,21 @@
       "merges": [
         {
           "from": [
+            "rkkp-styregruppe",
             "styregruppen"
           ],
           "into": "afdk-styregruppe"
         },
         {
           "from": [
-            "cha2ds2-vasc-score"
+            "bfkb-kode"
+          ],
+          "into": "bfkb"
+        },
+        {
+          "from": [
+            "cha2ds2-vasc-score",
+            "chad2ds2-vasc"
           ],
           "into": "cha2ds2-vasc"
         },
@@ -564,12 +753,19 @@
         },
         {
           "from": [
+            "godstrupklyngen"
+          ],
+          "into": "goedstrupklyngen"
+        },
+        {
+          "from": [
             "laegemiddelstatistikregistret"
           ],
           "into": "laegemiddelstatistikregisteret"
         },
         {
           "from": [
+            "landspatientregisteret-lpr",
             "landspatientregistret",
             "lpr"
           ],
@@ -580,6 +776,18 @@
             "naestved"
           ],
           "into": "naestved-sygehus"
+        },
+        {
+          "from": [
+            "npu04998-p-creatinin"
+          ],
+          "into": "npu04998-p-kreatinin"
+        },
+        {
+          "from": [
+            "npu18016-p-creatinin"
+          ],
+          "into": "npu18016-p-kreatinin"
         },
         {
           "from": [
@@ -601,6 +809,12 @@
         },
         {
           "from": [
+            "np04998-p-kreatinin"
+          ],
+          "into": "s-creatinin"
+        },
+        {
+          "from": [
             "sjaellands-universitetshospital-koege"
           ],
           "into": "sjaellands-universitetshospital-koenge"
@@ -619,9 +833,21 @@
         },
         {
           "from": [
+            "sundhedsklyngen-slagese"
+          ],
+          "into": "sundhedsklyngen-slagelse"
+        },
+        {
+          "from": [
             "tarnby"
           ],
           "into": "taarnby"
+        },
+        {
+          "from": [
+            "tsh"
+          ],
+          "into": "thyreoideastimulerende-hormon-tsh"
         }
       ],
       "drops": [],
@@ -677,77 +903,85 @@
       "merges": [
         {
           "from": [
-            "godstrupklyngen"
+            "sundhedsklyngen-slagelse"
           ],
-          "into": "goedstrupklyngen",
-          "signal": "transliteration",
-          "evidence": "slugs identical after Danish transliteration collapse ('godstrupklyngen' ≡ 'goedstrupklyngen')"
+          "into": "sundhedsklyngen-slagelese",
+          "signal": "alias",
+          "evidence": "title 'Sundhedsklyngen Slagelse' is an exact frontmatter alias of 'sundhedsklyngen-slagelese'"
         },
         {
           "from": [
-            "bfkb-kode"
-          ],
-          "into": "bfkb",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "chad2ds2-vasc"
-          ],
-          "into": "cha2ds2-vasc",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "landspatientregisteret-lpr"
+            "lpr-registeret"
           ],
           "into": "landspatientregisteret",
           "signal": "model"
         },
         {
           "from": [
-            "np04998-p-kreatinin"
+            "np27547-p-thyrotropin"
           ],
-          "into": "s-creatinin",
+          "into": "npu27547-p-thyrotropin",
           "signal": "model"
         },
         {
           "from": [
-            "rkkp-styregruppe"
+            "klynge-midt"
           ],
-          "into": "afdk-styregruppe",
+          "into": "midtklyngen",
           "signal": "model"
         },
         {
           "from": [
-            "tsh"
+            "patientundervisning"
           ],
-          "into": "thyreoideastimulerende-hormon-tsh",
+          "into": "patientuddannelse",
           "signal": "model"
         },
         {
           "from": [
-            "npu04998-p-creatinin"
+            "sundhedsvaesenes-kvalitetsinstitut",
+            "sundhedsvaesnets-kvalitetsinstitut"
           ],
-          "into": "npu04998-p-kreatinin",
-          "signal": "edit-distance",
-          "evidence": "slugs 'npu04998-p-creatinin' and 'npu04998-p-kreatinin' are edit distance 1 apart (typo variant)"
+          "into": "sundhedsvaesenets-kvalitetsinstitut",
+          "signal": "model"
         },
         {
           "from": [
-            "npu18016-p-creatinin"
-          ],
-          "into": "npu18016-p-kreatinin",
-          "signal": "edit-distance",
-          "evidence": "slugs 'npu18016-p-creatinin' and 'npu18016-p-kreatinin' are edit distance 1 apart (typo variant)"
-        },
-        {
-          "from": [
-            "sundhedsklyngen-slagese"
+            "sundhedsklyngen-slagelese"
           ],
           "into": "sundhedsklyngen-slagelse",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "sundk-s-videncenter"
+          ],
+          "into": "rkkp-videncenter",
+          "signal": "model"
+        },
+        {
+          "from": [
+            "rkkp-regionernes-kliniske-kvalitetsudviklingsprogram"
+          ],
+          "into": "regionernes-kliniske-kvalitetsudviklingsprogram",
+          "signal": "subsequence",
+          "evidence": "tokens of 'regionernes-kliniske-kvalitetsudviklingsprogram' are a subsequence of 'rkkp-regionernes-kliniske-kvalitetsudviklingsprogram' (name parts [rkkp] dropped)"
+        },
+        {
+          "from": [
+            "signe-stelling-risom"
+          ],
+          "into": "signe-risom",
+          "signal": "subsequence",
+          "evidence": "tokens of 'signe-risom' are a subsequence of 'signe-stelling-risom' (name parts [stelling] dropped)"
+        },
+        {
+          "from": [
+            "sundhedsklynge"
+          ],
+          "into": "sundhedsklynger",
           "signal": "edit-distance",
-          "evidence": "slugs 'sundhedsklyngen-slagese' and 'sundhedsklyngen-slagelse' are edit distance 1 apart (typo variant)"
+          "evidence": "slugs 'sundhedsklynge' and 'sundhedsklynger' are edit distance 1 apart (typo variant)"
         }
       ],
       "drops": [],
@@ -755,237 +989,217 @@
         {
           "from": "aalborg-universitetshospital-thisted",
           "into": "aalborg-universitetshospital",
-          "justification": "distinct sub-unit/location"
+          "justification": "sub-unit campus"
         },
         {
           "from": "databasen-for-atrieflimren-i-danmark",
           "into": "atrieflimren-i-danmark",
-          "justification": "database vs concept"
+          "justification": "drops core database entity"
         },
         {
           "from": "indikator-1",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-1",
           "into": "indikator-4a1",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-1",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-10",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-10",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-11",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-11",
           "into": "indikator-4a1",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-11",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-12",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-12",
           "into": "indikator-4a2",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-12",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-13",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-13",
           "into": "indikator-4a3",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-13",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-15",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-15",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-16",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-16",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-2",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-2",
           "into": "indikator-4a2",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-2",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-3",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-3",
           "into": "indikator-4a3",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-3",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-4b",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-4b",
           "into": "indikator-4a1",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-4b",
           "into": "indikator-4a2",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-4b",
           "into": "indikator-4a3",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-5",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-5",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-6",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-6",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-7",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-7",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-8",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-8",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-9",
           "into": "indikator-4a",
-          "justification": "distinct clinical indicators"
+          "justification": "different indicators"
         },
         {
           "from": "indikator-9",
           "into": "indikator-4b",
-          "justification": "distinct clinical indicators"
-        },
-        {
-          "from": "npu04998-p-creatinin",
-          "into": "p-creatinin",
-          "justification": "code vs concept"
-        },
-        {
-          "from": "npu18016-p-creatinin",
-          "into": "p-creatinin",
-          "justification": "code vs concept"
-        },
-        {
-          "from": "sundhedsklynge",
-          "into": "sundhedsklynger",
-          "justification": "generic terms"
+          "justification": "different indicators"
         },
         {
           "from": "sundhedsklynge-fyn",
           "into": "sundhedsklynge-byen",
-          "justification": "distinct regions"
+          "justification": "different places"
         },
         {
           "from": "sundhedsklynge-fyn",
           "into": "sundhedsklynge-syd",
-          "justification": "distinct regions"
+          "justification": "different places"
         },
         {
-          "from": "sundhedsklyngen-slagelse",
-          "into": "sundhedsklyngen-slagelese",
-          "justification": "target is typo"
-        },
-        {
-          "from": "sundhedsklyngen-slagese",
-          "into": "sundhedsklyngen-slagelese",
-          "justification": "target is typo"
+          "from": "supplerende-analyser-7-alvorlig-bloedning",
+          "into": "supplerende-analyser-7",
+          "justification": "sub-topic"
         }
       ],
       "clusters": [],
@@ -1233,28 +1447,16 @@
         "evidence": "slugs 'indikator-9' and 'indikator-4b' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "npu04998-p-creatinin",
-        "into": "npu04998-p-kreatinin",
-        "signal": "edit-distance",
-        "evidence": "slugs 'npu04998-p-creatinin' and 'npu04998-p-kreatinin' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "npu04998-p-creatinin",
-        "into": "p-creatinin",
+        "from": "rkkp-regionernes-kliniske-kvalitetsudviklingsprogram",
+        "into": "regionernes-kliniske-kvalitetsudviklingsprogram",
         "signal": "subsequence",
-        "evidence": "tokens of 'p-creatinin' are a subsequence of 'npu04998-p-creatinin' (name parts [npu04998] dropped)"
+        "evidence": "tokens of 'regionernes-kliniske-kvalitetsudviklingsprogram' are a subsequence of 'rkkp-regionernes-kliniske-kvalitetsudviklingsprogram' (name parts [rkkp] dropped)"
       },
       {
-        "from": "npu18016-p-creatinin",
-        "into": "npu18016-p-kreatinin",
-        "signal": "edit-distance",
-        "evidence": "slugs 'npu18016-p-creatinin' and 'npu18016-p-kreatinin' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "npu18016-p-creatinin",
-        "into": "p-creatinin",
+        "from": "signe-stelling-risom",
+        "into": "signe-risom",
         "signal": "subsequence",
-        "evidence": "tokens of 'p-creatinin' are a subsequence of 'npu18016-p-creatinin' (name parts [npu18016] dropped)"
+        "evidence": "tokens of 'signe-risom' are a subsequence of 'signe-stelling-risom' (name parts [stelling] dropped)"
       },
       {
         "from": "sundhedsklynge",
@@ -1275,44 +1477,40 @@
         "evidence": "slugs 'sundhedsklynge-fyn' and 'sundhedsklynge-syd' are edit distance 2 apart (typo variant)"
       },
       {
-        "from": "sundhedsklyngen-slagelse",
-        "into": "sundhedsklyngen-slagelese",
-        "signal": "edit-distance",
-        "evidence": "slugs 'sundhedsklyngen-slagelse' and 'sundhedsklyngen-slagelese' are edit distance 1 apart (typo variant)"
-      },
-      {
-        "from": "sundhedsklyngen-slagese",
-        "into": "sundhedsklyngen-slagelese",
-        "signal": "edit-distance",
-        "evidence": "slugs 'sundhedsklyngen-slagese' and 'sundhedsklyngen-slagelese' are edit distance 2 apart (typo variant)"
-      },
-      {
-        "from": "sundhedsklyngen-slagese",
-        "into": "sundhedsklyngen-slagelse",
-        "signal": "edit-distance",
-        "evidence": "slugs 'sundhedsklyngen-slagese' and 'sundhedsklyngen-slagelse' are edit distance 1 apart (typo variant)"
+        "from": "supplerende-analyser-7-alvorlig-bloedning",
+        "into": "supplerende-analyser-7",
+        "signal": "subsequence",
+        "evidence": "tokens of 'supplerende-analyser-7' are a subsequence of 'supplerende-analyser-7-alvorlig-bloedning' (name parts [alvorlig, bloedning] dropped)"
       }
     ],
     "autoApplied": [
       {
-        "from": "godstrupklyngen",
-        "into": "goedstrupklyngen",
-        "signal": "transliteration",
-        "evidence": "slugs identical after Danish transliteration collapse ('godstrupklyngen' ≡ 'goedstrupklyngen')"
+        "from": "sundhedsklyngen-slagelse",
+        "into": "sundhedsklyngen-slagelese",
+        "signal": "alias",
+        "evidence": "title 'Sundhedsklyngen Slagelse' is an exact frontmatter alias of 'sundhedsklyngen-slagelese'"
       }
     ],
     "proposedClusters": []
   },
   "manualEditSkips": [],
   "removedPages": [
-    "entities/databases/health-registries/landspatientregisteret-lpr.md",
+    "entities/codes/laboratory-tests/np27547-p-thyrotropin.md",
+    "entities/organizations/healthcare-registries/klynge-midt.md",
+    "entities/organizations/health-registries/sundhedsklyngen-slagelese.md",
+    "entities/organizations/health-infrastructure/sundhedsklynge.md",
     "topics/clinical-indicators/standard-80-percent.md",
-    "topics/healthcare-quality-standards/standard-90-percent.md"
+    "topics/healthcare-quality-standards/standard-90-percent.md",
+    "topics/healthcare-quality-standards/standarden.md",
+    "topics/clinical-indicators/atrial-fibrillation/supplerende-indikator-hjertesvigt-efter-atrieflimren.md",
+    "topics/clinical-indicators/atrial-fibrillation/supplerende-analyser-7.md",
+    "topics/quality-indicators/cardiology/indikator.md",
+    "entities/organizations/hospitals/sundhedsklyngen-slagelse.md"
   ],
   "rewrittenLinks": [
     {
-      "path": "comparisons/indikator-15-andelen-af-nydiagnosticerede-patienter-med-atrieflimren-som-udvikler-iskaemisk-apopleksi-inden-for-1-aar.md",
-      "hash": "a653ede6a17de3435f2addcd3ad02607949bd1ca96bccd455df08ac9e8150a1c"
+      "path": "topics/quality-indicators/atrial-fibrillation/indikator-4a3.md",
+      "hash": "1a2901665d64ed884979ce09dd85deea7066a3a9c15074e592b8844afce29a3e"
     }
   ],
   "splitReversals": []

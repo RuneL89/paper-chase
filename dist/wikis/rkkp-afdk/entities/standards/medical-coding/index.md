@@ -4,17 +4,18 @@ type: index
 aliases:
   - Medical Coding
 wiki: rkkp-afdk
-updated: '2026-08-05T23:13:27.318Z'
+updated: '2026-08-15T00:05:14.006Z'
 children:
+  - index.md
   - sks-koder.md
 ---
 # Medical Coding
 
-This folder contains the classification and coding systems used within the Danish healthcare system to register specific clinical, administrative, and educational activities. It currently holds documentation on the SKS codes (Sundhedsvæsenets Klassifikations System), which are critical for measuring the quality of care in the Danish Atrial Fibrillation Database (AFDK). Specifically, it details how these codes are used to track structured patient education for newly diagnosed atrial fibrillation patients in the National Patient Register and documents the 2023 policy change that narrowed the calculation rules for Indikator 8 to rely solely on the BFKB code.
+This folder contains the medical coding standards used to track and measure healthcare activities within the Danish healthcare system. It specifically covers the SKS-koder (Sundhedsvæsenets Klassifikations System) classification system, which is critical for defining quality indicators such as structured patient education for atrial fibrillation patients in the Danish Atrial Fibrillation Database (AFDK). The included page details the specific intervention codes used historically and the 2023 policy change that narrowed the coding requirements for these quality measurements.
 
 ## Pages
 
-- [[sks-koder|SKS-koder]] — The classification codes used to track structured patient education and other activities in the Danish National Patient Register, including the 2023 policy shift narrowing Indikator 8 calculations to only the BFKB code.
+- [[sks-koder|SKS-koder]] — The Danish healthcare classification system used to register clinical and educational activities, detailing the specific codes that define structured patient education for atrial fibrillation quality indicators.
 
 ## Navigation
 

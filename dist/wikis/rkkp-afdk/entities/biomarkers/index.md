@@ -4,17 +4,18 @@ type: index
 aliases:
   - Biomarkers
 wiki: rkkp-afdk
-updated: '2026-08-05T22:40:42.601Z'
+updated: '2026-08-14T23:27:42.079Z'
 children:
   - endocrine/index.md
+  - index.md
 ---
 # Biomarkers
 
-This folder groups biomarkers tracked within the Danish healthcare system to identify underlying physiological causes or comorbidities of cardiovascular conditions like atrial fibrillation. It currently encompasses endocrine markers, focusing on how specific laboratory tests are utilized in national quality indicators to ensure timely screening of newly diagnosed patients. The included sub-folder details the specific database codes, clinical windows, and systemic data-capture challenges associated with these measurements.
+This area groups biological markers evaluated within the Danish healthcare system's clinical pathways, specifically focusing on their role in cardiovascular care and national quality registries. It currently covers endocrine biomarkers, detailing how thyroid function tests are used to identify underlying drivers in patients newly diagnosed with atrial fibrillation, including the specific laboratory codes and systemic data challenges involved in tracking them across regional databases.
 
 ## Pages
 
-- [[entities/biomarkers/endocrine/index|Endocrine]] — Endocrine biomarkers such as thyroid-stimulating hormone (TSH) used in national quality indicators for atrial fibrillation screening, including laboratory coding variations and performance shortfalls.
+- [[entities/biomarkers/endocrine/index|Endocrine]] — Catalogs endocrine biomarkers like thyroid-stimulating hormone (TSH), detailing their role as national quality indicators and the laboratory codes used to track them.
 
 ## Navigation
 

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Education
 wiki: rkkp-afdk
-updated: '2026-08-05T22:55:21.069Z'
+updated: '2026-08-14T23:43:29.316Z'
 children:
+  - index.md
   - patientuddannelse.md
 ---
 # Education
 
-This folder catalogs educational interventions designed to improve patient outcomes through structured learning and self-management support. It currently focuses on patient education for atrial fibrillation, documenting how structured teaching programs are recommended by clinical guidelines, measured as healthcare quality indicators, and proven to significantly reduce mortality and hospital readmissions.
+This folder catalogs educational interventions aimed at improving health outcomes through structured teaching and self-care empowerment. Currently, it focuses on patient education for atrial fibrillation, detailing how evidence-based programs reduce mortality and hospital readmissions. The included page outlines clinical guideline recommendations, effective teaching formats, and the national quality indicators used to track the delivery of these educational programs across the Danish healthcare system.
 
 ## Pages
 
-- [[patientuddannelse|Patientuddannelse]] — Outlines the structured education program for atrial fibrillation patients and their relatives, detailing its role as a clinical quality indicator, its foundation in the ABC Pathway, and meta-analytic evidence of its impact on survival and readmission rates.
+- [[patientuddannelse|Patientuddannelse]] — Structured, evidence-based patient education for atrial fibrillation that reduces mortality and readmissions, tracked nationally via Indikator 8.
 
 ## Navigation
 

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Quality Standard
 wiki: rkkp-adhd
-updated: '2026-08-05T19:30:38.298Z'
+updated: '2026-08-15T12:51:40.455Z'
 children:
+  - index.md
   - quality-standard.md
 ---
 # Quality Standard
 
-This folder documents the specific performance thresholds and regulatory benchmarks established for clinical indicators within ADHD diagnostic and treatment pathways. It outlines the rigorous compliance targets—predominantly set at 90% for assessments, network meetings, and psychoeducation—that governing bodies use to ensure high-quality, evidence-based care across the healthcare system.
+This folder contains the topic page detailing the specific performance thresholds and regulatory benchmarks established for clinical indicators within ADHD diagnostic and treatment pathways. It documents the overarching 90% compliance targets mandated for most assessment and treatment metrics, while also noting exceptions where no fixed standard has been set. These standards form the core framework monitored by governance entities to ensure evidence-based, high-quality care across the healthcare system.
 
 ## Pages
 
-- [[quality-standard|Quality Standard]] — Outlines the 90% compliance targets for ADHD diagnostic and treatment indicators, highlighting the regulatory frameworks and the exception of Indikator 6 which lacks a fixed standard.
+- [[quality-standard|Quality Standard]] — Outlines the 90% compliance targets and regulatory benchmarks for ADHD diagnostic and treatment indicators, noting exceptions like Indikator 6 which lacks a fixed standard.
 
 ## Navigation
 

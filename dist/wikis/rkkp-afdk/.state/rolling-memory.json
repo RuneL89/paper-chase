@@ -3,47 +3,47 @@
     {
       "slug": "0906-ekko-kardiografi",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "2208-ekkocardiografi",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "3810-ekkocardiografi-standardundersoegelse",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "3811-ekkocardiografi-avanceret-undersoegelse",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "5101-ekko-cardiografi",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "5102-transsofageal-ekko",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "5103-stress-ekkocardiogra",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "6402-ekkocardiografi",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "6408-ekkocardiografi",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "aabenraa",
@@ -78,7 +78,7 @@
     {
       "slug": "aarhusklyngen",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
+      "mentionCount": 15
     },
     {
       "slug": "abc-pathway",
@@ -96,14 +96,24 @@
       "mentionCount": 2
     },
     {
+      "slug": "afdk-anbefaler",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "mentionCount": 1
+    },
+    {
+      "slug": "afdk-anbefalinger-for-patientundervisningen",
+      "folder": "entities/documents/reports",
+      "mentionCount": 1
+    },
+    {
       "slug": "afdk-patientrepraesentanter",
       "folder": "entities/groups/patient-advocacy",
-      "mentionCount": 2
+      "mentionCount": 4
     },
     {
       "slug": "afdk-styregruppe",
       "folder": "entities/organizations/health-standards/governance",
-      "mentionCount": 12
+      "mentionCount": 21
     },
     {
       "slug": "albert-marni-joensen",
@@ -123,7 +133,7 @@
     {
       "slug": "alvorlig-bloedning",
       "folder": "topics/clinical-outcome",
-      "mentionCount": 1
+      "mentionCount": 4
     },
     {
       "slug": "amager-og-hvidovre-hospital",
@@ -138,25 +148,35 @@
     {
       "slug": "anders-moller-schlunsen",
       "folder": "entities/people/health-researchers",
-      "mentionCount": 2
+      "mentionCount": 5
     },
     {
       "slug": "antikoagulationsbehandling",
       "folder": "entities/medical-interventions/pharmacotherapy",
-      "mentionCount": 18
+      "mentionCount": 30
+    },
+    {
+      "slug": "as000646-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "mentionCount": 1
     },
     {
       "slug": "ass00039-p-thyrotropin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "ass00136-p-thyrotropin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "ass00647-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "mentionCount": 2
+    },
+    {
+      "slug": "ass00650-p-thyrotropin",
       "folder": "entities/codes/laboratory-tests",
       "mentionCount": 1
     },
@@ -168,12 +188,12 @@
     {
       "slug": "atrieflimren",
       "folder": "topics/medical-conditions/cardiovascular",
-      "mentionCount": 53
+      "mentionCount": 56
     },
     {
       "slug": "atrieflimren-i-danmark",
       "folder": "entities/organizations/health-registries",
-      "mentionCount": 14
+      "mentionCount": 42
     },
     {
       "slug": "atrieflimren-klinik",
@@ -183,32 +203,32 @@
     {
       "slug": "axel-brandes",
       "folder": "entities/people/health-professionals",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "b01aa",
       "folder": "entities/codes/drug-classes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "b01ae07",
       "folder": "entities/drugs/anticoagulants",
-      "mentionCount": 4
+      "mentionCount": 6
     },
     {
       "slug": "b01af01",
       "folder": "entities/drugs/anticoagulants",
-      "mentionCount": 4
+      "mentionCount": 6
     },
     {
       "slug": "b01af02",
       "folder": "entities/drugs/anticoagulants",
-      "mentionCount": 4
+      "mentionCount": 7
     },
     {
       "slug": "b01af03",
       "folder": "entities/drugs/anticoagulants",
-      "mentionCount": 4
+      "mentionCount": 6
     },
     {
       "slug": "ballerup",
@@ -218,7 +238,7 @@
     {
       "slug": "bfkb",
       "folder": "entities/codes/intervention-codes",
-      "mentionCount": 4
+      "mentionCount": 6
     },
     {
       "slug": "billund",
@@ -266,199 +286,249 @@
       "mentionCount": 1
     },
     {
+      "slug": "care-modellen",
+      "folder": "topics/clinical-tools",
+      "mentionCount": 1
+    },
+    {
       "slug": "cha2ds2-vasc",
       "folder": "topics/clinical-tools/risk-scores",
-      "mentionCount": 23
+      "mentionCount": 30
     },
     {
       "slug": "chresten-gamborg-puggaard",
       "folder": "entities/people/health-researchers",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "cpr-registeret",
       "folder": "entities/databases/healthcare-registers",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "danmark",
       "folder": "entities/locations/countries",
-      "mentionCount": 25
+      "mentionCount": 28
     },
     {
       "slug": "dansk-cardiologisk-selskab",
       "folder": "entities/organizations/medical-societies",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "danstroke",
       "folder": "entities/organizations/health-databases",
-      "mentionCount": 4
+      "mentionCount": 5
     },
     {
       "slug": "databasen-for-atrieflimren-i-danmark",
       "folder": "entities/organizations/health-databases",
-      "mentionCount": 75
+      "mentionCount": 79
     },
     {
       "slug": "den-nationale-labdatabank",
       "folder": "entities/organizations/health-infrastructure",
-      "mentionCount": 5
+      "mentionCount": 7
+    },
+    {
+      "slug": "di110-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "di130-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "di132-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "di420-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "di426-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "di427-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "di428-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "di429-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "mentionCount": 1
     },
     {
       "slug": "di48",
       "folder": "topics/icd-codes",
-      "mentionCount": 5
+      "mentionCount": 7
+    },
+    {
+      "slug": "di50-star",
+      "folder": "entities/codes/diagnosis-codes",
+      "mentionCount": 1
     },
     {
       "slug": "di60",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "di61",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "di62",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "di63",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "di64",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "dj942",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk25-0",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk25-2",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk25-4",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk25-6",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk26-0",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk26-2",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk26-4",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk26-6",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk27-0",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk27-2",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk27-4",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk27-6",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk28-0",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk28-2",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk28-4",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk28-6",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk29-0",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk29-8a",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk92-0",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk92-1",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk92-2",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dn02",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dnk35895-p-thyrotropin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "doac",
       "folder": "entities/products/pharmaceuticals",
-      "mentionCount": 17
+      "mentionCount": 24
     },
     {
       "slug": "dorte-damgaard",
@@ -468,17 +538,17 @@
     {
       "slug": "dorthe-svenstrup",
       "folder": "entities/people/health-professionals",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dr04",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dr31",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dragoer",
@@ -488,22 +558,22 @@
     {
       "slug": "ds064",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "ds065",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "ds066",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "dz501",
       "folder": "entities/codes/diagnosis-codes",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "egedal",
@@ -513,11 +583,16 @@
     {
       "slug": "ekkokardiografi",
       "folder": "entities/medical-interventions/pharmacotherapy",
-      "mentionCount": 7
+      "mentionCount": 14
     },
     {
       "slug": "ekvis",
       "folder": "entities/organizations/health-quality-infrastructure",
+      "mentionCount": 2
+    },
+    {
+      "slug": "epc00002-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
       "mentionCount": 1
     },
     {
@@ -533,7 +608,7 @@
     {
       "slug": "esc-guidelines",
       "folder": "entities/standards/medical-guidelines",
-      "mentionCount": 4
+      "mentionCount": 6
     },
     {
       "slug": "faaborg-midtfyn",
@@ -558,6 +633,11 @@
     {
       "slug": "faxe",
       "folder": "entities/locations/municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "figur-3",
+      "folder": "entities/documents/reports",
       "mentionCount": 1
     },
     {
@@ -606,8 +686,18 @@
       "mentionCount": 4
     },
     {
+      "slug": "gastrointestinal-bloedning",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "mentionCount": 1
+    },
+    {
       "slug": "gentofte",
       "folder": "entities/locations/municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "geodatastyrelsen",
+      "folder": "entities/organizations/regions",
       "mentionCount": 1
     },
     {
@@ -623,7 +713,7 @@
     {
       "slug": "goedstrupklyngen",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 13
+      "mentionCount": 17
     },
     {
       "slug": "greve",
@@ -661,6 +751,11 @@
       "mentionCount": 1
     },
     {
+      "slug": "henrik-vadmann",
+      "folder": "entities/people/health-professionals",
+      "mentionCount": 1
+    },
+    {
       "slug": "herlev",
       "folder": "entities/locations/municipalities",
       "mentionCount": 1
@@ -668,7 +763,7 @@
     {
       "slug": "herlev-og-gentofte-hospital",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 4
+      "mentionCount": 5
     },
     {
       "slug": "herning",
@@ -683,7 +778,7 @@
     {
       "slug": "hjertesvigtsindikatoren",
       "folder": "topics/clinical-indicators/cardiology",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "hjoerring",
@@ -718,7 +813,7 @@
     {
       "slug": "horsensklyngen",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
+      "mentionCount": 16
     },
     {
       "slug": "hospitalerne-i-nordsjaelland",
@@ -758,7 +853,7 @@
     {
       "slug": "indikator-1",
       "folder": "topics/quality-indicators/cardiology",
-      "mentionCount": 2
+      "mentionCount": 4
     },
     {
       "slug": "indikator-10",
@@ -783,7 +878,7 @@
     {
       "slug": "indikator-15",
       "folder": "topics/clinical-indicators/atrial-fibrillation",
-      "mentionCount": 1
+      "mentionCount": 5
     },
     {
       "slug": "indikator-16",
@@ -793,17 +888,17 @@
     {
       "slug": "indikator-2",
       "folder": "topics/clinical-indicators",
-      "mentionCount": 4
+      "mentionCount": 7
     },
     {
       "slug": "indikator-3",
       "folder": "topics/health-indicators",
-      "mentionCount": 10
+      "mentionCount": 13
     },
     {
       "slug": "indikator-4a",
       "folder": "topics/clinical-indicators/atrial-fibrillation",
-      "mentionCount": 10
+      "mentionCount": 16
     },
     {
       "slug": "indikator-4a1",
@@ -823,47 +918,52 @@
     {
       "slug": "indikator-4b",
       "folder": "topics/healthcare-quality-indicators",
-      "mentionCount": 7
+      "mentionCount": 14
     },
     {
       "slug": "indikator-5",
       "folder": "topics/quality-indicators/cardiology",
-      "mentionCount": 8
+      "mentionCount": 15
     },
     {
       "slug": "indikator-6",
       "folder": "topics/health-indicators",
-      "mentionCount": 4
+      "mentionCount": 5
     },
     {
       "slug": "indikator-7",
       "folder": "topics/quality-indicators/atrial-fibrillation",
-      "mentionCount": 3
+      "mentionCount": 6
     },
     {
       "slug": "indikator-8",
       "folder": "topics/quality-indicators/atrial-fibrillation",
-      "mentionCount": 11
+      "mentionCount": 18
     },
     {
       "slug": "indikator-9",
       "folder": "topics/clinical-indicators/atrial-fibrillation",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "inge-molgaard",
       "folder": "entities/people/patient-representatives",
-      "mentionCount": 2
+      "mentionCount": 3
+    },
+    {
+      "slug": "inge-oster",
+      "folder": "entities/people/health-researchers",
+      "mentionCount": 1
     },
     {
       "slug": "international-society-of-thrombosis-and-hemostasis",
       "folder": "entities/organizations/medical-societies",
-      "mentionCount": 5
+      "mentionCount": 8
     },
     {
       "slug": "intrakraniel-bloedning",
       "folder": "topics/medical-conditions/neurological",
-      "mentionCount": 7
+      "mentionCount": 12
     },
     {
       "slug": "ishoej",
@@ -873,7 +973,7 @@
     {
       "slug": "iskaemisk-apopleksi",
       "folder": "topics/medical-conditions/neurological",
-      "mentionCount": 6
+      "mentionCount": 9
     },
     {
       "slug": "jammerbugt",
@@ -901,24 +1001,19 @@
       "mentionCount": 1
     },
     {
-      "slug": "klynge-midt",
-      "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
-    },
-    {
       "slug": "klynge-nord",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
+      "mentionCount": 15
     },
     {
       "slug": "klynge-syd",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 10
+      "mentionCount": 14
     },
     {
       "slug": "klynge-vest",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 10
+      "mentionCount": 14
     },
     {
       "slug": "koebenhavn",
@@ -943,22 +1038,22 @@
     {
       "slug": "labka",
       "folder": "entities/systems/laboratory-information-systems",
-      "mentionCount": 2
+      "mentionCount": 4
     },
     {
       "slug": "laboratoriedatabasen",
       "folder": "entities/databases/healthcare-registries",
-      "mentionCount": 1
+      "mentionCount": 3
     },
     {
       "slug": "laboratorieregistret",
       "folder": "entities/organizations/health-registries",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "laegemiddelstatistikregisteret",
       "folder": "entities/organizations/health-data-infrastructure",
-      "mentionCount": 6
+      "mentionCount": 9
     },
     {
       "slug": "laesoe",
@@ -968,7 +1063,7 @@
     {
       "slug": "landspatientregisteret",
       "folder": "entities/databases/healthcare-registries",
-      "mentionCount": 36
+      "mentionCount": 51
     },
     {
       "slug": "langeland",
@@ -998,6 +1093,11 @@
     {
       "slug": "louisa-marguerite-christensen",
       "folder": "entities/people/health-professionals",
+      "mentionCount": 2
+    },
+    {
+      "slug": "lungebloedning",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
       "mentionCount": 1
     },
     {
@@ -1008,16 +1108,26 @@
     {
       "slug": "marevan",
       "folder": "entities/products/pharmaceuticals",
-      "mentionCount": 12
+      "mentionCount": 17
     },
     {
       "slug": "margit-brinck",
       "folder": "entities/people/health-professionals",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "mariagerfjord",
       "folder": "entities/locations/municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "mette-ringtved",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "michael-nielsen",
+      "folder": "entities/people/health-professionals",
       "mentionCount": 1
     },
     {
@@ -1028,12 +1138,12 @@
     {
       "slug": "midtklyngen",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 12
+      "mentionCount": 32
     },
     {
       "slug": "miriam-grijota-chousa",
       "folder": "entities/people/health-researchers",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "morsoe",
@@ -1044,6 +1154,11 @@
       "slug": "naestved-sygehus",
       "folder": "entities/organizations/hospitals",
       "mentionCount": 7
+    },
+    {
+      "slug": "nbv-cardio-dk",
+      "folder": "entities/websites/health-authorities",
+      "mentionCount": 1
     },
     {
       "slug": "norddjurs",
@@ -1058,27 +1173,22 @@
     {
       "slug": "np03578-p-thyrotropin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "np03624-p-thyrotropin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "np04199-p-thyrotropin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "np04200-p-thyrotropin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 1
-    },
-    {
-      "slug": "np27547-p-thyrotropin",
-      "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "npu03577-p-thyrotropin",
@@ -1088,12 +1198,17 @@
     {
       "slug": "npu04998-p-kreatinin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "npu18016-p-kreatinin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 3
+      "mentionCount": 5
+    },
+    {
+      "slug": "npu27547-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "mentionCount": 2
     },
     {
       "slug": "nsaid",
@@ -1128,7 +1243,7 @@
     {
       "slug": "ole-dyg-pedersen",
       "folder": "entities/people/health-professionals",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "ouh-odense-universitetshospital",
@@ -1138,22 +1253,22 @@
     {
       "slug": "p-creatinin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 3
+      "mentionCount": 7
     },
     {
       "slug": "palle-mark-christensen",
       "folder": "entities/people/health-professionals",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "palm-et-al-2020",
       "folder": "entities/documents/reports",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "patientuddannelse",
       "folder": "entities/medical-interventions/education",
-      "mentionCount": 5
+      "mentionCount": 9
     },
     {
       "slug": "pladehaemmere",
@@ -1163,12 +1278,17 @@
     {
       "slug": "praevalente-patienter-med-atrieflimren",
       "folder": "topics/epidemiology",
-      "mentionCount": 1
+      "mentionCount": 8
     },
     {
       "slug": "praktiserende-kardiologer",
       "folder": "entities/groups/patient-advocacy",
-      "mentionCount": 4
+      "mentionCount": 7
+    },
+    {
+      "slug": "rads",
+      "folder": "entities/standards/medical-guidelines",
+      "mentionCount": 1
     },
     {
       "slug": "randers",
@@ -1178,7 +1298,7 @@
     {
       "slug": "randersklyngen",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 12
+      "mentionCount": 16
     },
     {
       "slug": "rebild",
@@ -1188,32 +1308,37 @@
     {
       "slug": "region-hovedstaden",
       "folder": "entities/organizations/regions",
-      "mentionCount": 41
+      "mentionCount": 53
     },
     {
       "slug": "region-midtjylland",
       "folder": "entities/locations/regions",
-      "mentionCount": 48
+      "mentionCount": 62
     },
     {
       "slug": "region-nordjylland",
       "folder": "entities/organizations/regions",
-      "mentionCount": 47
+      "mentionCount": 59
     },
     {
       "slug": "region-sjaelland",
       "folder": "entities/organizations/regions",
-      "mentionCount": 42
+      "mentionCount": 54
     },
     {
       "slug": "region-syddanmark",
       "folder": "entities/locations/regions",
-      "mentionCount": 42
+      "mentionCount": 55
+    },
+    {
+      "slug": "regioner",
+      "folder": "entities/locations/regions",
+      "mentionCount": 1
     },
     {
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
       "folder": "entities/organizations/health-authorities",
-      "mentionCount": 136
+      "mentionCount": 140
     },
     {
       "slug": "regionshospital-nordjylland-ven",
@@ -1256,14 +1381,19 @@
       "mentionCount": 1
     },
     {
+      "slug": "risom-et-al-2018",
+      "folder": "entities/documents/reports",
+      "mentionCount": 1
+    },
+    {
       "slug": "rkkp-videncenter",
       "folder": "entities/organizations/health-data-infrastructure",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "robert-bedsted",
       "folder": "entities/people/patient-representatives",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "roedovre",
@@ -1276,6 +1406,11 @@
       "mentionCount": 1
     },
     {
+      "slug": "rsd03382-p-thyrotropin",
+      "folder": "entities/codes/laboratory-tests",
+      "mentionCount": 1
+    },
+    {
       "slug": "rudersdal",
       "folder": "entities/locations/municipalities",
       "mentionCount": 1
@@ -1283,7 +1418,7 @@
     {
       "slug": "s-creatinin",
       "folder": "entities/codes/laboratory-tests",
-      "mentionCount": 2
+      "mentionCount": 4
     },
     {
       "slug": "samso-sundheds-og-akuthus",
@@ -1298,6 +1433,11 @@
     {
       "slug": "sig-af",
       "folder": "entities/organizations/medical-societies",
+      "mentionCount": 3
+    },
+    {
+      "slug": "signe-risom",
+      "folder": "entities/people/health-professionals",
       "mentionCount": 2
     },
     {
@@ -1383,97 +1523,102 @@
     {
       "slug": "struktureret-undervisningsprogram",
       "folder": "topics/clinical-practice-decision",
-      "mentionCount": 1
+      "mentionCount": 6
     },
     {
       "slug": "sundhedsdatastyrelsen",
       "folder": "entities/organizations/health-authorities",
-      "mentionCount": 6
-    },
-    {
-      "slug": "sundhedsklynge",
-      "folder": "entities/organizations/health-infrastructure",
-      "mentionCount": 1
+      "mentionCount": 9
     },
     {
       "slug": "sundhedsklynge-bornholm",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 12
+      "mentionCount": 17
     },
     {
       "slug": "sundhedsklynge-byen",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
+      "mentionCount": 16
     },
     {
       "slug": "sundhedsklynge-fyn",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
+      "mentionCount": 15
     },
     {
       "slug": "sundhedsklynge-lillebaelt",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 12
+      "mentionCount": 16
     },
     {
       "slug": "sundhedsklynge-midt",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
+      "mentionCount": 15
     },
     {
       "slug": "sundhedsklynge-nord",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
+      "mentionCount": 15
     },
     {
       "slug": "sundhedsklynge-soenderjylland",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 12
+      "mentionCount": 18
     },
     {
       "slug": "sundhedsklynge-syd",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
+      "mentionCount": 15
     },
     {
       "slug": "sundhedsklynge-sydvestjylland",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 13
+      "mentionCount": 17
     },
     {
       "slug": "sundhedsklyngen-holbaek",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
+      "mentionCount": 15
     },
     {
       "slug": "sundhedsklyngen-nykoebing-f",
       "folder": "entities/organizations/healthcare-registries",
-      "mentionCount": 11
-    },
-    {
-      "slug": "sundhedsklyngen-slagelese",
-      "folder": "entities/organizations/health-registries",
-      "mentionCount": 2
+      "mentionCount": 15
     },
     {
       "slug": "sundhedsklyngen-slagelse",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 9
+      "mentionCount": 15
     },
     {
       "slug": "sundhedsklyngen-suh",
       "folder": "entities/organizations/hospitals",
-      "mentionCount": 11
+      "mentionCount": 15
     },
     {
       "slug": "sundhedsklynger",
       "folder": "entities/organizations/regions",
-      "mentionCount": 2
+      "mentionCount": 12
     },
     {
       "slug": "sundhedsplatformen",
       "folder": "entities/systems/health-information-systems",
+      "mentionCount": 3
+    },
+    {
+      "slug": "sundhedsstyrelsen-2019",
+      "folder": "entities/documents/reports",
       "mentionCount": 1
+    },
+    {
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "mentionCount": 50
+    },
+    {
+      "slug": "sundk",
+      "folder": "entities/systems/health-information-systems",
+      "mentionCount": 2
     },
     {
       "slug": "supplerende-analyser-7",
@@ -1481,8 +1626,18 @@
       "mentionCount": 1
     },
     {
+      "slug": "supplerende-analyser-7-alvorlig-bloedning",
+      "folder": "entities/documents/reports",
+      "mentionCount": 1
+    },
+    {
       "slug": "supplerende-indikator-hjertesvigt-efter-atrieflimren",
       "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "mentionCount": 1
+    },
+    {
+      "slug": "supplerende-indikator-mortalitet",
+      "folder": "topics/clinical-outcome",
       "mentionCount": 1
     },
     {
@@ -1508,12 +1663,17 @@
     {
       "slug": "sygesikringsregisteret",
       "folder": "entities/organizations/health-registries",
-      "mentionCount": 3
+      "mentionCount": 6
     },
     {
       "slug": "taarnby",
       "folder": "entities/locations/municipalities",
       "mentionCount": 2
+    },
+    {
+      "slug": "tabel-1",
+      "folder": "entities/documents/reports",
+      "mentionCount": 1
     },
     {
       "slug": "thisted",
@@ -1523,7 +1683,7 @@
     {
       "slug": "thyreoideastimulerende-hormon-tsh",
       "folder": "entities/biomarkers/endocrine",
-      "mentionCount": 9
+      "mentionCount": 15
     },
     {
       "slug": "toender",
@@ -1531,19 +1691,39 @@
       "mentionCount": 2
     },
     {
+      "slug": "udviklingsmaal",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "mentionCount": 2
+    },
+    {
+      "slug": "udviklingsmaal-90-percent",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "mentionCount": 3
+    },
+    {
+      "slug": "udviklingsmaal-95-procent",
+      "folder": "topics/policy-decision",
+      "mentionCount": 2
+    },
+    {
       "slug": "ulla-dam-schmidt",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 4
+      "mentionCount": 6
     },
     {
       "slug": "ulla-davidsen",
       "folder": "entities/people/health-professionals",
-      "mentionCount": 2
+      "mentionCount": 3
+    },
+    {
+      "slug": "urinvejsbloedning",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "mentionCount": 1
     },
     {
       "slug": "uxuc80",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "uxuc80a",
@@ -1558,31 +1738,36 @@
     {
       "slug": "uxuc80c",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "uxuc80d",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "uxuc80e",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "uxuc81",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "uxuc81c",
       "folder": "entities/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "vallensbaek",
       "folder": "entities/locations/municipalities",
+      "mentionCount": 1
+    },
+    {
+      "slug": "van-gelder-et-al-2024",
+      "folder": "entities/documents/reports",
       "mentionCount": 1
     },
     {
@@ -1629,18 +1814,24 @@
   "topics": [
     "clinical-guideline",
     "clinical-indicators",
+    "clinical-indicators/cardiology",
     "clinical-outcome",
     "clinical-practice",
     "clinical-practice-decision",
     "clinical-risk",
     "clinical-risk-distribution",
+    "coding-assignment",
+    "coding-system-specification",
     "comparative-result",
+    "critical-assessment",
     "data-infrastructure",
     "definition",
     "definitional",
     "epidemiology",
+    "exclusion-criteria",
     "geographic-distribution",
     "governance",
+    "guideline-recommendation",
     "incidence-rate",
     "limitation",
     "methodological-definition",
@@ -1650,19 +1841,25 @@
     "organizational-practice",
     "patient-perspective",
     "performance",
+    "performance-trend",
     "pharmacovigilance",
     "policy-change",
     "policy-decision",
+    "policy-target",
     "pre-hospital-treatment",
+    "quality-improvement-action",
     "quality-indicator",
     "quality-indicator-definition",
+    "quality-indicator-result",
+    "quality-indicator-target",
     "standard",
     "statistical-interpretation",
     "validation"
   ],
   "sources": [
     "afdk-2023",
-    "afdk-2024"
+    "afdk-2024",
+    "afdk-2025"
   ],
   "folderStructure": [
     "comparisons",
@@ -1718,14 +1915,20 @@
     "topics/clinical-practice-decision",
     "topics/clinical-risk",
     "topics/clinical-risk-distribution",
+    "topics/clinical-tools",
     "topics/clinical-tools/risk-scores",
+    "topics/coding-assignment",
+    "topics/coding-system-specification",
     "topics/comparative-result",
+    "topics/critical-assessment",
     "topics/data-infrastructure",
     "topics/definition",
     "topics/definitional",
     "topics/epidemiology",
+    "topics/exclusion-criteria",
     "topics/geographic-distribution",
     "topics/governance",
+    "topics/guideline-recommendation",
     "topics/health-indicators",
     "topics/healthcare-indicators",
     "topics/healthcare-quality-indicators",
@@ -1742,12 +1945,17 @@
     "topics/organizational-practice",
     "topics/patient-perspective",
     "topics/performance",
+    "topics/performance-trend",
     "topics/pharmacovigilance",
     "topics/policy-change",
     "topics/policy-decision",
+    "topics/policy-target",
     "topics/pre-hospital-treatment",
+    "topics/quality-improvement-action",
     "topics/quality-indicator",
     "topics/quality-indicator-definition",
+    "topics/quality-indicator-result",
+    "topics/quality-indicator-target",
     "topics/quality-indicators/atrial-fibrillation",
     "topics/quality-indicators/cardiology",
     "topics/quality-indicators/cardiovascular",

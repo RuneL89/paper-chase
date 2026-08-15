@@ -4,19 +4,18 @@ type: index
 aliases:
   - Health Infrastructure
 wiki: rkkp-afdk
-updated: '2026-08-05T22:59:14.270Z'
+updated: '2026-08-14T23:47:20.812Z'
 children:
   - den-nationale-labdatabank.md
-  - sundhedsklynge.md
+  - index.md
 ---
 # Health Infrastructure
 
-This folder catalogs the foundational data pipelines and administrative frameworks that support Denmark's national healthcare system. It includes the centralized infrastructure responsible for aggregating laboratory results from across the country to feed national quality registers, alongside the regional cluster structures used to group municipalities for coordinated health service delivery and resource allocation. Together, these entities represent the structural and informational backbone used to monitor clinical quality and manage regional healthcare capacity.
+This folder contains organizations that operate the foundational data pipelines and technical systems underpinning Denmark's national healthcare monitoring. It covers the central hubs responsible for aggregating and distributing critical clinical data—such as laboratory test results—from regional providers to national health authorities and registries. These infrastructure entities are essential for enabling large-scale quality indicator tracking and clinical research across the country.
 
 ## Pages
 
-- [[den-nationale-labdatabank|Den Nationale Labdatabank]] — A national data pipeline that retrieves and forwards laboratory results from connected facilities to the Danish Health Data Authority, serving as a critical source for evaluating cardiovascular quality indicators.
-- [[sundhedsklynge|Sundhedsklynge]] — The regional organizational framework that groups Danish municipalities into health clusters to coordinate services, allocate resources, and analyze geographic variations in clinical treatment quality.
+- [[den-nationale-labdatabank|Den Nationale Labdatabank]] — The central national hub that collects laboratory test results from connected regional laboratories and forwards them to the Danish Health Data Authority's Laboratory Database, serving as a critical pipeline for national clinical registries like the AFDK.
 
 ## Navigation
 
@@ -37,6 +36,6 @@ This folder catalogs the foundational data pipelines and administrative framewor
 
 ## Statistics
 
-- Pages: 2
+- Pages: 1
 - Sub-folders: 0
 - Sources: 0

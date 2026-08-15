@@ -4,7 +4,7 @@ type: index
 aliases:
   - Entities
 wiki: rkkp-danibd
-updated: '2026-08-05T07:48:22.091Z'
+updated: '2026-08-15T07:54:10.521Z'
 children:
   - biomarkers/index.md
   - classification-systems/index.md
@@ -17,24 +17,25 @@ children:
   - procedural/index.md
   - products/index.md
   - treatments/index.md
+  - index.md
 ---
 # Entities
 
-This area groups the named real-world entities documented within the Danish healthcare corpus, specifically focusing on the management, monitoring, and treatment of inflammatory bowel disease (IBD). It encompasses the clinical and operational infrastructure of the Danish IBD quality database (DANIBD), including the biomarkers, diseases, medical conditions, and treatments tracked for patient care, alongside the procedural interventions and digital products utilized in clinical workflows. Furthermore, it catalogs the foundational databases, classification systems, healthcare facilities, organizations, and the diverse people—from health leaders and epidemiologists to patient representatives—who govern, drive, and participate in these national quality initiatives.
+This folder groups the named real-world entities that form the foundation of the Danish healthcare quality monitoring system, specifically concerning inflammatory bowel disease (IBD) and the DANIBD registry. It catalogs the biological markers, diseases, medical conditions, treatments, and procedures used in patient care, alongside the databases, healthcare facilities, organizations, and people that govern, deliver, and research this care. Together, these sub-folders provide a comprehensive map of the clinical, administrative, and human infrastructure tracked within the corpus.
 
 ## Pages
 
-- [[entities/biomarkers/index|Biomarkers]] — Clinical markers used for assessing and monitoring mucosal inflammation in IBD patients, such as fecal calprotectin.
-- [[entities/classification-systems/index|Classification Systems]] — Medical frameworks and stratification tools, like the Montreal classification, used to categorize clinical data and patient demographics.
-- [[entities/databases/index|Databases]] — Foundational regional and national health registries supplying diagnostic, surgical, medication, and biomarker data for IBD quality tracking.
-- [[entities/diseases/index|Diseases]] — Severe gastrointestinal complications and IBD comorbidities, such as colorectal cancer and primary sclerosing cholangitis, requiring specialized surveillance.
-- [[entities/healthcare-facilities/index|Healthcare Facilities]] — Hospitals and specialized clinical departments across Denmark participating in the national DANIBD quality monitoring program.
-- [[entities/medical-conditions/index|Medical Conditions]] — Broad diagnostic categories and specific gastrointestinal disorders, including IBD and pediatric variants, tracked for epidemiological and quality metrics.
-- [[entities/organizations/index|Organizations]] — Administrative authorities, professional societies, steering committees, and regional health bodies that govern and operate Danish healthcare quality initiatives.
-- [[entities/people/index|People]] — Medical professionals, health leaders, epidemiologists, data managers, and patient representatives driving national clinical quality databases and guideline development.
-- [[entities/procedural/index|Procedural]] — Specific diagnostic and imaging interventions, such as DEXA-scanning and small intestine MRIs, tracked as national quality indicators.
-- [[entities/products/index|Products]] — Digital health applications and modern pharmaceutical therapies for IBD, including recent registry coding updates for national tracking.
-- [[entities/treatments/index|Treatments]] — Advanced medical therapies, specifically biological and targeted synthetic drugs for gastrointestinal conditions, monitored within national quality registries.
+- [[entities/biomarkers/index|Biomarkers]] — Measurable biological markers, such as fecal calprotectin, used to monitor mucosal inflammation and guide clinical decisions.
+- [[entities/classification-systems/index|Classification Systems]] — Standardized medical frameworks, like the Montreal classification, used to stratify clinical and epidemiological data.
+- [[entities/databases/index|Databases]] — Primary Danish health registries and national registers supplying foundational patient, biomarker, and treatment data.
+- [[entities/diseases/index|Diseases]] — Specific pathological diseases and severe complications, such as colorectal cancer, that co-occur with or complicate IBD.
+- [[entities/healthcare-facilities/index|Healthcare Facilities]] — Hospitals, specialized departments, and clinics delivering care and evaluated against national clinical quality indicators.
+- [[entities/medical-conditions/index|Medical Conditions]] — Overarching diagnostic categories and chronic conditions tracked within the DANIBD registry, including IBD and its pediatric variants.
+- [[entities/organizations/index|Organizations]] — Institutional bodies, health authorities, steering committees, and professional societies governing and monitoring healthcare quality in Denmark.
+- [[entities/people/index|People]] — Individuals and academic groups, from chief physicians and epidemiologists to data managers and patient representatives, who manage and research the registry.
+- [[entities/procedural/index|Procedural]] — Diagnostic medical procedures, such as DEXA scanning and endoscopies, tracked as core national quality metrics for IBD patients.
+- [[entities/products/index|Products]] — Digital health applications and pharmaceutical artifacts integrated into national clinical quality reporting and patient registers.
+- [[entities/treatments/index|Treatments]] — Pharmacological interventions, including biologic therapies and systemic steroids, tracked via specific drug codes and compliance targets.
 
 ## Navigation
 

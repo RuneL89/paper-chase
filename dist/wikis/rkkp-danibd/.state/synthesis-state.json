@@ -10,20 +10,45 @@
       "dataHash": "4fb09b96cd6f5b5a2872d7d8b8dac8c89dd68822b1504e2e8c1476e24809a3dd",
       "synthesizedAt": "2026-08-05T07:16:21.265Z"
     },
+    "comparisons/appendikstabel-1-patientkarakteristiska-pr-region.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "8a26de5451f2e5e88d69d21479687b5d4836b6a10b9f13d08f21927abf8f96d1",
+      "synthesizedAt": "2026-08-15T07:30:37.648Z"
+    },
     "comparisons/appendikstabel-2-afdelinger-der-har-indrapporteret-undervisningskoder-i-perioden-indikator-2.md": {
       "mode": "strict-synthesis",
       "dataHash": "6ed02ea85c767bfda6ed369c484fcbc0f33bc303be8b26a8d4b7f977a4899349",
       "synthesizedAt": "2026-08-05T07:15:35.281Z"
+    },
+    "comparisons/appendikstabel-2-karakteristika-for-nydiagnosticeret-voksne-ved-foerste-kontakt-i-forloebet-indikator-1a.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e82fda050a495c59f75206d68c2a92fc0f47c8e80ab09636a386eaf2a52ef4d7",
+      "synthesizedAt": "2026-08-15T07:30:13.578Z"
+    },
+    "comparisons/appendikstabel-3-karakteristika-for-nydiagnosticeret-boern-og-unge-ved-foerste-kontakt-i-forloebet-indikator-1b.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "07e287ad18aa7356f9416a9ed04f006b936122f7ec1f6295e961a4a61271107f",
+      "synthesizedAt": "2026-08-15T07:30:34.376Z"
     },
     "comparisons/appendikstabel-3-karakteristika-for-patienter-i-behandling-med-bmsl-indikator-4.md": {
       "mode": "strict-synthesis",
       "dataHash": "bc862f5c559026d1e16c821e89a6ccfa7ef4a4a4f6ea27456c0d5240a4524ce8",
       "synthesizedAt": "2026-08-05T07:16:55.612Z"
     },
+    "comparisons/appendikstabel-4-karakteristika-for-patienter-i-behandling-med-bmsl.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "208861fc81dbf8b49ebeb1e31bd43d7c32044975c56c1962fc65d70c93c25052",
+      "synthesizedAt": "2026-08-15T07:31:50.358Z"
+    },
     "comparisons/appendikstabel-4-type-og-antal-behandlinger-med-bmsl-indikator-4.md": {
       "mode": "strict-synthesis",
       "dataHash": "b19b8aeb4d5d06d4165aa0fa0eb3897d1ee86daf803b64fa1ee94842255fc617",
       "synthesizedAt": "2026-08-05T07:17:02.197Z"
+    },
+    "comparisons/appendikstabel-5-karakteristika-for-patienter-i-behandling-med-bmsl-paa-afdelingsniveau-indikator-5.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "85fb305dafb6a2a521220cccf0266277940b2e9d613c96c0a8c2a4b173e7313f",
+      "synthesizedAt": "2026-08-15T07:33:15.683Z"
     },
     "comparisons/appendikstabel-5-typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md": {
       "mode": "strict-synthesis",
@@ -35,15 +60,40 @@
       "dataHash": "3a5c07180e149681ac0ff5f8b8c2da94cef6d258a5dd3c917baa66e98f2a035a",
       "synthesizedAt": "2026-08-05T07:18:55.865Z"
     },
+    "comparisons/appendikstabel-6-typer-og-antal-behandlinger-med-bmsl-indikator-5.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5b6fe1d7467ddcd785d19911b4c15fb0f94e51d323dd7e6f5daafbcfedf0186f",
+      "synthesizedAt": "2026-08-15T07:32:16.584Z"
+    },
     "comparisons/appendikstabel-7-karakteristika-for-patienter-med-psc-indikator-7.md": {
       "mode": "strict-synthesis",
       "dataHash": "dd2dde239591277253a145cb540c21e37ebe7d890b46406ff3e52a353cdf48d5",
       "synthesizedAt": "2026-08-05T07:18:34.378Z"
     },
+    "comparisons/appendikstabel-7-typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "875c95f13baa5fb66ff472d59c9cd59aa1d9ed438c2f3e8a66f5ab415242c823",
+      "synthesizedAt": "2026-08-15T07:32:11.668Z"
+    },
+    "comparisons/appendikstabel-8-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f56f15f551da192f79d0666b904c1faa3e31d62b3c064897d8eac47a7ff8f56d",
+      "synthesizedAt": "2026-08-15T07:33:17.579Z"
+    },
+    "comparisons/figur-over-antallet-af-patienter-der-er-inkluderet-i-danibd-fra-databasens-start-d-1-oktober-2022-frem-til-30-september-2025-fordelt-paa-de-tre-opgoerelsesperioder.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "ba6061930278754543ce6f9aeaf9e75a2906d6ba0eed05594bac2744d1e712b6",
+      "synthesizedAt": "2026-08-15T07:26:43.733Z"
+    },
     "comparisons/indikator-1a-andelen-af-nydiagnosticerede-voksne-med-ibd-der-har-faaet-foretaget-relevant-udredning.md": {
       "mode": "strict-synthesis",
       "dataHash": "1f9d7af47981656b06c0e319eb3b5b6adda15fbb33f955ac28c8cd6c3f46ab4a",
       "synthesizedAt": "2026-08-05T07:20:30.874Z"
+    },
+    "comparisons/indikator-1a.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "a635f8b13948fc1146e582c80c69be7e0fadb6dcfe9e869c1532d5193ac5eadb",
+      "synthesizedAt": "2026-08-15T07:29:10.589Z"
     },
     "comparisons/indikator-1b.md": {
       "mode": "strict-synthesis",
@@ -70,10 +120,20 @@
       "dataHash": "deb28d18ac920e1719a7432e763e7eb0dd291cf1addb2199da6db40e45990395",
       "synthesizedAt": "2026-08-05T07:22:28.986Z"
     },
+    "comparisons/indikator-4.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5844e869f876e9c84748b7ec5c3a2648740113e1ad71e8cf8dcab7af12a4b3b3",
+      "synthesizedAt": "2026-08-15T07:29:10.862Z"
+    },
     "comparisons/indikator-5-andelen-af-patienter-i-behandling-med-bmsl-der-faar-maalt-f-calprotectin-mindst-en-gang-aarligt.md": {
       "mode": "strict-synthesis",
       "dataHash": "5b5c9bb293c2306019aa6ffccd5e6d20e33f8ffa11b060de5f7af2ae9c673ab0",
       "synthesizedAt": "2026-08-05T07:25:07.757Z"
+    },
+    "comparisons/indikator-5.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e46e5318a039687a498a2221ed1a11afcbcb4dae6584fc503f9b0a2d26918c43",
+      "synthesizedAt": "2026-08-15T07:30:39.028Z"
     },
     "comparisons/indikator-6.md": {
       "mode": "strict-synthesis",
@@ -105,6 +165,11 @@
       "dataHash": "33197b7fae2165f118ee410f6632226ed5cc507ec8ea698d6df3100f620fbed0",
       "synthesizedAt": "2026-08-05T07:18:27.494Z"
     },
+    "comparisons/tabel-1-patientkarakteristika-for-nydiagnosticerede-og-praevalente-boern-med-ibd-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "d3a3994569e2260ea184a41a5f287649dc652b0f0cf96f052d57a6366272506f",
+      "synthesizedAt": "2026-08-15T07:28:11.456Z"
+    },
     "comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2022-til-og-med-30-september-2023.md": {
       "mode": "strict-synthesis",
       "dataHash": "db3e598b18a5a6255b59d65e35e8baff367378bb8212a1e7464692a6043620a9",
@@ -114,6 +179,16 @@
       "mode": "strict-synthesis",
       "dataHash": "b0dd67b2280baeb45426f81160e89fa69cc5c41a119a5f55c21cbb21fc709ac0",
       "synthesizedAt": "2026-08-05T07:18:47.888Z"
+    },
+    "comparisons/tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "433f575ec756dbcdd83e630c4be6e19c1d810070d7ca6b9c75fbe189473deab7",
+      "synthesizedAt": "2026-08-15T07:26:51.167Z"
+    },
+    "comparisons/tabel-3-oversigt-over-de-samlede-indikatorresultater.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "0355e9a8c673241a9476db70a34b479fa081cde56e23974a52617d4175743a64",
+      "synthesizedAt": "2026-08-15T07:27:37.928Z"
     },
     "comparisons/tabel-3-oversigt-over-indikatorresultaterne-paa-landsplan.md": {
       "mode": "strict-synthesis",
@@ -190,6 +265,21 @@
       "dataHash": "a94325bc5f2428707b4058cd59bc7758a98048afb0d16908e344b59b17ae7a57",
       "synthesizedAt": "2026-08-05T06:56:12.204Z"
     },
+    "entities/healthcare-facilities/hospitals/abdominalcenter-k-bispebjerg-hospital.md": {
+      "mode": "structured-template",
+      "dataHash": "4626463f157bccefbbc7c0f9e391270185dbfb5b40f5f1f43348ad077d577b53",
+      "synthesizedAt": "2026-08-15T07:21:16.688Z"
+    },
+    "entities/healthcare-facilities/hospitals/amager-og-hvidovre-hospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "24063e4f815a64599f5a18a17c37d0ccaf4a101d7bb9fcf26727bebadb0d24e6",
+      "synthesizedAt": "2026-08-15T07:15:02.034Z"
+    },
+    "entities/healthcare-facilities/hospitals/egs-esbjerg-medicinsk-mave-og-tarm-amb.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f23d276d6fe46e6433f27ca956a9d65e18ccca52807638c3307d5ee2c6a50cf9",
+      "synthesizedAt": "2026-08-15T07:11:37.977Z"
+    },
     "entities/healthcare-facilities/hospitals/herlev-mave-tarm-leversygd.md": {
       "mode": "strict-synthesis",
       "dataHash": "928e1ab5f086e4b44d6e42a8056583ca4919fa38a598c2dc72b6b907e3a57096",
@@ -240,6 +330,21 @@
       "dataHash": "fbfd8d121ad0428ba8b334ea6485d992b6ea51857ef8b873d987d228e40a5553",
       "synthesizedAt": "2026-08-05T06:23:56.212Z"
     },
+    "entities/healthcare-facilities/hospitals/sjellands-universitetshospital.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "b88db5580851decbe443eae712c4900a00f9ef9a9439dcf6b992656220678b6f",
+      "synthesizedAt": "2026-08-15T07:15:29.551Z"
+    },
+    "entities/healthcare-facilities/hospitals/slb-kolding-boerne-og-ungeafdeling.md": {
+      "mode": "structured-template",
+      "dataHash": "89451d5a6d0f170518c07ccc0e5b3b67990191402ea253eb7f664277f04d6259",
+      "synthesizedAt": "2026-08-15T07:15:14.092Z"
+    },
+    "entities/healthcare-facilities/hospitals/slb-vejle-gastroenterologisk-amb.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "c771007e854daeb09b1b4dcb690297ddd4d2acc46c15ce5c6113ff844797e3b7",
+      "synthesizedAt": "2026-08-15T07:10:55.224Z"
+    },
     "entities/healthcare-facilities/hospitals/slb-vejle-medicinsk-afdeling.md": {
       "mode": "strict-synthesis",
       "dataHash": "7d56d1b5c74ed353ff055bf841eb4070452e4f73c7c297b9f1a897108ee7bd87",
@@ -249,6 +354,11 @@
       "mode": "strict-synthesis",
       "dataHash": "dd866972c047fb989fda7a9e69799e01685be4636a9f98436c4d8abc96435dbb",
       "synthesizedAt": "2026-08-05T06:57:51.477Z"
+    },
+    "entities/medical-conditions/gastrointestinal/fpiac.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "1b5da7856d9a5d098177ca7a9d3cbea5b4ccc57239175f2d278898b8a37adec3",
+      "synthesizedAt": "2026-08-15T07:10:26.011Z"
     },
     "entities/medical-conditions/gastrointestinal/ibd.md": {
       "mode": "strict-synthesis",
@@ -275,6 +385,11 @@
       "dataHash": "948c00487a14f90b49840f111ba2392c71d64c1b68552f03806e435d7091afa9",
       "synthesizedAt": "2026-08-05T06:43:02.522Z"
     },
+    "entities/organizations/health-committees/region-oestdanmarks-sundhedsfaglige-raad-for-mave-tarm-og-leversygdomme.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "c5a56d6cd8946324318db806118851dbff18ad8f7c84f1fe4434e29eedf48b76",
+      "synthesizedAt": "2026-08-15T07:16:14.148Z"
+    },
     "entities/organizations/health-committees/styregruppen-for-danibd.md": {
       "mode": "strict-synthesis",
       "dataHash": "2e3f5b1f5cc19183ede483f87056ae0170cc921c37d2db2c653cfd0f748aa65f",
@@ -289,6 +404,11 @@
       "mode": "strict-synthesis",
       "dataHash": "dd944d241577cdf8d88f00a5583fc4bd72e40ac788d51377fd6f8db41339d5fe",
       "synthesizedAt": "2026-08-05T06:46:37.844Z"
+    },
+    "entities/organizations/health-organizations/espgghan-2025-uc-guideline.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "39c8ad921a6ad3049f9634cb0433f4d11b16f93b39496b8e37bd8ef0829d6499",
+      "synthesizedAt": "2026-08-15T07:10:29.726Z"
     },
     "entities/organizations/health-organizations/espgghan.md": {
       "mode": "strict-synthesis",
@@ -325,6 +445,21 @@
       "dataHash": "e14d9d374a12f2ebbe3d4b29cef96b712dc2be692a13e5a48f29ea76fd85f25f",
       "synthesizedAt": "2026-08-05T06:35:05.327Z"
     },
+    "entities/people/data-governance/mathilde-pedersen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "63f37a36e79078ace2c4f4d6029d3dd1b92f597c5c6a8e3f504686bb9be6548a",
+      "synthesizedAt": "2026-08-15T07:13:01.272Z"
+    },
+    "entities/people/data-governance/pernille-aaen-sloth.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4519b1d050c00b5186dc837aa333fcad5a29471cd6c539fc7e595a0bf73b496a",
+      "synthesizedAt": "2026-08-15T07:12:33.881Z"
+    },
+    "entities/people/data-managers/iben-kryger-birkholm.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "992198bb486bc2f4c6b41113d9c8f391a8c2eb5f9f39d9b8d78cf2c814e6bbf6",
+      "synthesizedAt": "2026-08-15T07:12:58.721Z"
+    },
     "entities/people/data-managers/jakob-riis.md": {
       "mode": "strict-synthesis",
       "dataHash": "52666b9d31f75c786dbdcedde4e753e032383c794514c8c7ca8bda0ceb599c1e",
@@ -340,10 +475,25 @@
       "dataHash": "67bd9633ec67ff911b83370d85b481c536b8cfc9ee31204447c2ad0b8a8173b4",
       "synthesizedAt": "2026-08-05T06:10:53.958Z"
     },
+    "entities/people/health-leaders/nynne-nyboe-andersen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "1dadcedba3bf61b99a2a27e182b34d8e235a379d91cb01cc198e35afdee5f351",
+      "synthesizedAt": "2026-08-15T07:12:11.860Z"
+    },
+    "entities/people/health-leaders/tina-fransgaard.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e26c267c61954cf949766b5be87b22a9055f20606b9bfca85476102f80800698",
+      "synthesizedAt": "2026-08-15T07:11:52.631Z"
+    },
     "entities/people/healthcare-professionals/else-kjaer-mikkelsen.md": {
       "mode": "strict-synthesis",
       "dataHash": "0e7cbe3beb1acbbc86c9f2d6f86b3e2c3cce5f79593fff31b4d2da2e426b377d",
       "synthesizedAt": "2026-08-05T06:32:57.743Z"
+    },
+    "entities/people/healthcare-professionals/eva-nielsen.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6da10586f9aad754eceed21fee349f5f730575c1b63ffc4193e8ec5f37ce6bec",
+      "synthesizedAt": "2026-08-15T07:12:19.409Z"
     },
     "entities/people/healthcare-professionals/henning-glerup.md": {
       "mode": "strict-synthesis",
@@ -415,6 +565,16 @@
       "dataHash": "4765d3e3539e21f56a9ac969cbc20bfd567e9204eca07f8a5e1decf5b1d92f53",
       "synthesizedAt": "2026-08-05T06:44:31.824Z"
     },
+    "entities/procedural/gastroskopi.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "1f6ee5c0012d51169f4c7ba065babf70033b886ace3c46b3e97726515d7b6e3a",
+      "synthesizedAt": "2026-08-15T07:10:35.363Z"
+    },
+    "entities/procedural/kapselendoskopi.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "2658045d343f17f6d0422da2dd291fc2e7bf2ce639bd15dd75ca756c293f31a2",
+      "synthesizedAt": "2026-08-15T07:10:47.495Z"
+    },
     "entities/procedural/mr-af-tyndtarmen.md": {
       "mode": "strict-synthesis",
       "dataHash": "408cbbc4923093f66a424201e03e9e23195ee27b01d9d6703ff6b4767bbf70e3",
@@ -424,6 +584,11 @@
       "mode": "strict-synthesis",
       "dataHash": "3f4d2071163f7577b60a06e32d53e70c3709d866f0f4ab656dcbfc484b20493f",
       "synthesizedAt": "2026-08-05T06:42:56.340Z"
+    },
+    "entities/products/health-it/etrasimod.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "61b642734fd56528391402290a5217dccb39c21dbaa29702028f94e4e1a5cbe4",
+      "synthesizedAt": "2026-08-15T07:11:38.227Z"
     },
     "entities/products/health-it/filgotinib.md": {
       "mode": "strict-synthesis",
@@ -455,6 +620,16 @@
       "dataHash": "c11699ba4a7b1491b9f62780b06cae7eff9a4d6e4617126bf86607e390a5d1ed",
       "synthesizedAt": "2026-08-05T06:25:46.588Z"
     },
+    "entities/treatments/gastrointestinal/steroidkurer.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "69f674733b396255eb96724537161dcf53b2e1f1334b878477173ad4c1d9b03b",
+      "synthesizedAt": "2026-08-15T07:11:24.884Z"
+    },
+    "topics/audit-finding/audit-finding.md": {
+      "mode": "structured-template",
+      "dataHash": "09a85b1a905449a917d10727d2675f65a4d5e2fea848eaefeb4ada8607ac4775",
+      "synthesizedAt": "2026-08-15T07:25:30.990Z"
+    },
     "topics/clinical-consensus/clinical-consensus.md": {
       "mode": "strict-synthesis",
       "dataHash": "517be4a51901e6332b6723b42b279898502bd66c253ded66a0a059558beb29d7",
@@ -480,6 +655,11 @@
       "dataHash": "47f50bfab705a40a609d5cccbe9b93534c4f39ba53471d287e061966766c4544",
       "synthesizedAt": "2026-08-05T06:53:21.594Z"
     },
+    "topics/codes/procedure-codes/kjfb00-tyndtarmsresektion.md": {
+      "mode": "structured-template",
+      "dataHash": "de6e6749967f5d6785f80b052d8b97b9abb02030e5feff2f7b64c46b7573a30d",
+      "synthesizedAt": "2026-08-15T07:19:08.592Z"
+    },
     "topics/codes/procedure-codes/kjfb20-21-30-31.md": {
       "mode": "strict-synthesis",
       "dataHash": "b371328c72179bea2a8f093b201acdf8cbc421ab50930a22e48ba01b6974ddaf",
@@ -489,6 +669,11 @@
       "mode": "structured-template",
       "dataHash": "b0de494cd17721261548a3dacda4eab55a7f2c0a2784ec316c7c3594fd4c721e",
       "synthesizedAt": "2026-08-05T06:57:22.413Z"
+    },
+    "topics/codes/procedure-codes/kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi.md": {
+      "mode": "structured-template",
+      "dataHash": "2cd71ceb3d40c345277c71f1a64e8be561938d9c42b948f780e292b47035ebdf",
+      "synthesizedAt": "2026-08-15T07:18:24.692Z"
     },
     "topics/codes/procedure-codes/kjfh11-laparoskopisk-kolektomi-og-ileostomi.md": {
       "mode": "strict-synthesis",
@@ -530,10 +715,40 @@
       "dataHash": "69fcd0be4fc97303ad6cd9125b2b095cd234b26a78e18cee96eac50bb96b0ddb",
       "synthesizedAt": "2026-08-05T06:41:49.585Z"
     },
+    "topics/codes/treatment-codes/bohj19n1-behandling-med-risankizumab.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "9e0d016dddc13a015af745c14d8d37fd5e13f924c1b5899c0dafc3f5ba69872d",
+      "synthesizedAt": "2026-08-15T07:13:19.612Z"
+    },
     "topics/codes/treatment-codes/bohj28d-behandling-med-tofacitinib.md": {
       "mode": "strict-synthesis",
       "dataHash": "0a200999ae7ee7dfd4bb993815408be9e247b4f3faa83c7865fafc8cafbc47c8",
       "synthesizedAt": "2026-08-05T06:42:12.410Z"
+    },
+    "topics/codes/treatment-codes/bwhp107-behandling-med-upadacitinib.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "4226415d4cb496867d3b019fbd3bb8e9e4185c4244c4d3d6d58861b13b1ed3ec",
+      "synthesizedAt": "2026-08-15T07:13:38.731Z"
+    },
+    "topics/codes/treatment-codes/bwhp141-behandling-med-filgotinib.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "5fa345d78cf3cbfc093b59f407f3f4112b406ebbd1dc363dc657041804af2bc1",
+      "synthesizedAt": "2026-08-15T07:13:32.931Z"
+    },
+    "topics/codes/treatment-codes/bwhp142-behandling-med-mirikizumab.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "26d7b76609e6acf9ec8bf58dfd3cce5121a00ae7540742296e750fa554f41c83",
+      "synthesizedAt": "2026-08-15T07:14:04.081Z"
+    },
+    "topics/codes/treatment-codes/bwhp143-behandling-med-ozanimod.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "6c0d4f50c2157b65d33b75373431c1a78d8c5441c4cb99d53aeccedae2968c04",
+      "synthesizedAt": "2026-08-15T07:14:25.717Z"
+    },
+    "topics/codes/treatment-codes/bwhp148-behandling-med-etrasimod.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "36036a59fba2c87205ca68861f99bcd7eac59308d79a9a5c07deee80d5678d3b",
+      "synthesizedAt": "2026-08-15T07:14:29.240Z"
     },
     "topics/coverage/coverage.md": {
       "mode": "structured-template",
@@ -585,6 +800,11 @@
       "dataHash": "3b97fb3cb3acd15b66a81a302f8451a30059be33c7ecb2afbc6afd8e2eb8a97a",
       "synthesizedAt": "2026-08-05T07:11:05.289Z"
     },
+    "topics/healthcare-utilization/healthcare-utilization.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "f99cd33a18c47a84864e4145afaf696e36c6db50f823cfc74208a88c88e60520",
+      "synthesizedAt": "2026-08-15T07:22:41.215Z"
+    },
     "topics/mission/mission.md": {
       "mode": "structured-template",
       "dataHash": "2d2207c92f4c9b7048c2e81f4f44eaa896298396d5ec96251c1a81c624b9d5d1",
@@ -594,6 +814,11 @@
       "mode": "strict-synthesis",
       "dataHash": "c6bb575c3bdf92639e8e9229675f3bca6ef5280f9169ccb41973cde9d57d6afc",
       "synthesizedAt": "2026-08-05T07:02:33.676Z"
+    },
+    "topics/policy-change/policy-change.md": {
+      "mode": "structured-template",
+      "dataHash": "790d68291a37031bc2aae6a7d79a94e085ca7449591cf33d44b0ef70022fb22a",
+      "synthesizedAt": "2026-08-15T07:24:39.361Z"
     },
     "topics/procedural/koloskopi.md": {
       "mode": "strict-synthesis",

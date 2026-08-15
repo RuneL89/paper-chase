@@ -1,0 +1,442 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 4b",
+      "type": "quality-indicator",
+      "slug": "indikator-4b",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 4b er en central kvalitetsindikator i AFDK’s overvågningsprogram for atrieflimren, der måler andelen af prævalente patienter med atrieflimren i DOAC-behandling, som har fået målt nyrefunktion (S-creatinin eller P-creatinin) mindst én gang årligt, og dermed direkte understøtter sikker dosistilpasning og kontraindikationsvurdering[^src1].",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Indikator 4b: Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt"
+        },
+        {
+          "page": 32,
+          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt."
+        },
+        {
+          "page": 33,
+          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt."
+        },
+        {
+          "page": 34,
+          "context": "Datagrundlag og beregningsregler\nData til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "quality-indicator",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 5 er en klinisk udgangsindikator, der måler incidensen af iskæmisk apopleksi blandt prævalente patienter med atrieflimren, og dermed vurderer effekten af forebyggende antikoagulationsbehandling på nationalt og regionalt niveau[^src1].",
+      "mentions": [
+        {
+          "page": 35,
+          "context": "Indikator 5: Incidens Iskæmisk Apopleksi\nIndikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    },
+    {
+      "name": "S-creatinin",
+      "type": "laboratory-test",
+      "slug": "s-creatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "S-creatinin er den primære laboratorieparameter brugt i Indikator 4b på side 31 til at vurdere nyrefunktion hos patienter med atrieflimren i DOAC-behandling, og dens måling er afgørende for sikker dosistilpasning og kontraindikationsvurdering[^src1].",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Indikator 4b: Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt"
+        }
+      ]
+    },
+    {
+      "name": "P-creatinin",
+      "type": "laboratory-test",
+      "slug": "p-creatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "P-creatinin er den alternative laboratorieparameter brugt i Indikator 4b på siderne 32–34 til at vurdere nyrefunktion, og den anvendes systematisk i regioner, hvor NPU04998 og NPU18016 er de dominerende NPU-koder for kreatininmåling[^src1].",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt."
+        },
+        {
+          "page": 33,
+          "context": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt."
+        },
+        {
+          "page": 34,
+          "context": "Fra Laboratorieregistret indhentes informationer om p-creatinin vha. to NPU-koder: NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland, og NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland."
+        }
+      ]
+    },
+    {
+      "name": "NPU04998",
+      "type": "laboratory-test-code",
+      "slug": "npu04998-p-kreatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "NPU04998 er den NPU-kode, der overvejende anvendes til måling af P-creatinin i Region Hovedstaden og Region Sjælland, og dermed en kritisk kode for dataindhentning til Indikator 4b i disse regioner[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Fra Laboratorieregistret indhentes informationer om p-creatinin vha. to NPU-koder: NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland, og NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland."
+        }
+      ]
+    },
+    {
+      "name": "NPU18016",
+      "type": "laboratory-test-code",
+      "slug": "npu18016-p-kreatinin",
+      "folder": "entities/codes/laboratory-tests",
+      "significance": "NPU18016 er den NPU-kode, der overvejende anvendes til måling af P-creatinin i Region Syddanmark og Region Nordjylland, og dermed en kritisk kode for dataindhentning til Indikator 4b i disse regioner[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Fra Laboratorieregistret indhentes informationer om p-creatinin vha. to NPU-koder: NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland, og NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland."
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registers",
+      "significance": "Landspatientregisteret er et centralt register, der leverer data om patienters kontakt med sundhedsvæsenet, og det anvendes sammen med andre register til beregning af Indikator 4b for at identificere prævalente patienter med atrieflimren[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret."
+        }
+      ]
+    },
+    {
+      "name": "Lægemiddelstatistikregisteret",
+      "type": "database",
+      "slug": "laegemiddelstatistikregisteret",
+      "folder": "entities/databases/healthcare-registers",
+      "significance": "Lægemiddelstatistikregisteret leverer ATC-kodede data om receptindløsninger og er afgørende for at identificere patienter med aktuel DOAC-behandling i beregningen af Indikator 4b[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret."
+        }
+      ]
+    },
+    {
+      "name": "Laboratorieregistret",
+      "type": "database",
+      "slug": "laboratorieregistret",
+      "folder": "entities/databases/healthcare-registers",
+      "significance": "Laboratorieregistret er det centrale register, der indeholder laboratoriedata fra landets større laboratorier, og det er grundlaget for at registrere målinger af S- og P-creatinin i Indikator 4b[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret."
+        }
+      ]
+    },
+    {
+      "name": "Den Nationale Labdatabank",
+      "type": "database",
+      "slug": "den-nationale-labdatabank",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Den Nationale Labdatabank er den tekniske infrastruktur, hvorfra laboratoriedata fra Laboratorieregistret indlæses til Sundhedsdatastyrelsen, og dens manglende obligatorisk indberetning er en væsentlig begrænsning for fuldstændigheden af Indikator 4b[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen."
+        }
+      ]
+    },
+    {
+      "name": "Laboratoriedatabasen",
+      "type": "database",
+      "slug": "laboratoriedatabasen",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Laboratoriedatabasen hos Sundhedsdatastyrelsen er den endelige datakilde, hvorfra laboratoriedata anvendes i beregningen af Indikator 4b, og dens dækning afhænger af tilslutning til Den Nationale Labdatabank[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Laboratoriesvar er tilgængelige fra landets større laboratorier, som er tilsluttet Den Nationale Labdatabank, hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsdatastyrelsen",
+      "type": "organization",
+      "slug": "sundhedsdatastyrelsen",
+      "folder": "entities/organizations/health-data-infrastructure",
+      "significance": "Sundhedsdatastyrelsen administrerer Laboratoriedatabasen og er dermed den operativt ansvarlige myndighed for den tekniske infrastruktur, der understøtter beregning af Indikator 4b[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "hvorfra de indlæses i Laboratoriedatabasen hos Sundhedsdatastyrelsen."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Nordjylland er den eneste region, der opfylder udviklingsmålet på ≥95% for Indikator 4b i rapportperioden 2024/25 med en andel på 96,0%, hvilket gør den til en positiv reference for andre regioner[^src1].",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Nordjylland Ja 11.440 / 11.918 0 (0) 96,0 (95,6-96,3) 11.022 / 11.520 95,7 95,4"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Region Hovedstaden har den laveste andel på landsplan for Indikator 4b i rapportperioden 2024/25 med 93,2%, hvilket viser en geografisk variation i kvaliteten af nyrefunktionskontrol blandt patienter med atrieflimren i DOAC-behandling[^src1].",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Hovedstaden Nej 27.384 / 29.367 0 (0) 93,2 (93,0-93,5) 25.621 / 27.752 92,3 92,1"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Region Syddanmark er den region med højeste andel blandt de fire store regioner for Indikator 4b i rapportperioden 2024/25 med 94,8%, og den bidrager dermed til den generelle tæthedsstigning mod udviklingsmålet på 95%[^src1].",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Syddanmark Nej 22.959 / 24.226 0 (0) 94,8 (94,5-95,0) 22.374 / 23.626 94,7 94,3"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Midtjylland er den første region, der systematisk har overført prøvesvar til Den Nationale Labdatabank i rapportperioden 2024/25, hvilket er en væsentlig udvikling for datadækning i Indikator 4b[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Nærværende årsrapportsperiode er den første hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Sjælland er en af de to regioner, hvor NPU04998 er den dominerende NPU-kode for P-creatinin-måling, og dermed en central aktør i dataindhentningen til Indikator 4b[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "group",
+      "slug": "afdk-styregruppe",
+      "folder": "entities/groups/patient-advocacy",
+      "significance": "Styregruppen er den beslutningskompetente gruppe i AFDK, der anbefaler styrket fokus på Indikator 4b og specifikt fremhæver behovet for at nævne nyrefunktionskontrol i epikriser ved udskrivelse samt overgang til primærsektoren[^src1].",
+      "mentions": [
+        {
+          "page": 34,
+          "context": "Styregruppen anbefaler, at der sættes større fokus på denne indikator, og at behovet for regelmæssige kontroller af nyrefunktion nævnes i epikriser fra sygehusene, når patienter udskrives med et DOAC præparat."
+        }
+      ]
+    },
+    {
+      "name": "Iskæmisk apopleksi",
+      "type": "medical-condition",
+      "slug": "iskaemisk-apopleksi",
+      "folder": "topics/medical-conditions/neurological",
+      "significance": "Iskæmisk apopleksi er den kliniske udgangshændelse, der måles i Indikator 5, og dens incidens blandt patienter med atrieflimren er et direkte mål for effektiviteten af forebyggende antikoagulation[^src1].",
+      "mentions": [
+        {
+          "page": 35,
+          "context": "Indikator 5: Incidens Iskæmisk Apopleksi\nIndikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-4b",
+      "predicate": "measures",
+      "object": "s-creatinin",
+      "evidence": "Indikator 4b: Andelen af prævalente patienter med atrieflimren i Direkte Orale antikoagulantia (DOAC) med mindst 1 måling af S-creatinin årligt",
+      "page": 31
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "measures",
+      "object": "p-creatinin",
+      "evidence": "Indikator 4b: Andel af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt.",
+      "page": 32
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "uses-data-from",
+      "object": "landspatientregisteret",
+      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret.",
+      "page": 34
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "uses-data-from",
+      "object": "laegemiddelstatistikregisteret",
+      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret.",
+      "page": 34
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "uses-data-from",
+      "object": "laboratorieregistret",
+      "evidence": "Data til beregning af indikatoren indhentes fra Landspatientregisteret, Lægemiddelstatistikregisteret (ATC-koder) og Laboratorieregistret.",
+      "page": 34
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "is-calculated-using",
+      "object": "npu04998-p-kreatinin",
+      "evidence": "Fra Laboratorieregistret indhentes informationer om p-creatinin vha. to NPU-koder: NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland, og NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland.",
+      "page": 34
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "is-calculated-using",
+      "object": "npu18016-p-kreatinin",
+      "evidence": "Fra Laboratorieregistret indhentes informationer om p-creatinin vha. to NPU-koder: NPU04998, som overvejende anvendes i Region Hovedstaden og Region Sjælland, og NPU18016, som overvejende anvendes i Region Syddanmark og Region Nordjylland.",
+      "page": 34
+    },
+    {
+      "subject": "indikator-4b",
+      "predicate": "has-target",
+      "object": "standard-90-percent",
+      "evidence": "Udviklingsmål ≥ 95%",
+      "page": 31
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "measures",
+      "object": "iskaemisk-apopleksi",
+      "evidence": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren.",
+      "page": 35
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "achieves-target-for",
+      "object": "indikator-4b",
+      "evidence": "Nordjylland Ja 11.440 / 11.918 0 (0) 96,0 (95,6-96,3)",
+      "page": 31
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "does-not-achieve-target-for",
+      "object": "indikator-4b",
+      "evidence": "Hovedstaden Nej 27.384 / 29.367 0 (0) 93,2 (93,0-93,5)",
+      "page": 31
+    },
+    {
+      "subject": "afdk-styregruppe",
+      "predicate": "recommends-action-on",
+      "object": "indikator-4b",
+      "evidence": "Styregruppen anbefaler, at der sættes større fokus på denne indikator, og at behovet for regelmæssige kontroller af nyrefunktion nævnes i epikriser fra sygehusene, når patienter udskrives med et DOAC præparat.",
+      "page": 34
+    }
+  ],
+  "claims": [
+    {
+      "text": "På landsplan fik 94,3% af patienterne målt nyrefunktion mindst én gang årligt [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4b"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Udviklingsmålet på ≥95% er dermed ikke opfyldt på nationalt niveau [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4b"
+      ],
+      "page": 34
+    },
+    {
+      "text": "På regionsniveau varierede andelen fra 93,2% i Region Hovedstaden til 96,0% i Region Nordjylland [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-hovedstaden",
+        "region-nordjylland",
+        "indikator-4b"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Kun Region Nordjylland opfylder udviklingsmålet [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-nordjylland",
+        "indikator-4b"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Nærværende årsrapportsperiode er den første hvor Region Midtjylland systematisk har overført prøvesvar til Den Nationale Labdatabank [^src1]",
+      "type": "organizational-change",
+      "entities": [
+        "region-midtjylland",
+        "den-nationale-labdatabank"
+      ],
+      "page": 34
+    },
+    {
+      "text": "Det er kun Region Nord, der opfylder udviklingsmålet [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-nordjylland",
+        "indikator-4b"
+      ],
+      "page": 34
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2024 - 30.06.2025",
+      "event": "Rapportperioden for Indikator 4b og Indikator 5",
+      "entities": [
+        "indikator-4b",
+        "indikator-5"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-4b",
+      "title": "Indikator 4b: Andelen af prævalente patienter med atrieflimren i DOAC-behandling med mindst 1 måling af S-creatinin årligt",
+      "page": 31,
+      "rowDimension": "geographic-unit",
+      "colDimension": "performance-per-year",
+      "entities": [
+        "indikator-4b",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Geografisk enhed | Opfyldt | Tæller / nævner | 0 (0) | Andel 95% CI | 2023/24 | 2022/23 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Nej | 101.178 / 107.335 | 0 (0) | 94,3 (94,1-94,4) | 93,9 | 93,6 |\n| Hovedstaden | Nej | 27.384 / 29.367 | 0 (0) | 93,2 (93,0-93,5) | 92,3 | 92,1 |\n| Sjælland | Nej | 16.675 / 17.842 | 0 (0) | 93,5 (93,1-93,8) | 93,5 | 92,6 |\n| Syddanmark | Nej | 22.959 / 24.226 | 0 (0) | 94,8 (94,5-95,0) | 94,7 | 94,3 |\n| Midtjylland | Nej | 22.720 / 23.982 | 0 (0) | 94,7 (94,4-95,0) | 94,6 | 94,4 |\n| Nordjylland | Ja | 11.440 / 11.918 | 0 (0) | 96,0 (95,6-96,3) | 95,7 | 95,4 |",
+      "summary": "Tabellen sammenligner opfyldelsen af Indikator 4b på nationalt og regionalt niveau for rapportperioden 2024/25 og tidligere år, og viser at Region Nordjylland er den eneste region, der opfylder udviklingsmålet på ≥95%."
+    }
+  ],
+  "context": "Dette dokumentudsnit fra AFDK's 2025-rapport (sider 31–35) fokuserer på to centrale kvalitetsindikatorer for behandlingen af atrieflimren i Danmark: Indikator 4b, der måler hyppigheden af nyrefunktionskontrol (via S- eller P-creatinin) blandt patienter i DOAC-behandling, og Indikator 5, der måler incidensen af iskæmisk apopleksi som en udgangsindikator. Udsnittet indeholder detaljerede beregningsregler, datakilder, eksklusionskriterier og en kritisk diskussion af resultaterne, især den geografiske variation i opfyldelse af målet på ≥95% for Indikator 4b. Det skaber en narrativ ramme for evaluering af klinisk sikkerhed og systemisk kvalitet i antikoagulationsbehandlingen, med særlig fokus på laboratoriedataintegration og intersektorielle overgange."
+}

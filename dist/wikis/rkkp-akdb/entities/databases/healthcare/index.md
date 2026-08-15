@@ -4,19 +4,20 @@ type: index
 aliases:
   - Healthcare
 wiki: rkkp-akdb
-updated: '2026-08-05T20:20:29.103Z'
+updated: '2026-08-15T08:27:07.720Z'
 children:
   - dansk-anaestesi-database-dad.md
   - den-nationale-labdatabank-dnl.md
+  - index.md
 ---
 # Healthcare
 
-This folder catalogs national healthcare databases in Denmark that act as supplementary data sources for clinical quality measurement, particularly for the Akut Kirurgi Databasen (AKDB). These registries supply specialized clinical and laboratory records—such as anesthesiology classifications and national lab results—which are cross-referenced with primary patient registers to evaluate treatment standards. Ultimately, they enable the calculation of quality indicators and the monitoring of real-world practices in acute abdominal surgery.
+This folder catalogs national healthcare databases in Denmark that supply critical clinical and laboratory data to quality registries like the Akut Kirurgi Databasen. It includes the Danish Anaesthesia Database, which provides ASA physical status scores and epidural anesthesia records, and the National Laboratory Bank, which is designated to contribute laboratory results for indicator calculations once integrated. Together, these systems form the underlying data infrastructure for tracking patient demographics, anesthetic interventions, and surgical outcomes in acute care.
 
 ## Pages
 
-- [[dansk-anaestesi-database-dad|Dansk Anæstesi Database (DAD)]] — A national registry providing specialized anesthesiological data, including ASA scores and epidural administration details, used to assess patient risk and calculate specific quality indicators for acute surgery.
-- [[den-nationale-labdatabank-dnl|Den Nationale Labdatabank (DNL)]] — A national database designated to supply laboratory data for constructing patient populations and calculating clinical quality indicators, pending future data availability for integration.
+- [[dansk-anaestesi-database-dad|Dansk Anæstesi Database (DAD)]] — Supplies ASA scores and specific epidural anesthesia types to the acute surgery registry, linked to patients via civil registration numbers.
+- [[den-nationale-labdatabank-dnl|Den Nationale Labdatabank (DNL)]] — A national laboratory data repository slated to support population definition and clinical indicator calculations once its data becomes available to national quality databases.
 
 ## Navigation
 

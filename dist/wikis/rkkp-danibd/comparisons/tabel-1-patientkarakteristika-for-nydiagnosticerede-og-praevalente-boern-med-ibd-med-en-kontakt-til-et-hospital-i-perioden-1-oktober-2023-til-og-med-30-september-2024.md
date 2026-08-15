@@ -53,7 +53,7 @@ Summary: Tabellen sammenligner procentvise karakteristika for nydiagnosticerede 
 ## Related comparisons in prose
 
 - "Der er stærk evidens for og bred international enighed om, at tilbyde alle patienter med PSC årlige systematiske opfølgninger" — see [[clinical-practice|Clinical Practice]] ([[psc|Primær skleroserende kolangitis (PSC)]]) [^src2]
-- "Målet for 'hvilende' IBD-patienter på NOH er én årlig calprotectin-måling, mens målingsrater for patienter i biologisk behandling er individualiserede" — see [[clinical-guideline|Clinical Guideline]] ([[ibd|IBD]]) [^src3]
+- "Målet for 'hvilende' IBD-patienter på NOH er én årlig calprotectin-måling, mens målingsrater for patienter i biologisk behandling er individualiserede" — see [[clinical-practice|Clinical Guideline]] ([[ibd|IBD]]) [^src3]
 - "Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt, er 78 % (95 % CI: 77–79) på landsplan for perioden 1. oktober 2022 til 30. september 2023" — see [[quality-indicator|Quality Indicator]] ([[ibd|IBD]]) [^src4]
 - "Andelen af kirurgiske indgreb, hvor der er foretaget re-operation inden for 30 dage, er 4 % (95 % CI: 2–5)" — see [[quality-indicator|Quality Indicator]] ([[ibd|IBD]]) [^src4]
 - "Andelen af patienter med primær skleroserende kolangitis, der får foretaget koloskopi inden for 18 måneder, er 85 % (95 % CI: 81–89)" — see [[quality-indicator|Quality Indicator]] ([[psc|Primær skleroserende kolangitis (PSC)]]) [^src4]

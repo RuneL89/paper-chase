@@ -1,0 +1,448 @@
+{
+  "entities": [
+    {
+      "name": "Praktiserende kardiologer",
+      "type": "group",
+      "slug": "praktiserende-kardiologer",
+      "folder": "entities/groups",
+      "significance": "Gruppen er central for fordelingen af speciallægepraksisser og incidente patienter med atrieflimren på tværs af regionerne, hvilket danner grundlag for kvalitetsmåling i AFDK’s rapport.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Praktiserende kardiologer"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Regionen har flest speciallægepraksisser (13) og flest incidente patienter (790) blandt praktiserende kardiologer, hvilket gør den dominerende i datafordelingen på side 81.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Region | Hovedstaden | 13 |"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Regionen har kun 2 speciallægepraksisser og 113 incidente patienter, hvilket understreger en markant geografisk ulighed i adgang til praktiserende kardiologer sammenlignet med Region Hovedstaden.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Region | Midtjylland | 2 |"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Regionen har færrest speciallægepraksisser (1) og 95 incidente patienter, hvilket illustrerer den laveste kapacitet blandt de fem regioner i forhold til atrieflimren-diagnostik og -behandling i praktiserende praksis.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Region | Nordjylland | 1 |"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Regionen registrerer 66 incidente patienter (1,9 %), hvilket er den næstlaveste andel efter Region Syddanmark, og understøtter behovet for analyser af regional variation i patientuddannelse og behandlingsadgang.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Region | Sjælland | 66 | 1.9% |"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Regionen har 0 incidente patienter hos praktiserende kardiologer, hvilket indikerer enten manglende registrering, manglende adgang eller en strukturel underrapportering, og udgør derfor et kritisk datapunkt i kvalitetsanalysen.",
+      "mentions": [
+        {
+          "page": 81,
+          "context": "Region | Syddanmark | 0 | 0.0% |"
+        }
+      ]
+    },
+    {
+      "name": "Patientuddannelse",
+      "type": "medical-intervention",
+      "slug": "patientuddannelse",
+      "folder": "entities/medical-interventions/education",
+      "significance": "Patientuddannelse er defineret som en central kvalitetsindikator (Indikator 8) i AFDK’s system og anbefales som integreret del af grundlæggende behandling af atrieflimren ifølge ESC-guidelines fra 2024.",
+      "mentions": [
+        {
+          "page": 82,
+          "context": "11. Bilag – Struktureret Patientuddannelse"
+        }
+      ]
+    },
+    {
+      "name": "ESC-guidelines",
+      "type": "standard",
+      "slug": "esc-guidelines",
+      "folder": "entities/standards/medical-guidelines",
+      "significance": "ESC-guidelines fra 2024 er den internationale reference, som AFDK henviser til for at støtte anbefalingen om struktureret patientuddannelse til patienter med atrieflimren og deres pårørende.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "De europæiske guidelines fra ESC anbefaler patientuddannelse til patienter med atrieflimren (AF) og deres pårørende, som en central og integreret del af den grundlæggende behandling (Van Gelder et al., 2024)."
+        }
+      ]
+    },
+    {
+      "name": "Van Gelder et al., 2024",
+      "type": "publication",
+      "slug": "van-gelder-et-al-2024",
+      "folder": "entities/documents/reports",
+      "significance": "Denne publikation er den specifikke kilde, hvorfra ESC-guidelines-citationen på side 84 stammer, og fungerer som den direkte vidensgrundlag for Indikator 8’s evidensbaserede anbefalinger.",
+      "disambiguation": "Dette refererer til den seneste ESC-udgave af retningslinjerne for atrieflimren fra 2024, ikke tidligere versioner.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "(Van Gelder et al., 2024)"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsstyrelsen, 2019",
+      "type": "publication",
+      "slug": "sundhedsstyrelsen-2019",
+      "folder": "entities/documents/reports",
+      "significance": "Den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med atrieflimren fra 2019 udgør nationalt evidensgrundlag for stærk anbefaling af patientuddannelse og er centralt for lokal implementering i Danmark.",
+      "disambiguation": "Dette refererer til Sundhedsstyrelsens nationale retningslinje for rehabilitering ved atrieflimren fra 2019, ikke andre retningslinjer fra samme myndighed.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "Den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med AF angiver en stærk anbefaling for, at patienter med ny AF diagnose deltager i hjerterehabilitering indeholdende patientuddannelse (Sundhedsstyrelsen 2019)."
+        }
+      ]
+    },
+    {
+      "name": "Palm et al., 2020",
+      "type": "publication",
+      "slug": "palm-et-al-2020",
+      "folder": "entities/documents/reports",
+      "significance": "Denne meta-analyse er det primære evidensgrundlag for effektmålingen af patientuddannelse, herunder den dokumenterede 22 % reduktion i død og genindlæggelse, og anvendes gentagne gange som kilde til både effekt og metodebeskrivelse.",
+      "disambiguation": "Dette refererer til Palm et al.’s systematiske litteraturgennemgang og meta-analyse fra 2020 om patientuddannelse ved atrieflimren, ikke andre studier af samme forfatter.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "Data var baseret på en systematisk litteraturgennemgang og Meta-analyse (Palm et al., 2020)."
+        }
+      ]
+    },
+    {
+      "name": "Risom et al., 2018",
+      "type": "publication",
+      "slug": "risom-et-al-2018",
+      "folder": "entities/documents/reports",
+      "significance": "Dette kvalitative studie leverer patientperspektivet på betydningen af individuel undervisning, især ved at adressere dødsangst og genopbygning af fysisk selvtillid, hvilket understøtter den menneskelige dimension af Indikator 8.",
+      "disambiguation": "Dette refererer til Risom et al.’s interviewstudie fra 2018 om patienters oplevelser med undervisning ved atrieflimren, ikke andre studier af samme forfatter.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "Patienterne beskriver deres erfaringer med individuel undervisning om AF som værende afgørende for at leve et godt liv med sygdom. I et studie er patienter blevet interviewet og her fortæller de at havde brug for en sundhedsprofessionel (her sygeplejerske) at tale med for at komme over dødsangst samt genvinde troen på egen fysiske kapacitet og styrke. Patienterne fik gennem undervisningen redskaber til at håndtere symptomer og angst (Risom et al., 2018)."
+        }
+      ]
+    },
+    {
+      "name": "CARE modellen",
+      "type": "clinical-tool",
+      "slug": "care-modellen",
+      "folder": "topics/clinical-tools",
+      "significance": "CARE modellen er den teoretiske ramme, som ESC-guidelines fra 2024 bygger på, og hvor patientuddannelse fremgår som et centralt element — dette knytter den internationale evidens direkte til dansk implementering.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "Guidelines bygger på CARE modellen hvori patientundervisning fremgår som et central element (figur 2)."
+        }
+      ]
+    },
+    {
+      "name": "BFKB-koden",
+      "type": "code",
+      "slug": "bfkb-kode",
+      "folder": "entities/codes/intervention-codes",
+      "significance": "BFKB-koden 'Patientuddannelse i atrieflimren' er den tekniske kode, der skal anvendes til journalregistrering af indikator 8, hvilket sikrer standardiseret datafangst og muliggør national kvalitetsmåling.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "Indrapportering af indikator 8, patientuddannelse/-undervisning til AFDK skal kodes i journalen med BFKB-koden: \"Patientuddannelse i atrieflimren\"."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 8",
+      "type": "quality-indicator",
+      "slug": "indikator-8",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 8 er den specifikke kvalitetsindikator for struktureret patientuddannelse i AFDK-systemet, og dens måling af andelen af ny-diagnosticerede patienter, der får uddannelse inden for det første år, er centrale for kvalitetsudvikling.",
+      "mentions": [
+        {
+          "page": 84,
+          "context": "Indikator 8: Struktureret patientuddannelse"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "praktiserende-kardiologer",
+      "predicate": "operates-in",
+      "object": "region-hovedstaden",
+      "evidence": "Region | Hovedstaden | 13 |",
+      "page": 81
+    },
+    {
+      "subject": "praktiserende-kardiologer",
+      "predicate": "operates-in",
+      "object": "region-midtjylland",
+      "evidence": "Region | Midtjylland | 2 |",
+      "page": 81
+    },
+    {
+      "subject": "praktiserende-kardiologer",
+      "predicate": "operates-in",
+      "object": "region-nordjylland",
+      "evidence": "Region | Nordjylland | 1 |",
+      "page": 81
+    },
+    {
+      "subject": "praktiserende-kardiologer",
+      "predicate": "operates-in",
+      "object": "region-sjaelland",
+      "evidence": "Region | Sjælland | 66 | 1.9% |",
+      "page": 81
+    },
+    {
+      "subject": "praktiserende-kardiologer",
+      "predicate": "operates-in",
+      "object": "region-syddanmark",
+      "evidence": "Region | Syddanmark | 0 | 0.0% |",
+      "page": 81
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "is-based-on",
+      "object": "esc-guidelines",
+      "evidence": "De europæiske guidelines fra ESC anbefaler patientuddannelse til patienter med atrieflimren (AF) og deres pårørende, som en central og integreret del af den grundlæggende behandling (Van Gelder et al., 2024).",
+      "page": 84
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "is-based-on",
+      "object": "sundhedsstyrelsen-2019",
+      "evidence": "Den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med AF angiver en stærk anbefaling for, at patienter med ny AF diagnose deltager i hjerterehabilitering indeholdende patientuddannelse (Sundhedsstyrelsen 2019).",
+      "page": 84
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "is-evidenced-by",
+      "object": "palm-et-al-2020",
+      "evidence": "Meta-analysen indeholdt fem randomiseret interventions studier og et ikke-randomiseret interventionsstudie med i alt 2007 patienter og viste, til fordel for interventionsgruppen der modtog patientundervisning, en reduktion på død og genindlæggelse på 22% (Risk Ratio 0.78, CI 95% 0.63-0-97)",
+      "page": 84
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "is-supported-by",
+      "object": "risom-et-al-2018",
+      "evidence": "Patienterne beskriver deres erfaringer med individuel undervisning om AF som værende afgørende for at leve et godt liv med sygdom.",
+      "page": 84
+    },
+    {
+      "subject": "esc-guidelines",
+      "predicate": "incorporates",
+      "object": "care-modellen",
+      "evidence": "Guidelines bygger på CARE modellen hvori patientundervisning fremgår som et central element",
+      "page": 84
+    },
+    {
+      "subject": "indikator-8",
+      "predicate": "uses-code",
+      "object": "bfkb-kode",
+      "evidence": "Indrapportering af indikator 8, patientuddannelse/-undervisning til AFDK skal kodes i journalen med BFKB-koden: \"Patientuddannelse i atrieflimren\".",
+      "page": 84
+    }
+  ],
+  "claims": [
+    {
+      "text": "Region Hovedstaden har 13 speciallægepraksisser for praktiserende kardiologer [^src1]",
+      "type": "geographic-distribution",
+      "entities": [
+        "region-hovedstaden",
+        "praktiserende-kardiologer"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Region Midtjylland har 2 speciallægepraksisser for praktiserende kardiologer [^src1]",
+      "type": "geographic-distribution",
+      "entities": [
+        "region-midtjylland",
+        "praktiserende-kardiologer"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Region Nordjylland har 1 speciallægepraksis for praktiserende kardiologer [^src1]",
+      "type": "geographic-distribution",
+      "entities": [
+        "region-nordjylland",
+        "praktiserende-kardiologer"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Der er 790 incidente patienter med atrieflimren hos praktiserende kardiologer i Region Hovedstaden, hvilket udgør 12,7 % af alle incidente i speciallægepraksis [^src1]",
+      "type": "epidemiology",
+      "entities": [
+        "region-hovedstaden",
+        "praktiserende-kardiologer"
+      ],
+      "page": 81
+    },
+    {
+      "text": "Der er 0 incidente patienter med atrieflimren hos praktiserende kardiologer i Region Syddanmark [^src1]",
+      "type": "epidemiology",
+      "entities": [
+        "region-syddanmark",
+        "praktiserende-kardiologer"
+      ],
+      "page": 81
+    },
+    {
+      "text": "I Danmark er der i alt 1064 incidente patienter med atrieflimren hos praktiserende kardiologer, hvilket udgør 4,8 % af alle incidente [^src1]",
+      "type": "epidemiology",
+      "entities": [
+        "praktiserende-kardiologer"
+      ],
+      "page": 81
+    },
+    {
+      "text": "ESC-guidelines fra 2024 anbefaler patientuddannelse til patienter med atrieflimren og deres pårørende som en central og integreret del af grundlæggende behandling [^src2]",
+      "type": "clinical-guideline",
+      "entities": [
+        "esc-guidelines",
+        "patientuddannelse"
+      ],
+      "page": 84
+    },
+    {
+      "text": "Den danske Nationale Kliniske Retningslinje fra 2019 giver en stærk anbefaling for, at patienter med ny atrieflimren-diagnose deltager i hjerterehabilitering indeholdende patientuddannelse [^src2]",
+      "type": "clinical-guideline",
+      "entities": [
+        "sundhedsstyrelsen-2019",
+        "patientuddannelse"
+      ],
+      "page": 84
+    },
+    {
+      "text": "En meta-analyse (Palm et al., 2020) viser en reduktion på død og genindlæggelse på 22 % (Risk Ratio 0.78, CI 95% 0.63–0.97) for patienter, der modtog patientuddannelse, sammenlignet med kontrolgruppe uden uddannelse [^src2]",
+      "type": "clinical-outcome",
+      "entities": [
+        "palm-et-al-2020",
+        "patientuddannelse"
+      ],
+      "page": 84
+    },
+    {
+      "text": "Patientuddannelse bør forankres i en teoretisk model og udføres i aktivt samarbejde mellem patient, pårørende og sundhedsprofessionelle [^src2]",
+      "type": "clinical-practice",
+      "entities": [
+        "patientuddannelse"
+      ],
+      "page": 84
+    },
+    {
+      "text": "Effektive metoder til patientuddannelse inkluderer primært individuel undervisning og gruppeundervisning, med varighed mellem 30 og 150 minutter pr. gang og opfølgning 1–5 gange hver 2.–3. måned over op til 24 måneder [^src2]",
+      "type": "clinical-practice",
+      "entities": [
+        "patientuddannelse"
+      ],
+      "page": 84
+    },
+    {
+      "text": "Indikator 8 måler andelen af ny-diagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram inden for det 1. år efter diagnosen er stillet [^src2]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-8",
+        "patientuddannelse"
+      ],
+      "page": 84
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2019",
+      "event": "Udgivelse af den danske Nationale Kliniske Retningslinje for rehabilitering til patienter med atrieflimren, som giver stærk anbefaling for patientuddannelse.",
+      "entities": [
+        "sundhedsstyrelsen-2019"
+      ]
+    },
+    {
+      "date": "2020",
+      "event": "Publicering af Palm et al.’s meta-analyse, der dokumenterer 22 % reduktion i død og genindlæggelse ved patientuddannelse.",
+      "entities": [
+        "palm-et-al-2020"
+      ]
+    },
+    {
+      "date": "2024",
+      "event": "Udgivelse af ESC-guidelines for atrieflimren, som anbefaler patientuddannelse som central og integreret del af behandling.",
+      "entities": [
+        "esc-guidelines",
+        "van-gelder-et-al-2024"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "fordeling-af-praktiserende-kardiologer",
+      "title": "Fordelingen af praktiserende kardiologer i regionerne",
+      "page": 81,
+      "rowDimension": "regioner",
+      "colDimension": "antal speciallægepraksisser",
+      "entities": [
+        "praktiserende-kardiologer",
+        "region-hovedstaden",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Region | Hovedstaden | 13 |\n| --- | --- | --- |\n| Region | Midtjylland | 2 |\n| Region | Nordjylland | 1 |",
+      "summary": "Tabellen sammenligner antallet af speciallægepraksisser for praktiserende kardiologer i tre regioner og viser en tydelig koncentration i Region Hovedstaden (13 praksisser) i forhold til Region Midtjylland (2) og Region Nordjylland (1)."
+    },
+    {
+      "subject": "incidente-patienter-i-speciallaegepraksis",
+      "title": "Antal og andel incidente patienter hos de praktiserende kardiologer i årsrapportsperioden",
+      "page": 81,
+      "rowDimension": "regioner",
+      "colDimension": "antal og andel incidente patienter",
+      "entities": [
+        "praktiserende-kardiologer",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Region | Hovedstaden | 790 | 12.7% |\n| --- | --- | --- | --- |\n| Region | Sjælland | 66 | 1.9% |\n| Region | Syddanmark | 0 | 0.0% |\n| Region | Midtjylland | 113 | 2.2% |\n| Region | Nordjylland | 95 | 3.9% |\n| Danmark | 1064 | 4.8% |",
+      "summary": "Tabellen viser en stor regional ulighed i antallet og andelen af incidente patienter med atrieflimren hos praktiserende kardiologer, med Region Hovedstaden dominerende (790, 12,7 %), mens Region Syddanmark rapporterer nul (0, 0,0 %)."
+    }
+  ],
+  "context": "Dette afsnit fra AFDK’s årsrapport 2025 (sider 81–85) handler om to centrale aspekter af kvalitetsudvikling ved atrieflimren: først den geografiske fordeling af praktiserende kardiologer og deres behandlingsbelastning på tværs af regionerne, og anden del en dybdegående analyse af patientuddannelse som kvalitetsindikator (Indikator 8). Den første del leverer empirisk grundlag for at identificere regionale uligheder i adgang til specialiseret vurdering, mens den anden del bygger bro mellem international evidens (ESC-guidelines, CARE-modellen), national retningslinje (Sundhedsstyrelsen 2019), og klinisk praksis ved at definere indikatorens måling, evidensgrundlag (Palm et al., 2020), og patientperspektiv (Risom et al., 2018). Sammen skaber de en integreret narrativ om kvalitetsmåling, hvor geografisk analyse og evidensbaseret intervention går hånd i hånd."
+}

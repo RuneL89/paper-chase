@@ -4,17 +4,18 @@ type: index
 aliases:
   - Performance
 wiki: rkkp-afdk
-updated: '2026-08-05T23:39:20.174Z'
+updated: '2026-08-15T00:40:54.615Z'
 children:
+  - index.md
   - performance.md
 ---
 # Performance
 
-This folder contains the central topic page detailing the clinical quality metrics and healthcare outcomes for patients diagnosed with atrial fibrillation in Denmark. It synthesizes national and regional performance data across eight standardized indicators tracked by the Danish Atrial Fibrillation Database (AFDK) and RKKP, evaluating everything from timely anticoagulation initiation and long-term treatment retention to diagnostic thoroughness and structured patient education.
+This folder contains topics related to the systematic measurement and evaluation of healthcare quality for atrial fibrillation patients in Denmark. It covers national and regional performance across multiple clinical indicators, including anticoagulation initiation, diagnostic workups, safety monitoring, and patient education, highlighting areas where the healthcare system excels and where it faces persistent shortfalls.
 
 ## Pages
 
-- [[performance|Performance]] — Details national and regional compliance for eight clinical quality indicators, highlighting systemic successes in anticoagulation initiation alongside significant shortfalls in thyroid testing and patient education.
+- [[performance|Performance]] — Evaluates national and regional healthcare quality metrics for atrial fibrillation in Denmark, detailing fulfillment rates for clinical indicators ranging from anticoagulation and diagnostic testing to patient education.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder contains the central topic page detailing the clinical quality metri
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder contains the central topic page detailing the clinical quality metri
 - Sibling: [[topics/organizational-change/index|Organizational Change]]
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

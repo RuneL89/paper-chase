@@ -2048,6 +2048,687 @@
         "passed": false
       },
       "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:10:35.363Z",
+      "pageType": "entity",
+      "slug": "gastroskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:10:47.495Z",
+      "pageType": "entity",
+      "slug": "kapselendoskopi",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:10:29.726Z",
+      "pageType": "entity",
+      "slug": "espgghan-2025-uc-guideline",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:10:26.011Z",
+      "pageType": "entity",
+      "slug": "fpiac",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:10:55.224Z",
+      "pageType": "entity",
+      "slug": "slb-vejle-gastroenterologisk-amb",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:15:14.092Z",
+      "pageType": "entity",
+      "slug": "slb-kolding-boerne-og-ungeafdeling",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-15T07:11:24.884Z",
+      "pageType": "entity",
+      "slug": "steroidkurer",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:11:37.977Z",
+      "pageType": "entity",
+      "slug": "egs-esbjerg-medicinsk-mave-og-tarm-amb",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:11:38.227Z",
+      "pageType": "entity",
+      "slug": "etrasimod",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:11:52.631Z",
+      "pageType": "entity",
+      "slug": "tina-fransgaard",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:12:11.860Z",
+      "pageType": "entity",
+      "slug": "nynne-nyboe-andersen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:12:19.409Z",
+      "pageType": "entity",
+      "slug": "eva-nielsen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:12:33.881Z",
+      "pageType": "entity",
+      "slug": "pernille-aaen-sloth",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:12:58.721Z",
+      "pageType": "entity",
+      "slug": "iben-kryger-birkholm",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:13:01.272Z",
+      "pageType": "entity",
+      "slug": "mathilde-pedersen",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:13:19.612Z",
+      "pageType": "entity",
+      "slug": "bohj19n1-behandling-med-risankizumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:13:38.731Z",
+      "pageType": "entity",
+      "slug": "bwhp107-behandling-med-upadacitinib",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:13:32.931Z",
+      "pageType": "entity",
+      "slug": "bwhp141-behandling-med-filgotinib",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:14:04.081Z",
+      "pageType": "entity",
+      "slug": "bwhp142-behandling-med-mirikizumab",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:14:25.717Z",
+      "pageType": "entity",
+      "slug": "bwhp143-behandling-med-ozanimod",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:14:29.240Z",
+      "pageType": "entity",
+      "slug": "bwhp148-behandling-med-etrasimod",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:18:24.692Z",
+      "pageType": "entity",
+      "slug": "kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-15T07:19:08.592Z",
+      "pageType": "entity",
+      "slug": "kjfb00-tyndtarmsresektion",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-15T07:15:02.034Z",
+      "pageType": "entity",
+      "slug": "amager-og-hvidovre-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:15:29.551Z",
+      "pageType": "entity",
+      "slug": "sjellands-universitetshospital",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:21:16.688Z",
+      "pageType": "entity",
+      "slug": "abdominalcenter-k-bispebjerg-hospital",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-15T07:16:14.148Z",
+      "pageType": "entity",
+      "slug": "region-oestdanmarks-sundhedsfaglige-raad-for-mave-tarm-og-leversygdomme",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:22:41.215Z",
+      "pageType": "topic",
+      "slug": "healthcare-utilization",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:24:39.361Z",
+      "pageType": "topic",
+      "slug": "policy-change",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-15T07:25:30.990Z",
+      "pageType": "topic",
+      "slug": "audit-finding",
+      "strict": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "permissive": {
+        "attempted": true,
+        "passed": false,
+        "attempts": 3
+      },
+      "finalMode": "structured-template"
+    },
+    {
+      "timestamp": "2026-08-15T07:26:43.733Z",
+      "pageType": "comparison",
+      "slug": "figur-over-antallet-af-patienter-der-er-inkluderet-i-danibd-fra-databasens-start-d-1-oktober-2022-frem-til-30-september-2025-fordelt-paa-de-tre-opgoerelsesperioder",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:28:11.456Z",
+      "pageType": "comparison",
+      "slug": "tabel-1-patientkarakteristika-for-nydiagnosticerede-og-praevalente-boern-med-ibd-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 2
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:26:51.167Z",
+      "pageType": "comparison",
+      "slug": "tabel-2-patientkarakteristika-for-nydiagnosticerede-og-praevalente-voksne-med-en-kontakt-til-et-hospital-i-perioden-1-oktober-2024-til-og-med-30-september-2025",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:27:37.928Z",
+      "pageType": "comparison",
+      "slug": "tabel-3-oversigt-over-de-samlede-indikatorresultater",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:29:10.589Z",
+      "pageType": "comparison",
+      "slug": "indikator-1a",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:29:10.862Z",
+      "pageType": "comparison",
+      "slug": "indikator-4",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:30:39.028Z",
+      "pageType": "comparison",
+      "slug": "indikator-5",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:30:37.648Z",
+      "pageType": "comparison",
+      "slug": "appendikstabel-1-patientkarakteristiska-pr-region",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:30:13.578Z",
+      "pageType": "comparison",
+      "slug": "appendikstabel-2-karakteristika-for-nydiagnosticeret-voksne-ved-foerste-kontakt-i-forloebet-indikator-1a",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:30:34.376Z",
+      "pageType": "comparison",
+      "slug": "appendikstabel-3-karakteristika-for-nydiagnosticeret-boern-og-unge-ved-foerste-kontakt-i-forloebet-indikator-1b",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:31:50.358Z",
+      "pageType": "comparison",
+      "slug": "appendikstabel-4-karakteristika-for-patienter-i-behandling-med-bmsl",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:33:15.683Z",
+      "pageType": "comparison",
+      "slug": "appendikstabel-5-karakteristika-for-patienter-i-behandling-med-bmsl-paa-afdelingsniveau-indikator-5",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:32:16.584Z",
+      "pageType": "comparison",
+      "slug": "appendikstabel-6-typer-og-antal-behandlinger-med-bmsl-indikator-5",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:32:11.668Z",
+      "pageType": "comparison",
+      "slug": "appendikstabel-7-typer-af-kirurgiske-indgreb-foretaget-paa-patienter-med-ibd-indikator-6",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-15T07:33:17.579Z",
+      "pageType": "comparison",
+      "slug": "appendikstabel-8-typer-af-re-operationer-foretaget-paa-patienter-med-ibd-indikator-6",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
     }
   ]
 }

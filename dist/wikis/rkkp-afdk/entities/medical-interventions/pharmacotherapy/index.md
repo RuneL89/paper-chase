@@ -4,19 +4,20 @@ type: index
 aliases:
   - Pharmacotherapy
 wiki: rkkp-afdk
-updated: '2026-08-05T22:55:41.044Z'
+updated: '2026-08-14T23:43:56.725Z'
 children:
   - antikoagulationsbehandling.md
   - ekkokardiografi.md
+  - index.md
 ---
 # Pharmacotherapy
 
-This folder catalogs specific medical interventions monitored within the Danish healthcare quality system for atrial fibrillation patients. It covers anticoagulation treatment, detailing the clinical risk thresholds for initiation, the specific drug classes prescribed, and the national quality indicators measuring timely treatment and long-term adherence. Although categorized under pharmacotherapy, the folder also includes echocardiography, documenting the diagnostic imaging procedure and the extensive registry codes used to track compliance with clinical timeframes.
+This folder groups specific clinical interventions tracked by the Danish Atrial Fibrillation database (AFDK), focusing on pharmacological and diagnostic procedures for atrial fibrillation. It contains detailed records on anticoagulation treatment, outlining the clinical guidelines, drug classes, and national quality indicators used to monitor stroke prevention and bleeding risks. Additionally, it includes a page on echocardiography, documenting the diagnostic examination requirements, registry data sources, and procedural codes used to assess newly diagnosed patients.
 
 ## Pages
 
-- [[antikoagulationsbehandling]] — Details the clinical indications, drug classes, and national quality indicators tracking the timely initiation and long-term adherence of anticoagulation therapy.
-- [[ekkokardiografi|Ekkokardiografi]] — Outlines the diagnostic imaging procedure used to evaluate heart function, including the specific registry codes used to track compliance with national quality standards.
+- [[antikoagulationsbehandling]] — Details the clinical indications, quality indicators, and national performance of anticoagulation treatment for preventing thromboembolic complications in atrial fibrillation patients.
+- [[ekkokardiografi|Ekkokardiografi]] — Covers the diagnostic examination required for newly diagnosed atrial fibrillation patients, including quality indicator targets, registry data sources, and medical coding classifications.
 
 ## Navigation
 

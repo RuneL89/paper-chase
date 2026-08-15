@@ -4,17 +4,18 @@ type: index
 aliases:
   - Outlier Performance
 wiki: rkkp-adhd
-updated: '2026-08-05T19:23:17.878Z'
+updated: '2026-08-15T12:45:27.645Z'
 children:
+  - index.md
   - outlier-performance.md
 ---
 # Outlier Performance
 
-This folder covers exceptionally high results in psychiatric care metrics compared to standard benchmarks. It specifically documents departments that achieved or exceeded an 80% threshold in their measured proportions for ADHD clinical data, identifying the top-performing entities and their exact achievement rates.
+This folder covers exceptionally high-performing psychiatric departments in ADHD care, focusing on clinics that significantly outperform standard benchmarks. It specifically highlights entities that met or exceeded an 80% performance threshold in the 2024 clinical data, providing a clear view of top-tier outcomes in the corpus.
 
 ## Pages
 
-- [[outlier-performance|Outlier Performance]] — Identifies psychiatric departments that achieved exceptionally high results, specifically those reaching or exceeding an 80% threshold in ADHD clinical metrics.
+- [[outlier-performance|Outlier Performance]] — Identifies psychiatric departments that achieved exceptionally high results, specifically highlighting three clinics that met or exceeded an 80% performance threshold in 2024 ADHD clinical data.
 
 ## Navigation
 

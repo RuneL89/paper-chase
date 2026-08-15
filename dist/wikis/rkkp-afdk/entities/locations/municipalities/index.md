@@ -4,7 +4,7 @@ type: index
 aliases:
   - Municipalities
 wiki: rkkp-afdk
-updated: '2026-08-05T22:51:10.755Z'
+updated: '2026-08-14T23:40:03.282Z'
 children:
   - aabenraa.md
   - aalborg.md
@@ -42,6 +42,7 @@ children:
   - hoersholm.md
   - horsens.md
   - hvidovre.md
+  - index.md
   - ishoej.md
   - jammerbugt.md
   - kalundborg.md
@@ -86,87 +87,87 @@ children:
 ---
 # Municipalities
 
-This folder contains the Danish municipalities evaluated in the clinical quality benchmarking reports of the Danish Atrial Fibrillation Database (AFDK). Each page documents a specific municipality's performance metrics—primarily for Indicator 5, which tracks the prevention of ischemic strokes via anticoagulation therapy using DanStroke registry data. While most entries consist of sparse tabular data used for local healthcare quality development, a subset of municipalities also include evaluations for treatment coverage, medication safety, intracranial hemorrhage incidence, or structural groupings into regional health clusters (Sundhedsklynger).
+This folder contains entity pages for Danish municipalities evaluated in the national clinical quality reports for atrial fibrillation treatment. Each page documents the municipality's statistical performance on healthcare quality indicators—most notably Indicator 5, which tracks the prevention of ischemic strokes via anticoagulation therapy—using data from the Danish Atrial Fibrillation Database (AFDK) and the DanStroke registry. These pages serve as granular data points for local quality development and benchmarking across the Danish healthcare system, with a few municipalities also noting health cluster affiliations or performance on additional indicators like intracranial hemorrhage and treatment coverage.
 
 ## Pages
 
-- [[aabenraa|Aabenraa]] — Municipal stroke prevention metrics (Indicator 5) from the 2022–2023 AFDK report.
-- [[aalborg|Aalborg]] — Clinical quality benchmarking for ischemic stroke prevention among local atrial fibrillation patients.
-- [[aeroe|Ærø]] — Indicator 5 stroke prevention data, largely masked due to small patient cohort sizes.
-- [[albertslund|Albertslund]] — Local benchmarking data for Indicator 5 from the 2022–2023 AFDK municipal breakdown.
-- [[alleroed|Allerød]] — DanStroke-based calculations for Indicator 5 stroke prevention metrics.
-- [[assens|Assens]] — Municipal performance metrics for ischemic stroke prevention via anticoagulant therapy.
-- [[ballerup|Ballerup]] — Indicator 5 clinical quality data detailing local stroke events and treatment rates.
-- [[billund|Billund]] — Tabular benchmarking data for Indicator 5 from the national atrial fibrillation registry.
-- [[bornholm|Bornholm]] — Indicator 5 stroke metrics, plus structural categorization under a regional health cluster (Sundhedsklynge) in the 2024 report.
-- [[broendby|Brøndby]] — Municipal breakdown of Indicator 5 stroke prevention outcomes for local quality development.
-- [[dragoer|Dragør]] — DanStroke registry calculations for local ischemic stroke prevention metrics.
-- [[egedal|Egedal]] — Indicator 5 performance metrics benchmarked against national atrial fibrillation treatment standards.
-- [[esbjerg|Esbjerg]] — Quantitative municipal data for Indicator 5, detailing patient counts and stroke event rates.
-- [[faaborg-midtfyn|Faaborg-Midtfyn]] — Localized Indicator 5 metrics tracking stroke events among atrial fibrillation patients.
-- [[favskov|Favrskov]] — Municipal stroke prevention data from the 2022–2023 AFDK clinical quality assessment.
-- [[faxe|Faxe]] — Indicator 5 benchmarking data detailing local anticoagulation treatment outcomes.
-- [[fredensborg|Fredensborg]] — Municipal Indicator 5 metrics, noting the locality did not meet the stroke prevention target.
-- [[frederiksberg|Frederiksberg]] — Indicator 5 stroke data, grouped under the "Byen" health cluster for regional benchmarking.
-- [[frederikssund|Frederikssund]] — DanStroke-based Indicator 5 calculations for local ischemic stroke prevention.
-- [[frederiksvaerk-hundested|Frederiksværk-Hundested]] — Tabular Indicator 5 metrics detailing stroke events and confidence intervals.
-- [[furesoe|Furesø]] — Municipal clinical quality data for Indicator 5 from the national atrial fibrillation database.
-- [[gentofte|Gentofte]] — Cross-sectional Indicator 5 assessment of local stroke prevention via anticoagulation.
-- [[gladsaxe|Gladsaxe]] — Geographic data point for Indicator 5, tracking local ischemic stroke prevention metrics.
-- [[glostrup|Glostrup]] — Municipal Indicator 5 benchmarking data derived from the DanStroke registry.
-- [[greve|Greve]] — Local clinical quality metrics for Indicator 5 stroke prevention from the 2022–2023 report.
-- [[gribskov|Gribskov]] — Indicator 5 statistical outputs detailing local patient counts and stroke events.
-- [[guldborgsund|Guldborgsund]] — Municipal Indicator 5 data tracking stroke events and calculated treatment rates.
-- [[hedensted|Hedensted]] — Local benchmarking metrics for Indicator 5 ischemic stroke prevention.
-- [[helsingoer|Helsingør]] — DanStroke-based Indicator 5 calculations for municipal stroke prevention outcomes.
-- [[herlev|Herlev]] — Municipal clinical quality data for Indicator 5 from the national registry breakdown.
-- [[herning|Herning]] — Indicator 5 stroke prevention metrics detailing local patient denominators and event rates.
-- [[hilleroed|Hillerød]] — Tabular Indicator 5 data tracking local ischemic stroke prevention via anticoagulants.
-- [[hoeje-taastrup|Høje-Taastrup]] — Municipal Indicator 5 performance metrics from the DanStroke registry.
-- [[hoersholm|Hørsholm]] — Indicator 5 benchmarking data for local stroke prevention outcomes.
-- [[horsens|Horsens]] — Municipal Indicator 5 metrics detailing stroke events and relative rates among AF patients.
-- [[hvidovre|Hvidovre]] — Local clinical quality assessment for Indicator 5 stroke prevention.
-- [[ishoej|Ishøj]] — Indicator 5 municipal data tracking stroke events and anticoagulation treatment outcomes.
-- [[jammerbugt|Jammerbugt]] — Statistical registry data for Indicator 5 ischemic stroke prevention.
-- [[kalundborg|Kalundborg]] — Municipal Indicator 5 metrics evaluating local apoplexy prevention via anticoagulants.
-- [[kerteminde|Kerteminde]] — Indicator 5 stroke prevention data, heavily redacted due to small local cohort sizes.
-- [[koebenhavn|København]] — Indicator 5 stroke metrics, categorized under the "Byen København" health cluster.
-- [[koege|Køge]] — Municipal Indicator 5 benchmarking data detailing local stroke event rates.
-- [[laesoe|Læsø]] — Indicator 5 data showing a 0.0% event rate for stroke prevention among a small patient cohort.
-- [[lejre|Lejre]] — Municipal Indicator 5 snapshot for local healthcare benchmarking and quality development.
-- [[lemvig|Lemvig]] — DanStroke-based Indicator 5 calculations for municipal stroke prevention metrics.
-- [[lolland|Lolland]] — Indicator 5 municipal performance data, noting the locality did not meet the target.
-- [[lyngby-taarbaek|Lyngby-Tårbæk]] — Local Indicator 5 metrics tracking ischemic stroke prevention outcomes.
-- [[mariagerfjord|Mariagerfjord]] — Municipal Indicator 5 data for benchmarking local stroke prevention quality.
-- [[middelfart|Middelfart]] — Tabular Indicator 5 metrics detailing local stroke events among AF patients.
-- [[morsoe|Morsø]] — Municipal Indicator 5 statistical outputs for ischemic stroke prevention.
-- [[norddjurs|Norddjurs]] — Indicator 5 geographic data point for local clinical quality benchmarking.
-- [[nordfyns|Nordfyns]] — Municipal Indicator 5 data tracking stroke events and patient counts.
-- [[nyborg|Nyborg]] — Local Indicator 5 performance metrics derived from the DanStroke registry.
-- [[odder|Odder]] — Municipal Indicator 5 data detailing local apoplexy events and confidence intervals.
-- [[odsherred|Odsherred]] — Indicator 5 statistical inclusion for municipal stroke prevention benchmarking.
-- [[randers|Randers]] — Municipal Indicator 5 metrics for local quality development in atrial fibrillation treatment.
-- [[rebild|Rebild]] — Indicator 5 clinical quality data tracking local ischemic stroke prevention.
-- [[ringkoebing-skjern|Ringkøbing-Skjern]] — Evaluated across Indicators 4a, 4b (anticoagulation coverage/safety), and 5 (stroke prevention).
-- [[ringsted|Ringsted]] — Municipal Indicator 5 data for local benchmarking of stroke prevention therapy.
-- [[roedovre|Rødovre]] — Indicator 5 clinical quality metrics detailing local stroke events and treatment rates.
-- [[roskilde|Roskilde]] — Municipal Indicator 5 data tracking ischemic stroke prevention via anticoagulants.
-- [[rudersdal|Rudersdal]] — Local Indicator 5 benchmarking metrics for stroke prevention outcomes.
-- [[samsoe|Samsø]] — Indicator 5 municipal data, largely masked with placeholders due to small cohort sizes.
-- [[soenderborg|Sønderborg]] — Assessed for Indicators 4a, 4b (treatment coverage and DOAC safety), and 5 (stroke prevention).
-- [[solroed|Solrød]] — Indicator 5 municipal data noting the locality did not meet the stroke prevention target.
-- [[soroe|Sorø]] — Municipal Indicator 5 metrics detailing local apoplexy events and treatment rates.
-- [[stevns|Stevns]] — Local Indicator 5 benchmarking data for municipal stroke prevention quality.
-- [[svendborg|Svendborg]] — Municipal Indicator 5 metrics tracking stroke events among local AF patients.
-- [[syddjurs|Syddjurs]] — Indicator 5 statistical outcomes for local ischemic stroke prevention benchmarking.
-- [[taarnby|Tårnby]] — Evaluated for both Indicator 5 (stroke prevention) and Indicator 6 (intracranial hemorrhage incidence).
-- [[vallensbaek|Vallensbæk]] — Municipal Indicator 5 data detailing local stroke events and confidence intervals.
-- [[varde|Varde]] — Local Indicator 5 metrics tracking ischemic stroke prevention via anticoagulation.
-- [[vejen|Vejen]] — Municipal Indicator 5 data for benchmarking local stroke prevention outcomes.
-- [[vejle|Vejle]] — Indicator 5 clinical quality metrics detailing local stroke events and patient cohorts.
-- [[vesthimmerlands|Vesthimmerlands]] — Municipal Indicator 5 data for cross-regional comparison of stroke prevention.
-- [[viborg|Viborg]] — Local Indicator 5 benchmarking metrics for ischemic stroke prevention therapy.
-- [[vordingborg|Vordingborg]] — Municipal Indicator 5 data tracking local stroke events and statistical intervals.
+- [[aabenraa|Aabenraa]] — Evaluated under Indicator 5 for ischemic stroke prevention, with specific metrics detailed on page 94 of the AFDK report.
+- [[aalborg|Aalborg]] — DanStroke-based calculations for Indicator 5 tracking stroke events among atrial fibrillation patients.
+- [[aeroe|Ærø]] — Stroke events among AF patients incorporated into Indicator 5, with metrics tabulated on page 95.
+- [[albertslund|Albertslund]] — Local data on stroke events included in detailed municipal breakdowns for Indicator 5.
+- [[alleroed|Allerød]] — DanStroke-based calculations for Indicator 5 measuring ischemic stroke prevention through anticoagulant therapy.
+- [[assens|Assens]] — Included in the municipal breakdown for Indicator 5 using DanStroke and LPR data.
+- [[ballerup|Ballerup]] — Stroke events among AF patients utilized in Indicator 5 calculations, limited to a single tabular entry.
+- [[billund|Billund]] — Municipal breakdown for Indicator 5 focusing on ischemic stroke prevention via anticoagulation.
+- [[bornholm|Bornholm]] — Evaluated under Indicator 5 and organized within the broader Sundhedsklyngerne health cluster framework.
+- [[broendby|Brøndby]] — DanStroke-based calculations for Indicator 5 tracking ischemic stroke prevention.
+- [[dragoer|Dragør]] — Municipal-level data for Indicator 5 recorded in a comprehensive table on page 93.
+- [[egedal|Egedal]] — Calculations for Indicator 5 measuring stroke prevention among atrial fibrillation patients.
+- [[esbjerg|Esbjerg]] — Tabular data context on page 94 detailing patient counts and event rates for Indicator 5.
+- [[faaborg-midtfyn|Faaborg-Midtfyn]] — Data tables for Indicator 5 tracking ischemic strokes through anticoagulant treatment.
+- [[favskov|Favrskov]] — Municipality-level breakdown on page 95 detailing local performance data for Indicator 5.
+- [[faxe|Faxe]] — Summary table on page 94 listing specific data regarding stroke events for Indicator 5.
+- [[fredensborg|Fredensborg]] — Listed in the municipal breakdown for Indicator 5, noting it did not meet the target ("Nej").
+- [[frederiksberg|Frederiksberg]] — Categorized under the Sundhedsklynge Byen Frederiksberg and evaluated for Indicator 5.
+- [[frederikssund|Frederikssund]] — DanStroke-based calculations for Indicator 5 detailing patient denominators and event counts.
+- [[frederiksvaerk-hundested|Frederiksværk-Hundested]] — Tabular breakdown with a "Ja" designation and specific statistical metrics for Indicator 5.
+- [[furesoe|Furesø]] — Data derived from the DanStroke database for Indicator 5, presented alongside statistics for all 98 municipalities.
+- [[gentofte|Gentofte]] — Cross-sectional quality assessment for Indicator 5 providing numerators, denominators, and confidence intervals.
+- [[gladsaxe|Gladsaxe]] — Geographic data point for Indicator 5 tracking stroke events via anticoagulant treatment.
+- [[glostrup|Glostrup]] — Calculations derived from the DanStroke registry for Indicator 5 to support local quality development.
+- [[greve|Greve]] — Single tabular entry on page 94 detailing stroke events and anticoagulation treatment metrics for Indicator 5.
+- [[gribskov|Gribskov]] — Statistical outputs detailing patient counts and stroke events for Indicator 5 on page 93.
+- [[guldborgsund|Guldborgsund]] — Specific metrics for Indicator 5 recorded on page 94, displaying figures and calculated rates.
+- [[hedensted|Hedensted]] — Recorded metrics for Indicator 5 including 4 events out of 1,092 patients on page 95.
+- [[helsingoer|Helsingør]] — Specific patient cohort metrics for Indicator 5, including figures of 10 out of 1,703 patients.
+- [[herlev|Herlev]] — DanStroke-based calculations for Indicator 5 measuring ischemic stroke prevention.
+- [[herning|Herning]] — Evaluated under Indicator 5 using DanStroke and LPR data for local healthcare benchmarking.
+- [[hilleroed|Hillerød]] — Listed in the dataset for Indicator 5 tracking ischemic stroke prevention via DanStroke.
+- [[hoeje-taastrup|Høje-Taastrup]] — Statistical performance metrics derived from the DanStroke registry for Indicator 5.
+- [[hoersholm|Hørsholm]] — Statistical results for Indicator 5 tabulated on page 93, tracking anticoagulant therapy.
+- [[horsens|Horsens]] — Specific performance metrics regarding stroke events for Indicator 5, recording 10 events out of 1,988 patients.
+- [[hvidovre|Hvidovre]] — Tracked under Indicator 5 for ischemic stroke prevention via anticoagulant treatment.
+- [[ishoej|Ishøj]] — Performance metrics listed in a data row for Indicator 5 on page 93.
+- [[jammerbugt|Jammerbugt]] — Statistical registry report mention for Indicator 5 tracking ischemic strokes via anticoagulation.
+- [[kalundborg|Kalundborg]] — Evaluated under Indicator 5 for ischemic apoplexy prevention using LPR and DanStroke data.
+- [[kerteminde|Kerteminde]] — Heavily redacted or suppressed metrics for Indicator 5 reflecting small patient cohorts.
+- [[koebenhavn|København]] — Falls under the Sundhedsklynge Byen København and is evaluated for Indicator 5 stroke prevention metrics.
+- [[koege|Køge]] — Geographic data point for Indicator 5 with specific statistical outcomes listed in the municipal breakdown.
+- [[laesoe|Læsø]] — Recorded 0 stroke events out of 83 relevant patients for Indicator 5, reflecting a 0.0% event rate.
+- [[lejre|Lejre]] — Statistical snapshot of local healthcare performance for Indicator 5 on page 94.
+- [[lemvig|Lemvig]] — Integrated into DanStroke-based calculations for Indicator 5 utilizing LPR records.
+- [[lolland|Lolland]] — Marked as not meeting the indicator's target ("Nej") for Indicator 5 on page 94.
+- [[lyngby-taarbaek|Lyngby-Tårbæk]] — Data regarding stroke events incorporated into DanStroke calculations for Indicator 5.
+- [[mariagerfjord|Mariagerfjord]] — Included in calculations for Indicator 5 tracking ischemic strokes through anticoagulant treatment.
+- [[middelfart|Middelfart]] — Dataset for Indicator 5 using DanStroke registry data to track stroke prevention.
+- [[morsoe|Morsø]] — Statistical outputs for Indicator 5 including event counts and confidence intervals on page 95.
+- [[norddjurs|Norddjurs]] — Detailed geographical breakdown of Indicator 5 measuring ischemic stroke prevention.
+- [[nordfyns|Nordfyns]] — Single tabular entry detailing stroke events and patient counts for Indicator 5.
+- [[nyborg|Nyborg]] — Statistical performance regarding stroke events for Indicator 5 recorded on page 94.
+- [[odder|Odder]] — Performance metrics for Indicator 5 detailing event rates and confidence intervals on page 95.
+- [[odsherred|Odsherred]] — Data regarding stroke events incorporated into DanStroke-based calculations for Indicator 5.
+- [[randers|Randers]] — Performance metrics for stroke events detailed in municipal data tables for Indicator 5.
+- [[rebild|Rebild]] — Documented in calculations for Indicator 5 tracking ischemic strokes via DanStroke.
+- [[ringkoebing-skjern|Ringkøbing-Skjern]] — Mentioned in statistical tables for Indicators 4a, 4b, and 5, assessing anticoagulation coverage and stroke prevention.
+- [[ringsted|Ringsted]] — Local data concerning stroke events incorporated into Indicator 5 on page 94.
+- [[roedovre|Rødovre]] — Performance metrics and patient counts detailed for Indicator 5 in the regional breakdown.
+- [[roskilde|Roskilde]] — Data regarding stroke events featured in DanStroke-based calculations for Indicator 5.
+- [[rudersdal|Rudersdal]] — Specific statistical data regarding stroke events documented for Indicator 5 on page 93.
+- [[samsoe|Samsø]] — Figures largely masked with placeholders for Indicator 5 due to small patient cohorts and privacy protections.
+- [[soenderborg|Sønderborg]] — Assessed for Indicators 4a, 4b, and 5, achieving a 95.5% anticoagulation treatment coverage rate.
+- [[solroed|Solrød]] — Single tabular entry showing the municipality did not meet the indicator target ("Nej") for Indicator 5.
+- [[soroe|Sorø]] — Specific performance metrics regarding apoplexy events recorded for Indicator 5 on page 94.
+- [[stevns|Stevns]] — Listed in a detailed data table for Indicator 5 providing statistical metrics and treatment rates.
+- [[svendborg|Svendborg]] — Assessed under Indicator 5 documenting 8 stroke events out of a patient base of 1,784.
+- [[syddjurs|Syddjurs]] — Listed with specific statistical outcomes regarding stroke events and patient counts for Indicator 5.
+- [[taarnby|Tårnby]] — Evaluated across Indicators 5 and 6, tracking both ischemic strokes and intracranial hemorrhage incidence.
+- [[vallensbaek|Vallensbæk]] — Data regarding stroke events included in DanStroke-based calculations for Indicator 5 on page 94.
+- [[varde|Varde]] — Metrics include the number of stroke events, calculated rates, and confidence intervals for Indicator 5.
+- [[vejen|Vejen]] — Municipality-level breakdown for Indicator 5 presenting data on stroke events among AF patients.
+- [[vejle|Vejle]] — Listed with 13 recorded events out of a cohort of 2,580 patients for Indicator 5.
+- [[vesthimmerlands|Vesthimmerlands]] — Recorded 6 events out of 887 patients for Indicator 5 on page 95.
+- [[viborg|Viborg]] — Statistical performance for Indicator 5 documented in a detailed comparative table on page 95.
+- [[vordingborg|Vordingborg]] — Specific patient counts, rates, and statistical intervals for stroke prevention metrics for Indicator 5.
 
 ## Navigation
 

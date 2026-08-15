@@ -4,17 +4,18 @@ type: index
 aliases:
   - Countries
 wiki: rkkp-afdk
-updated: '2026-08-05T22:50:48.847Z'
+updated: '2026-08-14T23:39:38.988Z'
 children:
   - danmark.md
+  - index.md
 ---
 # Countries
 
-This folder catalogs sovereign nations that act as national aggregates and primary benchmark units in the clinical quality reports. It currently contains the profile for Denmark, which establishes the baseline epidemiological metrics and comparative standards for atrial fibrillation care across the entire Danish healthcare system. By tracking nationwide performance on clinical indicators, complications, and mortality, this national entity provides the overarching context against which regional and local hospital data are evaluated.
+This folder contains country-level geographic entities that serve as national benchmarks in the corpus. Currently, it holds the page for Denmark, which acts as the overarching baseline for evaluating clinical quality indicators, epidemiological trends, and treatment standards in atrial fibrillation care. The national data aggregated here allows for direct comparison against regional and local healthcare clusters to identify geographical variations and outcome disparities.
 
 ## Pages
 
-- [[danmark|Danmark]] — The national geographic aggregate and primary benchmark unit for atrial fibrillation clinical quality indicators, encompassing regional subdivisions and nationwide epidemiological data.
+- [[danmark|Danmark]] — The national geographic area and primary benchmark unit for all clinical quality indicators, epidemiology, and mortality outcomes in the Danish atrial fibrillation registries.
 
 ## Navigation
 

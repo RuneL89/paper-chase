@@ -4,17 +4,20 @@ type: index
 aliases:
   - Policy Decision
 wiki: rkkp-afdk
-updated: '2026-08-05T23:41:17.807Z'
+updated: '2026-08-15T00:43:52.226Z'
 children:
+  - index.md
   - policy-decision.md
+  - udviklingsmaal-95-procent.md
 ---
 # Policy Decision
 
-This area covers the administrative decisions surrounding the retention, evaluation, and fulfillment of clinical quality indicators and their associated standards. Across the 2023 and 2024 reporting periods, it documents how governing bodies choose to maintain specific metrics and rigorous target thresholds to ensure longitudinal tracking, even when national performance consistently falls short of the established benchmarks.
+This folder documents the formal evaluations, rulings, and benchmarks established by the AFDK steering group and health authorities regarding clinical quality indicators. It covers the overarching rationale for retaining or adjusting clinical standards based on longitudinal performance data, alongside specific politically established targets like the ≥95% development goal for thyroid-stimulating hormone testing. Together, these pages illustrate how systemic underperformance, data infrastructure barriers, and methodological realities shape healthcare quality policies in Danish cardiology.
 
 ## Pages
 
-- [[policy-decision|Policy Decision]] — Details the administrative choices to retain indicators such as Indikator 2, 3, 4a3, 4b, and 6 alongside their standards, highlighting a policy preference for continuous monitoring over dropping metrics that fail to meet national targets.
+- [[policy-decision|Policy Decision]] — Details the steering group's formal rulings on retaining, adjusting, or benchmarking clinical indicators and standards based on longitudinal performance data.
+- [[udviklingsmaal-95-procent|"Udviklingsmålet på ≥95%"]] — Analyzes the politically established ≥95% benchmark for TSH testing at new atrial fibrillation diagnoses, highlighting its universal failure across national, regional, and cluster levels.
 
 ## Navigation
 
@@ -27,13 +30,18 @@ This area covers the administrative decisions surrounding the retention, evaluat
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -49,11 +57,16 @@ This area covers the administrative decisions surrounding the retention, evaluat
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]
@@ -61,6 +74,6 @@ This area covers the administrative decisions surrounding the retention, evaluat
 
 ## Statistics
 
-- Pages: 1
+- Pages: 2
 - Sub-folders: 0
 - Sources: 0

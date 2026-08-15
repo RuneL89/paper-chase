@@ -1,0 +1,174 @@
+---
+title: akdb-2025-part-021
+type: document
+wiki: rkkp-akdb
+sources:
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: 101-105
+    extracted: '2026-08-15T06:36:31.311Z'
+    sha256: b3099c1a5800535207e0093992b7a9c766b755267906735fff183b49f48b6701
+updated: '2026-08-15T06:36:31.311Z'
+---
+
+## Extracted Text: Pages 101-105
+
+101
+Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut
+Diagnose- og inklusionskriterier
+Inklusionskriterier
+Populationen omfatter alle patienter der behandles med akut højrisiko abdominalkirurgi på danske sygehuse.
+Kontakterne* identificeres i LPR. Følgende inklusionskriterier er gældende:
+* Når en patient kommer på sygehuset, registreres der en kontakt i LPR.
+- kontakt med fysisk fremmøde [ALCA00]
+- prioritet: ”akut” [ATA1*] i LPR.
+o A- eller B-diagnoser: DK251, DK252*, DK255*, DK256*, DK261*, DK262*, DK265*, DK266*,
+DK271*, DK272*, DK275*, DK276*, DK550*, DK551*, DK552*, DK559*, DK560*, DK561*,
+DK562*, DK563*, DK564*, DK565*, DK566*, DK567*, DK631*, DK65*, DK658*, DK660*,
+DK572A*, DK572B*, DK570A*, DK570B*, DK572*, DK570*, DT813A, DT813A1, DT813A2,
+DK400, DK401, DK403, DK403A, DK403B, DK404, DK410, DK411, DK413, DK413A,
+DK413B, DK414, DK420, DK420A, DK421, DK430, DK431, DK433, DK434, DK436,
+DK436A, DK437, DK440, DK440A, DK441, DK450, DK450B, DK450C, DK450D, DK450E,
+DK450F, DK450G, DK450H, DK450I, DK450J, DK450K, DK450L, DK450MM DK451,
+DK451B, DK451C, DK451D, DK451E, DK451F, DK451G, DK451H, DK451I, DK451J,
+DK451K, DK451L, DK451M
+- og samtidig en af koderne:
+o Procedurekoder: KJAH00*, KJAH01*, KJFB00*, KJFB01*, KJFB20*, KJFB21*, KJFB30*,
+KJFB30A*, KJFB31*, KJFB31A*, KJFB43*, KJFB44*, KJFB46*, KJFB47*, KJFB60*,
+KJFB61*, KJFK00*, KJFK01*, KJFK10*, KJFK20*, KJFK96*, KJFK97*, KJFH10*, KJWF00*,
+KJDH00*, KJDH70*, KJDH71*, KJFF10*, KJFF11*, KJFF13*, KJFF23*, KJFF24*, KJFF26*,
+KJFF27*, KJAK00*, KJDA60*, KJDA61*, KJDC00*, KJDC10*, KJDC11*, KJFA00*, KJFA10*,
+KJFA80*, KJFA81*, KJFL10*, KJFL11*, KJMA10*, KJWC00*, KJWE00*,
+KJAK01*KJAK03*KJAK04*
+* betyder at alle underkoder er inkluderede i søgningen.
+Bemærk vedr. konstruktionen af populationen, at udelukkende patienter med en relevant diagnose og
+procedurekode indgår i populationen. Hertil er lavet en udvidelse således at patienter, der udelukkende har
+en relevant diagnose, men som ikke er opererede indgår i supplerende opgørelser på mortalitet således at
+man kan monitorere, om der sker et indikationsskred.
+Eksklusioner
+Kontakter registreret på afdelinger med følgende specialer, jf. SOR*:
+- Gynækologi og obstetrik
+- Urologi
+*SOR står for Sundhedsvæsenets Organisationsregister og er et register over alle aktører i det danske
+sundhedsvæsen.
+Dannelse af forløb
+Patientforløb i AKDB dannes ved at samle alle LPR kontakter som på hinanden følgende er ≤ 4 timer mellem
+hinanden og som indeholder den kontakt, der giver anledning til inklusion i databasen, altså en kontakt med
+102
+Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut
+relevant diagnose- og procedurekode (indexkontakten2) (Figur 1). Denne analytiske definition af forløb svarer
+til anbefalingerne fra Sundhedsdatastyrelsens teknikergruppe [1].
+Figur 1: Forløbsdannelse
+Et patientforløb der indgår i AKDB, kan starte med at patienten ankommer til sygehuset og inkluderes i
+databasen på første kontakt, hvor der stilles en diagnose. Men det er også en mulighed, at en patient
+allerede er indlagt og pludselig oplever en forværring, som giver anledning til inklusion i AKDB.
+Bemærk at enheden for analyser i indikatorerne altid er forløb. Dvs., hvis den samme patient har fået flere
+operationer, vil kun den første operation være gældende i indikatorberegningen. Databasen har information
+om alle operationer, men analyseenheden er forløb. Dette skyldes, en række patienter opereres flere gange
+på hvert forløb. Når der laves indikatorer på eksempelvis mortalitet, vil det betyde, at patienter kan optræde
+som døde flere gange, hvis hver operation bruges i analyserne. Den første relevante operation i forløbet er
+valgt, idet det vil være den primære operation og evt. følgende operationer kan enten være planlagte eller
+uplanlagte reoperationer, og derfor en mere heterogen gruppe, end de første operationer.
+Et forløb i AKDB kan således bestå af både ophold på andre afdelinger uden akutte formål, ophold på
+akutafdelinger, ophold på kirurgiske afdelinger og ophold på intermediære eller intensivafsnit.
+Det forløb, der ønskes monitorering på i databasen, er karakteriseret ved en række hændelser som er
+relevante for beregningerne af de specifikke indikatorer (Figur 2: Hændelser i AKDB-forløb Hændelserne
+monitoreres i kvalitetsindikatorer, som beskrevet i resten af indeværende dokument.
+Figur 2: Hændelser i AKDB-forløb
+2 Indexkontakt: Den kontakt, der giver anledning til inklusion i databasens population, altså hvor kriterierne
+for inklusion er opfyldt.
+Kontakt Index-kontakt Kontakt
+4 timer 4 timer
+Forløb
+103
+Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut
+Datagrundlag
+Denne rapport inkluderer 3.778 patienter, som blev opererede og 6.646 patienter med en relevant diagnose,
+men som ikke blev opererede i perioden 1. september 2024 til 31. august 2025. Udtrækket til analyserne er
+foretaget d. 14/11-2025.
+Idet databasen er baseret på data fra LPR og der ikke eksisterer en anden datakilde til sammenligning, er
+der ikke beregnet dækningsgrad og overensstemmelse. Det er således ekstra vigtigt, alle hospitaler validerer
+egen population.
+Data til Akut Kirurgi Databasen dannes som beskrevet på baggrund af LPR. Etableringen af en database
+med populationsdannelse i LPR giver naturligt anledning til at relevante afdelinger gennemgår egen
+kodepraksis, og man vil derfor også forvente at se en tilpasning af populationsstørrelsen over tid. Mhp. at
+sikre, denne udvikling finder sted på en måde, hvor alle relevante patienter fortsat er repræsenteret i
+databasen, har AKDB fra begyndelsen haft supplerende indikatorer med den ikke-opererede population.
+Således er det muligt at følge udviklingen i, hvor mange af de relevante patienter, der tilbydes operation i
+databasens (LPR-baserede) periode.
+Nedenstående tabel viser antallet af patienter i databasen, antal opererede, antal ikke-opererede og andelen
+af opererede patienter i perioden siden overgangen til LPR.
+År Total Opererede Ikke-opererede Andel
+opererede
+
+| 2024-2025 | 10.424 | 3.778 | 6.646 | 36 | % |
+| --- | --- | --- | --- | --- | --- |
+| 2023-2024 | 9.906 | 3.668 | 6.238 | 37 | % |
+| 2022-2023* | 10.013 | 3.697 | 6.316 | 37 | % |
+| 2021-2022 | 8.718 | 3.134 | 5.584 | 36 | % |
+| 2020-2021 | 12.389 | 2.600 | 9.789 | 21 | % |
+| 2019-2020 | 11.780 | 6.932 | 4.848 | 59 | % |
+
+*Bemærk, at årsrapporterne fra 2022-2023 opgøres i forløb i stedet for operationer.
+Dækningsgrad og datakomplethed
+Det er afgørende, at databasen dækker den ønskede population, og det er således nødvendigt løbende at
+validere populationen og sikre at registreringspraksis afspejler behandlingspraksis. Populationerne betragtes
+som indikator population for akutte kirurgiske patienter og der forventes en systematisk afsmittende effekt på
+andre kirurgiske højrisiko populationer, der ikke er inkluderet pga. diagnoser udenfor inklusionskriterier,
+procedurer uden for kriterier eller ingen af delene. Databasen understøtter STPS risikobaserede tilsyn og
+Danske regioners arbejde med lærings og kvalitets teams.
+I forhold til definitionen af populationen, er det således væsentligt at populationen i databasen er den
+population, man ønsker at monitorere kvaliteten for, dvs. AHA-populationen (Akut Højrisiko
+Abdominalkirurgi). Nedenstående figur illustrerer, hvilke vanskeligheder, der er forbundet hermed.
+104
+Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut
+Figur 3: Populationsproblematik
+Populationen er indtil videre valideret ved at afdelinger har fået tilsendt en liste med CPR-numre og de
+procedurer, der er registreret i databasen. Således har specifikke lister været sendt til Region Nordjylland,
+Region Midtjylland, Region Syddanmark og Region Hovedstaden, hvor der er sammenlignet med
+registreringer i de lokale journalsystemer. Vurderingerne blev foretaget både på CPR-niveau – altså om
+patienten var relevant, samt på diagnoser og procedurer, altså på om diagnoserne var ens og om de
+procedurer, der indgår i AKDB kunne genfindes i journalsystemerne. Der blev ikke foretaget systematisk
+dataindsamling, som kan afrapporteres.
+Data på population og indikatorer har været tilgængelige i de regionale ledelsesinformationssystemer (LIS)
+siden september 2020. Det er således muligt for alle relevante sygehuse og afdelinger at matche egen
+population op mod det givne i LIS.
+Lokal validering
+Det kan være vanskeligt at lave lokal validering og/eller at gennemskue, hvorfor man måtte opleve, at lokale
+opgørelser ikke svarer til det, man kan finde i databasen eller i årsrapporten. I disse tilfælde vil vi gerne
+opfordre til, man kontakter databasens team, som altid stiller op til møder om databasens indhold. På denne
+måde kan man få afklaret, om problemer handler om faktisk behandling, registrering, eller overførsel af data
+og få problemet løst.
+Idet databasens population er blevet ændret i forhold til tidligere samtidig med at indberetningen nu foregår
+udelukkende via Landspatientregisteret, kan det forekomme uklart, hvordan populationen i rapporten og i det
+lokale LedelsesInformationsSystem (LIS) matcher den population, man ser i klinisk praksis. Derfor kan der
+være mening i at sammenligne de to. Her følger en guide til, hvordan man får lavet et udtræk fra LIS, så man
+kan sammenholde med EPJ.
+Der er muligt at bede den lokal kvalitetsafdeling om et dataudtræk af KKA-leverancen for databasen i
+forbindelse med en lokal validering.
+Hvad skal der kigges efter
+Det er vigtigt at undersøge om det er den rigtige patientpopulation, som databasen fanger, samt om
+oplysningerne er korrekte eller mangelfulde med henblik på eventuel efterregistrering.
+• At antallet af patienter, stemmer overens med EPJ'en.
+105
+Akut Kirurgi Databasen
+Udkast 2026.01.05
+Sundhedsvæsenets Kvalitetsinstitut
+• At det er de rigtige patienter.
+• At dato for operation er korrekt.
+• Eventuelt om resten af oplysningerne stemmer overens med EPJ'en.
+Hvad skal man bede om i udtrækket
+Det er vigtigt at man har den rigtige patientpopulation, da databasen indeholder både patienter som KUN har
+en inklusions diagnose og patienter som har både inklusions diagnose samt inklusions operation. Opskriften
+herunder udtrækker kun de patienter som har både en inklusions diagnose samt en inklusions operation.
+1. Databasens KKA-forkortelse: AKDB.
+2. Patientpopulationen som har en inklusions diagnose og operation: Variablen Opereret = 1.
+3. Periodeafgrænsning: Variablen T_0 benyttes.
+På hospitalsniveau: Variablen Forloeb_SORKode

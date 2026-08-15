@@ -77,7 +77,7 @@ Summary: Tabellen sammenligner målopfyldelsen af Indikator 4 på nationalt, reg
 ## Related comparisons in prose
 
 - "Indikator 4 har en standard på ≥ 90 % for andelen af behandlingsforløb, hvor der er foretaget koordinerende netværksmøde" — see [[quality-standard|Quality Standard]] (Indikator 4) [^src3]
-- "Standarden for både Indikator 4 og Indikator 5 er 90 %" — see [[standard|Standard]] (Indikator 4) [^src4]
+- "Standarden for både Indikator 4 og Indikator 5 er 90 %" — see [[quality-standard|Standard]] (Indikator 4) [^src4]
 - "Regional variation for Indikator 2b går fra 31 % i Region Sjælland, Midtjylland og Nordjylland til 77 % i Region Syddanmark." — see [[performance|Performance]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src5]
 - "På landsplan fik kun 19 % af ADHD-patienter i pakkeforløb gennemført et koordinerende netværksmøde inden for tidsfristen" — see [[performance|Performance]] (Indikator 4) [^src4]
 - "Der er ikke nogen regioner, der opfylder indikatorerne for psykoedukation, psykoterapi eller vurdering af sociale støttebehov for voksenpopulationen" — see [[performance|Performance]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src6]

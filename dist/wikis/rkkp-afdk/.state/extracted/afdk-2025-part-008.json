@@ -1,0 +1,412 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 5",
+      "type": "quality-indicator",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Indikator 5 er den centrale kvalitetsmåling for forebyggelse af iskæmisk apopleksi blandt prævalente patienter med atrieflimren i Danmark, og dets beregningsgrundlag, variation og opfyldelse udgør kerneindholdet på siderne 36–40.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren (LPR-baseret)"
+        },
+        {
+          "page": 37,
+          "context": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren. Kontroldiagram på regionsniveau."
+        },
+        {
+          "page": 38,
+          "context": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren. Kontroldiagram på klyngeniveau."
+        },
+        {
+          "page": 39,
+          "context": "Indikator 5 opgøres for alle prævalente patienter med en atrieflimren-diagnose"
+        },
+        {
+          "page": 40,
+          "context": "Styregruppen har ud fra de aktuelle data og litteraturen vurderet, at incidensraten for iskæmisk apopleksi blandt prævalente patienter med atrieflimren bør være mindre end 1%, og har valgt at sætte en udviklingsmål på ≤ 0,8 per 100 risiko år. Udviklingsmålet opfyldes i flertallet af regionerne og sundhedsklyngerne."
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregisteret (LPR) er det primære datagrundlag for Indikator 5, da det anvendes i stedet for DanStroke på grund af manglende indberetninger i DanStroke, og dets brug påvirker både validiteten og fortolkningen af apopleksitilfældene i indikatoren.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke. Det skyldes, at DanStroke har været ramt af manglende indberetninger af apopleksitilfælde grundet overgangen til en ny indberetningsmodel i databasen samt enkelt regioners omlægning til nyt EPJ system. Ved at anvende LPR data er nærværende indikator ikke påvirket af de ovenfornævnte forhold i DanStroke."
+        },
+        {
+          "page": 39,
+          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64) som aktionsdiagnose samt patientforløb med aktionsdiagnosen \"Kontakt mhp. anden fysioterapi\" (DZ501) i kombination med bi-diagnosen DI63 eller DI64."
+        }
+      ]
+    },
+    {
+      "name": "DanStroke",
+      "type": "database",
+      "slug": "danstroke",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "DanStroke er en alternativ apopleksidatabase, som ikke anvendes til Indikator 5 på grund af systemiske indberetningsproblemer, hvilket gør LPR til det foretrukne datagrundlag og understreger begrænsningerne ved brug af registerdata.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke. Det skyldes, at DanStroke har været ramt af manglende indberetninger af apopleksitilfælde grundet overgangen til en ny indberetningsmodel i databasen samt enkelt regioners omlægning til nyt EPJ system."
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge",
+      "type": "organizational-structure",
+      "slug": "sundhedsklynge",
+      "folder": "topics/organizational",
+      "significance": "Sundhedsklynge er en administrativ og klinisk organisering af sundhedsydelser i Danmark, og dens niveau er et centralt analyseenhed for Indikator 5, hvor variationen mellem klyngerne (0,5–1,1 %) viser geografisk ulighed i apopleksiforebyggelse.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Sundhedsklynge"
+        },
+        {
+          "page": 38,
+          "context": "Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren. Kontroldiagram på klyngeniveau."
+        },
+        {
+          "page": 39,
+          "context": "Variationen på klyngeniveau er i niveauet 0,5-1,1%. Selvom populationerne med overgangen fra bopælskommune til bopælsklynge er større, er der stadig en vis tilfældig variation i estimaterne, da ganske få stroke tilfælde kan ændre andelene. Resultaterne på klyngeniveau skal således fortolkes med en vis forsigtighed."
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Region Hovedstaden er den region med højeste registrerede incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren (1,0 %), og dermed en af de to regioner, der ikke opfylder udviklingsmålet på ≤ 0,8 %.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Hovedstaden Nej 383 / 38.830 0 (0) 1,0 (0,9-1,1) 377 / 37.640 1,0 0,9"
+        },
+        {
+          "page": 39,
+          "context": "På regionsniveau varierede incidensen fra 0,6% i Region Nordjylland til 1,0% i Region Hovedstaden. Dermed opfylder tre regioner (Nordjylland, Midtjylland og Syddanmark) udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet."
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Nordjylland er den region med laveste registrerede incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren (0,6 %), og dermed en af de tre regioner, der opfylder udviklingsmålet på ≤ 0,8 %.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Nordjylland Ja 122 / 14.929 0 (0) 0,8 (0,7-1,0) 125 / 14.777 0,8 0,7"
+        },
+        {
+          "page": 39,
+          "context": "På regionsniveau varierede incidensen fra 0,6% i Region Nordjylland til 1,0% i Region Hovedstaden. Dermed opfylder tre regioner (Nordjylland, Midtjylland og Syddanmark) udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet."
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Midtjylland er en af de tre regioner, der opfylder udviklingsmålet på ≤ 0,8 % for Indikator 5, og har samtidig den laveste andel af patienter, der udvikler iskæmisk apopleksi 1 år efter diagnosen (0,7 %).",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Midtjylland Ja 195 / 30.615 0 (0) 0,6 (0,6-0,7) 199 / 29.980 0,7 0,7"
+        },
+        {
+          "page": 39,
+          "context": "På regionsniveau varierede incidensen fra 0,6% i Region Nordjylland til 1,0% i Region Hovedstaden. Dermed opfylder tre regioner (Nordjylland, Midtjylland og Syddanmark) udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet."
+        },
+        {
+          "page": 39,
+          "context": "I Appendiks rapporteres andelen af patienter der udvikler iskæmisk apopleksi 1 år efter diagnosen atrieflimren er stillet. På landsplan udviklede 1,1% apopleksi varierende fra 0,7% i Region Midtjylland til 1,4% i Region Sjælland."
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Region Syddanmark er en af de tre regioner, der opfylder udviklingsmålet på ≤ 0,8 % for Indikator 5, og har samtidig den laveste andel af patienter med iskæmisk apopleksi 1 år efter diagnosen blandt de regioner, der rapporteres i appendiksen (0,7 %).",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Syddanmark Ja 249 / 31.414 0 (0) 0,8 (0,7-0,9) 225 / 31.289 0,7 0,7"
+        },
+        {
+          "page": 39,
+          "context": "På regionsniveau varierede incidensen fra 0,6% i Region Nordjylland til 1,0% i Region Hovedstaden. Dermed opfylder tre regioner (Nordjylland, Midtjylland og Syddanmark) udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet."
+        },
+        {
+          "page": 39,
+          "context": "I Appendiks rapporteres andelen af patienter der udvikler iskæmisk apopleksi 1 år efter diagnosen atrieflimren er stillet. På landsplan udviklede 1,1% apopleksi varierende fra 0,7% i Region Midtjylland til 1,4% i Region Sjælland."
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Region Sjælland er en af de to regioner, der ikke opfylder udviklingsmålet på ≤ 0,8 % for Indikator 5 (0,9 %), og har samtidig den højeste andel af patienter, der udvikler iskæmisk apopleksi 1 år efter diagnosen (1,4 %), hvilket peger på særlige udfordringer i forebyggelsen.",
+      "mentions": [
+        {
+          "page": 36,
+          "context": "Sjælland Nej 198 / 23.101 0 (0) 0,9 (0,7-1,0) 196 / 22.637 0,9 1,0"
+        },
+        {
+          "page": 39,
+          "context": "På regionsniveau varierede incidensen fra 0,6% i Region Nordjylland til 1,0% i Region Hovedstaden. Dermed opfylder tre regioner (Nordjylland, Midtjylland og Syddanmark) udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet."
+        },
+        {
+          "page": 39,
+          "context": "I Appendiks rapporteres andelen af patienter der udvikler iskæmisk apopleksi 1 år efter diagnosen atrieflimren er stillet. På landsplan udviklede 1,1% apopleksi varierende fra 0,7% i Region Midtjylland til 1,4% i Region Sjælland."
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "drug-class",
+      "slug": "doac",
+      "folder": "entities/codes/drug-classes",
+      "significance": "DOAC (direkte orale antikoagulanter) er en af de to primære antikoagulantbehandlinger, hvis anvendelse sammenlignes med marevan i forhold til forekomsten af iskæmisk apopleksi, og andelen af patienter med apopleksi er 0,86 % blandt DOAC-brugere.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "I Appendiks rapporteres andele af patienter i behandling med DOAC og/eller marevan, eller ingen af disse, der har haft en iskæmisk apopleksi i årsrapportsperioden. Andelen af patienter med iskæmisk apopleksi er 0,86% for DOAC og 0,88% for marevan."
+        }
+      ]
+    },
+    {
+      "name": "marevan",
+      "type": "pharmaceutical",
+      "slug": "marevan",
+      "folder": "entities/pharmaceuticals/anticoagulants",
+      "significance": "Marevan er en vitamin-K-antagonist og en af de to primære antikoagulantbehandlinger, hvis anvendelse sammenlignes med DOAC i forhold til forekomsten af iskæmisk apopleksi, og andelen af patienter med apopleksi er 0,88 % blandt marevan-brugere.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "I Appendiks rapporteres andele af patienter i behandling med DOAC og/eller marevan, eller ingen af disse, der har haft en iskæmisk apopleksi i årsrapportsperioden. Andelen af patienter med iskæmisk apopleksi er 0,86% for DOAC og 0,88% for marevan."
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "group",
+      "slug": "afdk-styregruppe",
+      "folder": "entities/groups/patient-advocacy",
+      "significance": "Styregruppen er den beslutningskompetente gruppe, der har fastsat udviklingsmålet på ≤ 0,8 % for Indikator 5 og vurderet, at målet og indikatoren skal fastholdes baseret på aktuelle data og litteratur.",
+      "mentions": [
+        {
+          "page": 40,
+          "context": "Styregruppen har ud fra de aktuelle data og litteraturen vurderet, at incidensraten for iskæmisk apopleksi blandt prævalente patienter med atrieflimren bør være mindre end 1%, og har valgt at sætte en udviklingsmål på ≤ 0,8 per 100 risiko år."
+        },
+        {
+          "page": 40,
+          "context": "Indikatoren og udviklingsmålet fastholdes."
+        }
+      ]
+    },
+    {
+      "name": "DI63",
+      "type": "diagnosis-code",
+      "slug": "di63",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI63 er en ICD-10-kode for iskæmisk apopleksi, der anvendes i Landspatientregisteret til identifikation af apopleksitilfælde i beregningen af Indikator 5.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64) som aktionsdiagnose samt patientforløb med aktionsdiagnosen \"Kontakt mhp. anden fysioterapi\" (DZ501) i kombination med bi-diagnosen DI63 eller DI64."
+        }
+      ]
+    },
+    {
+      "name": "DI64",
+      "type": "diagnosis-code",
+      "slug": "di64",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI64 er en ICD-10-kode for iskæmisk apopleksi, der anvendes i Landspatientregisteret til identifikation af apopleksitilfælde i beregningen af Indikator 5.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64) som aktionsdiagnose samt patientforløb med aktionsdiagnosen \"Kontakt mhp. anden fysioterapi\" (DZ501) i kombination med bi-diagnosen DI63 eller DI64."
+        }
+      ]
+    },
+    {
+      "name": "DZ501",
+      "type": "diagnosis-code",
+      "slug": "dz501",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DZ501 er en ICD-10-kode for 'Kontakt mhp. anden fysioterapi', der anvendes i kombination med DI63 eller DI64 i Landspatientregisteret for at identificere apopleksitilfælde i Indikator 5, hvilket afspejler en specifik beregningsregel for at sikre fuldstændighed.",
+      "mentions": [
+        {
+          "page": 39,
+          "context": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64) som aktionsdiagnose samt patientforløb med aktionsdiagnosen \"Kontakt mhp. anden fysioterapi\" (DZ501) i kombination med bi-diagnosen DI63 eller DI64."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-5",
+      "predicate": "is-based-on",
+      "object": "landspatientregisteret",
+      "evidence": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke.",
+      "page": 39
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "excludes",
+      "object": "danstroke",
+      "evidence": "Indikatoren er opgjort på baggrund af data om akut apopleksi fra LPR frem for databasen DanStroke.",
+      "page": 39
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "has-target",
+      "object": "afdk-styregruppe",
+      "evidence": "Styregruppen har ud fra de aktuelle data og litteraturen vurderet, at incidensraten for iskæmisk apopleksi blandt prævalente patienter med atrieflimren bør være mindre end 1%, og har valgt at sætte en udviklingsmål på ≤ 0,8 per 100 risiko år.",
+      "page": 40
+    },
+    {
+      "subject": "landspatientregisteret",
+      "predicate": "contains-code",
+      "object": "di63",
+      "evidence": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64) som aktionsdiagnose",
+      "page": 39
+    },
+    {
+      "subject": "landspatientregisteret",
+      "predicate": "contains-code",
+      "object": "di64",
+      "evidence": "Fra Landspatientregisteret er der udtrukket patientforløb med apopleksi (DI63 og DI64) som aktionsdiagnose",
+      "page": 39
+    },
+    {
+      "subject": "landspatientregisteret",
+      "predicate": "contains-code",
+      "object": "dz501",
+      "evidence": "patientforløb med aktionsdiagnosen \"Kontakt mhp. anden fysioterapi\" (DZ501) i kombination med bi-diagnosen DI63 eller DI64.",
+      "page": 39
+    }
+  ],
+  "claims": [
+    {
+      "text": "Udviklingsmålet for Indikator 5 er ≤ 0,8% [^src1]",
+      "type": "quality-indicator-target",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 36
+    },
+    {
+      "text": "Den nationale incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren er 0,8% [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "indikator-5",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "page": 39
+    },
+    {
+      "text": "Tre regioner (Nordjylland, Midtjylland og Syddanmark) opfylder udviklingsmålet, mens Sjælland og Hovedstaden ligger over udviklingsmålet [^src1]",
+      "type": "comparative-result",
+      "entities": [
+        "region-nordjylland",
+        "region-midtjylland",
+        "region-syddanmark",
+        "region-sjaelland",
+        "region-hovedstaden"
+      ],
+      "page": 39
+    },
+    {
+      "text": "Variationen på klyngeniveau er i niveauet 0,5–1,1% [^src1]",
+      "type": "geographic-distribution",
+      "entities": [
+        "sundhedsklynge"
+      ],
+      "page": 39
+    },
+    {
+      "text": "Andelen af patienter med iskæmisk apopleksi 1 år efter diagnosen atrieflimren er stillet er 1,1% på landsplan [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 39
+    },
+    {
+      "text": "64,8% af atrieflimren patienter der var indlagt med iskæmisk apopleksi havde indløst AK-behandling indenfor 100 dage før indlæggelsesdatoen [^src1]",
+      "type": "clinical-practice",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 39
+    },
+    {
+      "text": "Andelen af patienter med iskæmisk apopleksi er 0,86% for DOAC og 0,88% for marevan [^src1]",
+      "type": "pharmacovigilance",
+      "entities": [
+        "doac",
+        "marevan"
+      ],
+      "page": 39
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2024 - 30.06.2025",
+      "event": "Opfølgningssperiode for Indikator 5",
+      "entities": [
+        "indikator-5"
+      ]
+    },
+    {
+      "date": "01. juli 2023",
+      "event": "Referencestidspunkt for definition af prævalent population med atrieflimren",
+      "entities": [
+        "indikator-5"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-5",
+      "title": "Indikator 5: Incidens af apopleksi blandt prævalente patienter med atrieflimren (LPR-baseret)",
+      "page": 36,
+      "rowDimension": "geografisk enhed",
+      "colDimension": "indikatorværdi og udviklingsmål",
+      "entities": [
+        "indikator-5",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "sundhedsklynge"
+      ],
+      "markdown": "| Geografisk enhed | Udviklingsmål | Tæller/antal | 01.07.2024 - 30.06.2025 | 2023/24 | 2022/23 |\n| --- | --- | --- | --- | --- | --- |\n| Danmark | ≤ 0,8% | 1.147 / 138.889 | 0 (0) 0,8 (0,8-0,9) | 1.122 / 136.323 | 0,8 0,8 |\n| Hovedstaden | ≤ 0,8% | 383 / 38.830 | 0 (0) 1,0 (0,9-1,1) | 377 / 37.640 | 1,0 0,9 |\n| Sjælland | ≤ 0,8% | 198 / 23.101 | 0 (0) 0,9 (0,7-1,0) | 196 / 22.637 | 0,9 1,0 |\n| Syddanmark | ≤ 0,8% | 249 / 31.414 | 0 (0) 0,8 (0,7-0,9) | 225 / 31.289 | 0,7 0,7 |\n| Midtjylland | ≤ 0,8% | 195 / 30.615 | 0 (0) 0,6 (0,6-0,7) | 199 / 29.980 | 0,7 0,7 |\n| Nordjylland | ≤ 0,8% | 122 / 14.929 | 0 (0) 0,8 (0,7-1,0) | 125 / 14.777 | 0,8 0,7 |\n| Sundhedsklynge Bornholm | ≤ 0,8% | 7 / 1.318 | 0 (0) 0,5 (0,2-1,1) | 11 / 1.307 | 0,8 1,0 |\n| Sundhedsklynge Byen | ≤ 0,8% | 112 / 10.622 | 0 (0) 1,1 (0,9-1,3) | 98 / 10.347 | 0,9 0,7 |\n| Sundhedsklynge Midt | ≤ 0,8% | 117 / 11.163 | 0 (0) 1,0 (0,9-1,3) | 112 / 10.794 | 1,0 1,1 |\n| Sundhedsklynge Nord | ≤ 0,8% | 87 / 9.193 | 0 (0) 0,9 (0,8-1,2) | 91 / 8.783 | 1,0 0,9 |\n| Sundhedsklynge Syd | ≤ 0,8% | 60 / 6.534 | 0 (0) 0,9 (0,7-1,2) | 65 / 6.409 | 1,0 0,8 |\n| Sundhedsklyngen Holbæk | ≤ 0,8% | 43 / 5.088 | 0 (0) 0,8 (0,6-1,1) | 39 / 4.925 | 0,8 0,9 |\n| Sundhedsklyngen Nykøbing F | ≤ 0,8% | 38 / 4.666 | 0 (0) 0,8 (0,6-1,1) | 39 / 4.644 | 0,8 1,3 |\n| Sundhedsklyngen SUH | ≤ 0,8% | 65 / 7.437 | 0 (0) 0,9 (0,7-1,1) | 67 / 7.223 | 0,9 1,0 |\n| Sundhedsklyngen Slagelse | ≤ 0,8% | 52 / 5.910 | 0 (0) 0,9 (0,7-1,2) | 51 / 5.845 | 0,9 0,9 |\n| Sundhedsklynge Fyn | ≤ 0,8% | 119 / 11.706 | 0 (0) 1,0 (0,8-1,2) | 90 / 11.692 | 0,8 0,9 |\n| Sundhedsklynge Lillebælt | ≤ 0,8% | 50 / 7.112 | 0 (0) 0,7 (0,5-0,9) | 50 / 7.037 | 0,7 0,8 |\n| Sundhedsklynge Sydvestjylland | ≤ 0,8% | 45 / 6.182 | 0 (0) 0,7 (0,5-1,0) | 41 / 6.228 | 0,7 0,7 |\n| Sundhedsklynge Sønderjylland | ≤ 0,8% | 35 / 6.414 | 0 (0) 0,5 (0,4-0,8) | 44 / 6.332 | 0,7 0,4 |\n| Aarhusklyngen | ≤ 0,8% | 39 / 6.151 | 0 (0) 0,6 (0,5-0,9) | 51 / 5.912 | 0,9 0,8 |\n| Gødstrupklyngen | ≤ 0,8% | 38 / 7.283 | 0 (0) 0,5 (0,4-0,7) | 42 / 7.129 | 0,6 0,6 |\n| Horsensklyngen | ≤ 0,8% | 33 / 5.216 | 0 (0) 0,6 (0,4-0,9) | 28 / 5.165 | 0,5 0,7 |\n| Midtklyngen | ≤ 0,8% | 41 / 6.216 | 0 (0) 0,7 (0,5-0,9) | 44 / 6.215 | 0,7 0,6 |\n| Randersklyngen | ≤ 0,8% | 44 / 5.749 | 0 (0) 0,8 (0,6-1,0) | 34 / 5.559 | 0,6 0,8 |\n| Klynge MIDT | ≤ 0,8% | 47 / 5.505 | 0 (0) 0,9 (0,6-1,1) | 33 / 5.350 | 0,6 0,8 |\n| Klynge NORD | ≤ 0,8% | 36 / 4.828 | 0 (0) 0,7 (0,5-1,0) | 38 / 4.787 | 0,8 0,6 |\n| Klynge SYD | ≤ 0,8% | 26 / 2.813 | 0 (0) 0,9 (0,6-1,4) | 31 / 2.785 | 1,1 0,9 |\n| Klynge VEST | ≤ 0,8% | 13 / 1.783 | 0 (0) 0,7 (0,4-1,2) | 23 / 1.855 | 1,2 0,8 |",
+      "summary": "Tabellen sammenligner incidensen af iskæmisk apopleksi blandt prævalente patienter med atrieflimren på nationalt, regionalt, klyngeniveau og sundhedsklyngeniveau for perioden 01.07.2024–30.06.2025 og tidligere år, og viser, at tre regioner (Nordjylland, Midtjylland, Syddanmark) opfylder udviklingsmålet på ≤ 0,8 %, mens andre enheder ligger over eller tæt på målet."
+    }
+  ],
+  "context": "Dette dokumentudsnit fra AFDK's 2025-rapport (sider 36–40) fokuserer på kvalitetsindikator 5, som måler incidensen af iskæmisk apopleksi blandt prævalente patienter med atrieflimren i det danske sundhedsvæsen. Den beskriver metodologien (herunder brugen af Landspatientregisteret i stedet for DanStroke), præsenterer resultater på nationalt, regionalt og klygeniveau, diskuterer variationer og begrænsninger, og redegør for styregruppens vurdering af indikatorens relevans og målopfyldelse. Den indgår i den bredere narrativ om kvalitetsudvikling i behandlingen af atrieflimren og forebyggelsen af apopleksi i Danmark, som også omfatter behandlingsstandarder, risikovurdering og lægemiddelanvendelse."
+}

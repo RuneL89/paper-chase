@@ -4,17 +4,18 @@ type: index
 aliases:
   - Validation
 wiki: rkkp-afdk
-updated: '2026-08-05T23:47:27.126Z'
+updated: '2026-08-15T00:54:12.641Z'
 children:
+  - index.md
   - validation.md
 ---
 # Validation
 
-This folder addresses the methodological validation and data quality of clinical registries within the Danish healthcare system. It specifically covers the estimated high validity of patient pathways and reported data elements in the Danish Atrial Fibrillation Database (AFDK), referencing prior validation studies of atrial fibrillation diagnoses in the Danish National Patient Register. 
+This folder covers the methodological validation and accuracy of clinical registry data. It specifically addresses the estimated high validity of patient pathways and individual data elements within the Danish Atrial Fibrillation Database and the National Patient Register, relying on prior epidemiological validation studies to establish data reliability.
 
 ## Pages
 
-- [[validation|Validation]] — Details the estimated high validity of patient pathways and reported per-patient data in the Danish Atrial Fibrillation Database, supported by previous validation studies of atrial fibrillation diagnoses in the Danish National Patient Register.
+- [[validation|Validation]] — Evaluates the validity of patient pathways and reported data elements in the Danish Atrial Fibrillation Database and the National Patient Register, referencing prior validation studies.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder addresses the methodological validation and data quality of clinical
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -49,12 +55,17 @@ This folder addresses the methodological validation and data quality of clinical
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

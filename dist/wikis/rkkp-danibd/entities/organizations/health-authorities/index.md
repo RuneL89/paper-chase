@@ -4,19 +4,20 @@ type: index
 aliases:
   - Health Authorities
 wiki: rkkp-danibd
-updated: '2026-08-05T07:37:26.057Z'
+updated: '2026-08-15T07:44:55.841Z'
 children:
+  - index.md
   - regionernes-kliniske-kvalitetsudviklingsprogram.md
   - sundhedsvaesenets-kvalitetsinstitut.md
 ---
 # Health Authorities
 
-This folder contains official Danish organizational bodies responsible for clinical quality development, measurement, and oversight within the national healthcare system. It includes the administrative authorities that publish and manage the annual reports for the Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD), ensuring standardized coding, cross-regional quality monitoring, and evidence-based improvements for patients with inflammatory bowel disease.
+This folder contains the national and regional administrative bodies responsible for overseeing clinical quality development within the Danish healthcare system. The pages here catalog the official institutions that act as publishers, data controllers, and strategic authorities for the Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD), managing the analytical and compliance functions required to monitor inflammatory bowel disease treatment quality across Denmark.
 
 ## Pages
 
-- [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] — The overarching administrative and professional authority that launched and oversees the DANIBD national quality database, employing epidemiologists and data managers to monitor IBD treatment quality across Danish regions.
-- [[sundhedsvaesenets-kvalitetsinstitut|Sundhedsvæsenets Kvalitetsinstitut]] — A central governmental institution based in Aarhus that acts as the official publisher of the DANIBD annual reports and supports quality measurement implementation in collaboration with the database's steering committee.
+- [[regionernes-kliniske-kvalitetsudviklingsprogram|Regionernes Kliniske Kvalitetsudviklingsprogram]] — The overarching administrative authority and data controller for the DANIBD registry, employing the epidemiologists and data managers who produce its national monitoring reports.
+- [[sundhedsvaesenets-kvalitetsinstitut|Sundhedsvæsenets Kvalitetsinstitut]] — The central governmental institution headquartered in Aarhus that officially publishes the DANIBD annual quality reports and oversees broader healthcare quality measurement.
 
 ## Navigation
 

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Educational Outcome
 wiki: rkkp-adhd
-updated: '2026-08-05T19:19:32.456Z'
+updated: '2026-08-15T12:42:50.356Z'
 children:
   - educational-outcome.md
+  - index.md
 ---
 # Educational Outcome
 
-This folder covers the educational achievements of youths with ADHD, specifically focusing on their completion of foundational education compared to the general public. It details the pass rates for the primary school leaving exam (*folkeskolens afgangsprøve*) at age 17, contrasting the outcomes of the ADHD evaluation and treatment populations against the broader background population. The data highlights a significant educational disparity, underscoring the systemic challenges faced by students with ADHD in the Danish school system.
+This folder covers the academic achievement and school-related outcomes for youths with ADHD. It documents the substantial educational disparities between young people evaluated or treated for ADHD and their peers in the general population. Specifically, it tracks metrics such as the pass rates for the primary school leaving exam, highlighting the systemic challenges these students face in completing their foundational education.
 
 ## Pages
 
-- [[educational-outcome|Educational Outcome]] — Details the disparity in primary school leaving exam pass rates between youths with ADHD (evaluated and treated populations) and the general background population.
+- [[educational-outcome|Educational Outcome]] — Details the significant gap in primary school leaving exam pass rates between youths in the ADHD evaluation and treatment populations compared to the general background population.
 
 ## Navigation
 

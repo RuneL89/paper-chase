@@ -4,11 +4,13 @@ type: index
 aliases:
   - Entities
 wiki: rkkp-akdb
-updated: '2026-08-05T20:38:24.636Z'
+updated: '2026-08-15T08:48:59.656Z'
 children:
   - codes/index.md
   - databases/index.md
+  - indicators/index.md
   - locations/index.md
+  - medical-conditions/index.md
   - medical-procedures/index.md
   - organizations/index.md
   - people/index.md
@@ -16,23 +18,26 @@ children:
   - studies/index.md
   - systems/index.md
   - variables/index.md
+  - index.md
 ---
 # Entities
 
-This area catalogs the foundational entities that make up the Danish Acute Surgery Database (AKDB) and the broader national healthcare ecosystem it operates within. It maps the institutional and human actors driving quality monitoring, alongside the clinical constructs, digital infrastructure, and scientific evidence base used to track acute surgical care. By grouping these elements, the wiki provides a complete structural view of how patient data is captured, benchmarked, and governed across Denmark's regions and hospitals.
+This folder catalogs the complete ecosystem of named entities that underpin the Danish Acute Surgery Database (AKDB) and the national healthcare quality monitoring system. It spans the clinical domain—including medical conditions, procedures, and risk scores—alongside the data infrastructure of codes, variables, databases, and technical systems. Furthermore, it maps the organizational and human landscape, detailing the hospitals, regional authorities, governance bodies, and professionals responsible for acute surgical care, as well as the geographical locations and research studies that contextualize and validate these quality indicators.
 
 ## Pages
 
-- [[entities/codes/index|Codes]] — Standardized classification, registration, and procedure codes used to track clinical interventions and quality indicators.
-- [[entities/databases/index|Databases]] — Foundational national registries and specialized databases that supply patient, administrative, and clinical data to the healthcare system.
-- [[entities/locations/index|Locations]] — Geographic entities and physical hospital departments relevant to national benchmarking and clinical coding rules.
-- [[entities/medical-procedures/index|Medical Procedures]] — Perioperative, diagnostic, and surgical interventions tracked to evaluate regional treatment patterns and mortality outcomes.
-- [[entities/organizations/index|Organizations]] — The institutional landscape of hospitals, regional health authorities, and governance bodies that administer and oversee acute surgical care.
-- [[entities/people/index|People]] — The clinical professionals, administrators, and researchers who govern, manage, and provide the evidence base for the database.
-- [[entities/scores/index|Scores]] — Clinical scoring systems and assessment tools used to evaluate patient risk, comorbidity, and physiological status for quality reporting.
-- [[entities/studies/index|Studies]] — Foundational clinical trials and research that provide the scientific evidence base for national quality indicators and care protocols.
-- [[entities/systems/index|Systems]] — The digital infrastructure and software systems used to manage patient records, cross-reference data, and validate clinical quality reporting.
-- [[entities/variables/index|Variables]] — Technical, administrative, and clinical parameters used to query, filter, and validate patient records within the database.
+- [[entities/codes/index|Codes]] — Medical and healthcare classification codes used to define patient populations, track interventions, and monitor care pathways in national registries.
+- [[entities/databases/index|Databases]] — Foundational clinical, government, and healthcare data repositories that supply the demographic and organizational information for quality monitoring.
+- [[entities/indicators/index|Indicators]] — Specific metrics and performance measures, such as mortality rates, used to evaluate surgical outcomes and clinical quality.
+- [[entities/locations/index|Locations]] — Geographical and administrative areas, including national benchmarks and the five Danish regions, where acute surgical quality is measured and compared.
+- [[entities/medical-conditions/index|Medical Conditions]] — Diagnosed diseases and life-threatening acute surgical emergencies tracked within the database to monitor urgent interventions and survival.
+- [[entities/medical-procedures/index|Medical Procedures]] — Core clinical interventions, including anesthesia strategies and operative techniques, used to evaluate and benchmark acute abdominal care.
+- [[entities/organizations/index|Organizations]] — The institutional ecosystem of hospitals, regional authorities, and national bodies that generate, manage, and govern clinical healthcare data.
+- [[entities/people/index|People]] — The clinical professionals, administrators, researchers, and patient advocates who govern, operate, and research within the clinical quality databases.
+- [[entities/scores/index|Scores]] — Numerical scoring systems and assessment tools used to stratify patient risk, predict mortality, and evaluate clinical severity.
+- [[entities/studies/index|Studies]] — Research studies and clinical trials that provide the evidentiary foundation for critical interventions and national quality indicators.
+- [[entities/systems/index|Systems]] — The technical and digital information infrastructure used by hospitals and regions to manage clinical records and validate database accuracy.
+- [[entities/variables/index|Variables]] — Measurable attributes and data variables used to extract, filter, and formally define patient populations within the healthcare registries.
 
 ## Navigation
 
@@ -45,5 +50,5 @@ This area catalogs the foundational entities that make up the Danish Acute Surge
 ## Statistics
 
 - Pages: 0
-- Sub-folders: 10
+- Sub-folders: 12
 - Sources: 0

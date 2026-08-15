@@ -7,7 +7,7 @@
 
 Open issues, accepted residuals, and future tracks. Entries are **not** scheduled phases: each records the mechanism, the evidence, and the fix direction. When an item is scheduled, it moves into a `PHASE_XX_<slug>.md` doc and is struck through here with the phase reference.
 
-*Last refreshed: 2026-08-09 (B14 scheduled as Phase 24).*
+*Last refreshed: 2026-08-15 (B14 implemented as Phase 24 and accepted via live UAT).*
 
 ---
 
@@ -90,9 +90,9 @@ B1–B3 are validation-noise classes found by the 2026-07-25 live test run (run 
 - **Evidence:** 2026-07-28/29 live runs: 12 broken links in afdk, 6 in akdb — all short-form/paraphrased variants of real indicator/topic slugs.
 - **Fix direction:** deterministic repair pass — unique-prefix and alias matching against the wiki's slug set at the synthesis write points; ambiguous targets stay broken and reported. Includes a one-time remediation over the current `dist/wikis` (repairs existing broken links AND re-converges `pageHashes` for every modified page so the fix cannot create B19-class false-flags). User-directed: the existing links must be fixed by the tool, not by hand.
 
-### ~~B14. Cross-wiki identity surface (user-directed, 2026-07-28)~~ — SCHEDULED as [PHASE_24](PHASE_24_cross_wiki_discovery.md)
+### ~~B14. Cross-wiki identity surface (user-directed, 2026-07-28)~~ — FIXED 2026-08-15: [PHASE_24](PHASE_24_cross_wiki_discovery.md)
 
-The cross-wiki discovery layer in Phase 24 subsumes the earlier Option A/B/C identity-surface exploration. It produces workspace-level, agent-first, human-verifiable artifacts — a cross-wiki entity registry, relationship graph, and topic clusters — as derived views over existing per-wiki pages. It does **not** modify per-wiki content or merge entities across wikis. The Phase 24 document records the required vision amendments and open design decisions.
+The cross-wiki discovery layer in Phase 24 subsumes the earlier Option A/B/C identity-surface exploration. It produces workspace-level, agent-first, human-verifiable artifacts — a cross-wiki entity registry, relationship graph, and topic clusters — as derived views over existing per-wiki pages. It does **not** modify per-wiki content or merge entities across wikis. Live UATs accepted 2026-08-15 (7/8 verified, 24.4 and full 24.8 skip deferred as watch items).
 
 ---
 
@@ -111,11 +111,14 @@ The cross-wiki discovery layer in Phase 24 subsumes the earlier Option A/B/C ide
 
 ### B6. Packaged exe staleness
 
-- The launcher asset version is tracked in `scripts/launcher-entry.ts` and currently stands at **1.0.10** (`scripts/launcher-entry.ts:46`). The Windows executable has been rebuilt several times since the original 2026-07-23 package:
+- The launcher asset version is tracked in `scripts/launcher-entry.ts` and currently stands at **1.0.13** (`scripts/launcher-entry.ts`). The Windows executable has been rebuilt several times since the original 2026-07-23 package:
   - 2026-07-25 — asset version 1.0.2, repackaged with the full Phase 13-16 pipeline (`10d77ba`).
   - 2026-07-29 — asset versions 1.0.3 through 1.0.8, bumped for the DOX Writer navigation fix, Phase 17 entity-synthesis prompts, Phase 18 citation numbering, Phase 21 curation pair prompts, Phase 22 composite prompts, and Phase 23 comparison prompts + extractor `tables` section (per `dist/` AGENTS.md note and compliance log entries 2026-07-29).
   - 2026-08-04 — asset version 1.0.9, rebuilt for the `max_tokens` Qwen/OpenAI fix (`3eac2e4`).
-  - 2026-08-05 — asset version **1.0.10**, rebuilt after raising the Anthropic Sonnet/Opus test-connection probe to `maxTokens: 16` (`7a0d5af`).
+  - 2026-08-05 — asset version 1.0.10, rebuilt after raising the Anthropic Sonnet/Opus test-connection probe to `maxTokens: 16` (`7a0d5af`).
+  - 2026-08-10 — asset version 1.0.11, bumped for the seven new Phase 24 cross-wiki discovery prompts (`834849b`).
+  - 2026-08-10 — asset version 1.0.12, bumped for Phase 24 cross-wiki model routing Option B (Settings bundle; `d735313`).
+  - 2026-08-14 — asset version 1.0.13, bumped for `--force-cross-wiki` CLI/TUI extension (bundle assets changed; `376fa5c`).
 - Rebuild with `npm run package:win` after any asset-affecting change (prompts, template, bundle, fonts, workers, or launcher code) and bump `VERSION` in `scripts/launcher-entry.ts` so the marker-guarded extraction refreshes the runtime folder.
 
 ### B7. With-key suite profile before release

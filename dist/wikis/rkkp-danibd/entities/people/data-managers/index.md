@@ -4,17 +4,20 @@ type: index
 aliases:
   - Data Managers
 wiki: rkkp-danibd
-updated: '2026-08-05T07:41:33.295Z'
+updated: '2026-08-15T07:48:23.053Z'
 children:
+  - iben-kryger-birkholm.md
+  - index.md
   - jakob-riis.md
 ---
 # Data Managers
 
-This folder catalogs individuals who hold technical and operational responsibility for health data management within Danish clinical quality development programs. It specifically covers data managers at the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) who oversee data collection, quality assurance, and reporting for national registries such as DANIBD. By managing cross-regional quality measurement and standardized coding, these professionals enable the evidence-based evaluation of treatment access and the implementation of clinical quality indicators.
+This folder profiles the data managers who handle the technical operations, data collection, and quality assurance for the Danish National Quality Database for Inflammatory Bowel Disease (DANIBD). Operating within institutions like SundK and RKKP, these professionals serve on the database's interdisciplinary steering groups to maintain methodological validity and standardized reporting. Their work ensures the registry's high coverage and enables cross-regional clinical benchmarking across Denmark.
 
 ## Pages
 
-- [[jakob-riis|Jakob Riis]] — Data manager at RKKP and steering group member for DANIBD, holding technical and operational responsibility for data collection, quality, and reporting in the national IBD registry.
+- [[iben-kryger-birkholm|Iben Kryger Birkholm]] — Data manager at SundK and member of the DANIBD steering group, overseeing data processing and technical operations.
+- [[jakob-riis|Jakob Riis]] — Data manager at RKKP with technical and operational responsibility for data collection, quality, and reporting within the national IBD registry.
 
 ## Navigation
 
@@ -28,6 +31,6 @@ This folder catalogs individuals who hold technical and operational responsibili
 
 ## Statistics
 
-- Pages: 1
+- Pages: 2
 - Sub-folders: 0
 - Sources: 0

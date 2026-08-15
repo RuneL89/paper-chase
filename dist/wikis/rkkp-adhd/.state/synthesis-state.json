@@ -103,7 +103,7 @@
     "entities/codes/agx01b.md": {
       "mode": "structured-template",
       "dataHash": "ddcd87e4f01051c92744991345e601ef75bf444b52795fca573571ff99e46e2e",
-      "synthesizedAt": "2026-08-05T18:25:20.946Z"
+      "synthesizedAt": "2026-08-15T12:25:42.715Z"
     },
     "entities/facilities/psychiatry-clinics/aabenna-borne-og-ungdomspsykiatrisk-ambulatorium.md": {
       "mode": "strict-synthesis",
@@ -252,8 +252,8 @@
     },
     "entities/organizations/psychiatry-clinics/bua-smaborn-klinik.md": {
       "mode": "strict-synthesis",
-      "dataHash": "54f400ff1f7decefd3ea04cfaf1021141b49f10815f6d69e9d73b1e915afc192",
-      "synthesizedAt": "2026-08-05T18:08:54.428Z"
+      "dataHash": "2dd1fd9c70568d4ec6263d1aa9acf988910fb27d124c1599f4ed46039f464d4c",
+      "synthesizedAt": "2026-08-15T12:21:26.875Z"
     },
     "entities/organizations/psychiatry-clinics/esbjerg-bup-ambulatorium.md": {
       "mode": "strict-synthesis",
@@ -292,8 +292,8 @@
     },
     "entities/organizations/psychiatry-clinics/vejle-bup-ambulatorium.md": {
       "mode": "strict-synthesis",
-      "dataHash": "4ab1f6b4a792783b74fff07327f2ca9e90825a9fafb91f27e723539e21288ed0",
-      "synthesizedAt": "2026-08-05T18:09:46.286Z"
+      "dataHash": "76eda6acb8e837f2e0778d125167de69b2356ffe4eae65c990b5cbd0865f176d",
+      "synthesizedAt": "2026-08-15T12:21:16.545Z"
     },
     "entities/organizations/regional-authorities/hjemkommune.md": {
       "mode": "strict-synthesis",
@@ -462,13 +462,13 @@
     },
     "topics/policy/mental-health-strategy/dmpg-retningslinje.md": {
       "mode": "strict-synthesis",
-      "dataHash": "994c8b8e330fe2deb4bc6d1150fc5150a548175bb2bff65bdbdca369916b0ae5",
-      "synthesizedAt": "2026-08-05T18:26:35.647Z"
+      "dataHash": "fb91dff753b27ac3c2320778acc89e08e8268914f6b3326af776e9f54aa1c947",
+      "synthesizedAt": "2026-08-15T12:26:05.054Z"
     },
     "topics/policy/mental-health-strategy/dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis.md": {
       "mode": "strict-synthesis",
       "dataHash": "35f3ce06900a4d44bda6b11cd71cf145a250378fc5e4085541b1df53b454114c",
-      "synthesizedAt": "2026-08-05T18:19:27.124Z"
+      "synthesizedAt": "2026-08-15T12:20:32.398Z"
     },
     "topics/policy/policy.md": {
       "mode": "strict-synthesis",

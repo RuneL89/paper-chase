@@ -4,19 +4,22 @@ type: index
 aliases:
   - Health Organizations
 wiki: rkkp-danibd
-updated: '2026-08-05T07:39:02.323Z'
+updated: '2026-08-15T07:46:15.144Z'
 children:
   - dansk-paediatrisk-selskab.md
+  - espgghan-2025-uc-guideline.md
   - espgghan.md
+  - index.md
 ---
 # Health Organizations
 
-This folder contains professional medical organizations that establish clinical standards and guidelines for pediatric care, with a specific focus on inflammatory bowel disease (IBD). The entities here—comprising both the national Danish society and the broader European association—are currently central to the DANIBD quality assurance initiative. Their jointly anticipated 2025 pediatric IBD guidelines will directly dictate how Danish diagnostic quality metrics, such as Indicator 1b, are refined and implemented in clinical practice.
+This folder catalogs professional medical associations and their specific clinical guidelines that dictate pediatric care standards for inflammatory bowel disease (IBD) in Denmark. It highlights the collaborative influence of national and international bodies—specifically the Danish Paediatric Society and ESPGHAN—whose 2025 guideline updates directly drive evidence-based revisions to Danish quality assurance metrics like Indikator 1b within the DANIBD framework.
 
 ## Pages
 
-- [[dansk-paediatrisk-selskab|Dansk Pædiatrisk Selskab]] — The national professional society shaping pediatric IBD standards in Denmark and co-authoring the pivotal 2025 clinical guidelines.
-- [[espgghan|ESPGHAN]] — The international European association whose forthcoming pediatric gastroenterology guidelines provide the evidence base for adjusting Danish diagnostic quality indicators.
+- [[dansk-paediatrisk-selskab|Dansk Pædiatrisk Selskab]] — The Danish Paediatric Society, a national professional organization whose upcoming 2025 guidelines will dictate the refinement of pediatric IBD diagnostic standards and quality indicators.
+- [[espgghan-2025-uc-guideline|ESPGHAN 2025 UC guideline]] — The specific 2025 international clinical guideline for pediatric ulcerative colitis that served as the evidence base for revising Indikator 1b by dropping the routine small bowel evaluation requirement.
+- [[espgghan|ESPGHAN]] — The European Society for Pediatric Gastroenterology, Hepatology and Nutrition, an international body whose consensus guidelines shape the diagnostic workup and quality metrics for pediatric IBD in Denmark.
 
 ## Navigation
 
@@ -28,6 +31,6 @@ This folder contains professional medical organizations that establish clinical 
 
 ## Statistics
 
-- Pages: 2
+- Pages: 3
 - Sub-folders: 0
 - Sources: 0

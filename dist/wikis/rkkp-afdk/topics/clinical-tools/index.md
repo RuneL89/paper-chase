@@ -4,17 +4,20 @@ type: index
 aliases:
   - Clinical Tools
 wiki: rkkp-afdk
-updated: '2026-08-05T23:23:58.789Z'
+updated: '2026-08-15T00:19:33.195Z'
 children:
   - risk-scores/index.md
+  - care-modellen.md
+  - index.md
 ---
 # Clinical Tools
 
-This folder groups the primary clinical assessment instruments and structured care models used to manage atrial fibrillation within the Danish healthcare system. It currently contains risk scoring systems that evaluate thromboembolic and bleeding risks to guide anticoagulation therapy, alongside integrated treatment pathways that align patient education and symptom management with international guidelines. These tools form the clinical foundation for the national quality indicators and registry-based evaluations documented elsewhere in the wiki.
+This folder groups the theoretical frameworks, clinical tools, and structured care models used to manage and assess atrial fibrillation in Denmark. It contains the CARE model, which bridges international guidelines with national clinical practice by emphasizing patient education, alongside a dedicated sub-folder for risk scores that catalogs thromboembolic assessment tools and integrated treatment pathways.
 
 ## Pages
 
-- [[topics/clinical-tools/risk-scores/index|Risk Scores]] — Clinical risk assessment tools and treatment frameworks, including the ABC Pathway for integrated care and the CHA2DS2-VASc score for stroke risk evaluation.
+- [[care-modellen|CARE modellen]] — A theoretical framework underpinning the 2024 ESC guidelines that connects international evidence to Danish clinical practice, specifically supporting quality indicators for patient education.
+- [[topics/clinical-tools/risk-scores/index|Risk Scores]] — Primary clinical risk assessment tools and integrated care models, including the CHA2DS2-VASc score and the ABC Pathway, used to guide anticoagulation and stroke prevention.
 
 ## Navigation
 
@@ -26,13 +29,18 @@ This folder groups the primary clinical assessment instruments and structured ca
 - Sibling: [[topics/clinical-practice-decision/index|Clinical Practice Decision]]
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +56,17 @@ This folder groups the primary clinical assessment instruments and structured ca
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]
@@ -61,6 +74,6 @@ This folder groups the primary clinical assessment instruments and structured ca
 
 ## Statistics
 
-- Pages: 0
+- Pages: 1
 - Sub-folders: 1
 - Sources: 0

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Governance
 wiki: rkkp-afdk
-updated: '2026-08-05T23:28:49.249Z'
+updated: '2026-08-15T00:28:03.164Z'
 children:
   - governance.md
+  - index.md
 ---
 # Governance
 
-This folder contains topics related to the structural and strategic oversight of the Danish Atrial Fibrillation Database (AFDK). It covers how the database's governance framework ensures clinical relevance and methodological soundness, including the Styregruppen for AFDK's proactive evaluation of age-standardizing outcome indicators to account for demographic shifts. Additionally, it documents the database's organizational anchoring within the Dansk Cardiologisk Selskab (DCS), which provides direct professional oversight and endorsement.
+This area covers the structural, methodological, and regulatory oversight of the Danish Atrial Fibrillation Database (AFDK). It documents how the registry is organizationally anchored within the Danish Society of Cardiology, guided by its steering group's methodological evaluations such as age-standardization, and bound by national data privacy rules that mask small patient cohorts in public reporting.
 
 ## Pages
 
-- [[governance|Governance]] — Details the structural oversight, strategic evaluation of age-standardized outcome metrics, and organizational anchoring of the AFDK within the Danish Cardiac Society.
+- [[governance|Governance]] — Outlines the organizational anchoring, methodological oversight by the steering group, and data privacy protocols enforced by the national quality institute.
 
 ## Navigation
 
@@ -27,12 +28,17 @@ This folder contains topics related to the structural and strategic oversight of
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder contains topics related to the structural and strategic oversight of
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

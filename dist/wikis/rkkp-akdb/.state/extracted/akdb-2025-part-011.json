@@ -1,0 +1,552 @@
+{
+  "entities": [
+    {
+      "name": "Indikator 9",
+      "type": "indicator",
+      "slug": "indikator-9",
+      "folder": "entities/indicators",
+      "significance": "Indikator 9 er den centrale kvalitetsindikator for 30-dagesmortalitet blandt opererede patienter i Akut Kirurgi Databasen og danner grundlag for national og regional vurdering af klinisk kvalitet samt udviklingsmålsopfyldelse.",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Indikator 9: Mortalitet indenfor 30 dage for opererede. Forest plot på afdelingsniveau"
+        },
+        {
+          "page": 52,
+          "context": "Indikator 9: Mortalitet indenfor 30 dage for opererede. Trendgraf over resultater på regionalt niveau"
+        },
+        {
+          "page": 52,
+          "context": "Indikatorbeskrivelse for indikator 9"
+        },
+        {
+          "page": 53,
+          "context": "Diskussion og implikationer af årets resultater for indikator 9"
+        },
+        {
+          "page": 53,
+          "context": "Vurdering af indikator 9"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 10",
+      "type": "indicator",
+      "slug": "indikator-10",
+      "folder": "entities/indicators",
+      "significance": "Indikator 10 er den nationale kvalitetsindikator for 90-dagesmortalitet efter akut kirurgi og omfatter alle opererede patienter med relevant diagnose- og procedurekode, hvilket gør den central for langtidsovervågning af postoperative udfald.",
+      "mentions": [
+        {
+          "page": 54,
+          "context": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)"
+        }
+      ]
+    },
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den nationale kliniske database, der registrerer og analyserer akutkirurgiske forløb i Danmark, og fungerer som primær kilde til beregning af Indikator 9 og Indikator 10.",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 52,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 53,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 54,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 55,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige myndighed for udarbejdelse og publikation af kvalitetsrapporterne fra Akut Kirurgi Databasen, herunder definition, beregning og fortolkning af Indikator 9 og Indikator 10.",
+      "mentions": [
+        {
+          "page": 51,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 52,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 53,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 54,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 55,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er en af de fem danske regioner, hvis 30-dagesmortalitet på 9,1 % i perioden er den laveste blandt regionerne og dermed central for benchmarking og best practice-udveksling i forhold til Indikator 9.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "9,1 % i Region Hovedstaden"
+        },
+        {
+          "page": 54,
+          "context": "Hovedstaden"
+        },
+        {
+          "page": 54,
+          "context": "Hovedstaden Ja 127 / 1.009 0 (0) 12,6 (10,6-14,8) 16,1 14,7"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/national",
+      "significance": "Region Syddanmark har den højeste 30-dagesmortalitet blandt regionerne (12,3 %) og er dermed centralt beliggende i diskussionen om regionale variationer og udviklingsmålsopfyldelse for Indikator 9.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "12,3 % i Region Syddanmark"
+        },
+        {
+          "page": 54,
+          "context": "Syddanmark"
+        },
+        {
+          "page": 54,
+          "context": "Syddanmark Ja 99 / 653 0 (0) 15,2 (12,5-18,1) 15,8 15,7"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet fremgår som en undtagelse i Indikator 10-tabellen med en markant højere 90-dagesmortalitet (34,8 %) end andre enheder, hvilket understreger behovet for målrettede audits og yderligere analyse ift. dens særlige patientgruppe.",
+      "mentions": [
+        {
+          "page": 54,
+          "context": "Rigshospitalet Nej 16 / 46 0 (0) 34,8 (21,4-50,2) 30,2 29,3"
+        }
+      ]
+    },
+    {
+      "name": "Hvidovre Hospital",
+      "type": "organization",
+      "slug": "hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Hvidovre Hospital identificeres som best practice-enheder for mortalitetsreduktion i Indikator 9-diskussionen, hvilket giver anledning til national efterlevelse og vidensdeling.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Hvidovre Hospital og Herlev Hospital fremstår i år som best practice med exceptionelt gode resultater over tid for mortalitet."
+        }
+      ]
+    },
+    {
+      "name": "Herlev Hospital",
+      "type": "organization",
+      "slug": "herlev-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev Hospital identificeres sammen med Hvidovre Hospital som best practice-enheder for mortalitetsreduktion i Indikator 9-diskussionen, hvilket understøtter strategien om national vidensdeling og kvalitetsforbedring.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Hvidovre Hospital og Herlev Hospital fremstår i år som best practice med exceptionelt gode resultater over tid for mortalitet."
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den styringsenhed, der opfordrer til implementering af supplerende audits (9a og 9b) og inddrager resultater i næste årsrapport, hvilket gør den central for politisk og klinisk styring af kvalitetsudviklingen i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Styregruppen opfordrer alle hospitaler til at gennemføre audit på patienter med lav Charlson-score, som alligevel dør inden for 30 dage (supplerende indikator 9a og 9b)."
+        }
+      ]
+    },
+    {
+      "name": "Charlson morbidity scorer",
+      "type": "score",
+      "slug": "charlson-morbidity-scoring",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "Charlson morbidity scorer anvendes som en central justeringsvariabel ved vurdering af Indikator 9, da den hjælper med at kontrollere for komorbiditetsbetinget risiko og sikrer mere retvisende sammenligninger mellem patientgrupper.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Indikatoren bør vurderes i lyset af populations sammensætning ift ASA, alder og Charlson morbidity scorer."
+        }
+      ]
+    },
+    {
+      "name": "ASA",
+      "type": "score",
+      "slug": "asa-score",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "ASA-score (American Society of Anesthesiologists Physical Status Classification System) er en af de tre centrale justeringsvariable ved vurdering af Indikator 9, idet den beskriver patientens generelle fysiologiske status og præoperativ risiko.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Indikatoren bør vurderes i lyset af populations sammensætning ift ASA, alder og Charlson morbidity scorer."
+        }
+      ]
+    },
+    {
+      "name": "alder",
+      "type": "medical-demographic-variable",
+      "slug": "alder",
+      "folder": "topics/healthcare-metrics/demographics",
+      "significance": "Alder er en af de tre centrale justeringsvariable ved vurdering af Indikator 9, da den direkte påvirker både risiko for postoperativ komplikation og mortalitet, og dermed er afgørende for retvisende kvalitetsvurdering.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Indikatoren bør vurderes i lyset af populations sammensætning ift ASA, alder og Charlson morbidity scorer."
+        }
+      ]
+    },
+    {
+      "name": "LKT Akut Kirurgi",
+      "type": "healthcare-program",
+      "slug": "lkt-akut-kirurgi",
+      "folder": "entities/healthcare-programs",
+      "significance": "LKT Akut Kirurgi er et nationalt kvalitetsprogram (2021–2023), hvis initiativer sammen med de faldende 30-dagesmortalitetsrater betegnes som en 'national succes', hvilket knytter Indikator 9 direkte til konkrete kliniske forbedringsindsatser.",
+      "mentions": [
+        {
+          "page": 53,
+          "context": "Der ses en parallel forbedring med de initiativer, der blev gennemført under LKT Akut Kirurgi i perioden 2021-2023, hvilket må betegnes som en national succes."
+        }
+      ]
+    },
+    {
+      "name": "CPR-nummer",
+      "type": "administrative-system",
+      "slug": "cpr-nummer",
+      "folder": "topics/administrative-systems/danish-civil-registration",
+      "significance": "CPR-nummer er det danske civilregistreringsnummer, hvis gyldighed og aktivitet er en kritisk eksklusionskriterie for både Indikator 9 og Indikator 10, idet manglende eller inaktive CPR-numre fører til udelukkelse fra analysegrundlaget.",
+      "mentions": [
+        {
+          "page": 52,
+          "context": "Bemærk at ændringen i nævneren i forhold til andre indikatorer baseret på opererede, skyldes at der kan mangle opfølgning, fx på personer med CPR-nummer som hører til udenfor Danmark."
+        },
+        {
+          "page": 54,
+          "context": "Patienter uden gyldigt CPR-nummer, patienter under 18 år på operationstidspunktet, patienter med inaktivt (patienter uden bopæl, annullerede eller slettede personnumre, ændrede personnumre) CPR-nummer"
+        },
+        {
+          "page": 55,
+          "context": "Eksklusion: Ugyldigt CPRnummer. 79 31 10 19 11 8"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-9",
+      "predicate": "is-calculated-from",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 9: Mortalitet indenfor 30 dage for opererede. Forest plot på afdelingsniveau",
+      "page": 51
+    },
+    {
+      "subject": "indikator-10",
+      "predicate": "is-calculated-from",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 54
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "indikator-9",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut\nIndikator 9: Mortalitet indenfor 30 dage for opererede.",
+      "page": 51
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "indikator-10",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut\nIndikator 10: Mortalitet indenfor 90 dage efter akut kirurgi.",
+      "page": 54
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "has-indicator-value",
+      "object": "indikator-9",
+      "evidence": "9,1 % i Region Hovedstaden",
+      "page": 52
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "has-indicator-value",
+      "object": "indikator-9",
+      "evidence": "12,3 % i Region Syddanmark",
+      "page": 52
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "has-indicator-value",
+      "object": "indikator-10",
+      "evidence": "Rigshospitalet Nej 16 / 46 0 (0) 34,8 (21,4-50,2) 30,2 29,3",
+      "page": 54
+    },
+    {
+      "subject": "hvidovre-hospital",
+      "predicate": "is-best-practice-for",
+      "object": "indikator-9",
+      "evidence": "Hvidovre Hospital og Herlev Hospital fremstår i år som best practice med exceptionelt gode resultater over tid for mortalitet.",
+      "page": 53
+    },
+    {
+      "subject": "herlev-hospital",
+      "predicate": "is-best-practice-for",
+      "object": "indikator-9",
+      "evidence": "Hvidovre Hospital og Herlev Hospital fremstår i år som best practice med exceptionelt gode resultater over tid for mortalitet.",
+      "page": 53
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "recommends-audit-for",
+      "object": "indikator-9",
+      "evidence": "Styregruppen opfordrer alle hospitaler til at gennemføre audit på patienter med lav Charlson-score, som alligevel dør inden for 30 dage (supplerende indikator 9a og 9b).",
+      "page": 53
+    },
+    {
+      "subject": "charlson-morbidity-scoring",
+      "predicate": "is-adjustment-variable-for",
+      "object": "indikator-9",
+      "evidence": "Indikatoren bør vurderes i lyset af populations sammensætning ift ASA, alder og Charlson morbidity scorer.",
+      "page": 53
+    },
+    {
+      "subject": "asa-score",
+      "predicate": "is-adjustment-variable-for",
+      "object": "indikator-9",
+      "evidence": "Indikatoren bør vurderes i lyset af populations sammensætning ift ASA, alder og Charlson morbidity scorer.",
+      "page": 53
+    },
+    {
+      "subject": "alder",
+      "predicate": "is-adjustment-variable-for",
+      "object": "indikator-9",
+      "evidence": "Indikatoren bør vurderes i lyset af populations sammensætning ift ASA, alder og Charlson morbidity scorer.",
+      "page": 53
+    },
+    {
+      "subject": "lkt-akut-kirurgi",
+      "predicate": "is-associated-with-improvement-in",
+      "object": "indikator-9",
+      "evidence": "Der ses en parallel forbedring med de initiativer, der blev gennemført under LKT Akut Kirurgi i perioden 2021-2023, hvilket må betegnes som en national succes.",
+      "page": 53
+    },
+    {
+      "subject": "cpr-nummer",
+      "predicate": "is-exclusion-criterion-for",
+      "object": "indikator-9",
+      "evidence": "Bemærk at ændringen i nævneren i forhold til andre indikatorer baseret på opererede, skyldes at der kan mangle opfølgning, fx på personer med CPR-nummer som hører til udenfor Danmark.",
+      "page": 52
+    },
+    {
+      "subject": "cpr-nummer",
+      "predicate": "is-exclusion-criterion-for",
+      "object": "indikator-10",
+      "evidence": "Patienter uden gyldigt CPR-nummer, patienter under 18 år på operationstidspunktet, patienter med inaktivt (patienter uden bopæl, annullerede eller slettede personnumre, ændrede personnumre) CPR-nummer",
+      "page": 54
+    }
+  ],
+  "claims": [
+    {
+      "text": "Der indgik 3.244 forløb i indikatoranalysen i perioden. Heraf døde 329 personer, svarende til 10,1 % (95 % CI: 9,-11,2) indenfor 30 dage fra ankomst til sygehus. Således var udviklingsmålet på < 12 % opfyldt på nationalt niveau. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 52
+    },
+    {
+      "text": "Regionalt varierede andelen fra 9,1 % i Region Hovedstaden til 12,3 % i Region Syddanmark. Fire af de fem regioner opfyldte udviklingsmålet i perioden. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-9",
+        "region-hovedstaden",
+        "region-syddanmark"
+      ],
+      "page": 52
+    },
+    {
+      "text": "I alt 16 af de 20 indberettende enheder opfyldte udviklingsmålet i perioden. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 52
+    },
+    {
+      "text": "Det forhold, at den nationale mortalitet for tredje år i træk ligger under indikatorgrænsen på 12 % og fortsat er faldende, indikerer, at de seneste års kvalitetsindsatser har haft effekt i den opererede population. [^src1]",
+      "type": "evaluative",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 53
+    },
+    {
+      "text": "En analyse fra 2024 undersøgte, om hospitaler med større cancerpopulationer havde signifikant dårligere overlevelse. Dette blev ikke påvist, hvorfor der ikke prioriteres en opdeling af populationen i grupper med og uden cancer. [^src1]",
+      "type": "evaluative",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 53
+    },
+    {
+      "text": "Udviklingsmål holdes på 12% på baggrund af succes med at sænke dødeligheden, men med potentiale for at sænke nationalt udviklingsmål i 2026-27. [^src1]",
+      "type": "policy",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 53
+    },
+    {
+      "text": "Indikator 10 har udviklingsmål < 18 %. [^src1]",
+      "type": "policy",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 54
+    },
+    {
+      "text": "Danmark: 13,7 % (95% CI: 12,5-14,9) for Indikator 10 i perioden 01.09.2024 - 31.08.2025. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-10"
+      ],
+      "page": 54
+    },
+    {
+      "text": "Rigshospitalet: 34,8 % (95% CI: 21,4-50,2) for Indikator 10 i perioden 01.09.2024 - 31.08.2025. [^src1]",
+      "type": "statistical",
+      "entities": [
+        "indikator-10",
+        "rigshospitalet"
+      ],
+      "page": 54
+    },
+    {
+      "text": "Eksklusion: Ugyldigt CPRnummer. 79 31 10 19 11 8 [^src1]",
+      "type": "statistical",
+      "entities": [
+        "cpr-nummer"
+      ],
+      "page": 55
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2021-2023",
+      "event": "Gennemførelse af initiativer under LKT Akut Kirurgi, der vises at have parallelt forbedret 30-dagesmortalitet.",
+      "entities": [
+        "lkt-akut-kirurgi",
+        "indikator-9"
+      ]
+    },
+    {
+      "date": "2024",
+      "event": "Udførelse af analyse på sammenhæng mellem cancerpopulation og overlevelse i forbindelse med Indikator 9.",
+      "entities": [
+        "indikator-9"
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "event": "Start af indberetningsperiode for Indikator 10 (01.09.2024 - 31.08.2025).",
+      "entities": [
+        "indikator-10"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-10",
+      "title": "Indikator 10: Mortalitet indenfor 90 dage efter akut kirurgi. Alle opererede (med relevant diagnosekode og procedurekode)",
+      "page": 54,
+      "rowDimension": "region or hospital unit",
+      "colDimension": "90-day mortality rate per year",
+      "entities": [
+        "indikator-10",
+        "region-hovedstaden",
+        "region-syddanmark",
+        "region-sjaelland",
+        "region-midtjylland",
+        "region-nordjylland",
+        "rigshospitalet",
+        "hvidovre-hospital",
+        "herlev-hospital",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospital",
+        "bornholms-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "esbjerg-sygehus",
+        "odense-universitetshospital-svendborg",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Udviklingsmål | Uoplyst | Aktuelle år | Tidligere år |\n| --- | --- | --- | --- |\n| < 18% | Tæller/ antal | 01.09.2024 - 31.08.2025 | 2023/24 |\n| < 18% | opnået | nævner (%) | Andel |\n| Danmark | Ja | 444 / 3.244 | 0 (0) |\n| Danmark |  |  | 13,7 (12,5-14,9) |\n| Danmark |  |  | 16,5 |\n| Danmark |  |  | 15,1 |\n| Hovedstaden | Ja | 127 / 1.009 | 0 (0) |\n| Hovedstaden |  |  | 12,6 (10,6-14,8) |\n| Hovedstaden |  |  | 16,1 |\n| Hovedstaden |  |  | 14,7 |\n| Sjælland | Ja | 85 / 616 | 0 (0) |\n| Sjælland |  |  | 13,8 (11,2-16,8) |\n| Sjælland |  |  | 15,4 |\n| Sjælland |  |  | 16,4 |\n| Syddanmark | Ja | 99 / 653 | 0 (0) |\n| Syddanmark |  |  | 15,2 (12,5-18,1) |\n| Syddanmark |  |  | 15,8 |\n| Syddanmark |  |  | 15,7 |\n| Midtjylland | Ja | 95 / 661 | 0 (0) |\n| Midtjylland |  |  | 14,4 (11,8-17,3) |\n| Midtjylland |  |  | 17,6 |\n| Midtjylland |  |  | 13,0 |\n| Nordjylland | Ja | 38 / 305 | 0 (0) |\n| Nordjylland |  |  | 12,5 (9,0-16,7) |\n| Nordjylland |  |  | 19,5 |\n| Nordjylland |  |  | 18,1 |\n| Hovedstaden | Ja | 127 / 1.009 | 0 (0) |\n| Hovedstaden |  |  | 12,6 (10,6-14,8) |\n| Hovedstaden |  |  | 16,1 |\n| Hovedstaden |  |  | 14,7 |\n| Amager og Hvidovre Hospital | Ja | 21 / 247 | 0 (0) |\n| Amager og Hvidovre Hospital |  |  | 8,5 (5,3-12,7) |\n| Amager og Hvidovre Hospital |  |  | 14,2 |\n| Amager og Hvidovre Hospital |  |  | 12,9 |\n| Bispebjerg og Frederiksberg Hospital | Ja | 35 / 221 | 0 (0) |\n| Bispebjerg og Frederiksberg Hospital |  |  | 15,8 (11,3-21,3) |\n| Bispebjerg og Frederiksberg Hospital |  |  | 14,9 |\n| Bispebjerg og Frederiksberg Hospital |  |  | 10,3 |\n| Bornholms Hospital | Ja | #/# | 0 (0) |\n| Bornholms Hospital |  |  | 7,1 (0,2-33,9) |\n| Bornholms Hospital |  |  | 11,5 |\n| Bornholms Hospital |  |  | 9,4 |\n| Herlev og Gentofte Hospital | Ja | 30 / 264 | 0 (0) |\n| Herlev og Gentofte Hospital |  |  | 11,4 (7,8-15,8) |\n| Herlev og Gentofte Hospital |  |  | 17,6 |\n| Herlev og Gentofte Hospital |  |  | 14,2 |\n| Hospitalerne i Nordsjælland | Ja | 24 / 217 | 0 (0) |\n| Hospitalerne i Nordsjælland |  |  | 11,1 (7,2-16,0) |\n| Hospitalerne i Nordsjælland |  |  | 14,2 |\n| Hospitalerne i Nordsjælland |  |  | 19,1 |\n| Rigshospitalet | Nej | 16 / 46 | 0 (0) |\n| Rigshospitalet |  |  | 34,8 (21,4-50,2) |\n| Rigshospitalet |  |  | 30,2 |\n| Rigshospitalet |  |  | 29,3 |\n| Sjælland | Ja | 85 / 616 | 0 (0) |\n| Sjælland |  |  | 13,8 (11,2-16,8) |\n| Sjælland |  |  | 15,4 |\n| Sjælland |  |  | 16,4 |\n| Holbæk Sygehus | Ja | 20 / 151 | 0 (0) |\n| Holbæk Sygehus |  |  | 13,2 (8,3-19,7) |\n| Holbæk Sygehus |  |  | 16,8 |\n| Holbæk Sygehus |  |  | 19,7 |\n| Næstved, Slagelse og Ringsted sygehuse | Ja | 31 / 215 | 0 (0) |\n| Næstved, Slagelse og Ringsted sygehuse |  |  | 14,4 (10,0-19,8) |\n| Næstved, Slagelse og Ringsted sygehuse |  |  | 17,2 |\n| Næstved, Slagelse og Ringsted sygehuse |  |  | 16,8 |\n| Sjællands Universitetshospit al | Ja | 34 / 250 | 0 (0) |\n| Sjællands Universitetshospit al |  |  | 13,6 (9,6-18,5) |\n| Sjællands Universitetshospit al |  |  | 13,5 |\n| Sjællands Universitetshospit al |  |  | 14,1 |",
+      "summary": "Tabellen sammenligner 90-dagesmortaliteten for Indikator 10 på nationalt, regionalt og enhedsniveau over tre år, og viser en generel nedadgående tendens med markant udsving hos Rigshospitalet."
+    },
+    {
+      "subject": "exclusions",
+      "title": "Eksklusion",
+      "page": 55,
+      "rowDimension": "exclusion reason",
+      "colDimension": "number by region",
+      "entities": [
+        "cpr-nummer",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| Årsag | Danmark | Hovedstaden | Sjælland | Syddanmark | Midtjylland | Nordjylland |\n| --- | --- | --- | --- | --- | --- | --- |\n| Eksklusion: Ugyldigt CPRnummer. | 79 | 31 | 10 | 19 | 11 | 8 |\n| Patienten er under 18 år. | 177 | 67 | 9 | 53 | 36 | 12 |\n| Patienten er ikke opereret. | 6.646 | 1.609 | 1.024 | 1.442 | 1.579 | 992 |\n| Patienten er registreret i CPR-registeret som 'Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn (kommunekoderne 0010, 0011, 0012 og 0019)' | 6 | 4 | 1 | . | . | 1 |\n| Operationen er ikke den første operation i hospitalsopholdet. | 544 | 188 | 77 | 143 | 107 | 29 |",
+      "summary": "Tabellen dokumenterer antallet af ekskluderede forløb for Indikator 10 efter grund til eksklusion og region, hvor 'Patienten er ikke opereret' udgør den overvældende majoritet af eksklusioner."
+    }
+  ],
+  "context": "Dette dokumentchunk udgør siderne 51–55 af rapporten 'Akut Kirurgi Databasen – Udkast 2026.01.05' fra Sundhedsvæsenets Kvalitetsinstitut og fokuserer på to centrale kvalitetsindikatorer for akut kirurgi: Indikator 9 (30-dagesmortalitet) og Indikator 10 (90-dagesmortalitet). Det indgår i den bredere nationale kvalitetsudviklingsstrategi for akut kirurgi, der omfatter databaser, kliniske programmer som LKT Akut Kirurgi, og styringsmekanismer via styregrupper. Chunken præsenterer statistiske resultater, regional og enhedsniveau-baserede sammenligninger, metodebegrundelser for justering og eksklusion, samt en evaluativ diskussion af udviklingstendenser og politiske implikationer — især med henblik på justering af udviklingsmål og national vidensdeling af best practice."
+}

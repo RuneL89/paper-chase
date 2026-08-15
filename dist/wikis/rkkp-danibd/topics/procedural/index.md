@@ -4,25 +4,27 @@ type: index
 aliases:
   - Procedural
 wiki: rkkp-danibd
-updated: '2026-08-05T07:58:51.697Z'
+updated: '2026-08-15T08:04:30.297Z'
 children:
+  - index.md
   - koloskopi.md
   - primaert-kirurgisk-indgreb.md
   - re-operation.md
 ---
 # Procedural
 
-This folder groups procedural interventions and classifications tracked within the Danish national quality database for inflammatory bowel disease (DANIBD). It documents the clinical criteria for colonoscopies used to monitor PSC patients and prevent colorectal cancer, alongside the strict definitions of primary surgical interventions and subsequent re-operations. These procedural definitions form the methodological foundation for calculating key surgical quality indicators and evaluating regional hospital performance.
+This folder groups procedural concepts and clinical interventions tracked within the Danish national quality database for inflammatory bowel disease (DANIBD). It covers key diagnostic and surgical events—such as colonoscopies for cancer prevention in PSC patients, primary surgical interventions defined by specific procedure codes, and post-operative re-operations. These procedures serve as the foundational definitions for evaluating surgical quality, calculating registry indicators, and measuring adherence to national development targets across regions.
 
 ## Pages
 
-- [[koloskopi]] — Explains the role of colonoscopy in monitoring PSC patients and details the 80% compliance target tracked by Indikator 7
-- [[primaert-kirurgisk-indgreb|primært kirurgisk indgreb]] — Outlines the specific procedure codes and the 30-day lookback period required to classify a surgery as a primary intervention
-- [[re-operation]] — Tracks post-operative complications and re-operations within 30 days of initial surgery, serving as the core metric for Indikator 6
+- [[koloskopi]] — The central diagnostic and monitoring procedure for PSC patients, tracked to ensure systematic follow-up and colorectal cancer prevention.
+- [[primaert-kirurgisk-indgreb|primært kirurgisk indgreb]] — The definitional foundation for calculating surgical quality metrics, specifying the exact procedure codes and 30-day lookback periods that classify an intervention as primary.
+- [[re-operation]] — A severe post-operative complication tracked within 30 days of initial surgery, highlighting regional disparities and challenges in meeting national quality targets.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/audit-finding/index|Audit Finding]]
 - Sibling: [[topics/clinical-consensus/index|Clinical Consensus]]
 - Sibling: [[topics/clinical-practice/index|Clinical Practice]]
 - Sibling: [[topics/codes/index|Codes]]
@@ -30,8 +32,10 @@ This folder groups procedural interventions and classifications tracked within t
 - Sibling: [[topics/diagnoses/index|Diagnoses]]
 - Sibling: [[topics/diseases/index|Diseases]]
 - Sibling: [[topics/eligibility-criteria/index|Eligibility Criteria]]
+- Sibling: [[topics/healthcare-utilization/index|Healthcare Utilization]]
 - Sibling: [[topics/mission/index|Mission]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/quality-target/index|Quality Target]]

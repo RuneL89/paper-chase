@@ -4,19 +4,20 @@ type: index
 aliases:
   - Regions
 wiki: rkkp-adhd
-updated: '2026-08-05T19:10:00.182Z'
+updated: '2026-08-15T12:36:16.283Z'
 children:
   - danmark.md
+  - index.md
   - region-syddanmark.md
 ---
 # Regions
 
-This folder contains the geographic and administrative regions that serve as the primary organizational units for psychiatric care and data reporting in the Danish healthcare system. It includes the national-level aggregate for Denmark, which highlights systemic documentation challenges in adult ADHD care, alongside Region Syddanmark, which tracks specific diagnostic and treatment pathways for children and adolescents. Each page details the region's performance against national quality indicators, patient volumes, and administrative engagement, with all factual claims traced back to the original evaluation reports.
+This folder contains the geographic and administrative regions evaluated in the Danish ADHD care quality reports. It includes the national-level aggregate for Denmark, which highlights systemic documentation challenges in assessing social support needs for adult ADHD patients, and Region Syddanmark, a specific regional healthcare authority that tracks diagnostic and treatment pathways for children and adolescents while demonstrating significant variation in its fulfillment of national quality indicators.
 
 ## Pages
 
-- [[danmark|Danmark]] — The national-level reference frame for adult ADHD care, highlighting systemic documentation challenges and a 37% fulfillment rate for assessing social support needs.
-- [[region-syddanmark|Region Syddanmark — Syddanmark]] — A regional healthcare authority managing substantial child and adolescent psychiatric volumes, with detailed performance metrics across multiple national quality indicators like Indikator 2a and 2b.
+- [[danmark|Danmark]] — The national-level aggregate for adult ADHD care, highlighting a 37% fulfillment rate for social support needs assessment (Indikator 10) and pointing to systemic registration challenges.
+- [[region-syddanmark|Region Syddanmark — Syddanmark]] — A regional healthcare authority managing child and adolescent ADHD pathways, noted for leading the country in Indikator 2b fulfillment while recording the lowest performance on Indikator 3 and Indikator 5.
 
 ## Navigation
 

@@ -4,33 +4,37 @@ type: index
 aliases:
   - Diagnoses
 wiki: rkkp-danibd
-updated: '2026-08-05T07:54:52.360Z'
+updated: '2026-08-15T08:00:13.962Z'
 children:
   - gastrointestinal/index.md
   - hepatobiliary/index.md
   - ibd/index.md
+  - index.md
 ---
 # Diagnoses
 
-This folder groups the World Health Organization (WHO)-classified diagnostic codes used to identify, track, and monitor patients within the Danish national quality database for inflammatory bowel diseases (DANIBD). It covers the primary diagnostic classifications for inflammatory bowel disease itself, alongside specific codes for related gastrointestinal complications and hepatobiliary conditions. By standardizing these codes, the registry enables cross-regional epidemiological tracking, clinical benchmarking, and the evaluation of quality indicators for medical and surgical care across Denmark.
+This folder groups the WHO-classified diagnosis codes used within the Danish Quality Database for Inflammatory Bowel Disease (DANIBD) to identify, track, and benchmark patient care. It covers the primary inflammatory bowel disease codes for Crohn's disease and ulcerative colitis, alongside specific codes for severe gastrointestinal complications like short bowel syndrome and hepatobiliary comorbidities such as primary sclerosing cholangitis. By standardizing these diagnostic categories, the national registry enables cross-regional epidemiological monitoring and the evaluation of clinical quality indicators across Denmark.
 
 ## Pages
 
-- [[topics/diagnoses/gastrointestinal/index|Gastrointestinal]] — Specific diagnosis codes for gastrointestinal conditions and severe IBD complications, such as short bowel syndrome, including patient counts and quality monitoring data.
-- [[topics/diagnoses/hepatobiliary/index|Hepatobiliary]] — Diagnostic classifications for hepatobiliary conditions monitored alongside IBD, focusing on the prevalence and regional distribution of primary sclerosing cholangitis.
-- [[topics/diagnoses/ibd/index|Ibd]] — The primary WHO-classified diagnosis codes for Crohn's disease and ulcerative colitis, which form the foundation for regional epidemiological tracking and clinical benchmarking in Denmark.
+- [[topics/diagnoses/gastrointestinal/index|Gastrointestinal]] — Tracks WHO-classified codes for severe intestinal complications, such as short bowel syndrome, to monitor surgical interventions and benchmark IBD care.
+- [[topics/diagnoses/hepatobiliary/index|Hepatobiliary]] — Catalogs hepatobiliary diagnoses monitored within the registry, focusing on regional incidence and prevalence metrics for Primary Sclerosing Cholangitis (PSC).
+- [[topics/diagnoses/ibd/index|Ibd]] — Details the foundational diagnostic codes for Crohn's disease and ulcerative colitis, outlining their regional distribution and role in tracking biological drug use and surgical reoperations.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/audit-finding/index|Audit Finding]]
 - Sibling: [[topics/clinical-consensus/index|Clinical Consensus]]
 - Sibling: [[topics/clinical-practice/index|Clinical Practice]]
 - Sibling: [[topics/codes/index|Codes]]
 - Sibling: [[topics/coverage/index|Coverage]]
 - Sibling: [[topics/diseases/index|Diseases]]
 - Sibling: [[topics/eligibility-criteria/index|Eligibility Criteria]]
+- Sibling: [[topics/healthcare-utilization/index|Healthcare Utilization]]
 - Sibling: [[topics/mission/index|Mission]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/procedural/index|Procedural]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]

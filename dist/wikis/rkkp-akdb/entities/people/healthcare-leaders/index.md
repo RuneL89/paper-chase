@@ -4,23 +4,25 @@ type: index
 aliases:
   - Healthcare Leaders
 wiki: rkkp-akdb
-updated: '2026-08-05T20:32:05.852Z'
+updated: '2026-08-15T08:41:27.174Z'
 children:
+  - index.md
   - peter-svenningsen.md
 ---
 # Healthcare Leaders
 
-This folder contains profiles of individuals holding top-tier governance and strategic leadership roles within the Danish healthcare system, particularly those directing national clinical quality databases and professional medical societies. The pages detail their responsibilities in overseeing clinical auditing, standardizing treatment protocols, and guiding the strategic direction of national healthcare quality monitoring programs.
+This folder contains profiles of individuals who hold executive, chair, or principal leadership positions within Danish healthcare databases, steering committees, and professional medical societies. The pages detail their specific governance roles, institutional affiliations, and relationships to clinical oversight bodies, with every claim and appointment traced back to the original source reports.
 
 ## Pages
 
-- [[peter-svenningsen|Peter Svenningsen]] — Chief Physician at Nordsjællands Hospital and Chairman of both the Akut Kirurgi Databasen and the Danish Surgical Society, central to the governance and standardization of acute abdominal surgery in Denmark.
+- [[peter-svenningsen|Peter Svenningsen]] — Chief Physician and Chairman of the Danish Surgical Society, who also serves as the incoming chairman for the Acute Surgery Database (AKDB) steering committee.
 
 ## Navigation
 
 - Parent: [[entities/people/index|People]]
 - Sibling: [[entities/people/healthcare-administrators/index|Healthcare Administrators]]
 - Sibling: [[entities/people/healthcare-leadership/index|Healthcare Leadership]]
+- Sibling: [[entities/people/healthcare-patient-representatives/index|Healthcare Patient Representatives]]
 - Sibling: [[entities/people/healthcare-professionals/index|Healthcare Professionals]]
 - Sibling: [[entities/people/healthcare-researchers/index|Healthcare Researchers]]
 - Sibling: [[entities/people/researchers/index|Researchers]]

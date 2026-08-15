@@ -4,19 +4,20 @@ type: index
 aliases:
   - Gastrointestinal
 wiki: rkkp-danibd
-updated: '2026-08-05T07:29:54.976Z'
+updated: '2026-08-15T07:38:11.115Z'
 children:
   - calprotectin.md
   - faeces-calprotectin-maaling.md
+  - index.md
 ---
 # Gastrointestinal
 
-This folder contains gastrointestinal biomarkers used to assess and monitor mucosal inflammation in patients with Inflammatory Bowel Disease (IBD). The pages detail the clinical application, national quality tracking through DANIBD's indicators, and the specific laboratory codes used to measure fecal calprotectin. These metrics are critical for evaluating treatment quality and ensuring standardized follow-up care, particularly for patients receiving biologic and targeted synthetic therapies.
+This folder contains entities related to gastrointestinal biomarkers used in the monitoring and management of Inflammatory Bowel Disease (IBD). Specifically, it covers fecal calprotectin, a critical biological marker for assessing mucosal inflammation and guiding clinical decisions for patients on biologic therapies. The pages detail how this biomarker is tracked nationally through the DANIBD quality indicators, including specific laboratory codes, fulfillment rates, and regional reporting variations.
 
 ## Pages
 
-- [[calprotectin]] — Details the clinical role, national quality indicators, and specific laboratory NPU codes used to track fecal calprotectin in IBD patients.
-- [[faeces-calprotectin-maaling|Fæces calprotectin måling]] — Identifies the Danish term for fecal calprotectin measurement as the formal title for DANIBD's Indicator 5 regarding BMSL treatment follow-up.
+- [[calprotectin]] — A central biomarker for assessing mucosal inflammation in IBD patients, detailing its role in clinical decision-making, national quality indicators, and specific NPU laboratory codes.
+- [[faeces-calprotectin-maaling|Fæces calprotectin måling]] — The formal tracking of fecal calprotectin measurements as Indicator 5 within the DANIBD registry for patients receiving biologic treatments.
 
 ## Navigation
 

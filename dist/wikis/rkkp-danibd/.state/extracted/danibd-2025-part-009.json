@@ -1,0 +1,790 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den landsdækkende kvalitetsdatabase, der registrerer patientforløb for inflammatoriske tarmsygdomme i Danmark, og dets dækningsgrad samt struktur er centrale emner i denne chunk.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 41 af 54"
+        },
+        {
+          "page": 42,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 42 af 54"
+        },
+        {
+          "page": 43,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 43 af 54"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregisteret (LPR)",
+      "type": "database",
+      "slug": "landspatientregisteret-lpr",
+      "folder": "entities/databases/national-health-registers",
+      "significance": "LPR er det primære register, som DANIBD bygger på til identifikation af IBD-patienter via aktionsdiagnoser, og dets gyldighed er afgørende for DANIBD's dækningsgrad.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "DANIBD baseret på aktionsdiagnoser for inflammatoriske tarmsygdomme registreret i Landspatientregisteret (LPR)"
+        }
+      ]
+    },
+    {
+      "name": "GASTROBIO",
+      "type": "database",
+      "slug": "gastrobio",
+      "folder": "entities/databases/health-registries",
+      "significance": "GASTROBIO er en regional IBD-database fra Region Nordjylland, der bruges som reference i et valideringsstudie til at vurdere positiv prædiktiv værdi af IBD-diagnoser i LPR.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "den regionale IBD database GASTROBIO. GASTROBIO anvender journalgennemgang til at verificere patienter med IBD behandlet i Region Nordjylland."
+        }
+      ]
+    },
+    {
+      "name": "Jacobsen HA et al.",
+      "type": "person",
+      "slug": "jacobsen-ha-et-al",
+      "folder": "entities/people/researchers",
+      "significance": "Jacobsen HA et al. er forfatterne til et publiceret valideringsstudie fra 2022, der undersøger den positive prædiktive værdi af IBD-diagnoser i LPR i forhold til GASTROBIO, hvilket støtter DANIBD's dækningsgradsvurdering.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO."
+        }
+      ]
+    },
+    {
+      "name": "Lone Larsen",
+      "type": "person",
+      "slug": "lone-larsen",
+      "folder": "entities/people/health-leaders",
+      "significance": "Lone Larsen er formand for styregruppen for DANIBD og en central ledelsesfigur i databasens governancestruktur.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Formand\nLone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Ole Thorlacius-Ussing",
+      "type": "person",
+      "slug": "ole-thorlacius-ussing",
+      "folder": "entities/people/health-leaders",
+      "significance": "Ole Thorlacius-Ussing er styregruppemedlem for DANIBD og repræsenterer Region Nordjylland i ledelsen.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Øvrige styregruppemedlemmer\nOle Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Else Kjær Mikkelsen",
+      "type": "person",
+      "slug": "else-kjaer-mikkelsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Else Kjær Mikkelsen er specialeansvarlig sygeplejerske og styregruppemedlem for DANIBD, hvilket understreger sygeplejens rolle i kvalitetsudviklingen for IBD.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Jens Kjeldsen",
+      "type": "person",
+      "slug": "jens-kjeldsen",
+      "folder": "entities/people/health-leaders",
+      "significance": "Jens Kjeldsen er ledende overlæge, professor og styregruppemedlem for DANIBD, hvilket markerer hans akademiske og kliniske ledelsesrolle i databasen.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Torben Knudsen",
+      "type": "person",
+      "slug": "torben-knudsen",
+      "folder": "entities/people/health-leaders",
+      "significance": "Torben Knudsen er klinisk professor og ledende overlæge i Region Syddanmark og styregruppemedlem for DANIBD, hvilket understreger hans videnskabelige og kliniske ansvar.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Torben Knudsen, Klinisk professor, ledende overlæge\ndr.med., ph.d.\nRegion Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Rasmus Gaardskær Nielsen",
+      "type": "person",
+      "slug": "rasmus-gaardskaer-nielsen",
+      "folder": "entities/people/health-leaders",
+      "significance": "Rasmus Gaardskær Nielsen er overlæge og styregruppemedlem for DANIBD, hvilket placerer ham som en central klinisk aktør i databasens ledelse.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Ida Vind",
+      "type": "person",
+      "slug": "ida-vind",
+      "folder": "entities/people/health-leaders",
+      "significance": "Ida Vind er overlæge og styregruppemedlem for DANIBD fra Region Hovedstaden, hvilket understreger regional repræsentation i ledelsen.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Johan Burisch",
+      "type": "person",
+      "slug": "johan-burisch",
+      "folder": "entities/people/health-leaders",
+      "significance": "Johan Burisch er overlæge, professor og styregruppemedlem for DANIBD, hvilket markerer hans internationale ekspertise inden for IBD.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Johan Burisch, Overlæge, dr.med., ph.d., professor Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Mohamed Attauabi",
+      "type": "person",
+      "slug": "mohamed-attaubi",
+      "folder": "entities/people/researchers",
+      "significance": "Mohamed Attauabi er reservelæge og styregruppemedlem for DANIBD, hvilket viser involvering af yngre forskere i databasens governance.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Mohamed Attauabi, Reservelæge, ph.d. Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Tina Fransgård",
+      "type": "person",
+      "slug": "tina-fransgaard",
+      "folder": "entities/people/health-leaders",
+      "significance": "Tina Fransgård er afdelingslæge og styregruppemedlem for DANIBD fra Region Sjælland, hvilket sikrer regional repræsentation i ledelsen.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Tina Fransgård, Afdelingslæge, ph.d. Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Nynne Nyboe Andersen",
+      "type": "person",
+      "slug": "nynne-nyboe-andersen",
+      "folder": "entities/people/health-leaders",
+      "significance": "Nynne Nyboe Andersen er afdelingslæge og styregruppemedlem for DANIBD fra Region Sjælland, hvilket understreger regional faglig repræsentation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Nynne Nyboe Andersen, Afdelingslæge, ph.d., klinisk lektor Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Eva Nielsen",
+      "type": "person",
+      "slug": "eva-nielsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Eva Nielsen er sygeplejefaglig direktør og styregruppemedlem for DANIBD, hvilket markerer sygeplejens strategiske rolle i kvalitetsarbejdet.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Eva Nielsen Sygeplejefaglig direktør Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Jannie Jensen",
+      "type": "person",
+      "slug": "jannie-jensen",
+      "folder": "entities/people/patient-representatives",
+      "significance": "Jannie Jensen er patientrepræsentant i styregruppen for DANIBD, hvilket sikrer patientperspektivet i databasens ledelse.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Jannie Jensen Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Anne Mette Falstie-Jensen",
+      "type": "person",
+      "slug": "anne-mette-falstie-jensen",
+      "folder": "entities/people/data-governance",
+      "significance": "Anne Mette Falstie-Jensen er seniorepidemiolog og styregruppemedlem for DANIBD fra SundK, hvilket understreger dens rolle i datastyring og epidemiologisk overvågning.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Anne Mette Falstie-Jensen, Seniorepidemiolog, ph.d. SundK"
+        }
+      ]
+    },
+    {
+      "name": "Pernille Aaen Sloth",
+      "type": "person",
+      "slug": "pernille-aaen-sloth",
+      "folder": "entities/people/data-governance",
+      "significance": "Pernille Aaen Sloth er epidemiolog og styregruppemedlem for DANIBD fra SundK, hvilket understreger dens faglige rolle i dataanalyse og kvalitetsudvikling.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Pernille Aaen Sloth Epidemiolog SundK"
+        }
+      ]
+    },
+    {
+      "name": "Iben Kryger Birkholm",
+      "type": "person",
+      "slug": "iben-kryger-birkholm",
+      "folder": "entities/people/data-managers",
+      "significance": "Iben Kryger Birkholm er datamanager og styregruppemedlem for DANIBD fra SundK, hvilket markerer dens centrale rolle i databehandling og teknisk drift.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Iben Kryger Birkholm Datamanager SundK"
+        }
+      ]
+    },
+    {
+      "name": "Mathilde Pedersen",
+      "type": "person",
+      "slug": "mathilde-pedersen",
+      "folder": "entities/people/data-governance",
+      "significance": "Mathilde Pedersen er kvalitetskonsulent og repræsentant for dataansvarlig myndighed i styregruppen for DANIBD, hvilket understreger dens rolle i kvalitetsstyring og regeloverholdelse.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Mathilde Pedersen, Kvalitetskonsulent og repræsentant\nfor dataansvarlig myndighed\nSundK og repræsentant\nfor dataansvarlig\nmyndighed"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Styregruppen for DANIBD er den beslutningskompetente ledelsesenhed, der styrer databasens udvikling og implementering, og dens sammensætning afspejler tværfaglig og regional repræsentation.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "8. Styregruppens medlemmer"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut (SundK)",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut-sundk",
+      "folder": "entities/organizations/health-authorities",
+      "significance": "SundK er den nationale myndighed, der står bag DANIBD, og flere af dens medarbejdere er medlemmer af styregruppen, hvilket understreger dens administrative og faglige ansvar.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Anne Mette Falstie-Jensen, Seniorepidemiolog, ph.d. SundK"
+        },
+        {
+          "page": 42,
+          "context": "Pernille Aaen Sloth Epidemiolog SundK"
+        },
+        {
+          "page": 42,
+          "context": "Iben Kryger Birkholm Datamanager SundK"
+        },
+        {
+          "page": 42,
+          "context": "Mathilde Pedersen, Kvalitetskonsulent og repræsentant\nfor dataansvarlig myndighed\nSundK og repræsentant\nfor dataansvarlig\nmyndighed"
+        }
+      ]
+    },
+    {
+      "name": "Crohns sygdom",
+      "type": "disease",
+      "slug": "crohns-sygdom",
+      "folder": "entities/diseases/ibd-comorbidities",
+      "significance": "Crohns sygdom er én af de to primære inflammatoriske tarmsygdomme, der registreres i DANIBD, og dens forekomst udgør en væsentlig del af databasens patientgrundlag.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "IBD-diagnosen kan stilles ved koloskopi, kapselenteroskopi, MR af tyndtarm og tarm ultralyd suppleret med blod- og afføringsprøver."
+        },
+        {
+          "page": 44,
+          "context": "DK50 Crohns sygdom 905 (38)"
+        }
+      ]
+    },
+    {
+      "name": "Colitis ulcerosa",
+      "type": "disease",
+      "slug": "colitis-ulcerosa",
+      "folder": "entities/diseases/ibd-comorbidities",
+      "significance": "Colitis ulcerosa er den anden primære inflammatoriske tarmsygdom, der registreres i DANIBD, og udgør størstedelen af nydiagnosticerede voksne i databasen.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "IBD-diagnosen kan stilles ved koloskopi, kapselenteroskopi, MR af tyndtarm og tarm ultralyd suppleret med blod- og afføringsprøver."
+        },
+        {
+          "page": 44,
+          "context": "DK51 Colitis ulcerosa 1.494 (62)"
+        }
+      ]
+    },
+    {
+      "name": "Primær skleroserende kolangitis",
+      "type": "disease",
+      "slug": "psc",
+      "folder": "entities/diseases/hepatic-biliary",
+      "significance": "Primær skleroserende kolangitis (PSC) er en sjælden komorbiditet til IBD, der inkluderes i DANIBD via diagnosekoden DK830F, og dens registrering understreger databasens omfattende karakter.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "6 med enten PSC eller korttarmssyndrom (tal fra E-kvis pr. 17. december 2025)"
+        },
+        {
+          "page": 44,
+          "context": "DK830F Primær skleroserende kolangitis 7 (0)"
+        }
+      ]
+    },
+    {
+      "name": "Korttarmssyndrom",
+      "type": "disease",
+      "slug": "korttarmssyndrom",
+      "folder": "entities/diseases/gastrointestinal",
+      "significance": "Korttarmssyndrom er en komplikation af IBD, der registreres i DANIBD via diagnosekoden DK912B, og dets inclusion viser databasens fokus på sekundære konsekvenser af sygdommen.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "6 med enten PSC eller korttarmssyndrom (tal fra E-kvis pr. 17. december 2025)"
+        },
+        {
+          "page": 44,
+          "context": "DK912B Korttarmssyndrom"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "organization",
+      "slug": "region-nordjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Nordjylland er en af de fem regioner, hvis data indgår i DANIBD, og dens repræsentation i styregruppen understreger dens betydning for databasens regional implementering.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Lone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland"
+        },
+        {
+          "page": 42,
+          "context": "Ole Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "organization",
+      "slug": "region-midtjylland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Midtjylland er en af de fem regioner, hvis data indgår i DANIBD, og dens repræsentation i styregruppen understreger dens betydning for databasens regional implementering.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland"
+        },
+        {
+          "page": 42,
+          "context": "Anders Neumann, Ledende overlæge Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Syddanmark er en af de fem regioner, hvis data indgår i DANIBD, og dens repræsentation i styregruppen understreger dens betydning for databasens regional implementering.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark"
+        },
+        {
+          "page": 42,
+          "context": "Torben Knudsen, Klinisk professor, ledende overlæge\ndr.med., ph.d.\nRegion Syddanmark"
+        },
+        {
+          "page": 42,
+          "context": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark"
+        },
+        {
+          "page": 42,
+          "context": "Eva Nielsen Sygeplejefaglig direktør Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "organization",
+      "slug": "region-hovedstaden",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Hovedstaden er en af de fem regioner, hvis data indgår i DANIBD, og dens repræsentation i styregruppen understreger dens betydning for databasens regional implementering.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden"
+        },
+        {
+          "page": 42,
+          "context": "Johan Burisch, Overlæge, dr.med., ph.d., professor Region Hovedstaden"
+        },
+        {
+          "page": 42,
+          "context": "Mohamed Attauabi, Reservelæge, ph.d. Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "organization",
+      "slug": "region-sjaelland",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Sjælland er en af de fem regioner, hvis data indgår i DANIBD, og dens repræsentation i styregruppen understreger dens betydning for databasens regional implementering.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Tina Fransgård, Afdelingslæge, ph.d. Region Sjælland"
+        },
+        {
+          "page": 42,
+          "context": "Nynne Nyboe Andersen, Afdelingslæge, ph.d., klinisk lektor Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1a",
+      "type": "topic",
+      "slug": "indikator-1a",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1a er en kvalitetsindikator i DANIBD, der beskriver karakteristika for nydiagnosticerede voksne ved første kontakt i forløbet, og dens data findes i Appendikstabel 2.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Appendikstabel 2: Karakteristika for nydiagnosticeret voksne ved første kontakt i forløbet (indikator 1a)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 1b",
+      "type": "topic",
+      "slug": "indikator-1b",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 1b er en kvalitetsindikator i DANIBD, der beskriver karakteristika for nydiagnosticerede børn og unge ved første kontakt i forløbet, og dens data findes i Appendikstabel 3.",
+      "mentions": [
+        {
+          "page": 43,
+          "context": "Appendikstabel 3: Karakteristika for nydiagnosticeret børn og unge ved første kontakt i forløbet (indikator 1b)"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "predicate": "is-based-on",
+      "object": "landspatientregisteret-lpr",
+      "evidence": "DANIBD baseret på aktionsdiagnoser for inflammatoriske tarmsygdomme registreret i Landspatientregisteret (LPR)",
+      "page": 41
+    },
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "predicate": "has-governance-body",
+      "object": "styregruppen-for-danibd",
+      "evidence": "8. Styregruppens medlemmer",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-chair",
+      "object": "lone-larsen",
+      "evidence": "Formand\nLone Larsen, Overlæge, ph.d., klinisk lektor Region Nordjylland",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "ole-thorlacius-ussing",
+      "evidence": "Øvrige styregruppemedlemmer\nOle Thorlacius-Ussing, Overlæge, dr.med. Region Nordjylland",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "else-kjaer-mikkelsen",
+      "evidence": "Else Kjær Mikkelsen, Specialeansvarlig sygeplejerske Region Midtjylland",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "jens-kjeldsen",
+      "evidence": "Jens Kjeldsen, Ledende overlæge, professor, ph.d. Region Syddanmark",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "torben-knudsen",
+      "evidence": "Torben Knudsen, Klinisk professor, ledende overlæge\ndr.med., ph.d.\nRegion Syddanmark",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "rasmus-gaardskaer-nielsen",
+      "evidence": "Rasmus Gaardskær Nielsen, Overlæge, ph.d., klinisk lektor Region Syddanmark",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "ida-vind",
+      "evidence": "Ida Vind, Overlæge, ph.d., klinisk lektor Region Hovedstaden",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "johan-burisch",
+      "evidence": "Johan Burisch, Overlæge, dr.med., ph.d., professor Region Hovedstaden",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "mohamed-attaubi",
+      "evidence": "Mohamed Attauabi, Reservelæge, ph.d. Region Hovedstaden",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "tina-fransgaard",
+      "evidence": "Tina Fransgård, Afdelingslæge, ph.d. Region Sjælland",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "nynne-nyboe-andersen",
+      "evidence": "Nynne Nyboe Andersen, Afdelingslæge, ph.d., klinisk lektor Region Sjælland",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "eva-nielsen",
+      "evidence": "Eva Nielsen Sygeplejefaglig direktør Region Syddanmark",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "jannie-jensen",
+      "evidence": "Jannie Jensen Patientrepræsentant",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "anne-mette-falstie-jensen",
+      "evidence": "Anne Mette Falstie-Jensen, Seniorepidemiolog, ph.d. SundK",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "pernille-aaen-sloth",
+      "evidence": "Pernille Aaen Sloth Epidemiolog SundK",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "iben-kryger-birkholm",
+      "evidence": "Iben Kryger Birkholm Datamanager SundK",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "has-member",
+      "object": "mathilde-pedersen",
+      "evidence": "Mathilde Pedersen, Kvalitetskonsulent og repræsentant\nfor dataansvarlig myndighed\nSundK og repræsentant\nfor dataansvarlig\nmyndighed",
+      "page": 42
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "is-administered-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut-sundk",
+      "evidence": "Anne Mette Falstie-Jensen, Seniorepidemiolog, ph.d. SundK",
+      "page": 42
+    },
+    {
+      "subject": "landspatientregisteret-lpr",
+      "predicate": "is-validated-against",
+      "object": "gastrobio",
+      "evidence": "undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO",
+      "page": 41
+    },
+    {
+      "subject": "jacobsen-ha-et-al",
+      "predicate": "authored-study-on",
+      "object": "landspatientregisteret-lpr",
+      "evidence": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO",
+      "page": 41
+    }
+  ],
+  "claims": [
+    {
+      "text": "DANIBD har en dækningsgrad med stor sandsynlighed over 90 % [^src1]",
+      "type": "performance",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd"
+      ],
+      "page": 41
+    },
+    {
+      "text": "Den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR er 0,95 (95% CI, 0,95-0,96) for to IBD-diagnoser [^src1]",
+      "type": "validation",
+      "entities": [
+        "landspatientregisteret-lpr",
+        "gastrobio"
+      ],
+      "page": 41
+    },
+    {
+      "text": "De praktiserende speciallæger i gastroenterologi og kirurgi har set 176 patienter med Crohns sygdom, 526 med UC og 6 med enten PSC eller korttarmssyndrom [^src1]",
+      "type": "epidemiological",
+      "entities": [
+        "crohns-sygdom",
+        "colitis-ulcerosa",
+        "psc",
+        "korttarmssyndrom"
+      ],
+      "page": 41
+    },
+    {
+      "text": "De praktiserende speciallæger har udført 3,8 % af de samlede antal koloskopier (407), der er udført på patienter med IBD i opgørelsesperioden [^src1]",
+      "type": "procedural",
+      "entities": [
+        "koloskopi"
+      ],
+      "page": 41
+    },
+    {
+      "text": "For nydiagnosticerede voksne (indikator 1a) er gennemsnitsalderen 42 år (min;max: 17;93) og medianalderen 39 år (Q1;Q3: 27;57) [^src2]",
+      "type": "demographic",
+      "entities": [
+        "indikator-1a"
+      ],
+      "page": 44
+    },
+    {
+      "text": "For nydiagnosticerede børn og unge (indikator 1b) er gennemsnitsalderen 13 år (min;max: 0;17) og medianalderen 14 år (Q1;Q3: 12;16) [^src3]",
+      "type": "demographic",
+      "entities": [
+        "indikator-1b"
+      ],
+      "page": 45
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2022",
+      "event": "Jacobsen HA et al. publicerede et valideringsstudie af IBD-diagnoser i LPR",
+      "entities": [
+        "jacobsen-ha-et-al",
+        "landspatientregisteret-lpr"
+      ]
+    },
+    {
+      "date": "17. december 2025",
+      "event": "Data fra E-kvis blev hentet for at beregne antallet af patienter diagnosticeret af praktiserende speciallæger",
+      "entities": [
+        "landspatientregisteret-lpr"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "patientkarakteristika-pr-region",
+      "title": "Appendikstabel 1: Patientkarakteristiska pr. region",
+      "page": 43,
+      "rowDimension": "regions",
+      "colDimension": "patient characteristics per region",
+      "entities": [
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland"
+      ],
+      "markdown": "| | Hovedstaden | Sjælland | Syddanmark | Midtjylland | Nordjylland |\n| --- | --- | --- | --- | --- | --- |\n| DANIBD | 11.750 (100) | 4.060 (100) | 7.687 (100) | 8.053 (100) | 3.637 (100) |\n| Diagnose | | | | | |\n| DK50 | 4.869 | (41) | 1.970 | (49) | 3.187 | (41) | 3.462 | (43) | 1.510 | (42) |\n| DK51 | 6.711 | (57) | 2.069 | (51) | 4.426 | (58) | 4.484 | (56) | 2.095 | (58) |\n| DK830F | 158 | (1) | 15 | (0) | 50 | (1) | 73 | (1) | 15 | (0) |\n| DK912B | 12 | (0) | 6 | (0) | 24 | (0) | 34 | (0) | 17 | (0) |\n| Køn | | | | | |\n| Kvinde | 6.275 (53) | 2.162 (53) | 4.129 (54) | 4.268 (53) | 1.889 (52) |\n| Mand | 5.475 (47) | 1.898 (47) | 3.558 (46) | 3.785 (47) | 1.748 (48) |\n| Alder | | | | | |\n| Mean | 47 (1;102) | 50 (11;100) | 49 (0;98) | 47 (0;96) | 49 (5;96) |\n| Median | 46 (33;60) | 50 (35;63) | 49 (34;63) | 45 (32;60) | 49 (34;64) |\n| Aldersgruppe | | | | | |\n| 0-17 år | 276 | (2) | 56 | (1) | 170 | (2) | 177 | (2) | 82 | (2) |\n| 18-29 år | 1.886 | (16) | 532 | (13) | 1.061 | (14) | 1.400 | (17) | 538 | (15) |\n| 30-39 år | 2.385 | (20) | 705 | (17) | 1.395 | (18) | 1.674 | (21) | 639 | (18) |\n| 40-49 år | 2.021 | (17) | 669 | (16) | 1.268 | (16) | 1.319 | (16) | 592 | (16) |\n| 50-59 år | 2.214 | (19) | 785 | (19) | 1.443 | (19) | 1.352 | (17) | 610 | (17) |\n| 60-69 år | 1.594 | (14) | 660 | (16) | 1.172 | (15) | 1.086 | (13) | 589 | (16) |\n| 70-79 år | 972 | (8) | 499 | (12) | 842 | (11) | 779 | (10) | 400 | (11) |\n| 80-89 år | 373 | (3) | 144 | (4) | 314 | (4) | 250 | (3) | 173 | (5) |\n| 90 år eller ældre | 29 (0) | 10 (0) | 22 (0) | 16 (0) | 14 (0) |\n| Kontakter | | | | | |\n| Mean | 10 (1;53) | 12 (1;118) | 12 (1;68) | 11 (1;105) | 9 (1;38) |\n| Median | 8 (5;13) | 9 (6;14) | 10 (7;15) | 9 (5;15) | 8 (5;12) |\n| Kontakttype | | | | | |\n| Fysisk | 39.687 (67) | 15.559 (71) | 31.641 (66) | 26.019 (58) | 11.104 (59) |\n| Virtuel | 19.133 (33) | 6.299 (29) | 16.274 (34) | 18.661 (42) | 7.713 (41) |",
+      "summary": "Tabellen sammenligner patientkarakteristika (diagnosefordeling, køn, alder, kontaktantal og kontakttype) for DANIBD-patienter fordelt på de fem regioner."
+    },
+    {
+      "subject": "nydiagnosticerede-voksne-indikator-1a",
+      "title": "Appendikstabel 2: Karakteristika for nydiagnosticeret voksne ved første kontakt i forløbet (indikator 1a)",
+      "page": 44,
+      "rowDimension": "characteristics",
+      "colDimension": "values for newly diagnosed adults",
+      "entities": [
+        "indikator-1a",
+        "crohns-sygdom",
+        "colitis-ulcerosa",
+        "psc",
+        "korttarmssyndrom"
+      ],
+      "markdown": "| | Nydiagnosticerede\npatienter |\n| --- | --- |\n| Patienter i alt | 2.406 (100) |\n| Diagnose | |\n| DK50 Crohns sygdom | 905 (38) |\n| DK51 Colitis ulcerosa | 1.494 (62) |\n| DK830F Primær skleroserende kolangitis | 7 (0) |\n| DK912B Korttarmssyndrom | |\n| Køn | |\n| Kvinde | 1.252 (52) |\n| Mand | 1.154 (48) |\n| Alder | |\n| Gennemsnit, år (Min;Max) | 42 (17;93) |\n| Median, år (Q1;Q3) | 39 (27;57) |\n| Aldersgruppe | |\n| 0-17 år | 17 | (1) |\n| 18-29 år | 736 | (31) |\n| 30-39 år | 498 | (21) |\n| 40-49 år | 298 | (12) |\n| 50-59 år | 351 | (15) |\n| 60-69 år | 291 | (12) |\n| 70-79 år | 155 | (6) |\n| 80-89 år | 56 | (2) |\n| 90 år eller ældre | 4 (0) |\n| Kontakter | |\n| Gennemsnit, antal (Min;Max) | 11 (1;41) |\n| Median, antal (Q1;Q3) | 9 (5;15) |\n| Kontakttype | |\n| Fysisk | 8.900 (65) |\n| Virtuel | 4.727 (35) |",
+      "summary": "Tabellen præsenterer karakteristika for nydiagnosticerede voksne med IBD, herunder diagnosefordeling, køn, alder og kontaktmønstre."
+    },
+    {
+      "subject": "nydiagnosticerede-boern-og-unge-indikator-1b",
+      "title": "Appendikstabel 3: Karakteristika for nydiagnosticeret børn og unge ved første kontakt i forløbet (indikator 1b)",
+      "page": 45,
+      "rowDimension": "characteristics",
+      "colDimension": "values for newly diagnosed children and adolescents",
+      "entities": [
+        "indikator-1b",
+        "crohns-sygdom",
+        "colitis-ulcerosa"
+      ],
+      "markdown": "| | Nydiagnosticerede\nPatienter i alt | 210 (100) |\n| --- | --- |\n| Diagnose | |\n| DK50 Crohns sygdom | 134 (64) |\n| DK51 Colitis ulcerosa | 76 (36) |\n| DK830F Primær skleroserende kolangitis | |\n| DK912B Korttarmssyndrom | |\n| Køn | |\n| Kvinde | 94 (45) |\n| Mand | 116 (55) |\n| Alder | |\n| Gennemsnit, år (Min;Max) | 13 (0;17) |\n| Median, år (Q1;Q3) | 14 (12;16) |\n| Aldersgruppe | |\n| 0-1 år | # | (0) |\n| 2-5 år | 4 | (2) |\n| 6-9 år | 17 | (8) |\n| 10-17 år | 188 | (90) |\n| Kontakter | |\n| Gennemsnit, antal (Min;Max) | 17 (1;50) |\n| Median, antal (Q1;Q3) | 16 (10;22) |\n| Kontakttype | |\n| Fysisk | 1.355 (61) |\n| Virtuel | 872 (39) |",
+      "summary": "Tabellen præsenterer karakteristika for nydiagnosticerede børn og unge med IBD, herunder diagnosefordeling, køn, alder og kontaktmønstre."
+    }
+  ],
+  "context": "Denne chunk fra DANIBD-rapporten (sider 41–45) danner en integreret del af den danske nationala kvalitetsdatabase for inflammatoriske tarmsygdomme, hvor fokuset ligger på metodisk validitet og governance. Den beskriver først dækningsgraden for DANIBD, der bygger på Landspatientregisteret (LPR), og støtter sin vurdering af over 90 % dækningsgrad med et valideringsstudie af Jacobsen et al. (2022) mod den regionale GASTROBIO-database. Derefter præsenteres styregruppens sammensætning — en tværfaglig og regional gruppe bestående af læger, sygeplejefaglige ledere, patientrepræsentanter og eksperter fra Sundhedsvæsenets Kvalitetsinstitut — hvilket illustrerer den institutionelle ramme for databasens drift. Endelig indeholder chunken tre appendikstabeller, der kvantificerer patientkarakteristika fordelt på regioner og efter aldersgrupper (voksne vs. børn/unge), hvilket understøtter kvalitetsmåling og benchmarking i den danske IBD-omsorg."
+}

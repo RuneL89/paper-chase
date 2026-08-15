@@ -4,19 +4,20 @@ type: index
 aliases:
   - Cardiovascular
 wiki: rkkp-afdk
-updated: '2026-08-05T23:44:58.106Z'
+updated: '2026-08-15T00:51:07.328Z'
 children:
+  - index.md
   - indikator-12.md
   - indikator-13.md
 ---
 # Cardiovascular
 
-This folder contains clinical quality indicators used in the Danish healthcare system to monitor outcomes for patients newly diagnosed with atrial fibrillation. The metrics track critical safety and survival endpoints, specifically the incidence of severe bleeding within one year of diagnosis and the overall one-year mortality rate. By providing both national averages and hospital-specific data, these indicators enable systematic benchmarking of anticoagulant therapy safety and cardiovascular care quality across Danish regions.
+This folder contains clinical quality indicators used in the Danish healthcare system to monitor safety and survival outcomes for patients with atrial fibrillation. The pages detail specific metrics that track severe bleeding complications and one-year mortality rates among newly diagnosed patients. By capturing institutional and national performance data, these indicators support systematic benchmarking and quality improvement across hospitals and regions.
 
 ## Pages
 
-- [[indikator-12|Indikator 12]] — Measures the rate of severe bleeding within one year for newly diagnosed atrial fibrillation patients, while also noting a definitional shift in recent reports toward one-year mortality.
-- [[indikator-13|Indikator 13]] — Tracks the one-year mortality rate for newly diagnosed atrial fibrillation patients, detailing national survival outcomes and institutional performance variations.
+- [[indikator-12|Indikator 12]] — Monitors the proportion of newly diagnosed atrial fibrillation patients experiencing severe bleeding within one year, while also noting a definitional shift to one-year mortality in subsequent reporting.
+- [[indikator-13|Indikator 13]] — Evaluates the one-year mortality rate for newly diagnosed atrial fibrillation patients, providing national and hospital-level survival data to inform clinical improvement initiatives.
 
 ## Navigation
 

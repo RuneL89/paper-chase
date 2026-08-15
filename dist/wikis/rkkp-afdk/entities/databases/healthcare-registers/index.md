@@ -4,17 +4,18 @@ type: index
 aliases:
   - Healthcare Registers
 wiki: rkkp-afdk
-updated: '2026-08-05T22:45:45.689Z'
+updated: '2026-08-14T23:34:17.077Z'
 children:
   - cpr-registeret.md
+  - index.md
 ---
 # Healthcare Registers
 
-This folder contains foundational national databases used to track demographic and vital status information for epidemiological research and clinical quality development in Denmark. It currently holds the Civil Registration System (CPR-registeret), which serves as the definitive source for verifying whether patients are alive or deceased. This vital status data is cross-referenced with other clinical registers to accurately measure mortality outcomes, such as in the national quality indicators for atrial fibrillation.
+This folder contains foundational national databases used as data infrastructure for healthcare quality assurance and epidemiological tracking in Denmark. It currently holds the civil registration system, which provides definitive vital status data to verify whether patients are alive or deceased. This verification is a critical methodological requirement for calculating mortality rates and ensuring accurate patient inclusion in clinical quality registries like the Danish Atrial Fibrillation Database.
 
 ## Pages
 
-- [[cpr-registeret|CPR-registeret]] — Denmark's national population register, providing vital status data used to verify mortality in clinical quality indicators like Indikator 10 for atrial fibrillation.
+- [[cpr-registeret|CPR-registeret]] — The national population register in Denmark, used to verify patient vital status for mortality tracking and clinical quality indicators.
 
 ## Navigation
 

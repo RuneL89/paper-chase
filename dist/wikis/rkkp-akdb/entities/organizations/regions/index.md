@@ -4,9 +4,10 @@ type: index
 aliases:
   - Regions
 wiki: rkkp-akdb
-updated: '2026-08-05T20:30:36.071Z'
+updated: '2026-08-15T08:39:25.462Z'
 children:
   - hovedstaden-region-i-alt.md
+  - index.md
   - midtjylland-region-i-alt.md
   - nordjylland-region-i-alt.md
   - sjaelland-region-i-alt.md
@@ -14,15 +15,15 @@ children:
 ---
 # Regions
 
-This folder contains the aggregate statistical and reporting entities for the five administrative regions of Denmark within the national Acute Surgery Database (AKDB). Each page consolidates patient records, demographic breakdowns, and postoperative mortality metrics from all constituent hospitals in its respective region. These regional totals serve as the primary structural units for national-level benchmarking, risk adjustment, and clinical quality evaluation across the Danish healthcare system.
+This folder contains aggregate data pages for the five administrative regions of Denmark as reported in the Danish Clinical Register of Emergency Surgery (AKDB). Each page compiles regional totals for surgical volumes, patient demographics, comorbidity distributions, and quality indicators like 30-day mortality rates following acute surgery. These entities serve as the primary geographical groupings for comparing hospital performance and clinical outcomes across the national healthcare system.
 
 ## Pages
 
-- [[hovedstaden-region-i-alt|Hovedstaden Region i alt]] — Aggregate data for the Capital Region, consolidating records from major hospitals to track cancer prevalence and postoperative mortality.
-- [[midtjylland-region-i-alt|Midtjylland Region i alt]] — Statistical entity for the Central Denmark Region, providing key metrics on 30-day mortality and comorbidity-adjusted outcomes for acute surgery.
-- [[nordjylland-region-i-alt|Nordjylland Region i alt]] — Aggregate unit for the North Denmark Region, tracking patient demographics and mortality rates stratified by Charlson Comorbidity Index scores.
-- [[sjaelland-region-i-alt|Sjælland Region i alt]] — Regional baseline for Region Zealand, consolidating hospital data to evaluate surgical outcomes and supplement national quality indicators.
-- [[syddanmark-region-i-alt|Syddanmark Region i alt]] — Comprehensive regional total for Southern Denmark, utilized for risk adjustment and comparing local hospital outcomes against national averages.
+- [[hovedstaden-region-i-alt|Hovedstaden Region i alt]] — Aggregate surgical volumes, mortality rates, and hospital groupings for the Capital Region of Denmark.
+- [[midtjylland-region-i-alt|Midtjylland Region i alt]] — Regional totals for Central Denmark, including 30-day mortality metrics stratified by Charlson comorbidity scores.
+- [[nordjylland-region-i-alt|Nordjylland Region i alt]] — Aggregate clinical indicators and acute surgery outcomes for the North Denmark Region.
+- [[sjaelland-region-i-alt|Sjælland Region i alt]] — Statistical summaries of surgical procedures and quality indicators for the Zealand Region.
+- [[syddanmark-region-i-alt|Syddanmark Region i alt]] — Regional aggregate data for the Region of Southern Denmark, covering patient counts and post-operative mortality.
 
 ## Navigation
 

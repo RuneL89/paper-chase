@@ -4,25 +4,28 @@ type: index
 aliases:
   - Codes
 wiki: rkkp-akdb
-updated: '2026-08-05T20:19:12.790Z'
+updated: '2026-08-15T08:25:38.791Z'
 children:
   - healthcare-coding/index.md
   - medical-coding/index.md
+  - index.md
 ---
 # Codes
 
-This area groups the standardized classification, registration, and procedure codes used within the Danish healthcare system and the Acute Surgery Database (AKDB) to track clinical interventions and quality indicators. It covers administrative and care-level identifiers used to monitor postoperative protocols and data harvesting workflows, as well as specific surgical and anesthesiological codes required to define patient populations and evaluate clinical practices. By standardizing these identifiers, the database can accurately extract data from electronic health records and calculate national quality metrics across different hospital departments.
+This area groups the specific medical and healthcare classification codes used within the Danish healthcare system and the Acute Surgery Database (AKDB) to define patient populations, track clinical quality indicators, and monitor care pathways. It covers both general medical procedure codes—such as SKS codes for anesthesiological and surgical interventions and SOR codes for specialized unit stays—and specific healthcare codes for critical care levels, early mobilization, and nutritional assessments, highlighting how these codes are applied in national registries and the technical challenges of harvesting them from regional electronic health records.
 
 ## Pages
 
-- [[entities/codes/healthcare-coding/index|Healthcare Coding]] — Administrative and registry codes for tracking postoperative care levels, early mobilization, and nutrition plans, alongside documentation of electronic health record integration failures.
-- [[entities/codes/medical-coding/index|Medical Coding]] — Surgical and anesthesiological procedure codes used to expand the database's tracked population and evaluate specific clinical interventions like epidural blocks and peritoneal lavage.
+- [[entities/codes/healthcare-coding/index|Healthcare Coding]] — Procedure and classification codes for critical care, early mobilization, and nutritional assessments, including the technical infrastructure challenges of data harvesting.
+- [[entities/codes/medical-coding/index|Medical Coding]] — SKS and SOR codes used to define acute surgery patient populations, track anesthesiological interventions, and monitor specialized care unit stays in national registries.
 
 ## Navigation
 
 - Parent: [[entities/index|Entities]]
 - Sibling: [[entities/databases/index|Databases]]
+- Sibling: [[entities/indicators/index|Indicators]]
 - Sibling: [[entities/locations/index|Locations]]
+- Sibling: [[entities/medical-conditions/index|Medical Conditions]]
 - Sibling: [[entities/medical-procedures/index|Medical Procedures]]
 - Sibling: [[entities/organizations/index|Organizations]]
 - Sibling: [[entities/people/index|People]]

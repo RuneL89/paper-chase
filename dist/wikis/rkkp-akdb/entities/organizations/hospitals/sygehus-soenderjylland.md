@@ -4,65 +4,67 @@ type: entity
 aliases:
   - Sygehus Sønderjylland
 wiki: rkkp-akdb
-updated: '2026-08-05T18:50:35.759Z'
+updated: '2026-08-15T06:25:59.271Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: '56-60, 6-10, 61-65, 71-75'
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '51-55, 6-10, 61-65, 66-70, 71-75'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: '11-15, 36-40, 6-10, 61-65, 66-70, 71-75, 76-80, 81-85, 86-90, 91-95'
 tags:
   - organization
 ---
-**Sygehus Sønderjylland** is a hospital located in [[region-syddanmark|Region Syddanmark]] that participates in the national clinical quality monitoring program for acute high-risk abdominal surgery in Denmark [^src3]. Its performance is systematically tracked and benchmarked by the Danish Regions' Clinical Quality Development Programme (RKKP) across multiple process and outcome indicators.
-
-In the reporting period from September 1, 2022, to August 31, 2023, the hospital's compliance with [[indikator-1|Indikator 1]] (administration of antibiotics within three hours prior to surgery) was recorded at 17.8% [^src1]. By the following year, covering the period from September 1, 2023, to August 31, 2024, the hospital's compliance rate for Indikator 1 increased to 27.4% [^src5]. 
-
-The hospital's postoperative outcomes are closely monitored, particularly 30-day mortality rates stratified by patient comorbidity. During the 2022–2023 period, 3 out of 45 patients with a [[charlson-score-1-2|Charlson Score = 1 eller 2]] died within 30 days of acute surgery, yielding a mortality rate of 6.7% [^src3]. In the 2023–2024 period, the hospital reported 5 deaths within 30 days among 23 patients with a Charlson Score of 1 or 2, a metric associated with [[indikator-9b|Indikator 9b]] [^src8]. For patients with severe comorbidity (Charlson Score ≥ 3), the hospital also recorded 5 deaths out of 23 patients within 30 days, tracked under [[indikator-9c|Indikator 9c]] [^src8]. Furthermore, the hospital's patient demographics, including age distribution and the prevalence of cancer diagnoses among operated patients, are documented to facilitate risk adjustment and regional benchmarking [^src2] [^src4] [^src6] [^src9].
 
 ## Mentions
-- Page 9: "Sygehus Sønderjylland Nej 19 / 107 0 (0) 17,8 (11,0-26,3) 16,3 9,0" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 6-10)
-- Page 56: "Sygehus Sønderjylland" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 56-60)
-- Page 61: "Sygehus Sønderjylland 3 / 45 0 (0) 6,7 (1,4-18,3) 15,2 16,0" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65)
-- Page 71: "Sygehus Sønderjylland 140 19,2 63,00 73,50 70,01 81,00" (source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 71-75)
-- Page 6: "Sygehus Sønderjylland Nej 29 / 106 0 (0) 27,4 (19,1-36,9) 17,6 16,3" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 6-10)
-- Page 51: "Sygehus Sønderjylland Ja 12 / 113 0 (0) 10,6 (5,6-17,8) 12,6 17,3" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 51-55)
-- Page 61: "Sygehus Sønderjylland 0 / 42 0 (0) 0,0 (0,0-8,4) 10,6 11,6" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 61-65)
-- Page 66: "Sygehus Sønderjylland" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70)
-- Page 71: "Sygehus Sønderjylland 141 19,1 63,00 74,00 70,08 81,00" (source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 71-75)
+
+- Page 9: "Sygehus Sønderjylland Nej 19 / 107 0 (0) 17,8 (11,0-26,3) 16,3 9,0" [^src1]
+- Page 56: "Sygehus Sønderjylland" [^src2]
+- Page 61: "Sygehus Sønderjylland 3 / 45 0 (0) 6,7 (1,4-18,3) 15,2 16,0" [^src3]
+- Page 71: "Sygehus Sønderjylland 140 19,2 63,00 73,50 70,01 81,00" [^src4]
+- Page 6: "Sygehus Sønderjylland Nej 29 / 106 0 (0) 27,4 (19,1-36,9) 17,6 16,3" [^src5]
+- Page 51: "Sygehus Sønderjylland Ja 12 / 113 0 (0) 10,6 (5,6-17,8) 12,6 17,3" [^src6]
+- Page 61: "Sygehus Sønderjylland 0 / 42 0 (0) 0,0 (0,0-8,4) 10,6 11,6" [^src7]
+- Page 66: "Sygehus Sønderjylland" [^src8]
+- Page 71: "Sygehus Sønderjylland 141 19,1 63,00 74,00 70,08 81,00" [^src9]
+- Page 10: "Sygehus
+Sønderjylland
+Nej 41 / 102 0 (0) 40,2 (30,6-50,4) 28,7 23,0" [^src10]
+- Page 13: "Region Syd har lavet en stor indsats og har flyttet sig med to cifret % sats og flere sygehuse, fx Horsens, Esbjerg, Bornholm, og Sygehus Sønderjylland har flyttet sig betydeligt." [^src11]
+- Page 61: "Sygehus Sønderjylland 103 107 178 677" [^src12]
+- Page 62: "Sygehus Sønderjylland 376 100,00 108 28,72 268 71,28" [^src12]
+- Page 64: "Sygehus Sønderjylland 3 / 49 0 (0) 6,1 (1,3-16,9) 0,0 10,6" [^src12]
+- Page 67: "Sygehus Sønderjylland" [^src13]
+- Page 72: "Sygehus Sønderjylland 8 / 23 0 (0) 34,8 (16,4-57,3) 21,7 24,2" [^src14]
+- Page 76: "Sygehus
+Sønderjylland
+0 / 13 0 (0) 0,0 (0,0-24,7) 0,0 15,0" [^src15]
+- Page 81: "Sygehus
+Sønderjylland
+#/# 0 (0) 4,3 (0,5-14,8) 7,5 11,6" [^src16]
+- Page 84: "Sygehus
+Sønderjylland
+3 / 46 0 (0) 6,5 (1,4-17,9) 7,5 14,0" [^src16]
+- Page 86: "Sygehus Sønderjylland Nej 23 / 44 0 (0) 52,3 (36,7-67,5) 50,9 47,7" [^src17]
+- Page 89: "Sygehus Sønderjylland Nej 17 / 64 0 (0) 26,6 (16,3-39,1) 22,6 30,6" [^src17]
+- Page 91: "Sygehus Sønderjylland 108 100,00 44 40,74 64 59,26" [^src18]
 
 ## Relationships
-Outgoing (this entity is the SUBJECT of these relationships):
-- Subject: sygehus-soenderjylland
-  Predicate: has-indicator-result
-  Object: indikator-1
-  Evidence: "Sygehus Sønderjylland Nej 19 / 107 0 (0) 17,8 (11,0-26,3) 16,3 9,0"
-  Page: 9
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 6-10
 
-Incoming (this entity is the OBJECT of these relationships):
-- Subject: region-syddanmark
-  Predicate: contains-hospital
-  Object: (this entity)
-  Evidence: "Syddanmark 21 / 213 [...] Sygehus Sønderjylland 3 / 45"
-  Page: 61
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65
+- [[indikator-1|Indikator 1]] — Has Indicator Result [^src1]
+- [[region-syddanmark|Region Syddanmark — Syddanmark]] — Contains Hospital (incoming) — "Syddanmark 21 / 213 [...] Sygehus Sønderjylland 3 / 45" [^src3]
+- [[region-syddanmark|Region Syddanmark — Syddanmark]] — Contains Hospital (incoming) — "Syddanmark
+Sygehus
+Sønderjylland
+Nej 41 / 102 0 (0) 40,2 (30,6-50,4) 28,7 23,0" [^src10]
+- [[region-syd|Region Syd]] — Includes Hospital (incoming) — "Region Syd har lavet en stor indsats og har flyttet sig med to cifret % sats og flere sygehuse, fx Horsens, Esbjerg, Bornholm, og Sygehus Sønderjylland har flyttet sig betydeligt." [^src11]
 
 ## Claims
-- Sygehus Sønderjylland: 3 / 45 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (6,7 %; 95 % CI: 1,4-18,3) [^src1] (sygehus-soenderjylland, charlson-score-1-2)
-  Type: hospital-statistic
-  Page: 61
-  Source: wikis/rkkp-akdb/raw/AKDB_2023.pdf, pages 61-65
-- For perioden 01.09.2023 – 31.08.2024 blev der registreret 5 patienter med død inden for 30 dage efter akut kirurgi ved Sygehus Sønderjylland blandt 23 inkluderede patienter med Charlson Score = 1 eller 2 [^src1] (sygehus-soenderjylland, indikator-9b)
-  Type: clinical-outcome
-  Page: 66
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70
-- For perioden 01.09.2023 – 31.08.2024 blev der registreret 5 patienter med død inden for 30 dage efter akut kirurgi ved Sygehus Sønderjylland blandt 23 inkluderede patienter med Charlson Score ≥ 3 [^src1] (sygehus-soenderjylland, indikator-9c)
-  Type: clinical-outcome
-  Page: 66
-  Source: wikis/rkkp-akdb/raw/AKDB_2024.pdf, pages 66-70
 
-## Timeline
-(none)
+- Sygehus Sønderjylland: 3 / 45 døde indenfor 30 dage efter akut kirurgi med Charlson Score = 1 eller 2 (6,7 %; 95 % CI: 1,4-18,3) [^src3] ([[sygehus-soenderjylland|Sygehus Sønderjylland]], [[charlson-score-1-2|Charlson Score = 1 eller 2]])
+- For perioden 01.09.2023 – 31.08.2024 blev der registreret 5 patienter med død inden for 30 dage efter akut kirurgi ved Sygehus Sønderjylland blandt 23 inkluderede patienter med Charlson Score = 1 eller 2 [^src8] ([[sygehus-soenderjylland|Sygehus Sønderjylland]], [[indikator-9b|Indikator 9b]])
+- For perioden 01.09.2023 – 31.08.2024 blev der registreret 5 patienter med død inden for 30 dage efter akut kirurgi ved Sygehus Sønderjylland blandt 23 inkluderede patienter med Charlson Score ≥ 3 [^src8] ([[sygehus-soenderjylland|Sygehus Sønderjylland]], [[indikator-9c|Indikator 9c]])
+- Sygehus Sønderjylland har en mobiliseringsrate på 74,1 % (95 % CI: 64,8–82,0) for indikator 6 [^src19] ([[sygehus-soenderjylland|Sygehus Sønderjylland]])
 
 ## Sources
 
@@ -75,3 +77,14 @@ Incoming (this entity is the OBJECT of these relationships):
 [^src7]: AKDB_2024.pdf, pages 61-65
 [^src8]: AKDB_2024.pdf, pages 66-70
 [^src9]: AKDB_2024.pdf, pages 71-75
+[^src10]: AKDB_2025.pdf, pages 6-10
+[^src11]: AKDB_2025.pdf, pages 11-15
+[^src12]: AKDB_2025.pdf, pages 61-65
+[^src13]: AKDB_2025.pdf, pages 66-70
+[^src14]: AKDB_2025.pdf, pages 71-75
+[^src15]: AKDB_2025.pdf, pages 76-80
+[^src16]: AKDB_2025.pdf, pages 81-85
+[^src17]: AKDB_2025.pdf, pages 86-90
+[^src18]: AKDB_2025.pdf, pages 91-95
+[^src19]: AKDB_2025.pdf, pages 36-40
+

@@ -3,7 +3,17 @@
     {
       "slug": "aarhus-universitetshospital",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 2
+      "mentionCount": 4
+    },
+    {
+      "slug": "abdominalcenter-k-bispebjerg-hospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "mentionCount": 1
     },
     {
       "slug": "anastomoselaekage",
@@ -13,57 +23,87 @@
     {
       "slug": "anne-mette-falstie-jensen",
       "folder": "entities/people/epidemiologists",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "bike1-undervisning-i-inflammatorisk-tarmsygdom",
       "folder": "topics/codes/procedure-codes",
-      "mentionCount": 4
+      "mentionCount": 5
     },
     {
       "slug": "bmsl",
       "folder": "entities/treatments/gastrointestinal",
-      "mentionCount": 13
+      "mentionCount": 22
     },
     {
       "slug": "bohj18a1-behandling-med-infliximab",
       "folder": "topics/codes/treatment-codes",
-      "mentionCount": 4
+      "mentionCount": 5
     },
     {
       "slug": "bohj18a3-behandling-med-adalimumab",
       "folder": "topics/codes/treatment-codes",
-      "mentionCount": 4
+      "mentionCount": 5
     },
     {
       "slug": "bohj18a4-behandling-med-golimumab",
       "folder": "topics/codes/treatment-codes",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "bohj18b3-behandling-med-ustekinumab",
       "folder": "topics/codes/treatment-codes",
-      "mentionCount": 4
+      "mentionCount": 5
     },
     {
       "slug": "bohj19h4-behandling-med-vedolizumab",
       "folder": "topics/codes/treatment-codes",
-      "mentionCount": 4
+      "mentionCount": 5
+    },
+    {
+      "slug": "bohj19n1-behandling-med-risankizumab",
+      "folder": "topics/codes/treatment-codes",
+      "mentionCount": 1
     },
     {
       "slug": "bohj28d-behandling-med-tofacitinib",
+      "folder": "topics/codes/treatment-codes",
+      "mentionCount": 2
+    },
+    {
+      "slug": "bwhp107-behandling-med-upadacitinib",
+      "folder": "topics/codes/treatment-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "bwhp141-behandling-med-filgotinib",
+      "folder": "topics/codes/treatment-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "bwhp142-behandling-med-mirikizumab",
+      "folder": "topics/codes/treatment-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "bwhp143-behandling-med-ozanimod",
+      "folder": "topics/codes/treatment-codes",
+      "mentionCount": 1
+    },
+    {
+      "slug": "bwhp148-behandling-med-etrasimod",
       "folder": "topics/codes/treatment-codes",
       "mentionCount": 1
     },
     {
       "slug": "calprotectin",
       "folder": "entities/biomarkers/gastrointestinal",
-      "mentionCount": 9
+      "mentionCount": 11
     },
     {
       "slug": "colitis-ulcerosa",
       "folder": "topics/diseases/gastrointestinal",
-      "mentionCount": 8
+      "mentionCount": 12
     },
     {
       "slug": "constant-care",
@@ -73,12 +113,12 @@
     {
       "slug": "crohns-sygdom",
       "folder": "topics/diseases/gastrointestinal",
-      "mentionCount": 10
+      "mentionCount": 17
     },
     {
       "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
       "folder": "entities/organizations/health-databases",
-      "mentionCount": 31
+      "mentionCount": 60
     },
     {
       "slug": "dansk-paediatrisk-selskab",
@@ -88,35 +128,45 @@
     {
       "slug": "dexa-scanning",
       "folder": "entities/procedural",
-      "mentionCount": 3
+      "mentionCount": 10
     },
     {
       "slug": "dk50-crohns-sygdom",
       "folder": "topics/diagnoses/ibd",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk51-ulceroes-colitis",
       "folder": "topics/diagnoses/ibd",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "dk830f-primaer-skleroserende-kolangitis",
       "folder": "topics/diagnoses/hepatobiliary",
-      "mentionCount": 3
+      "mentionCount": 4
     },
     {
       "slug": "dk912b-korttarmssyndrom",
       "folder": "topics/diagnoses/gastrointestinal",
-      "mentionCount": 2
+      "mentionCount": 3
+    },
+    {
+      "slug": "egs-esbjerg-medicinsk-mave-og-tarm-amb",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "mentionCount": 1
     },
     {
       "slug": "else-kjaer-mikkelsen",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "espgghan",
+      "folder": "entities/organizations/health-organizations",
+      "mentionCount": 1
+    },
+    {
+      "slug": "espgghan-2025-uc-guideline",
       "folder": "entities/organizations/health-organizations",
       "mentionCount": 1
     },
@@ -126,18 +176,38 @@
       "mentionCount": 1
     },
     {
+      "slug": "etrasimod",
+      "folder": "entities/products/health-it",
+      "mentionCount": 1
+    },
+    {
+      "slug": "eva-nielsen",
+      "folder": "entities/people/healthcare-professionals",
+      "mentionCount": 1
+    },
+    {
       "slug": "faeces-calprotectin-maaling",
       "folder": "entities/biomarkers/gastrointestinal",
-      "mentionCount": 1
+      "mentionCount": 5
     },
     {
       "slug": "filgotinib",
       "folder": "entities/products/health-it",
+      "mentionCount": 2
+    },
+    {
+      "slug": "fpiac",
+      "folder": "entities/medical-conditions/gastrointestinal",
       "mentionCount": 1
     },
     {
       "slug": "gastrobio",
       "folder": "entities/databases/health-registries",
+      "mentionCount": 3
+    },
+    {
+      "slug": "gastroskopi",
+      "folder": "entities/procedural",
       "mentionCount": 2
     },
     {
@@ -148,7 +218,7 @@
     {
       "slug": "herlev-mave-tarm-leversygd",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 2
+      "mentionCount": 4
     },
     {
       "slug": "hvidovre",
@@ -158,67 +228,72 @@
     {
       "slug": "hvidovre-gastroenheden",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 2
+      "mentionCount": 4
     },
     {
       "slug": "ibd",
       "folder": "entities/medical-conditions/gastrointestinal",
-      "mentionCount": 13
+      "mentionCount": 14
+    },
+    {
+      "slug": "iben-kryger-birkholm",
+      "folder": "entities/people/data-managers",
+      "mentionCount": 1
     },
     {
       "slug": "ida-vind",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "indikator-1",
       "folder": "topics/quality-indicators/ibd",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "indikator-1a",
       "folder": "topics/quality-indicators/ibd",
-      "mentionCount": 1
+      "mentionCount": 6
     },
     {
       "slug": "indikator-1b",
       "folder": "topics/quality-indicators/ibd",
-      "mentionCount": 1
+      "mentionCount": 7
     },
     {
       "slug": "indikator-2",
       "folder": "topics/quality-indicators/ibd",
-      "mentionCount": 3
+      "mentionCount": 7
     },
     {
       "slug": "indikator-3",
       "folder": "topics/quality-indicators/ibd",
-      "mentionCount": 1
+      "mentionCount": 6
     },
     {
       "slug": "indikator-4",
       "folder": "topics/quality-indicators/ibd",
-      "mentionCount": 2
+      "mentionCount": 7
     },
     {
       "slug": "indikator-5",
       "folder": "topics/quality-indicators/ibd",
-      "mentionCount": 4
+      "mentionCount": 8
     },
     {
       "slug": "indikator-6",
       "folder": "topics/quality-indicators/ibd",
-      "mentionCount": 6
+      "mentionCount": 12
     },
     {
       "slug": "indikator-7",
       "folder": "topics/quality-indicators/ibd",
-      "mentionCount": 5
+      "mentionCount": 11
     },
     {
       "slug": "inflammatoriske-tarmsygdomme",
       "folder": "topics/diseases/gastrointestinal",
-      "mentionCount": 4
+      "mentionCount": 5
     },
     {
       "slug": "inge-nordgaard-lassen",
@@ -228,7 +303,7 @@
     {
       "slug": "jacobsen-ha-et-al",
       "folder": "entities/people/researchers",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "jakob-riis",
@@ -238,25 +313,35 @@
     {
       "slug": "jannie-jensen",
       "folder": "entities/people/patient-representatives",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "jens-kjeldsen",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "johan-burisch",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "mentionCount": 2
+    },
+    {
+      "slug": "kapselendoskopi",
+      "folder": "entities/procedural",
+      "mentionCount": 2
     },
     {
       "slug": "kjah00-eksplorativ-laparotomi",
       "folder": "topics/codes/procedure-codes",
-      "mentionCount": 2
+      "mentionCount": 5
     },
     {
       "slug": "kjah01-laparoskopi",
+      "folder": "topics/codes/procedure-codes",
+      "mentionCount": 4
+    },
+    {
+      "slug": "kjfb00-tyndtarmsresektion",
       "folder": "topics/codes/procedure-codes",
       "mentionCount": 1
     },
@@ -268,32 +353,37 @@
     {
       "slug": "kjfb21-laparoskopisk-ileocokal-resektion",
       "folder": "topics/codes/procedure-codes",
+      "mentionCount": 3
+    },
+    {
+      "slug": "kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi",
+      "folder": "topics/codes/procedure-codes",
       "mentionCount": 1
     },
     {
       "slug": "kjfh11-laparoskopisk-kolektomi-og-ileostomi",
       "folder": "topics/codes/procedure-codes",
-      "mentionCount": 1
+      "mentionCount": 3
     },
     {
       "slug": "kolorektalkraeft",
       "folder": "entities/diseases/gastrointestinal",
-      "mentionCount": 2
+      "mentionCount": 4
     },
     {
       "slug": "koloskopi",
       "folder": "topics/procedural",
-      "mentionCount": 2
+      "mentionCount": 12
     },
     {
       "slug": "korttarmssyndrom",
       "folder": "entities/medical-conditions/gastrointestinal",
-      "mentionCount": 3
+      "mentionCount": 6
     },
     {
       "slug": "kujf32-35",
       "folder": "topics/codes/procedure-codes",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "laboratoriedatabasen",
@@ -303,12 +393,12 @@
     {
       "slug": "landspatientregisteret",
       "folder": "entities/databases/health-registries",
-      "mentionCount": 6
+      "mentionCount": 11
     },
     {
       "slug": "lone-larsen",
       "folder": "entities/people/health-leaders",
-      "mentionCount": 3
+      "mentionCount": 5
     },
     {
       "slug": "marianne-kajbaek-vester-andersen",
@@ -316,14 +406,19 @@
       "mentionCount": 1
     },
     {
+      "slug": "mathilde-pedersen",
+      "folder": "entities/people/data-governance",
+      "mentionCount": 1
+    },
+    {
       "slug": "mirikizumab",
       "folder": "entities/products/health-it",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "mohamed-attaubi",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "montreal",
@@ -333,7 +428,7 @@
     {
       "slug": "mr-af-tyndtarmen",
       "folder": "entities/procedural",
-      "mentionCount": 1
+      "mentionCount": 3
     },
     {
       "slug": "niels-qvist",
@@ -343,12 +438,12 @@
     {
       "slug": "nordsjaelland-kirurgisk-overafdeling",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 5
+      "mentionCount": 7
     },
     {
       "slug": "nordsjaellands-hospital",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 3
+      "mentionCount": 4
     },
     {
       "slug": "npu-kode",
@@ -356,49 +451,59 @@
       "mentionCount": 1
     },
     {
+      "slug": "nynne-nyboe-andersen",
+      "folder": "entities/people/health-leaders",
+      "mentionCount": 1
+    },
+    {
       "slug": "ole-thorlacius-ussing",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "ouh-odense-kirurgisk-afdeling-a",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "ouh-odense-medicinsk-mave-tarm-afd-s",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 1
+      "mentionCount": 3
     },
     {
       "slug": "ouh-svendborg",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "ozanimod",
       "folder": "entities/products/health-it",
+      "mentionCount": 2
+    },
+    {
+      "slug": "pernille-aaen-sloth",
+      "folder": "entities/people/data-governance",
       "mentionCount": 1
     },
     {
       "slug": "primaert-kirurgisk-indgreb",
       "folder": "topics/procedural",
-      "mentionCount": 1
+      "mentionCount": 7
     },
     {
       "slug": "psc",
       "folder": "entities/diseases/ibd-comorbidities",
-      "mentionCount": 17
+      "mentionCount": 25
     },
     {
       "slug": "rasmus-gaardskaer-nielsen",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "re-operation",
       "folder": "topics/procedural",
-      "mentionCount": 1
+      "mentionCount": 4
     },
     {
       "slug": "re-operationsrate",
@@ -408,27 +513,32 @@
     {
       "slug": "region-hovedstaden",
       "folder": "entities/organizations/regional-health-authorities",
-      "mentionCount": 7
+      "mentionCount": 20
     },
     {
       "slug": "region-midtjylland",
       "folder": "entities/organizations/regional-health-authorities",
-      "mentionCount": 6
+      "mentionCount": 16
     },
     {
       "slug": "region-nordjylland",
       "folder": "entities/organizations/regional-health-authorities",
-      "mentionCount": 6
+      "mentionCount": 20
+    },
+    {
+      "slug": "region-oestdanmarks-sundhedsfaglige-raad-for-mave-tarm-og-leversygdomme",
+      "folder": "entities/organizations/health-committees",
+      "mentionCount": 1
     },
     {
       "slug": "region-sjaelland",
       "folder": "entities/organizations/regional-health-authorities",
-      "mentionCount": 5
+      "mentionCount": 17
     },
     {
       "slug": "region-syddanmark",
       "folder": "entities/organizations/regional-health-authorities",
-      "mentionCount": 9
+      "mentionCount": 18
     },
     {
       "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
@@ -438,16 +548,31 @@
     {
       "slug": "regionshospitalet-goedstrup",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 2
+      "mentionCount": 3
     },
     {
       "slug": "rigshospitalet-med-klinik-mave-tarm-lever",
       "folder": "entities/healthcare-facilities/hospitals",
-      "mentionCount": 5
+      "mentionCount": 9
     },
     {
       "slug": "risankizumab",
       "folder": "entities/products/health-it",
+      "mentionCount": 2
+    },
+    {
+      "slug": "sjellands-universitetshospital",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "slb-kolding-boerne-og-ungeafdeling",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "mentionCount": 1
+    },
+    {
+      "slug": "slb-vejle-gastroenterologisk-amb",
+      "folder": "entities/healthcare-facilities/hospitals",
       "mentionCount": 1
     },
     {
@@ -456,29 +581,39 @@
       "mentionCount": 6
     },
     {
+      "slug": "steroidkurer",
+      "folder": "entities/treatments/gastrointestinal",
+      "mentionCount": 1
+    },
+    {
       "slug": "styregruppen-for-danibd",
       "folder": "entities/organizations/health-committees",
-      "mentionCount": 17
+      "mentionCount": 27
     },
     {
       "slug": "sundhedsvaesenets-kvalitetsinstitut",
       "folder": "entities/organizations/health-authorities",
-      "mentionCount": 1
+      "mentionCount": 6
     },
     {
       "slug": "sygehusmedicinregisteret",
       "folder": "entities/databases/health-registries",
-      "mentionCount": 2
+      "mentionCount": 3
+    },
+    {
+      "slug": "tina-fransgaard",
+      "folder": "entities/people/health-leaders",
+      "mentionCount": 1
     },
     {
       "slug": "torben-knudsen",
       "folder": "entities/people/healthcare-professionals",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "upadacitinib",
       "folder": "entities/products/health-it",
-      "mentionCount": 1
+      "mentionCount": 2
     },
     {
       "slug": "veo-ibd",
@@ -487,14 +622,15 @@
     }
   ],
   "topics": [
+    "audit-finding",
     "clinical-consensus",
     "clinical-practice",
     "coverage",
-    "diseases/gastrointestinal",
-    "diseases/hepatic-biliary",
     "eligibility-criteria",
+    "healthcare-utilization",
     "mission",
     "performance",
+    "policy-change",
     "quality-indicator",
     "quality-target",
     "treatment",
@@ -502,7 +638,8 @@
   ],
   "sources": [
     "danibd-2023",
-    "danibd-2024"
+    "danibd-2024",
+    "danibd-2025"
   ],
   "folderStructure": [
     "comparisons",
@@ -529,6 +666,7 @@
     "entities/procedural",
     "entities/products/health-it",
     "entities/treatments/gastrointestinal",
+    "topics/audit-finding",
     "topics/clinical-consensus",
     "topics/clinical-practice",
     "topics/codes/procedure-codes",
@@ -538,10 +676,11 @@
     "topics/diagnoses/hepatobiliary",
     "topics/diagnoses/ibd",
     "topics/diseases/gastrointestinal",
-    "topics/diseases/hepatic-biliary",
     "topics/eligibility-criteria",
+    "topics/healthcare-utilization",
     "topics/mission",
     "topics/performance",
+    "topics/policy-change",
     "topics/procedural",
     "topics/quality-indicator",
     "topics/quality-indicators/ibd",

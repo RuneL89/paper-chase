@@ -4,36 +4,61 @@ type: entity
 aliases:
   - Robert Bedsted
 wiki: rkkp-afdk
-updated: '2026-08-05T20:19:31.997Z'
+updated: '2026-08-14T20:22:56.035Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2023.pdf
     pages: 81-85
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: 66-70
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: 66-70
 tags:
   - person
 ---
-Robert Bedsted is a patient representative involved in the governance of cardiovascular healthcare quality in Denmark. Specifically, he serves on the [[afdk-styregruppe|Styregruppen for AFDK]], the steering committee for the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (Danish Atrial Fibrillation Database) [^src1][^src2]. 
 
-His inclusion in the steering committee underscores the interdisciplinary and cross-sectoral approach of the AFDK program. By having a patient representative on the board, the database's quality development framework aims to ensure that the treatment of atrial fibrillation—a common and potentially serious chronic heart condition—remains evidence-based, uniform, and patient-centered across Denmark [^src2]. Bedsted's role is documented in the annual reports covering the 2022–2023 and 2024 periods, reflecting his ongoing participation in the clinical and political decision-making foundations for atrial fibrillation care [^src1][^src2].
+Robert Bedsted is a patient representative who serves on the steering committee for the [[databasen-for-atrieflimren-i-danmark|Databasen for Atrieflimren i Danmark]] (AFDK) [^src1]. His role highlights the integration of patient perspectives into the governance, data validation, and quality development of cardiovascular healthcare in Denmark [^src2]. 
+
+Bedsted is a formal member of the [[afdk-styregruppe|Styregruppen for AFDK]], the interdisciplinary and cross-sectoral steering group that oversees the national atrial fibrillation database [^src2]. The inclusion of patient representatives like Bedsted on the committee reflects a broader institutional commitment to ensuring that the treatment, monitoring, and structured patient education regarding atrial fibrillation remain patient-centered and evidence-based [^src3]. His continued presence and active role on the steering committee are documented across multiple annual reports, including the 2023, 2024, and 2025 publications from the Danish healthcare quality institutes [^src1] [^src2] [^src3].
 
 ## Mentions
-- Page 83: "Robert Bedsted, Patientrepræsentant" [^src1]
-- Page 70: "Robert Bedsted, Patientrepræsentant" [^src2]
+
+- Page 83: "Robert Bedsted, Patientrepræsentant" (source: wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 81-85) [^src1]
+- Page 70: "Robert Bedsted, Patientrepræsentant" (source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 66-70) [^src2]
+- Page 66: "Robert Bedsted, Patientrepræsentant" (source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70) [^src3]
 
 ## Relationships
-- **robert-bedsted** `is-patient-representative-for` **databasen-for-atrieflimren-i-danmark**
-  - Evidence: "Robert Bedsted, Patientrepræsentant" (Page 83) [^src1]
-- **robert-bedsted** `is-member-of` **afdk-styregruppe**
-  - Evidence: "Robert Bedsted, Patientrepræsentant" (Page 70) [^src2]
+
+- **Subject:** robert-bedsted
+  **Predicate:** is-patient-representative-for
+  **Object:** databasen-for-atrieflimren-i-danmark
+  **Evidence:** "Robert Bedsted, Patientrepræsentant"
+  **Page:** 83
+  **Source:** wikis/rkkp-afdk/raw/AFDK_2023.pdf, pages 81-85 [^src1]
+
+- **Subject:** robert-bedsted
+  **Predicate:** is-member-of
+  **Object:** afdk-styregruppe
+  **Evidence:** "Robert Bedsted, Patientrepræsentant"
+  **Page:** 70
+  **Source:** wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 66-70 [^src2]
+
+- **Subject:** robert-bedsted
+  **Predicate:** is-patient-representative-in
+  **Object:** afdk-styregruppe
+  **Evidence:** "Robert Bedsted, Patientrepræsentant"
+  **Page:** 66
+  **Source:** wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 66-70 [^src3]
 
 ## Claims
-*(No claims extracted)*
+
+(none)
 
 ## Timeline
-*(No timeline events extracted)*
+
+(none)
 
 ## Sources
 
 [^src1]: AFDK_2023.pdf, pages 81-85
 [^src2]: AFDK_2024.pdf, pages 66-70
+[^src3]: AFDK_2025.pdf, pages 66-70

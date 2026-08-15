@@ -1,556 +1,194 @@
 {
-  "run": "2026-08-05T05:35:03.231Z",
+  "run": "2026-08-15T06:37:29.073Z",
   "newPdfs": [
-    "DANIBD_2023.pdf",
-    "DANIBD_2024.pdf"
+    "DANIBD_2025.pdf"
   ],
   "newEntities": [
     {
-      "slug": "aarhus-universitetshospital",
-      "title": "Aarhus Universitetshospital",
+      "slug": "abdominalcenter-k-bispebjerg-hospital",
+      "title": "Abdominalcenter K, Bispebjerg Hospital",
       "folder": "entities/healthcare-facilities/hospitals"
     },
     {
-      "slug": "anastomoselaekage",
-      "title": "anastomoselækage",
-      "folder": "entities/medical-conditions/gastrointestinal"
+      "slug": "amager-og-hvidovre-hospital",
+      "title": "Amager og Hvidovre Hospital",
+      "folder": "entities/healthcare-facilities/hospitals"
     },
     {
-      "slug": "anne-mette-falstie-jensen",
-      "title": "Anne Mette Falstie-Jensen",
-      "folder": "entities/people/epidemiologists"
-    },
-    {
-      "slug": "bike1-undervisning-i-inflammatorisk-tarmsygdom",
-      "title": "BIKE1 - Undervisning i inflammatorisk tarmsygdom",
-      "folder": "topics/codes/procedure-codes"
-    },
-    {
-      "slug": "bmsl",
-      "title": "Biologiske og målrettede syntetiske lægemidler",
-      "folder": "entities/treatments/gastrointestinal"
-    },
-    {
-      "slug": "bohj18a1-behandling-med-infliximab",
-      "title": "BOHJ18A1 - Behandling med infliximab",
+      "slug": "bohj19n1-behandling-med-risankizumab",
+      "title": "BOHJ19N1",
       "folder": "topics/codes/treatment-codes"
     },
     {
-      "slug": "bohj18a3-behandling-med-adalimumab",
-      "title": "BOHJ18A3 - Behandling med adalimumab",
+      "slug": "bwhp107-behandling-med-upadacitinib",
+      "title": "BWHP107",
       "folder": "topics/codes/treatment-codes"
     },
     {
-      "slug": "bohj18a4-behandling-med-golimumab",
-      "title": "BOHJ18A4 - Behandling med golimumab",
+      "slug": "bwhp141-behandling-med-filgotinib",
+      "title": "BWHP141",
       "folder": "topics/codes/treatment-codes"
     },
     {
-      "slug": "bohj18b3-behandling-med-ustekinumab",
-      "title": "BOHJ18B3 - Behandling med ustekinumab",
+      "slug": "bwhp142-behandling-med-mirikizumab",
+      "title": "BWHP142",
       "folder": "topics/codes/treatment-codes"
     },
     {
-      "slug": "bohj19h4-behandling-med-vedolizumab",
-      "title": "BOHJ19H4 - Behandling med vedolizumab",
+      "slug": "bwhp143-behandling-med-ozanimod",
+      "title": "BWHP143",
       "folder": "topics/codes/treatment-codes"
     },
     {
-      "slug": "bohj28d-behandling-med-tofacitinib",
-      "title": "BOHJ28D - Behandling med tofacitinib",
+      "slug": "bwhp148-behandling-med-etrasimod",
+      "title": "BWHP148",
       "folder": "topics/codes/treatment-codes"
     },
     {
-      "slug": "calprotectin",
-      "title": "calprotectin",
-      "folder": "entities/biomarkers/gastrointestinal"
+      "slug": "egs-esbjerg-medicinsk-mave-og-tarm-amb",
+      "title": "Esbjerg Medicinsk Mave og Tarm Amb.",
+      "folder": "entities/healthcare-facilities/hospitals"
     },
     {
-      "slug": "colitis-ulcerosa",
-      "title": "Colitis ulcerosa",
-      "folder": "topics/diseases/gastrointestinal"
-    },
-    {
-      "slug": "constant-care",
-      "title": "Constant – Care",
-      "folder": "entities/products/health-it"
-    },
-    {
-      "slug": "crohns-sygdom",
-      "title": "Crohns sygdom",
-      "folder": "topics/diseases/gastrointestinal"
-    },
-    {
-      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
-      "title": "Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme",
-      "folder": "entities/organizations/health-databases"
-    },
-    {
-      "slug": "dansk-paediatrisk-selskab",
-      "title": "Dansk Pædiatrisk Selskab",
+      "slug": "espgghan-2025-uc-guideline",
+      "title": "ESPGHAN 2025 UC guideline",
       "folder": "entities/organizations/health-organizations"
     },
     {
-      "slug": "dexa-scanning",
-      "title": "DEXA-scanning",
+      "slug": "etrasimod",
+      "title": "etrasimod",
+      "folder": "entities/products/health-it"
+    },
+    {
+      "slug": "eva-nielsen",
+      "title": "Eva Nielsen",
+      "folder": "entities/people/healthcare-professionals"
+    },
+    {
+      "slug": "fpiac",
+      "title": "FPIAC",
+      "folder": "entities/medical-conditions/gastrointestinal"
+    },
+    {
+      "slug": "gastroskopi",
+      "title": "gastroskopi",
       "folder": "entities/procedural"
     },
     {
-      "slug": "dk50-crohns-sygdom",
-      "title": "DK50* Crohns sygdom",
-      "folder": "topics/diagnoses/ibd"
-    },
-    {
-      "slug": "dk51-ulceroes-colitis",
-      "title": "DK51* Ulcerøs colitis",
-      "folder": "topics/diagnoses/ibd"
-    },
-    {
-      "slug": "dk830f-primaer-skleroserende-kolangitis",
-      "title": "DK830F Primær skleroserende kolangitis",
-      "folder": "topics/diagnoses/hepatobiliary"
-    },
-    {
-      "slug": "dk912b-korttarmssyndrom",
-      "title": "DK912B Korttarmssyndrom",
-      "folder": "topics/diagnoses/gastrointestinal"
-    },
-    {
-      "slug": "else-kjaer-mikkelsen",
-      "title": "Else Kjær Mikkelsen",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "espgghan",
-      "title": "ESPGHAN",
-      "folder": "entities/organizations/health-organizations"
-    },
-    {
-      "slug": "esra-oztoprak",
-      "title": "Esra Öztoprak",
-      "folder": "entities/people/data-governance"
-    },
-    {
-      "slug": "faeces-calprotectin-maaling",
-      "title": "Fæces calprotectin måling",
-      "folder": "entities/biomarkers/gastrointestinal"
-    },
-    {
-      "slug": "filgotinib",
-      "title": "filgotinib",
-      "folder": "entities/products/health-it"
-    },
-    {
-      "slug": "gastrobio",
-      "title": "GASTROBIO",
-      "folder": "entities/databases/health-registries"
-    },
-    {
-      "slug": "henning-glerup",
-      "title": "Henning Glerup",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "herlev-mave-tarm-leversygd",
-      "title": "Herlev Mave-, Tarm- og Leversygd.",
-      "folder": "entities/healthcare-facilities/hospitals"
-    },
-    {
-      "slug": "hvidovre",
-      "title": "Hvidovre",
-      "folder": "entities/healthcare-facilities/hospitals"
-    },
-    {
-      "slug": "hvidovre-gastroenheden",
-      "title": "Hvidovre Gastroenheden",
-      "folder": "entities/healthcare-facilities/hospitals"
-    },
-    {
-      "slug": "ibd",
-      "title": "IBD",
-      "folder": "entities/medical-conditions/gastrointestinal"
-    },
-    {
-      "slug": "ida-vind",
-      "title": "Ida Vind",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "indikator-1",
-      "title": "indikator-1",
-      "folder": "topics/quality-indicators/ibd"
-    },
-    {
-      "slug": "indikator-1a",
-      "title": "Indikator 1a",
-      "folder": "topics/quality-indicators/ibd"
-    },
-    {
-      "slug": "indikator-1b",
-      "title": "Indikator 1b",
-      "folder": "topics/quality-indicators/ibd"
-    },
-    {
-      "slug": "indikator-2",
-      "title": "Indikator 2",
-      "folder": "topics/quality-indicators/ibd"
-    },
-    {
-      "slug": "indikator-3",
-      "title": "Indikator 3",
-      "folder": "topics/quality-indicators/ibd"
-    },
-    {
-      "slug": "indikator-4",
-      "title": "Indikator 4",
-      "folder": "topics/quality-indicators/ibd"
-    },
-    {
-      "slug": "indikator-5",
-      "title": "Indikator 5",
-      "folder": "topics/quality-indicators/ibd"
-    },
-    {
-      "slug": "indikator-6",
-      "title": "Indikator 6",
-      "folder": "topics/quality-indicators/ibd"
-    },
-    {
-      "slug": "indikator-7",
-      "title": "Indikator 7",
-      "folder": "topics/quality-indicators/ibd"
-    },
-    {
-      "slug": "inflammatoriske-tarmsygdomme",
-      "title": "Inflammatoriske tarmsygdomme",
-      "folder": "topics/diseases/gastrointestinal"
-    },
-    {
-      "slug": "inge-nordgaard-lassen",
-      "title": "Inge Nordgaard Lassen",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "jacobsen-ha-et-al",
-      "title": "Jacobsen HA et al.",
-      "folder": "entities/people/researchers"
-    },
-    {
-      "slug": "jakob-riis",
-      "title": "Jakob Riis",
+      "slug": "iben-kryger-birkholm",
+      "title": "Iben Kryger Birkholm",
       "folder": "entities/people/data-managers"
     },
     {
-      "slug": "jannie-jensen",
-      "title": "Jannie Jensen",
-      "folder": "entities/people/patient-representatives"
-    },
-    {
-      "slug": "jens-kjeldsen",
-      "title": "Jens Kjeldsen",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "johan-burisch",
-      "title": "Johan Burisch",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "kjah00-eksplorativ-laparotomi",
-      "title": "KJAH00",
-      "folder": "topics/codes/procedure-codes"
-    },
-    {
-      "slug": "kjah01-laparoskopi",
-      "title": "KJAH01",
-      "folder": "topics/codes/procedure-codes"
-    },
-    {
-      "slug": "kjfb20-21-30-31",
-      "title": "KJFB20/21/30/31",
-      "folder": "topics/codes/procedure-codes"
-    },
-    {
-      "slug": "kjfb21-laparoskopisk-ileocokal-resektion",
-      "title": "KJFB21",
-      "folder": "topics/codes/procedure-codes"
-    },
-    {
-      "slug": "kjfh11-laparoskopisk-kolektomi-og-ileostomi",
-      "title": "KJFH11",
-      "folder": "topics/codes/procedure-codes"
-    },
-    {
-      "slug": "kolorektalkraeft",
-      "title": "kolorektalkræft",
-      "folder": "entities/diseases/gastrointestinal"
-    },
-    {
-      "slug": "koloskopi",
-      "title": "koloskopi",
-      "folder": "topics/procedural"
-    },
-    {
-      "slug": "korttarmssyndrom",
-      "title": "korttarmssyndrom",
-      "folder": "entities/medical-conditions/gastrointestinal"
-    },
-    {
-      "slug": "kujf32-35",
-      "title": "KUJF32/35",
-      "folder": "topics/codes/procedure-codes"
-    },
-    {
-      "slug": "laboratoriedatabasen",
-      "title": "Laboratoriedatabasen",
-      "folder": "entities/databases/national-health-registers"
-    },
-    {
-      "slug": "landspatientregisteret",
-      "title": "Landspatientregisteret",
-      "folder": "entities/databases/health-registries"
-    },
-    {
-      "slug": "lone-larsen",
-      "title": "Lone Larsen",
-      "folder": "entities/people/health-leaders"
-    },
-    {
-      "slug": "marianne-kajbaek-vester-andersen",
-      "title": "Marianne Kajbæk Vester-Andersen",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "mirikizumab",
-      "title": "mirikizumab",
-      "folder": "entities/products/health-it"
-    },
-    {
-      "slug": "mohamed-attaubi",
-      "title": "Mohamed Attauabi",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "montreal",
-      "title": "Montreal",
-      "folder": "entities/classification-systems/medical"
-    },
-    {
-      "slug": "mr-af-tyndtarmen",
-      "title": "MR af tyndtarmen",
+      "slug": "kapselendoskopi",
+      "title": "kapselendoskopi",
       "folder": "entities/procedural"
     },
     {
-      "slug": "niels-qvist",
-      "title": "Niels Qvist",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "nordsjaelland-kirurgisk-overafdeling",
-      "title": "Nordsjælland Kirurgisk overafdeling",
-      "folder": "entities/healthcare-facilities/hospitals"
-    },
-    {
-      "slug": "nordsjaellands-hospital",
-      "title": "Nordsjællands Hospital",
-      "folder": "entities/healthcare-facilities/hospitals"
-    },
-    {
-      "slug": "npu-kode",
-      "title": "NPU-kode",
+      "slug": "kjfb00-tyndtarmsresektion",
+      "title": "KJFB00",
       "folder": "topics/codes/procedure-codes"
     },
     {
-      "slug": "ole-thorlacius-ussing",
-      "title": "Ole Thorlacius-Ussing",
-      "folder": "entities/people/healthcare-professionals"
+      "slug": "kjfg40-revision-af-enterostomi-el-kolostomi-u-laparotomi",
+      "title": "KJFG40",
+      "folder": "topics/codes/procedure-codes"
     },
     {
-      "slug": "ouh-odense-kirurgisk-afdeling-a",
-      "title": "OUH Odense Kirurgisk Afdeling A",
-      "folder": "entities/healthcare-facilities/hospitals"
+      "slug": "mathilde-pedersen",
+      "title": "Mathilde Pedersen",
+      "folder": "entities/people/data-governance"
     },
     {
-      "slug": "ouh-odense-medicinsk-mave-tarm-afd-s",
-      "title": "OUH Odense Medicinsk Mave-Tarm Afd. S",
-      "folder": "entities/healthcare-facilities/hospitals"
+      "slug": "nynne-nyboe-andersen",
+      "title": "Nynne Nyboe Andersen",
+      "folder": "entities/people/health-leaders"
     },
     {
-      "slug": "ouh-svendborg",
-      "title": "OUH Svendborg",
-      "folder": "entities/healthcare-facilities/hospitals"
+      "slug": "pernille-aaen-sloth",
+      "title": "Pernille Aaen Sloth",
+      "folder": "entities/people/data-governance"
     },
     {
-      "slug": "ozanimod",
-      "title": "ozanimod",
-      "folder": "entities/products/health-it"
-    },
-    {
-      "slug": "primaert-kirurgisk-indgreb",
-      "title": "primært kirurgisk indgreb",
-      "folder": "topics/procedural"
-    },
-    {
-      "slug": "psc",
-      "title": "Primær skleroserende kolangitis (PSC)",
-      "folder": "entities/diseases/ibd-comorbidities"
-    },
-    {
-      "slug": "rasmus-gaardskaer-nielsen",
-      "title": "Rasmus Gaardskær Nielsen",
-      "folder": "entities/people/healthcare-professionals"
-    },
-    {
-      "slug": "re-operation",
-      "title": "re-operation",
-      "folder": "topics/procedural"
-    },
-    {
-      "slug": "re-operationsrate",
-      "title": "re-operationsrate",
-      "folder": "topics/quality-indicator"
-    },
-    {
-      "slug": "region-hovedstaden",
-      "title": "Region Hovedstaden",
-      "folder": "entities/organizations/regional-health-authorities"
-    },
-    {
-      "slug": "region-midtjylland",
-      "title": "Region Midtjylland",
-      "folder": "entities/organizations/regional-health-authorities"
-    },
-    {
-      "slug": "region-nordjylland",
-      "title": "Region Nordjylland",
-      "folder": "entities/organizations/regional-health-authorities"
-    },
-    {
-      "slug": "region-sjaelland",
-      "title": "Region Sjælland",
-      "folder": "entities/organizations/regional-health-authorities"
-    },
-    {
-      "slug": "region-syddanmark",
-      "title": "Region Syddanmark",
-      "folder": "entities/organizations/regional-health-authorities"
-    },
-    {
-      "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
-      "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
-      "folder": "entities/organizations/health-authorities"
-    },
-    {
-      "slug": "regionshospitalet-goedstrup",
-      "title": "Regionshospitalet Gødstrup",
-      "folder": "entities/healthcare-facilities/hospitals"
-    },
-    {
-      "slug": "rigshospitalet-med-klinik-mave-tarm-lever",
-      "title": "Rigshospitalet Med. Klinik Mave-, Tarm- og Leversygd.",
-      "folder": "entities/healthcare-facilities/hospitals"
-    },
-    {
-      "slug": "risankizumab",
-      "title": "risankizumab",
-      "folder": "entities/products/health-it"
-    },
-    {
-      "slug": "slb-vejle-medicinsk-afdeling",
-      "title": "SLB Vejle Medicinsk Afdeling",
-      "folder": "entities/healthcare-facilities/hospitals"
-    },
-    {
-      "slug": "styregruppen-for-danibd",
-      "title": "Styregruppen for DANIBD",
+      "slug": "region-oestdanmarks-sundhedsfaglige-raad-for-mave-tarm-og-leversygdomme",
+      "title": "Region Østdanmarks Sundhedsfaglige Råd for Mave-, Tarm- og Leversygdomme",
       "folder": "entities/organizations/health-committees"
     },
     {
-      "slug": "sundhedsvaesenets-kvalitetsinstitut",
-      "title": "Sundhedsvæsenets Kvalitetsinstitut",
-      "folder": "entities/organizations/health-authorities"
+      "slug": "sjellands-universitetshospital",
+      "title": "Sjællands Universitetshospital",
+      "folder": "entities/healthcare-facilities/hospitals"
     },
     {
-      "slug": "sygehusmedicinregisteret",
-      "title": "Sygehusmedicinregisteret",
-      "folder": "entities/databases/health-registries"
+      "slug": "slb-kolding-boerne-og-ungeafdeling",
+      "title": "SLB Kolding Børne- og Ungeafdeling",
+      "folder": "entities/healthcare-facilities/hospitals"
     },
     {
-      "slug": "torben-knudsen",
-      "title": "Torben Knudsen",
-      "folder": "entities/people/healthcare-professionals"
+      "slug": "slb-vejle-gastroenterologisk-amb",
+      "title": "SLB Vejle Gastroenterologisk Amb.",
+      "folder": "entities/healthcare-facilities/hospitals"
     },
     {
-      "slug": "upadacitinib",
-      "title": "upadacitinib",
-      "folder": "entities/products/health-it"
+      "slug": "steroidkurer",
+      "title": "Steroidkurer",
+      "folder": "entities/treatments/gastrointestinal"
     },
     {
-      "slug": "veo-ibd",
-      "title": "VEO-IBD",
-      "folder": "entities/medical-conditions/gastrointestinal"
+      "slug": "tina-fransgaard",
+      "title": "Tina Fransgård",
+      "folder": "entities/people/health-leaders"
     }
   ],
   "updatedEntities": [],
-  "conflicts": 10,
-  "totalCost": 9.701646999999994,
-  "chunksProcessed": 16,
-  "chunksSkipped": 0,
+  "conflicts": 147,
+  "totalCost": 6.234154000000004,
+  "chunksProcessed": 11,
+  "chunksSkipped": 16,
   "chunksFailed": 0,
-  "entitiesNew": 97,
+  "entitiesNew": 27,
   "entitiesUpdated": 0,
-  "relationshipsExtracted": 138,
-  "claimsExtracted": 134,
+  "relationshipsExtracted": 128,
+  "claimsExtracted": 127,
   "claimsByType": {
-    "operational": 7,
-    "demographic": 13,
-    "epidemiological": 16,
-    "clinical-practice": 2,
-    "diagnostic": 4,
-    "quality-indicator": 13,
-    "patient-count": 1,
-    "diagnosis-distribution": 1,
-    "treatment-count": 1,
-    "quality-metric": 6,
-    "surgical-count": 1,
-    "timeline-distribution": 1,
-    "performance": 8,
-    "procedural": 6,
-    "regional-performance": 1,
-    "departmental-performance": 1,
-    "systemic-observation": 1,
-    "mission": 1,
-    "coverage": 2,
-    "eligibility-criteria": 2,
-    "validation": 2,
-    "coverage-estimate": 1,
-    "organizational": 1,
-    "treatment": 7,
-    "statistical": 10,
-    "clinical-guideline": 1,
     "timeline": 1,
-    "quality-target": 2,
-    "performance-statistic": 1,
-    "treatment-statistic": 1,
-    "performance-assessment": 1,
+    "demographic": 22,
+    "epidemiological": 3,
+    "performance": 14,
+    "diagnostic": 4,
+    "healthcare-utilization": 7,
+    "quality-target": 13,
+    "quality-indicator": 24,
+    "policy-change": 1,
+    "clinical-practice": 1,
+    "clinical-statistic": 2,
+    "biological-fact": 1,
     "clinical-consensus": 1,
-    "administrative": 8,
-    "clinical": 6,
-    "evaluative": 3
+    "definition": 1,
+    "administrative": 2,
+    "technical": 1,
+    "statistical": 20,
+    "comparative": 1,
+    "procedural": 2,
+    "validation": 1,
+    "contact-frequency": 1,
+    "contact-type": 1,
+    "audit-finding": 2,
+    "quality-indicator-result": 1
   },
   "pagesByType": {
-    "entity": 91,
-    "topic": 45,
-    "document": 16
+    "entity": 34,
+    "topic": 11,
+    "document": 11
   },
-  "foldersCreated": 43,
-  "brokenLinks": 86,
-  "orphanedPages": 5,
-  "conflictsManualEdit": 1,
-  "conflictsPreservation": 9,
-  "totalTokens": 3370528,
-  "wallClockMs": 9195560,
-  "feedbackRepairs": 55,
+  "foldersCreated": 3,
+  "brokenLinks": 69,
+  "orphanedPages": 8,
+  "conflictsManualEdit": 141,
+  "conflictsPreservation": 6,
+  "totalTokens": 2830921,
+  "wallClockMs": 7094782,
+  "feedbackRepairs": 32,
   "curationFallbacks": 0,
   "transportFailures": 0
 }

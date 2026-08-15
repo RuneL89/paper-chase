@@ -4,17 +4,18 @@ type: index
 aliases:
   - Facilities
 wiki: rkkp-adhd
-updated: '2026-08-05T19:02:17.781Z'
+updated: '2026-08-15T12:29:48.800Z'
 children:
   - psychiatry-clinics/index.md
+  - index.md
 ---
 # Facilities
 
-This area groups physical healthcare locations and departments mentioned in the corpus, specifically focusing on facilities that report data to the national ADHD quality database. It currently contains a dedicated sub-folder for psychiatric clinics, cataloging their operational volumes and performance against national diagnostic and treatment standards for child, adolescent, and adult ADHD care across Denmark's regions.
+This area groups physical sites that deliver healthcare services, specifically focusing on specialized psychiatric outpatient clinics across Denmark. These facilities are evaluated within the national ADHD quality database, with records detailing their diagnostic and treatment performance, compliance with somatic and environmental observation standards, and psychotherapy metrics. By tracking these sites, the wiki highlights both exceptional outliers meeting stringent national standards and departments struggling with systemic resource constraints.
 
 ## Pages
 
-- [[entities/facilities/psychiatry-clinics/index|Psychiatry Clinics]] — Outpatient clinics and hospital departments across Denmark tracked for their fulfillment of national ADHD quality indicators, including diagnostic interviews, somatic examinations, and psychotherapy metrics.
+- [[entities/facilities/psychiatry-clinics/index|Psychiatry Clinics]] — Specialized outpatient departments across Denmark evaluated for ADHD diagnostic and treatment performance, tracking compliance with national quality standards.
 
 ## Navigation
 

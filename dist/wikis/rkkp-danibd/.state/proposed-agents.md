@@ -74,6 +74,7 @@ New folder examples discovered during ingestion:
 - `entities/products/health-it`
 - `entities/procedural`
 - `entities/treatments/gastrointestinal`
+- `topics/audit-finding`
 - `topics/clinical-consensus`
 - `topics/clinical-practice`
 - `topics/codes/procedure-codes`
@@ -87,10 +88,12 @@ New folder examples discovered during ingestion:
 - `topics/diseases/hepatic-biliary`
 - `topics/eligibility-criteria`
 - `topics/epidemiological`
+- `topics/healthcare-utilization`
 - `topics/mission`
 - `topics/operational`
 - `topics/organizational`
 - `topics/performance`
+- `topics/policy-change`
 - `topics/procedural`
 - `topics/quality-indicator`
 - `topics/quality-indicators/ibd`
@@ -127,6 +130,9 @@ New folder examples discovered during ingestion:
 | `procedural` | A process-oriented health activity, often operational or administrative (e.g., data submission, audit protocol) | `entities/procedural/` or `topics/procedural/` | Your content, assembled by the Materializer |
 | `procedure` | A defined clinical or technical action performed on a patient or specimen | `entities/procedural/` or `topics/procedural/` | Your content, assembled by the Materializer |
 | `quality-indicator` | A measurable metric used to assess performance, safety, or outcomes in healthcare | `topics/quality-indicators/<subfolder>/` | Your content, assembled by the Materializer |
+| `audit-finding` | A documented observation from a formal review or evaluation of healthcare processes or outcomes | `topics/audit-finding/` | Your content, assembled by the Materializer |
+| `healthcare-utilization` | A measure or description of how healthcare services are accessed and consumed (e.g., hospital admissions, outpatient visits) | `topics/healthcare-utilization/` | Your content, assembled by the Materializer |
+| `policy-change` | A formal modification to official guidelines, regulations, or operational directives governing healthcare delivery or administration | `topics/policy-change/` | Your content, assembled by the Materializer |
 
 A `comparison` page is written for each structured comparison table you extract (the `tables` output): the article's identity is the table's SUBJECT entity (its canonical slug when resolvable, never the drifting caption), each source's table is preserved verbatim in its own dated `## Table: <source>, p. <page>` section — the markdown structure is reconstructed, every row label and value stays the document's own — and a deterministic `## Related comparisons in prose` section links out to the topic/entity pages where free-text comparisons live. Synthesis reads ACROSS the dated sections (leaders, trailers, targets met or missed, trends, outliers).
 

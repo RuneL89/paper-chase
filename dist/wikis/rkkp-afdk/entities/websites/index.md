@@ -4,17 +4,18 @@ type: index
 aliases:
   - Websites
 wiki: rkkp-afdk
-updated: '2026-08-05T23:16:15.372Z'
+updated: '2026-08-15T00:08:24.885Z'
 children:
   - health-authorities/index.md
+  - index.md
 ---
 # Websites
 
-This folder groups the official web domains and digital portals associated with entities in the corpus. It currently catalogs the primary online hubs operated by Danish health authorities and clinical quality organizations, serving as central administrative repositories for national clinical databases, methodological frameworks, and annual healthcare quality reports.
+This folder catalogs web-based resources and digital portals cited in the source documents. It currently focuses on official websites operated by Danish health authorities and clinical quality programs, which serve as central hubs for national clinical database publications, quality indicators, and specialized medical guidelines.
 
 ## Pages
 
-- [[entities/websites/health-authorities/index|Health Authorities]] — Official web domains operated by Danish health authorities and clinical quality organizations, including the central portal for the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP).
+- [[entities/websites/health-authorities/index|Health Authorities]] — Web portals operated by Danish health authorities and clinical quality programs, including the RKKP digital hub and specialized cardiology resources.
 
 ## Navigation
 

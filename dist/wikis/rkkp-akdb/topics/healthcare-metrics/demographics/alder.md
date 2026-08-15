@@ -2,7 +2,7 @@
 title: alder
 type: entity
 wiki: rkkp-akdb
-updated: '2026-08-05T18:26:04.599Z'
+updated: '2026-08-15T06:25:59.385Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2023.pdf
     pages: 76-80

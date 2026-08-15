@@ -4,20 +4,22 @@ type: topic
 aliases:
   - Quality Indicator
 wiki: rkkp-afdk
-updated: '2026-08-05T21:42:10.900Z'
+updated: '2026-08-14T21:52:25.614Z'
 sources:
   - file: wikis/rkkp-afdk/raw/AFDK_2024.pdf
     pages: '101-105, 16-20'
+  - file: wikis/rkkp-afdk/raw/AFDK_2025.pdf
+    pages: '81-85, 91-95'
 tags:
   - quality-indicator
 ---
-In the Danish healthcare system, quality indicators are utilized to monitor and evaluate the standard of clinical care provided to patients newly diagnosed with [[atrieflimren]] (atrial fibrillation). These metrics ensure that critical diagnostic and therapeutic steps are executed within specific timeframes, directly impacting patient outcomes. The national framework defines several specific indicators to track compliance with clinical guidelines across [[Danmark]].
+In [[danmark|Danmark]], the management and treatment of [[atrieflimren|atrieflimren]] (atrial fibrillation) are systematically evaluated using a comprehensive set of national quality indicators. These metrics are designed to ensure that patients receive timely, evidence-based care and to monitor the incidence of severe complications across different regions and health clusters. The overarching goal for many of these clinical processes is to meet or exceed a [[standard-80-percent|Standard: ≥80 %]] [^src1].
 
-Three primary quality indicators are established for atrial fibrillation care. Indikator 1 measures the proportion of newly diagnosed patients who begin [[antikoagulationsbehandling]] (anticoagulation treatment) within a maximum of 30 days from diagnosis, provided the treatment is indicated [^src2]. Indikator 2 tracks the performance of [[Ekkokardiografi]] (echocardiography) within a window spanning six months before to three months after the initial diagnosis date [^src2]. Indikator 3 monitors whether patients have their [[thyreoideastimulerende hormon (TSH)]] levels measured between 60 days prior and 30 days following their diagnosis [^src2].
+One of the primary diagnostic measures, [[indikator-2|Indikator 2]], tracks the proportion of newly diagnosed atrial fibrillation patients who undergo [[ekkokardiografi|Ekkokardiografi]] within a specific timeframe (from 6 months before to 3 months after their first diagnosis date) [^src2]. Nationally, 80.6% of the incident population was examined with echocardiography within the timeframe, successfully fulfilling the ≥80% standard [^src1]. However, regional disparities exist. [[region-hovedstaden|Region Hovedstaden]] recorded the lowest execution rate among regions at 74.5% [^src1], while [[region-midtjylland|Region Midtjylland]] achieved the highest regional rate at 86.5% [^src1]. At the cluster level, [[sundhedsklynge-lillebaelt|Sundhedsklynge Lillebælt]] led with an 89.4% execution rate [^src1]. Overall, 81% of the incident population received an echocardiogram, meaning the national standard was met [^src1].
 
-Performance data for Indikator 2 highlights both national compliance and significant regional disparities. The national standard for echocardiography completion is set at [[standard-80-percent|≥80 %]]. Nationally, 80.6% of newly diagnosed atrial fibrillation patients underwent an echocardiogram within the required timeframe, successfully meeting this benchmark [^src1]. When looking at the total incident population, 81% were examined, further confirming that the 80% standard was fulfilled [^src1]. 
+Beyond echocardiography, the quality framework encompasses a suite of indicators monitoring various aspects of atrial fibrillation care [^src2], [^src4]. Indikator 1 measures the waiting time (maximum 30 days) from diagnosis to the initiation of [[antikoagulationsbehandling|antikoagulationsbehandling]] when indicated [^src2]. Indikator 3 tracks the measurement of [[thyreoideastimulerende-hormon-tsh|thyreoideastimulerende hormon (TSH)]] around the time of diagnosis, though the exact time window has been adjusted in newer reports (from 60 days before to 150 days before, up to 30 days after) [^src2], [^src4]. Indikator 4a evaluates the proportion of indicated patients actually receiving anticoagulation, while Indikator 4b ensures safety by tracking annual [[p-creatinin|P-creatinin]] measurements for patients on direct oral anticoagulants (DOACs) [^src4].
 
-However, regional execution varies considerably. [[region-hovedstaden|Region Hovedstaden]] recorded the lowest proportion of echocardiography completion among all regions at 74.5% (95% CI: 73.4–75.6), falling short of the national standard [^src1]. Conversely, [[region-midtjylland|Region Midtjylland]] achieved the highest regional compliance rate at 86.5% (95% CI: 85.5–87.4) [^src1]. At the cluster level, [[Sundhedsklynge Lillebælt]] demonstrated the highest performance overall, with 89.4% (95% CI: 87.4–91.2) of patients receiving the examination [^src1].
+Patient education and long-term outcomes are also critical components of the quality assessment. [[indikator-8|Indikator 8]] measures the proportion of newly diagnosed patients who receive a structured [[patientuddannelse|Patientuddannelse]] program within the first year after diagnosis [^src3], [^src4]. Furthermore, the framework monitors severe adverse events among prevalent atrial fibrillation patients, tracking the incidence of [[iskaemisk-apopleksi|Iskæmisk apopleksi]] (Indikator 5), [[intrakraniel-bloedning|Intrakraniel blødning]] (Indikator 6), and [[alvorlig-bloedning|Alvorlig blødning]] based on adapted ISTH criteria (Indikator 7) [^src4]. Together, these indicators provide a robust mechanism for evaluating and improving the standard of care for atrial fibrillation patients across the Danish healthcare system.
 
 ## Claims
 
@@ -53,8 +55,42 @@ However, regional execution varies considerably. [[region-hovedstaden|Region Hov
   Type: quality-indicator
   Page: 105
   Source: wikis/rkkp-afdk/raw/AFDK_2024.pdf, pages 101-105
+- Indikator 8 måler andelen af ny-diagnosticerede patienter med atrieflimren, som får et struktureret undervisningsprogram inden for det 1. år efter diagnosen er stillet [^src2] (indikator-8, patientuddannelse)
+  Type: quality-indicator
+  Page: 84
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 81-85
+- Indikator 3: Andelen af nydiagnosticerede patienter med atrieflimren, som får målt TSH fra 150 dage før til 30 dage efter 1. diagnosedato [^src1] (thyreoideastimulerende-hormon-tsh, atrieflimren)
+  Type: quality-indicator
+  Page: 91
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 4a: Andelen af patienter med atrieflimren, med indikation for antikoagulationsbehandling, der modtager behandling (ud af den population hvor det er indiceret) [^src1] (antikoagulationsbehandling, atrieflimren)
+  Type: quality-indicator
+  Page: 92
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 4b: Andelen af patienter med atrieflimren i behandling med direkte orale antikoagulantia (DOAC) med mindst 1 måling af P-creatinin årligt [^src1] (antikoagulationsbehandling, p-creatinin, atrieflimren)
+  Type: quality-indicator
+  Page: 92
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 5: Incidens af iskæmisk apopleksi blandt prævalente patienter med atrieflimren [^src1] (iskaemisk-apopleksi, atrieflimren)
+  Type: quality-indicator
+  Page: 93
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren [^src1] (intrakraniel-bloedning, atrieflimren)
+  Type: quality-indicator
+  Page: 93
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 7: Incidens af alvorlig blødning (tillempede International Society of Thrombosis and Hemostasis (ISTH) kriterier) blandt prævalente patienter med atrieflimren [^src1] (alvorlig-bloedning, atrieflimren)
+  Type: quality-indicator
+  Page: 93
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
+- Indikator 8: Andelen af nydiagnosticerede patienter med atrieflimren, som har fået et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet [^src1] (patientuddannelse, atrieflimren)
+  Type: quality-indicator
+  Page: 95
+  Source: wikis/rkkp-afdk/raw/AFDK_2025.pdf, pages 91-95
 
 ## Sources
 
 [^src1]: AFDK_2024.pdf, pages 16-20
 [^src2]: AFDK_2024.pdf, pages 101-105
+[^src3]: AFDK_2025.pdf, pages 81-85
+[^src4]: AFDK_2025.pdf, pages 91-95

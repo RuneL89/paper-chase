@@ -4,17 +4,18 @@ type: index
 aliases:
   - Demographic
 wiki: rkkp-adhd
-updated: '2026-08-05T19:18:29.721Z'
+updated: '2026-08-15T12:42:21.225Z'
 children:
   - demographic.md
+  - index.md
 ---
 # Demographic
 
-This folder contains the demographic topic page, which tracks the populations undergoing ADHD assessment and treatment in Denmark. It details patient flows, gender distributions, and regional variations across both the pediatric and adult cohorts, highlighting that boys make up the majority of the assessment and treatment populations and that most adult patients are managed in private specialist practices. The data also surfaces specific regional gaps, such as the absence of registered toddlers in the treatment population of Region Nordjylland, and introduces dedicated quality indicators for tracking adult care.
+This folder covers the demographic characteristics of patients undergoing ADHD assessment and treatment in Denmark. It tracks population sizes, gender distributions, age groups, and regional variations within the ADHD-DATABASEN, distinguishing between pediatric and adult patient flows and highlighting specific quality indicators for adult care.
 
 ## Pages
 
-- [[demographic|Demographic]] — Tracks patient flows, gender distributions, and regional variations across the ADHD assessment and treatment populations in Denmark, including specific metrics and quality indicators for adult care.
+- [[demographic|Demographic]] — Details the size, gender distribution, and regional breakdowns of the ADHD assessment and treatment populations, including specific metrics for adult care.
 
 ## Navigation
 

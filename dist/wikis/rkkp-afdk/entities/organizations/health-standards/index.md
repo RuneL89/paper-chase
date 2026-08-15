@@ -4,17 +4,18 @@ type: index
 aliases:
   - Health Standards
 wiki: rkkp-afdk
-updated: '2026-08-05T23:01:28.486Z'
+updated: '2026-08-14T23:50:05.480Z'
 children:
   - governance/index.md
+  - index.md
 ---
 # Health Standards
 
-This area groups the governance structures responsible for overseeing national clinical quality databases and establishing healthcare standards in Denmark. It covers the multidisciplinary steering committees that set clinical indicator targets, validate registry data, and issue strategic recommendations to shape cardiovascular care and quality measurement across Danish regions and health clusters.
+This folder catalogs the organizations and governing bodies responsible for establishing and maintaining clinical health standards in Denmark. It focuses on the governance structures behind national healthcare registries, documenting the multidisciplinary steering committees that set clinical benchmarks, evaluate quality indicators, and guide systemic improvements for conditions such as atrial fibrillation.
 
 ## Pages
 
-- [[entities/organizations/health-standards/governance/index|Governance]] — Governing bodies and steering committees that oversee national clinical quality databases, set clinical indicator targets, and validate healthcare standards in Denmark.
+- [[entities/organizations/health-standards/governance/index|Governance]] — Governing bodies and professional steering committees that manage clinical quality databases, set national healthcare targets, and integrate patient perspectives into quality improvement.
 
 ## Navigation
 

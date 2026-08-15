@@ -2,7 +2,7 @@
 title: AGX01B
 type: entity
 wiki: rkkp-adhd
-updated: '2026-08-05T17:49:59.888Z'
+updated: '2026-08-15T12:19:37.011Z'
 sources:
   - file: wikis/rkkp-adhd/raw/ADHD_2023.pdf
     pages: 46-50

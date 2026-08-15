@@ -4,17 +4,18 @@ type: index
 aliases:
   - Clinics
 wiki: rkkp-adhd
-updated: '2026-08-05T19:04:05.883Z'
+updated: '2026-08-15T12:31:20.080Z'
 children:
   - bua-psykiatrisk-klinik-for-udredning.md
+  - index.md
 ---
 # Clinics
 
-This folder contains specialized psychiatric assessment clinics operating within the Danish healthcare system, specifically focusing on child and adolescent ADHD diagnostics. The pages detail the organizational placement, clinical data contributions, and quality monitoring performance of these units, highlighting significant regional inequalities and compliance rates with national standardized diagnostic procedures.
+This folder catalogs specialized psychiatric clinics that operate as distinct organizational entities within the Danish healthcare system. It currently profiles a child and adolescent assessment unit in the Central Denmark Region that is heavily cited in national quality monitoring reports for severe non-compliance with standardized diagnostic procedures and stark regional performance inequalities.
 
 ## Pages
 
-- [[bua-psykiatrisk-klinik-for-udredning|BUA Psykiatrisk Klinik for Udredning]] — A child and adolescent psychiatric assessment clinic in the Central Denmark Region that recorded the country's lowest compliance rate for manualized diagnostics in 2023.
+- [[bua-psykiatrisk-klinik-for-udredning|BUA Psykiatrisk Klinik for Udredning]] — A child and adolescent psychiatric assessment clinic in Midtjylland noted for recording the country's lowest compliance rate for manualized diagnostics in 2023.
 
 ## Navigation
 

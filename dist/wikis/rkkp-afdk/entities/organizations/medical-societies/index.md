@@ -4,21 +4,22 @@ type: index
 aliases:
   - Medical Societies
 wiki: rkkp-afdk
-updated: '2026-08-05T23:05:25.794Z'
+updated: '2026-08-14T23:54:46.752Z'
 children:
   - dansk-cardiologisk-selskab.md
+  - index.md
   - international-society-of-thrombosis-and-hemostasis.md
   - sig-af.md
 ---
 # Medical Societies
 
-This folder contains professional medical societies and special interest groups that provide clinical governance, standardized criteria, and educational guidelines for atrial fibrillation care in Denmark. These organizations anchor national quality databases, define the international bleeding criteria adapted for Danish quality indicators, and drive the implementation of structured patient education programs across regional health clusters. Their frameworks and guidelines form the professional foundation for evaluating and improving treatment safety and patient instruction nationwide.
+This folder catalogs professional medical societies and special interest groups that provide clinical governance, standardize quality metrics, and drive implementation initiatives within the Danish healthcare system. It includes the national cardiological society anchoring the atrial fibrillation database, the global thrombosis and hemostasis society whose adapted criteria define major bleeding indicators, and a specialized atrial fibrillation interest group coordinating patient education guidelines.
 
 ## Pages
 
-- [[dansk-cardiologisk-selskab|Dansk Cardiologisk Selskab]] — The professional anchor for the Danish Atrial Fibrillation Database, providing clinical governance to standardize treatment quality.
-- [[international-society-of-thrombosis-and-hemostasis|International Society of Thrombosis and Hemostasis]] — Provides the adapted international criteria used to define and measure major bleeding complications for national quality indicators.
-- [[sig-af|SIG AF]] — A special interest group collaborating with RKKP to develop, disseminate, and implement standardized patient education guidelines and ensure correct administrative coding.
+- [[dansk-cardiologisk-selskab|Dansk Cardiologisk Selskab]] — The professional medical organization that anchors the national atrial fibrillation database and provides clinical governance for its quality indicators.
+- [[international-society-of-thrombosis-and-hemostasis|International Society of Thrombosis and Hemostasis]] — The global organization whose adapted clinical criteria serve as the authoritative standard for measuring major bleeding complications in Danish cardiovascular quality assurance.
+- [[sig-af|SIG AF]] — The Special Interest Group for Atrial Fibrillation that drives the implementation of structured patient education guidelines and ensures accurate medical coding across the country.
 
 ## Navigation
 

@@ -4,23 +4,24 @@ type: index
 aliases:
   - People
 wiki: rkkp-afdk
-updated: '2026-08-05T23:10:47.046Z'
+updated: '2026-08-15T00:01:48.661Z'
 children:
   - health-professionals/index.md
   - health-researchers/index.md
   - healthcare-professionals/index.md
   - patient-representatives/index.md
+  - index.md
 ---
 # People
 
-This area groups the individuals responsible for governing and guiding Denmark's national clinical quality initiatives for atrial fibrillation, primarily through the Danish Atrial Fibrillation Database (AFDK). It encompasses the medical professionals and nurses leading clinical care, the health researchers providing statistical and methodological expertise, the specialized healthcare professionals driving quality assurance, and the patient representatives ensuring that care remains patient-centered. Together, these individuals form the interdisciplinary steering committees and working groups that ensure cardiovascular care standards are evidence-based and uniformly applied across the country.
+This folder groups the individuals who govern, analyze, and guide Denmark's national healthcare quality registries, with a primary focus on the Danish Atrial Fibrillation Database (AFDK). It catalogs the multidisciplinary steering committee members and contributors who drive cardiovascular quality improvement, ranging from clinical leaders and specialized nurses to data scientists and patient advocates. Together, these individuals ensure that national atrial fibrillation treatment standards are grounded in rigorous statistical analysis, clinical expertise, and patient-centered care.
 
 ## Pages
 
-- [[entities/people/health-professionals/index|Health Professionals]] — Medical professionals, nurses, and general practitioners governing the AFDK and leading specialized interdisciplinary clinics.
-- [[entities/people/health-researchers/index|Health Researchers]] — Clinical epidemiologists, biostatisticians, and data managers from RKKP providing the methodological and statistical infrastructure for national registry oversight.
-- [[entities/people/healthcare-professionals/index|Healthcare Professionals]] — Consultant physicians, specialized nurses, and quality consultants who drive clinical indicators and coordinate annual quality reports.
-- [[entities/people/patient-representatives/index|Patient Representatives]] — Patient advocates serving on the AFDK steering committee to integrate the patient perspective into high-level clinical and political decision-making.
+- [[entities/people/health-professionals/index|Health Professionals]] — Physicians, nurses, and medical consultants holding leadership, clinical, or advisory roles on the AFDK steering group and in regional clinics.
+- [[entities/people/health-researchers/index|Health Researchers]] — Clinical epidemiologists, data managers, and biostatisticians who manage data infrastructure and evaluate clinical outcomes for national health quality registries.
+- [[entities/people/healthcare-professionals/index|Healthcare Professionals]] — Chief physicians, nursing directors, and quality consultants who chair or serve on the AFDK steering committee to oversee clinical indicators and standardize care.
+- [[entities/people/patient-representatives/index|Patient Representatives]] — Individuals serving on the AFDK steering committee to ensure patient perspectives are integrated into clinical quality development and strategic decision-making.
 
 ## Navigation
 

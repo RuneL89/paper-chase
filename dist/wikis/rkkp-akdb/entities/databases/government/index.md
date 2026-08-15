@@ -4,19 +4,20 @@ type: index
 aliases:
   - Government
 wiki: rkkp-akdb
-updated: '2026-08-05T20:20:06.610Z'
+updated: '2026-08-15T08:26:36.116Z'
 children:
   - cpr-registeret.md
+  - index.md
   - sundhedsvaesenets-organisationsregister-sor.md
 ---
 # Government
 
-This folder catalogs national government registries that supply foundational administrative and structural data to the Danish healthcare system. These databases are critical for clinical quality programs like the Akut Kirurgi Databasen (AKDB), providing the unambiguous patient identification and organizational boundaries needed to accurately define target populations. Together, they ensure that demographic tracking and department-level inclusion or exclusion criteria are applied with precision and ethical responsibility.
+This folder catalogs national government registers that serve as foundational data infrastructure for Danish healthcare quality monitoring. It includes the Civil Registration System (CPR), which supplies demographic data and historical diagnoses for calculating patient comorbidities, and the Healthcare Organizational Register (SOR), which maps all healthcare actors to help clinical databases filter out irrelevant departments, such as gynecology and urology, from acute surgery metrics.
 
 ## Pages
 
-- [[cpr-registeret|CPR-registeret]] — The central civil registration database that provides the demographic and identity framework required to unambiguously identify patients and support standardized quality assessments.
-- [[sundhedsvaesenets-organisationsregister-sor|Sundhedsvæsenets Organisationsregister (SOR)]] — A comprehensive registry of healthcare actors used to classify hospital departments and systematically exclude unrelated specialties, such as gynecology and urology, from acute surgery databases.
+- [[cpr-registeret|CPR-registeret]] — The national civil registration system used to construct patient populations and source historical diagnoses for comorbidity calculations like the Charlson Score.
+- [[sundhedsvaesenets-organisationsregister-sor|Sundhedsvæsenets Organisationsregister (SOR)]] — The comprehensive registry of all Danish healthcare actors, utilized to exclude specific specialties like gynecology and urology from acute surgery database contacts.
 
 ## Navigation
 

@@ -38,12 +38,30 @@ sources/                -- Provenance records for each PDF
 entities/               -- Named real-world things
   codes/                -- Standardized classification systems (e.g., ICD, SNOMED)
   departments/          -- Organizational units within larger institutions
+  departments/psychiatry -- Psychiatry departments (e.g., within hospitals or universities)
   facilities/           -- Physical sites delivering care or services
+  facilities/psychiatry-clinics -- Outpatient psychiatry clinics as physical locations
   medications/          -- Pharmaceutical substances
+  medications/adhd      -- Medications specifically indicated for ADHD treatment
   organizations/        -- Formal groups, institutions, or governing bodies
+  organizations/clinics -- Healthcare clinics (non-psychiatry-specific)
+  organizations/healthcare-databases -- Entities maintaining health data repositories
+  organizations/healthcare-governance -- Bodies responsible for oversight and regulation of healthcare systems
+  organizations/healthcare-professional-bodies -- Associations representing licensed healthcare professionals
+  organizations/healthcare-providers -- Entities delivering clinical services (e.g., trusts, practices)
+  organizations/healthcare-standards -- Organizations developing or endorsing clinical standards
+  organizations/hospitals -- Acute or specialist hospitals
+  organizations/psychiatry-clinics -- Psychiatry clinics as organizational entities (distinct from physical facilities)
+  organizations/regional-authorities -- Statutory regional health authorities
+  organizations/regions -- Geopolitical or administrative regions (e.g., NHS regions)
   people/               -- Individuals
+  people/healthcare-professionals -- Clinicians, researchers, administrators, and other professionals working in healthcare
   populations/          -- Defined demographic or clinical groups
+  populations/adhd      -- Populations defined by ADHD diagnosis or clinical need
+  populations/general   -- General population groups (e.g., children, adults, parents)
   products/             -- Tools, instruments, or interventions used in practice
+  products/assessment-tools -- Generic or non-clinical assessment instruments
+  products/clinical-assessment-tools -- Standardized clinical tools for diagnosis or monitoring (e.g., rating scales)
   topics/               -- Themes and concepts (see topics/ folder structure)
 topics/                 -- Themes and concepts
   data-quality/         -- Issues related to accuracy, completeness, consistency of health data
@@ -57,10 +75,12 @@ topics/                 -- Themes and concepts
   performance/          -- General measure of service delivery, outcome, or process effectiveness
   performance-change/   -- Shifts or trends in performance over time
   policy/               -- Formal statements of intent or principle guiding action
+  policy/mental-health-strategy -- Mental health–specific strategic policy frameworks
   policy-change/        -- Modification or revision of existing policy
   policy-development/   -- Process of creating new policy
   processes/            -- Standardized sequences of actions or workflows
   quality-indicator/    -- Metric specifically designed to assess healthcare quality
+  quality-indicators/   -- Parent folder for quality indicator taxonomies
   quality-indicators/adhd-care/ -- ADHD-specific quality indicators
   quality-standard/     -- Benchmarked expectation of acceptable performance or care
   regional-variation/   -- Differences in outcomes, access, or practice across geographic areas
@@ -99,6 +119,7 @@ The wiki root also contains `AGENTS.md` (this file), `index.md` (navigation cont
 | `product` | Tool, instrument, or intervention used in practice | `entities/products/` | Your content, assembled by the Materializer |
 | `psychiatry-clinic` | Specialized outpatient facility focused on psychiatric care | `entities/organizations/psychiatry-clinics/` or `entities/facilities/psychiatry-clinics/` | Your content, assembled by the Materializer |
 | `region` | Geographically defined administrative or service area | `entities/regions/` | Your content, assembled by the Materializer |
+| `composite` | Page synthesizing multiple related entities or topics where no single canonical entity dominates | `entities/` or `topics/` (as appropriate) | Your content, assembled by the Materializer |
 
 A `comparison` page is written for each structured comparison table you extract (the `tables` output): the article's identity is the table's SUBJECT entity (its canonical slug when resolvable, never the drifting caption), each source's table is preserved verbatim in its own dated `## Table: <source>, p. <page>` section — the markdown structure is reconstructed, every row label and value stays the document's own — and a deterministic `## Related comparisons in prose` section links out to the topic/entity pages where free-text comparisons live. Synthesis reads ACROSS the dated sections (leaders, trailers, targets met or missed, trends, outliers).
 

@@ -4,23 +4,24 @@ type: index
 aliases:
   - Intervention Codes
 wiki: rkkp-afdk
-updated: '2026-08-05T22:42:46.175Z'
+updated: '2026-08-14T23:30:15.546Z'
 children:
   - bfkb.md
   - bqf-star.md
   - bvds.md
   - bvdy-star.md
+  - index.md
 ---
 # Intervention Codes
 
-This folder catalogs specific SKS (Sundhedsvæsenets Klassifikations System) intervention codes used in the Danish healthcare system to track preventive care and patient education for individuals with atrial fibrillation and atrial flutter. Managed under the RKKP's clinical quality databases, these codes enable standardized, cross-regional data collection and are critical for measuring compliance with national quality targets, such as Indikator 8. The collection highlights a major 2023 procedural shift where BFKB became the exclusive code capable of fulfilling Indikator 8 metrics, while historical codes like BQF*, BVDS, and BVDY* remain part of the broader framework for documenting educational and preventive initiatives.
+This folder contains specific medical intervention codes used within the Danish healthcare system to track and measure the quality of patient education and preventive care. Managed under the clinical quality databases coordinated by RKKP, these SKS codes are primarily applied to monitor structured patient education and preventive initiatives for individuals diagnosed with atrial fibrillation and atrial flutter. They play a critical role in standardizing data collection and fulfilling national quality metrics, most notably Indikator 8.
 
 ## Pages
 
-- [[bfkb|BFKB]] — The exclusive SKS code used since January 2023 to register structured patient education for atrial fibrillation and flutter, directly fulfilling the target metrics for Indikator 8.
-- [[bqf-star|"BQF*"]] — An intervention code identifying preventive conversations and special preventive interventions, including all subcodes, used alongside BFKB for atrial fibrillation care tracking.
-- [[bvds|BVDS]] — Denotes "Behandling i skole" (treatment in school) and is incorporated into the coding framework to ensure comprehensive data collection on educational interventions for atrial fibrillation.
-- [[bvdy-star|"BVDY*"]] — Designated for educational interventions not classified elsewhere, including all subcodes, and deployed to monitor patient education for individuals diagnosed with atrial fibrillation.
+- [[bfkb|BFKB]] — The primary SKS code for structured patient education in atrial fibrillation and flutter, mandated since 2023 as the sole code fulfilling the target for Indikator 8.
+- [[bqf-star|"BQF*"]] — An intervention code designating preventive conversations and special preventive interventions, including all associated subcodes.
+- [[bvds|BVDS]] — A code specifically denoting "Behandling i skole" (treatment in school) within the context of atrial fibrillation patient education initiatives.
+- [[bvdy-star|"BVDY*"]] — A catch-all code used for educational interventions not classified elsewhere, capturing miscellaneous pedagogical actions and their subcodes.
 
 ## Navigation
 

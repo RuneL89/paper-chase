@@ -4,21 +4,22 @@ type: index
 aliases:
   - Health Registries
 wiki: rkkp-danibd
-updated: '2026-08-05T07:31:49.166Z'
+updated: '2026-08-15T07:39:50.995Z'
 children:
   - gastrobio.md
+  - index.md
   - landspatientregisteret.md
   - sygehusmedicinregisteret.md
 ---
 # Health Registries
 
-This folder contains regional and national health registries used to track patient diagnoses, treatments, and hospital contacts for inflammatory bowel disease (IBD) in Denmark. These databases serve as the foundational data sources for the Danish national clinical quality database (DANIBD), providing the diagnostic codes, surgical procedure records, and medication dispensing data necessary to define patient cohorts and monitor treatment outcomes. Together, they enable the validation of epidemiological research and the ongoing quality assurance of IBD care across Danish hospitals.
+This folder groups the primary Danish health registries and clinical databases used to identify, track, and validate care for patients with inflammatory bowel disease (IBD). It covers the national patient register that defines the DANIBD cohort through specific diagnostic and procedural codes, a regional database used to validate the accuracy of those national diagnoses, and the hospital medicine register that tracks dispensed drugs to streamline clinical reporting.
 
 ## Pages
 
-- [[gastrobio|GASTROBIO]] — A regional IBD database in Region Nordjylland used to verify patient diagnoses through medical record reviews, serving as a validation benchmark for national registry data.
-- [[landspatientregisteret|Landspatientregisteret]] — The Danish National Patient Register, which acts as the primary data source for identifying IBD patients, tracking surgical interventions, and recording new biologic treatment codes for the national quality database.
-- [[sygehusmedicinregisteret|Sygehusmedicinregisteret]] — The national hospital medicine register that tracks dispensed medications, which DANIBD aims to integrate automatically to eliminate duplicate treatment registration by clinical staff.
+- [[gastrobio|GASTROBIO]] — A regional IBD database in Region Nordjylland used in validation studies to confirm the high positive predictive value of national IBD diagnostic codes.
+- [[landspatientregisteret|Landspatientregisteret]] — The Danish National Patient Register, which acts as the foundational data source for the DANIBD cohort by tracking hospital contacts, surgical procedures, and newly established biologic treatment codes.
+- [[sygehusmedicinregisteret|Sygehusmedicinregisteret]] — The national database for dispensed hospital medicine, which the DANIBD registry is waiting to integrate automatically to prevent clinical staff from having to double-register medical treatments.
 
 ## Navigation
 

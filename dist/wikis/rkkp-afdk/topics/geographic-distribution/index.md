@@ -4,17 +4,18 @@ type: index
 aliases:
   - Geographic Distribution
 wiki: rkkp-afdk
-updated: '2026-08-05T23:28:01.307Z'
+updated: '2026-08-15T00:27:23.738Z'
 children:
   - geographic-distribution.md
+  - index.md
 ---
 # Geographic Distribution
 
-This folder documents the geographic and regional distribution of healthcare metrics and medical conditions across Denmark. It specifically tracks how health indicators, such as the incidence of stroke (apopleksi), vary across different Danish health clusters (Sundhedsklynger). By mapping these statistical intervals at the cluster level, the pages provide a clear picture of regional disparities and geographic trends in disease prevalence.
+This folder explores how healthcare quality, disease burden, and specialized medical resources vary across different regions and local health clusters in Denmark. It documents significant geographic disparities, such as the uneven incidence of stroke across local clusters, regional differences in meeting clinical development goals, and the heavy concentration of private cardiology practices in the capital region compared to the rest of the country. 
 
 ## Pages
 
-- [[geographic-distribution|Geographic Distribution]] — Maps the incidence of stroke across Danish health clusters, detailing regional statistical intervals and naming specific clusters like Bornholm, Aarhusklyngen, and Klynge SYD.
+- [[geographic-distribution|Geographic Distribution]] — Details regional and local cluster variations in stroke incidence, clinical goal performance, and the concentration of private cardiology practices across Denmark's regions.
 
 ## Navigation
 
@@ -27,12 +28,17 @@ This folder documents the geographic and regional distribution of healthcare met
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -48,12 +54,17 @@ This folder documents the geographic and regional distribution of healthcare met
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

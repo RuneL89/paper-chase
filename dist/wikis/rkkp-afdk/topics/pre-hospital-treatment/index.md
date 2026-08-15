@@ -4,17 +4,18 @@ type: index
 aliases:
   - Pre Hospital Treatment
 wiki: rkkp-afdk
-updated: '2026-08-05T23:41:53.668Z'
+updated: '2026-08-15T00:45:35.771Z'
 children:
+  - index.md
   - pre-hospital-treatment.md
 ---
 # Pre Hospital Treatment
 
-This folder documents medical interventions administered prior to formal hospital admission, with a narrow focus on medication usage. The available evidence highlights oral anticoagulation therapy, noting that approximately 53% of patients had redeemed a relevant prescription within the 120 days preceding their official hospital diagnosis. Currently, the corpus lacks data on other types of pre-hospital treatments, specific patient demographics, or subsequent clinical outcomes related to this metric.
+This folder covers medical interventions administered to patients before they are formally admitted to a hospital. Currently, the available evidence is narrowly focused on pre-hospital medication usage, specifically tracking the redemption of oral anticoagulation prescriptions. It documents that approximately 53% of patients had already filled a prescription for this therapy within the 120 days leading up to their official hospital diagnosis.
 
 ## Pages
 
-- [[pre-hospital-treatment|Pre Hospital Treatment]] — Details the singular documented pre-hospital intervention in the corpus, focusing on the prevalence of oral anticoagulation therapy prescriptions redeemed prior to hospital diagnosis.
+- [[pre-hospital-treatment|Pre Hospital Treatment]] — Documents the percentage of patients who redeemed prescriptions for oral anticoagulation therapy within 120 days preceding their hospital diagnosis.
 
 ## Navigation
 
@@ -27,13 +28,18 @@ This folder documents medical interventions administered prior to formal hospita
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -49,11 +55,16 @@ This folder documents medical interventions administered prior to formal hospita
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]

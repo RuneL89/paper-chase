@@ -4,17 +4,18 @@ type: index
 aliases:
   - Regional Variation
 wiki: rkkp-adhd
-updated: '2026-08-05T19:31:14.926Z'
+updated: '2026-08-15T12:52:10.795Z'
 children:
+  - index.md
   - regional-variation.md
 ---
 # Regional Variation
 
-This folder contains analysis of the geographic disparities in ADHD care, clinical outcomes, and patient volumes across Denmark's five healthcare regions. It details how regions like Hovedstaden, Midtjylland, Nordjylland, Sjælland, and Syddanmark differ significantly in their performance on specific clinical quality indicators, youth educational achievements, and the operational scale of their assessment and treatment pathways.
+This folder documents the geographic disparities in ADHD care and outcomes across Denmark's five healthcare regions. It covers significant variations in clinical quality indicators, educational achievements among youth in ADHD populations, and the operational scale of assessment and treatment pathways. By comparing regions such as Hovedstaden, Nordjylland, and Syddanmark, the content highlights how location impacts both the volume of care delivered and the measurable success of clinical and educational interventions.
 
 ## Pages
 
-- [[regional-variation|Regional Variation]] — Analyzes geographic disparities in clinical indicators, educational outcomes, and patient pathway volumes across Denmark's five healthcare regions.
+- [[regional-variation|Regional Variation]] — Details the geographic disparities in clinical indicators, educational achievements, and patient pathway volumes across Denmark's five healthcare regions.
 
 ## Navigation
 

@@ -1,0 +1,1152 @@
+{
+  "generated": "2026-08-15T13:14:33.504Z",
+  "entities": [
+    {
+      "canonicalTitle": "Aalborg Universitetshospital",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "aalborg-universitetshospital",
+          "path": "rkkp-afdk/entities/organizations/hospitals/aalborg-universitetshospital",
+          "title": "Aalborg Universitetshospital",
+          "type": "organization",
+          "summary": "Aalborg Universitetshospital is a major hospital located in Region Nordjylland and serves as a key institution evaluated in the Danish Atrial Fibrillation Database (AFDK) annual reports for monitoring clinical quality indicators in atrial fibrillation treatment; it includes subordinate departments such as Aalborg Universitetshospital Thisted."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "aalborg-universitetshospital",
+          "path": "rkkp-akdb/entities/organizations/hospitals/aalborg-universitetshospital",
+          "title": "Aalborg Universitetshospital",
+          "type": "organization",
+          "summary": "Aalborg Universitetshospital is a hospital located in and contained by Region Nordjylland. It is associated with the indicator result “Indikator 1”."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Aalborg Universitetshospital Thisted",
+      "aliases": [
+        "\"Aalborg Universitetshospital, Thisted\"",
+        "Aalborg Universitetshospital, Thisted"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "aalborg-universitetshospital-thisted",
+          "path": "rkkp-afdk/entities/organizations/hospitals/aalborg-universitetshospital-thisted",
+          "title": "Aalborg Universitetshospital Thisted",
+          "type": "organization",
+          "summary": "Aalborg Universitetshospital Thisted is a hospital department affiliated with Aalborg Universitetshospital and located in Region Nordjylland, Denmark; it is systematically evaluated in the Danish Atrial Fibrillation Database (AFDK) annual reports for clinical quality and treatment standards in atrial fibrillation care."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "aalborg-universitetshospital-thisted",
+          "path": "rkkp-akdb/entities/organizations/hospitals/aalborg-universitetshospital-thisted",
+          "title": "\"Aalborg Universitetshospital, Thisted\"",
+          "type": "organization",
+          "summary": "Aalborg Universitetshospital, Thisted is an organization that has an indicator result for Indikator 1. No further details about its role, affiliation, or location are provided in the data."
+        }
+      ],
+      "match": "fuzzy"
+    },
+    {
+      "canonicalTitle": "Aarhus Universitetshospital",
+      "aliases": [
+        "Aarhus"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "aarhus-universitetshospital",
+          "path": "rkkp-afdk/entities/organizations/hospitals/aarhus-universitetshospital",
+          "title": "Aarhus Universitetshospital",
+          "type": "organization",
+          "summary": "Aarhus Universitetshospital is a major hospital located in Region Midtjylland, Denmark, and is extensively evaluated in the 2022–2023 annual report from the Danish Atrial Fibrillation Database (AFDK) as part of the Regions' Clinical Quality Development Programme (RKKP) monitoring of cardiovascular care quality."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "aarhus-universitetshospital",
+          "path": "rkkp-akdb/entities/organizations/hospitals/aarhus-universitetshospital",
+          "title": "Aarhus Universitetshospital",
+          "type": "organization",
+          "summary": "Aarhus Universitetshospital is a hospital located in and contained by Region Midtjylland, and it meets the standard of Indikator 9 while having an indicator result for Indikator 1."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "aarhus-universitetshospital",
+          "path": "rkkp-danibd/entities/healthcare-facilities/hospitals/aarhus-universitetshospital",
+          "title": "Aarhus Universitetshospital",
+          "type": "healthcare-facility",
+          "summary": "Aarhus Universitetshospital is one of Denmark's largest university hospitals and an active participant in the national effort to standardize and improve inflammatory bowel disease (IBD) diagnostics through the DANIBD database."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Amager og Hvidovre Hospital",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "amager-og-hvidovre-hospital",
+          "path": "rkkp-afdk/entities/organizations/hospitals/amager-og-hvidovre-hospital",
+          "title": "Amager og Hvidovre Hospital",
+          "type": "organization",
+          "summary": "Amager og Hvidovre Hospital is a healthcare institution located in Region Hovedstaden, Denmark, and is included in the national clinical quality database for atrial fibrillation (Databasen for Atrieflimren i Danmark) as a hospital whose results for Indicator 1 did not meet the required standard."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "amager-og-hvidovre-hospital",
+          "path": "rkkp-akdb/entities/organizations/hospitals/amager-og-hvidovre-hospital",
+          "title": "Amager og Hvidovre Hospital",
+          "type": "organization",
+          "summary": "Amager og Hvidovre Hospital is a hospital located in the Hovedstaden Region, where it is part of the regional healthcare system and specifically identified by performance indicators including Indikator 1, Indikator 8 (highest epidural rate), and Indikator 9 (best practice)."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "amager-og-hvidovre-hospital",
+          "path": "rkkp-danibd/entities/healthcare-facilities/hospitals/amager-og-hvidovre-hospital",
+          "title": "Amager og Hvidovre Hospital",
+          "type": "healthcare-facility",
+          "summary": "Amager og Hvidovre Hospital is a regional healthcare facility in the Capital Region of Denmark (Region Hovedstaden), distinguished in the 2025 DANIBD report as the facility with the highest number of registered patients receiving biological medical systemic treatments (BMSL)."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Bispebjerg og Frederiksberg Hospitaler",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "bispebjerg-og-frederiksberg-hospitaler",
+          "path": "rkkp-afdk/entities/organizations/hospitals/bispebjerg-og-frederiksberg-hospitaler",
+          "title": "Bispebjerg og Frederiksberg Hospitaler",
+          "type": "organization",
+          "summary": "Bispebjerg og Frederiksberg Hospitaler is a combined hospital organization operating within Region Hovedstaden in Denmark, and it is one of the healthcare institutions evaluated in the Danish Atrial Fibrillation Database’s Annual Report for the period 1 July 2022 to 30 June 2023."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "bispebjerg-og-frederiksberg-hospitaler",
+          "path": "rkkp-akdb/entities/organizations/hospitals/bispebjerg-og-frederiksberg-hospitaler",
+          "title": "Bispebjerg og Frederiksberg Hospitaler",
+          "type": "organization",
+          "summary": "Bispebjerg og Frederiksberg Hospitaler is a hospital organization that is part of Region Hovedstaden and is contained within the Hovedstaden Region i alt administrative unit. It reports indicator results, including Indikator 1."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Bornholms Hospital",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "bornholms-hospital",
+          "path": "rkkp-afdk/entities/organizations/hospitals/bornholms-hospital",
+          "title": "Bornholms Hospital",
+          "type": "organization",
+          "summary": "Bornholms Hospital is a healthcare organization located in Region Sjælland, specifically evaluated by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) for clinical quality indicators related to atrial fibrillation care."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "bornholms-hospital",
+          "path": "rkkp-akdb/entities/organizations/hospitals/bornholms-hospital",
+          "title": "Bornholms Hospital",
+          "type": "organization",
+          "summary": "Bornholms Hospital is a hospital located in the Hovedstaden Region and also included in Region Syd, and it reports indicator results such as Indikator 1."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "CPR-registeret",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "cpr-registeret",
+          "path": "rkkp-afdk/entities/databases/healthcare-registers/cpr-registeret",
+          "title": "CPR-registeret",
+          "type": "database",
+          "summary": "CPR-registeret is the national population register in Denmark, used within the Danish Atrial Fibrillation Database (AFDK) and the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) to verify patient vital status for clinical quality indicators such as Indikator 10 and Indikator 9."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "cpr-registeret",
+          "path": "rkkp-akdb/entities/databases/government/cpr-registeret",
+          "title": "CPR-registeret",
+          "type": "database",
+          "summary": "CPR-registeret is a database used by Akut Kirurgi Databasen to source data and is also used to calculate the Charlson Score."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Danmark",
+      "aliases": [],
+      "wikis": [
+        "rkkp-adhd",
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-adhd",
+          "slug": "danmark",
+          "path": "rkkp-adhd/entities/organizations/regions/danmark",
+          "title": "Danmark",
+          "type": "region",
+          "summary": "Danmark is the national-level entity in the 2024 evaluation of adult ADHD care in Denmark, serving as the overarching reference frame for regional variation across the country’s psychiatric departments and as the reporting level for Indikator 10, a quality indicator measuring assessment of social support needs within 120 days of treatment initiation."
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "danmark",
+          "path": "rkkp-afdk/entities/locations/countries/danmark",
+          "title": "Danmark",
+          "type": "location",
+          "summary": "Danmark is the national geographic area and primary benchmark unit for clinical quality indicators and standards in Denmark’s atrial fibrillation reporting system, serving as the baseline for comparison against regional and local healthcare clusters in the Atrieflimren i Danmark annual reports."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "danmark",
+          "path": "rkkp-akdb/entities/locations/national/danmark",
+          "title": "Danmark",
+          "type": "location",
+          "summary": "Danmark is a location that contains the regions Region Hovedstaden, Region Sjælland, Region Syddanmark, and Region Midtjylland, and it has an indicator result labeled Indikator 1."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Den Nationale Labdatabank",
+      "aliases": [
+        "Den Nationale Labdatabank (DNL)"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "den-nationale-labdatabank",
+          "path": "rkkp-afdk/entities/organizations/health-infrastructure/den-nationale-labdatabank",
+          "title": "Den Nationale Labdatabank",
+          "type": "organization",
+          "summary": "Den Nationale Labdatabank is a national health data infrastructure organization in Denmark that serves as the central hub for collecting laboratory test results from major connected laboratories and distributing them to the Danish Health Data Authority’s Laboratory Database, thereby enabling clinical quality monitoring for registries such as the Atrial Fibrillation Database in Denmark (AFDK), with data transfer contingent on patient consent."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "den-nationale-labdatabank-dnl",
+          "path": "rkkp-akdb/entities/databases/healthcare/den-nationale-labdatabank-dnl",
+          "title": "Den Nationale Labdatabank (DNL)",
+          "type": "database",
+          "summary": "Den Nationale Labdatabank (DNL) is a database that provides laboratory data to Akut Kirurgi Databasen. No other roles, affiliations, or geographic details are specified in the available data."
+        }
+      ],
+      "match": "review"
+    },
+    {
+      "canonicalTitle": "Esbjerg Sygehus Grindsted Sygehus",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "esbjerg-sygehus-grindsted-sygehus",
+          "path": "rkkp-afdk/entities/organizations/hospitals/esbjerg-sygehus-grindsted-sygehus",
+          "title": "Esbjerg Sygehus Grindsted Sygehus",
+          "type": "organization",
+          "summary": "Esbjerg Sygehus Grindsted Sygehus is a composite organizational designation representing two hospitals in Denmark, used as a combined reporting unit in the Danish Atrial Fibrillation Database (AFDK) for hospital-level analyses—particularly for Indikator 1 when clinical results fall below national standards—and is situated within Region Syddanmark."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "esbjerg-sygehus-grindsted-sygehus",
+          "path": "rkkp-akdb/entities/organizations/hospitals/esbjerg-sygehus-grindsted-sygehus",
+          "title": "Esbjerg Sygehus Grindsted Sygehus",
+          "type": "organization",
+          "summary": "Esbjerg Sygehus Grindsted Sygehus is a hospital located in Region Syddanmark and meets the standard of Indikator 9."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Herlev og Gentofte Hospital",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "herlev-og-gentofte-hospital",
+          "path": "rkkp-afdk/entities/organizations/hospitals/herlev-og-gentofte-hospital",
+          "title": "Herlev og Gentofte Hospital",
+          "type": "organization",
+          "summary": "Herlev og Gentofte Hospital is an organization. No further details about its role, affiliation, or location are provided in the given data."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "herlev-og-gentofte-hospital",
+          "path": "rkkp-akdb/entities/organizations/hospitals/herlev-og-gentofte-hospital",
+          "title": "Herlev og Gentofte Hospital",
+          "type": "organization",
+          "summary": "Herlev og Gentofte Hospital is a hospital located in the Hovedstaden Region i alt and is part of Region Hovedstaden, where it serves as a provider for Indikator 1 and is recognized as best practice for Indikator 9."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Holbæk",
+      "aliases": [
+        "Holbæk Sygehus"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "holbaek",
+          "path": "rkkp-afdk/entities/organizations/hospitals/holbaek",
+          "title": "Holbæk",
+          "type": "organization",
+          "summary": "Holbæk refers to Holbæk Sygehus (Holbæk Hospital), a healthcare institution in Denmark, and is distinct from the geographic city of Holbæk; it is evaluated in the Danish Atrial Fibrillation Database (AFDK) annual report for clinical quality indicators related to atrial fibrillation treatment and management."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "holbaek-sygehus",
+          "path": "rkkp-akdb/entities/organizations/hospitals/holbaek-sygehus",
+          "title": "Holbæk Sygehus",
+          "type": "organization",
+          "summary": "Holbæk Sygehus is a healthcare organization assessed against multiple indicators, with documented performance outcomes including failing standard for Indikator 11, meeting target for Indikator 4y, and exemplifying best practice for Indikator 3."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Hospitalerne i Nordsjælland",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "hospitalerne-i-nordsjaelland",
+          "path": "rkkp-afdk/entities/organizations/hospitals/hospitalerne-i-nordsjaelland",
+          "title": "Hospitalerne i Nordsjælland",
+          "type": "organization",
+          "summary": "Hospitalerne i Nordsjælland is a hospital group operating within the Capital Region of Denmark (Region Hovedstaden) and is a key participant in the Danish national clinical quality database for atrial fibrillation (Databasen for Atrieflimren i Danmark)."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "hospitalerne-i-nordsjaelland",
+          "path": "rkkp-akdb/entities/organizations/hospitals/hospitalerne-i-nordsjaelland",
+          "title": "Hospitalerne i Nordsjælland",
+          "type": "organization",
+          "summary": "Hospitalerne i Nordsjælland is an organization that reports indicator results (specifically Indikator 1) and is part of Sjælland Region i alt; it is contained as a hospital entity by both Region Hovedstaden and Region Sjælland."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Hospitalsenhed Midt",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "hospitalsenhed-midt",
+          "path": "rkkp-afdk/entities/organizations/hospitals/hospitalsenhed-midt",
+          "title": "Hospitalsenhed Midt",
+          "type": "organization",
+          "summary": "Hospitalsenhed Midt is a hospital unit located in Region Midtjylland, Denmark, that plays a significant role in the national monitoring of cardiovascular healthcare quality through its participation in the Danish Atrial Fibrillation Database (AFDK) and the Regions' Clinical Quality Development Programme (RKKP)."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "hospitalsenhed-midt",
+          "path": "rkkp-akdb/entities/organizations/hospitals/hospitalsenhed-midt",
+          "title": "Hospitalsenhed Midt",
+          "type": "organization",
+          "summary": "Hospitalsenhed Midt is a hospital unit located in Region Midtjylland, Denmark, and is associated with indicator results and best practices for specific healthcare indicators."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Hvidovre",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "hvidovre",
+          "path": "rkkp-afdk/entities/locations/municipalities/hvidovre",
+          "title": "Hvidovre",
+          "type": "location",
+          "summary": "Hvidovre is a Danish municipality that was evaluated in the 2022–2023 Annual Report from the Danish Atrial Fibrillation Database (AFDK), as part of the Regions' Clinical Quality Development Programme (RKKP), using data from the Danish National Patient Registry (LPR) and the Danish Stroke Registry (DanStroke) for clinical quality assessment and benchmarking in atrial fibrillation treatment."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "hvidovre",
+          "path": "rkkp-danibd/entities/healthcare-facilities/hospitals/hvidovre",
+          "title": "Hvidovre",
+          "type": "healthcare-facility",
+          "summary": "Hvidovre is Hvidovre Hospital, a major healthcare facility and university department in Denmark that serves as a key diagnostic center for inflammatory bowel disease (IBD) within the national DANIBD database initiative, handling both adult and highly specialized pediatric IBD cases."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Kolding Sygehus",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "kolding-sygehus",
+          "path": "rkkp-afdk/entities/organizations/hospitals/kolding-sygehus",
+          "title": "Kolding Sygehus",
+          "type": "organization",
+          "summary": "Kolding Sygehus is a hospital located in Region Syddanmark, Denmark, and participates in national clinical quality monitoring of atrial fibrillation treatment via the Danish Atrial Fibrillation Database (AFDK); however, its data cannot be interpreted independently because indicator results for Kolding Sygehus and Vejle Sygehus were incorrectly distributed in the registry, requiring their data to be treated collectively as Sygehus Lillebælt."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "kolding-sygehus",
+          "path": "rkkp-akdb/entities/organizations/hospitals/kolding-sygehus",
+          "title": "Kolding Sygehus",
+          "type": "organization",
+          "summary": "Kolding Sygehus is a hospital located in the Region of Southern Denmark (Region Syddanmark) that reports data for supplementary analyses of cancer diseases among acute surgical patients."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Laboratoriedatabasen",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "laboratoriedatabasen",
+          "path": "rkkp-afdk/entities/databases/healthcare-registries/laboratoriedatabasen",
+          "title": "Laboratoriedatabasen",
+          "type": "database",
+          "summary": "Laboratoriedatabasen is a national health database administered by Sundhedsdatastyrelsen, serving as a central repository for laboratory results transferred from the country’s larger laboratories via Den Nationale Labdatabank."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "laboratoriedatabasen",
+          "path": "rkkp-danibd/entities/databases/national-health-registers/laboratoriedatabasen",
+          "title": "Laboratoriedatabasen",
+          "type": "database",
+          "summary": "Laboratoriedatabasen is the national Danish register of laboratory tests, serving as a foundational data source for healthcare quality monitoring in Denmark and supplying specific laboratory measurements—including fecal calprotectin (F-calpro) under code NPU19717—to the Danish National Indicator Database (DANIBD) for evaluating national quality indicators in inflammatory bowel disease care."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Landspatientregisteret",
+      "aliases": [
+        "Landspatientregisteret (LPR)",
+        "Landspatientregistret",
+        "LPR",
+        "LPR3"
+      ],
+      "wikis": [
+        "rkkp-adhd",
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-adhd",
+          "slug": "lpr",
+          "path": "rkkp-adhd/entities/organizations/healthcare-databases/lpr",
+          "title": "LPR",
+          "type": "organization",
+          "summary": "LPR (Landspatientregisteret) is a national register in Denmark that serves as a foundational data source for the ADHD-DATABASEN, enabling clinicians to avoid double registration by extracting patient data directly from it."
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "landspatientregisteret",
+          "path": "rkkp-afdk/entities/databases/healthcare-registries/landspatientregisteret",
+          "title": "Landspatientregisteret",
+          "type": "database",
+          "summary": "Landspatientregisteret is a national healthcare registry in Denmark that serves as the primary data source for identifying patients with atrieflimren in the annual reports of the Databasen for Atrieflimren i Danmark (AFDK) and forms the foundational data infrastructure for calculating clinical quality indicators monitored by that registry."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "landspatientregisteret",
+          "path": "rkkp-akdb/entities/organizations/healthcare-databases/landspatientregisteret",
+          "title": "Landspatientregisteret",
+          "type": "organization",
+          "summary": "Landspatientregisteret is a Danish organization that provides codes and data for healthcare indicators and databases, including Indikator 10 and the Akut Kirurgi Databasen, and hosts the SKS-koden NAAZ42."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "landspatientregisteret",
+          "path": "rkkp-danibd/entities/databases/health-registries/landspatientregisteret",
+          "title": "Landspatientregisteret",
+          "type": "database",
+          "summary": "Landspatientregisteret (LPR) is the Danish National Patient Register, a comprehensive national database in Denmark that serves as the foundational data source for the Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD) and is used to identify patients with IBD through specific hospital contact diagnoses."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Nykøbing F Sygehus",
+      "aliases": [
+        "Nykøbing Falster"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "nykoebing-falster",
+          "path": "rkkp-afdk/entities/organizations/hospitals/nykoebing-falster",
+          "title": "Nykøbing Falster",
+          "type": "organization",
+          "summary": "Nykøbing Falster is Nykøbing Falster Hospital (Nykøbing Falster Sygehus), a healthcare institution in Denmark operating within Region Sjælland and subject to national clinical quality evaluations."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "nykoebing-f-sygehus",
+          "path": "rkkp-akdb/entities/organizations/hospitals/nykoebing-f-sygehus",
+          "title": "Nykøbing F Sygehus",
+          "type": "organization",
+          "summary": "Nykøbing F Sygehus is a hospital located in the Sjælland region of Denmark, participating in the national clinical quality monitoring program for acute high-risk abdominal surgical patients as reported in the 2023 Acute Surgery Database (AKDB)."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Odense Universitetshospital - Svendborg",
+      "aliases": [
+        "OUH Svendborg",
+        "OUH Odense Universitetshospital (Svendborg)"
+      ],
+      "wikis": [
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "odense-universitetshospital-svendborg",
+          "path": "rkkp-akdb/entities/organizations/hospitals/odense-universitetshospital-svendborg",
+          "title": "Odense Universitetshospital - Svendborg",
+          "type": "organization",
+          "summary": "Odense Universitetshospital - Svendborg is a hospital located in Svendborg and affiliated with Region Syddanmark; it reports results for Indikator 1 and meets the standard for Indikator 9."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "ouh-svendborg",
+          "path": "rkkp-danibd/entities/healthcare-facilities/hospitals/ouh-svendborg",
+          "title": "OUH Svendborg",
+          "type": "healthcare-facility",
+          "summary": "OUH Svendborg is a healthcare facility in Denmark that participates in the national DANIBD database initiative to standardize and improve diagnostics for inflammatory bowel diseases (IBD), as documented in the 2024 DANIBD report."
+        }
+      ],
+      "match": "fuzzy"
+    },
+    {
+      "canonicalTitle": "OUH Odense Universitetshospital",
+      "aliases": [
+        "OUH Odense Universitetshospital (Odense)"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "ouh-odense-universitetshospital",
+          "path": "rkkp-afdk/entities/organizations/hospitals/ouh-odense-universitetshospital",
+          "title": "OUH Odense Universitetshospital",
+          "type": "organization",
+          "summary": "OUH Odense Universitetshospital is a major hospital located in Region Syddanmark, Denmark, and is one of the healthcare institutions evaluated in the Danish Atrial Fibrillation Database’s annual report for July 1, 2022, to June 30, 2023, under the Regions' Clinical Quality Development Program (RKKP)."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "ouh-odense-universitetshospital-odense",
+          "path": "rkkp-akdb/entities/organizations/hospitals/ouh-odense-universitetshospital-odense",
+          "title": "OUH Odense Universitetshospital (Odense)",
+          "type": "organization",
+          "summary": "OUH Odense Universitetshospital (Odense) is an organization located in Odense. The page provides no further details about its role, affiliations, or functions."
+        }
+      ],
+      "match": "fuzzy"
+    },
+    {
+      "canonicalTitle": "Randers",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "randers",
+          "path": "rkkp-afdk/entities/locations/municipalities/randers",
+          "title": "Randers",
+          "type": "location",
+          "summary": "Randers is a Danish municipality that was evaluated in the 2022–2023 Annual Report from the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) for clinical quality in atrial fibrillation treatment, specifically regarding stroke prevention through anticoagulant therapy using DanStroke registry data."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "randers",
+          "path": "rkkp-akdb/entities/locations/national/randers",
+          "title": "Randers",
+          "type": "location",
+          "summary": "Randers is a city in the Central Denmark Region that serves as a benchmark for high-performing clinical efforts in acute abdominal care within the national Acute Surgery Database (AKDB) quality reports, with the benchmark reflecting hospital-level initiatives and outcomes in the Randers area rather than the administrative institution of Regionshospitalet Randers."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+      "aliases": [
+        "RKKP",
+        "RKKP – Regionernes Kliniske Kvalitetsudviklingsprogram"
+      ],
+      "wikis": [
+        "rkkp-adhd",
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-adhd",
+          "slug": "rkkp",
+          "path": "rkkp-adhd/entities/organizations/healthcare-standards/rkkp",
+          "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+          "type": "organization",
+          "summary": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) is a Danish organization that serves as the technical and knowledge-based driving force behind ADHD-DATABASEN, acting as its official publisher of annual reports and being directly responsible for preparing the underlying analyses through its Knowledge Center (RKKP's Videncenter)."
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+          "path": "rkkp-afdk/entities/organizations/health-authorities/regionernes-kliniske-kvalitetsudviklingsprogram",
+          "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+          "type": "organization",
+          "summary": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) is a public organization in Denmark responsible for national clinical quality development and monitoring, specifically administering the Databasen for Atrieflimren i Danmark and publishing annual reports on atrial fibrillation care, including the Atrieflimren i Danmark publication."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+          "path": "rkkp-akdb/entities/organizations/healthcare-organizations/regionernes-kliniske-kvalitetsudviklingsprogram",
+          "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+          "type": "organization",
+          "summary": "Regionernes Kliniske Kvalitetsudviklingsprogram is a Danish organization that publishes and manages the Akut Kirurgi Databasen, and has Birgitte Rühmann as its contact person."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+          "path": "rkkp-danibd/entities/organizations/health-authorities/regionernes-kliniske-kvalitetsudviklingsprogram",
+          "title": "Regionernes Kliniske Kvalitetsudviklingsprogram",
+          "type": "organization",
+          "summary": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) is a Danish organizational body responsible for clinical quality development across the country's regions and serves as the overarching administrative and professional authority for the Dansk Kvalitetsdatabase for Inflammatoriske Tarmsygdomme (DANIBD), which it helped create and operate, launching on October 1, 2022."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Regionshospital Nordjylland",
+      "aliases": [
+        "Regionshospital Nordjylland Ven",
+        "RHN"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "regionshospital-nordjylland-ven",
+          "path": "rkkp-afdk/entities/organizations/hospitals/regionshospital-nordjylland-ven",
+          "title": "Regionshospital Nordjylland Ven",
+          "type": "organization",
+          "summary": "Regionshospital Nordjylland Ven is a regional hospital operating within Region Nordjylland in Denmark, and it is one of the healthcare institutions systematically evaluated in the Danish Atrial Fibrillation Database’s annual reports."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "regionshospital-nordjylland",
+          "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+          "title": "Regionshospital Nordjylland",
+          "type": "organization",
+          "summary": "Regionshospital Nordjylland is a healthcare organization in Denmark that audits and evaluates clinical indicators such as Indikator 1 and Indikator 3, fails to meet the standard for Indikator 9, and criticizes the Charlson Score. It is also known by the aliases Regionshospital Nordjylland Ven and RHN."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Regionshospitalet Gødstrup",
+      "aliases": [
+        "Gødstrup"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "regionshospitalet-goedstrup",
+          "path": "rkkp-afdk/entities/organizations/hospitals/regionshospitalet-goedstrup",
+          "title": "Regionshospitalet Gødstrup",
+          "type": "organization",
+          "summary": "Regionshospitalet Gødstrup is a regional hospital located in Region Midtjylland, Denmark, and is one of the healthcare institutions evaluated in the Danish Atrial Fibrillation Database’s 2022–2023 annual report for clinical quality and treatment standards in atrial fibrillation care."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "regionshospitalet-goedstrup",
+          "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-goedstrup",
+          "title": "Regionshospitalet Gødstrup",
+          "type": "organization",
+          "summary": "Regionshospitalet Gødstrup is a hospital located in Region Midtjylland. It is associated with indicator results and standards, specifically meeting the standard of Indikator 9 and having an indicator result for Indikator 1."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "regionshospitalet-goedstrup",
+          "path": "rkkp-danibd/entities/healthcare-facilities/hospitals/regionshospitalet-goedstrup",
+          "title": "Regionshospitalet Gødstrup",
+          "type": "healthcare-facility",
+          "summary": "Regionshospitalet Gødstrup is a regional healthcare facility in Denmark that participates in the national DANIBD database for inflammatory bowel disease treatment and quality assurance, and it contributed operational analyses and formal consultation responses to the 2024 DANIBD annual report."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Regionshospitalet Horsens",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "regionshospitalet-horsens",
+          "path": "rkkp-afdk/entities/organizations/hospitals/regionshospitalet-horsens",
+          "title": "Regionshospitalet Horsens",
+          "type": "organization",
+          "summary": "Regionshospitalet Horsens is a regional hospital located in Region Midtjylland, Denmark, and is one of the healthcare institutions evaluated in the 2022–2023 annual report of the Danish Atrial Fibrillation Database."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "regionshospitalet-horsens",
+          "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-horsens",
+          "title": "Regionshospitalet Horsens",
+          "type": "organization",
+          "summary": "Regionshospitalet Horsens is a hospital located in the Horsens area, affiliated with both Region Midtjylland and Region Syd, and it has indicator results for Indikator 1 and meets the standard for Indikator 9."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Regionshospitalet Randers",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "regionshospitalet-randers",
+          "path": "rkkp-afdk/entities/organizations/hospitals/regionshospitalet-randers",
+          "title": "Regionshospitalet Randers",
+          "type": "organization",
+          "summary": "Regionshospitalet Randers is a regional hospital located in Region Midtjylland, Denmark, and is one of the healthcare institutions evaluated in the Danish Atrial Fibrillation Database (AFDK) annual report for the period July 1, 2022, to June 30, 2023, under the quality monitoring framework of the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP)."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "regionshospitalet-randers",
+          "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-randers",
+          "title": "Regionshospitalet Randers",
+          "type": "organization",
+          "summary": "Regionshospitalet Randers is a hospital located in and contained by Region Midtjylland, and it is associated with several indicators—specifically showing improvement in Indikator 1, being best practice for Indikator 2, having an indicator result for Indikator 1, and proposing to modify Indikator 9."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Rigshospitalet",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "rigshospitalet",
+          "path": "rkkp-afdk/entities/organizations/hospitals/rigshospitalet",
+          "title": "Rigshospitalet",
+          "type": "organization",
+          "summary": "Rigshospitalet is a major hospital located in Region Hovedstaden, Denmark, and is actively monitored in the Danish national clinical quality databases—specifically the Database for Atrial Fibrillation in Denmark—under the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP)."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "rigshospitalet",
+          "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+          "title": "Rigshospitalet",
+          "type": "organization",
+          "summary": "Rigshospitalet is a healthcare organization that is part of the Hovedstaden Region i alt and has performance relationships with multiple indicators, including failing standard for Indikator 11 and having high mortality in Indikator 10."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Sjællands Universitetshospital",
+      "aliases": [],
+      "wikis": [
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "sjaellands-universitetshospital",
+          "path": "rkkp-akdb/entities/organizations/hospitals/sjaellands-universitetshospital",
+          "title": "Sjællands Universitetshospital",
+          "type": "organization",
+          "summary": "Sjællands Universitetshospital is a hospital located in Region Sjælland, Denmark, and is associated with the indicator result “Indikator 1”."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "sjellands-universitetshospital",
+          "path": "rkkp-danibd/entities/healthcare-facilities/hospitals/sjellands-universitetshospital",
+          "title": "Sjællands Universitetshospital",
+          "type": "healthcare-facility",
+          "summary": "Sjællands Universitetshospital is a university hospital located in Region Sjælland, Denmark, and is listed in the DANIBD 2025 report as a healthcare unit registering clinical data on inflammatory bowel disease patients, including biological treatments and surgical procedures."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Sjællands Universitetshospital Køge",
+      "aliases": [
+        "\"Sjællands Universitetshospital, Køge\"",
+        "Sjællands Universitetshospital, Køge"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "sjaellands-universitetshospital-koenge",
+          "path": "rkkp-afdk/entities/organizations/hospitals/sjaellands-universitetshospital-koenge",
+          "title": "Sjællands Universitetshospital Køge",
+          "type": "organization",
+          "summary": "Sjællands Universitetshospital Køge is a hospital located in Region Sjælland, Denmark, and is one of the healthcare institutions evaluated in the Danish Atrial Fibrillation Database (AFDK) annual report for the period July 1, 2022, to June 30, 2023, with its clinical performance tracked by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) for atrial fibrillation care."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "sjaellands-universitetshospital-koege",
+          "path": "rkkp-akdb/entities/organizations/hospitals/sjaellands-universitetshospital-koege",
+          "title": "\"Sjællands Universitetshospital, Køge\"",
+          "type": "organization",
+          "summary": "Sjællands Universitetshospital, Køge is a hospital department in Denmark that operates under the broader Sjællands Universitetshospital organization and is recognized in national clinical quality registries for reporting data on cancer diseases among acute surgical patients."
+        }
+      ],
+      "match": "fuzzy"
+    },
+    {
+      "canonicalTitle": "Slagelse",
+      "aliases": [
+        "Slagelse Sygehus"
+      ],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "slagelse-sygehus",
+          "path": "rkkp-afdk/entities/organizations/hospitals/slagelse-sygehus",
+          "title": "Slagelse Sygehus",
+          "type": "organization",
+          "summary": "Slagelse Sygehus is a hospital located in Region Sjælland, Denmark, actively monitored for its clinical quality in treating atrial fibrillation as part of the Danish Atrial Fibrillation Database (AFDK) and the Danish Regions' Clinical Quality Development Programme (RKKP)."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "slagelse",
+          "path": "rkkp-akdb/entities/organizations/hospitals/slagelse",
+          "title": "Slagelse",
+          "type": "organization",
+          "summary": "Slagelse refers to Slagelse Sygehus (Slagelse Hospital), a healthcare organization operating within Region Sjælland (Region Zealand), and in clinical databases and medical reporting, this designation specifically identifies the hospital—not the city of Slagelse or any other institution sharing the name."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Styregruppen",
+      "aliases": [
+        "Styregruppen for AFDK",
+        "Styregruppen for DANIBD",
+        "Styregruppen for databasen"
+      ],
+      "wikis": [
+        "rkkp-adhd",
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-adhd",
+          "slug": "styregruppen",
+          "path": "rkkp-adhd/entities/organizations/healthcare-governance/styregruppen",
+          "title": "Styregruppen",
+          "type": "organization",
+          "summary": "Styregruppen is the central decision-making and quality management authority for ADHD-DATABASEN in Denmark, responsible for assessing clinical relevance of quality indicators, maintaining national standards for ADHD assessment and treatment, and auditing the database’s annual reports."
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "afdk-styregruppe",
+          "path": "rkkp-afdk/entities/organizations/health-standards/governance/afdk-styregruppe",
+          "title": "Styregruppen for AFDK",
+          "type": "organization",
+          "summary": "Styregruppen for AFDK is a professional governing body responsible for managing the Atrieflimren i Danmark (AFDK) database under the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) in Denmark, with authority to decide on clinical quality indicator retention and establish national healthcare standards."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "styregruppen",
+          "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+          "title": "Styregruppen",
+          "type": "organization",
+          "summary": "Styregruppen is an organization that governs the Akut Kirurgi Databasen and is responsible for discussing and revising clinical indicators such as Indikator 7 and Indikator 3, as well as making decisions about national monitoring practices like discontinuing national monitoring of perforeret ulcus; it has also received proposals such as ZZ2009C."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "styregruppen-for-danibd",
+          "path": "rkkp-danibd/entities/organizations/health-committees/styregruppen-for-danibd",
+          "title": "Styregruppen for DANIBD",
+          "type": "organization",
+          "summary": "Styregruppen for DANIBD is the central decision-making and advisory body overseeing the Danish Quality Database for Inflammatory Bowel Diseases (DANIBD), responsible for approving its annual reports, formulating clinical conclusions, and issuing national recommendations to improve IBD treatment and monitoring in Denmark; it is chaired by Lone Larsen, a chief physician and clinical lecturer."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Sundhedsvæsenets Kvalitetsinstitut",
+      "aliases": [],
+      "wikis": [
+        "rkkp-adhd",
+        "rkkp-afdk",
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-adhd",
+          "slug": "sundhedsvaesnets-kvalitetsinstitut",
+          "path": "rkkp-adhd/entities/organizations/healthcare-standards/sundhedsvaesnets-kvalitetsinstitut",
+          "title": "Sundhedsvæsenets Kvalitetsinstitut",
+          "type": "organization",
+          "summary": "Sundhedsvæsenets Kvalitetsinstitut is a Danish organization responsible for publishing the annual report and preparing core analyses for ADHD-DATABASEN, serving as the technical and knowledge-driven force behind the database’s quality measurement of Denmark’s ADHD treatment standards."
+        },
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "sundhedsvaesenets-kvalitetsinstitut",
+          "path": "rkkp-afdk/entities/organizations/health-quality-infrastructure/sundhedsvaesenets-kvalitetsinstitut",
+          "title": "Sundhedsvæsenets Kvalitetsinstitut",
+          "type": "organization",
+          "summary": "Sundhedsvæsenets Kvalitetsinstitut is a Danish national authority responsible for preparing, monitoring, and reporting quality indicators for atrial fibrillation in Denmark, and for publishing the national quality report Atrieflimren i Danmark and the AFDK-2025 report."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "sundhedsvaesenets-kvalitetsinstitut",
+          "path": "rkkp-akdb/entities/organizations/healthcare-oversight/sundhedsvaesenets-kvalitetsinstitut",
+          "title": "Sundhedsvæsenets Kvalitetsinstitut",
+          "type": "organization",
+          "summary": "Sundhedsvæsenets Kvalitetsinstitut is a Danish organization that publishes the Akut Kirurgi Databasen and has Birgitte Rühmann as its contact person."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "sundhedsvaesenets-kvalitetsinstitut",
+          "path": "rkkp-danibd/entities/organizations/health-authorities/sundhedsvaesenets-kvalitetsinstitut",
+          "title": "Sundhedsvæsenets Kvalitetsinstitut",
+          "type": "organization",
+          "summary": "Sundhedsvæsenets Kvalitetsinstitut is an official Danish governmental institution responsible for supporting quality development and implementing and overseeing quality measurement for inflammatory bowel disease (IBD) within the Danish healthcare system."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Sygehus Lillebælt",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "sygehus-lillebaelt",
+          "path": "rkkp-afdk/entities/organizations/hospitals/sygehus-lillebaelt",
+          "title": "Sygehus Lillebælt",
+          "type": "organization",
+          "summary": "Sygehus Lillebælt is a hospital organization in Denmark operating within Region Syddanmark, serving as a combined reporting entity for Kolding Sygehus and Vejle Sygehus in the Danish Atrial Fibrillation Database (AFDK) annual report for July 1, 2022, to June 30, 2023."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "sygehus-lillebaelt",
+          "path": "rkkp-akdb/entities/organizations/hospitals/sygehus-lillebaelt",
+          "title": "Sygehus Lillebælt",
+          "type": "organization",
+          "summary": "Sygehus Lillebælt is a hospital located in Region Syddanmark, Denmark, and is associated with the indicator result “Indikator 1”."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Sygehus Sønderjylland",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "sygehus-soenderjylland",
+          "path": "rkkp-afdk/entities/organizations/hospitals/sygehus-soenderjylland",
+          "title": "Sygehus Sønderjylland",
+          "type": "organization",
+          "summary": "Sygehus Sønderjylland is a hospital in Denmark affiliated with Region Syddanmark and evaluated in the Danish Atrial Fibrillation Database (AFDK) annual report for the period July 1, 2022, to June 30, 2023."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "sygehus-soenderjylland",
+          "path": "rkkp-akdb/entities/organizations/hospitals/sygehus-soenderjylland",
+          "title": "Sygehus Sønderjylland",
+          "type": "organization",
+          "summary": "Sygehus Sønderjylland is a hospital located in the Region Syddanmark and also affiliated with Region Syd, as indicated by its inclusion in both regional healthcare structures; it is associated with at least one indicator result, Indikator 1."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Sygehusmedicinregisteret",
+      "aliases": [
+        "Sygehusmedicinregisteret (SMR)"
+      ],
+      "wikis": [
+        "rkkp-akdb",
+        "rkkp-danibd"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "sygehusmedicinregisteret",
+          "path": "rkkp-akdb/entities/organizations/healthcare-databases/sygehusmedicinregisteret",
+          "title": "Sygehusmedicinregisteret",
+          "type": "organization",
+          "summary": "Sygehusmedicinregisteret is a data register that supports and supplies data to Akut Kirurgi Databasen, as evidenced by its role as a data source for that database and for Indikator 1."
+        },
+        {
+          "wiki": "rkkp-danibd",
+          "slug": "sygehusmedicinregisteret",
+          "path": "rkkp-danibd/entities/databases/health-registries/sygehusmedicinregisteret",
+          "title": "Sygehusmedicinregisteret",
+          "type": "database",
+          "summary": "Sygehusmedicinregisteret (SMR) is a Danish database that tracks dispensed hospital medicine and is of significant operational interest to DANIBD, the national clinical registry for inflammatory bowel disease (IBD), which is actively awaiting technical capability to automatically extract medical treatment information from it."
+        }
+      ],
+      "match": "exact"
+    },
+    {
+      "canonicalTitle": "Vejle Sygehus",
+      "aliases": [],
+      "wikis": [
+        "rkkp-afdk",
+        "rkkp-akdb"
+      ],
+      "members": [
+        {
+          "wiki": "rkkp-afdk",
+          "slug": "vejle-sygehus",
+          "path": "rkkp-afdk/entities/organizations/hospitals/vejle-sygehus",
+          "title": "Vejle Sygehus",
+          "type": "organization",
+          "summary": "Vejle Sygehus is a hospital in Denmark that participates in the national monitoring of atrial fibrillation treatment quality via the Danish Atrial Fibrillation Database (AFDK), and it is administratively part of Region Syddanmark and jointly operated with Kolding Sygehus as part of the Sygehus Lillebælt hospital group."
+        },
+        {
+          "wiki": "rkkp-akdb",
+          "slug": "vejle-sygehus",
+          "path": "rkkp-akdb/entities/organizations/hospitals/vejle-sygehus",
+          "title": "Vejle Sygehus",
+          "type": "organization",
+          "summary": "Vejle Sygehus is a hospital located in the Region of Southern Denmark (Region Syddanmark) and serves a specific role in national healthcare quality monitoring by reporting data for supplementary analyses of cancer diseases among acute surgical patients."
+        }
+      ],
+      "match": "exact"
+    }
+  ]
+}

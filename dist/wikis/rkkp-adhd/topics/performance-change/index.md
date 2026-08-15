@@ -4,17 +4,18 @@ type: index
 aliases:
   - Performance Change
 wiki: rkkp-adhd
-updated: '2026-08-05T19:24:23.513Z'
+updated: '2026-08-15T12:46:36.430Z'
 children:
+  - index.md
   - performance-change.md
 ---
 # Performance Change
 
-This folder tracks year-over-year shifts in regional ADHD care outcomes, specifically focusing on the metrics measured by Indikator 3 in the 2024 reporting. It details significant performance improvements across Danish regions, highlighting Region Midtjylland's 32 percentage point surge to a 51% result and Region Syddanmark's steady growth from 16% to 26%. These pages provide the factual basis for understanding which regions are driving positive trends in the national dataset.
+This folder tracks shifts and trends in healthcare performance metrics over time across different Danish regions. It specifically highlights year-over-year improvements in ADHD care outcomes, documenting how regions like Midtjylland and Syddanmark have achieved significant percentage point increases in their measured metrics. By focusing on these temporal changes, the area provides insight into which regions are successfully improving their service delivery and clinical results.
 
 ## Pages
 
-- [[performance-change|Performance Change]] — Analysis of year-over-year regional improvements in ADHD care metrics, highlighting significant gains in Midtjylland and Syddanmark
+- [[performance-change|Performance Change]] — Tracks year-over-year shifts in regional ADHD care outcomes, highlighting significant metric improvements in Region Midtjylland and Region Syddanmark.
 
 ## Navigation
 

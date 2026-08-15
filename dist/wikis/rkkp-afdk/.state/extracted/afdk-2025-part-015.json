@@ -1,0 +1,752 @@
+{
+  "entities": [
+    {
+      "name": "Atrieflimren i Danmark",
+      "type": "document",
+      "slug": "atrieflimren-i-danmark",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er den overordnede rapport, som indeholder de supplerende analyser og indikatorer om atrieflimren i Danmark, herunder data om alvorlig blødning og mortalitet blandt prævalente patienter.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 72,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 73,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 74,
+          "context": "Atrieflimren i Danmark"
+        },
+        {
+          "page": 75,
+          "context": "Atrieflimren i Danmark"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesnets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Dette er den organisation, der udgiver rapporten 'Atrieflimren i Danmark' og står for kvalitetsudviklingsprogrammet for atrieflimren, herunder beregning og rapportering af supplerende analyser og indikatorer.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 72,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 73,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 74,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Supplerende analyser 7: Alvorlig blødning",
+      "type": "document",
+      "slug": "supplerende-analyser-7-alvorlig-bloedning",
+      "folder": "entities/documents/reports",
+      "significance": "Dette er en specifik supplerende analyse i rapporten, der fokuserer på forekomsten af alvorlig blødning blandt prævalente patienter med atrieflimren, opdelt efter antikoagulationsbehandling.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Supplerende analyser 7: Alvorlig blødning"
+        }
+      ]
+    },
+    {
+      "name": "Supplerende indikator: Mortalitet",
+      "type": "topic",
+      "slug": "supplerende-indikator-mortalitet",
+      "folder": "topics/clinical-outcome",
+      "significance": "Dette er en supplerende klinisk outcome-indikator, der måler andelen af prævalente patienter med atrieflimren, som dør i en given opgørelsesperiode, og dermed bidrager til vurdering af behandlingskvalitet og sundhedssystemets ydeevne.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Supplerende indikator: Mortalitet"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 9",
+      "type": "quality-indicator",
+      "slug": "indikator-9",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Dette er den niende kvalitetsindikator i AFDK-programmet, der kvantificerer mortaliteten blandt prævalente patienter med atrieflimren, og bruges til national og regional sammenligning af sundhedskvalitet.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Indikator 9: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden"
+        }
+      ]
+    },
+    {
+      "name": "Alvorlig blødning",
+      "type": "clinical-condition",
+      "slug": "alvorlig-bloedning",
+      "folder": "topics/clinical-outcome",
+      "significance": "Dette er en alvorlig komplikation forbundet med antikoagulationsbehandling hos patienter med atrieflimren, og fungerer som en sikkerhedsindikator i kvalitetsrapporteringen.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Alvorlig blødning"
+        }
+      ]
+    },
+    {
+      "name": "Prævalente patienter med atrieflimren",
+      "type": "patient-population",
+      "slug": "praevalente-patienter-med-atrieflimren",
+      "folder": "topics/patient-perspective",
+      "significance": "Dette er den definerede patientpopulation, der indgår i alle analysen — patienter med eksisterende diagnose af atrieflimren ved starten af opgørelsesperioden — og som danner grundlaget for beregning af både blødning og mortalitetsindikatorer.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Prævalente patienter med atrieflimren, der udvikler alvorlig blødning i opgørelses perioden"
+        },
+        {
+          "page": 72,
+          "context": "Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden"
+        }
+      ]
+    },
+    {
+      "name": "AK-behandling",
+      "type": "medical-intervention",
+      "slug": "antikoagulationsbehandling",
+      "folder": "entities/medical-interventions/pharmacotherapy",
+      "significance": "Dette er den generelle betegnelse for antikoagulationsbehandling, som anvendes som baggrund for opdelingen af blødningstal og er centralt for risikovurdering af behandlingsrelaterede komplikationer.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "AK-behandling"
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "drug-class",
+      "slug": "doac",
+      "folder": "entities/drugs/anticoagulants",
+      "significance": "Dette er en klasse af direkte orale antikoagulantia, der anvendes som alternativ til Marevan, og som i tabellen viser en lavere andel alvorlig blødning end Marevan.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "DOAC"
+        }
+      ]
+    },
+    {
+      "name": "Marevan",
+      "type": "pharmaceutical",
+      "slug": "marevan",
+      "folder": "entities/pharmaceuticals/anticoagulants",
+      "significance": "Dette er det handelsnavn for warfarin, et vitamin-K-antagonist, der bruges til antikoagulation hos patienter med atrieflimren, og som i tabellen har en højere andel alvorlig blødning end DOAC.",
+      "mentions": [
+        {
+          "page": 71,
+          "context": "Marevan"
+        }
+      ]
+    },
+    {
+      "name": "CPR-registeret",
+      "type": "database",
+      "slug": "cpr-registeret",
+      "folder": "entities/databases/healthcare-registers",
+      "significance": "Dette er det centrale personregister i Danmark, som bruges til at fastslå vitalstatus (død/levende) for patienterne i mortalitetsanalysen, og dermed sikrer pålideligheden af indikator 9.",
+      "mentions": [
+        {
+          "page": 74,
+          "context": "Oplysningerne vedrørende vitalstatus (død/levende) er indhentet via kobling med CPR-registeret."
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/countries",
+      "significance": "Dette er den nationale niveauopgørelse, som angiver den samlede mortalitet på landsplan for prævalente patienter med atrieflimren, og fungerer som reference for regional og lokal sammenligning.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Danmark 9.853 / 138.889 0 (0) 7,1 (7,0-7,2) 10.004 / 136.323 7,3 7,6"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis mortalitetsdata præsenteres separat i tabellen, og som viser en let lavere andel døde end landsniveauet.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Hovedstaden 2.640 / 38.830 0 (0) 6,8 (6,6-7,1) 2.694 / 37.640 7,2 7,5"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis data præsenteres i tabellen, og som viser en andel døde svarende til landsniveauet.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sjælland 1.686 / 23.101 0 (0) 7,3 (7,0-7,6) 1.571 / 22.637 6,9 7,6"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis data præsenteres i tabellen, og som viser den højeste andel døde blandt regionerne i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Syddanmark 2.328 / 31.414 0 (0) 7,4 (7,1-7,7) 2.368 / 31.289 7,6 7,9"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis data præsenteres i tabellen, og som viser den laveste andel døde blandt regionerne i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Midtjylland 2.104 / 30.615 0 (0) 6,9 (6,6-7,2) 2.202 / 29.980 7,3 7,4"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/regions",
+      "significance": "Dette er én af de fem regioner i Danmark, hvis data præsenteres i tabellen, og som viser en moderat andel døde sammenlignet med andre regioner.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Nordjylland 1.095 / 14.929 0 (0) 7,3 (6,9-7,8) 1.169 / 14.777 7,9 7,6"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Bornholm",
+      "type": "organization",
+      "slug": "sundhedsklynge-bornholm",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Bornholm, og som i tabellen viser den højeste mortalitetsandel blandt alle sundhedsklynger i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Bornholm 112 / 1.318 0 (0) 8,5 (7,0-10,1) 114 / 1.307 8,7 7,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Byen",
+      "type": "organization",
+      "slug": "sundhedsklynge-byen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker byområder, og som i tabellen viser en af de laveste mortalitetsandele blandt sundhedsklynger.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Byen 709 / 10.622 0 (0) 6,7 (6,2-7,2) 686 / 10.347 6,6 7,4"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Midt",
+      "type": "organization",
+      "slug": "sundhedsklynge-midt",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Midtjylland, og som i tabellen viser en gennemsnitlig mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Midt 787 / 11.163 0 (0) 7,1 (6,6-7,5) 804 / 10.794 7,4 7,7"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Nord",
+      "type": "organization",
+      "slug": "sundhedsklynge-nord",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Nordjylland, og som i tabellen viser den laveste mortalitetsandel blandt alle sundhedsklynger i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Nord 583 / 9.193 0 (0) 6,3 (5,9-6,9) 624 / 8.783 7,1 7,1"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Syd",
+      "type": "organization",
+      "slug": "sundhedsklynge-syd",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Syddanmark, og som i tabellen viser en moderat mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Syd 449 / 6.534 0 (0) 6,9 (6,3-7,5) 466 / 6.409 7,3 7,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Holbæk",
+      "type": "organization",
+      "slug": "sundhedsklyngen-holbaek",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Holbæk, og som i tabellen viser en gennemsnitlig mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklyngen Holbæk 376 / 5.088 0 (0) 7,4 (6,7-8,1) 304 / 4.925 6,2 7,7"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Nykøbing F",
+      "type": "organization",
+      "slug": "sundhedsklyngen-nykoebing-f",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Nykøbing Falster, og som i tabellen viser den højeste mortalitetsandel blandt alle sundhedsklynger i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklyngen Nykøbing F 374 / 4.666 0 (0) 8,0 (7,3-8,8) 358 / 4.644 7,7 8,3"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen SUH",
+      "type": "organization",
+      "slug": "sundhedsklyngen-suh",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Dette er en sundhedsklynge, der dækker Sjællands Universitetshospital, og som i tabellen viser en gennemsnitlig mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklyngen SUH 547 / 7.437 0 (0) 7,4 (6,8-8,0) 477 / 7.223 6,6 6,5"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklyngen Slagelse",
+      "type": "organization",
+      "slug": "sundhedsklyngen-slagelse",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Slagelse, og som i tabellen viser en stigende tendens i mortalitetsandel fra tidligere år til den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklyngen Slagelse 389 / 5.910 0 (0) 6,6 (6,0-7,2) 432 / 5.845 7,4 8,4"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Fyn",
+      "type": "organization",
+      "slug": "sundhedsklynge-fyn",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Fyn, og som i tabellen viser den højeste mortalitetsandel blandt alle sundhedsklynger i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Fyn 938 / 11.706 0 (0) 8,0 (7,5-8,5) 943 / 11.692 8,1 8,5"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Lillebælt",
+      "type": "organization",
+      "slug": "sundhedsklynge-lillebaelt",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Lillebælt, og som i tabellen viser den laveste mortalitetsandel blandt alle sundhedsklynger i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Lillebælt 465 / 7.112 0 (0) 6,5 (6,0-7,1) 450 / 7.037 6,4 6,8"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sydvestjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-sydvestjylland",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Sydvestjylland, og som i tabellen viser en moderat stigning i mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Sydvestjylland 423 / 6.182 0 (0) 6,8 (6,2-7,5) 458 / 6.228 7,4 7,9"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsklynge Sønderjylland",
+      "type": "organization",
+      "slug": "sundhedsklynge-soenderjylland",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Sønderjylland, og som i tabellen viser en høj mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Sundhedsklynge Sønderjylland 502 / 6.414 0 (0) 7,8 (7,2-8,5) 517 / 6.332 8,2 7,8"
+        }
+      ]
+    },
+    {
+      "name": "Aarhusklyngen",
+      "type": "organization",
+      "slug": "aarhusklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Aarhus, og som i tabellen viser en moderat mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Aarhusklyngen 425 / 6.151 0 (0) 6,9 (6,3-7,6) 443 / 5.912 7,5 7,6"
+        }
+      ]
+    },
+    {
+      "name": "Gødstrupklyngen",
+      "type": "organization",
+      "slug": "goedstrupklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Gødstrup, og som i tabellen viser en faldende tendens i mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Gødstrupklyngen 472 / 7.283 0 (0) 6,5 (5,9-7,1) 521 / 7.129 7,3 7,1"
+        }
+      ]
+    },
+    {
+      "name": "Horsensklyngen",
+      "type": "organization",
+      "slug": "horsensklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Horsens, og som i tabellen viser en stabil mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Horsensklyngen 370 / 5.216 0 (0) 7,1 (6,4-7,8) 376 / 5.165 7,3 7,2"
+        }
+      ]
+    },
+    {
+      "name": "Midtklyngen",
+      "type": "organization",
+      "slug": "midtklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Midtjylland, og som i tabellen viser en stigende tendens i mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Midtklyngen 422 / 6.216 0 (0) 6,8 (6,2-7,4) 456 / 6.215 7,3 7,4"
+        }
+      ]
+    },
+    {
+      "name": "Randersklyngen",
+      "type": "organization",
+      "slug": "randersklyngen",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Randers, og som i tabellen viser en faldende tendens i mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Randersklyngen 415 / 5.749 0 (0) 7,2 (6,6-7,9) 406 / 5.559 7,3 7,8"
+        }
+      ]
+    },
+    {
+      "name": "Klynge MIDT",
+      "type": "organization",
+      "slug": "klynge-midt",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Midtjylland, og som i tabellen viser en faldende tendens i mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Klynge MIDT 401 / 5.505 0 (0) 7,3 (6,6-8,0) 423 / 5.350 7,9 7,5"
+        }
+      ]
+    },
+    {
+      "name": "Klynge NORD",
+      "type": "organization",
+      "slug": "klynge-nord",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Nordjylland, og som i tabellen viser en faldende tendens i mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 72,
+          "context": "Klynge NORD 357 / 4.828 0 (0) 7,4 (6,7-8,2) 379 / 4.787 7,9 7,7"
+        }
+      ]
+    },
+    {
+      "name": "Klynge SYD",
+      "type": "organization",
+      "slug": "klynge-syd",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Syddanmark, og som i tabellen viser en stabil mortalitetsandel.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Klynge SYD 211 / 2.813 0 (0) 7,5 (6,6-8,5) 205 / 2.785 7,4 7,3"
+        }
+      ]
+    },
+    {
+      "name": "Klynge VEST",
+      "type": "organization",
+      "slug": "klynge-vest",
+      "folder": "entities/organizations/healthcare-registries",
+      "significance": "Dette er en sundhedsklynge, der dækker Vestjylland, og som i tabellen viser den laveste andel døde blandt alle klyngegrupper i den aktuelle periode.",
+      "mentions": [
+        {
+          "page": 73,
+          "context": "Klynge VEST 126 / 1.783 0 (0) 7,1 (5,9-8,4) 162 / 1.855 8,7 7,7"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "atrieflimren-i-danmark",
+      "predicate": "is-published-by",
+      "object": "sundhedsvaesnets-kvalitetsinstitut",
+      "evidence": "Atrieflimren i Danmark Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 71
+    },
+    {
+      "subject": "supplerende-analyser-7-alvorlig-bloedning",
+      "predicate": "is-part-of",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Supplerende analyser 7: Alvorlig blødning",
+      "page": 71
+    },
+    {
+      "subject": "supplerende-indikator-mortalitet",
+      "predicate": "is-part-of",
+      "object": "atrieflimren-i-danmark",
+      "evidence": "Supplerende indikator: Mortalitet",
+      "page": 72
+    },
+    {
+      "subject": "indikator-9",
+      "predicate": "measures",
+      "object": "supplerende-indikator-mortalitet",
+      "evidence": "Indikator 9: Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden",
+      "page": 72
+    },
+    {
+      "subject": "alvorlig-bloedning",
+      "predicate": "is-complication-of",
+      "object": "antikoagulationsbehandling",
+      "evidence": "Alvorlig blødning",
+      "page": 71
+    },
+    {
+      "subject": "praevalente-patienter-med-atrieflimren",
+      "predicate": "are-subject-of",
+      "object": "indikator-9",
+      "evidence": "Andelen af prævalente patienter med diagnosen atrieflimren som dør i opgørelsesperioden",
+      "page": 72
+    },
+    {
+      "subject": "cpr-registeret",
+      "predicate": "provides-data-for",
+      "object": "indikator-9",
+      "evidence": "Oplysningerne vedrørende vitalstatus (død/levende) er indhentet via kobling med CPR-registeret.",
+      "page": 74
+    }
+  ],
+  "claims": [
+    {
+      "text": "Antallet af prævalente patienter med atrieflimren var 138.889 på landsplan i opgørelsesperioden 01.07.2024–30.06.2025 [^src1]",
+      "type": "demographic",
+      "entities": [
+        "praevalente-patienter-med-atrieflimren",
+        "danmark"
+      ],
+      "page": 72
+    },
+    {
+      "text": "Andelen af prævalente patienter med atrieflimren, som døde i opgørelsesperioden 01.07.2024–30.06.2025, var 7,1% på landsplan [^src1]",
+      "type": "mortality-rate",
+      "entities": [
+        "indikator-9",
+        "danmark"
+      ],
+      "page": 72
+    },
+    {
+      "text": "Andelen af prævalente patienter med atrieflimren, som udvikler alvorlig blødning, er 2,22% på landsplan [^src1]",
+      "type": "incidence-rate",
+      "entities": [
+        "alvorlig-bloedning",
+        "praevalente-patienter-med-atrieflimren"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Andelen af prævalente patienter med atrieflimren, som udvikler alvorlig blødning, er 2,40% blandt dem på AK-behandling [^src1]",
+      "type": "incidence-rate",
+      "entities": [
+        "alvorlig-bloedning",
+        "antikoagulationsbehandling"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Andelen af prævalente patienter med atrieflimren, som udvikler alvorlig blødning, er 2,54% blandt dem på Marevan [^src1]",
+      "type": "incidence-rate",
+      "entities": [
+        "alvorlig-bloedning",
+        "marevan"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Andelen af prævalente patienter med atrieflimren, som udvikler alvorlig blødning, er 4,68% blandt dem på både DOAC og Marevan [^src1]",
+      "type": "incidence-rate",
+      "entities": [
+        "alvorlig-bloedning",
+        "doac",
+        "marevan"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Andelen af prævalente patienter med atrieflimren, som udvikler alvorlig blødning, er 1,37% blandt dem uden AK-behandling [^src1]",
+      "type": "incidence-rate",
+      "entities": [
+        "alvorlig-bloedning",
+        "praevalente-patienter-med-atrieflimren"
+      ],
+      "page": 71
+    },
+    {
+      "text": "Opgørelsen omfatter kun patienter med dansk cpr-nr. og dansk bopæl [^src1]",
+      "type": "methodological-definition",
+      "entities": [
+        "cpr-registeret"
+      ],
+      "page": 74
+    },
+    {
+      "text": "Der er betydelig risiko for, at forskellene på hospitalsniveau kan tilskrives forskellige populationer (case-mix) snarere end forskelle i behandlingskvaliteten [^src1]",
+      "type": "limitation",
+      "entities": [
+        "indikator-9"
+      ],
+      "page": 74
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-07-01",
+      "event": "Start af opgørelsesperioden for Indikator 9 og Supplerende analyser 7",
+      "entities": [
+        "indikator-9",
+        "supplerende-analyser-7-alvorlig-bloedning"
+      ]
+    },
+    {
+      "date": "2025-06-30",
+      "event": "Afslutning af opgørelsesperioden for Indikator 9 og Supplerende analyser 7",
+      "entities": [
+        "indikator-9",
+        "supplerende-analyser-7-alvorlig-bloedning"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "alvorlig-bloedning",
+      "title": "Alvorlig blødning blandt prævalente patienter med atrieflimren, opdelt efter antikoagulationsbehandling",
+      "page": 71,
+      "rowDimension": "antikoagulationsbehandling",
+      "colDimension": "antal og procent",
+      "entities": [
+        "alvorlig-bloedning",
+        "antikoagulationsbehandling",
+        "doac",
+        "marevan"
+      ],
+      "markdown": "| Alvorlig blødning | Nej | Ja |\n| --- | --- | --- |\n| Alle | 138005 97.78 | 3136 2.22 |\n| AK-behandling | 105874 97.60 | 2603 2.40 |\n| DOAC |  |  |\n| Marevan | 4959 97.46 | 129 2.54 |\n| Både DOAC og Marevan | 774 95.32 | 38 4.68 |\n| Hverken DOAC eller Marevan | 26398 98.63 | 366 1.37 |",
+      "summary": "Tabellen sammenligner antal og procent af prævalente patienter med atrieflimren, der udvikler alvorlig blødning, opdelt efter type af antikoagulationsbehandling, og viser højeste andel blødning blandt dem på både DOAC og Marevan."
+    },
+    {
+      "subject": "indikator-9",
+      "title": "Indikator 9: Andelen af prævalente patienter med atrieflimren som dør i opgørelsesperioden",
+      "page": 72,
+      "rowDimension": "geografisk enhed",
+      "colDimension": "mortalitetsandel og konfidensinterval",
+      "entities": [
+        "indikator-9",
+        "danmark",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "sundhedsklynge-bornholm",
+        "sundhedsklynge-byen",
+        "sundhedsklynge-midt",
+        "sundhedsklynge-nord",
+        "sundhedsklynge-syd",
+        "sundhedsklyngen-holbaek",
+        "sundhedsklyngen-nykoebing-f",
+        "sundhedsklyngen-suh",
+        "sundhedsklyngen-slagelse",
+        "sundhedsklynge-fyn",
+        "sundhedsklynge-lillebaelt",
+        "sundhedsklynge-sydvestjylland",
+        "sundhedsklynge-soenderjylland",
+        "aarhusklyngen",
+        "goedstrupklyngen",
+        "horsensklyngen",
+        "midtklyngen",
+        "randersklyngen",
+        "klynge-midt",
+        "klynge-nord",
+        "klynge-syd",
+        "klynge-vest"
+      ],
+      "markdown": "| Geografisk enhed | Tæller/antal | Uoplyst | Aktuelle år | Tidligere år |\n| --- | --- | --- | --- | --- |\n| Danmark | 9.853 / 138.889 | 0 (0) | 7,1 (7,0-7,2) | 10.004 / 136.323 7,3 7,6 |\n| Hovedstaden | 2.640 / 38.830 | 0 (0) | 6,8 (6,6-7,1) | 2.694 / 37.640 7,2 7,5 |\n| Sjælland | 1.686 / 23.101 | 0 (0) | 7,3 (7,0-7,6) | 1.571 / 22.637 6,9 7,6 |\n| Syddanmark | 2.328 / 31.414 | 0 (0) | 7,4 (7,1-7,7) | 2.368 / 31.289 7,6 7,9 |\n| Midtjylland | 2.104 / 30.615 | 0 (0) | 6,9 (6,6-7,2) | 2.202 / 29.980 7,3 7,4 |\n| Nordjylland | 1.095 / 14.929 | 0 (0) | 7,3 (6,9-7,8) | 1.169 / 14.777 7,9 7,6 |\n| Sundhedsklynge Bornholm | 112 / 1.318 | 0 (0) | 8,5 (7,0-10,1) | 114 / 1.307 8,7 7,9 |\n| Sundhedsklynge Byen | 709 / 10.622 | 0 (0) | 6,7 (6,2-7,2) | 686 / 10.347 6,6 7,4 |\n| Sundhedsklynge Midt | 787 / 11.163 | 0 (0) | 7,1 (6,6-7,5) | 804 / 10.794 7,4 7,7 |\n| Sundhedsklynge Nord | 583 / 9.193 | 0 (0) | 6,3 (5,9-6,9) | 624 / 8.783 7,1 7,1 |\n| Sundhedsklynge Syd | 449 / 6.534 | 0 (0) | 6,9 (6,3-7,5) | 466 / 6.409 7,3 7,9 |\n| Sundhedsklyngen Holbæk | 376 / 5.088 | 0 (0) | 7,4 (6,7-8,1) | 304 / 4.925 6,2 7,7 |\n| Sundhedsklyngen Nykøbing F | 374 / 4.666 | 0 (0) | 8,0 (7,3-8,8) | 358 / 4.644 7,7 8,3 |\n| Sundhedsklyngen SUH | 547 / 7.437 | 0 (0) | 7,4 (6,8-8,0) | 477 / 7.223 6,6 6,5 |\n| Sundhedsklyngen Slagelse | 389 / 5.910 | 0 (0) | 6,6 (6,0-7,2) | 432 / 5.845 7,4 8,4 |\n| Sundhedsklynge Fyn | 938 / 11.706 | 0 (0) | 8,0 (7,5-8,5) | 943 / 11.692 8,1 8,5 |\n| Sundhedsklynge Lillebælt | 465 / 7.112 | 0 (0) | 6,5 (6,0-7,1) | 450 / 7.037 6,4 6,8 |\n| Sundhedsklynge Sydvestjylland | 423 / 6.182 | 0 (0) | 6,8 (6,2-7,5) | 458 / 6.228 7,4 7,9 |\n| Sundhedsklynge Sønderjylland | 502 / 6.414 | 0 (0) | 7,8 (7,2-8,5) | 517 / 6.332 8,2 7,8 |\n| Aarhusklyngen | 425 / 6.151 | 0 (0) | 6,9 (6,3-7,6) | 443 / 5.912 7,5 7,6 |\n| Gødstrupklyngen | 472 / 7.283 | 0 (0) | 6,5 (5,9-7,1) | 521 / 7.129 7,3 7,1 |\n| Horsensklyngen | 370 / 5.216 | 0 (0) | 7,1 (6,4-7,8) | 376 / 5.165 7,3 7,2 |\n| Midtklyngen | 422 / 6.216 | 0 (0) | 6,8 (6,2-7,4) | 456 / 6.215 7,3 7,4 |\n| Randersklyngen | 415 / 5.749 | 0 (0) | 7,2 (6,6-7,9) | 406 / 5.559 7,3 7,8 |\n| Klynge MIDT | 401 / 5.505 | 0 (0) | 7,3 (6,6-8,0) | 423 / 5.350 7,9 7,5 |\n| Klynge NORD | 357 / 4.828 | 0 (0) | 7,4 (6,7-8,2) | 379 / 4.787 7,9 7,7 |\n| Klynge SYD | 211 / 2.813 | 0 (0) | 7,5 (6,6-8,5) | 205 / 2.785 7,4 7,3 |\n| Klynge VEST | 126 / 1.783 | 0 (0) | 7,1 (5,9-8,4) | 162 / 1.855 8,7 7,7 |",
+      "summary": "Tabellen sammenligner mortalitetsandelen blandt prævalente patienter med atrieflimren på nationalt, regionalt og sundhedsklynge-niveau, og viser variation fra 6,3% (Sundhedsklynge Nord) til 8,5% (Sundhedsklynge Bornholm)."
+    }
+  ],
+  "context": "Denne dokumentchunk fra siderne 71–75 af rapporten 'Atrieflimren i Danmark' udgør en central del af det regionale kvalitetsudviklingsprogram for atrieflimren (AFDK), der administreres af Sundhedsvæsenets Kvalitetsinstitut. Chunken præsenterer to supplerende analyser: én om alvorlig blødning blandt prævalente patienter med atrieflimren, opdelt efter type af antikoagulationsbehandling (DOAC, Marevan, kombination eller ingen behandling), og én om mortalitet (Indikator 9), som rapporteres på nationalt, regionalt og sundhedsklynge-niveau med konfidensintervaller. Data er baseret på kobling med CPR-registeret og begrænset til patienter med dansk cpr-nummer og bopæl. Der fremhæves også en metodologisk begrænsning: ujusterede andele indebærer risiko for case-mix-effekter, hvilket gør direkte sammenligninger mellem enheder problematiske uden justering for demografiske og kliniske faktorer."
+}

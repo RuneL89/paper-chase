@@ -1,0 +1,528 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der registrerer og analyserer data om akut kirurgiske indgreb i Danmark, herunder fordelingen mellem laparotomi og laparoskopi på tværs af regioner og enheder i rapportperioderne 2022–2025.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige myndighed, der udgiver og administrerer Akut Kirurgi Databasen samt udfører supplerende analyser af kirurgiske behandlingsformer, hvilket fremgår af alle sidehoveder i dokumentchunket.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "laparotomi",
+      "type": "medical-procedure",
+      "slug": "laparotomi",
+      "folder": "entities/medical-procedures/surgical",
+      "significance": "Laparotomi er defineret som åben operation og udgør én af de to primære kirurgiske behandlingsformer, hvis anvendelse og procentvise andel dokumenteres systematisk i Akut Kirurgi Databasen sammenlignet med laparoskopi.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "laparotomi (åben operation)"
+        }
+      ]
+    },
+    {
+      "name": "laparoskopi",
+      "type": "medical-procedure",
+      "slug": "laparoskopi",
+      "folder": "entities/medical-procedures/surgical",
+      "significance": "Laparoskopi er defineret som minimal invasiv kirurgi og udgør den anden primære kirurgiske behandlingsform, hvis andel sammenlignes med laparotomi i Akut Kirurgi Databasen for at vurdere udviklingen i kirurgisk praksis.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "laparoskopi (minimal invasiv kirurgi)"
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/national",
+      "significance": "Danmark fungerer som nationalt aggregationsniveau i tabellerne, hvor samlede tal for laparotomi og laparoskopi præsenteres for hvert år, hvilket danner baggrund for regional og lokal sammenligning.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Danmark 3.250 100,00 1.436 44,18 1.814 55,82"
+        }
+      ]
+    },
+    {
+      "name": "Hovedstaden Region i alt",
+      "type": "location",
+      "slug": "hovedstaden-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Hovedstaden Region i alt er en af de fem regionale aggregationsenheder, der bruges til at rapportere antal og procentvis fordeling af laparotomi og laparoskopi i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Hovedstaden Region i alt 1.013 100,00 438 43,24 575 56,76"
+        }
+      ]
+    },
+    {
+      "name": "Amager og Hvidovre Hospital",
+      "type": "organization",
+      "slug": "amager-og-hvidovre-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Amager og Hvidovre Hospital er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Amager og Hvidovre Hospital 249 100,00 68 27,31 181 72,69"
+        }
+      ]
+    },
+    {
+      "name": "Bispebjerg og Frederiksberg Hospital",
+      "type": "organization",
+      "slug": "bispebjerg-og-frederiksberg-hospitaler",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bispebjerg og Frederiksberg Hospital er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Bispebjerg og Frederiksberg Hospital 221 100,00 100 45,25 121 54,75"
+        }
+      ]
+    },
+    {
+      "name": "Bornholms Hospital",
+      "type": "organization",
+      "slug": "bornholms-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Bornholms Hospital er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Bornholms Hospital 14 100,00 7 50,00 7 50,00"
+        }
+      ]
+    },
+    {
+      "name": "Herlev og Gentofte Hospital",
+      "type": "organization",
+      "slug": "herlev-og-gentofte-hospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Herlev og Gentofte Hospital er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Herlev og Gentofte Hospital 266 100,00 106 39,85 160 60,15"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalerne i Nordsjælland",
+      "type": "organization",
+      "slug": "hospitalerne-i-nordsjaelland",
+      "folder": "entities/organizations/healthcare-systems",
+      "significance": "Hospitalerne i Nordsjælland er en regionalt samarbejdende hospitalsstruktur, hvis samlede data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Hospitalerne i Nordsjælland 217 100,00 118 54,38 99 45,62"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen, og det viser den højeste andel laparotomi blandt alle enheder i 2024–2025.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Rigshospitalet 46 100,00 39 84,78 7 15,22"
+        }
+      ]
+    },
+    {
+      "name": "Sjælland Region i alt",
+      "type": "location",
+      "slug": "sjaelland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Sjælland Region i alt er en af de fem regionale aggregationsenheder, der bruges til at rapportere antal og procentvis fordeling af laparotomi og laparoskopi i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Sjælland Region i alt 617 100,00 203 32,90 414 67,10"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Holbæk Sygehus 151 100,00 41 27,15 110 72,85"
+        }
+      ]
+    },
+    {
+      "name": "Næstved, Slagelse og Ringsted sygehuse",
+      "type": "organization",
+      "slug": "naestved-slagese-og-ringsted-sygehuse",
+      "folder": "entities/organizations/healthcare-systems",
+      "significance": "Næstved, Slagelse og Ringsted sygehuse er en samlet enhed for rapportering i Akut Kirurgi Databasen, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Næstved, Slagelse og Ringsted sygehuse 215 100,00 68 31,63 147 68,37"
+        }
+      ]
+    },
+    {
+      "name": "Sjællands Universitetshospital",
+      "type": "organization",
+      "slug": "sjaellands-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sjællands Universitetshospital er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Sjællands Universitetshospital 251 100,00 94 37,45 157 62,55"
+        }
+      ]
+    },
+    {
+      "name": "Syddanmark Region i alt",
+      "type": "location",
+      "slug": "syddanmark-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Syddanmark Region i alt er en af de fem regionale aggregationsenheder, der bruges til at rapportere antal og procentvis fordeling af laparotomi og laparoskopi i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Syddanmark Region i alt 653 100,00 360 55,13 293 44,87"
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Sygehus Grindsted Sygehus",
+      "type": "organization",
+      "slug": "esbjerg-sygehus-grindsted-sygehus",
+      "folder": "entities/organizations/healthcare-systems",
+      "significance": "Esbjerg Sygehus Grindsted Sygehus er en samlet enhed for rapportering i Akut Kirurgi Databasen, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Esbjerg Sygehus Grindsted Sygehus 134 100,00 72 53,73 62 46,27"
+        }
+      ]
+    },
+    {
+      "name": "Odense Universitetshospital - Svendborg",
+      "type": "organization",
+      "slug": "ouh-odense-universitetshospital-odense",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Odense Universitetshospital - Svendborg er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Odense Universitetshospital - Svendborg 304 100,00 174 57,24 130 42,76"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Lillebælt",
+      "type": "organization",
+      "slug": "sygehus-lillebaelt",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Lillebælt er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Sygehus Lillebælt 107 100,00 70 65,42 37 34,58"
+        }
+      ]
+    },
+    {
+      "name": "Sygehus Sønderjylland",
+      "type": "organization",
+      "slug": "sygehus-soenderjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Sygehus Sønderjylland er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Sygehus Sønderjylland 108 100,00 44 40,74 64 59,26"
+        }
+      ]
+    },
+    {
+      "name": "Midtjylland Region i alt",
+      "type": "location",
+      "slug": "midtjylland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Midtjylland Region i alt er en af de fem regionale aggregationsenheder, der bruges til at rapportere antal og procentvis fordeling af laparotomi og laparoskopi i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Midtjylland Region i alt 661 100,00 332 50,23 329 49,77"
+        }
+      ]
+    },
+    {
+      "name": "Aarhus Universitetshospital",
+      "type": "organization",
+      "slug": "aarhus-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aarhus Universitetshospital er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Aarhus Universitetshospital 137 100,00 78 56,93 59 43,07"
+        }
+      ]
+    },
+    {
+      "name": "Hospitalsenhed Midt",
+      "type": "organization",
+      "slug": "hospitalsenhed-midt",
+      "folder": "entities/organizations/healthcare-systems",
+      "significance": "Hospitalsenhed Midt er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Hospitalsenhed Midt 134 100,00 44 32,84 90 67,16"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Gødstrup",
+      "type": "organization",
+      "slug": "regionshospitalet-goedstrup",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Gødstrup er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Regionshospitalet Gødstrup 147 100,00 87 59,18 60 40,82"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Horsens",
+      "type": "organization",
+      "slug": "regionshospitalet-horsens",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Horsens er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Regionshospitalet Horsens 131 100,00 75 57,25 56 42,75"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospitalet Randers",
+      "type": "organization",
+      "slug": "regionshospitalet-randers",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospitalet Randers er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Regionshospitalet Randers 112 100,00 48 42,86 64 57,14"
+        }
+      ]
+    },
+    {
+      "name": "Nordjylland Region i alt",
+      "type": "location",
+      "slug": "nordjylland-region-i-alt",
+      "folder": "entities/locations/national",
+      "significance": "Nordjylland Region i alt er en af de fem regionale aggregationsenheder, der bruges til at rapportere antal og procentvis fordeling af laparotomi og laparoskopi i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Nordjylland Region i alt 306 100,00 103 33,66 203 66,34"
+        }
+      ]
+    },
+    {
+      "name": "Aalborg Universitetshospital",
+      "type": "organization",
+      "slug": "aalborg-universitetshospital",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Aalborg Universitetshospital er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Aalborg Universitetshospital 190 100,00 69 36,32 121 63,68"
+        }
+      ]
+    },
+    {
+      "name": "Regionshospital Nordjylland",
+      "type": "organization",
+      "slug": "regionshospital-nordjylland",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Regionshospital Nordjylland er en af de specifikke hospitalsenheder, hvis data om laparotomi og laparoskopi indgår i den regionale og nationale analyse i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 91,
+          "context": "Regionshospital Nordjylland 116 100,00 34 29,31 82 70,69"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-administered-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut er angivet som udgiver på alle sidehoveder i dokumentchunket.",
+      "page": 91
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "contains-data-on",
+      "object": "laparotomi",
+      "evidence": "Tabel titlen 'Supplerende analyse vedr. laparotomi vs. laparoskopi' og kolonnerne 'Laparotomi' og 'Laparoskopi' i tabellen.",
+      "page": 91
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "contains-data-on",
+      "object": "laparoskopi",
+      "evidence": "Tabel titlen 'Supplerende analyse vedr. laparotomi vs. laparoskopi' og kolonnerne 'Laparotomi' og 'Laparoskopi' i tabellen.",
+      "page": 91
+    },
+    {
+      "subject": "laparotomi",
+      "predicate": "is-contrasted-with",
+      "object": "laparoskopi",
+      "evidence": "Tabel titlen 'Supplerende analyse vedr. laparotomi vs. laparoskopi'.",
+      "page": 91
+    },
+    {
+      "subject": "danmark",
+      "predicate": "has-aggregate-data-for",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Række 'Danmark' i tabellen indeholder samlede tal for hele landet.",
+      "page": 91
+    }
+  ],
+  "claims": [
+    {
+      "text": "I årsrapportperioden 01/09/2024–31/08/2025 blev der i Danmark udført 3.250 akut kirurgiske indgreb, hvoraf 1.436 (44,18 %) var laparotomi og 1.814 (55,82 %) var laparoskopi [^src1]",
+      "type": "statistical",
+      "entities": [
+        "danmark",
+        "laparotomi",
+        "laparoskopi"
+      ],
+      "page": 91
+    },
+    {
+      "text": "I årsrapportperioden 01/09/2023–31/08/2024 blev der i Danmark udført 3.247 akut kirurgiske indgreb, hvoraf 1.580 (48,66 %) var laparotomi og 1.667 (51,34 %) var laparoskopi [^src1]",
+      "type": "statistical",
+      "entities": [
+        "danmark",
+        "laparotomi",
+        "laparoskopi"
+      ],
+      "page": 92
+    },
+    {
+      "text": "I årsrapportperioden 01/09/2022–31/08/2023 blev der i Danmark udført 3.214 akut kirurgiske indgreb, hvoraf 1.692 (52,64 %) var laparotomi og 1.522 (47,36 %) var laparoskopi [^src1]",
+      "type": "statistical",
+      "entities": [
+        "danmark",
+        "laparotomi",
+        "laparoskopi"
+      ],
+      "page": 93
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2022-09-01",
+      "event": "Start af rapportperioden 01/09/2022–31/08/2023 for data i Akut Kirurgi Databasen",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2023-09-01",
+      "event": "Start af rapportperioden 01/09/2023–31/08/2024 for data i Akut Kirurgi Databasen",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "event": "Start af rapportperioden 01/09/2024–31/08/2025 for data i Akut Kirurgi Databasen",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "title": "Antal og % af laparotomi vs. laparoskopi fordelt på regioner og enheder i årsrapportperioden",
+      "page": 91,
+      "rowDimension": "hospitals-enheder",
+      "colDimension": "antal og procent for laparotomi og laparoskopi",
+      "entities": [
+        "danmark",
+        "hovedstaden-region-i-alt",
+        "amager-og-hvidovre-hospital",
+        "bispebjerg-og-frederiksberg-hospitaler",
+        "bornholms-hospital",
+        "herlev-og-gentofte-hospital",
+        "hospitalerne-i-nordsjaelland",
+        "rigshospitalet",
+        "sjaelland-region-i-alt",
+        "holbaek-sygehus",
+        "naestved-slagese-og-ringsted-sygehuse",
+        "sjaellands-universitetshospital",
+        "syddanmark-region-i-alt",
+        "esbjerg-sygehus-grindsted-sygehus",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "midtjylland-region-i-alt",
+        "aarhus-universitetshospital",
+        "hospitalsenhed-midt",
+        "regionshospitalet-goedstrup",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "nordjylland-region-i-alt",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland",
+        "laparotomi",
+        "laparoskopi"
+      ],
+      "markdown": "| Enhed | I alt | Laparotomi | Laparotomi | Laparoskopi | Laparoskopi |\n| --- | --- | --- | --- | --- | --- |\n| | Antal | % | Antal | % | Antal |\n| Danmark | 3.250 | 100,00 | 1.436 | 44,18 | 1.814 |\n| Hovedstaden Region i alt | 1.013 | 100,00 | 438 | 43,24 | 575 |\n| Amager og Hvidovre Hospital | 249 | 100,00 | 68 | 27,31 | 181 |\n| Bispebjerg og Frederiksberg Hospital | 221 | 100,00 | 100 | 45,25 | 121 |\n| Bornholms Hospital | 14 | 100,00 | 7 | 50,00 | 7 |\n| Herlev og Gentofte Hospital | 266 | 100,00 | 106 | 39,85 | 160 |\n| Hospitalerne i Nordsjælland | 217 | 100,00 | 118 | 54,38 | 99 |\n| Rigshospitalet | 46 | 100,00 | 39 | 84,78 | 7 |\n| Sjælland Region i alt | 617 | 100,00 | 203 | 32,90 | 414 |\n| Holbæk Sygehus | 151 | 100,00 | 41 | 27,15 | 110 |\n| Næstved, Slagelse og Ringsted sygehuse | 215 | 100,00 | 68 | 31,63 | 147 |\n| Sjællands Universitetshospital | 251 | 100,00 | 94 | 37,45 | 157 |\n| Syddanmark Region i alt | 653 | 100,00 | 360 | 55,13 | 293 |\n| Esbjerg Sygehus Grindsted Sygehus | 134 | 100,00 | 72 | 53,73 | 62 |\n| Odense Universitetshospital - Svendborg | 304 | 100,00 | 174 | 57,24 | 130 |\n| Sygehus Lillebælt | 107 | 100,00 | 70 | 65,42 | 37 |\n| Sygehus Sønderjylland | 108 | 100,00 | 44 | 40,74 | 64 |\n| Midtjylland Region i alt | 661 | 100,00 | 332 | 50,23 | 329 |\n| Aarhus Universitetshospital | 137 | 100,00 | 78 | 56,93 | 59 |\n| Hospitalsenhed Midt | 134 | 100,00 | 44 | 32,84 | 90 |\n| Regionshospitalet Gødstrup | 147 | 100,00 | 87 | 59,18 | 60 |\n| Regionshospitalet Horsens | 131 | 100,00 | 75 | 57,25 | 56 |\n| Regionshospitalet Randers | 112 | 100,00 | 48 | 42,86 | 64 |\n| Nordjylland Region i alt | 306 | 100,00 | 103 | 33,66 | 203 |\n| Aalborg Universitetshospital | 190 | 100,00 | 69 | 36,32 | 121 |\n| Regionshospital Nordjylland | 116 | 100,00 | 34 | 29,31 | 82 |",
+      "summary": "Tabellen sammenligner antal og procentvis andel af laparotomi og laparoskopi på nationalt, regionalt og hospitalsniveau over tre rapportperioder, og viser en stigende tendens mod laparoskopi på tværs af de fleste enheder."
+    }
+  ],
+  "context": "Dette dokumentchunk er en del af den årlige rapport fra Akut Kirurgi Databasen (AKDB), udgivet af Sundhedsvæsenets Kvalitetsinstitut. Det fokuserer specifikt på kvantificering og regional sammenligning af to centrale kirurgiske teknikker — laparotomi (åben kirurgi) og laparoskopi (minimal invasiv kirurgi) — i perioden 2022–2025. Tabellerne på siderne 91–93 præsenterer detaljerede tal for hver region og hospital, mens siderne 94–95 henviser til supplerende grafiske analyser af udviklingen over tid. Denne analyse tjener som grundlag for kvalitetsudvikling og politisk beslutningstagning inden for akut kirurgi i det danske sundhedsvæsen."
+}

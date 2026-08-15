@@ -488,6 +488,17 @@
       "signal": "subsequence",
       "decidedAt": "2026-08-05T17:48:02.623Z",
       "runId": "2026-08-05T17:48:02.623Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis"
+      ],
+      "into": "dmpg-retningslinje",
+      "signal": "model",
+      "decidedAt": "2026-08-15T12:18:12.733Z",
+      "runId": "2026-08-15T12:18:12.733Z"
     }
   ],
   "splits": []

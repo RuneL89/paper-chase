@@ -4,17 +4,18 @@ type: index
 aliases:
   - Performance
 wiki: rkkp-adhd
-updated: '2026-08-05T19:23:49.295Z'
+updated: '2026-08-15T12:46:01.119Z'
 children:
+  - index.md
   - performance.md
 ---
 # Performance
 
-This folder holds the central topic page evaluating the clinical quality, timeliness, and standard adherence of ADHD assessment and treatment across Denmark. It synthesizes data from the national ADHD database across 11 specific quality indicators for both youth and adult populations, documenting widespread failures to meet the 90% target goals. The analysis highlights stark regional disparities, the negative impact of strict 90- and 120-day deadlines on reported metrics, and the severe underperformance in adult psychotherapy and social support assessments.
+This folder contains the topic page for Performance, which tracks the systematic evaluation of clinical quality, timeliness, and adherence to national standards in the assessment and treatment of ADHD across Denmark. It details the fulfillment of 11 specific national indicators for both child and adult populations, highlighting systemic struggles to meet the 90% development goals. The page also examines significant regional disparities and the impact of strict timelines and registration challenges on reported metrics.
 
 ## Pages
 
-- [[performance|Performance]] — Evaluates national and regional fulfillment of 11 ADHD quality indicators, highlighting systemic shortfalls in timeline adherence, psychoeducation, and adult care metrics.
+- [[performance|Performance]] — Tracks the systematic evaluation of clinical quality, timeliness, and adherence to national standards for ADHD assessment and treatment across Denmark, detailing the fulfillment of 11 national indicators.
 
 ## Navigation
 

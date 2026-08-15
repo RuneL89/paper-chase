@@ -4,21 +4,23 @@ type: index
 aliases:
   - Treatment
 wiki: rkkp-danibd
-updated: '2026-08-05T08:02:05.683Z'
+updated: '2026-08-15T08:07:30.341Z'
 children:
+  - index.md
   - treatment.md
 ---
 # Treatment
 
-This folder contains topic pages detailing the medical interventions and pharmacological therapies administered to patients in the Danish IBD registry. It specifically covers the widespread reliance on biological and targeted synthetic drugs (BMSL), mapping the usage frequencies of treatments like infliximab, adalimumab, vedolizumab, ustekinumab, and tofacitinib across children and adults. All statistical claims and patient cohort figures are traceable to the original clinical registry reports.
+This folder contains topics related to medical treatments and therapeutic interventions documented in the Danish IBD registry (DANIBD). It specifically covers the administration and utilization of biological and targeted synthetic drugs (BMSL), detailing the prevalence of specific therapies like infliximab, adalimumab, and vedolizumab among both pediatric and adult patient cohorts. The included page maps the landscape of advanced pharmacological treatments, providing exact patient counts and usage percentages derived from recent annual registry reports.
 
 ## Pages
 
-- [[treatment|Treatment]] — Details the administration of biological and targeted synthetic drugs (BMSL) for children and adults, highlighting infliximab as the dominant therapy alongside usage statistics for adalimumab, vedolizumab, ustekinumab, and tofacitinib.
+- [[treatment|Treatment]] — Details the utilization rates and demographic breakdown of biological and targeted synthetic drugs (BMSL), highlighting infliximab as the dominant therapy for both children and adults in the registry.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/audit-finding/index|Audit Finding]]
 - Sibling: [[topics/clinical-consensus/index|Clinical Consensus]]
 - Sibling: [[topics/clinical-practice/index|Clinical Practice]]
 - Sibling: [[topics/codes/index|Codes]]
@@ -26,8 +28,10 @@ This folder contains topic pages detailing the medical interventions and pharmac
 - Sibling: [[topics/diagnoses/index|Diagnoses]]
 - Sibling: [[topics/diseases/index|Diseases]]
 - Sibling: [[topics/eligibility-criteria/index|Eligibility Criteria]]
+- Sibling: [[topics/healthcare-utilization/index|Healthcare Utilization]]
 - Sibling: [[topics/mission/index|Mission]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/procedural/index|Procedural]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicators/index|Quality Indicators]]

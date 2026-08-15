@@ -1,27 +1,26 @@
 {
-  "run": "2026-08-05T17:48:02.623Z",
+  "run": "2026-08-15T12:18:12.733Z",
   "topics": {
     "merges": [
       {
         "from": [
-          "quality-assessment"
+          "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis"
         ],
-        "into": "data-quality"
+        "into": "dmpg-retningslinje"
       }
     ],
-    "drops": [
-      "structural",
-      "explanation",
-      "methodological",
-      "interpretive",
-      "administrative",
-      "process"
-    ],
+    "drops": [],
     "attempts": 1,
     "fallbacks": [],
     "vetoes": [],
     "fromSticky": {
       "merges": [
+        {
+          "from": [
+            "quality-assessment"
+          ],
+          "into": "data-quality"
+        },
         {
           "from": [
             "clinical-practice"
@@ -52,157 +51,194 @@
         "causal-analysis",
         "timeline",
         "procedural",
-        "observational"
-      ]
-    },
-    "decidedThisRun": {
-      "merges": [
-        {
-          "from": [
-            "quality-assessment"
-          ],
-          "into": "data-quality",
-          "signal": "model"
-        }
-      ],
-      "drops": [
+        "observational",
         "structural",
         "explanation",
         "methodological",
         "interpretive",
         "administrative",
         "process"
+      ]
+    },
+    "decidedThisRun": {
+      "merges": [
+        {
+          "from": [
+            "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis"
+          ],
+          "into": "dmpg-retningslinje",
+          "signal": "model"
+        }
       ],
+      "drops": [],
       "denials": [
         {
           "from": "indikator-1",
-          "into": "indikator-2a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2a"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-2b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2b"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-7a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7a"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-7b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-2a",
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-2a",
+          "into": "indikator-11"
         },
         {
           "from": "indikator-2b",
-          "into": "indikator-2a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-2b",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-2b",
+          "into": "indikator-2a"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-2a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2a"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-2b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2b"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-7a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7a"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-7b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7b"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-2a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2a"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-2b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2b"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-7a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7a"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-7b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7b"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-2a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2a"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-2b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2b"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-7a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7a"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-7b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7b"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-2a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2a"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-2b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-2b"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-7a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7a"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-7b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7b"
         },
         {
           "from": "indikator-7a",
-          "into": "indikator-2b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-10"
+        },
+        {
+          "from": "indikator-7a",
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-7a",
+          "into": "indikator-2b"
         },
         {
           "from": "indikator-7a-7b",
-          "into": "indikator-7a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7a"
         },
         {
           "from": "indikator-7a-7b",
-          "into": "indikator-7b",
-          "justification": "distinct quality indicators"
+          "into": "indikator-7b"
         },
         {
           "from": "indikator-7b",
-          "into": "indikator-2a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-10"
         },
         {
           "from": "indikator-7b",
-          "into": "indikator-7a",
-          "justification": "distinct quality indicators"
+          "into": "indikator-11"
+        },
+        {
+          "from": "indikator-7b",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-7b",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-8",
+          "into": "indikator-7b"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-2a"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-2b"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-7a"
+        },
+        {
+          "from": "indikator-9",
+          "into": "indikator-7b"
         }
       ]
     },
@@ -230,6 +266,30 @@
         "into": "indikator-7b",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-1' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2a",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2a' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2a",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2a' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2b",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2b' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-2b",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-2b' and 'indikator-11' are edit distance 2 apart (typo variant)"
       },
       {
         "from": "indikator-2b",
@@ -335,6 +395,18 @@
       },
       {
         "from": "indikator-7a",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7a' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7a",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7a' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7a",
         "into": "indikator-2b",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-7a' and 'indikator-2b' are edit distance 2 apart (typo variant)"
@@ -353,6 +425,18 @@
       },
       {
         "from": "indikator-7b",
+        "into": "indikator-10",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7b' and 'indikator-10' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7b",
+        "into": "indikator-11",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-7b' and 'indikator-11' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-7b",
         "into": "indikator-2a",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-7b' and 'indikator-2a' are edit distance 2 apart (typo variant)"
@@ -362,49 +446,60 @@
         "into": "indikator-7a",
         "signal": "edit-distance",
         "evidence": "slugs 'indikator-7b' and 'indikator-7a' are edit distance 1 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-8",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-8' and 'indikator-7b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-2a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-2a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-2b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-2b' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-7a",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-7a' are edit distance 2 apart (typo variant)"
+      },
+      {
+        "from": "indikator-9",
+        "into": "indikator-7b",
+        "signal": "edit-distance",
+        "evidence": "slugs 'indikator-9' and 'indikator-7b' are edit distance 2 apart (typo variant)"
       }
     ],
     "autoApplied": []
   },
   "entities": {
-    "merges": [
-      {
-        "from": [
-          "boerne-og-ungdomspsykiatrisk-afd-40"
-        ],
-        "into": "bua"
-      },
-      {
-        "from": [
-          "psy-boerne-og-ungdomspsykiatrisk-ambulatorium-vejle"
-        ],
-        "into": "vejle-bup-ambulatorium"
-      },
-      {
-        "from": [
-          "speciallaege-i-boerne-og-ungdomspsykiatri"
-        ],
-        "into": "speciallaeger"
-      },
-      {
-        "from": [
-          "bua-psykiatrisk-klinik-for-smaboern"
-        ],
-        "into": "bua-smaborn-klinik"
-      },
-      {
-        "from": [
-          "dmpg-retningslinjen-for-adhd"
-        ],
-        "into": "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis"
-      },
-      {
-        "from": [
-          "bua-psykiatrisk-klinik-for-unge-i-midtjylland"
-        ],
-        "into": "bua-psykiatrisk-klinik-for-unge"
-      }
-    ],
+    "merges": [],
     "drops": [],
     "attempts": 1,
     "fallbacks": [],
@@ -438,9 +533,28 @@
         },
         {
           "from": [
+            "boerne-og-ungdomspsykiatrisk-afd-40"
+          ],
+          "into": "bua"
+        },
+        {
+          "from": [
+            "bua-psykiatrisk-klinik-for-unge-i-midtjylland"
+          ],
+          "into": "bua-psykiatrisk-klinik-for-unge"
+        },
+        {
+          "from": [
+            "bua-psykiatrisk-klinik-for-smaboern",
             "bua-smaborn"
           ],
           "into": "bua-smaborn-klinik"
+        },
+        {
+          "from": [
+            "dmpg-retningslinjen-for-adhd"
+          ],
+          "into": "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis"
         },
         {
           "from": [
@@ -465,6 +579,13 @@
         },
         {
           "from": [
+            "speciallaege-i-boerne-og-ungdomspsykiatri"
+          ],
+          "into": "speciallaeger"
+        },
+        {
+          "from": [
+            "psy-boerne-og-ungdomspsykiatrisk-ambulatorium-vejle",
             "vejle-bupa"
           ],
           "into": "vejle-bup-ambulatorium"
@@ -525,232 +646,224 @@
       ]
     },
     "decidedThisRun": {
-      "merges": [
-        {
-          "from": [
-            "boerne-og-ungdomspsykiatrisk-afd-40"
-          ],
-          "into": "bua",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "psy-boerne-og-ungdomspsykiatrisk-ambulatorium-vejle"
-          ],
-          "into": "vejle-bup-ambulatorium",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "speciallaege-i-boerne-og-ungdomspsykiatri"
-          ],
-          "into": "speciallaeger",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "bua-psykiatrisk-klinik-for-smaboern"
-          ],
-          "into": "bua-smaborn-klinik",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "dmpg-retningslinjen-for-adhd"
-          ],
-          "into": "dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis",
-          "signal": "model"
-        },
-        {
-          "from": [
-            "bua-psykiatrisk-klinik-for-unge-i-midtjylland"
-          ],
-          "into": "bua-psykiatrisk-klinik-for-unge",
-          "signal": "subsequence",
-          "evidence": "tokens of 'bua-psykiatrisk-klinik-for-unge' are a subsequence of 'bua-psykiatrisk-klinik-for-unge-i-midtjylland' (name parts [i, midtjylland] dropped)"
-        }
-      ],
+      "merges": [],
       "drops": [],
       "denials": [
         {
           "from": "indikator-1",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-1",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-10",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-10",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-10",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-10",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-11",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-11",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-11",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-11",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-2b",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-3",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-4",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-5",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-6",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-7a",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-7a-7b",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "combined reference to distinct indicators"
         },
         {
           "from": "indikator-7a-7b",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "combined reference to distinct indicators"
         },
         {
           "from": "indikator-7b",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-7b",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-8",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-8",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-8",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-8",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-9",
-          "into": "indikator-2a"
+          "into": "indikator-2a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-9",
-          "into": "indikator-2b"
+          "into": "indikator-2b",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-9",
-          "into": "indikator-7a"
+          "into": "indikator-7a",
+          "justification": "distinct quality indicators"
         },
         {
           "from": "indikator-9",
-          "into": "indikator-7b"
+          "into": "indikator-7b",
+          "justification": "distinct quality indicators"
         }
       ],
       "clusters": [],
       "clusterDenials": []
     },
     "proposedPairs": [
-      {
-        "from": "bua-psykiatrisk-klinik-for-unge-i-midtjylland",
-        "into": "bua-psykiatrisk-klinik-for-unge",
-        "signal": "subsequence",
-        "evidence": "tokens of 'bua-psykiatrisk-klinik-for-unge' are a subsequence of 'bua-psykiatrisk-klinik-for-unge-i-midtjylland' (name parts [i, midtjylland] dropped)"
-      },
       {
         "from": "indikator-1",
         "into": "indikator-2a",
@@ -1009,8 +1122,61 @@
   },
   "manualEditSkips": [],
   "removedPages": [
-    "entities/departments/psychiatry/bua-psykiatrisk-klinik-for-unge-i-midtjylland.md"
+    "topics/policy/mental-health-strategy/dmpg-retningslinjen-udredning-af-adhd-hos-boern-og-unge-i-hospitalsregi-og-speciallaegepraksis.md"
   ],
-  "rewrittenLinks": [],
+  "rewrittenLinks": [
+    {
+      "path": "comparisons/indikator-10.md",
+      "hash": "91b24dd260ec59ff5e07f63cc3eb285a0bcaa8ca41873bdc3b033d689d739f75"
+    },
+    {
+      "path": "comparisons/indikator-2a.md",
+      "hash": "d5f43dd447b2ab01247bd2937c6c6b22ab093ab7edc4b5e0ed4aba0748b3ce7a"
+    },
+    {
+      "path": "comparisons/indikator-2b-andelen-af-udredningsforloeb-blandt-6-17-aarige-hvor-der-senest-120-dage-efter-start-af-adhd-udredning-er-foretaget-enten-manualiseret-diagnostisk-interview-eller-miljoeobservation.md",
+      "hash": "ad2ac54a16d613fa3ff22512cc09f3c77c5f67b35cf37ce806a40b061057a964"
+    },
+    {
+      "path": "comparisons/indikator-2b.md",
+      "hash": "4ae749235c4d73f6b920a1776c9e6107777efd05b11e3f999f26b950fa78260f"
+    },
+    {
+      "path": "comparisons/indikator-3-andelen-af-udredningsforloeb-hvor-der-er-afholdt-diagnostisk-konference-med-deltagelse-af-speciallaege-i-boerne-og-ungdomspsykiatri-senest-120-dage-efter-start-af-adhd-udredning.md",
+      "hash": "a33cdb9db2a00b4ee3aea2eaa3dd7dd170bce0ae6f2566d493777329809d8e85"
+    },
+    {
+      "path": "comparisons/indikator-3.md",
+      "hash": "f90d1feb1fecda22f24d2f0d1239e5db22bd936fcf44af9a73ad42999f2cf1ae"
+    },
+    {
+      "path": "comparisons/indikator-4.md",
+      "hash": "6943f3518b3a0c7507536b8a97ade5024da5e9e517ed04722ba9a5ed934dfefb"
+    },
+    {
+      "path": "comparisons/indikator-5.md",
+      "hash": "3dbc610e17a610e26e4a4c69371274463ca09e326ddf421c25ccdce4f61a6655"
+    },
+    {
+      "path": "comparisons/indikatoroversigt.md",
+      "hash": "aa5425206b4aa989f8daa4bfdfb18ace367ef6b9c36dbb8d6d15c457078f452e"
+    },
+    {
+      "path": "comparisons/oversigt-over-de-samlede-indikatorresultater.md",
+      "hash": "5d38fc74e9e2101d16b821476f337ea9bcb448c147e4212367938f75a4a3a541"
+    },
+    {
+      "path": "entities/organizations/healthcare-databases/adhd-databasen.md",
+      "hash": "3fa183da890eb6c98fc3df577198b1e5967d5d0e06792b7dc4fa22471d5f62d3"
+    },
+    {
+      "path": "entities/organizations/regions/region-syddanmark.md",
+      "hash": "eca5049e0172f1cd0f944f3449ce1f31d6862afbfff101aa7d68d6e14e5c8e13"
+    },
+    {
+      "path": "topics/quality-indicators/adhd-care/indikator-3.md",
+      "hash": "7bb604cc34cf3c7c6a2f429732d0b6156f8c7833cafdb1f929eb96ea6c4c9b20"
+    }
+  ],
   "splitReversals": []
 }

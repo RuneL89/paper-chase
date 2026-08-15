@@ -422,6 +422,221 @@
       "signal": "abbreviation",
       "decidedAt": "2026-08-05T06:08:15.589Z",
       "runId": "2026-08-05T06:08:15.589Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "landspatientregisteret-lpr"
+      ],
+      "into": "landspatientregisteret",
+      "signal": "alias",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "primar-skleroserende-kolangitis-psc"
+      ],
+      "into": "primaer-skleroserende-kolangitis-psc",
+      "signal": "transliteration",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "contact-frequency"
+      ],
+      "into": "healthcare-utilization",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "contact-type"
+      ],
+      "into": "healthcare-utilization",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "topics",
+      "action": "merge",
+      "from": [
+        "quality-indicator-result"
+      ],
+      "into": "quality-indicator",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "clinical-statistic"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "biological-fact"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "definition"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "technical"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "topics",
+      "action": "drop",
+      "from": [
+        "comparative"
+      ],
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "primaer-skleroserende-kolangitis-psc"
+      ],
+      "into": "psc",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "praemaert-kirurgisk-indgreb"
+      ],
+      "into": "primaert-kirurgisk-indgreb",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "kjfh11"
+      ],
+      "into": "kjfh11-laparoskopisk-kolektomi-og-ileostomi",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "kjfb21"
+      ],
+      "into": "kjfb21-laparoskopisk-ileocokal-resektion",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "kjah01"
+      ],
+      "into": "kjah01-laparoskopi",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "kjah00"
+      ],
+      "into": "kjah00-eksplorativ-laparotomi",
+      "signal": "model",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd"
+      ],
+      "into": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "mr-scanning-af-tyndtarmen"
+      ],
+      "into": "mr-af-tyndtarmen",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "ouh-odense-svendborg"
+      ],
+      "into": "ouh-svendborg",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
+    },
+    {
+      "concern": "entities",
+      "action": "merge",
+      "from": [
+        "sundhedsvaesenets-kvalitetsinstitut-sundk"
+      ],
+      "into": "sundhedsvaesenets-kvalitetsinstitut",
+      "signal": "subsequence",
+      "decidedAt": "2026-08-15T07:06:59.824Z",
+      "runId": "2026-08-15T07:06:59.824Z"
     }
   ],
   "splits": []

@@ -1,0 +1,328 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD)",
+      "type": "organization",
+      "slug": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "folder": "entities/organizations/health-databases",
+      "significance": "DANIBD er den nationale kvalitetsdatabase, der overvåger og rapporterer kliniske kvalitetsindikatorer for behandling af inflammatoriske tarmsygdomme i Danmark, og fungerer som det centrale datainfrastruktur- og rapporteringsredskab for indikator 4 og 5 på siderne 26–30.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 26 af 54"
+        },
+        {
+          "page": 27,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 27 af 54"
+        },
+        {
+          "page": 28,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 28 af 54"
+        },
+        {
+          "page": 29,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 29 af 54"
+        },
+        {
+          "page": 30,
+          "context": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 30 af 54"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4",
+      "type": "topic",
+      "slug": "indikator-4",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 4 måler andelen af steroidkurer givet til patienter over 50 år med IBD, hvor DEXA-scanning er foretaget inden for en defineret tidsramme, og er en central kvalitetsmåling for osteoporoseforebyggelse i IBD-behandling.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Indikator 4: Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 5",
+      "type": "topic",
+      "slug": "indikator-5",
+      "folder": "topics/quality-indicators/ibd",
+      "significance": "Indikator 5 måler andelen af patienter med IBD i behandling med biologiske og målrettede syntetiske lægemidler (BMSL), der får målt fæces-calprotectin mindst én gang årligt, og udgør en central kvalitetsindikator for behandlingsmonitorering.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "Indikator 5. Fæces calprotectin måling, BMSL"
+        },
+        {
+          "page": 29,
+          "context": "Indikator 5: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt."
+        }
+      ]
+    },
+    {
+      "name": "DEXA-scanning",
+      "type": "procedure",
+      "slug": "dexa-scanning",
+      "folder": "entities/procedural",
+      "significance": "DEXA-scanning er den standardiserede bonydensitetsmåling, der kræves ved steroidbehandling hos patienter over 50 år med IBD for at vurdere osteoporoserisiko, og danner grundlaget for Indikator 4.",
+      "mentions": [
+        {
+          "page": 26,
+          "context": "Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning"
+        },
+        {
+          "page": 27,
+          "context": "DEXA-scanningen må være foretaget op til 12 måneder før og 12 måneder efter behandlingsstart svarende til dato for første indløste recept i en kur (SKS-koder: UXRE80/82 og WKBDXXXXX)."
+        }
+      ]
+    },
+    {
+      "name": "Fæces-calprotectin måling",
+      "type": "biomarker",
+      "slug": "faeces-calprotectin-maaling",
+      "folder": "entities/biomarkers/gastrointestinal",
+      "significance": "Fæces-calprotectin måling er den anbefalede biomarkør til monitorering af inflammatorisk aktivitet i tarmmukosa hos patienter med IBD i behandling med BMSL, og udgør den centrale måling for Indikator 5.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "Indikator 5. Fæces calprotectin måling, BMSL"
+        },
+        {
+          "page": 29,
+          "context": "Indikator 5: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt."
+        }
+      ]
+    },
+    {
+      "name": "BMSL",
+      "type": "treatment",
+      "slug": "bmsl",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "BMSL (Biologiske og Målrettede Syntetiske Lægemidler) er en kategori af avancerede terapier til behandling af moderat til svær IBD, og udgør den behandlingsgruppe, som Indikator 5 fokuserer på.",
+      "mentions": [
+        {
+          "page": 28,
+          "context": "Biologiske og målrettede syntetiske lægemidler (BMSL) anvendes i behandlingen af patienter med moderat til svær sygdomsaktivitet."
+        },
+        {
+          "page": 29,
+          "context": "Indikator 5: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt."
+        }
+      ]
+    },
+    {
+      "name": "Steroidkurer",
+      "type": "treatment",
+      "slug": "steroidkurer",
+      "folder": "entities/treatments/gastrointestinal",
+      "significance": "Steroidkurer er definerede behandlingsforløb med prednisolon eller prednison, hvor samlet varemængde er ≥500 mg og indløst inden for 3 måneder, og udgør den behandlingsgruppe, som Indikator 4 fokuserer på.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Steroidbehandling omfatter indløste recepter for prednisolon og prednison i lægemiddelstatistikregisteret (ATC-koder: H02AB06/07). Det defineres som en kur, når den/de indløste recepters samlede varemængde er mindst 500 mg (standardkur svarende til 40mg med nedtrapning 5 mg pr. uge)."
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "organization",
+      "slug": "region-syddanmark",
+      "folder": "entities/organizations/regional-health-authorities",
+      "significance": "Region Syddanmark er den regionale sundhedsmyndighed, der i Indikator 4 har den højeste andel af DEXA-scanninger blandt steroidkurer (47 %) på landsplan i 2023/24, og dermed repræsenterer den bedste regionale ydelse for denne kvalitetsindikator.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Alle regioner og afdelinger ligger igen i år et godt stykke fra udviklingsmålet, idet Region Syddanmark med højst andel har udført DEXA-scanninger for 47 % af steroidkurene..."
+        }
+      ]
+    },
+    {
+      "name": "Esbjerg Medicinsk Mave og Tarm Amb.",
+      "type": "healthcare-facility",
+      "slug": "egs-esbjerg-medicinsk-mave-og-tarm-amb",
+      "folder": "entities/healthcare-facilities/hospitals",
+      "significance": "Esbjerg Medicinsk Mave og Tarm Amb. er den afdeling, der i Indikator 4 har den højeste andel af DEXA-scanninger blandt steroidkurer (54 %) på afdelingsniveau i 2023/24, og dermed udgør den bedste lokale ydelse for denne kvalitetsindikator.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "mens den højeste andel på afdelingsniveau er 54 % for Esbjerg Medicinsk Mave og Tarm ambulatorie."
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen for DANIBD",
+      "type": "organization",
+      "slug": "styregruppen-for-danibd",
+      "folder": "entities/organizations/health-committees",
+      "significance": "Styregruppen for DANIBD er den styringsgruppe, der har besluttet at fastholde udviklingsmålet for Indikator 4 indtil yderligere drøftelse med Dansk Endokrinologisk Selskab, og dermed spiller en afgørende rolle i politisk og faglig styring af kvalitetsindikatorernes udvikling.",
+      "mentions": [
+        {
+          "page": 27,
+          "context": "Styregruppen finder det vigtigt at sikre DEXA scanning ved steroidbehandling. Udviklingsmålet fastholdes indtil yderligere drøftelse af denne indikator har fundet sted."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "indikator-4",
+      "predicate": "measures",
+      "object": "dexa-scanning",
+      "evidence": "Indikator 4: Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning",
+      "page": 26
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "measures",
+      "object": "faeces-calprotectin-maaling",
+      "evidence": "Indikator 5. Fæces calprotectin måling, BMSL",
+      "page": 28
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "applies-to",
+      "object": "bmsl",
+      "evidence": "Indikator 5: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt.",
+      "page": 29
+    },
+    {
+      "subject": "indikator-4",
+      "predicate": "applies-to",
+      "object": "steroidkurer",
+      "evidence": "Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning",
+      "page": 26
+    },
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "predicate": "maintains",
+      "object": "indikator-4",
+      "evidence": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 26 af 54\nIndikator 4: Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning",
+      "page": 26
+    },
+    {
+      "subject": "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+      "predicate": "maintains",
+      "object": "indikator-5",
+      "evidence": "Dansk Kvalitetsdatabase for inflammatoriske tarmsygdomme (DANIBD) Side 28 af 54\nIndikator 5. Fæces calprotectin måling, BMSL",
+      "page": 28
+    },
+    {
+      "subject": "styregruppen-for-danibd",
+      "predicate": "oversees",
+      "object": "indikator-4",
+      "evidence": "Styregruppen finder det vigtigt at sikre DEXA scanning ved steroidbehandling. Udviklingsmålet fastholdes indtil yderligere drøftelse af denne indikator har fundet sted.",
+      "page": 27
+    }
+  ],
+  "claims": [
+    {
+      "text": "Udviklingsmålet for Indikator 4 er ≥ 80 % [^src1]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-4"
+      ],
+      "page": 26
+    },
+    {
+      "text": "På landsplan er der udført DEXA-scanning inden for tidsrammen ved 36 % af steroidkurene i 2023/24 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-4",
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Der er i opgørelsesperioden givet 973 steroidkure fordelt på 861 unikke patienter [^src1]",
+      "type": "clinical-statistic",
+      "entities": [
+        "steroidkurer"
+      ],
+      "page": 27
+    },
+    {
+      "text": "Udviklingsmålet for Indikator 5 er ≥ 80 % [^src1]",
+      "type": "quality-target",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 29
+    },
+    {
+      "text": "På landsplan får 86 % af patienterne i behandling med BMSL målt fæces-calprotectin mindst én gang årligt i 2024/25 [^src1]",
+      "type": "quality-indicator",
+      "entities": [
+        "indikator-5",
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd"
+      ],
+      "page": 29
+    },
+    {
+      "text": "Biomarkøren calprotectin afspejler graden af inflammatorisk aktivitet i tarmmukosa [^src1]",
+      "type": "biological-fact",
+      "entities": [
+        "faeces-calprotectin-maaling"
+      ],
+      "page": 28
+    },
+    {
+      "text": "Der er stærk anbefaling for og bred international enighed om, at monitorering af calprotectin en gang årligt er et minimumskriterium for opfølgning hos patienter i behandling med BMSL [^src1]",
+      "type": "clinical-consensus",
+      "entities": [
+        "indikator-5",
+        "bmsl",
+        "faeces-calprotectin-maaling"
+      ],
+      "page": 28
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.10.2023 - 30.09.2024",
+      "event": "Opgørelsesperiode for Indikator 4 i 2023/24",
+      "entities": [
+        "indikator-4"
+      ]
+    },
+    {
+      "date": "01.10.2024 - 30.09.2025",
+      "event": "Opgørelsesperiode for Indikator 5 i 2024/25",
+      "entities": [
+        "indikator-5"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-4",
+      "title": "Indikator 4: Andelen af steroidkurer givet til patienter over 50 år med IBD, hvor patienten har fået foretaget DEXA-scanning",
+      "page": 26,
+      "rowDimension": "regioner og afdelinger",
+      "colDimension": "andel af steroidkurer med DEXA-scanning",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+        "indikator-4",
+        "dexa-scanning",
+        "steroidkurer"
+      ],
+      "markdown": "| Danmark | Nej | 351 | / | 973 | 36 | (33-39) | 341 | / | 928 | 37 |\n| Hovedstaden | Nej | 77 | / | 249 | 31 | (25-37) | 110 | / | 279 | 39 |\n| Sjælland | Nej | 61 | / | 164 | 37 | (30-45) | 61 | / | 150 | 41 |\n| Syddanmark | Nej | 109 | / | 234 | 47 | (40-53) | 80 | / | 213 | 38 |\n| Midtjylland | Nej | 56 | / | 186 | 30 | (24-37) | 49 | / | 156 | 31 |\n| Nordjylland | Nej | 48 | / | 140 | 34 | (26-43) | 41 | / | 130 | 32 |\n| Hovedstaden | Nej | 77 | / | 249 | 31 | (25-37) | 110 | / | 279 | 39 |\n| Bispebjerg Abdominalcenter K | Nej | 14 | / | 33 | 42 | (25-61) | 15 | / | 37 | 41 |\n| Bornholm Medicinsk Afdeling | Nej | 4 | / | 14 | 29 | (8-58) | 5 | / | 9 | 56 |\n| Herlev Mave-, Tarm- og Leversygd. | Nej | 12 | / | 75 | 16 | (9-26) | 41 | / | 97 | 42 |\n| Hvidovre Gastroenheden | Nej | 19 | / | 58 | 33 | (21-46) | 11 | / | 55 | 20 |\n| Nordsjælland Kirurgisk Afdeling | Nej | 27 | / | 61 | 44 | (32-58) | 33 | / | 65 | 51 |\n| Rigshospitalet Sygd. i Fordøjelsessystem, C | Nej | # | / | # | 13 | (0-53) | 5 | / | 16 | 31 |\n| Sjælland | Nej | 61 | / | 164 | 37 | (30-45) | 61 | / | 150 | 41 |\n| HOL Holbæk Med. Gastroenterologi | Nej | 11 | / | 25 | 44 | (24-65) | 15 | / | 26 | 58 |\n| NSR Slagelse Med. Gastroenterologi | Nej | 30 | / | 61 | 49 | (36-62) | 27 | / | 54 | 50 |\n| SUH Køge Med. Gastroenterologi | Nej | 15 | / | 66 | 23 | (13-35) | 12 | / | 47 | 26 |\n| SUH Nykøbing F. Med. Gastroenterologi | Nej | 5 | / | 12 | 42 | (15-72) | 7 | / | 23 | 30 |\n| Syddanmark | Nej | 109 | / | 234 | 47 | (40-53) | 80 | / | 213 | 38 |\n| EGS Esbjerg Medicinsk Mave og Tarm Amb. | Nej | 26 | / | 48 | 54 | (39-69) | 19 | / | 40 | 48 |\n| OUH Odense Medicinsk Mave-Tarm Afd. S | Nej | 27 | / | 74 | 36 | (26-48) | 21 | / | 55 | 38 |\n| OUH Svendborg Medicinsk Afdeling | Nej | 12 | / | 23 | 52 | (31-73) | 12 | / | 25 | 48 |\n| SHS Aabenraa Mave- og Tarmsygd. | Nej | 8 | / | 20 | 40 | (19-64) | 10 | / | 34 | 29 |\n| SLB Vejle Gastroenterologisk Amb. | Nej | 36 | / | 69 | 52 | (40-64) | 18 | / | 59 | 31 |\n| Midtjylland | Nej | 56 | / | 186 | 30 | (24-37) | 49 | / | 156 | 31 |\n| Aarhus Lever-, Mave- og Tarmsygd. | Nej | 11 | / | 40 | 28 | (15-44) | 4 | / | 22 | 18 |\n| Gødstrup Mave-, Tarm- og Leversygd. | Nej | 13 | / | 38 | 34 | (20-51) | 12 | / | 40 | 30 |\n| HE Midt Klinik for Mave- og Tarmsygd. | Nej | 20 | / | 38 | 53 | (36-69) | 17 | / | 37 | 46 |\n| Horsens Klinik for Medicinske Sygd. | Nej | 6 | / | 29 | 21 | (8-40) | 8 | / | 30 | 27 |\n| Randers Lever-, Mave- og Tarmsygd. | Nej | 6 | / | 41 | 15 | (6-29) | 8 | / | 27 | 30 |\n| Nordjylland | Nej | 48 | / | 140 | 34 | (26-43) | 41 | / | 130 | 32 |\n| AAUH Aalborg Med. Gastroenterologisk Afd. | Nej | 26 | / | 76 | 34 | (24-46) | 27 | / | 64 | 42 |\n| AAUH Farsø Medicinsk Afdeling | Nej | 5 | / | 14 | 36 | (13-65) | # | / | # | 7 |\n| RHN Hjørring Med. Mave- og Tarmsygd. | Nej | 17 | / | 50 | 34 | (21-49) | 13 | / | 51 | 25 |",
+      "summary": "Tabellen sammenligner andelen af steroidkurer med DEXA-scanning på nationalt, regionalt og afdelingsniveau for 2023/24 og 2022/23, og viser at Esbjerg Medicinsk Mave og Tarm Amb. har den højeste andel (54 %) og Herlev Mave-, Tarm- og Leversygd. den laveste (16 %) i 2023/24."
+    },
+    {
+      "subject": "indikator-5",
+      "title": "Indikator 5: Andelen af patienter med IBD i behandling med BMSL, der får målt F-calpro mindst én gang årligt",
+      "page": 29,
+      "rowDimension": "regioner og afdelinger",
+      "colDimension": "andel af patienter med fæces-calprotectin-måling",
+      "entities": [
+        "dansk-kvalitetsdatabase-for-inflammatoriske-tarmsygdomme-danibd",
+        "indikator-5",
+        "faeces-calprotectin-maaling",
+        "bmsl"
+      ],
+      "markdown": "| Danmark | Ja | 11.219 | / | 13.086 | 86 | (85-86) | 9.886 | / | 11.914 | 83 | 79 |\n| Hovedstaden | Ja | 3.128 | / | 3.812 | 82 | (81-83) | 2.668 | / | 3.370 | 79 | 77 |\n| Sjælland | Ja | 1.520 | / | 1.610 | 94 | (93-95) | 1.405 | / | 1.497 | 94 | 94 |\n| Syddanmark | Ja | 2.814 | / | 3.242 | 87 | (86-88) | 2.409 | / | 2.869 | 84 | 79 |\n| Midtjylland | Ja | 2.328 | / | 2.893 | 80 | (79-82) | 2.268 | / | 2.941 | 77 | 76 |\n| Nordjylland | Ja | 1.429 | / | 1.529 | 93 | (92-95) | 1.136 | / | 1.237 | 92 | 76 |\n| Hovedstaden | Ja | 3.128 | / | 3.812 | 82 | (81-83) | 2.668 | / | 3.370 | 79 | 77 |\n| Bispebjerg Abdominalcenter K | Nej | 499 | / | 641 | 78 | (74-81) | 484 | / | 594 | 81 | 84 |\n| Bornholm Medicinsk Afdeling | Ja | 44 | / | 47 | 94 | (82-99) | 38 | / | 46 | 83 | 78 |\n| Herlev Mave-, Tarm- og Leversygd. | Nej | 692 | / | 1.034 | 67 | (64-70) | 580 | / | 845 | 69 | 68 |\n| Hvidovre Børne- og Ungeafdeling | Ja | 150 | / | 157 | 96 | (91-98) | 152 | / | 155 | 98 | 99 |\n| Hvidovre Gastroenheden | Ja | 1.019 | / | 1.100 | 93 | (91-94) | 918 | / | 967 | 95 | 95 |\n| Nordsjælland Kirurgisk Afdeling | Ja | 506 | / | 543 | 93 | (91-95) | 452 | / | 498 | 91 | 87 |\n| Rigshospitalet Sygd. i Fordøjelsessystem, C | Nej | 218 | / | 290 | 75 | (70-80) | 43 | / | 264 | 16 | 14 |\n| Sjælland | Ja | 1.520 | / | 1.610 | 94 | (93-95) | 1.405 | / | 1.497 | 94 | 94 |\n| HOL Holbæk Med. Gastroenterologi | Ja | 18 | / | 18 | 100 | (81-100) | 74 | / | 79 | 94 | 91 |\n| NSR Slagelse Med. Gastroenterologi | Ja | 330 | / | 333 | 99 | (97-100) | 263 | / | 270 | 97 | 99 |\n| SUH Køge Med. Gastroenterologi | Ja | 918 | / | 984 | 93 | (92-95) | 820 | / | 882 | 93 | 93 |\n| SUH Nykøbing F. Med. Gastroenterologi | Ja | 232 | / | 253 | 92 | (88-95) | 226 | / | 244 | 93 | 92 |\n| SUH Roskilde Pædiatri | Ja | 22 | / | 22 | 100 | (85-100) | 22 | / | 22 | 100 | 100 |\n| Syddanmark | Ja | 2.814 | / | 3.242 | 87 | (86-88) | 2.409 | / | 2.869 | 84 | 79 |\n| EGS Esbjerg Medicinsk Mave og Tarm Amb. | Ja | 626 | / | 679 | 92 | (90-94) | 592 | / | 630 | 94 | 93 |\n| OUH Odense Børne- og Ungeafdeling H | Ja | 62 | / | 64 | 97 | (89-100) | 64 | / | 64 | 100 | 100 |\n| OUH Odense Medicinsk Mave-Tarm Afd. S | Nej | 765 | / | 964 | 79 | (77-82) | 639 | / | 862 | 74 | 74 |\n| OUH Svendborg Medicinsk Afdeling | Ja | 249 | / | 309 | 81 | (76-85) | 238 | / | 280 | 85 | 94 |\n| SHS Aabenraa Mave- og Tarmsygd. | Ja | 267 | / | 289 | 92 | (89-95) | 246 | / | 260 | 95 | 99 |\n| SHS Tønder Medicinsk Daghospital | Ja | 47 | / | 49 | 96 | (86-100) | 52 | / | 56 | 93 | 93 |\n| SLB Kolding Børne- og Ungeafdeling | Ja | 32 | / | 32 | 100 | (89-100) | 26 | / | 26 | 100 | 100 |\n| SLB Vejle Gastroenterologisk Amb. | Ja | 766 | / | 856 | 89 | (87-91) | 552 | / | 691 | 80 | 56 |\n| Midtjylland | Ja | 2.328 | / | 2.893 | 80 | (79-82) | 2.268 | / | 2.941 | 77 | 76 |\n| Aarhus Børn og Unge | Ja | 117 | / | 118 | 99 | (95-100) | 114 | / | 118 | 97 | 99 |\n| Aarhus Lever-, Mave- og Tarmsygd. | Nej | 542 | / | 845 | 64 | (61-67) | 560 | / | 945 | 59 | 61 |\n| Gødstrup Børn og Unge | Ja | 4 | / | 4 | 100 | (40-100) |  |  |  |  |  |\n| Gødstrup Mave-, Tarm- og Leversygd. | Nej | 376 | / | 482 | 78 | (74-82) | 386 | / | 488 | 79 | 78 |\n| HE Midt Klinik for Mave- og Tarmsygd. | Ja | 648 | / | 693 | 94 | (91-95) | 609 | / | 665 | 92 | 87 |\n| Horsens Klinik for Medicinske Sygd. | Nej | 291 | / | 396 | 73 | (69-78) | 265 | / | 386 | 69 | 75 |\n| Randers Lever-, Mave- og Tarmsygd. | Ja | 350 | / | 355 | 99 | (97-100) | 334 | / | 339 | 99 | 98 |\n| Nordjylland | Ja | 1.429 | / | 1.529 | 93 | (92-95) | 1.136 | / | 1.237 | 92 | 76 |\n| AAUH Aalborg Børne- og Ungeafdeling | Ja | 48 | / | 48 | 100 | (93-100) | 39 | / | 40 | 98 | 97 |\n| AAUH Aalborg Med. Gastroenterologisk Afd. | Ja | 1.175 | / | 1.260 | 93 | (92-95) | 973 | / | 1.060 | 92 | 74 |\n| RHN Hjørring Med. Mave- og Tarmsygd. | Ja | 206 | / | 221 | 93 | (89-96) | 124 | / | 137 | 91 | 95 |",
+      "summary": "Tabellen sammenligner andelen af patienter i BMSL-behandling med fæces-calprotectin-måling på nationalt, regionalt og afdelingsniveau for 2024/25, 2023/24 og 2022/23, og viser at flere børne- og ungeafdelinger (f.eks. SLB Kolding og SUH Roskilde) opnår 100 %, mens Herlev og OUH Odense Medicinsk Mave-Tarm Afd. S ligger under udviklingsmålet på 75–79 % i 2024/25."
+    }
+  ],
+  "context": "Dette dokumentudsnit fra DANIBD-rapporten 2025 indeholder de tekniske og kliniske detaljer bag to centrale kvalitetsindikatorer for behandling af inflammatoriske tarmsygdomme (IBD) i Danmark: Indikator 4 (DEXA-scanning ved steroidbehandling) og Indikator 5 (fæces-calprotectin-måling ved BMSL-behandling). Den tilhører den strukturerede kvalitetsrapporteringssektion, hvor hver indikator præsenteres med definition, datagrundlag, beregningsregler, resultater, diskussion og udviklingsmål. Baggrunden er en national indsats for at sikre evidensbaseret, standardiseret og målrettet opfølgning af IBD-patienter, især ved brug af potentiel risikofuld medicin (steroider) og avancerede terapier (BMSL). Rapporten reflekterer også en kontinuerlig udviklingsproces, hvor styregruppen overvejer justering af indikatordefinitioner i dialog med faglige selskaber som Dansk Endokrinologisk Selskab."
+}

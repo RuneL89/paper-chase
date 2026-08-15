@@ -1,0 +1,813 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er en national klinisk database til overvågning af kvalitet og udvikling i behandlingen af akutte kirurgiske tilstande, især perforeret ulcus, og fungerer som grundlag for indikatorbaseret kvalitetsudvikling i det danske sundhedsvæsen.",
+      "mentions": [
+        {
+          "page": 111,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 112,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 113,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 114,
+          "context": "Akut Kirurgi Databasen"
+        },
+        {
+          "page": 115,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-quality-institutes",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den myndighed, der har udarbejdet og styrer Akut Kirurgi Databasen, herunder udgivelse af årsrapporter og indikatorudvikling, og fungerer som central aktør for klinisk kvalitetsudvikling i det danske sundhedsvæsen.",
+      "mentions": [
+        {
+          "page": 111,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 112,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 113,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 114,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 115,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Styregruppen",
+      "type": "organization",
+      "slug": "styregruppen",
+      "folder": "entities/organizations/healthcare-governance",
+      "significance": "Styregruppen er den faglige styregruppe for Akut Kirurgi Databasen, sammensat af kirurger, anæstesiologer, sygeplejersker, epidemiologer og patientrepræsentanter fra hele landet, og har ansvaret for strategisk styring, indikatorudvikling og kvalitetsforbedringsarbejde i databasen.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Styregruppens medlemmer"
+        }
+      ]
+    },
+    {
+      "name": "Peter Olsen Svenningsen",
+      "type": "person",
+      "slug": "peter-svenningsen",
+      "folder": "entities/people/healthcare-leadership",
+      "significance": "Peter Olsen Svenningsen er cheflæge og formand for Styregruppen for Akut Kirurgi Databasen samt repræsentant for Dansk Kirurgisk Selskab og Region Hovedstaden, hvilket gør ham til en central ledelsesfigur i den faglige styring af databasen.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Peter Olsen Svenningsen Cheflæge, Formand Dansk Kirurgisk Selskab, Nordsjællands Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Emma Possfelt-Møller",
+      "type": "person",
+      "slug": "emma-possfelt-moeller",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Emma Possfelt-Møller er overlæge og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Kirurgisk Selskab og Rigshospitalet i Region Hovedstaden, og bidrager således til den kliniske styring af databasen.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Emma Possfelt-Møller Overlæge Dansk Kirurgisk Selskab, Rigshospitalet, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Mette Astrup Tolver",
+      "type": "person",
+      "slug": "mette-astrup-tolver",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Mette Astrup Tolver er overlæge og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Kirurgisk Selskab og Sjællands Universitetshospital Køge i Region Sjælland, og bidrager til regional implementering af databasens indikatorer.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Mette Astrup Tolver Overlæge Dansk Kirurgisk Selskab, Sjællands Universitetshospital, Køge, Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Halfdan Lauridsen",
+      "type": "person",
+      "slug": "halfdan-lauridsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Halfdan Lauridsen er ledende overlæge og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Selskab for Akutmedicin og Nordsjællands Hospital i Region Hovedstaden, og styrer dermed den akutmedicinske dimension af databasens kvalitetsarbejde.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Halfdan Lauridsen Ledende overlæge Dansk Selskab for Akutmedicin, Nordsjællands Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Line Rokkedal Jønsson",
+      "type": "person",
+      "slug": "line-rokkedal-jonsson",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Line Rokkedal Jønsson er udviklingsfysioterapeut og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Selskab for Fysioterapi og Amager og Hvidovre Hospital i Region Hovedstaden, og sikrer dermed fysioterapeutisk perspektiv i kvalitetsudviklingen.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Line Rokkedal Jønsson Udviklingsfysioterapeut, Cand. Scient. I fysioterapi Dansk Selskab for Fysioterapi, Amager og Hvidovre Hospital, Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Lone Winther Jensen",
+      "type": "person",
+      "slug": "lone-winther-jensen",
+      "folder": "entities/people/healthcare-leadership",
+      "significance": "Lone Winther Jensen er lægefaglig direktør og ledelsesrepræsentant i Styregruppen for Akut Kirurgi Databasen, repræsentant for Regionssundhedsdirektørkredsen og Regionshospitalet Randers i Region Midtjylland, og sikrer dermed ledelsesmæssig og regionalt strategisk forankring af databasen.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Lone Winther Jensen Lægefaglig direktør, Ledelsesrepræsentant Regionssundhedsdirektørkredsen, Regionshospitalet Randers, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Marianne Vinbæk",
+      "type": "person",
+      "slug": "marianne-vinbaek",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Marianne Vinbæk er overlæge og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Kirurgisk Selskab og Aalborg Universitetshospital i Region Nordjylland, og bidrager til nordjysk implementering af databasens kvalitetsstandarder.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Marianne Vinbæk Overlæge Dansk Kirurgisk Selskab, Aalborg Universitetshospital, Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Helene Rask Dalby",
+      "type": "person",
+      "slug": "helene-rask-dalby",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Helene Rask Dalby er læge og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Selskab for Klinisk Ernæring og Regionshospitalet Randers i Region Midtjylland, og integrerer ernæringsmæssige aspekter i akutkirurgisk kvalitetsarbejde.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Helene Rask Dalby Læge Dansk Selskab for Klinisk Ernæring, Regionshospitalet Randers, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Rasmus Haarup Lie",
+      "type": "person",
+      "slug": "rasmus-haarup-lie",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Rasmus Haarup Lie er overlæge og anæstesiolog samt næstformand i Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Selskab for Anæstesiologi og Intensiv Medicin og Aarhus Universitetshospital i Region Midtjylland, og sikrer anæstesiologisk kompetence i databasens styring.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Rasmus Haarup Lie Overlæge, Anæstesiolog, næstformand Dansk Selskab for Anæstesiologi og Intensiv Medicin, Aarhus Universitetshospital, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Rikke Therkildsen",
+      "type": "person",
+      "slug": "rikke-therkildsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Rikke Therkildsen er overlæge og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Kirurgisk Selskab og Aarhus Universitetshospital i Region Midtjylland, og styrer klinisk kirurgisk implementering af databasens indikatorer.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Rikke Therkildsen Overlæge Dansk Kirurgisk Selskab, Aarhus Universitetshospital, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Henriette Vind Thaysen",
+      "type": "person",
+      "slug": "henriette-vind-thaysen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Henriette Vind Thaysen er klinisk sygeplejespecialist og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Selskab for Klinisk Ernæring og Aarhus Universitetshospital i Region Midtjylland, og sikrer sygeplejeperspektivet i kvalitetsudviklingen.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Henriette Vind Thaysen Klinisk sygeplejespecialist Dansk Selskab for Klinisk Ernæring, Aarhus Universitetshospital, Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Kasper Gymoese Berthelsen",
+      "type": "person",
+      "slug": "kasper-gymoese-berthelsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Kasper Gymoese Berthelsen er ledende overlæge og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Selskab for Anæstesiologi og Intensiv Medicin og Aalborg Universitetshospital i Region Nordjylland, og styrer anæstesiologisk kvalitet i akutkirurgiske forløb.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Kasper Gymoese Berthelsen Ledende overlæge Dansk Selskab for Anæstesiologi og Intensiv Medicin, Aalborg Universitetshospital, Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Thomas Cotzand",
+      "type": "person",
+      "slug": "thomas-cotzand",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Thomas Cotzand er ledende overlæge og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Kirurgisk Selskab og Kolding Sygehus i Region Syddanmark, og sikrer syddansk implementering af databasens standarder.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Thomas Cotzand Ledende overlæge Dansk Kirurgisk Selskab, Kolding Sygehus, Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Vera Slyk",
+      "type": "person",
+      "slug": "vera-slyk",
+      "folder": "entities/people/healthcare-patient-representatives",
+      "significance": "Vera Slyk er patientrepræsentant i Styregruppen for Akut Kirurgi Databasen og sikrer, at patientperspektivet og brugerinddragelse er integreret i udviklingen af kvalitetsindikatorer og behandlingsstandarder.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Vera Slyk Patientrepræsentant"
+        }
+      ]
+    },
+    {
+      "name": "Mikkel Niklas Frandsen",
+      "type": "person",
+      "slug": "mikkel-niklas-frandsen",
+      "folder": "entities/people/healthcare-professionals",
+      "significance": "Mikkel Niklas Frandsen er læge og medlem af Styregruppen for Akut Kirurgi Databasen, repræsentant for Dansk Kirurgisk Selskab og Sjællands Universitetshospital Køge i Region Sjælland, og bidrager til regional klinisk styring.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Mikkel Niklas Frandsen Læge Dansk Kirurgisk Selskab, Sjællands Universitetshospital Køge, Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Anne-Kirstine Dyrvig Sant",
+      "type": "person",
+      "slug": "anne-kirstine-dyrvig",
+      "folder": "entities/people/healthcare-researchers",
+      "significance": "Anne-Kirstine Dyrvig Sant er epidemiolog i Kvalitetsenhed B ved Sundhedsvæsenets Kvalitetsinstitut og medlem af Styregruppen for Akut Kirurgi Databasen, hvilket sikrer evidensbaseret metodekompetence i databasens udvikling og analyse.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Anne-Kirstine Dyrvig Sant Epidemiolog Kvalitetsenhed B, SundK"
+        }
+      ]
+    },
+    {
+      "name": "Henrik Nielsen",
+      "type": "person",
+      "slug": "henrik-nielsen",
+      "folder": "entities/people/healthcare-researchers",
+      "significance": "Henrik Nielsen er biostatistiker og datamanager i Enhed for Data ved Sundhedsvæsenets Kvalitetsinstitut og medlem af Styregruppen for Akut Kirurgi Databasen, hvilket sikrer statistisk og datateknisk robusthed i databasens indikatorberegninger.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Henrik Nielsen Biostatistiker, Datamanager Enhed for Data, SundK"
+        }
+      ]
+    },
+    {
+      "name": "Birgitte Rühmann",
+      "type": "person",
+      "slug": "birgitte-ruhmann",
+      "folder": "entities/people/healthcare-administrators",
+      "significance": "Birgitte Rühmann er oversygeplejerske og repræsentant for den dataansvarlige myndighed/kontaktperson i Kvalitetsenhed B ved Sundhedsvæsenets Kvalitetsinstitut og medlem af Styregruppen for Akut Kirurgi Databasen, hvilket sikrer dataansvarlighed og regeloverholdelse i databasens drift.",
+      "mentions": [
+        {
+          "page": 113,
+          "context": "Birgitte Rühmann Oversygeplejerske, Repræsentant for den dataansvarlige myndighed/kontaktperson Kvalitetsenhed B, SundK"
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet er et tertiært, højtspecialiseret center uden primært optageområde for akutte kirurgiske patienter, og dets unikke patientpopulation af sekundært overflyttede højrisikopatienter påvirker fortolkningen af flere indikatorer i Akut Kirurgi Databasen.",
+      "mentions": [
+        {
+          "page": 114,
+          "context": "Rigshospitalet"
+        },
+        {
+          "page": 115,
+          "context": "Rigshospitalet"
+        }
+      ]
+    },
+    {
+      "name": "Region Hovedstaden",
+      "type": "location",
+      "slug": "region-hovedstaden",
+      "folder": "entities/locations/national",
+      "significance": "Region Hovedstaden er en af de fem regioner i Danmark, der deltar i Akut Kirurgi Databasen via sine hospitaler, og dens regionale kommentarer fremhæver udfordringer ved indledende bedømmelse af akut abdomen samt positive udviklingstegn i tværfagligt samarbejde omkring Akutte Højrisiko Abdominal-patienter (AHA-patienter).",
+      "mentions": [
+        {
+          "page": 114,
+          "context": "Region Hovedstaden"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er en af de fem regioner i Danmark, der deltar i Akut Kirurgi Databasen, og dens kommentarer fra HOL og databaseteam understreger registreringsproblemer ved indikator 6 (tidlig mobilisering), hvor opfyldelsen ligger mellem 70–80 %.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Region Syddanmark",
+      "type": "location",
+      "slug": "region-syddanmark",
+      "folder": "entities/locations/national",
+      "significance": "Region Syddanmark er en af de fem regioner i Danmark, der deltar i Akut Kirurgi Databasen, og har rapporteret, at der ingen kommentarer er til årsrapporten, hvilket indikerer manglende lokale udfordringer eller initiativer relateret til databasen i denne periode.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Region Syddanmark"
+        }
+      ]
+    },
+    {
+      "name": "Region Midtjylland",
+      "type": "location",
+      "slug": "region-midtjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Midtjylland er en af de fem regioner i Danmark, der deltar i Akut Kirurgi Databasen, og har rapporteret, at der ingen kommentarer er til årsrapporten, hvilket kan afspejle en stabil implementering eller manglende fokus på lokal analyse i dette år.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Region Midtjylland"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er en af de fem regioner i Danmark, der deltar i Akut Kirurgi Databasen, og dens kommentarer fokuserer på indikator 2 (CT-skanning inden for 2 timer) og indikator 3 (præoperativ optimering), hvor problemet identificeres som manglende identifikation af AHA-patienter snarere end CT-kapacitet.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Region Nordjylland"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 2",
+      "type": "indicator",
+      "slug": "indikator-2",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 2 måler andelen af CT-skannede patienter, der får lavet CT-skanning inden for 2 timer efter ankomst til sygehus, og Region Nordjylland konkluderer, at manglende identifikation af AHA-patienter – ikke CT-kapacitet – er årsagen til utilstrækkelig målopfyldelse.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Indikator 2: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 2 timer efter ankomst til sygehus."
+        }
+      ]
+    },
+    {
+      "name": "Indikator 3",
+      "type": "indicator",
+      "slug": "indikator-3",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 3 måler andelen af patienter, der får præoperativ optimering eller går direkte til operation, og Region Nordjylland foreslår at genoverveje dens form, da den nuværende udgave ikke er realistisk at nå 90 % målopfyldelse, især efter differentieringen af indikator 4 i 4X og 4Y.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Indikator 3: Andel af patienter der får præoperativ optimering eller som går direkte til operation"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 4x",
+      "type": "indicator",
+      "slug": "indikator-4x",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 4x måler målopfyldelse for operation inden for 6 timer og anvendes specifikt for patienter med primær indlæggelse; Rigshospitalet bemærker, at lav målopfyldelse skyldes, at patienterne ofte er sekundært overflyttede, og at registreringstidspunktet ofte refererer til primær indlæggelse frem for ankomst til Rigshospitalet.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Den lave målopfyldelse for operation inden for 6 timer (indikator 4x)"
+        }
+      ]
+    },
+    {
+      "name": "Indikator 6",
+      "type": "indicator",
+      "slug": "indikator-6",
+      "folder": "entities/indicators/clinical-quality-indicators",
+      "significance": "Indikator 6 måler tidlig mobilisering og viser i Region Sjælland en opfyldelse mellem 70–80 %, hvilket peger på vedvarende registreringsproblemer, der gentagne gange har været undersøgt uden klar løsning.",
+      "mentions": [
+        {
+          "page": 115,
+          "context": "Indikator 6 tidlig mobilisering:"
+        }
+      ]
+    },
+    {
+      "name": "Akutte Højrisiko Abdominal-patienter (AHA-patienter)",
+      "type": "medical-concept",
+      "slug": "aha-patienter",
+      "folder": "topics/clinical-indicators/acute-surgery",
+      "significance": "Akutte Højrisiko Abdominal-patienter (AHA-patienter) er en definieret patientgruppe i Akut Kirurgi Databasen, hvis tidlig identifikation er afgørende for at sikre hurtig behandling, og hvis manglende erkendelse er identificeret som en central årsag til forsinkelser i både CT-diagnostik og operation i flere regioner.",
+      "mentions": [
+        {
+          "page": 114,
+          "context": "Akutte Højrisiko Abdominal-patienter (AHA-patienter)"
+        },
+        {
+          "page": 115,
+          "context": "patienten ikke identificeres og henvises som AHA patient"
+        }
+      ]
+    },
+    {
+      "name": "perforeret ulcus",
+      "type": "medical-condition",
+      "slug": "perforeret-ulcus",
+      "folder": "entities/medical-conditions/gastrointestinal",
+      "significance": "Perforeret ulcus er en central sygdomsgruppe, der danner baggrund for Akut Kirurgi Databasen, og som er genstand for talrige nationale audits og forskningsstudier, herunder prognostiske faktorer, risikoscore-systemer og perioperative plejeprotokoller.",
+      "mentions": [
+        {
+          "page": 111,
+          "context": "Perforated peptic ulcer"
+        },
+        {
+          "page": 111,
+          "context": "perforeret ulcus"
+        },
+        {
+          "page": 112,
+          "context": "Perforated gastroduodenal ulcer"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-developed-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 111
+    },
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-governed-by",
+      "object": "styregruppen",
+      "evidence": "Styregruppens medlemmer",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "peter-svenningsen",
+      "evidence": "Peter Olsen Svenningsen Cheflæge, Formand Dansk Kirurgisk Selskab, Nordsjællands Hospital, Region Hovedstaden",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "emma-possfelt-moeller",
+      "evidence": "Emma Possfelt-Møller Overlæge Dansk Kirurgisk Selskab, Rigshospitalet, Region Hovedstaden",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "mette-astrup-tolver",
+      "evidence": "Mette Astrup Tolver Overlæge Dansk Kirurgisk Selskab, Sjællands Universitetshospital, Køge, Region Sjælland",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "halfdan-lauridsen",
+      "evidence": "Halfdan Lauridsen Ledende overlæge Dansk Selskab for Akutmedicin, Nordsjællands Hospital, Region Hovedstaden",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "line-rokkedal-jonsson",
+      "evidence": "Line Rokkedal Jønsson Udviklingsfysioterapeut, Cand. Scient. I fysioterapi Dansk Selskab for Fysioterapi, Amager og Hvidovre Hospital, Region Hovedstaden",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "lone-winther-jensen",
+      "evidence": "Lone Winther Jensen Lægefaglig direktør, Ledelsesrepræsentant Regionssundhedsdirektørkredsen, Regionshospitalet Randers, Region Midtjylland",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "marianne-vinbaek",
+      "evidence": "Marianne Vinbæk Overlæge Dansk Kirurgisk Selskab, Aalborg Universitetshospital, Region Nordjylland",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "helene-rask-dalby",
+      "evidence": "Helene Rask Dalby Læge Dansk Selskab for Klinisk Ernæring, Regionshospitalet Randers, Region Midtjylland",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "rasmus-haarup-lie",
+      "evidence": "Rasmus Haarup Lie Overlæge, Anæstesiolog, næstformand Dansk Selskab for Anæstesiologi og Intensiv Medicin, Aarhus Universitetshospital, Region Midtjylland",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "rikke-therkildsen",
+      "evidence": "Rikke Therkildsen Overlæge Dansk Kirurgisk Selskab, Aarhus Universitetshospital, Region Midtjylland",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "henriette-vind-thaysen",
+      "evidence": "Henriette Vind Thaysen Klinisk sygeplejespecialist Dansk Selskab for Klinisk Ernæring, Aarhus Universitetshospital, Region Midtjylland",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "kasper-gymoese-berthelsen",
+      "evidence": "Kasper Gymoese Berthelsen Ledende overlæge Dansk Selskab for Anæstesiologi og Intensiv Medicin, Aalborg Universitetshospital, Region Nordjylland",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "thomas-cotzand",
+      "evidence": "Thomas Cotzand Ledende overlæge Dansk Kirurgisk Selskab, Kolding Sygehus, Region Syddanmark",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "vera-slyk",
+      "evidence": "Vera Slyk Patientrepræsentant",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "mikkel-niklas-frandsen",
+      "evidence": "Mikkel Niklas Frandsen Læge Dansk Kirurgisk Selskab, Sjællands Universitetshospital Køge, Region Sjælland",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "anne-kirstine-dyrvig",
+      "evidence": "Anne-Kirstine Dyrvig Sant Epidemiolog Kvalitetsenhed B, SundK",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "henrik-nielsen",
+      "evidence": "Henrik Nielsen Biostatistiker, Datamanager Enhed for Data, SundK",
+      "page": 113
+    },
+    {
+      "subject": "styregruppen",
+      "predicate": "has-member",
+      "object": "birgitte-ruhmann",
+      "evidence": "Birgitte Rühmann Oversygeplejerske, Repræsentant for den dataansvarlige myndighed/kontaktperson Kvalitetsenhed B, SundK",
+      "page": 113
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "is-part-of",
+      "object": "region-hovedstaden",
+      "evidence": "Rigshospitalet er beliggende i Region Hovedstaden",
+      "page": 114
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "has-function-as",
+      "object": "tertiaert-center",
+      "evidence": "Rigshospitalet adskiller sig væsentligt fra øvrige hospitaler i databasen ved ikke at have primært optageområde for akutte kirurgiske patienter og ved at fungere som tertiært, højtspecialiseret center",
+      "page": 114
+    },
+    {
+      "subject": "region-hovedstaden",
+      "predicate": "submits-comments-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Region Hovedstaden\nSFR for Mave-, Tarm- og Leversygdomme",
+      "page": 114
+    },
+    {
+      "subject": "region-sjaelland",
+      "predicate": "submits-comments-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Region Sjælland\nHOL, databaseteam",
+      "page": 115
+    },
+    {
+      "subject": "region-syddanmark",
+      "predicate": "submits-comments-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Region Syddanmark\nRegion Syddanmark har meldt tilbage, at der ingen kommentarer er til årsrapporten.",
+      "page": 115
+    },
+    {
+      "subject": "region-midtjylland",
+      "predicate": "submits-comments-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Region Midtjylland\nRegion Midtjylland har meldt tilbage, at der ingen kommentarer er til årsrapporten.",
+      "page": 115
+    },
+    {
+      "subject": "region-nordjylland",
+      "predicate": "submits-comments-to",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Region Nordjylland\nIndikator 2: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 2 timer efter ankomst til sygehus.",
+      "page": 115
+    },
+    {
+      "subject": "indikator-2",
+      "predicate": "is-assessed-by",
+      "object": "region-nordjylland",
+      "evidence": "Indikator 2: Andelen af CT-skannede patienter, der får lavet CT-skanning indenfor 2 timer efter ankomst til sygehus.",
+      "page": 115
+    },
+    {
+      "subject": "indikator-3",
+      "predicate": "is-assessed-by",
+      "object": "region-nordjylland",
+      "evidence": "Indikator 3: Andel af patienter der får præoperativ optimering eller som går direkte til operation",
+      "page": 115
+    },
+    {
+      "subject": "indikator-4x",
+      "predicate": "is-assessed-by",
+      "object": "rigshospitalet",
+      "evidence": "Den lave målopfyldelse for operation inden for 6 timer (indikator 4x)",
+      "page": 115
+    },
+    {
+      "subject": "indikator-6",
+      "predicate": "is-assessed-by",
+      "object": "region-sjaelland",
+      "evidence": "Indikator 6 tidlig mobilisering:",
+      "page": 115
+    },
+    {
+      "subject": "aha-patienter",
+      "predicate": "is-target-of",
+      "object": "indikator-2",
+      "evidence": "patienten ikke identificeres og henvises som AHA patient",
+      "page": 115
+    },
+    {
+      "subject": "aha-patienter",
+      "predicate": "is-target-of",
+      "object": "indikator-4x",
+      "evidence": "Vi vil tillægge det stort fokus, at de patienter der er indlagt på ikke-kirurgiske afd. prioriteres ved tilsyn og finde mulighed for optimering af registrering også af tiltag, der skal mindske sygdommen, som fx start af antibiotika ift. at den kirurgiske tilstand er konstateret.",
+      "page": 114
+    },
+    {
+      "subject": "perforeret-ulcus",
+      "predicate": "is-subject-of",
+      "object": "akut-kirurgi-databasen",
+      "evidence": "Akut Kirurgi Databasen",
+      "page": 111
+    }
+  ],
+  "claims": [
+    {
+      "text": "Akut Kirurgi Databasen er udarbejdet af Sundhedsvæsenets Kvalitetsinstitut [^src1]",
+      "type": "organizational",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "sundhedsvaesenets-kvalitetsinstitut"
+      ],
+      "page": 111
+    },
+    {
+      "text": "Styregruppen består af 21 medlemmer fra hele landet, herunder kirurger, anæstesiologer, sygeplejersker, fysioterapeuter, ernæringsfagfolk, epidemiologer, biostatistikere, dataansvarlige og en patientrepræsentant [^src1]",
+      "type": "organizational",
+      "entities": [
+        "styregruppen"
+      ],
+      "page": 113
+    },
+    {
+      "text": "Region Hovedstaden identificerer de primære udfordringer ved indledende bedømmelse af patienter med mistanke om akut abdomen, især hos patienter med atypisk symptompræsentation eller begrænset evne til at formidle symptomer [^src1]",
+      "type": "clinical",
+      "entities": [
+        "region-hovedstaden",
+        "aha-patienter"
+      ],
+      "page": 114
+    },
+    {
+      "text": "Rigshospitalet adskiller sig fra øvrige hospitaler i databasen ved ikke at have primært optageområde for akutte kirurgiske patienter og ved at fungere som tertiært, højtspecialiseret center [^src1]",
+      "type": "organizational",
+      "entities": [
+        "rigshospitalet"
+      ],
+      "page": 114
+    },
+    {
+      "text": "Den forhøjede 30- og 90-dages mortalitet ved Rigshospitalet afspejler i betydelig grad en selekteret tertiær population med høj sygdomsgrad [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "rigshospitalet"
+      ],
+      "page": 115
+    },
+    {
+      "text": "Region Sjælland rapporterer en målopfyldelse for indikator 6 (tidlig mobilisering) på mellem 70–80 %, men der er stadig registreringsproblemer [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-sjaelland",
+        "indikator-6"
+      ],
+      "page": 115
+    },
+    {
+      "text": "Region Nordjylland konkluderer, at manglen på CT-skanning inden for 2 timer (indikator 2) skyldes manglende identifikation af AHA-patienter, ikke mangel på CT-kapacitet [^src1]",
+      "type": "performance",
+      "entities": [
+        "region-nordjylland",
+        "indikator-2",
+        "aha-patienter"
+      ],
+      "page": 115
+    },
+    {
+      "text": "Region Nordjylland foreslår at genoverveje indikator 3, da det ikke er realistisk at nå 90 % målopfyldelse i den nuværende form, især efter differentieringen af indikator 4 i 4X og 4Y [^src1]",
+      "type": "recommendation",
+      "entities": [
+        "region-nordjylland",
+        "indikator-3",
+        "indikator-4x"
+      ],
+      "page": 115
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2025",
+      "event": "Udgivelse af årsrapport 2025 fra Akut Kirurgi Databasen",
+      "entities": [
+        "akut-kirurgi-databasen"
+      ]
+    },
+    {
+      "date": "2026-01-05",
+      "event": "Udkast til Akut Kirurgi Databasen version 2026.01.05 udgivet af Sundhedsvæsenets Kvalitetsinstitut",
+      "entities": [
+        "akut-kirurgi-databasen",
+        "sundhedsvaesenets-kvalitetsinstitut"
+      ]
+    }
+  ],
+  "tables": [],
+  "context": "Dette dokumentchunk er en del af årsrapporten 2025 for Akut Kirurgi Databasen og indeholder strukturerede kommentarer fra danske regioner og hospitaler til kvalitetsindikatorer for akut kirurgi, især perforeret ulcus. Det beskriver organisatorisk styring via Styregruppen, regionale udfordringer ved tidlig identifikation af akutte højrisikopatienter (AHA-patienter), og kritiske fortolkningsaspekter ved indikatorer i tertiære centre som Rigshospitalet. Den bredere narrative handler om systemiske barrierer for kvalitetsmåling i akut kirurgi — herunder registreringsproblemer, usikkerhed om indikatordefinitioner og behov for justering af mål i lyset af forskellige hospitalsfunktioner — samt om de tværfaglige og regionale initiativer, der arbejder mod disse barrierer."
+}

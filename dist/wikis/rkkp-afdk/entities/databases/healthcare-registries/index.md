@@ -4,19 +4,20 @@ type: index
 aliases:
   - Healthcare Registries
 wiki: rkkp-afdk
-updated: '2026-08-05T22:46:15.625Z'
+updated: '2026-08-14T23:34:41.223Z'
 children:
+  - index.md
   - laboratoriedatabasen.md
   - landspatientregisteret.md
 ---
 # Healthcare Registries
 
-This folder contains national healthcare registries that serve as foundational data sources for clinical quality reporting and epidemiological tracking in Denmark. It includes the Landspatientregisteret, which captures diagnostic and procedural data from public hospitals and is the primary dataset for identifying atrial fibrillation patients and calculating most quality indicators. It also houses the Laboratoriedatabasen, which integrates national thyroid stimulating hormone (TSH) laboratory measurements used to evaluate specific clinical standards. Together, these registries provide the critical data infrastructure for the Databasen for Atrieflimren i Danmark (AFDK) and national healthcare quality assessments.
+This folder groups national Danish healthcare registries that form the foundational data infrastructure for clinical quality reporting, particularly within the Danish Atrial Fibrillation Database (AFDK). These registries supply the critical diagnostic, procedural, and laboratory data required to identify patient cohorts, calculate clinical quality indicators, and track long-term outcomes and complications. While essential for national health monitoring, the pages also document systemic limitations, such as missing service reports from specific electronic health record systems and the exclusion of private hospital data.
 
 ## Pages
 
-- [[laboratoriedatabasen|Laboratoriedatabasen]] — Administered by Sundhedsdatastyrelsen, this database integrates national TSH laboratory measurements and serves as the foundational data source for calculating Indikator 3.
-- [[landspatientregisteret|Landspatientregisteret]] — The Danish National Patient Register (LPR) captures public hospital diagnostic and procedural data, acting as the primary dataset for identifying atrial fibrillation patients and calculating nearly all AFDK clinical quality indicators.
+- [[laboratoriedatabasen|Laboratoriedatabasen]] — A central repository for laboratory results that provides essential data for specific quality indicators, such as thyroid-stimulating hormone measurements at the time of an atrial fibrillation diagnosis.
+- [[landspatientregisteret|Landspatientregisteret]] — The primary national registry used to identify atrial fibrillation patients via ICD-10 codes and track clinical outcomes, complications, and procedural interventions across nearly all quality indicators.
 
 ## Navigation
 

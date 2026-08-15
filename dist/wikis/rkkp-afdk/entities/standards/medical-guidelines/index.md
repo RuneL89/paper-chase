@@ -4,17 +4,20 @@ type: index
 aliases:
   - Medical Guidelines
 wiki: rkkp-afdk
-updated: '2026-08-05T23:13:51.053Z'
+updated: '2026-08-15T00:05:41.912Z'
 children:
   - esc-guidelines.md
+  - index.md
+  - rads.md
 ---
 # Medical Guidelines
 
-This folder contains international professional references that establish the evidence-based foundation for clinical management and quality development programs within the Danish healthcare system. It currently holds the European Society of Cardiology guidelines, which serve as the primary reference for treating atrial fibrillation. These guidelines directly inform local clinical practices, such as the requirement for structured patient education and the creation of specific national quality indicators to measure care standards.
+This folder contains authoritative clinical guidelines that shape the diagnosis, treatment, and patient education standards for atrial fibrillation within the Danish healthcare system. It holds the European Society of Cardiology (ESC) guidelines, which serve as the primary international reference and directly mandate structured patient education, alongside RADS (Regionale Akutte Diagnostik og BehandlingsStandarder), which sets regional acute diagnostic and treatment benchmarks tied to specific healthcare quality indicators. Together, these documents bridge international cardiology evidence with local quality metrics to ensure measurable, patient-centered care.
 
 ## Pages
 
-- [[esc-guidelines|ESC guidelines]] — The primary international professional reference for the clinical management of atrial fibrillation, establishing the evidence-based foundation for structured patient education and informing the development of Danish national quality indicators.
+- [[esc-guidelines|ESC guidelines]] — The European Society of Cardiology's primary reference for atrial fibrillation management, detailing the evolution of patient-centered care and directly informing Danish quality metrics like Indikator 8.
+- [[rads|RADS]] — Regional acute diagnostics and treatment standards whose compliance is tracked within the Danish Atrial Fibrillation Database to improve care quality and reduce subsequent heart failure incidence.
 
 ## Navigation
 
@@ -23,6 +26,6 @@ This folder contains international professional references that establish the ev
 
 ## Statistics
 
-- Pages: 1
+- Pages: 2
 - Sub-folders: 0
 - Sources: 0

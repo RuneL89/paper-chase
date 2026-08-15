@@ -4,17 +4,18 @@ type: index
 aliases:
   - Healthcare Professional Bodies
 wiki: rkkp-adhd
-updated: '2026-08-05T19:05:40.127Z'
+updated: '2026-08-15T12:32:45.933Z'
 children:
   - danske-multidisciplinaere-psykiatrigrupper-dmpger.md
+  - index.md
 ---
 # Healthcare Professional Bodies
 
-This folder catalogs professional partnerships and medical societies that establish clinical guidelines and standards for psychiatric care in Denmark. It currently features the Danske Multidisciplinære Psykiatrigrupper (DMPGer), a central organization that develops evidence-based protocols for ADHD assessment and treatment. These guidelines directly inform national quality indicators and drive structural changes in regional healthcare practices.
+This folder catalogs professional medical associations and multidisciplinary groups that establish clinical guidelines and standards for psychiatric care in Denmark. It specifically covers the organizations responsible for developing evidence-based assessment and treatment protocols for ADHD across both adult and child/youth sectors. These professional bodies play a critical role in the national healthcare ecosystem, as their clinical recommendations directly inform national quality indicators and drive structural changes in regional diagnostic practices.
 
 ## Pages
 
-- [[danske-multidisciplinaere-psykiatrigrupper-dmpger|Danske Multidisciplinære Psykiatrigrupper (DMPGer)]] — A professional partnership developing national clinical guidelines for ADHD assessment and treatment, directly influencing quality indicators and regional psychiatric practices.
+- [[danske-multidisciplinaere-psykiatrigrupper-dmpger|Danske Multidisciplinære Psykiatrigrupper (DMPGer)]] — The national professional partnership that develops clinical guidelines for ADHD assessment and treatment, directly influencing database quality indicators and regional diagnostic practices.
 
 ## Navigation
 

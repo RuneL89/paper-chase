@@ -1,0 +1,2266 @@
+{
+  "generated": "2026-08-15T13:17:27.373Z",
+  "edges": [
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "aalborg-universitetshospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/aalborg-universitetshospital",
+        "title": "Aalborg Universitetshospital"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "aalborg-universitetshospital-thisted",
+        "path": "rkkp-akdb/entities/organizations/hospitals/aalborg-universitetshospital-thisted",
+        "title": "\"Aalborg Universitetshospital, Thisted\""
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "aarhus-universitetshospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/aarhus-universitetshospital",
+        "title": "Aarhus Universitetshospital"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "aarhus-universitetshospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/aarhus-universitetshospital",
+        "title": "Aarhus Universitetshospital"
+      },
+      "predicate": "meets-standard-of",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-9",
+        "path": "",
+        "title": "Indikator 9"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "amager-og-hvidovre-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/amager-og-hvidovre-hospital",
+        "title": "Amager og Hvidovre Hospital"
+      },
+      "predicate": "exemplifies-best-practice-for",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-9",
+        "path": "",
+        "title": "Indikator 9"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "amager-og-hvidovre-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/amager-og-hvidovre-hospital",
+        "title": "Amager og Hvidovre Hospital"
+      },
+      "predicate": "has-highest-epidural-rate-for",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-8",
+        "path": "",
+        "title": "Indikator 8"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "amager-og-hvidovre-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/amager-og-hvidovre-hospital",
+        "title": "Amager og Hvidovre Hospital"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "amager-og-hvidovre-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/amager-og-hvidovre-hospital",
+        "title": "Amager og Hvidovre Hospital"
+      },
+      "predicate": "is-part-of",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "hovedstaden-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/hovedstaden-region-i-alt",
+        "title": "Hovedstaden Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "asa-score",
+        "path": "rkkp-akdb/entities/scores/clinical-assessment/asa-score",
+        "title": "ASA"
+      },
+      "predicate": "is-compared-across",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "asa-score",
+        "path": "rkkp-akdb/entities/scores/clinical-assessment/asa-score",
+        "title": "ASA"
+      },
+      "predicate": "is-compared-across",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-midtjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-midtjylland",
+        "title": "Region Midtjylland"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "asa-score",
+        "path": "rkkp-akdb/entities/scores/clinical-assessment/asa-score",
+        "title": "ASA"
+      },
+      "predicate": "is-compared-across",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-nordjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-nordjylland",
+        "title": "Region Nordjylland"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "asa-score",
+        "path": "rkkp-akdb/entities/scores/clinical-assessment/asa-score",
+        "title": "ASA"
+      },
+      "predicate": "is-compared-across",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-sjaelland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-sjaelland",
+        "title": "Region Sjælland"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "asa-score",
+        "path": "rkkp-akdb/entities/scores/clinical-assessment/asa-score",
+        "title": "ASA"
+      },
+      "predicate": "is-compared-across",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-syddanmark",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-syddanmark",
+        "title": "Region Syddanmark"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "bispebjerg-og-frederiksberg-hospitaler",
+        "path": "rkkp-akdb/entities/organizations/hospitals/bispebjerg-og-frederiksberg-hospitaler",
+        "title": "Bispebjerg og Frederiksberg Hospitaler"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "bispebjerg-og-frederiksberg-hospitaler",
+        "path": "rkkp-akdb/entities/organizations/hospitals/bispebjerg-og-frederiksberg-hospitaler",
+        "title": "Bispebjerg og Frederiksberg Hospitaler"
+      },
+      "predicate": "is-part-of",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "hovedstaden-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/hovedstaden-region-i-alt",
+        "title": "Hovedstaden Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "bornholms-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/bornholms-hospital",
+        "title": "Bornholms Hospital"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "bornholms-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/bornholms-hospital",
+        "title": "Bornholms Hospital"
+      },
+      "predicate": "is-part-of",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "hovedstaden-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/hovedstaden-region-i-alt",
+        "title": "Hovedstaden Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "hovedstaden-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/hovedstaden-region-i-alt",
+        "title": "Hovedstaden Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "midtjylland-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/midtjylland-region-i-alt",
+        "title": "Midtjylland Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "nordjylland-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/nordjylland-region-i-alt",
+        "title": "Nordjylland Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "sjaelland-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/sjaelland-region-i-alt",
+        "title": "Sjælland Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "syddanmark-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/syddanmark-region-i-alt",
+        "title": "Syddanmark Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-midtjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-midtjylland",
+        "title": "Region Midtjylland"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-nordjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-nordjylland",
+        "title": "Region Nordjylland"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-sjaelland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-sjaelland",
+        "title": "Region Sjælland"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "contains-region",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-syddanmark",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-syddanmark",
+        "title": "Region Syddanmark"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "danmark",
+        "path": "rkkp-akdb/entities/locations/national/danmark",
+        "title": "Danmark"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "esbjerg-sygehus-grindsted-sygehus",
+        "path": "rkkp-akdb/entities/organizations/hospitals/esbjerg-sygehus-grindsted-sygehus",
+        "title": "Esbjerg Sygehus Grindsted Sygehus"
+      },
+      "predicate": "meets-standard-of",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-9",
+        "path": "",
+        "title": "Indikator 9"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "herlev-og-gentofte-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/herlev-og-gentofte-hospital",
+        "title": "Herlev og Gentofte Hospital"
+      },
+      "predicate": "exemplifies-best-practice-for",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-9",
+        "path": "",
+        "title": "Indikator 9"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "herlev-og-gentofte-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/herlev-og-gentofte-hospital",
+        "title": "Herlev og Gentofte Hospital"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "herlev-og-gentofte-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/herlev-og-gentofte-hospital",
+        "title": "Herlev og Gentofte Hospital"
+      },
+      "predicate": "is-part-of",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "hovedstaden-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/hovedstaden-region-i-alt",
+        "title": "Hovedstaden Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "holbaek-sygehus",
+        "path": "rkkp-akdb/entities/organizations/hospitals/holbaek-sygehus",
+        "title": "Holbæk Sygehus"
+      },
+      "predicate": "does-not-meet-standard-of",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-11",
+        "path": "",
+        "title": "Indikator 11"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "holbaek-sygehus",
+        "path": "rkkp-akdb/entities/organizations/hospitals/holbaek-sygehus",
+        "title": "Holbæk Sygehus"
+      },
+      "predicate": "exemplifies-best-practice-for",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-3",
+        "path": "",
+        "title": "Indikator 3"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "holbaek-sygehus",
+        "path": "rkkp-akdb/entities/organizations/hospitals/holbaek-sygehus",
+        "title": "Holbæk Sygehus"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "holbaek-sygehus",
+        "path": "rkkp-akdb/entities/organizations/hospitals/holbaek-sygehus",
+        "title": "Holbæk Sygehus"
+      },
+      "predicate": "meets-target-for",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-4y",
+        "path": "",
+        "title": "Indikator 4y"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "hospitalerne-i-nordsjaelland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/hospitalerne-i-nordsjaelland",
+        "title": "Hospitalerne i Nordsjælland"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "hospitalerne-i-nordsjaelland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/hospitalerne-i-nordsjaelland",
+        "title": "Hospitalerne i Nordsjælland"
+      },
+      "predicate": "is-part-of",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "sjaelland-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/sjaelland-region-i-alt",
+        "title": "Sjælland Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "hospitalsenhed-midt",
+        "path": "rkkp-akdb/entities/organizations/hospitals/hospitalsenhed-midt",
+        "title": "Hospitalsenhed Midt"
+      },
+      "predicate": "exemplifies-best-practice-for",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-4x",
+        "path": "",
+        "title": "Indikator 4x"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "hospitalsenhed-midt",
+        "path": "rkkp-akdb/entities/organizations/hospitals/hospitalsenhed-midt",
+        "title": "Hospitalsenhed Midt"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "landspatientregisteret",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/landspatientregisteret",
+        "title": "Landspatientregisteret"
+      },
+      "predicate": "hosts-code-for",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "sks-kode-naaz42",
+        "path": "rkkp-akdb/entities/codes/medical-coding/sks-kode-naaz42",
+        "title": "SKS-koden NAAZ42"
+      },
+      "evidence": "idet der pr. 1/10-2022 blev oprettet en kode til angivelse af at der er udført præoperativ optimering via LPR.",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "landspatientregisteret",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/landspatientregisteret",
+        "title": "Landspatientregisteret"
+      },
+      "predicate": "provides-codes-for",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-10",
+        "path": "",
+        "title": "Indikator 10"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "landspatientregisteret",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/landspatientregisteret",
+        "title": "Landspatientregisteret"
+      },
+      "predicate": "provides-data-for",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "akut-kirurgi-databasen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen",
+        "title": "Akut Kirurgi Databasen"
+      },
+      "evidence": "epidural i behandlingen af patienten. Denne oplysning har hidtil været indsamlet med Dansk Anaestesi Database som datakilde, men for at optimere datagrundlaget ønskes nu at supplere med data fra LPR",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "odense-universitetshospital-svendborg",
+        "path": "rkkp-akdb/entities/organizations/hospitals/odense-universitetshospital-svendborg",
+        "title": "Odense Universitetshospital - Svendborg"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "odense-universitetshospital-svendborg",
+        "path": "rkkp-akdb/entities/organizations/hospitals/odense-universitetshospital-svendborg",
+        "title": "Odense Universitetshospital - Svendborg"
+      },
+      "predicate": "meets-standard-of",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-9",
+        "path": "",
+        "title": "Indikator 9"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "path": "rkkp-akdb/entities/organizations/healthcare-organizations/regionernes-kliniske-kvalitetsudviklingsprogram",
+        "title": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+      },
+      "predicate": "has-contact-person",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "birgitte-ruhmann",
+        "path": "rkkp-akdb/entities/people/healthcare-administrators/birgitte-ruhmann",
+        "title": "Birgitte Rühmann"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospital-nordjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+        "title": "Regionshospital Nordjylland"
+      },
+      "predicate": "audits",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospital-nordjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+        "title": "Regionshospital Nordjylland"
+      },
+      "predicate": "audits",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-3",
+        "path": "",
+        "title": "Indikator 3"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospital-nordjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+        "title": "Regionshospital Nordjylland"
+      },
+      "predicate": "criticizes",
+      "object": {
+        "wiki": "",
+        "slug": "charlson-score",
+        "path": "",
+        "title": "Charlson Score"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospital-nordjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+        "title": "Regionshospital Nordjylland"
+      },
+      "predicate": "does-not-meet-standard-of",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-9",
+        "path": "",
+        "title": "Indikator 9"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospital-nordjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+        "title": "Regionshospital Nordjylland"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospital-nordjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+        "title": "Regionshospital Nordjylland"
+      },
+      "predicate": "identifies-data-inconsistency-in",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-10",
+        "path": "",
+        "title": "Indikator 10"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospital-nordjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+        "title": "Regionshospital Nordjylland"
+      },
+      "predicate": "questions-code-application-for",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "sks-kode-naaz42",
+        "path": "rkkp-akdb/entities/codes/medical-coding/sks-kode-naaz42",
+        "title": "SKS-koden NAAZ42"
+      },
+      "evidence": "Må anæstesiologen så ikke anvende procedurekoden NAAZ42 eller må den kun anvendes, hvis patienten præoptimeres enten på IMA eller ITA-afsnit?",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospital-nordjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+        "title": "Regionshospital Nordjylland"
+      },
+      "predicate": "questions-definition-of",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-3",
+        "path": "",
+        "title": "Indikator 3"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-goedstrup",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-goedstrup",
+        "title": "Regionshospitalet Gødstrup"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-goedstrup",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-goedstrup",
+        "title": "Regionshospitalet Gødstrup"
+      },
+      "predicate": "meets-standard-of",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-9",
+        "path": "",
+        "title": "Indikator 9"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-horsens",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-horsens",
+        "title": "Regionshospitalet Horsens"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-horsens",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-horsens",
+        "title": "Regionshospitalet Horsens"
+      },
+      "predicate": "meets-standard-of",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-9",
+        "path": "",
+        "title": "Indikator 9"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-randers",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-randers",
+        "title": "Regionshospitalet Randers"
+      },
+      "predicate": "exemplifies-best-practice-for",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-2",
+        "path": "",
+        "title": "Indikator 2"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-randers",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-randers",
+        "title": "Regionshospitalet Randers"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-randers",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-randers",
+        "title": "Regionshospitalet Randers"
+      },
+      "predicate": "is-associated-with-improvement-in",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-randers",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-randers",
+        "title": "Regionshospitalet Randers"
+      },
+      "predicate": "proposes-to-modify",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-9",
+        "path": "",
+        "title": "Indikator 9"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "rigshospitalet",
+        "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+        "title": "Rigshospitalet"
+      },
+      "predicate": "does-not-meet-standard-of",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-11",
+        "path": "",
+        "title": "Indikator 11"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "rigshospitalet",
+        "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+        "title": "Rigshospitalet"
+      },
+      "predicate": "has-high-mortality-in",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-10",
+        "path": "",
+        "title": "Indikator 10"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "rigshospitalet",
+        "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+        "title": "Rigshospitalet"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "rigshospitalet",
+        "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+        "title": "Rigshospitalet"
+      },
+      "predicate": "has-special-function",
+      "object": {
+        "wiki": "",
+        "slug": "tertiaert-center",
+        "path": "",
+        "title": "tertiaert-center"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "rigshospitalet",
+        "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+        "title": "Rigshospitalet"
+      },
+      "predicate": "is-part-of",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "hovedstaden-region-i-alt",
+        "path": "rkkp-akdb/entities/organizations/regions/hovedstaden-region-i-alt",
+        "title": "Hovedstaden Region i alt"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "rigshospitalet",
+        "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+        "title": "Rigshospitalet"
+      },
+      "predicate": "is-part-of",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "rigshospitalet",
+        "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+        "title": "Rigshospitalet"
+      },
+      "predicate": "meets-target-for",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-4y",
+        "path": "",
+        "title": "Indikator 4y"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "sjaellands-universitetshospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/sjaellands-universitetshospital",
+        "title": "Sjællands Universitetshospital"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "decided-to-discontinue-national-monitoring-of",
+      "object": {
+        "wiki": "",
+        "slug": "perforeret-ulcus",
+        "path": "",
+        "title": "perforeret ulcus"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "discusses",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-7",
+        "path": "",
+        "title": "Indikator 7"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "governs",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "akut-kirurgi-databasen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen",
+        "title": "Akut Kirurgi Databasen"
+      },
+      "evidence": "Det blev på styregruppens årsmøde i 2018 besluttet...",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "has-decision-on",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-2",
+        "path": "",
+        "title": "Indikator 2"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "has-received-proposal-on",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "zz2009c",
+        "path": "rkkp-akdb/entities/codes/healthcare-coding/zz2009c",
+        "title": "ZZ2009C"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "anne-kirstine-dyrvig",
+        "path": "rkkp-akdb/entities/people/healthcare-researchers/anne-kirstine-dyrvig",
+        "title": "Anne-Kirstine Dyrvig"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "birgitte-ruhmann",
+        "path": "rkkp-akdb/entities/people/healthcare-administrators/birgitte-ruhmann",
+        "title": "Birgitte Rühmann"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "emma-possfelt-moeller",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/emma-possfelt-moeller",
+        "title": "Emma Possfelt-Møller"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "halfdan-lauridsen",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/halfdan-lauridsen",
+        "title": "Halfdan Lauridsen"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "helene-rask-dalby",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/helene-rask-dalby",
+        "title": "Helene Rask Dalby"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "henriette-vind-thaysen",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/henriette-vind-thaysen",
+        "title": "Henriette Vind Thaysen"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "henrik-nielsen",
+        "path": "rkkp-akdb/entities/people/healthcare-researchers/henrik-nielsen",
+        "title": "Henrik Nielsen"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "kasper-gymoese-berthelsen",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/kasper-gymoese-berthelsen",
+        "title": "Kasper Gymoese Berthelsen"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "line-rokkedal-jonsson",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/line-rokkedal-jonsson",
+        "title": "Line Rokkedal Jønsson"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "lone-winther-jensen",
+        "path": "rkkp-akdb/entities/people/healthcare-leadership/lone-winther-jensen",
+        "title": "Lone Winther Jensen"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "marianne-vinbaek",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/marianne-vinbaek",
+        "title": "Marianne Vinbæk"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "mette-astrup-tolver",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/mette-astrup-tolver",
+        "title": "Mette Astrup Tolver"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "mikkel-niklas-frandsen",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/mikkel-niklas-frandsen",
+        "title": "Mikkel Niklas Frandsen"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "peter-svenningsen",
+        "path": "rkkp-akdb/entities/people/healthcare-leaders/peter-svenningsen",
+        "title": "Peter Svenningsen"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "rasmus-haarup-lie",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/rasmus-haarup-lie",
+        "title": "Rasmus Haarup Lie"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "rikke-therkildsen",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/rikke-therkildsen",
+        "title": "Rikke Therkildsen"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "thomas-cotzand",
+        "path": "rkkp-akdb/entities/people/healthcare-professionals/thomas-cotzand",
+        "title": "Thomas Cotzand"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "includes-member",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "vera-slyk",
+        "path": "rkkp-akdb/entities/people/healthcare-patient-representatives/vera-slyk",
+        "title": "Vera Slyk"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "is-responsible-for-revising",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-3",
+        "path": "",
+        "title": "Indikator 3"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "recommends-audit-for",
+      "object": {
+        "wiki": "",
+        "slug": "charlson-score",
+        "path": "",
+        "title": "Charlson Score"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "styregruppen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-governance/styregruppen",
+        "title": "Styregruppen"
+      },
+      "predicate": "recommends-use-of-code",
+      "object": {
+        "wiki": "",
+        "slug": "ingen-indikation-for-tidlig-mobilisering-code",
+        "path": "",
+        "title": "ingen-indikation-for-tidlig-mobilisering-code"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "sundhedsvaesenets-kvalitetsinstitut",
+        "path": "rkkp-akdb/entities/organizations/healthcare-oversight/sundhedsvaesenets-kvalitetsinstitut",
+        "title": "Sundhedsvæsenets Kvalitetsinstitut"
+      },
+      "predicate": "has-contact-person",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "birgitte-ruhmann",
+        "path": "rkkp-akdb/entities/people/healthcare-administrators/birgitte-ruhmann",
+        "title": "Birgitte Rühmann"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "sundhedsvaesenets-kvalitetsinstitut",
+        "path": "rkkp-akdb/entities/organizations/healthcare-oversight/sundhedsvaesenets-kvalitetsinstitut",
+        "title": "Sundhedsvæsenets Kvalitetsinstitut"
+      },
+      "predicate": "publishes",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-4x",
+        "path": "",
+        "title": "Indikator 4x"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "sundhedsvaesenets-kvalitetsinstitut",
+        "path": "rkkp-akdb/entities/organizations/healthcare-oversight/sundhedsvaesenets-kvalitetsinstitut",
+        "title": "Sundhedsvæsenets Kvalitetsinstitut"
+      },
+      "predicate": "publishes",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-4y",
+        "path": "",
+        "title": "Indikator 4y"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "sundhedsvaesenets-kvalitetsinstitut",
+        "path": "rkkp-akdb/entities/organizations/healthcare-oversight/sundhedsvaesenets-kvalitetsinstitut",
+        "title": "Sundhedsvæsenets Kvalitetsinstitut"
+      },
+      "predicate": "publishes",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "akut-kirurgi-databasen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen",
+        "title": "Akut Kirurgi Databasen"
+      },
+      "evidence": "Akut Kirurgi Databasen — Endelig version til offentliggørelse 2025.02.28 — Sundhedsvæsenets Kvalitetsinstitut",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "sygehus-lillebaelt",
+        "path": "rkkp-akdb/entities/organizations/hospitals/sygehus-lillebaelt",
+        "title": "Sygehus Lillebælt"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "sygehus-soenderjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/sygehus-soenderjylland",
+        "title": "Sygehus Sønderjylland"
+      },
+      "predicate": "has-indicator-result",
+      "object": {
+        "wiki": "",
+        "slug": "indikator-1",
+        "path": "",
+        "title": "Indikator 1"
+      },
+      "evidence": "",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-akdb",
+        "slug": "sygehusmedicinregisteret",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/sygehusmedicinregisteret",
+        "title": "Sygehusmedicinregisteret"
+      },
+      "predicate": "measures",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "akut-kirurgi-databasen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen",
+        "title": "Akut Kirurgi Databasen"
+      },
+      "evidence": "Antibiotikabehandling indenfor 3 timer er baseret på data fra Sygehusmedicinregisteret (SMR)",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "landspatientregisteret",
+        "path": "rkkp-danibd/entities/databases/health-registries/landspatientregisteret",
+        "title": "Landspatientregisteret"
+      },
+      "predicate": "is-validated-against",
+      "object": {
+        "wiki": "rkkp-danibd",
+        "slug": "gastrobio",
+        "path": "rkkp-danibd/entities/databases/health-registries/gastrobio",
+        "title": "GASTROBIO"
+      },
+      "evidence": "I studiet af Jacobsen et al fra 2022 undersøges den positive prædiktive værdi (PPV) af IBD-diagnoser i LPR ift. den regionale IBD database GASTROBIO.",
+      "sourceWiki": "rkkp-danibd"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "amager-og-hvidovre-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/amager-og-hvidovre-hospital",
+        "title": "Amager og Hvidovre Hospital"
+      },
+      "evidence": "Amager og Hvidovre Hospital er beliggende i Region Hovedstaden",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "bispebjerg-og-frederiksberg-hospitaler",
+        "path": "rkkp-akdb/entities/organizations/hospitals/bispebjerg-og-frederiksberg-hospitaler",
+        "title": "Bispebjerg og Frederiksberg Hospitaler"
+      },
+      "evidence": "Bispebjerg og Frederiksberg Hospitaler er beliggende i Region Hovedstaden",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "bornholms-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/bornholms-hospital",
+        "title": "Bornholms Hospital"
+      },
+      "evidence": "Bornholms Hospital er beliggende i Region Sjælland — dette er en fejl i relationen; Bornholms Hospital er ikke i Hovedstaden — korrekt relation er 'sjælland contains-bornholms-hospital'",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "herlev-og-gentofte-hospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/herlev-og-gentofte-hospital",
+        "title": "Herlev og Gentofte Hospital"
+      },
+      "evidence": "Herlev og Gentofte Hospital er beliggende i Region Hovedstaden",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "hospitalerne-i-nordsjaelland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/hospitalerne-i-nordsjaelland",
+        "title": "Hospitalerne i Nordsjælland"
+      },
+      "evidence": "Hospitalerne i Nordsjælland er beliggende i Region Hovedstaden",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "rigshospitalet",
+        "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+        "title": "Rigshospitalet"
+      },
+      "evidence": "Rigshospitalet er beliggende i Region Hovedstaden",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "predicate": "provides-comment-on",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "akut-kirurgi-databasen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen",
+        "title": "Akut Kirurgi Databasen"
+      },
+      "evidence": "Region Hovedstaden har fremsat regionale kommentarer til årsrapporten 2023 for Akut Kirurgi Databasen",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-hovedstaden",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-hovedstaden",
+        "title": "Region Hovedstaden"
+      },
+      "predicate": "reports-to",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "path": "rkkp-akdb/entities/organizations/healthcare-organizations/regionernes-kliniske-kvalitetsudviklingsprogram",
+        "title": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+      },
+      "evidence": "Region Hovedstaden fremgår som indberetningsenhed i tabellerne under Akut Kirurgi Databasen, som udgives af Regionernes Kliniske Kvalitetsudviklingsprogram.",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-midtjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-midtjylland",
+        "title": "Region Midtjylland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "aarhus-universitetshospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/aarhus-universitetshospital",
+        "title": "Aarhus Universitetshospital"
+      },
+      "evidence": "Midtjylland 24 / 225 [...] Aarhus Universitetshospital 3 / 45",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-midtjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-midtjylland",
+        "title": "Region Midtjylland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "hospitalsenhed-midt",
+        "path": "rkkp-akdb/entities/organizations/hospitals/hospitalsenhed-midt",
+        "title": "Hospitalsenhed Midt"
+      },
+      "evidence": "Midtjylland 24 / 225 [...] Hospitalsenhed Midt 6 / 48",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-midtjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-midtjylland",
+        "title": "Region Midtjylland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-goedstrup",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-goedstrup",
+        "title": "Regionshospitalet Gødstrup"
+      },
+      "evidence": "Midtjylland 24 / 225 [...] Regionshospitalet Gødstrup 3 / 58",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-midtjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-midtjylland",
+        "title": "Region Midtjylland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-horsens",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-horsens",
+        "title": "Regionshospitalet Horsens"
+      },
+      "evidence": "Midtjylland 24 / 225 [...] Regionshospitalet Horsens 6 / 32",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-midtjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-midtjylland",
+        "title": "Region Midtjylland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospitalet-randers",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospitalet-randers",
+        "title": "Regionshospitalet Randers"
+      },
+      "evidence": "Midtjylland 24 / 225 [...] Regionshospitalet Randers 6 / 42",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-midtjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-midtjylland",
+        "title": "Region Midtjylland"
+      },
+      "predicate": "provides-comment-on",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "akut-kirurgi-databasen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen",
+        "title": "Akut Kirurgi Databasen"
+      },
+      "evidence": "Region Midtjylland har fremsat kommentarer til årsrapporten 2023 for Akut Kirurgi Databasen",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-nordjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-nordjylland",
+        "title": "Region Nordjylland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "aalborg-universitetshospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/aalborg-universitetshospital",
+        "title": "Aalborg Universitetshospital"
+      },
+      "evidence": "Nordjylland 13 / 76 [...] Aalborg Universitetshospital 7 / 46",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-nordjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-nordjylland",
+        "title": "Region Nordjylland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionshospital-nordjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/regionshospital-nordjylland",
+        "title": "Regionshospital Nordjylland"
+      },
+      "evidence": "Nordjylland 13 / 76 [...] Regionshospital Nordjylland 6 / 30",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-nordjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-nordjylland",
+        "title": "Region Nordjylland"
+      },
+      "predicate": "provides-comment-on",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "akut-kirurgi-databasen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen",
+        "title": "Akut Kirurgi Databasen"
+      },
+      "evidence": "Region Nordjylland har meldt tilbage, at der ingen kommentarer er til årsrapporten",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-nordjylland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-nordjylland",
+        "title": "Region Nordjylland"
+      },
+      "predicate": "reports-to",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "regionernes-kliniske-kvalitetsudviklingsprogram",
+        "path": "rkkp-akdb/entities/organizations/healthcare-organizations/regionernes-kliniske-kvalitetsudviklingsprogram",
+        "title": "Regionernes Kliniske Kvalitetsudviklingsprogram"
+      },
+      "evidence": "Region Nordjylland fremgår som indberetningsenhed i tabellerne under Akut Kirurgi Databasen, som udgives af Regionernes Kliniske Kvalitetsudviklingsprogram.",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-sjaelland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-sjaelland",
+        "title": "Region Sjælland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "holbaek-sygehus",
+        "path": "rkkp-akdb/entities/organizations/hospitals/holbaek-sygehus",
+        "title": "Holbæk Sygehus"
+      },
+      "evidence": "Holbæk Sygehus er beliggende i Region Sjælland",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-sjaelland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-sjaelland",
+        "title": "Region Sjælland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "hospitalerne-i-nordsjaelland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/hospitalerne-i-nordsjaelland",
+        "title": "Hospitalerne i Nordsjælland"
+      },
+      "evidence": "Sjælland 28 / 180 [...] Hospitalerne i Nordsjælland 8 / 69",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-sjaelland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-sjaelland",
+        "title": "Region Sjælland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "naestved-slagese-og-ringsted-sygehuse",
+        "path": "rkkp-akdb/entities/organizations/hospitals/naestved-slagese-og-ringsted-sygehuse",
+        "title": "\"Næstved, Slagelse og Ringsted sygehuse\""
+      },
+      "evidence": "Næstved, Slagelse og Ringsted sygehuse er beliggende i Region Sjælland",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-sjaelland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-sjaelland",
+        "title": "Region Sjælland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "rigshospitalet",
+        "path": "rkkp-akdb/entities/organizations/hospitals/rigshospitalet",
+        "title": "Rigshospitalet"
+      },
+      "evidence": "Sjælland 28 / 180 [...] Rigshospitalet 3 / 30",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-sjaelland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-sjaelland",
+        "title": "Region Sjælland"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "sjaellands-universitetshospital",
+        "path": "rkkp-akdb/entities/organizations/hospitals/sjaellands-universitetshospital",
+        "title": "Sjællands Universitetshospital"
+      },
+      "evidence": "Sjælland 28 / 180 [...] Sjællands Universitetshospital 9 / 72",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-sjaelland",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-sjaelland",
+        "title": "Region Sjælland"
+      },
+      "predicate": "provides-comment-on",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "akut-kirurgi-databasen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen",
+        "title": "Akut Kirurgi Databasen"
+      },
+      "evidence": "Region Sjælland har ingen bemærkninger til årsrapport 2023 for Akut Kirurgi Databasen",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-syddanmark",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-syddanmark",
+        "title": "Region Syddanmark"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "esbjerg-sygehus-grindsted-sygehus",
+        "path": "rkkp-akdb/entities/organizations/hospitals/esbjerg-sygehus-grindsted-sygehus",
+        "title": "Esbjerg Sygehus Grindsted Sygehus"
+      },
+      "evidence": "Syddanmark 21 / 213 [...] Esbjerg Sygehus Grindsted Sygehus 6 / 49",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-syddanmark",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-syddanmark",
+        "title": "Region Syddanmark"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "odense-universitetshospital-svendborg",
+        "path": "rkkp-akdb/entities/organizations/hospitals/odense-universitetshospital-svendborg",
+        "title": "Odense Universitetshospital - Svendborg"
+      },
+      "evidence": "Syddanmark 21 / 213 [...] Odense Universitetshospital - Svendborg 10 / 86",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-syddanmark",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-syddanmark",
+        "title": "Region Syddanmark"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "sygehus-lillebaelt",
+        "path": "rkkp-akdb/entities/organizations/hospitals/sygehus-lillebaelt",
+        "title": "Sygehus Lillebælt"
+      },
+      "evidence": "Syddanmark 21 / 213 [...] Sygehus Lillebælt #/#",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-syddanmark",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-syddanmark",
+        "title": "Region Syddanmark"
+      },
+      "predicate": "contains-hospital",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "sygehus-soenderjylland",
+        "path": "rkkp-akdb/entities/organizations/hospitals/sygehus-soenderjylland",
+        "title": "Sygehus Sønderjylland"
+      },
+      "evidence": "Syddanmark 21 / 213 [...] Sygehus Sønderjylland 3 / 45",
+      "sourceWiki": "rkkp-akdb"
+    },
+    {
+      "subject": {
+        "wiki": "rkkp-danibd",
+        "slug": "region-syddanmark",
+        "path": "rkkp-danibd/entities/organizations/regional-health-authorities/region-syddanmark",
+        "title": "Region Syddanmark"
+      },
+      "predicate": "provides-comment-on",
+      "object": {
+        "wiki": "rkkp-akdb",
+        "slug": "akut-kirurgi-databasen",
+        "path": "rkkp-akdb/entities/organizations/healthcare-databases/akut-kirurgi-databasen",
+        "title": "Akut Kirurgi Databasen"
+      },
+      "evidence": "Region Syddanmark har fremsat kommentarer til årsrapporten 2023 for Akut Kirurgi Databasen",
+      "sourceWiki": "rkkp-akdb"
+    }
+  ]
+}

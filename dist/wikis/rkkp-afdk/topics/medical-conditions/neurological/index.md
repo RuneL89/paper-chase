@@ -4,19 +4,20 @@ type: index
 aliases:
   - Neurological
 wiki: rkkp-afdk
-updated: '2026-08-05T23:34:19.367Z'
+updated: '2026-08-15T00:35:19.408Z'
 children:
+  - index.md
   - intrakraniel-bloedning.md
   - iskaemisk-apopleksi.md
 ---
 # Neurological
 
-This folder catalogs severe neurological complications associated with atrial fibrillation and its clinical management within the Danish healthcare system. It covers intracranial hemorrhage, a critical bleeding risk tied to anticoagulation therapy, and ischemic stroke, a primary thromboembolic consequence of insufficiently treated atrial fibrillation. Both conditions are systematically tracked through national quality indicators, risk stratification scores, and specific ICD-10 diagnostic codes, illustrating the complex clinical balance between preventing strokes and avoiding severe bleeding events.
+This folder catalogs severe neurological complications associated with atrial fibrillation and its treatments, specifically tracking their incidence as national quality indicators in Denmark. It covers intracranial hemorrhage, the primary bleeding risk balanced against thrombosis during anticoagulant therapy, and ischemic stroke, the main thromboembolic complication prevented by such treatments. Both conditions are monitored through the Danish Atrial Fibrillation Database using specific ICD-10 codes from the National Patient Registry to evaluate clinical outcomes, regional variations, and pharmacovigilance.
 
 ## Pages
 
-- [[intrakraniel-bloedning|Intrakraniel blødning]] — Details the incidence, pharmacovigilance, and ICD-10 coding of intracranial hemorrhage as a severe complication of anticoagulation therapy in atrial fibrillation patients.
-- [[iskaemisk-apopleksi|Iskæmisk apopleksi]] — Tracks the national incidence and quality indicators for ischemic stroke, highlighting the consequences of untreated atrial fibrillation and gaps in oral anticoagulation prescriptions.
+- [[intrakraniel-bloedning|Intrakraniel blødning]] — Details the incidence of intracranial hemorrhage among atrial fibrillation patients, including national quality standards, regional variations, and bleeding rates across different anticoagulant therapies.
+- [[iskaemisk-apopleksi|Iskæmisk apopleksi]] — Monitors ischemic stroke as a primary complication of atrial fibrillation, evaluating incidence rates, anticoagulant prescription adherence prior to admission, and clinical outcomes across Danish regions.
 
 ## Navigation
 

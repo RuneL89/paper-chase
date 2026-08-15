@@ -4,19 +4,20 @@ type: index
 aliases:
   - Databases
 wiki: rkkp-afdk
-updated: '2026-08-05T22:46:43.891Z'
+updated: '2026-08-14T23:35:07.703Z'
 children:
   - healthcare-registers/index.md
   - healthcare-registries/index.md
+  - index.md
 ---
 # Databases
 
-This folder groups the foundational national databases and registries that provide the critical data infrastructure for clinical quality reporting and epidemiological tracking in Denmark. It encompasses demographic and vital status registers used to verify mortality outcomes, alongside comprehensive healthcare registries that capture hospital diagnostic, procedural, and laboratory data. Together, these data sources form the backbone for identifying patients, calculating clinical quality indicators, and supporting national healthcare assessments like the Databasen for Atrieflimren i Danmark (AFDK).
+This folder groups the foundational national databases and registries that form the data infrastructure for healthcare quality assurance, epidemiological tracking, and clinical quality reporting in Denmark. It encompasses civil registers, which provide definitive vital status data required to verify patient mortality and ensure accurate inclusion in clinical quality registries. It also contains specialized healthcare registries that supply the diagnostic, procedural, and laboratory data necessary to identify patient cohorts, calculate clinical quality indicators, and track long-term outcomes, particularly for the Danish Atrial Fibrillation Database (AFDK).
 
 ## Pages
 
-- [[entities/databases/healthcare-registers/index|Healthcare Registers]] — Foundational national databases tracking demographic and vital status information, such as the CPR-registeret, used to verify mortality and cross-reference clinical outcomes.
-- [[entities/databases/healthcare-registries/index|Healthcare Registries]] — National healthcare registries capturing hospital diagnostic, procedural, and laboratory data, serving as the primary datasets for identifying patients and calculating clinical quality indicators.
+- [[entities/databases/healthcare-registers/index|Healthcare Registers]] — Foundational national databases like the civil registration system, providing definitive vital status data required for mortality tracking and patient inclusion in clinical registries.
+- [[entities/databases/healthcare-registries/index|Healthcare Registries]] — National registries supplying diagnostic, procedural, and laboratory data essential for identifying patient cohorts, calculating clinical quality indicators, and tracking long-term outcomes.
 
 ## Navigation
 

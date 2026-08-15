@@ -4,23 +4,24 @@ type: index
 aliases:
   - Locations
 wiki: rkkp-afdk
-updated: '2026-08-05T22:54:39.186Z'
+updated: '2026-08-14T23:42:57.907Z'
 children:
   - cities/index.md
   - countries/index.md
   - municipalities/index.md
   - regions/index.md
+  - index.md
 ---
 # Locations
 
-This folder groups the geographic and administrative entities used to benchmark and report clinical quality outcomes in the Danish Atrial Fibrillation Database (AFDK). It organizes locations hierarchically into national aggregates, administrative regions, municipalities, and specific cities. Together, these subdivisions provide the geographic framework for evaluating atrial fibrillation care, stroke prevention metrics, and anticoagulation treatment adherence across the entire Danish healthcare system.
+This area groups the geographic and administrative entities used to stratify and benchmark clinical quality indicators for atrial fibrillation care in Denmark. It covers national baselines, the five administrative regions, specific urban centers, and a comprehensive catalog of Danish municipalities, each tracked for healthcare performance metrics such as ischemic stroke prevention and anticoagulation therapy adherence. 
 
 ## Pages
 
-- [[entities/locations/cities/index|Cities]] — Specific Danish cities and municipalities tracked for local clinical quality indicators and regional benchmarking.
-- [[entities/locations/countries/index|Countries]] — Sovereign nations acting as national aggregates and primary baseline benchmarks for epidemiological metrics.
-- [[entities/locations/municipalities/index|Municipalities]] — Danish municipalities evaluated primarily for ischemic stroke prevention metrics and anticoagulation therapy outcomes.
-- [[entities/locations/regions/index|Regions]] — Administrative regions of Denmark detailing healthcare infrastructure, hospital networks, and compliance with national quality indicators.
+- [[entities/locations/cities/index|Cities]] — Specific Danish urban centers evaluated for municipal-level benchmarking data on ischemic stroke and intracranial hemorrhage rates.
+- [[entities/locations/countries/index|Countries]] — National geographic baselines, currently featuring Denmark as the overarching benchmark for epidemiological trends and treatment standards.
+- [[entities/locations/municipalities/index|Municipalities]] — A comprehensive catalog of Danish municipalities evaluated for clinical quality indicators, particularly Indicator 5 tracking ischemic stroke prevention via anticoagulation.
+- [[entities/locations/regions/index|Regions]] — Denmark's administrative regions, detailing healthcare infrastructure, hospital units, and regional compliance with national quality standards.
 
 ## Navigation
 

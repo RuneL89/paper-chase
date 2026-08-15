@@ -71,7 +71,7 @@ Summary: Tabellen sammenligner opfyldelse af Indikator 2b (interview eller milj�
 ## Related comparisons in prose
 
 - "Indikator 2b har en standard på ≥ 90 % for andelen af udredningsforløb blandt 6–17 årige, hvor der er foretaget manualiseret diagnostisk interview eller miljøobservation" — see [[quality-standard|Quality Standard]] (Indikator 2b) [^src2]
-- "Standarden for indikator 2b er ≥ 90 %" — see [[regulatory-standard|Regulatory Standard]] ([[adhd-databasen|ADHD-DATABASEN]]) [^src3]
+- "Standarden for indikator 2b er ≥ 90 %" — see [[quality-standard|Regulatory Standard]] ([[adhd-databasen|ADHD-DATABASEN]]) [^src3]
 - "Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium opfylder standarden for Indikator 1 med 90 % (95 % CI: 86–93)" — see [[performance|Performance]] ([[aabenna-borne-og-ungdomspsykiatrisk-ambulatorium|Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium]]) [^src2]
 - "Odense: Børne- og Ungdomspsykiatrisk Ambulatorium har en opfyldelse på 89 % (95 % CI: 84–93) for Indikator 1 i perioden 01.04.2023–31.03.2024" — see [[performance|Performance]] ([[odense-borne-og-ungdomspsykiatrisk-ambulatorium|Odense: Børne- og Ungdomspsykiatrisk Ambulatorium]]) [^src2]
 - "Indikator 2b blev opfyldt i 48 % af udredningsforløbene på landsplan, hvilket er under den fastlagte standard på 90 %." — see [[performance|Performance]] (Indikator 2b) [^src4]
@@ -110,7 +110,7 @@ Summary: Tabellen sammenligner opfyldelse af Indikator 2b (interview eller milj�
 - "Interne analyser viser, at flere børn og unge modtager de relevante procedurer, dog efter tidsfristen" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src15]
 - "For voksenpopulationen skyldes den lave målopfyldelse primært registreringsudfordringer" — see [[performance|Performance]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src15]
 - "Indikator 2b: Andelen af udredningsforløb blandt 6-17 årige, hvor der, senest 120 dage efter start af ADHD-udredning, er foretaget enten manualiseret diagnostisk interview eller miljøobservation" — see [[quality-indicator|Quality Indicator]] ([[adhd-databasen|ADHD-DATABASEN]]) [^src3]
-- "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning" — see [[clinical-practice|Clinical Practice]] ([[adhd-databasen|ADHD-DATABASEN]]) [^src16]
+- "Indikator 2a: Andelen af udredningsforløb blandt 0-5 årige, hvor barnet er vurderet ved klinisk miljøobservation senest 120 dage efter start af ADHD-udredning" — see [[quality-indicator|Clinical Practice]] ([[adhd-databasen|ADHD-DATABASEN]]) [^src16]
 - "Regionsresultaterne for Indikator 3 varierer fra 10 % (Region Syddanmark) til 34 % (Region Nordjylland)" — see [[regional-variation|Regional Variation]] ([[region-syddanmark|Region Syddanmark — Syddanmark]], [[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src17]
 - "Ligesom de tidligere år ses betydelig regional variation fra 32 % i Sjælland til 70 % i Syddanmark" — see [[regional-variation|Regional Variation]] (Indikator 2b, [[region-sjaelland|Region Sjælland — Sjælland]], [[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src10]
 - "Den højeste andel af beståede afgangseksaminer blandt unge i ADHD-udredningspopulationen ses i Hovedstaden (63 %), mens den laveste ses i Nordjylland (47 %)" — see [[regional-variation|Regional Variation]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src18]
@@ -123,7 +123,7 @@ Summary: Tabellen sammenligner opfyldelse af Indikator 2b (interview eller milj�
 - "I behandlingspopulationen er der ingen registrerede patienter i aldersgruppen 0–5 år i Region Nordjylland (angivet som '#')" — see [[demographic|Demographic]] ([[region-nordjylland|Region Nordjylland — Nordjylland]]) [^src21]
 - "Hovedparten af voksne danskere med ADHD udredes og behandles i speciallægepraksis" — see [[demographic|Demographic]] ([[adhd-databasen|ADHD-DATABASEN]]) [^src6]
 - "Der er et meget lavt antal patienter fra privathospitalerne, hvilket tyder på ukomplette data" — see [[data-quality|Data Quality]] ([[adhd-databasen|ADHD-DATABASEN]]) [^src6]
-- "Der er massive problemer med registreringspraksis, således at udførte elementer ikke registreres" — see [[quality-assessment|Quality Assessment]] ([[adhd-databasen|ADHD-DATABASEN]]) [^src6]
+- "Der er massive problemer med registreringspraksis, således at udførte elementer ikke registreres" — see [[data-quality|Quality Assessment]] ([[adhd-databasen|ADHD-DATABASEN]]) [^src6]
 - "Indikator 2b er blevet delt i to indikatorer for at bedre afspejle to separate udredningselementer, som begge anses for vigtige i udredningen" — see [[policy-change|Policy Change]] (Indikator 2b) [^src7]
 - "Denne stigning er især drevet af resultatet i Midtjylland på 51 %, der er en stigning på 32 procentpoint sammenlignet med året før" — see [[performance-change|Performance Change]] ([[region-midtjylland|Region Midtjylland — Midtjylland]]) [^src10]
 - "Syddanmark har også opnået en stigning fra 16 % i 2023/24 til 26 % i 2024/25" — see [[performance-change|Performance Change]] ([[region-syddanmark|Region Syddanmark — Syddanmark]]) [^src10]

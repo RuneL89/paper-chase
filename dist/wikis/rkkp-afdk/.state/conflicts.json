@@ -83,6 +83,189 @@
           "AFDK_2023.pdf, p. 73 row \"Hospitalsenhed Midt\": the row itself is missing"
         ]
       }
+    },
+    {
+      "timestamp": "2026-08-14T19:38:58.083Z",
+      "type": "manual-edit",
+      "page": "topics/clinical-indicators/cardiology/hjertesvigtsindikatoren.md",
+      "reason": "Page was manually edited since last ingestion. Skipping update."
+    },
+    {
+      "timestamp": "2026-08-14T20:09:16.247Z",
+      "pageType": "entity",
+      "slug": "sygesikringsregisteret",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [
+          "Koder for ekkokardiografi i Sygesikringsregisteret: 3810 Ekkokardiografi, standardundersøgelse",
+          "Koder for ekkokardiografi i Sygesikringsregisteret: 3811 Ekkokardiografi, avanceret undersøgelse"
+        ],
+        "claims": []
+      }
+    },
+    {
+      "timestamp": "2026-08-14T20:38:34.957Z",
+      "pageType": "entity",
+      "slug": "3811-ekkocardiografi-avanceret-undersoegelse",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [
+          "Koder for ekkokardiografi i Sygesikringsregisteret: 3811 Ekkokardiografi, avanceret undersøgelse"
+        ],
+        "claims": []
+      }
+    },
+    {
+      "timestamp": "2026-08-14T20:39:44.183Z",
+      "pageType": "entity",
+      "slug": "3810-ekkocardiografi-standardundersoegelse",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [
+          "Koder for ekkokardiografi i Sygesikringsregisteret: 3810 Ekkokardiografi, standardundersøgelse"
+        ],
+        "claims": []
+      }
+    },
+    {
+      "timestamp": "2026-08-14T21:21:42.811Z",
+      "pageType": "entity",
+      "slug": "risom-2019",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Formålet med patientuddannelse er at styrke patienternes egenomsorg, handlekompetencer og selvbestemmelse, og hermed øge patienternes helbredsstatus og livskvalitet samt give dem redskaber til at leve livet med en kronisk sygdom (Risom, 2019) [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-14T21:22:45.281Z",
+      "pageType": "entity",
+      "slug": "uxuc80",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Koder for ekkokardiografi i Landspatientregisteret inkluderer UXUC80 (transthorakal ekkokardiografi), UXUC80A (transthorakal stress ekkokardiografi) og UXUC80B (transthorakal ekkokardiografi med dobutamin test) [^src6]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-14T21:34:04.294Z",
+      "pageType": "entity",
+      "slug": "sundhedsstyrelsen-2019",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Den danske Nationale Kliniske Retningslinje fra 2019 giver en stærk anbefaling for, at patienter med ny atrieflimren-diagnose deltager i hjerterehabilitering indeholdende patientuddannelse [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-14T21:35:19.759Z",
+      "pageType": "entity",
+      "slug": "nbv-cardio-dk",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Figur 3 viser et overblik over risikofaktorer for atrieflimren, hentet fra https://nbv.cardio.dk/af#152-faktorer-og-tilstande-som-er-associeret-med-atrieflimren [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-14T21:35:30.132Z",
+      "pageType": "entity",
+      "slug": "figur-3",
+      "dropped": {
+        "citations": [],
+        "mentions": [],
+        "relationships": [],
+        "claims": [
+          "Figur 3 viser et overblik over risikofaktorer for atrieflimren, hentet fra https://nbv.cardio.dk/af#152-faktorer-og-tilstande-som-er-associeret-med-atrieflimren [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-14T21:58:33.851Z",
+      "pageType": "topic",
+      "slug": "validation",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Patientforløb, validitet er ikke opgjort, men skønnes meget høj på baggrund af tidligere valideringsstudier i Landspatientregisteret af atrieflimren diagnosen (se bl.a. Sundbøl et al. BMJ Open. 2016;6(11):e01283 og Rix et al. Scand Cardiovasc J. 2012;46:149-53) [^src4]",
+          "Indberettede data per patient, validitet er ikke opgjort i forbindelse med AFDK, men skønnes høj. De anvendte registre og dataelementer har generelt høj validitet [^src4]",
+          "Patientforløb, validitet er ikke opgjort, men skønnes meget høj på baggrund af tidligere valideringsstudier i Landspatientregisteret af atrieflimren diagnosen (se bl.a. Sundbøl et al. BMJ Open. 2016;6(11):e01283 og Rix et al. Scand Cardiovasc J. 2012;46:149-53). [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-14T22:02:09.535Z",
+      "pageType": "topic",
+      "slug": "coding-system-specification",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Koder for oral antikoagulationsbehandling inkluderer B01AA (vitamin K antagonister), B01AE07 (dabigatran), B01AF01 (rivaroxaban), B01AF02 (apixaban) og B01AF03 (edoxaban) [^src5]",
+          "Koder for ekkokardiografi i Landspatientregisteret inkluderer UXUC80 (transthorakal ekkokardiografi), UXUC80A (transthorakal stress ekkokardiografi) og UXUC80B (transthorakal ekkokardiografi med dobutamin test) [^src6]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-14T22:03:12.234Z",
+      "pageType": "topic",
+      "slug": "quality-indicator-result",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "For Indikator 1 var andelen for hele Danmark 91,6 % (95 % CI: 91,2–92,0) i perioden 01.07.2024–30.06.2025 [^src2]",
+          "For Indikator 2 var andelen for hele Danmark 81,0 % (95 % CI: 80,4–81,5) i perioden 01.04.2024–31.03.2025 [^src2]",
+          "For Indikator 3 var andelen for hele Danmark 83,2 % (95 % CI: 82,7–83,7) i perioden 01.07.2024–30.06.2025 [^src2]",
+          "For Indikator 4a var andelen for hele Danmark 88,2 % (95 % CI: 87,7–88,7) i perioden 01.07.2022–30.06.2023 [^src2]",
+          "For Indikator 4b var andelen for hele Danmark 94,3 % (95 % CI: 94,1–94,4) i perioden 01.07.2024–30.06.2025 [^src2]",
+          "For Indikator 5 var incidensen for hele Danmark 0,8 % (95 % CI: 0,8–0,9) i perioden 01.07.2024–30.06.2025 [^src2]",
+          "For Indikator 6 var incidensen for hele Danmark 0,6 % (95 % CI: 0,5–0,6) i perioden 01.07.2024–30.06.2025 [^src2]",
+          "For Indikator 7 var incidensen for hele Danmark 2,2 % (95 % CI: 2,1–2,3) i perioden 01.07.2024–30.06.2025 [^src2]",
+          "For Indikator 8 var andelen for hele Danmark 19,2 % (95 % CI: 18,6–19,7) i perioden 01.07.2023–30.06.2024 [^src2]",
+          "For Indikator 15 var andelen for hele Danmark 5,8 % (95 % CI: 5,5–6,2) i perioden 01.07.2024–30.06.2025 [^src2]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-14T22:03:45.840Z",
+      "pageType": "topic",
+      "slug": "quality-indicator-definition",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "Indikator 1 måler andelen af nydiagnosticerede patienter med atrieflimren, der har ventetid på max. 30 dage fra diagnosticering til opstart i antikoagulationsbehandling, hvor behandlingen er indiceret [^src3]",
+          "Indikator 2 måler andelen af nydiagnosticerede patienter med atrieflimren, der har fået udført ekkokardiografi fra 6 måneder før til 3 måneder efter 1. diagnosedato [^src4]",
+          "Indikator 8 måler andelen af patienter med atrieflimren, som får et struktureret undervisningsprogram indenfor 1 år efter diagnosen er stillet [^src1]"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-08-14T22:32:50.192Z",
+      "pageType": "comparison",
+      "slug": "indikator-8-andel-af-nydiagnosticerede-patienter-med-atrieflimren-som-faar-et-struktureret-undervisningsprogram-indenfor-det-1-aar-efter-at-diagnosen-er-stillet",
+      "dropped": {
+        "citations": [],
+        "claims": [
+          "AFDK_2023.pdf, p. 73 row \"Rigshospitalet\": the row itself is missing",
+          "AFDK_2023.pdf, p. 73 row \"Slagelse\": the row itself is missing",
+          "AFDK_2023.pdf, p. 73 row \"Næstved\": the row itself is missing",
+          "AFDK_2023.pdf, p. 73 row \"Hospitalsenhed Midt\": the row itself is missing"
+        ]
+      }
     }
   ]
 }

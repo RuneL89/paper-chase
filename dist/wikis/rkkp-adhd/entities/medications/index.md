@@ -4,17 +4,18 @@ type: index
 aliases:
   - Medications
 wiki: rkkp-adhd
-updated: '2026-08-05T19:03:42.121Z'
+updated: '2026-08-15T12:30:55.308Z'
 children:
   - adhd/index.md
+  - index.md
 ---
 # Medications
 
-This folder catalogs pharmacological treatments tracked within the Danish national ADHD database quality monitoring system. It currently groups medications specifically used for ADHD, covering both stimulant and non-stimulant drugs. These medications serve as key metrics for evaluating clinical quality indicators, measuring treatment coverage, and analyzing regional healthcare variations across Denmark.
+This area groups the pharmacological substances tracked within the Danish national ADHD database quality monitoring system. It currently covers the core medications used to treat ADHD, detailing how both stimulants and non-stimulants are integrated into national clinical quality indicators. By cataloging these treatments, the section provides a foundation for measuring pharmacological coverage, evaluating regional variations, and guiding evidence-based psychiatric care across Denmark.
 
 ## Pages
 
-- [[entities/medications/adhd/index|Adhd]] — Specific pharmacological treatments for ADHD, including stimulants and non-stimulants, tracked for national quality indicators and regional treatment coverage metrics.
+- [[entities/medications/adhd/index|Adhd]] — The core pharmacological treatments for ADHD monitored in Danish national quality indicators, covering stimulants and non-stimulants used to measure treatment coverage and regional variations.
 
 ## Navigation
 

@@ -4,21 +4,22 @@ type: index
 aliases:
   - Quality Indicators
 wiki: rkkp-afdk
-updated: '2026-08-05T23:45:23.172Z'
+updated: '2026-08-15T00:51:32.615Z'
 children:
   - atrial-fibrillation/index.md
   - cardiology/index.md
   - cardiovascular/index.md
+  - index.md
 ---
 # Quality Indicators
 
-This area groups the clinical quality indicators used by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) to monitor and evaluate cardiovascular care in Denmark, with a strong focus on atrial fibrillation. It covers metrics tracking the timeliness and long-term adherence of anticoagulation therapy, patient education, and critical safety and survival endpoints such as ischemic stroke incidence, severe bleeding, and one-year mortality. Additionally, it includes governance documentation regarding the retention and standard-setting for these treatment quality indicators across Danish regions.
+This folder groups the clinical quality indicators used to monitor and evaluate the care, safety, and outcomes of patients with atrial fibrillation within the Danish healthcare system. It is organized into three specialized areas: atrial fibrillation-specific metrics tracking long-term anticoagulation persistence and patient education; broader cardiology indicators measuring timely treatment initiation and ischemic stroke prevention; and cardiovascular indicators focusing on severe bleeding complications and one-year mortality rates. Together, these sub-folders define the normative benchmarks, performance thresholds, and survival data that support systematic quality improvement across national, regional, and local healthcare institutions.
 
 ## Pages
 
-- [[topics/quality-indicators/atrial-fibrillation/index|Atrial Fibrillation]] — Tracks long-term anticoagulation adherence at one, two, and five years, severe bleeding incidence, and structured patient education for atrial fibrillation patients.
-- [[topics/quality-indicators/cardiology/index|Cardiology]] — Evaluates the timeliness of anticoagulation initiation, ischemic stroke incidence, and governance decisions for cardiovascular treatment standards.
-- [[topics/quality-indicators/cardiovascular/index|Cardiovascular]] — Monitors critical safety and survival endpoints, specifically severe bleeding within the first year and one-year mortality rates for newly diagnosed patients.
+- [[topics/quality-indicators/atrial-fibrillation/index|Atrial Fibrillation]] — Details specific clinical quality indicators and development targets for atrial fibrillation, including anticoagulation persistence, major bleeding incidence, and structured patient education benchmarks.
+- [[topics/quality-indicators/cardiology/index|Cardiology]] — Catalogs cardiology metrics evaluating atrial fibrillation care, such as the timely initiation of anticoagulation therapy, ischemic stroke incidence, and general performance thresholds.
+- [[topics/quality-indicators/cardiovascular/index|Cardiovascular]] — Contains clinical indicators monitoring safety and survival outcomes, specifically tracking severe bleeding complications and one-year mortality rates among newly diagnosed patients.
 
 ## Navigation
 
@@ -31,13 +32,18 @@ This area groups the clinical quality indicators used by the Regionernes Klinisk
 - Sibling: [[topics/clinical-risk/index|Clinical Risk]]
 - Sibling: [[topics/clinical-risk-distribution/index|Clinical Risk Distribution]]
 - Sibling: [[topics/clinical-tools/index|Clinical Tools]]
+- Sibling: [[topics/coding-assignment/index|Coding Assignment]]
+- Sibling: [[topics/coding-system-specification/index|Coding System Specification]]
 - Sibling: [[topics/comparative-result/index|Comparative Result]]
+- Sibling: [[topics/critical-assessment/index|Critical Assessment]]
 - Sibling: [[topics/data-infrastructure/index|Data Infrastructure]]
 - Sibling: [[topics/definition/index|Definition]]
 - Sibling: [[topics/definitional/index|Definitional]]
 - Sibling: [[topics/epidemiology/index|Epidemiology]]
+- Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
 - Sibling: [[topics/geographic-distribution/index|Geographic Distribution]]
 - Sibling: [[topics/governance/index|Governance]]
+- Sibling: [[topics/guideline-recommendation/index|Guideline Recommendation]]
 - Sibling: [[topics/health-indicators/index|Health Indicators]]
 - Sibling: [[topics/healthcare-indicators/index|Healthcare Indicators]]
 - Sibling: [[topics/healthcare-quality-indicators/index|Healthcare Quality Indicators]]
@@ -53,12 +59,17 @@ This area groups the clinical quality indicators used by the Regionernes Klinisk
 - Sibling: [[topics/organizational-practice/index|Organizational Practice]]
 - Sibling: [[topics/patient-perspective/index|Patient Perspective]]
 - Sibling: [[topics/performance/index|Performance]]
+- Sibling: [[topics/performance-trend/index|Performance Trend]]
 - Sibling: [[topics/pharmacovigilance/index|Pharmacovigilance]]
 - Sibling: [[topics/policy-change/index|Policy Change]]
 - Sibling: [[topics/policy-decision/index|Policy Decision]]
+- Sibling: [[topics/policy-target/index|Policy Target]]
 - Sibling: [[topics/pre-hospital-treatment/index|Pre Hospital Treatment]]
+- Sibling: [[topics/quality-improvement-action/index|Quality Improvement Action]]
 - Sibling: [[topics/quality-indicator/index|Quality Indicator]]
 - Sibling: [[topics/quality-indicator-definition/index|Quality Indicator Definition]]
+- Sibling: [[topics/quality-indicator-result/index|Quality Indicator Result]]
+- Sibling: [[topics/quality-indicator-target/index|Quality Indicator Target]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/statistical-interpretation/index|Statistical Interpretation]]
 - Sibling: [[topics/validation/index|Validation]]

@@ -4,17 +4,18 @@ type: index
 aliases:
   - Medical Conditions
 wiki: rkkp-danibd
-updated: '2026-08-05T07:36:56.279Z'
+updated: '2026-08-15T07:44:22.636Z'
 children:
   - gastrointestinal/index.md
+  - index.md
 ---
 # Medical Conditions
 
-This folder groups medical conditions monitored within the Danish healthcare system, primarily through national clinical registries. It currently focuses on gastrointestinal disorders, encompassing broad diagnostic categories like Inflammatory Bowel Disease (IBD) alongside severe pediatric variants and post-surgical complications. These conditions are tracked to evaluate epidemiological trends, standardize diagnostic pathways, and measure clinical quality indicators across Danish hospitals.
+This folder groups medical conditions tracked within Danish national healthcare quality registries, specifically focusing on the DANIBD registry. It currently encompasses gastrointestinal conditions, cataloging overarching diagnostic categories like inflammatory bowel disease alongside severe pediatric variants, surgical complications, and specific allergies that impact registry data quality. The child areas provide detailed pages on each condition, outlining their clinical significance, diagnostic codes, and role in national quality assurance indicators.
 
 ## Pages
 
-- [[entities/medical-conditions/gastrointestinal/index|Gastrointestinal]] — Catalogs gastrointestinal conditions such as IBD, VEO-IBD, short bowel syndrome, and anastomotic leakage, detailing their epidemiological data and clinical quality metrics.
+- [[entities/medical-conditions/gastrointestinal/index|Gastrointestinal]] — Specific gastrointestinal conditions tracked within the DANIBD registry, including IBD, severe pediatric variants, surgical complications, and data-contaminating allergies.
 
 ## Navigation
 

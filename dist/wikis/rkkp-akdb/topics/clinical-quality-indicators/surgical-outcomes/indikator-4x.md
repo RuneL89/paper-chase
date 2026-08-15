@@ -4,51 +4,78 @@ type: entity
 aliases:
   - Indikator 4x
 wiki: rkkp-akdb
-updated: '2026-08-05T19:23:59.713Z'
+updated: '2026-08-15T06:25:59.450Z'
 sources:
   - file: wikis/rkkp-akdb/raw/AKDB_2024.pdf
     pages: '21-25, 26-30'
+  - file: wikis/rkkp-akdb/raw/AKDB_2025.pdf
+    pages: '106-110, 111-115, 21-25, 26-30, 6-10, 76-80'
 tags:
   - topic
 ---
-**Indikator 4x** is a clinical quality indicator in the Danish healthcare system that measures the speed and efficiency of acute surgical treatment. Specifically, it tracks the proportion of patients diagnosed with life-threatening conditions—such as perforation, ischemia, or postoperative intra-abdominal bleeding—who are operated on within six hours of arriving at the hospital [^src2]. By focusing on this critical time window, the indicator serves as a vital metric for evaluating acute treatment speed and overall system efficiency [^src2].
-
-The indicator is calculated using registry data from the [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] [^src2]. It specifically measures the proportion of patients operated on within six hours out of the total cohort of patients with the target diagnoses who are operated on within a maximum of 24 hours [^src2]. The official indicator descriptions and performance results are published by [[sundhedsvaesenets-kvalitetsinstitut|Sundhedsvæsenets Kvalitetsinstitut]] [^src2].
-
-Recent performance data highlights significant systemic challenges in meeting the goals for this indicator. The national result for the measured period was only 30.0% (95% CI: 27.0–33.2), which failed to meet the ambitious development target of ≥ 90% [^src1]. This shortfall has severe clinical implications, as waiting times for an operating room in these acute cases are directly linked to increased mortality and longer hospital stays [^src1]. The critical need for rapid intervention is further supported by the [[pulp-trial|PULP trial]], which demonstrated the importance of swift action and advocates for prioritizing this specific patient population [^src2].
-
-The most recent measurement period for Indikator 4x, alongside Indikator 4y (which covers less acute ileus), ran from September 1, 2023, to August 31, 2024 [^src2]. The use of this indicator is part of a broader national strategy under the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) to monitor and improve the quality of acute surgical care through standardized, measurable indicators based on clinical evidence [^src1].
 
 ## Mentions
+
 - Page 21: "Indikator 4x: Operation indenfor 6 timer, perforation, iskæmi, postoperativ intraabdominal blødning. Forest plot på afdelingsniveau" [^src1]
 - Page 26: "Indikator 4x beskriver andelen af patienter, der bliver opereret indenfor 6 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 24 timer, og hvor diagnosen er, perforation, iskæmi eller postoperativ intraabdominal blødning." [^src2]
+- Page 6: "Indikator 4x: Andelen af patienter, der er opereres inden for 6 timer (360 minutter) efter ankomst til sygehus for patienter, med en diagnose for perforation, iskæmi eller blødning, og som er opereret før 48 t." [^src3]
+- Page 7: "Indikator 4x: Andelen af patienter, der er opereres inden for 6 timer (360 minutter) efter ankomst til sygehus for patienter, med en diagnose for perforation, iskæmi eller blødning, og som er opereret før 48 t." [^src3]
+- Page 23: "Indikator 4x: Operation indenfor 6 timer (360 minutter) (Perforation eller iskæmi)" [^src4]
+- Page 25: "Indikator 4x: Operation indenfor 6 timer, perforation eller iskæmi. Forest plot på afdelingsniveau" [^src4]
+- Page 25: "Indikator 4x: Operation indenfor 6 timer, perforation eller iskæmi. Trendgraf over resultater på regionalt niveau" [^src4]
+- Page 26: "Indikatorbeskrivelse for indikator 4x" [^src5]
+- Page 26: "Indikator 4x beskriver andelen af patienter, der bliver opereret indenfor 6 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 48 timer, og hvor diagnosen er, perforation eller iskæmi." [^src5]
+- Page 76: "Supplerende opgørelse af 30-dages-mortalitet for indikator 4x" [^src6]
+- Page 78: "Supplerende opgørelse af 90-dages-mortalitet for indikator 4x" [^src6]
+- Page 106: "Indikator 4x: Operation indenfor 6 timer" [^src7]
+- Page 115: "Den lave målopfyldelse for operation inden for 6 timer (indikator 4x)" [^src8]
 
 ## Relationships
-**Outgoing**
-- **Subject**: indikator-4x
-  **Predicate**: is-calculated-from
-  **Object**: akut-kirurgi-databasen
-  **Evidence**: "Indikator 4x beskriver andelen af patienter, der bliver opereret indenfor 6 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 24 timer, og hvor diagnosen er, perforation, iskæmi eller postoperativ intraabdominal blødning." [^src2]
 
-**Incoming**
-- **Subject**: sundhedsvaesenets-kvalitetsinstitut
-  **Predicate**: publishes
-  **Object**: indikator-4x
-  **Evidence**: "Sundhedsvæsenets Kvalitetsinstitut udgiver Indikatorbeskrivelse for indikator 4x." [^src2]
-
-- **Subject**: pulp-trial
-  **Predicate**: supports-policy-for
-  **Object**: indikator-4x
-  **Evidence**: "PUPL studiet i slut nullerne viste hvor vigtig en hurtig indsats er og Fokus bør være at prioritere denne population højere." [^src2]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Calculated From [^src2]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Produced By [^src4]
+- [[sundhedsvaesenets-kvalitetsinstitut|Sundhedsvæsenets Kvalitetsinstitut]] — Is Published By [^src4]
+- [[akut-kirurgi-databasen|Akut Kirurgi Databasen]] — Is Calculated From [^src5]
+- [[region-hovedstaden|Region Hovedstaden — Hovedstaden]] — Has Target [^src5]
+- [[region-midtjylland|Region Midtjylland — Midtjylland]] — Has Target [^src5]
+- [[pulp-trial|PULP trial]] — Is Supported By Evidence From [^src5]
+- [[perforeret-ulcus|perforeret ulcus]] — Applies To Condition [^src5]
+- [[90-percent]] — Has Target [^src7]
+- [[rigshospitalet|Rigshospitalet]] — Is Assessed By [^src8]
+- [[sundhedsvaesenets-kvalitetsinstitut|Sundhedsvæsenets Kvalitetsinstitut]] — Publishes (incoming) — "Sundhedsvæsenets Kvalitetsinstitut udgiver Indikatorbeskrivelse for indikator 4x." [^src2]
+- [[pulp-trial|PULP trial]] — Supports Policy For (incoming) — "PUPL studiet i slut nullerne viste hvor vigtig en hurtig indsats er og Fokus bør være at prioritere denne population højere." [^src2]
+- [[hospitalsenhed-midt|Hospitalsenhed Midt]] — Is Best Practice For (incoming) — "Hospitalsenheden Midt (Viborg) fremstår som best practice og bør indgå i systematisk erfaringsudveksling" [^src5]
 
 ## Claims
-- **performance**: Indikator 4x havde et nationalt resultat på 30,0 % (95 % CI: 27,0–33,2) for perioden, hvilket ikke opfyldte udviklingsmålet på ≥ 90 % [^src1]
-- **clinical-consequence**: Ventetid på operationsstue giver øget mortalitet og længere indlæggelsestid [^src1]
 
-## Timeline
-- 01.09.2023 - 31.08.2024: Måleperiode for Indikator 4x og Indikator 4y [^src2]
+- Indikator 4x havde et nationalt resultat på 30,0 % (95 % CI: 27,0–33,2) for perioden, hvilket ikke opfyldte udviklingsmålet på ≥ 90 % [^src2] ([[indikator-4x|Indikator 4x]])
+- Ventetid på operationsstue giver øget mortalitet og længere indlæggelsestid [^src2] ([[indikator-4x|Indikator 4x]])
+- Indikator 4x har et udviklingsmål på ≥ 90 % for andelen af patienter med perforation, iskæmi eller blødning, der opereres inden for 6 timer efter ankomst til sygehus [^src3] ([[indikator-4x|Indikator 4x]])
+- For perioden 01.09.2024 – 31.08.2025 er opfyldelsen af Indikator 4x på landsplan 34,0 % (95 % CI: 30,8–37,3) [^src3] ([[indikator-4x|Indikator 4x]], [[danmark|Danmark]])
+- Indikator 4x: Andelen af patienter, der opereres indenfor seks timer efter ankomst til sygehus for patienter, der er opereret for perforation eller iskæmi, samt hvor patienten er opereret indenfor 48 timer efter ankomst til sygehuset [^src4] ([[indikator-4x|Indikator 4x]])
+- Udviklingsmålet for Indikator 4x er ≥ 90 % [^src4] ([[indikator-4x|Indikator 4x]])
+- Danmark: 294 / 865 (34,0 %, 95 % CI 30,8-37,3) for perioden 01.09.2024 - 31.08.2025 [^src4] ([[indikator-4x|Indikator 4x]])
+- Region Midtjylland: 87 / 206 (42,2 %, 95 % CI 35,4-49,3) for perioden 01.09.2024 - 31.08.2025 [^src4] ([[indikator-4x|Indikator 4x]], [[region-midtjylland|Region Midtjylland — Midtjylland]])
+- Indikator 4x beskriver andelen af patienter, der bliver opereret indenfor 6 timer efter ankomst til sygehus ud af de patienter, der opereres indenfor højst 48 timer, og hvor diagnosen er, perforation eller iskæmi [^src5] ([[indikator-4x|Indikator 4x]])
+- Der var i alt 865 patienter, der blev opereret indenfor 48 timer efter ankomst til sygehus, og hvor diagnosen er, perforation eller iskæmi. Heraf blev 294 opereret indenfor 6 timer, svarende til en andel på 34,0 % (95 % CI: 30,8-37,3) [^src5] ([[indikator-4x|Indikator 4x]])
+- Udviklingsmålet på ≥ 90 % for Indikator 4x blev ikke opnået på nationalt niveau [^src5] ([[indikator-4x|Indikator 4x]])
+- Regionalt varierede andelen for Indikator 4x fra 30,8 % i Region Hovedstaden til 42,0 % i Region Midtjylland [^src5] ([[indikator-4x|Indikator 4x]], [[region-hovedstaden|Region Hovedstaden — Hovedstaden]], [[region-midtjylland|Region Midtjylland — Midtjylland]])
+- Årets resultat på 34 % for Indikator 4x repræsenterer en positiv udvikling, men ligger fortsat væsentligt under udviklingsmålet på 80 % [^src5] ([[indikator-4x|Indikator 4x]])
+- For indikator 4x er 30-dages-mortaliteten i Danmark 12,3 % (95 % CI: 8,8–16,7) for perioden 01.09.2024 – 31.08.2025 [^src6] ([[indikator-4x|Indikator 4x]], [[danmark|Danmark]])
+- For indikator 4x er 90-dages-mortaliteten i Danmark 13,0 % (95 % CI: 9,4–17,4) for perioden 01.09.2024 – 31.08.2025 [^src6] ([[indikator-4x|Indikator 4x]], [[danmark|Danmark]])
+- Esbjerg Sygehus Grindsted Sygehus har den højeste 30-dages-mortalitetsandel blandt alle hospitalsenheder i 2024–2025 med 28,6 % (95 % CI: 3,7–71,0) [^src6] ([[esbjerg-sygehus-grindsted-sygehus|Esbjerg Sygehus Grindsted Sygehus]], [[indikator-4x|Indikator 4x]])
+- Regionshospitalet Gødstrup har en 30-dages-mortalitetsandel på 28,6 % (95 % CI: 11,3–52,2) for perioden 01.09.2024 – 31.08.2025 [^src6] ([[regionshospitalet-goedstrup|Regionshospitalet Gødstrup]], [[indikator-4x|Indikator 4x]])
+- Regionshospitalet Gødstrup har en 90-dages-mortalitetsandel på 33,3 % (95 % CI: 14,6–57,0) for perioden 01.09.2024 – 31.08.2025 [^src6] ([[regionshospitalet-goedstrup|Regionshospitalet Gødstrup]], [[indikator-4x|Indikator 4x]])
+- Ud af 865 patienter, der blev opereret inden for 48 timer, blev 294 opereret inden for 6 timer. Det svarer til 34,0 % på landsplan [^src7] ([[indikator-4x|Indikator 4x]])
 
 ## Sources
 
 [^src1]: AKDB_2024.pdf, pages 21-25
 [^src2]: AKDB_2024.pdf, pages 26-30
+[^src3]: AKDB_2025.pdf, pages 6-10
+[^src4]: AKDB_2025.pdf, pages 21-25
+[^src5]: AKDB_2025.pdf, pages 26-30
+[^src6]: AKDB_2025.pdf, pages 76-80
+[^src7]: AKDB_2025.pdf, pages 106-110
+[^src8]: AKDB_2025.pdf, pages 111-115
+

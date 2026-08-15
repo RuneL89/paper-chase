@@ -45,7 +45,7 @@ Summary: Tabellen sammenligner regional opfyldelse af Indikator 3 for 2023/24 og
 ## Related comparisons in prose
 
 - "Indikator 3 har en standard på ≥ 90 % for andelen af udredningsforløb, hvor der er afholdt diagnostisk konference med speciallæge i børne- og ungdomspsykiatri" — see [[quality-standard|Quality Standard]] ([[indikator-3|Indikator 3]]) [^src2]
-- "Standarden for Indikator 3 er fastlagt til 90 %" — see [[standard|Standard]] ([[indikator-3|Indikator 3]]) [^src3]
+- "Standarden for Indikator 3 er fastlagt til 90 %" — see [[quality-standard|Standard]] ([[indikator-3|Indikator 3]]) [^src3]
 - "Indikator 3 viser 0 % opfyldelse i flere afdelinger, herunder Vejle: Børne- Og Ungdomspsykiatrisk Ambulatorium (0 / 406) og Aabenraa: Børne og Ungdomspsykiatrisk Ambulatorium (15 / 286 = 5 %)." — see [[performance|Performance]] ([[indikator-3|Indikator 3]]) [^src4]
 - "Indikator 3 har en opfyldelsesprocent på 21 % på landsplan" — see [[performance|Performance]] ([[indikator-3|Indikator 3]]) [^src3]
 - "Indikator 3 har et udviklingsmål på ≥ 90 %, men opnåede kun 27 % (95 % CI: 25–28) i perioden 01.04.2024–31.03.2025" — see [[performance|Performance]] ([[indikator-3|Indikator 3]]) [^src5]

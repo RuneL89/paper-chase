@@ -4,17 +4,18 @@ type: index
 aliases:
   - Endocrine
 wiki: rkkp-afdk
-updated: '2026-08-05T22:40:15.230Z'
+updated: '2026-08-14T23:27:13.059Z'
 children:
+  - index.md
   - thyreoideastimulerende-hormon-tsh.md
 ---
 # Endocrine
 
-This folder contains endocrine biomarkers tracked within the Danish healthcare system to identify underlying physiological causes of cardiovascular conditions like atrial fibrillation. It currently documents thyroid-stimulating hormone (TSH), which is monitored through a national quality indicator to ensure newly diagnosed patients are screened for thyroid disease within a strict 90-day clinical window. The included page details the specific laboratory codes used in the LABKA database and the systemic data-capture challenges that have prevented national performance from meeting the 95% testing standard.
+This folder catalogs endocrine biomarkers evaluated within the Danish healthcare system's clinical pathways, specifically focusing on thyroid function in cardiovascular care. It currently contains the page for thyroid-stimulating hormone (TSH), a critical diagnostic marker used to identify underlying endocrine drivers in patients newly diagnosed with atrial fibrillation. The material details TSH's role in national quality registries, the extensive list of laboratory codes used to track it across regional databases, and the systemic data challenges that have hindered national testing targets.
 
 ## Pages
 
-- [[thyreoideastimulerende-hormon-tsh|thyreoideastimulerende hormon (TSH)]] — Tracks the national quality indicator for thyroid disease screening in newly diagnosed atrial fibrillation patients, including LABKA coding variations and performance shortfalls.
+- [[thyreoideastimulerende-hormon-tsh|thyreoideastimulerende hormon (TSH)]] — Details the role of TSH testing as a national quality indicator for newly diagnosed atrial fibrillation patients, including the specific laboratory codes used for tracking and the systemic challenges in meeting testing standards.
 
 ## Navigation
 

@@ -4,21 +4,23 @@ type: index
 aliases:
   - Clinical Quality Indicators
 wiki: rkkp-akdb
-updated: '2026-08-05T20:48:32.131Z'
+updated: '2026-08-15T09:01:51.743Z'
 children:
   - surgical-outcomes/index.md
+  - index.md
 ---
 # Clinical Quality Indicators
 
-This folder groups clinical quality indicators used to evaluate and monitor healthcare performance, specifically focusing on surgical outcomes within the Danish Acute Surgery Database (AKDB). It covers time-sensitive metrics like diagnostic speed and operative intervention times, as well as risk-adjusted post-operative mortality rates stratified by patient comorbidity. Together, these areas provide a structured framework for comparing hospital performance and ensuring high-quality acute surgical care across Denmark's healthcare system.
+This area groups clinical quality indicators used to measure and evaluate the standard of care, specifically focusing on acute surgical interventions. It covers surgical outcomes, providing detailed metrics on procedural timeliness—such as time-to-CT and time-to-operation for severe conditions—and risk-adjusted postoperative mortality stratified by patient comorbidity burden.
 
 ## Pages
 
-- [[topics/clinical-quality-indicators/surgical-outcomes/index|Surgical Outcomes]] — Clinical quality indicators from the Danish Acute Surgery Database evaluating treatment speed, logistical efficiency, and risk-adjusted post-operative mortality in acute surgical care.
+- [[topics/clinical-quality-indicators/surgical-outcomes/index|Surgical Outcomes]] — Specific metrics from the Danish Acute Surgery Database tracking surgical timeliness and 30-day postoperative mortality stratified by comorbidity.
 
 ## Navigation
 
 - Parent: [[topics/index|Topics]]
+- Sibling: [[topics/administrative-change/index|Administrative Change]]
 - Sibling: [[topics/administrative-systems/index|Administrative Systems]]
 - Sibling: [[topics/cancer-distribution/index|Cancer Distribution]]
 - Sibling: [[topics/clinical-assessment/index|Clinical Assessment]]
@@ -28,10 +30,12 @@ This folder groups clinical quality indicators used to evaluate and monitor heal
 - Sibling: [[topics/clinical-indicators/index|Clinical Indicators]]
 - Sibling: [[topics/clinical-metrics/index|Clinical Metrics]]
 - Sibling: [[topics/clinical-outcome/index|Clinical Outcome]]
+- Sibling: [[topics/clinical-process/index|Clinical Process]]
 - Sibling: [[topics/clinical-quality/index|Clinical Quality]]
 - Sibling: [[topics/coding-uncertainty/index|Coding Uncertainty]]
 - Sibling: [[topics/compliance/index|Compliance]]
 - Sibling: [[topics/data-availability/index|Data Availability]]
+- Sibling: [[topics/data-decision/index|Data Decision]]
 - Sibling: [[topics/data-privacy/index|Data Privacy]]
 - Sibling: [[topics/data-quality/index|Data Quality]]
 - Sibling: [[topics/definition/index|Definition]]
@@ -41,15 +45,19 @@ This folder groups clinical quality indicators used to evaluate and monitor heal
 - Sibling: [[topics/evaluation/index|Evaluation]]
 - Sibling: [[topics/evaluative/index|Evaluative]]
 - Sibling: [[topics/exclusion-criteria/index|Exclusion Criteria]]
+- Sibling: [[topics/governance/index|Governance]]
 - Sibling: [[topics/healthcare-metrics/index|Healthcare Metrics]]
 - Sibling: [[topics/healthcare-performance-indicators/index|Healthcare Performance Indicators]]
 - Sibling: [[topics/inter-hospital-variation/index|Inter Hospital Variation]]
 - Sibling: [[topics/methodological-assessment/index|Methodological Assessment]]
+- Sibling: [[topics/methodological-change/index|Methodological Change]]
 - Sibling: [[topics/performance/index|Performance]]
 - Sibling: [[topics/policy/index|Policy]]
+- Sibling: [[topics/quality-target/index|Quality Target]]
 - Sibling: [[topics/recommendation/index|Recommendation]]
 - Sibling: [[topics/regional-comparison/index|Regional Comparison]]
 - Sibling: [[topics/relevance-assessment/index|Relevance Assessment]]
+- Sibling: [[topics/research-finding/index|Research Finding]]
 - Sibling: [[topics/standard/index|Standard]]
 - Sibling: [[topics/technical-infrastructure/index|Technical Infrastructure]]
 - Sibling: [[topics/visualizations/index|Visualizations]]

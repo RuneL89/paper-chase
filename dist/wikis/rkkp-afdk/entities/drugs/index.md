@@ -4,17 +4,18 @@ type: index
 aliases:
   - Drugs
 wiki: rkkp-afdk
-updated: '2026-08-05T22:48:42.762Z'
+updated: '2026-08-14T23:37:49.020Z'
 children:
   - anticoagulants/index.md
+  - index.md
 ---
 # Drugs
 
-This folder groups pharmacological entities tracked within the Danish healthcare system, specifically focusing on medications used to manage cardiovascular conditions. It currently contains a dedicated sub-folder for anticoagulants, which catalogs the Anatomical Therapeutic Chemical (ATC) codes for direct oral anticoagulants (DOACs) utilized by the Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) to evaluate treatment adherence, renal function monitoring, and clinical quality indicators for patients diagnosed with atrial fibrillation.
+This folder groups pharmacological agents tracked within the Danish national clinical quality database for atrial fibrillation. It currently focuses on specific drug classifications used by regional health authorities to measure treatment initiation, monitor patient outcomes, and calculate denominators for national clinical quality indicators. 
 
 ## Pages
 
-- [[entities/drugs/anticoagulants/index|Anticoagulants]] — Catalogs ATC codes for direct oral anticoagulants (DOACs) such as dabigatran, rivaroxaban, apixaban, and edoxaban, used to standardize and measure cardiovascular care quality across Danish registries.
+- [[entities/drugs/anticoagulants/index|Anticoagulants]] — Anatomical Therapeutic Chemical (ATC) classification codes for direct oral anticoagulants (DOACs) like dabigatran, rivaroxaban, apixaban, and edoxaban, used to evaluate cardiovascular care quality.
 
 ## Navigation
 

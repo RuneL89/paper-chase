@@ -1,0 +1,412 @@
+{
+  "entities": [
+    {
+      "name": "Intrakraniel blødning",
+      "type": "medical-condition",
+      "slug": "intrakraniel-bloedning",
+      "folder": "topics/medical-conditions/neurological",
+      "significance": "Intrakraniel blødning er den centrale kliniske komplikation, som indikator 6 måler incidensen af blandt prævalente patienter med atrieflimren, og danner grundlag for udviklingsmålet på ≤ 0,6%.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Indikator 6: Incidens Intrakraniel blødning"
+        },
+        {
+          "page": 42,
+          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren"
+        },
+        {
+          "page": 45,
+          "context": "Oplysningerne vedrørende intrakraniel blødning indhentes fra Landspatientregistret"
+        }
+      ]
+    },
+    {
+      "name": "Atrieflimren",
+      "type": "medical-condition",
+      "slug": "atrieflimren",
+      "folder": "topics/medical-conditions/cardiovascular",
+      "significance": "Atrieflimren er den underliggende sygdom, hvis prævalente patientpopulation udgør nævneren i beregningen af indikator 6, og dermed definerer den kliniske gruppe, hvor risikoen for intrakraniel blødning vurderes.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren."
+        },
+        {
+          "page": 42,
+          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren"
+        },
+        {
+          "page": 45,
+          "context": "blandt prævalente patienter med atrieflimren"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/health-quality-infrastructure",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den ansvarlige myndighed, der udgiver rapporten om atrieflimren i Danmark og står bag udviklingen og overvågningen af indikator 6.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 42,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 43,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 44,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        },
+        {
+          "page": 45,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "Landspatientregistret",
+      "type": "database",
+      "slug": "landspatientregisteret",
+      "folder": "entities/databases/healthcare-registries",
+      "significance": "Landspatientregistret er kilde til de diagnostiske data om intrakraniel blødning, som bruges til at identificere hændelser til beregning af indikator 6.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Oplysningerne vedrørende intrakraniel blødning indhentes fra Landspatientregistret"
+        }
+      ]
+    },
+    {
+      "name": "DI60",
+      "type": "diagnosis-code",
+      "slug": "di60",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI60 er en specifik ICD-10-diagnosekode (subaraknoidal blødning), der anvendes til identifikation af intrakraniel blødning i Landspatientregistret og indgår direkte i datagrundlaget for indikator 6.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "DI60 (subaraknoidal blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DI61",
+      "type": "diagnosis-code",
+      "slug": "di61",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI61 er en specifik ICD-10-diagnosekode (hjerneblødning), der anvendes til identifikation af intrakraniel blødning i Landspatientregistret og indgår direkte i datagrundlaget for indikator 6.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "DI61 (hjerneblødning)"
+        }
+      ]
+    },
+    {
+      "name": "DI62",
+      "type": "diagnosis-code",
+      "slug": "di62",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DI62 er en specifik ICD-10-diagnosekode (andre ikke-traumatiske intrakranielle blødninger), der anvendes til identifikation af intrakraniel blødning i Landspatientregistret og indgår direkte i datagrundlaget for indikator 6.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "DI62 (andre ikke-traumatiske intrakranielle blødninger)"
+        }
+      ]
+    },
+    {
+      "name": "DS064",
+      "type": "diagnosis-code",
+      "slug": "ds064",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DS064 er en specifik ICD-10-diagnosekode (traumatisk epidural blødning), der anvendes til identifikation af intrakraniel blødning i Landspatientregistret og indgår direkte i datagrundlaget for indikator 6.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "DS064 (traumatisk epidural blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DS065",
+      "type": "diagnosis-code",
+      "slug": "ds065",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DS065 er en specifik ICD-10-diagnosekode (traumatisk subdural blødning), der anvendes til identifikation af intrakraniel blødning i Landspatientregistret og indgår direkte i datagrundlaget for indikator 6.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "DS065 (traumatisk subdural blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DS066",
+      "type": "diagnosis-code",
+      "slug": "ds066",
+      "folder": "entities/codes/diagnosis-codes",
+      "significance": "DS066 er en specifik ICD-10-diagnosekode (traumatisk subarachnoidal blødning), der anvendes til identifikation af intrakraniel blødning i Landspatientregistret og indgår direkte i datagrundlaget for indikator 6.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "DS066 (traumatisk subarachnoidal blødning)"
+        }
+      ]
+    },
+    {
+      "name": "DOAC",
+      "type": "drug-class",
+      "slug": "doac",
+      "folder": "entities/drugs/anticoagulants",
+      "significance": "DOAC (direkte orale antikoagulantia) er en behandlingsgruppe, hvis anvendelse diskuteres som en faktor, der kan reducere risikoen for intrakraniel blødning blandt patienter med atrieflimren, og som indgår i appendiks-analysen af behandlingsforhold.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Andelen af patienter med intrakraniel blødning er 0,57 % for DOAC"
+        }
+      ]
+    },
+    {
+      "name": "Marevan",
+      "type": "pharmaceutical",
+      "slug": "marevan",
+      "folder": "entities/pharmaceuticals/anticoagulants",
+      "significance": "Marevan er et specifikt antikoagulantium, hvis anvendelse sammenlignes med DOAC i forbindelse med risiko for intrakraniel blødning, og som indgår i appendiks-analysen af behandlingsforhold.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "Andelen af patienter med intrakraniel blødning er 0,63% for marevan."
+        }
+      ]
+    },
+    {
+      "name": "CHA₂DS₂-VASc",
+      "type": "medical-score",
+      "slug": "cha2ds2-vasc",
+      "folder": "topics/clinical-tools/risk-scores",
+      "significance": "CHA₂DS₂-VASc-scoren er en risikoskala, hvis fordeling blandt patienter med intrakraniel blødning analyseres i appendiks, hvilket understøtter konteksten for risikovurdering af denne komplikation.",
+      "mentions": [
+        {
+          "page": 45,
+          "context": "fordelingen af CHA2DS2-VASc/ CHA2DS2-VA score blandt patienterne med intrakraniel blødning."
+        }
+      ]
+    },
+    {
+      "name": "Udviklingsmål",
+      "type": "quality-indicator",
+      "slug": "udviklingsmaal",
+      "folder": "topics/quality-indicators/atrial-fibrillation",
+      "significance": "Udviklingsmålet på ≤ 0,6% er den normative standard, der fastlægges for indikator 6, og som bruges til at vurdere, om kvaliteten af behandlingen af patienter med atrieflimren opfylder det ønskede niveau for forebyggelse af intrakraniel blødning.",
+      "mentions": [
+        {
+          "page": 42,
+          "context": "Udviklingsmål Uoplyst Aktuelle år Tidligere år\n≤ 0,6%"
+        },
+        {
+          "page": 45,
+          "context": "Med baggrund i data fastlægges udviklingsmålet bland prævalente patienter med atrieflimren til ≤ 0,6 per 100 risiko år."
+        }
+      ]
+    },
+    {
+      "name": "Prævalente patienter med atrieflimren",
+      "type": "patient-population",
+      "slug": "praevalente-patienter-med-atrieflimren",
+      "folder": "topics/clinical-indicators/atrial-fibrillation",
+      "significance": "Denne patientpopulation udgør nævneren i beregningen af indikator 6 og er defineret som alle personer med registreret diagnose af atrieflimren i Landspatientregistret, hvilket gør dem til målgruppen for kvalitetsmålingen.",
+      "mentions": [
+        {
+          "page": 41,
+          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren."
+        },
+        {
+          "page": 42,
+          "context": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren"
+        },
+        {
+          "page": 45,
+          "context": "blandt prævalente patienter med atrieflimren"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "intrakraniel-bloedning",
+      "predicate": "is-complication-of",
+      "object": "atrieflimren",
+      "evidence": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren.",
+      "page": 41
+    },
+    {
+      "subject": "sundhedsvaesenets-kvalitetsinstitut",
+      "predicate": "publishes",
+      "object": "udviklingsmaal",
+      "evidence": "Sundhedsvæsenets Kvalitetsinstitut\nIndikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren. Udviklingsmål ≤ 0,6%",
+      "page": 42
+    },
+    {
+      "subject": "landspatientregisteret",
+      "predicate": "provides-data-for",
+      "object": "intrakraniel-bloedning",
+      "evidence": "Oplysningerne vedrørende intrakraniel blødning indhentes fra Landspatientregistret",
+      "page": 45
+    },
+    {
+      "subject": "di60",
+      "predicate": "codes-for",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DI60 (subaraknoidal blødning)",
+      "page": 45
+    },
+    {
+      "subject": "di61",
+      "predicate": "codes-for",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DI61 (hjerneblødning)",
+      "page": 45
+    },
+    {
+      "subject": "di62",
+      "predicate": "codes-for",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DI62 (andre ikke-traumatiske intrakranielle blødninger)",
+      "page": 45
+    },
+    {
+      "subject": "ds064",
+      "predicate": "codes-for",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DS064 (traumatisk epidural blødning)",
+      "page": 45
+    },
+    {
+      "subject": "ds065",
+      "predicate": "codes-for",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DS065 (traumatisk subdural blødning)",
+      "page": 45
+    },
+    {
+      "subject": "ds066",
+      "predicate": "codes-for",
+      "object": "intrakraniel-bloedning",
+      "evidence": "DS066 (traumatisk subarachnoidal blødning)",
+      "page": 45
+    },
+    {
+      "subject": "doac",
+      "predicate": "associated-with-lower-risk-than",
+      "object": "marevan",
+      "evidence": "Det forventes, at risikoen for intrakraniel blødning vil aftage over tid som følge af introduktionen af DOAC (direkte orale antikoagulantia), der har lavere risiko for komplicerende intrakraniel blødning sammenlignet med Marevan.",
+      "page": 45
+    }
+  ],
+  "claims": [
+    {
+      "text": "I alt blev 0,6% af de prævalente patienter med atrieflimren indlagt med intrakraniel blødning i den aktuelle opgørelsesperiode og udviklingsmålet (0,6%) er således opfyldt [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "intrakraniel-bloedning",
+        "atrieflimren",
+        "udviklingsmaal"
+      ],
+      "page": 45
+    },
+    {
+      "text": "De seneste to år var andelen 0,5%, men det er for tidligt at tale om en stigning af betydning [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "intrakraniel-bloedning",
+        "atrieflimren"
+      ],
+      "page": 45
+    },
+    {
+      "text": "På regionalt niveau varierer andelen fra 0,5-0,7% [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "intrakraniel-bloedning",
+        "atrieflimren"
+      ],
+      "page": 45
+    },
+    {
+      "text": "På klyngeniveau varierer andelen fra 0,3-1,1% [^src1]",
+      "type": "clinical-outcome",
+      "entities": [
+        "intrakraniel-bloedning",
+        "atrieflimren"
+      ],
+      "page": 45
+    },
+    {
+      "text": "Andelen af patienter med intrakraniel blødning er 0,57 % for DOAC [^src1]",
+      "type": "pharmacovigilance",
+      "entities": [
+        "doac",
+        "intrakraniel-bloedning"
+      ],
+      "page": 45
+    },
+    {
+      "text": "Andelen af patienter med intrakraniel blødning er 0,63% for marevan [^src1]",
+      "type": "pharmacovigilance",
+      "entities": [
+        "marevan",
+        "intrakraniel-bloedning"
+      ],
+      "page": 45
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.07.2024 - 30.06.2025",
+      "event": "Aktuel opgørelsesperiode for indikator 6",
+      "entities": [
+        "udviklingsmaal"
+      ]
+    },
+    {
+      "date": "2023/24",
+      "event": "Tidligere opgørelsesperiode for indikator 6",
+      "entities": [
+        "udviklingsmaal"
+      ]
+    },
+    {
+      "date": "2022/23",
+      "event": "Tidligere opgørelsesperiode for indikator 6",
+      "entities": [
+        "udviklingsmaal"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-6",
+      "title": "Indikator 6: Incidens af intrakraniel blødning blandt prævalente patienter med atrieflimren",
+      "page": 42,
+      "rowDimension": "regioner og sundhedsklynger",
+      "colDimension": "andel, antal, konfidensinterval",
+      "entities": [
+        "intrakraniel-bloedning",
+        "atrieflimren",
+        "sundhedsvaesenets-kvalitetsinstitut"
+      ],
+      "markdown": "| Region / Sundhedsklynge | Opfyldt | Tæller / antal | Andel (%) | 95% CI | Andel 2023/24 | Andel 2022/23 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Danmark | Ja | 789 / 138.889 | 0,6 | (0,5-0,6) | 0,5 | 0,5 |\n| Hovedstaden | Ja | 194 / 38.830 | 0,5 | (0,4-0,6) | 0,6 | 0,7 |\n| Sjælland | Ja | 134 / 23.101 | 0,6 | (0,5-0,7) | 0,5 | 0,5 |\n| Syddanmark | Ja | 158 / 31.414 | 0,5 | (0,4-0,6) | 0,5 | 0,5 |\n| Midtjylland | Nej | 203 / 30.615 | 0,7 | (0,6-0,8) | 0,6 | 0,4 |\n| Nordjylland | Nej | 100 / 14.929 | 0,7 | (0,5-0,8) | 0,6 | 0,5 |\n| Bornholm | Ja | 8 / 1.318 | 0,6 | (0,3-1,2) | 0,5 | 0,5 |\n| Byen | Ja | 59 / 10.622 | 0,6 | (0,4-0,7) | 0,6 | 0,7 |\n| Midt | Ja | 51 / 11.163 | 0,5 | (0,3-0,6) | 0,6 | 0,6 |\n| Nord | Ja | 40 / 9.193 | 0,4 | (0,3-0,6) | 0,5 | 0,7 |\n| Syd | Ja | 36 / 6.534 | 0,6 | (0,4-0,8) | 0,6 | 0,6 |\n| Holbæk | Nej | 35 / 5.088 | 0,7 | (0,5-1,0) | 0,6 | 0,4 |\n| Nykøbing F | Nej | 31 / 4.666 | 0,7 | (0,5-0,9) | 0,5 | 0,6 |\n| SUH | Ja | 43 / 7.437 | 0,6 | (0,4-0,8) | 0,5 | 0,4 |\n| Slagelse | Ja | 25 / 5.910 | 0,4 | (0,3-0,6) | 0,4 | 0,4 |\n| Fyn | Ja | 68 / 11.706 | 0,6 | (0,5-0,7) | 0,7 | 0,6 |\n| Lillebælt | Ja | 32 / 7.112 | 0,4 | (0,3-0,6) | 0,5 | 0,5 |\n| Sydvestjylland | Ja | 22 / 6.182 | 0,4 | (0,2-0,5) | 0,4 | 0,5 |\n| Sønderjylland | Ja | 36 / 6.414 | 0,6 | (0,4-0,8) | 0,4 | 0,3 |\n| Aarhusklyngen | Nej | 44 / 6.151 | 0,7 | (0,5-1,0) | 0,6 | 0,5 |\n| Gødstrupklyngen | Nej | 51 / 7.283 | 0,7 | (0,5-0,9) | 0,5 | 0,4 |\n| Horsensklyngen | Ja | 28 / 5.216 | 0,5 | (0,4-0,8) | 0,6 | 0,3 |\n| Midtklyngen | Ja | 40 / 6.216 | 0,6 | (0,5-0,9) | 0,6 | 0,4 |\n| Randersklyngen | Nej | 40 / 5.749 | 0,7 | (0,5-0,9) | 0,5 | 0,5 |\n| Klynge MIDT | Ja | 33 / 5.505 | 0,6 | (0,4-0,8) | 0,7 | 0,5 |\n| Klynge NORD | Nej | 33 / 4.828 | 0,7 | (0,5-1,0) | 0,5 | 0,5 |\n| Klynge SYD | Ja | 15 / 2.813 | 0,5 | (0,3-0,9) | 0,5 | 0,5 |\n| Klynge VEST | Nej | 19 / 1.783 | 1,1 | (0,6-1,7) | 0,3 | 0,6 |",
+      "summary": "Tabellen sammenligner incidensen af intrakraniel blødning blandt prævalente patienter med atrieflimren på regions- og sundhedsklyngeniveau, og viser, at andelen varierer fra 0,3% til 1,1%, med flest regioner/klynger på 0,5–0,6% og nogle (f.eks. Klynge VEST) over udviklingsmålet på 0,6%."
+    }
+  ],
+  "context": "Dette dokumentudsnit er en del af rapporten 'Atrieflimren i Danmark' udgivet af Sundhedsvæsenets Kvalitetsinstitut og fokuserer på indikator 6, som måler incidensen af intrakraniel blødning blandt prævalente patienter med atrieflimren. Den indgår i et bredere kvalitetsudviklingsprogram, hvor resultaterne bruges til at vurdere effekten af behandlingsstrategier, især indførelsen af DOAC i stedet for Marevan, samt til at justere udviklingsmål og overveje aldersstandardisering af indikatorer på baggrund af demografiske tendenser. Rapporten bygger på data fra Landspatientregistret og anvender specifikke ICD-10-diagnosekoder til at identificere relevante blødningstilfælde."
+}

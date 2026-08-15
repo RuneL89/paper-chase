@@ -1,0 +1,354 @@
+{
+  "entities": [
+    {
+      "name": "Akut Kirurgi Databasen",
+      "type": "database",
+      "slug": "akut-kirurgi-databasen",
+      "folder": "entities/databases/clinical",
+      "significance": "Akut Kirurgi Databasen er den centrale kliniske database, der indsamler og analyserer data om akut kirurgiske forløb i Danmark, og danner grundlaget for alle indikatoranalyser og vurderinger i dette dokument.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Akut Kirurgi Databasen"
+        }
+      ]
+    },
+    {
+      "name": "Sundhedsvæsenets Kvalitetsinstitut",
+      "type": "organization",
+      "slug": "sundhedsvaesenets-kvalitetsinstitut",
+      "folder": "entities/organizations/healthcare-oversight",
+      "significance": "Sundhedsvæsenets Kvalitetsinstitut er den offentlige myndighed, der udarbejder og udgiver denne rapport, styrer indikatorprogrammet og har ansvaret for kvalitetsudvikling i det danske sundhedsvæsen.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Sundhedsvæsenets Kvalitetsinstitut"
+        }
+      ]
+    },
+    {
+      "name": "indikator 4y",
+      "type": "indicator",
+      "slug": "indikator-4y",
+      "folder": "entities/indicators",
+      "significance": "Indikator 4y måler andelen af patienter med ileusoperationer uden iskæmi eller perforation, der opereres inden for 24 timer efter ankomst til sygehus, og er en central kvalitetsmåling for behandlingshastighed i akut kirurgi.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Diskussion og implikationer af årets resultater for indikator 4y"
+        }
+      ]
+    },
+    {
+      "name": "indikator 5",
+      "type": "indicator",
+      "slug": "indikator-5",
+      "folder": "entities/indicators",
+      "significance": "Indikator 5 måler andelen af ældre (≥75 år) eller svært syge (ASA ≥3) patienter, der monitoreres ≥24 timer postoperativt på et intermediært eller lignende afsnit, og er en kritisk kvalitetsmåling for sikkerhed og intensiv overvågning af højrisikopatienter.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Indikator 5: Intermediær indlæggelse"
+        }
+      ]
+    },
+    {
+      "name": "Region Nordjylland",
+      "type": "location",
+      "slug": "region-nordjylland",
+      "folder": "entities/locations/national",
+      "significance": "Region Nordjylland er en af de fem regioner i Danmark og viser det laveste niveau for indikator 4y (78,8 %) og indikator 5 (10,4 %), hvilket understreger regional variation i klinisk praksis og ressourceallokering.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "fra 78,8 % i Region Nordjylland til 84,2 % i Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Region Sjælland",
+      "type": "location",
+      "slug": "region-sjaelland",
+      "folder": "entities/locations/national",
+      "significance": "Region Sjælland er en af de fem regioner i Danmark og viser det højeste niveau for indikator 4y (84,2 %), og er nævnt som eksempel på god praksis sammen med Holbæk Sygehus og Rigshospitalet.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "fra 78,8 % i Region Nordjylland til 84,2 % i Region Sjælland"
+        }
+      ]
+    },
+    {
+      "name": "Holbæk Sygehus",
+      "type": "organization",
+      "slug": "holbaek-sygehus",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Holbæk Sygehus fremhæves som en referenceenhed for indikator 4y på grund af sin overmålopfyldelse, hvilket gør det til et eksempel på bedste praksis inden for behandlingshastighed ved ileusoperationer.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Holbæk og Rigshospitalet præsterer over målopfyldelse og kan fungere som referenceenheder."
+        }
+      ]
+    },
+    {
+      "name": "Rigshospitalet",
+      "type": "organization",
+      "slug": "rigshospitalet",
+      "folder": "entities/organizations/hospitals",
+      "significance": "Rigshospitalet fremhæves som en referenceenhed for indikator 4y på grund af sin overmålopfyldelse, hvilket gør det til et eksempel på bedste praksis inden for behandlingshastighed ved ileusoperationer.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Holbæk og Rigshospitalet præsterer over målopfyldelse og kan fungere som referenceenheder."
+        }
+      ]
+    },
+    {
+      "name": "ASA-score",
+      "type": "score",
+      "slug": "asa-score",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "ASA-scoren er en central præoperativ risikovurderingsskala, der bruges til at definere højrisikogruppen i indikator 5 (ASA ≥3), og er en af de to primære kriterier for inklusion i denne kvalitetsmåling.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Andelen af ældre (≥ 75 år) eller svært syge (ASA ≥3) patienter, der monitoreres ≥ 24 timer postoperativt på et intermediært afsnit eller et lignende afsnit."
+        }
+      ]
+    },
+    {
+      "name": "Charlson Comorbidity index",
+      "type": "score",
+      "slug": "charlson-comorbiditets-indeks",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "Charlson Comorbidity index er en alternativ risikoskala nævnt som relevant for præoperativ vurdering af højrisiko kirurgiske patienter, men ikke anvendt i definitionen af indikator 5.",
+      "mentions": [
+        {
+          "page": 35,
+          "context": "Præ-operative scoringer som f.eks. ASA score og Charlson Comorbidity index tager udgangspunkt i risikofaktorer, der var til stede ved indlæggelse."
+        }
+      ]
+    },
+    {
+      "name": "APACHE",
+      "type": "score",
+      "slug": "apache",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "APACHE-scoring er en intensivmedicinsk risikoskala, der nævnes som mulig præoperativ prediktor for mortalitetsrisiko, men vurderes som for omfattende til praktisk brug i indikator 5.",
+      "mentions": [
+        {
+          "page": 35,
+          "context": "Man har også vist at APACHE scoring, som er tilegnet intensivpatienter, kan benyttes præ-operativt til at forudsige mortalitets-risiko for akutte mave-tarm kirurgiske patienter."
+        }
+      ]
+    },
+    {
+      "name": "P-POSSUM",
+      "type": "score",
+      "slug": "p-possum",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "P-POSSUM er en postoperativ risikoskala, der nævnes som potentiel, men vurderes som for omfattende til praktisk brug i indikator 5.",
+      "mentions": [
+        {
+          "page": 35,
+          "context": "Post-operativt kan man benytte P-POSSUM, som tager udgangspunkt i bl.a. præ-operative og inter-operative observationer."
+        }
+      ]
+    },
+    {
+      "name": "Surgical Apgar Score",
+      "type": "score",
+      "slug": "surgical-apgar-score",
+      "folder": "entities/scores/clinical-assessment",
+      "significance": "Surgical Apgar Score er en simpel intraoperativ risikoskala, der nævnes som ufuldstændig til at identificere alle højrisikopatienter, da den ekskluderer dem, der ikke er fysiologisk stressede peroperativt.",
+      "mentions": [
+        {
+          "page": 35,
+          "context": "Surgical Apgar Score tager kun udgangspunkt i inter-operative observationer."
+        }
+      ]
+    },
+    {
+      "name": "NASBO-projektet",
+      "type": "study",
+      "slug": "nasbo-projektet",
+      "folder": "entities/studies/clinical-trials",
+      "significance": "NASBO-projektet er et britisk studie, der citeres som bekræftelse på, at variation i klinisk praksis og ressourceallokering direkte påvirker patientresultater, og dermed understøtter behovet for standardisering i dansk akut kirurgi.",
+      "mentions": [
+        {
+          "page": 31,
+          "context": "Erfaringer fra det britiske NASBO-projekt peger i samme retning og viser, at variation i praksis og ressourceallokering har direkte indflydelse på patientresultater."
+        }
+      ]
+    },
+    {
+      "name": "Danmark",
+      "type": "location",
+      "slug": "danmark",
+      "folder": "entities/locations/national",
+      "significance": "Danmark er det nationale geografiske og administrative område, hvor alle indikatorresultaterne rapporteres, og hvor det nationale resultat for indikator 5 er 22,3 % — langt under udviklingsmålet på ≥80 %.",
+      "mentions": [
+        {
+          "page": 32,
+          "context": "Danmark Nej 438 / 1.968 79 (4) 22,3 (20,4-24,2) 22,7 20,1"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "akut-kirurgi-databasen",
+      "predicate": "is-managed-by",
+      "object": "sundhedsvaesenets-kvalitetsinstitut",
+      "evidence": "Akut Kirurgi Databasen er udgivet af Sundhedsvæsenets Kvalitetsinstitut",
+      "page": 31
+    },
+    {
+      "subject": "indikator-4y",
+      "predicate": "measures-treatment-speed-for",
+      "object": "ileusoperationer-uden-iskaemi-eller-perforation",
+      "evidence": "Årets opgørelse for indikator 4y viser, at 81,7 % af patienterne blev opereret inden for 24 timer efter ankomst til sygehus. Resultatet ligger tæt på udviklingsmålet (≥ 90 %) og repræsenterer et marginalt fald i forhold til sidste år. Dette indikerer et fortsat forbedringspotentiale i relation til behandlingshastighed for patienter med ileusoperationer uden iskæmi eller perforation.",
+      "page": 31
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "uses-criteria",
+      "object": "asa-score",
+      "evidence": "Nævner Forløb med angivet operationstidspunkt, og hvor der for første operation er angivet ASA-score ≥ 3, eller alder ≥ 75 år",
+      "page": 32
+    },
+    {
+      "subject": "indikator-5",
+      "predicate": "uses-criteria",
+      "object": "alder",
+      "evidence": "Nævner Forløb med angivet operationstidspunkt, og hvor der for første operation er angivet ASA-score ≥ 3, eller alder ≥ 75 år",
+      "page": 32
+    },
+    {
+      "subject": "nasbo-projektet",
+      "predicate": "supports-need-for",
+      "object": "standardisering",
+      "evidence": "Erfaringer fra det britiske NASBO-projekt peger i samme retning og viser, at variation i praksis og ressourceallokering har direkte indflydelse på patientresultater. Dette understreger behovet for øget standardisering og systematisk videndeling af best practice.",
+      "page": 31
+    },
+    {
+      "subject": "holbaek-sygehus",
+      "predicate": "is-reference-unit-for",
+      "object": "indikator-4y",
+      "evidence": "Holbæk og Rigshospitalet præsterer over målopfyldelse og kan fungere som referenceenheder.",
+      "page": 31
+    },
+    {
+      "subject": "rigshospitalet",
+      "predicate": "is-reference-unit-for",
+      "object": "indikator-4y",
+      "evidence": "Holbæk og Rigshospitalet præsterer over målopfyldelse og kan fungere som referenceenheder.",
+      "page": 31
+    }
+  ],
+  "claims": [
+    {
+      "text": "Årets opgørelse for indikator 4y viser, at 81,7 % af patienterne blev opereret inden for 24 timer efter ankomst til sygehus [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4y"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Resultatet for indikator 4y ligger tæt på udviklingsmålet (≥ 90 %) [^src1]",
+      "type": "performance",
+      "entities": [
+        "indikator-4y"
+      ],
+      "page": 31
+    },
+    {
+      "text": "Den regionale variation for indikator 4y går fra 78,8 % i Region Nordjylland til 84,2 % i Region Sjælland [^src1]",
+      "type": "regional-comparison",
+      "entities": [
+        "region-nordjylland",
+        "region-sjaelland",
+        "indikator-4y"
+      ],
+      "page": 31
+    },
+    {
+      "text": "For indikator 5 er udviklingsmålet ≥ 80 % [^src2]",
+      "type": "target",
+      "entities": [
+        "indikator-5"
+      ],
+      "page": 32
+    },
+    {
+      "text": "Det nationale resultat for indikator 5 er 22,3 % (95 % CI: 20,4–24,2) [^src3]",
+      "type": "performance",
+      "entities": [
+        "indikator-5",
+        "danmark"
+      ],
+      "page": 35
+    },
+    {
+      "text": "Regionalt varierede andelen for indikator 5 fra 10,4 % i Region Nordjylland til 28,5 % i Region Syddanmark [^src3]",
+      "type": "regional-comparison",
+      "entities": [
+        "region-nordjylland",
+        "region-syddanmark",
+        "indikator-5"
+      ],
+      "page": 35
+    },
+    {
+      "text": "4 % af observationerne for indikator 5 mangler informationer, primært i Region Midtjylland [^src3]",
+      "type": "data-quality",
+      "entities": [
+        "indikator-5",
+        "region-midtjylland"
+      ],
+      "page": 35
+    }
+  ],
+  "timeline": [
+    {
+      "date": "01.09.2024 - 31.08.2025",
+      "event": "Dataindsamling for indikator 5 i Akut Kirurgi Databasen",
+      "entities": [
+        "indikator-5",
+        "akut-kirurgi-databasen"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "indikator-5",
+      "title": "Indikator 5: Intermediær indlæggelse",
+      "page": 32,
+      "rowDimension": "regioner og hospitaler",
+      "colDimension": "andel med intermediær indlæggelse",
+      "entities": [
+        "indikator-5",
+        "region-hovedstaden",
+        "region-sjaelland",
+        "region-syddanmark",
+        "region-midtjylland",
+        "region-nordjylland",
+        "holbaek-sygehus",
+        "rigshospitalet",
+        "ouh-odense-universitetshospital-odense",
+        "sygehus-lillebaelt",
+        "sygehus-soenderjylland",
+        "aarhus-universitetshospital",
+        "regionshospitalet-horsens",
+        "regionshospitalet-randers",
+        "aalborg-universitetshospital",
+        "regionshospital-nordjylland"
+      ],
+      "markdown": "| Udviklingsmål | Uoplyst | Aktuelle år Tæller/ antal | 01.09.2024 - 31.08.2025 | 2023/24 | 2022/23 |\n| --- | --- | --- | --- | --- | --- |\n| ≥ 80% | Nej | 438 / 1.968 | 79 (4) | 22,3 (20,4-24,2) | 22,7 | 20,1 |\n| ≥ 80% | Nej | 129 / 617 | 8 (1) | 20,9 (17,8-24,3) | 20,1 | 17,4 |\n| ≥ 80% | Nej | 90 / 377 | 3 (1) | 23,9 (19,7-28,5) | 22,5 | 25,1 |\n| ≥ 80% | Nej | 121 / 425 | 8 (2) | 28,5 (24,2-33,0) | 28,7 | 23,2 |\n| ≥ 80% | Nej | 77 / 348 | 56 (14) | 22,1 (17,9-26,9) | 22,1 | 22,4 |\n| ≥ 80% | Nej | 21 / 201 | 4 (2) | 10,4 (6,6-15,5) | 18,6 | 9,7 |",
+      "summary": "Tabellen sammenligner andelen af patienter med intermediær indlæggelse på regionalt og hospitalsniveau for indikator 5, og viser en markant regional variation fra 10,4 % i Region Nordjylland til 28,5 % i Region Syddanmark."
+    }
+  ],
+  "context": "Dette dokumentudsnit er en del af den årlige rapport fra Sundhedsvæsenets Kvalitetsinstitut om Akut Kirurgi Databasen, specifikt fokuseret på kvalitetsindikatorerne 4y og 5 for perioden 2024–2025. Det indgår i en bredere narrativ om kvalitetsudvikling i den danske akutkirurgiske sektor, hvor der systematisk måles, analyseres og diskuteres behandlingshastighed (indikator 4y) og sikkerhed for højrisikopatienter via intensiv overvågning (indikator 5). Rapporten kombinerer empiriske resultater med klinisk evidens og international erfaring (fx NASBO-projektet) for at begrunde behovet for standardisering, videndeling og målrettet forbedringsindsats, især i regioner med lav ydeevne."
+}

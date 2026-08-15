@@ -4,17 +4,20 @@ type: index
 aliases:
   - Gastrointestinal
 wiki: rkkp-danibd
-updated: '2026-08-05T07:47:23.774Z'
+updated: '2026-08-15T07:53:22.631Z'
 children:
   - bmsl.md
+  - index.md
+  - steroidkurer.md
 ---
 # Gastrointestinal
 
-This folder catalogs advanced medical therapies used for gastrointestinal conditions, specifically biological and targeted synthetic drugs (BMSL) for inflammatory bowel disease (IBD) in Denmark. The included page details how these treatments are tracked within the national DANIBD quality registry, covering patient demographics, specific drug usage like infliximab and adalimumab, and clinical quality targets such as annual fecal calprotectin monitoring.
+This folder catalogs specific pharmacological interventions for gastrointestinal conditions, primarily inflammatory bowel disease (IBD), as monitored by the Danish national quality databases. It details the clinical definitions, patient demographics, and national quality indicators for both advanced biologic therapies and systemic steroid courses. Readers can find exact treatment thresholds, registry tracking codes, and compliance targets for routine monitoring like calprotectin tests and bone density scans.
 
 ## Pages
 
-- [[bmsl|Biologiske og målrettede syntetiske lægemidler]] — Details the national tracking of biological and targeted synthetic drugs for IBD, including patient demographics, specific treatment codes, and DANIBD quality indicators for calprotectin monitoring.
+- [[bmsl|Biologiske og målrettede syntetiske lægemidler]] — Advanced biologic and targeted synthetic therapies for moderate to severe IBD, detailing specific drug codes, patient demographics, and national quality targets for calprotectin monitoring.
+- [[steroidkurer|Steroidkurer]] — Systemic steroid treatment regimens defined by specific dosage thresholds, tracked nationally to ensure bone density screening for older IBD patients.
 
 ## Navigation
 
@@ -22,6 +25,6 @@ This folder catalogs advanced medical therapies used for gastrointestinal condit
 
 ## Statistics
 
-- Pages: 1
+- Pages: 2
 - Sub-folders: 0
 - Sources: 0
