@@ -55,7 +55,28 @@ import { spawnSync } from 'node:child_process';
 // 1.0.13 (2026-08-14): Phase 24 `--force-cross-wiki` CLI flag + TUI `F`
 // toggle (src/cli.ts and src/tui/ingest-screen.tsx bundle change). The
 // packaged runtime must re-extract so users see the new flag and toggle.
-const VERSION = '1.0.13';
+// 1.0.14 (2026-08-17): DeepSeek provider + per-step provider/model routing
+// (src/llm/client.ts, src/tui/settings.ts, src/tui/settings-screen.tsx bundle
+// change). The packaged runtime must re-extract so users see the DeepSeek
+// provider rows and the per-step routing schema.
+// 1.0.15 (2026-08-19): Zhipu (GLM) provider — the same Settings bundle gains
+// the Zhipu provider, the GLM catalog (glm-4.7-flash / glm-5.2 / glm-5.3),
+// the international Z.ai endpoint, and the Zhipu API Key row. The packaged
+// runtime must re-extract so users see the new provider.
+// 1.0.16 (2026-08-20): Phase 16 v1.1.0 extraction transport fallback build —
+// rolled back the same day (never a release).
+// 1.0.17 (2026-08-20): ROLLBACK release — src/commands/ingest.ts returns to the
+// pre-amendment extraction loop (per-chunk transport fallback removed), while
+// src/llm/client.ts KEEPS the option-3 changes (attempt count in exhausted
+// transport errors + Retry-After honoring on 429). The bundle is an extracted
+// asset: installs that extracted 1.0.15 (or the rolled-back 1.0.16) must
+// re-extract to drop the rejected fallback and gain Retry-After honoring.
+// 1.0.18 (2026-08-20): Phase 16 v1.0.2 reactive 429 stall — the client bundle
+// gains the stall (RATE_LIMIT_MAX_ATTEMPTS + rateLimitStallDelayMs) and the
+// setRateLimitWaitReporter seam, and ingest.ts gains the reporter-wiring
+// wrapper. The bundle is an extracted asset: installs must re-extract to get
+// the stall behavior and the live stall progress lines.
+const VERSION = '1.0.18';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

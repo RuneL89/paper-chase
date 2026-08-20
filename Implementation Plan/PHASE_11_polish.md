@@ -1,12 +1,16 @@
 # Phase 11: Polish and Productionization
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-011`
-**Version:** 1.6.0
+**Version:** 1.10.0
 **Status:** Draft
-**Date:** 2026-07-23
+**Date:** 2026-08-19
 **Dependencies:** Phases 0-10
 **Estimated Time:** 4-6 hours
 **LLM Token Budget:** $0 (no new LLM calls; productionization touches only)
+
+**v1.10.0 amendment (user directive 2026-08-19):** "Yes add build-in provider for Zhipu. I want glm-4.7-flash and GLM-5.2 and GLM-5.3 — remember I need international end-point!" **Zhipu** joins the built-in providers with the INTERNATIONAL Z.ai endpoint `https://api.z.ai/api/paas/v4/chat/completions` (never the China BigModel host), key via `ZAI_API_KEY` (Settings → env → `.env` like the other providers), and the catalog `glm-4.7-flash` (GLM-4.7-Flash — FREE, $0/$0 per MTok; the free tier allows 1 concurrent request, so it belongs on the sequential steps only), `glm-5.2` (GLM-5.2), `glm-5.3` (GLM-5.3 — mandatory reasoning, so its real token consumption runs higher); GLM-5.2/5.3 both $1.40/$4.40 per MTok. Seeded tiers: default/cheapest = GLM-4.7-Flash, curation/mid = GLM-5.2, premium = GLM-5.3, with the Zhipu recommendation-label table (Extractor → GLM-4.7-Flash "free", Synthesis → GLM-5.3, DOX/Curation/Cross-Wiki-Judgment → GLM-5.2, Cross-Wiki Bulk → GLM-4.7-Flash "free"). Gate 11.17 (Zhipu provider) is added and the approval-checklist gate count grows from 14 to **15 gates** (UATs unchanged at 9). The LLM budget stays $0 — all Gate 11.17 tests use the mocked transport. Everything else is unchanged.
+
+**v1.9.0 amendment (user directive 2026-08-17):** "I want to add Deepseek to the list of the providers in Models Settings in TUI. For now, just add Deepseek-v4-pro as a model… And I Want to be able to add different providers and models for specific steps in the model router setting. For example, I want to be able to use Qwen for the smaller tasks and Deepseek-v4-pro for dox writing and Sonnet for wiki writing". **DeepSeek** joins the built-in providers (catalog: `deepseek-v4-pro` only for now; OpenAI-compatible endpoint `https://api.deepseek.com` / `/v1/chat/completions`; key via `DEEPSEEK_API_KEY`, resolution order Settings → env → `.env` like the other providers; price-table entry at the peak $1.32/$3.96 per MTok). **Per-step provider selection** replaces the global provider switch: each of the seven model rows is a self-describing `{ provider, model }` pair (persisted; legacy string slots migrate to `{ provider, model }` under the old global provider on load — byte-identical resolution), Left/Right cycles ONE combined list across every provider's catalog, rows whose provider differs from the Default Provider show a `Provider · Model` prefix, Enter on a row types a custom id scoped to that row's provider, and the `T` test plus recommendation labels follow the row's own provider. The Provider row becomes **Default Provider** and governs only the default slot — switching it re-seeds just the Default Model row and PRESERVES explicitly-configured rows (the v1.4.0 reset-on-switch rule is superseded). The Settings test-connection probe budget rises 16 → 256 tokens: DeepSeek-V4-Pro is a reasoning model whose hidden `reasoning_content` consumes output tokens before the visible answer, so 16 tokens could end reasoning with an empty reply. Gates 11.15 (DeepSeek provider) and 11.16 (per-step routing) and UAT 11.9 are added, and the approval-checklist counts grow from 12 gates / 8 UATs to **14 gates / 9 UATs**. The LLM budget stays $0 — all new gate tests use the mocked transport; the live DeepSeek connection check (2026-08-17, user-provided test key) confirmed `Connected — DeepSeek model responded.` and a routed `callLLM` reply. Everything else is unchanged.
 
 **v1.6.0 amendment (user directive 2026-07-23):** "at the end of the ingestion, I want a shortcut into proposed new AGENTS file to be showed. It will show the diff and I can approve or reject straight there - Approve would replace the existing AGENTS file with the proposed one - REJECT would do nothing". §2.4 gains a post-ingest review shortcut: when an ingest finishes with a written AGENTS.md update proposal, the success state offers a `p` shortcut into the restored AGENTS.md review screen (inline diff, `[A]`/`[R]`, `[V]` full diff). Accept replaces AGENTS.md with the proposal; **Reject is a no-op** (the proposal file is KEPT — this supersedes the 2026-07-21 reject-deletes preference; newest user directive wins). The review screen is FLOW-ONLY — reachable only from the post-ingest shortcut; the main menu stays at exactly five items (Gate 11.3 unregressed). Gate 11.12 and UAT 11.8 are added, and the approval-checklist counts grow from 11 gates / 7 UATs to **12 gates / 8 UATs**. The LLM budget stays $0 — all Gate 11.12 tests use fixtures and a stubbed ingest. Everything else is unchanged.
 
@@ -100,13 +104,15 @@ Polish the CLI/TUI for production use: ship v2.0 under its final brand (**Paper 
 ╚══════════════════════════════════════╝
 ```
 
-**Provider dimension (v1.4.0, user directive 2026-07-22):**
+**Provider dimension (v1.4.0, user directive 2026-07-22; per-step providers v1.9.0, user directive 2026-08-17):**
 
-- A **Provider** row sits directly above **Default Model** and cycles Anthropic ↔ OpenAI with Left/Right (same dropdown idiom as the model rows).
+- A **Default Provider** row (v1.9.0; was "Provider" through v1.8.x) sits directly above **Default Model** and cycles Anthropic ↔ OpenAI ↔ Qwen ↔ DeepSeek (+ any custom providers) with Left/Right (same dropdown idiom as the model rows). Since v1.9.0 it defines ONLY the default slot: the Default Model row's provider and what "Same as default" resolves to.
 - **Per-provider model catalogs** — the dropdown choices follow the selected provider:
   - Anthropic: `claude-haiku-4-5-20251001` (Haiku), `claude-sonnet-5` (Sonnet), `claude-opus-4-8` (Opus)
   - OpenAI (GPT-5.6 family, lineup and prices verified against live OpenAI docs 2026-07-22 — see the compliance log): `gpt-5.6-luna` (GPT-5.6 Luna, $1/$6 per MTok), `gpt-5.6-terra` (GPT-5.6 Terra, $2.50/$15), `gpt-5.6-sol` (GPT-5.6 Sol, $5/$30)
-- **Reset-on-switch:** switching the provider RESETS all four model slots to the new provider's defaults (cheapest tier as the default model — Haiku / GPT-5.6 Luna — and `null` = "Same as default" for the per-call-type slots), shown immediately in the UI, so stale cross-provider model ids can never persist.
+  - Qwen (DashScope, 2026-08-04): `qwen-plus`, `qwen3.7-max`, `qwen3.8-max`
+  - DeepSeek (2026-08-17, endpoint `https://api.deepseek.com/v1/chat/completions`): `deepseek-v4-pro` (DeepSeek-V4-Pro, peak $1.32/$3.96 per MTok) — the ONLY DeepSeek model for now (user directive: "For now, just add Deepseek-v4-pro").
+- **Per-step provider selection (v1.9.0, supersedes reset-on-switch):** each of the seven model rows (Default, Extractor, Synthesis Writer, DOX Writer, Curation, Cross-Wiki Bulk, Cross-Wiki Judgment) is a self-describing `{ provider, model }` pair persisted in `.paper-chase.json` (null = "Same as default"); legacy STRING slot values migrate to `{ provider, model }` pairs under the old global provider on load. Left/Right cycles ONE combined list across every provider's catalog; rows whose provider differs from the Default Provider show a `Provider · Model` prefix (e.g. `Qwen · Qwen-Plus`); Enter on a row opens a custom-id editor scoped to that row's provider; the per-row `T` connection test and the inline recommendation labels follow the row's OWN (effective) provider. Switching the Default Provider re-seeds only the Default Model row — explicitly-configured rows are preserved because each carries its own provider, so a mixed table (Qwen Extractor + Sonnet Synthesis + DeepSeek DOX) can never desync.
 - **Provider-aware recommendation labels** — the wording mirrors across providers:
   - Anthropic — Extractor: "Haiku — cheapest, good for structured JSON extraction"; Synthesis Writer: "Sonnet — better prose, fewer preservation failures"; DOX Writer: "Sonnet/Opus — strong contract writing for navigation"
   - OpenAI — Extractor: "GPT-5.6 Luna — cheapest, good for structured JSON extraction"; Synthesis Writer: "GPT-5.6 Terra — better prose, fewer preservation failures"; DOX Writer: "GPT-5.6 Terra/Sol — strong contract writing for navigation"
@@ -482,6 +488,98 @@ test('post-ingest review shortcut: hint only when proposed, p routes to the revi
 });
 ```
 
+### Gate 11.15: DeepSeek Provider (v1.9.0)
+
+```typescript
+test('deepseek seeds, posts the OpenAI-compatible shape, and fails loud on a missing key', async () => {
+  // 1. seedModelsForProvider('deepseek') → default + curation =
+  //    'deepseek-v4-pro', the other five slots null.
+  // 2. With provider deepseek and undici's request mocked: the call posts to
+  //    https://api.deepseek.com/v1/chat/completions with
+  //    `authorization: Bearer <DEEPSEEK_API_KEY>`; the body carries
+  //    `max_tokens` (never `max_completion_tokens`), never carries
+  //    `temperature` even when options.temperature is set, and places the
+  //    system prompt in a leading role:'system' message; the response parses
+  //    from choices[0].message.content / prompt_tokens / completion_tokens;
+  //    cost uses the DeepSeek-V4-Pro peak table ($1.32/$3.96 — 1000/500
+  //    tokens → $0.0033); the llm-calls.json entry carries provider:
+  //    'deepseek'.
+  // 3. Missing DEEPSEEK_API_KEY throws
+  //    'DEEPSEEK_API_KEY is not set. Add it in Settings, export it in your
+  //    environment, or add it to a .env file in the project root.'
+  // 4. The Settings screen shows the DeepSeek provider and DeepSeek API Key
+  //    rows, and cycling a model row through the combined catalog reaches
+  //    DeepSeek-V4-Pro and persists { provider: 'deepseek', model:
+  //    'deepseek-v4-pro' }.
+  // 5. LIVE check (2026-08-17, user-provided test key): testModelConnection
+  //    reported 'Connected — DeepSeek model responded.' and a routed
+  //    callLLM returned the requested reply — the reasoning-model probe
+  //    budget (256 tokens) is part of the client, not the test.
+  // All LLM-free: the transport is mocked; the key is a fake test string.
+});
+```
+
+### Gate 11.16: Per-Step Provider + Model Routing (v1.9.0)
+
+```typescript
+test('mixed-provider tables route each call type to its own API; legacy strings migrate; slots survive a Default Provider switch', async () => {
+  // 1. resolveSlotFromRouting / resolveProviderForCall with
+  //    { provider: 'deepseek', default: 'deepseek-v4-pro',
+  //      extractor: { qwen, qwen-plus }, synthesis: { anthropic, sonnet },
+  //      dox: { deepseek, deepseek-v4-pro } }: extractor → qwen,
+  //    synthesis family → anthropic, dox-writer → deepseek, everything else
+  //    → the deepseek default slot; resolveModel mirrors the model strings.
+  // 2. callLLM with that table (mocked transport, stored keys per provider):
+  //    the extractor call posts to the DashScope URL with the qwen key, the
+  //    synthesis call posts to the Anthropic URL with x-api-key, the
+  //    dox-writer call posts to the DeepSeek URL with the deepseek key —
+  //    three calls, three providers, no cross-provider key reuse.
+  // 3. Legacy migration: a .paper-chase.json with STRING slot values under
+  //    provider qwen loads as { provider: 'qwen', model: '<string>' } pairs
+  //    and re-saves in the composite shape; normalizeModelSlot accepts
+  //    composite pairs, migrates strings, coerces unknown provider strings
+  //    to 'anthropic', and rejects null/empty/malformed values.
+  // 4. Screen-driven: switching the Default Provider re-seeds ONLY the
+  //    Default Model row — a pre-set extractor slot survives the switch
+  //    byte-for-byte; the non-TTY/rendered frame shows 'Default Provider',
+  //    the 'Qwen · Qwen-Plus' provider prefix on off-default slots, and
+  //    'Same as default' on null slots.
+  // 5. Enter on a model row opens the custom-id editor scoped to that row's
+  //    provider and persists { provider, model: <typed id> }.
+});
+```
+
+### Gate 11.17: Zhipu Provider (v1.10.0, user directive 2026-08-19)
+
+```typescript
+test('zhipu seeds, posts the OpenAI-compatible shape to the INTERNATIONAL Z.ai endpoint, prices the free model at $0, and fails loud on a missing key', async () => {
+  // 1. seedModelsForProvider('zhipu') → default = 'glm-4.7-flash',
+  //    curation = { zhipu, 'glm-5.2' }, the other five slots null.
+  // 2. With provider zhipu and undici's request mocked: the call posts to
+  //    https://api.z.ai/api/paas/v4/chat/completions (the INTERNATIONAL
+  //    endpoint — asserted, never open.bigmodel.cn) with
+  //    `authorization: Bearer <ZAI_API_KEY>`; the body carries `max_tokens`
+  //    (never `max_completion_tokens`), never carries `temperature` even
+  //    when options.temperature is set, and places the system prompt in a
+  //    leading role:'system' message; the response parses from
+  //    choices[0].message.content / prompt_tokens / completion_tokens; cost
+  //    uses the GLM price table (GLM-5.3 $1.40/$4.40 → 1000/500 tokens =
+  //    $0.0036; GLM-4.7-Flash → exactly $0.0000); the llm-calls.json entry
+  //    carries provider: 'zhipu'.
+  // 3. Missing ZAI_API_KEY throws
+  //    'ZAI_API_KEY is not set. Add it in Settings, export it in your
+  //    environment, or add it to a .env file in the project root.'
+  // 4. The Settings screen shows the Zhipu provider, the GLM catalog
+  //    (GLM-4.7-Flash / GLM-5.2 / GLM-5.3), the Zhipu API Key row, and the
+  //    Zhipu recommendation labels; cycling a model row reaches the GLM
+  //    catalog and persists { provider: 'zhipu', model: 'glm-4.7-flash' }.
+  // 5. A zhipu slot resolves through the per-step routing
+  //    (resolveProviderForCall('extractor') === 'zhipu' while the other
+  //    call types keep the anthropic default).
+  // All LLM-free: the transport is mocked; the key is a fake test string.
+});
+```
+
 ---
 
 ## 4. User Acceptance Tests (UAT)
@@ -544,14 +642,23 @@ Open `README.md` and verify it explains the app, flow, architecture, and project
 5. Repeat an ingest with the toggle ON (or restore a proposal fixture), press `p`, then press `r` (Reject) → `Rejected proposed AGENTS.md updates for <wiki>. No changes made.` → verify NOTHING changed: AGENTS.md is untouched and `.state/proposed-agents.md` is still on disk for later manual review.
 6. Verify the main menu still shows exactly five items — the review screen has no menu entry and is reachable only via the post-ingest `p` shortcut.
 
+### UAT 11.9: DeepSeek provider + per-step provider routing (v1.9.0)
+
+1. `chase` → Settings → the routing section shows a **Default Provider** row cycling Anthropic → OpenAI → Qwen → DeepSeek, and the API Keys section lists a **DeepSeek API Key** row.
+2. Set **Extractor Model** to Qwen (`Qwen · Qwen-Plus` shows the provider prefix because the row's provider differs from the default), **DOX Writer Model** to `DeepSeek · DeepSeek-V4-Pro`, and **Synthesis Writer Model** to `Anthropic · Sonnet 5` — all in one table. Save → `.paper-chase.json` shows `{ provider, model }` pairs on the three rows.
+3. Switch the **Default Provider** to OpenAI → verify ONLY the Default Model row re-seeded (the three per-step choices from step 2 are unchanged). Save and re-open to confirm they persist.
+4. Enter a DeepSeek API key on its row (masked entry) → Save → focus the DOX Writer row and press `T` → the test shows `Connected — DeepSeek model responded.` (DeepSeek-V4-Pro is a reasoning model; the probe budget accounts for its hidden reasoning tokens).
+5. **Optional-cost (user may skip):** run one tiny ingest with this mixed table and confirm each pipeline step hits its own provider in `.state/llm-calls.json` (the per-call `provider` field). Spend is a few cents.
+6. SECURITY reminder: `.paper-chase.json` is gitignored — never commit it; keys only ever render as source + last 4 characters.
+
 ---
 
 ## 5. Approval Checklist
 
 Before moving to final sign-off, verify:
 
-- [ ] All 12 technical gates pass (`npm test` is green) — 11.1–11.9 plus 11.10 (provider switching, v1.4.0), 11.11 (API keys in Settings, v1.5.0), and 11.12 (post-ingest AGENTS.md review shortcut, v1.6.0).
-- [ ] All 8 UAT steps pass — 11.1–11.5 plus 11.6 (provider switch, v1.4.0), 11.7 (API key entry, v1.5.0), and 11.8 (post-ingest AGENTS.md review shortcut, v1.6.0; optional-cost).
+- [ ] All 15 technical gates pass (`npm test` is green) — 11.1–11.9 plus 11.10 (provider switching, v1.4.0), 11.11 (API keys in Settings, v1.5.0), 11.12 (post-ingest AGENTS.md review shortcut, v1.6.0), 11.15 (DeepSeek provider, v1.9.0), 11.16 (per-step provider + model routing, v1.9.0), and 11.17 (Zhipu provider, v1.10.0).
+- [ ] All 9 UAT steps pass — 11.1–11.5 plus 11.6 (provider switch, v1.4.0), 11.7 (API key entry, v1.5.0), 11.8 (post-ingest AGENTS.md review shortcut, v1.6.0; optional-cost), and 11.9 (DeepSeek + per-step routing, v1.9.0; optional-cost).
 - [ ] Branding sweep complete across living docs and `src/` (Gate 11.7 green); forbidden forms (`paperchase`, `PaperChase`, `PaperCase`) absent.
 - [ ] `chase` bin works via `npm link`; `program.name()` is `chase`.
 - [ ] Settings write `.paper-chase.json`; legacy `.llm-wiki-cli.json` still loads via fallback.

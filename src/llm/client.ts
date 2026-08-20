@@ -3,22 +3,30 @@ import { mkdir, appendFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { resolve } from 'node:path';
 import { request } from 'undici';
+import type { Dispatcher } from 'undici';
 import { enqueueSerializedWrite } from '../utils/serialized-writes';
 
 const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
 const ANTHROPIC_VERSION = '2023-06-01';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const QWEN_API_URL = 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions';
+const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
+const ZHIPU_API_URL = 'https://api.z.ai/api/paas/v4/chat/completions';
 const DEFAULT_MODEL = 'claude-haiku-4-5-20251001';
 
 /**
  * Supported LLM providers (Phase 11 v1.4.0 multi-provider extension, user
- * directive 2026-07-22; Qwen extension 2026-08-04; custom providers v1.8.0).
- * Built-in literals: 'anthropic' (default), 'openai', 'qwen'.
+ * directive 2026-07-22; Qwen extension 2026-08-04; custom providers v1.8.0;
+ * DeepSeek extension 2026-08-17 — OpenAI-compatible endpoint, per the
+ * DeepSeek API docs base URL `https://api.deepseek.com`; Zhipu extension
+ * 2026-08-19 — OpenAI-compatible endpoint, per the Z.ai docs base URL
+ * `https://api.z.ai/api/paas/v4`).
+ * Built-in literals: 'anthropic' (default), 'openai', 'qwen', 'deepseek',
+ * 'zhipu'.
  * Custom providers use the `custom:${id}` form where `id` is the slugified
  * custom provider name stored in `.paper-chase.json`.
  */
-export type Provider = 'anthropic' | 'openai' | 'qwen' | `custom:${string}`;
+export type Provider = 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu' | `custom:${string}`;
 
 /**
  * Price table in USD per million tokens (MTok).
@@ -31,6 +39,12 @@ export type Provider = 'anthropic' | 'openai' | 'qwen' | `custom:${string}`;
  * 2026-07-22 — see the compliance log).
  * Qwen (DashScope) prices are PLACEHOLDER (TODO: replace with the exact
  * per-MTok values from your DashScope console when available).
+ * DeepSeek-V4-Pro (added 2026-08-17): $1.32/$3.96 per MTok — the PEAK rates
+ * from the DeepSeek pricing docs (off-peak is half; peak is used so run-cost
+ * tracking errs conservative).
+ * Zhipu GLM (added 2026-08-19, per the Z.ai pricing docs): GLM-4.7-Flash is
+ * FREE ($0/$0) — the free tier allows 1 concurrent request, so it belongs on
+ * the sequential steps only; GLM-5.2 and GLM-5.3 are $1.40/$4.40 per MTok.
  * Anthropic prices can be overridden via ANTHROPIC_INPUT_PRICE_PER_MTOK and
  * ANTHROPIC_OUTPUT_PRICE_PER_MTOK. Unknown models fall back to the
  * Haiku 4.5 prices.
@@ -46,16 +60,38 @@ const PRICE_PER_MTOK: Record<string, { input: number; output: number }> = {
   'qwen-plus': { input: 0.5, output: 1 },
   'qwen3.7-max': { input: 2, output: 5 },
   'qwen3.8-max': { input: 3, output: 6 },
+  'deepseek-v4-pro': { input: 1.32, output: 3.96 },
+  'glm-4.7-flash': { input: 0, output: 0 },
+  'glm-5.2': { input: 1.4, output: 4.4 },
+  'glm-5.3': { input: 1.4, output: 4.4 },
   default: { input: 1, output: 5 },
 };
 
 /**
+ * A concrete provider + model pair for one routing slot. Phase 11 v1.9.0
+ * (user directive 2026-08-17): the per-call-type slots became composite so
+ * EACH step can pick its own provider and model (e.g. Qwen for the
+ * Extractor, DeepSeek for the DOX Writer, Sonnet for the Synthesis Writer)
+ * instead of sharing one global provider.
+ */
+export interface ModelSlot {
+  provider: Provider;
+  model: string;
+}
+
+/**
  * Phase 11: per-call LLM model routing table (persisted in
- * `.paper-chase.json` under `models`). `default` is a concrete model id;
- * each call-type entry is a concrete model id or null ("use default").
+ * `.paper-chase.json` under `models`). `provider` + `default` form the
+ * DEFAULT slot (the fallback for every call type); each per-call-type entry
+ * is a `ModelSlot` (a provider + model pair) or null ("use default").
  * Phase 11 v1.4.0: `provider` selects the API the routed calls go to;
  * absent means 'anthropic' so legacy callers and legacy config files keep
  * byte-identical behavior.
+ * Phase 11 v1.9.0 (2026-08-17): the six per-call-type slots became
+ * composite `ModelSlot`s. Legacy config files that store a plain model-id
+ * STRING in a slot are migrated on load to `{ provider: <global provider>,
+ * model: <string> }` — same resolution behavior, and the provider now
+ * travels with the model so mixed-provider tables can never desync.
  * Phase 11 v1.5.0: `apiKeys` carries the Settings-stored API keys (persisted
  * in `.paper-chase.json` under its own top-level `apiKeys` block and threaded
  * in at the single integration point — `ingest()`). A stored key wins over
@@ -68,19 +104,21 @@ const PRICE_PER_MTOK: Record<string, { input: number; output: number }> = {
 export interface ModelRouting {
   provider?: Provider;
   default: string;
-  extractor: string | null;
-  synthesis: string | null;
-  dox: string | null;
+  extractor: ModelSlot | null;
+  synthesis: ModelSlot | null;
+  dox: ModelSlot | null;
   /** Phase 24: explicit slot for bulk Cross-Wiki Discovery calls (cheap tier). */
-  crossWiki: string | null;
+  crossWiki: ModelSlot | null;
   /** Phase 24: explicit slot for Cross-Wiki Discovery judgment calls (mid-tier). */
-  crossWikiJudgment: string | null;
+  crossWikiJudgment: ModelSlot | null;
   /** Phase 14: curation call-type slot (null = "use default"). */
-  curation?: string | null;
+  curation?: ModelSlot | null;
   apiKeys?: {
     anthropic?: string | null;
     openai?: string | null;
     qwen?: string | null;
+    deepseek?: string | null;
+    zhipu?: string | null;
   };
   /** Phase 11 v1.8.0: custom provider configs (OpenAI-compatible by default,
    * fully configurable). Used by `resolveApiKey`, `buildCustomProviderRequest`,
@@ -113,11 +151,51 @@ const SYNTHESIS_CALL_TYPES = new Set([
 let modelRouting: ModelRouting | null = null;
 
 /**
+ * Normalize an unknown provider string to a valid Provider literal.
+ * Built-in literals ('anthropic', 'openai', 'qwen', 'deepseek') and
+ * `custom:<id>` values pass through; anything else coerces to 'anthropic'.
+ * Exported for `src/tui/settings.ts` (`normalizeModels`) so the load-time
+ * and ingest-time normalization can never diverge.
+ */
+export function normalizeProviderValue(value: unknown): Provider {
+  if (value === 'openai' || value === 'qwen' || value === 'deepseek' || value === 'zhipu') {
+    return value;
+  }
+  if (typeof value === 'string' && value.startsWith('custom:')) {
+    return value as `custom:${string}`;
+  }
+  return 'anthropic';
+}
+
+/**
+ * Normalize one routing-slot value. The v1.9.0 composite shape is
+ * `{ provider, model }`; a plain non-empty STRING is the legacy shape and
+ * migrates to `{ provider: fallbackProvider, model: value }` (the legacy
+ * global provider), preserving byte-identical resolution. Anything else —
+ * absent, empty, malformed composite — is null ("use default").
+ */
+export function normalizeModelSlot(value: unknown, fallbackProvider: Provider): ModelSlot | null {
+  if (value !== null && typeof value === 'object') {
+    const slot = value as Partial<ModelSlot>;
+    if (typeof slot.model === 'string' && slot.model.length > 0) {
+      return { provider: normalizeProviderValue(slot.provider), model: slot.model };
+    }
+    return null;
+  }
+  if (typeof value === 'string' && value.length > 0) {
+    return { provider: fallbackProvider, model: value };
+  }
+  return null;
+}
+
+/**
  * Set the process-wide model routing table (called once per ingest run from
  * the workspace TUI settings). Pass null to clear routing (tests). A routing
  * without `provider` (legacy callers) is stored as 'anthropic'; a routing
  * without `apiKeys` (pre-v1.5.0 callers) normalizes both stored keys to null
- * so the environment fallback decides.
+ * so the environment fallback decides. Phase 11 v1.9.0: per-call-type slots
+ * normalize through `normalizeModelSlot` — legacy string values migrate to
+ * `{ provider, model }` pairs under the (legacy) global provider.
  */
 export function setModelRouting(routing: ModelRouting | null): void {
   modelRouting =
@@ -126,22 +204,26 @@ export function setModelRouting(routing: ModelRouting | null): void {
       : {
           ...routing,
           provider: routing.provider ?? 'anthropic',
+          extractor: normalizeModelSlot(routing.extractor, routing.provider ?? 'anthropic'),
+          synthesis: normalizeModelSlot(routing.synthesis, routing.provider ?? 'anthropic'),
+          dox: normalizeModelSlot(routing.dox, routing.provider ?? 'anthropic'),
           // Phase 14 §2.6: absent (legacy configs) normalizes to null so the
           // curation call falls through to `default` — byte-identical.
-          curation:
-            typeof routing.curation === 'string' && routing.curation.length > 0 ? routing.curation : null,
+          curation: normalizeModelSlot(routing.curation, routing.provider ?? 'anthropic'),
           apiKeys: {
             anthropic: normalizeStoredKey(routing.apiKeys?.anthropic),
             openai: normalizeStoredKey(routing.apiKeys?.openai),
             qwen: normalizeStoredKey(routing.apiKeys?.qwen),
+            deepseek: normalizeStoredKey(routing.apiKeys?.deepseek),
+            zhipu: normalizeStoredKey(routing.apiKeys?.zhipu),
           },
           // Phase 24: explicit cross-wiki slots; absent legacy configs → null
           // (fall back to default / synthesis as before).
-          crossWiki: typeof routing.crossWiki === 'string' && routing.crossWiki.length > 0 ? routing.crossWiki : null,
-          crossWikiJudgment:
-            typeof routing.crossWikiJudgment === 'string' && routing.crossWikiJudgment.length > 0
-              ? routing.crossWikiJudgment
-              : null,
+          crossWiki: normalizeModelSlot(routing.crossWiki, routing.provider ?? 'anthropic'),
+          crossWikiJudgment: normalizeModelSlot(
+            routing.crossWikiJudgment,
+            routing.provider ?? 'anthropic',
+          ),
         };
 }
 
@@ -151,14 +233,28 @@ function normalizeStoredKey(value: unknown): string | null {
 }
 
 /**
- * Resolve the provider for one LLM call. The provider only ever comes from
- * the routing table; with no routing set the provider is 'anthropic' (the
- * pre-extension behavior). There is deliberately no OPENAI_MODEL env
- * fallback: `ANTHROPIC_MODEL` stays anthropic-scoped and OpenAI models are
- * configured exclusively through the Settings screen / `.paper-chase.json`.
+ * Resolve the DEFAULT provider of the routing table. With no routing set the
+ * provider is 'anthropic' (the pre-extension behavior). Since Phase 11
+ * v1.9.0 this only names the default slot's provider — each call resolves
+ * its own provider via `resolveProviderForCall`, which falls back to this.
  */
 export function resolveProvider(): Provider {
   return modelRouting?.provider ?? 'anthropic';
+}
+
+/**
+ * Phase 11 v1.9.0 (user directive 2026-08-17): resolve the provider for ONE
+ * LLM call from the routing table — the call type's own slot provider when
+ * that slot is set, otherwise the default slot's provider. There is
+ * deliberately no provider-scoped MODEL env fallback (`ANTHROPIC_MODEL`
+ * stays anthropic-scoped); non-Anthropic providers are configured
+ * exclusively through the Settings screen / `.paper-chase.json`.
+ */
+export function resolveProviderForCall(callType?: string): Provider {
+  if (modelRouting !== null) {
+    return resolveProviderFromRouting(modelRouting, callType);
+  }
+  return 'anthropic';
 }
 
 /**
@@ -173,18 +269,13 @@ export function resolveProvider(): Provider {
  * to the pre-Phase-11 client: env var, then DEFAULT_MODEL.
  */
 /**
- * Pure model resolution for a given routing table. Used by `resolveModel`
- * (which reads the module-level routing) and by the TUI test-connection
- * helper (which passes the settings table explicitly).
+ * Pure provider+model resolution for a given routing table (Phase 11 v1.9.0):
+ * the fallback chain mirrors the pre-composite one exactly, ending at the
+ * default slot `{ provider, model: routing.default }`. Used by `callLLM`
+ * (module routing), by `resolveModelFromRouting`/`resolveProviderFromRouting`,
+ * and by the TUI test-connection helper (explicit settings table).
  */
-export function resolveModelFromRouting(
-  routing: ModelRouting,
-  callType?: string,
-  override?: string,
-): string {
-  if (override) {
-    return override;
-  }
+export function resolveSlotFromRouting(routing: ModelRouting, callType?: string): ModelSlot {
   if (callType === 'extractor' && routing.extractor !== null) {
     return routing.extractor;
   }
@@ -213,7 +304,28 @@ export function resolveModelFromRouting(
   if (callType === 'curation' && routing.curation != null) {
     return routing.curation;
   }
-  return routing.default;
+  return { provider: routing.provider ?? 'anthropic', model: routing.default };
+}
+
+/**
+ * Pure model resolution for a given routing table. Used by `resolveModel`
+ * (which reads the module-level routing) and by the TUI test-connection
+ * helper (which passes the settings table explicitly).
+ */
+export function resolveModelFromRouting(
+  routing: ModelRouting,
+  callType?: string,
+  override?: string,
+): string {
+  if (override) {
+    return override;
+  }
+  return resolveSlotFromRouting(routing, callType).model;
+}
+
+/** Pure provider resolution for a given routing table (Phase 11 v1.9.0). */
+export function resolveProviderFromRouting(routing: ModelRouting, callType?: string): Provider {
+  return resolveSlotFromRouting(routing, callType).provider;
 }
 
 export function resolveModel(callType?: string, override?: string): string {
@@ -271,8 +383,9 @@ function loadEnvFile(): void {
 /**
  * Phase 11 v1.5.0: resolve the API key for one provider. Order: (1) the
  * Settings-stored key carried by the routing config, (2) the environment
- * (`process.env.ANTHROPIC_API_KEY` / `OPENAI_API_KEY` — the `.env` fallback
- * loader populates process.env first). Returns null when neither exists.
+ * (`process.env.ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `DASHSCOPE_API_KEY` /
+ * `DEEPSEEK_API_KEY` / `ZAI_API_KEY` — the `.env` fallback loader populates
+ * process.env first). Returns null when neither exists.
  */
 function resolveApiKey(provider: Provider): string | null {
   if (provider.startsWith('custom:')) {
@@ -281,8 +394,8 @@ function resolveApiKey(provider: Provider): string | null {
     return cp?.apiKey ?? null;
   }
   return resolveApiKeyForProvider(
-    provider as 'anthropic' | 'openai' | 'qwen',
-    modelRouting?.apiKeys?.[provider as 'anthropic' | 'openai' | 'qwen'] ?? null,
+    provider as 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu',
+    modelRouting?.apiKeys?.[provider as 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu'] ?? null,
   );
 }
 
@@ -315,7 +428,11 @@ function resolveApiKeyForProvider(provider: Provider, storedKey: string | null):
       ? process.env.OPENAI_API_KEY
       : provider === 'qwen'
         ? process.env.DASHSCOPE_API_KEY
-        : process.env.ANTHROPIC_API_KEY;
+        : provider === 'deepseek'
+          ? process.env.DEEPSEEK_API_KEY
+          : provider === 'zhipu'
+            ? process.env.ZAI_API_KEY
+            : process.env.ANTHROPIC_API_KEY;
   return envKey ?? null;
 }
 
@@ -348,7 +465,11 @@ export function getApiKeyStatus(provider: Provider, storedKey?: string | null): 
       ? process.env.OPENAI_API_KEY
       : provider === 'qwen'
         ? process.env.DASHSCOPE_API_KEY
-        : process.env.ANTHROPIC_API_KEY;
+        : provider === 'deepseek'
+          ? process.env.DEEPSEEK_API_KEY
+          : provider === 'zhipu'
+            ? process.env.ZAI_API_KEY
+            : process.env.ANTHROPIC_API_KEY;
   if (envKey) {
     return { source: 'environment', last4: envKey.slice(-4) };
   }
@@ -599,7 +720,11 @@ export interface CallLLMOptions {
    * `07` §5): max EXTRA attempts on transient transport failures (HTTP
    * 429/5xx, network errors). Deterministic failures (HTTP 4xx) always throw
    * immediately. Default 0 — the frozen pre-amendment no-retry behavior —
-   * so every existing caller is unchanged unless it opts in.
+   * so every existing caller is unchanged unless it opts in. Phase 16 v1.0.2
+   * (user directive 2026-08-20): an opted-in caller's HTTP 429 gets
+   * `RATE_LIMIT_MAX_ATTEMPTS` total attempts with the escalating
+   * `rateLimitStallDelayMs` stall instead of this bound; every other
+   * transient class keeps it.
    */
   maxRetries?: number;
   /**
@@ -637,6 +762,32 @@ export function transportRetryDelayMs(retry: number): number {
   return 5000 * 3 ** (Math.max(1, retry) - 1);
 }
 
+/**
+ * Phase 16 v1.0.2 (user directive 2026-08-20): total attempts for a
+ * rate-limit (HTTP 429) response when the caller has opted into retries
+ * (`maxRetries > 0`) — 6 attempts with the escalating stall floor below,
+ * about 31 minutes of waiting in total. A throttled free-tier provider
+ * (e.g. Zhipu GLM-4.7-Flash) needs its whole throttle window to pass; the
+ * 2026-07-20 ≤3-attempt ratification stays in force for every OTHER
+ * transient class, so this constant applies to 429 only.
+ */
+export const RATE_LIMIT_MAX_ATTEMPTS = 6;
+
+/**
+ * Phase 16 v1.0.2 (user directive 2026-08-20): the stall floor between
+ * rate-limit (HTTP 429) retries — 60s, 120s, 240s, 480s, 960s, ...
+ * (60s x 2^(retry-1)). The old exponential backoff exhausted its 3 attempts
+ * inside ~20 seconds — well within a throttle window, which is why a
+ * free-tier 429 aborted the run. `retry` is the 1-based index of the wait
+ * (the wait after attempt 1 is retry 1). Exported so tests assert the
+ * sequence without wall-clock sleeping. Applied ONLY at the call site via
+ * Math.max (the exponential backoff and a provider Retry-After header still
+ * win when larger) — never baked into `transportRetryDelayMs`.
+ */
+export function rateLimitStallDelayMs(retry: number): number {
+  return 60_000 * 2 ** (Math.max(1, retry) - 1);
+}
+
 function sleep(ms: number): Promise<void> {
   return new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
 }
@@ -655,6 +806,34 @@ export function setTransportRetrySleeper(sleeper: ((ms: number) => Promise<void>
 }
 
 /**
+ * Phase 16 v1.0.2 (user directive 2026-08-20): info handed to the rate-limit
+ * wait reporter when a 429 stall is about to begin.
+ */
+export interface RateLimitWaitInfo {
+  /** Seconds the client will wait before the retry. */
+  waitSeconds: number;
+  /** 1-based number of the upcoming retry attempt. */
+  attempt: number;
+  /** Total attempts allowed for this 429 sequence. */
+  maxAttempts: number;
+}
+
+/**
+ * Module-level reporter for 429 stall waits (the `setModelRouting` /
+ * `setTransportRetrySleeper` precedent). `ingest` wires its `onProgress`
+ * channel here so the TUI and CLI show a live "waiting Ns" line during a
+ * multi-minute stall; when a reporter is set it owns the 429 message (the
+ * console.warn is suppressed). Unset, the console.warn path fires as before,
+ * so non-ingest callers are unchanged.
+ */
+let rateLimitWaitReporter: ((info: RateLimitWaitInfo) => void) | null = null;
+
+/** Test hook / ingest wiring: replace the 429 stall reporter; null restores the console.warn path. */
+export function setRateLimitWaitReporter(reporter: ((info: RateLimitWaitInfo) => void) | null): void {
+  rateLimitWaitReporter = reporter;
+}
+
+/**
  * Phase 16 (vision `04` §6 per-page transport fallback): classify a THROWN
  * callLLM error as an exhausted transient transport failure (HTTP 429/5xx or
  * network/timeout after the bounded retries) — the ONLY error class the
@@ -662,7 +841,7 @@ export function setTransportRetrySleeper(sleeper: ((ms: number) => Promise<void>
  * immediately) and every non-transport error classify false and still abort.
  * Matches the two error shapes this module throws, for both providers:
  * '<Provider> API transport error after N attempt(s): ...' (network/timeout)
- * and '<Provider> API error (HTTP <status>): ...' (429/5xx after retries).
+ * and '<Provider> API error (HTTP <status>) after N attempt(s): ...' (429/5xx after retries).
  */
 export function isTransientTransportError(error: unknown): boolean {
   if (!(error instanceof Error)) {
@@ -679,7 +858,8 @@ interface LlmCallLogEntry {
   timestamp: string;
   callType?: string;
   context?: string;
-  /** Phase 11 v1.4.0: additive provider field ('anthropic' | 'openai' | 'qwen'). */
+  /** Phase 11 v1.4.0: additive provider field ('anthropic' | 'openai' | 'qwen'
+   * | 'deepseek' | 'custom:<id>'; per-call since v1.9.0). */
   provider: Provider;
   model: string;
   inputTokens: number;
@@ -707,6 +887,43 @@ async function appendLlmCallLog(logPath: string | undefined, entry: LlmCallLogEn
   });
 }
 
+/** Human-readable name for one provider (error messages, test results). */
+function displayProviderName(
+  provider: Provider,
+  customProviders?: import('../tui/settings').CustomProviderConfig[],
+): string {
+  if (provider.startsWith('custom:')) {
+    return customProviders?.find((c) => c.id === provider.slice(7))?.name ?? provider;
+  }
+  if (provider === 'openai') {
+    return 'OpenAI';
+  }
+  if (provider === 'qwen') {
+    return 'Qwen';
+  }
+  if (provider === 'deepseek') {
+    return 'DeepSeek';
+  }
+  if (provider === 'zhipu') {
+    return 'Zhipu';
+  }
+  return 'Anthropic';
+}
+
+/** Chat Completions URL for the OpenAI-compatible built-in providers. */
+function openAiCompatibleUrl(provider: Provider): string {
+  if (provider === 'qwen') {
+    return QWEN_API_URL;
+  }
+  if (provider === 'deepseek') {
+    return DEEPSEEK_API_URL;
+  }
+  if (provider === 'zhipu') {
+    return ZHIPU_API_URL;
+  }
+  return OPENAI_API_URL;
+}
+
 /**
  * Call the configured LLM provider (Anthropic Messages API or OpenAI Chat
  * Completions API — Phase 11 v1.4.0) with a single user prompt (and optional
@@ -723,12 +940,21 @@ async function appendLlmCallLog(logPath: string | undefined, entry: LlmCallLogEn
  * exponential `transportRetryDelayMs` sequence (5s/15s/45s — was linear), and
  * large-output calls (`maxTokens >= LARGE_CALL_MAX_TOKENS`) carry the 600s
  * `LARGE_CALL_HEADERS_TIMEOUT_MS` headers timeout while smaller calls keep
- * undici's default.
+ * undici's default. Phase 16 v1.0.2 (user directive 2026-08-20): an HTTP 429
+ * from an opted-in caller gets `RATE_LIMIT_MAX_ATTEMPTS` total attempts with
+ * the escalating `rateLimitStallDelayMs` stall floor (~31 min of waiting,
+ * all providers), so a throttled free-tier model clears its window instead
+ * of aborting; a 429 `Retry-After` header still wins when larger. Every
+ * other transient class keeps the caller's bound and the exponential
+ * backoff.
  */
 export async function callLLM(prompt: string, system?: string, options: CallLLMOptions = {}): Promise<string> {
   loadEnvFile();
 
-  const provider = resolveProvider();
+  // Phase 11 v1.9.0: the provider resolves PER CALL TYPE so mixed-provider
+  // routing tables (e.g. Qwen Extractor + DeepSeek DOX + Sonnet Synthesis)
+  // each hit their own API.
+  const provider = resolveProviderForCall(options.callType);
   const apiKey = resolveApiKey(provider);
   if (!apiKey) {
     const keyName = provider.startsWith('custom:')
@@ -737,20 +963,18 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
         ? 'OPENAI_API_KEY'
         : provider === 'qwen'
           ? 'DASHSCOPE_API_KEY'
-          : 'ANTHROPIC_API_KEY';
+          : provider === 'deepseek'
+            ? 'DEEPSEEK_API_KEY'
+            : provider === 'zhipu'
+              ? 'ZAI_API_KEY'
+              : 'ANTHROPIC_API_KEY';
     throw new Error(
       `${keyName} is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.`,
     );
   }
 
   const model = resolveModel(options.callType, options.model);
-  const providerName = provider.startsWith('custom:')
-    ? modelRouting?.customProviders?.find((c) => c.id === provider.slice(7))?.name ?? provider
-    : provider === 'openai'
-      ? 'OpenAI'
-      : provider === 'qwen'
-        ? 'Qwen'
-        : 'Anthropic';
+  const providerName = displayProviderName(provider, modelRouting?.customProviders);
 
   let providerRequest: ProviderRequest;
   if (provider.startsWith('custom:')) {
@@ -759,14 +983,14 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
       throw new Error(`Custom provider '${provider.slice(7)}' not found in settings.`);
     }
     providerRequest = buildCustomProviderRequest(config, model, prompt, system, options, apiKey);
-  } else if (provider === 'openai' || provider === 'qwen') {
+  } else if (provider === 'openai' || provider === 'qwen' || provider === 'deepseek' || provider === 'zhipu') {
     providerRequest = buildOpenAIRequest(
       model,
       prompt,
       system,
       options,
       apiKey,
-      provider === 'qwen' ? QWEN_API_URL : OPENAI_API_URL,
+      openAiCompatibleUrl(provider),
     );
   } else {
     providerRequest = buildAnthropicRequest(model, prompt, system, options, apiKey);
@@ -780,11 +1004,14 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
   let statusCode = 0;
   let json: (AnthropicResponse & OpenAIResponse & { error?: { message?: string } }) | undefined;
   let lastTransportError: Error | undefined;
+  let lastResponse: Dispatcher.ResponseData | undefined;
 
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+  let attempt = 1;
+  while (true) {
     statusCode = 0;
     json = undefined;
     lastTransportError = undefined;
+    lastResponse = undefined;
     try {
       const response = await request(providerRequest.url, {
         method: 'POST',
@@ -792,6 +1019,7 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
         body: JSON.stringify(providerRequest.body),
         ...(largeCall ? { headersTimeout: LARGE_CALL_HEADERS_TIMEOUT_MS } : {}),
       });
+      lastResponse = response;
       statusCode = response.statusCode;
       json = (await response.body.json()) as AnthropicResponse &
         OpenAIResponse & { error?: { message?: string } };
@@ -805,31 +1033,67 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
     if (!transient) {
       break; // Success or deterministic failure — handle below, never retry.
     }
-    if (attempt < maxAttempts) {
+    // Phase 16 v1.0.2 (user directive 2026-08-20): a 429 from an opted-in
+    // caller gets the extended rate-limit budget (RATE_LIMIT_MAX_ATTEMPTS
+    // total attempts, ~31 min of escalating stalls) so a throttled provider
+    // can clear its window instead of aborting the run; every other
+    // transient class stays bounded by the caller's maxRetries. The ceiling
+    // is recomputed per attempt, so a 5xx after a 429 reverts to the
+    // caller's bound.
+    const rateLimited = statusCode === 429 && (options.maxRetries ?? 0) > 0;
+    const ceiling = rateLimited ? Math.max(maxAttempts, RATE_LIMIT_MAX_ATTEMPTS) : maxAttempts;
+    if (attempt >= ceiling) {
+      break; // Exhausted for THIS attempt's error class — handle below.
+    }
+    let delayMs = transportRetryDelayMs(attempt);
+    if (rateLimited) {
+      // The stall floor outlasts a free-tier throttle window (the old
+      // backoff exhausted in ~20s — well inside the window); a provider
+      // Retry-After header still wins when it asks for more.
+      delayMs = Math.max(delayMs, rateLimitStallDelayMs(attempt));
+      const retryAfterRaw = lastResponse?.headers?.['retry-after'];
+      const retryAfterValue = Array.isArray(retryAfterRaw) ? retryAfterRaw[0] : retryAfterRaw;
+      const retryAfterSeconds =
+        typeof retryAfterValue === 'string' ? Number(retryAfterValue.trim()) : Number.NaN;
+      if (!Number.isNaN(retryAfterSeconds) && retryAfterSeconds > 0) {
+        delayMs = Math.max(delayMs, retryAfterSeconds * 1000);
+      }
+      const waitSeconds = Math.round(delayMs / 1000);
+      const nextAttempt = attempt + 1;
+      if (rateLimitWaitReporter) {
+        // The ingest reporter (TUI/CLI progress channel) owns the message.
+        rateLimitWaitReporter({ waitSeconds, attempt: nextAttempt, maxAttempts: ceiling });
+      } else {
+        console.warn(
+          `LLM Call | Rate limited (HTTP 429) — waiting ${waitSeconds}s before retry (attempt ${nextAttempt}/${ceiling})...`,
+        );
+      }
+    } else {
       const reason =
         lastTransportError?.message ?? `HTTP ${statusCode}`;
       console.warn(
         `LLM Call | Transient failure (${reason}), retrying (attempt ${attempt + 1}/${maxAttempts})...`,
       );
-      // Phase 16 (vision `04` §1): exponential backoff (5s/15s/45s) replaces
-      // the old linear 1s*attempt wait; attempt counts unchanged.
-      await transportRetrySleeper(transportRetryDelayMs(attempt));
     }
+    await transportRetrySleeper(delayMs);
+    attempt++;
   }
 
   if (lastTransportError !== undefined) {
-    throw new Error(`${providerName} API transport error after ${maxAttempts} attempt(s): ${lastTransportError.message}`);
+    throw new Error(`${providerName} API transport error after ${attempt} attempt(s): ${lastTransportError.message}`);
   }
 
   if (statusCode < 200 || statusCode >= 300) {
-    throw new Error(`${providerName} API error (HTTP ${statusCode}): ${JSON.stringify(json)}`);
+    throw new Error(
+      `${providerName} API error (HTTP ${statusCode}) after ${attempt} attempt(s): ${JSON.stringify(json)}`,
+    );
   }
 
   let parsed: ParsedProviderResponse;
   if (provider.startsWith('custom:')) {
     const config = modelRouting?.customProviders?.find((c) => c.id === provider.slice(7));
     parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: '' });
-  } else if (provider === 'openai' || provider === 'qwen') {
+  } else if (provider === 'openai' || provider === 'qwen' || provider === 'deepseek' || provider === 'zhipu') {
     parsed = parseOpenAIResponse(json);
   } else {
     parsed = parseAnthropicResponse(json);
@@ -860,9 +1124,13 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
 /**
  * Test whether a provider + API key + model can return a response. Sends a
    * tiny, cheap request using the same provider-specific request builders as
-   * production, with `maxTokens: 16` and a minimal prompt. Does NOT use the
- * module-level model routing, does NOT retry, does NOT log to
- * `llm-calls.json`, and does NOT charge against the run's cost metrics.
+   * production, with `maxTokens: 256` and a minimal prompt. The budget is
+   * deliberately larger than the visible answer needs: reasoning models
+   * (e.g. DeepSeek-V4-Pro) consume output tokens for their hidden
+   * `reasoning_content` BEFORE the visible `content`, so a 16-token budget
+   * could finish with an empty answer and a false "empty response" verdict.
+   * Does NOT use the module-level model routing, does NOT retry, does NOT log
+   * to `llm-calls.json`, and does NOT charge against the run's cost metrics.
  *
  * Returns `{ ok: true, message }` on a 2xx response with text, otherwise
  * `{ ok: false, message }` with the HTTP status + API error message or a
@@ -874,13 +1142,7 @@ export async function testModelConnection(
   apiKey: string,
   customProviders?: import('../tui/settings').CustomProviderConfig[],
 ): Promise<{ ok: boolean; message: string }> {
-  const providerName = provider.startsWith('custom:')
-    ? customProviders?.find((c) => c.id === provider.slice(7))?.name ?? provider
-    : provider === 'openai'
-      ? 'OpenAI'
-      : provider === 'qwen'
-        ? 'Qwen'
-        : 'Anthropic';
+  const providerName = displayProviderName(provider, customProviders);
 
   let providerRequest: ProviderRequest;
   if (provider.startsWith('custom:')) {
@@ -888,18 +1150,18 @@ export async function testModelConnection(
     if (!config) {
       return { ok: false, message: `Custom provider '${provider.slice(7)}' not found in settings.` };
     }
-    providerRequest = buildCustomProviderRequest(config, model, 'hi', undefined, { maxTokens: 16 }, apiKey);
-  } else if (provider === 'openai' || provider === 'qwen') {
+    providerRequest = buildCustomProviderRequest(config, model, 'hi', undefined, { maxTokens: 256 }, apiKey);
+  } else if (provider === 'openai' || provider === 'qwen' || provider === 'deepseek' || provider === 'zhipu') {
     providerRequest = buildOpenAIRequest(
       model,
       'hi',
       undefined,
-      { maxTokens: 16 },
+      { maxTokens: 256 },
       apiKey,
-      provider === 'qwen' ? QWEN_API_URL : OPENAI_API_URL,
+      openAiCompatibleUrl(provider),
     );
   } else {
-    providerRequest = buildAnthropicRequest(model, 'hi', undefined, { maxTokens: 16 }, apiKey);
+    providerRequest = buildAnthropicRequest(model, 'hi', undefined, { maxTokens: 256 }, apiKey);
   }
 
   let statusCode = 0;
@@ -933,7 +1195,7 @@ export async function testModelConnection(
   if (provider.startsWith('custom:')) {
     const config = customProviders?.find((c) => c.id === provider.slice(7));
     parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: '' });
-  } else if (provider === 'openai' || provider === 'qwen') {
+  } else if (provider === 'openai' || provider === 'qwen' || provider === 'deepseek' || provider === 'zhipu') {
     parsed = parseOpenAIResponse(json);
   } else {
     parsed = parseAnthropicResponse(json);

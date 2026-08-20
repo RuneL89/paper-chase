@@ -915,7 +915,7 @@ test('gate 24.12: uncertain verdicts escalate to the mid-tier review; match join
   const routing = {
     default: 'cheap-model',
     extractor: null,
-    synthesis: 'mid-model',
+    synthesis: { provider: 'anthropic' as const, model: 'mid-model' },
     dox: null,
     curation: null,
     crossWiki: null,
@@ -930,7 +930,11 @@ test('gate 24.12: uncertain verdicts escalate to the mid-tier review; match join
   expect(resolveModelFromRouting(routing, 'cross-wiki-hypothesis')).toBe('mid-model');
 
   // Phase 24 explicit slots override the fallbacks.
-  const explicitRouting = { ...routing, crossWiki: 'bulk-model', crossWikiJudgment: 'judgment-model' };
+  const explicitRouting = {
+    ...routing,
+    crossWiki: { provider: 'anthropic' as const, model: 'bulk-model' },
+    crossWikiJudgment: { provider: 'anthropic' as const, model: 'judgment-model' },
+  };
   expect(resolveModelFromRouting(explicitRouting, 'cross-wiki-entity-match')).toBe('bulk-model');
   expect(resolveModelFromRouting(explicitRouting, 'cross-wiki-entity-context')).toBe('bulk-model');
   expect(resolveModelFromRouting(explicitRouting, 'cross-wiki-uncertain-review')).toBe('judgment-model');

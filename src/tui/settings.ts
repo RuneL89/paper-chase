@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { ModelRouting, Provider } from '../llm/client';
+import { normalizeModelSlot, normalizeProviderValue } from '../llm/client';
+import type { ModelRouting, ModelSlot, Provider } from '../llm/client';
 
 export type { Provider } from '../llm/client';
 
@@ -16,6 +17,8 @@ export interface ApiKeys {
   anthropic: string | null;
   openai: string | null;
   qwen: string | null;
+  deepseek: string | null;
+  zhipu: string | null;
 }
 
 /**
@@ -78,13 +81,16 @@ export interface TuiSettings {
   /** Phase 9: pre-check the "Propose AGENTS.md Updates" option. */
   updateAgents: boolean;
 /**
- * Phase 11: per-call LLM model routing. `provider` selects the API
- * ('anthropic' default, 'openai' and 'qwen' opt-in — v1.4.0 multi-provider
- * extension, user directive 2026-07-22; Qwen extension 2026-08-04);
- * `default` is a concrete model id for the current provider; the per-call-type
- * entries are either a concrete model id or null, where null means "Same as
+ * Phase 11: per-call LLM model routing. `provider` is the DEFAULT provider
+ * ('anthropic' default; 'openai' and 'qwen' opt-in — v1.4.0 multi-provider
+ * extension, user directive 2026-07-22; Qwen extension 2026-08-04;
+ * 'deepseek' — 2026-08-17); `default` is a concrete model id for that
+ * provider; the per-call-type entries are `{ provider, model }` pairs
+ * (v1.9.0, user directive 2026-08-17) or null, where null means "Same as
  * default". Older config files without a `models` block — or without
- * `provider` inside it — load with the Anthropic defaults filled in.
+ * `provider` inside it — load with the Anthropic defaults filled in, and
+ * legacy per-call-type STRING entries migrate to `{ provider, model }`
+ * pairs under the (legacy) global provider.
  */
   models: ModelRouting;
   /**
@@ -108,9 +114,13 @@ export interface TuiSettings {
  * full model id. Anthropic: Haiku/Sonnet/Opus. OpenAI (lineup verified
  * against live OpenAI docs 2026-07-22 — see the compliance log): the GPT-5.6
  * family Luna/Terra/Sol. Qwen (DashScope OpenAI-compatible endpoint,
- * 2026-08-04): Qwen-Plus, Qwen 3.7 Max, Qwen 3.8 Max.
+ * 2026-08-04): Qwen-Plus, Qwen 3.7 Max, Qwen 3.8 Max. DeepSeek
+ * (OpenAI-compatible endpoint, 2026-08-17): DeepSeek-V4-Pro only for now
+ * (user directive — more models later). Zhipu (2026-08-19, the
+ * INTERNATIONAL Z.ai endpoint `https://api.z.ai/api/paas/v4`): GLM-4.7-Flash
+ * (free), GLM-5.2, GLM-5.3.
  */
-type BuiltInProvider = 'anthropic' | 'openai' | 'qwen';
+type BuiltInProvider = 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu';
 
 export const MODEL_CATALOG: Record<BuiltInProvider, Array<{ id: string; label: string }>> = {
   anthropic: [
@@ -131,6 +141,16 @@ export const MODEL_CATALOG: Record<BuiltInProvider, Array<{ id: string; label: s
     { id: 'qwen3.8-max', label: 'Qwen 3.8 Max' },
     { id: '__custom__', label: 'Custom model...' },
   ],
+  deepseek: [
+    { id: 'deepseek-v4-pro', label: 'DeepSeek-V4-Pro' },
+    { id: '__custom__', label: 'Custom model...' },
+  ],
+  zhipu: [
+    { id: 'glm-4.7-flash', label: 'GLM-4.7-Flash' },
+    { id: 'glm-5.2', label: 'GLM-5.2' },
+    { id: 'glm-5.3', label: 'GLM-5.3' },
+    { id: '__custom__', label: 'Custom model...' },
+  ],
 };
 
 /** Provider-aware default model: always the provider's cheapest tier. */
@@ -138,16 +158,22 @@ export const DEFAULT_MODEL_FOR_PROVIDER: Record<BuiltInProvider, string> = {
   anthropic: 'claude-haiku-4-5-20251001',
   openai: 'gpt-5.6-luna',
   qwen: 'qwen-plus',
+  deepseek: 'deepseek-v4-pro',
+  zhipu: 'glm-4.7-flash',
 };
 
 /**
  * Phase 14 (phase doc §2.6, ratified mid-tier): the seeded `curation` slot per
- * provider — mid-tier judgment for merge/drop decisions.
+ * provider — mid-tier judgment for merge/drop decisions. DeepSeek has a
+ * single model for now, so it seeds v4-pro. Zhipu seeds GLM-5.2 as the
+ * mid tier (GLM-5.3 has mandatory reasoning, so it stays the premium pick).
  */
 export const CURATION_MODEL_FOR_PROVIDER: Record<BuiltInProvider, string> = {
   anthropic: 'claude-sonnet-5',
   openai: 'gpt-5.6-terra',
   qwen: 'qwen3.7-max',
+  deepseek: 'deepseek-v4-pro',
+  zhipu: 'glm-5.2',
 };
 
 /**
@@ -202,8 +228,16 @@ export function findCustomProvider(
 }
 
 /** True when the provider is one of the built-in literals. */
-export function isBuiltInProvider(provider: Provider): provider is 'anthropic' | 'openai' | 'qwen' {
-  return provider === 'anthropic' || provider === 'openai' || provider === 'qwen';
+export function isBuiltInProvider(
+  provider: Provider,
+): provider is 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu' {
+  return (
+    provider === 'anthropic' ||
+    provider === 'openai' ||
+    provider === 'qwen' ||
+    provider === 'deepseek' ||
+    provider === 'zhipu'
+  );
 }
 
 /**
@@ -253,11 +287,11 @@ export function getCurationModelForProvider(
 }
 
 /**
- * Re-seed the five model slots for a provider switch (Settings screen):
- * `default` becomes the new provider's cheapest model, `curation` its
- * mid-tier (Phase 14 §2.6), and every other per-call-type entry resets to
- * null ("Same as default"), so stale cross-provider model ids can never
- * persist in `.paper-chase.json`.
+ * Seed a FRESH routing table for a provider (new settings, provider addition):
+ * `default` becomes the provider's cheapest model, `curation` its mid-tier
+ * (Phase 14 §2.6) as a concrete `{ provider, model }` pair, and every other
+ * per-call-type entry starts null ("Same as default"). Phase 11 v1.9.0: the
+ * seeded pairs carry their own provider, so seeding never mixes providers.
  * For custom providers (v1.8.0), the cheapest model is the first configured
  * model and the mid-tier is the second configured model (or the first when
  * only one exists).
@@ -275,7 +309,7 @@ export function seedModelsForProvider(
     // Phase 24: explicit Cross-Wiki Discovery slots start as "Same as default".
     crossWiki: null,
     crossWikiJudgment: null,
-    curation: getCurationModelForProvider(provider, customProviders),
+    curation: { provider, model: getCurationModelForProvider(provider, customProviders) },
   };
 }
 
@@ -283,7 +317,7 @@ const DEFAULT_SETTINGS: TuiSettings = {
   synthesis: false,
   updateAgents: false,
   models: seedModelsForProvider('anthropic'),
-  apiKeys: { anthropic: null, openai: null, qwen: null },
+  apiKeys: { anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null },
   customProviders: [],
 };
 
@@ -303,38 +337,33 @@ export function legacySettingsPath(workspace: string): string {
 /**
  * Tolerate older config files: a missing `models` block gets the defaults,
  * and a `models` block without `provider` (pre-v1.4.0) loads as 'anthropic'.
- * Custom providers (v1.8.0) preserve their `custom:<id>` provider value and
- * use the configured model list for defaults.
+ * Phase 11 v1.9.0: per-call-type slots normalize through the shared client
+ * helper — legacy string ids migrate to `{ provider, model }` pairs under
+ * the (legacy) global provider; malformed values become null. Custom
+ * providers (v1.8.0) preserve their `custom:<id>` provider value and use the
+ * configured model list for defaults.
  */
 function normalizeModels(
   parsed: Partial<ModelRouting> | undefined,
   customProviders: CustomProviderConfig[] = [],
 ): ModelRouting {
-  const concrete = (value: unknown): string | null =>
-    typeof value === 'string' && value.length > 0 ? value : null;
-  const provider: Provider =
-    parsed?.provider === 'openai'
-      ? 'openai'
-      : parsed?.provider === 'qwen'
-        ? 'qwen'
-        : typeof parsed?.provider === 'string' && parsed.provider.startsWith('custom:')
-          ? parsed.provider
-          : 'anthropic';
+  const provider: Provider = normalizeProviderValue(parsed?.provider);
+  const slot = (value: unknown): ModelSlot | null => normalizeModelSlot(value, provider);
   return {
     provider,
     default:
       typeof parsed?.default === 'string' && parsed.default.length > 0
         ? parsed.default
         : getDefaultModelForProvider(provider, customProviders),
-    extractor: concrete(parsed?.extractor),
-    synthesis: concrete(parsed?.synthesis),
-    dox: concrete(parsed?.dox),
+    extractor: slot(parsed?.extractor),
+    synthesis: slot(parsed?.synthesis),
+    dox: slot(parsed?.dox),
     // Phase 24: explicit cross-wiki slots; absent in legacy configs → null.
-    crossWiki: concrete(parsed?.crossWiki),
-    crossWikiJudgment: concrete(parsed?.crossWikiJudgment),
+    crossWiki: slot(parsed?.crossWiki),
+    crossWikiJudgment: slot(parsed?.crossWikiJudgment),
     // Phase 14 §2.6: absent in legacy configs → null (falls through to
     // `default` at resolve time — byte-identical legacy behavior).
-    curation: concrete(parsed?.curation),
+    curation: slot(parsed?.curation),
   };
 }
 
@@ -390,6 +419,8 @@ function normalizeApiKeys(parsed: Partial<ApiKeys> | undefined): ApiKeys {
     anthropic: concrete(parsed?.anthropic),
     openai: concrete(parsed?.openai),
     qwen: concrete(parsed?.qwen),
+    deepseek: concrete(parsed?.deepseek),
+    zhipu: concrete(parsed?.zhipu),
   };
 }
 

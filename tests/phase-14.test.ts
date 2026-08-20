@@ -728,8 +728,10 @@ test('gate 14.3: transient exhaustion -> fallback only after the bounded transpo
   setTransportRetrySleeper(async () => {});
   try {
     const outcome = await curateTopics([topicCandidate('alpha')], { agentsMd: 'Test constitution.' });
-    // maxRetries: 2 inside the curation transport options -> 3 total calls.
-    expect(mockUndiciRequest).toHaveBeenCalledTimes(3);
+    // maxRetries: 2 inside the curation transport options -> 3 total calls for
+    // non-rate-limit transients. Phase 16 v1.0.2 (user directive 2026-08-20):
+    // a 429 gets RATE_LIMIT_MAX_ATTEMPTS total attempts instead -> 6 calls.
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(6);
     expect(outcome.decisions).toBeNull();
     expect(outcome.fallbacks).toEqual([{ scope: 'curation-topics', cause: 'transport-exhaustion' }]);
   } finally {
@@ -1221,7 +1223,15 @@ test('gate 14.9: on-disk merged-away/dropped pages are deleted with their empty 
 // ---------------------------------------------------------------------------
 
 test('gate 14.10: resolveModel maps the curation call type through the routing table', () => {
-  setModelRouting({ default: HAIKU, extractor: HAIKU, synthesis: OPUS, dox: null, crossWiki: null, crossWikiJudgment: null, curation: SONNET });
+  setModelRouting({
+    default: HAIKU,
+    extractor: { provider: 'anthropic', model: HAIKU },
+    synthesis: { provider: 'anthropic', model: OPUS },
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+    curation: { provider: 'anthropic', model: SONNET },
+  });
   try {
     expect(resolveModel('curation')).toBe(SONNET);
     // A null entry means "Same as default".
@@ -1237,7 +1247,14 @@ test('gate 14.10: resolveModel maps the curation call type through the routing t
 });
 
 test('gate 14.10: a legacy routing table without the field normalizes to null (byte-identical behavior)', () => {
-  setModelRouting({ default: HAIKU, extractor: HAIKU, synthesis: SONNET, dox: null, crossWiki: null, crossWikiJudgment: null });
+  setModelRouting({
+    default: HAIKU,
+    extractor: { provider: 'anthropic', model: HAIKU },
+    synthesis: { provider: 'anthropic', model: SONNET },
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+  });
   try {
     expect(resolveModel('curation')).toBe(HAIKU);
     expect(resolveModel('synthesis')).toBe(SONNET);
@@ -1253,7 +1270,7 @@ test('gate 14.10: seedModelsForProvider seeds the mid-tier curation default on a
     extractor: null,
     synthesis: null,
     dox: null, crossWiki: null, crossWikiJudgment: null,
-    curation: SONNET,
+    curation: { provider: 'anthropic', model: SONNET },
   });
   expect(seedModelsForProvider('openai')).toEqual({
     provider: 'openai',
@@ -1261,7 +1278,7 @@ test('gate 14.10: seedModelsForProvider seeds the mid-tier curation default on a
     extractor: null,
     synthesis: null,
     dox: null, crossWiki: null, crossWikiJudgment: null,
-    curation: GPT_TERRA,
+    curation: { provider: 'openai', model: GPT_TERRA },
   });
   expect(seedModelsForProvider('qwen')).toEqual({
     provider: 'qwen',
@@ -1269,7 +1286,7 @@ test('gate 14.10: seedModelsForProvider seeds the mid-tier curation default on a
     extractor: null,
     synthesis: null,
     dox: null, crossWiki: null, crossWikiJudgment: null,
-    curation: 'qwen3.7-max',
+    curation: { provider: 'qwen', model: 'qwen3.7-max' },
   });
 });
 

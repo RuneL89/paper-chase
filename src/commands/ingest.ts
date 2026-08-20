@@ -27,7 +27,7 @@ import { readWikiLanguage, writeWikiLanguage } from '../state/language';
 import { readFullRollingMemory } from '../state/rolling-memory';
 import { readConflicts } from '../state/conflicts';
 import { writeMetrics, sumLlmUsageSince, countLlmCallsSince, type IngestionMetrics } from '../state/metrics';
-import { setModelRouting, isTransientTransportError } from '../llm/client';
+import { setModelRouting, isTransientTransportError, setRateLimitWaitReporter } from '../llm/client';
 import { beginReaskRun, reaskRepairs, runWithFeedbackRetry } from '../llm/reask';
 import {
   isSkipEligible,
@@ -645,6 +645,28 @@ export function formatIngestSummary(result: IngestResult): string {
  * compounding metrics to `.state/metrics.json` for the TUI Ingestion Log.
  */
 export async function ingest(slug: string, options: IngestOptions = {}): Promise<IngestResult> {
+  // Phase 16 v1.0.2 (user directive 2026-08-20): route the client's 429
+  // stall waits into this run's progress channel so the TUI and CLI show a
+  // live "waiting Ns" line during a multi-minute throttle wait (cheap
+  // completion over speed for throttled free-tier models). Cleared in the
+  // finally so the reporter never leaks into another caller's run.
+  const reportProgress = options.onProgress;
+  if (reportProgress) {
+    setRateLimitWaitReporter(({ waitSeconds, attempt, maxAttempts }) => {
+      reportProgress(
+        `Rate limited by provider (HTTP 429) — waiting ${waitSeconds}s before retry (attempt ${attempt}/${maxAttempts})...`,
+      );
+    });
+  }
+  try {
+    return await runIngest(slug, options);
+  } finally {
+    setRateLimitWaitReporter(null);
+  }
+}
+
+/** The ingest implementation (the exported wrapper owns the rate-limit reporter lifecycle). */
+async function runIngest(slug: string, options: IngestOptions): Promise<IngestResult> {
   // Phase 12 (vision `04` §6): reset the per-run feedback-repair counter so
   // metrics.feedbackRepairs and the end-of-run prompt-quality warning reflect
   // exactly this run's reask activity across all five LLM call sites.

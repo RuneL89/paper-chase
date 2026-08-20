@@ -29,6 +29,10 @@ import {
   isTransientTransportError,
   LARGE_CALL_HEADERS_TIMEOUT_MS,
   LARGE_CALL_MAX_TOKENS,
+  RATE_LIMIT_MAX_ATTEMPTS,
+  rateLimitStallDelayMs,
+  setRateLimitWaitReporter,
+  type RateLimitWaitInfo,
 } from '../src/llm/client';
 import {
   curateTopics,
@@ -85,6 +89,16 @@ import type { TopicPageData } from '../src/pages/topic-page';
  * `npm test` green, pre-existing tests untouched except the enumerated
  * semantic updates recorded in `.state/phase-16-status.json`) is encoded by
  * this file being part of the suite.
+ *
+ * Phase 16 v1.0.2 (user directive 2026-08-20) adds gates 16.13–16.17: the
+ * reactive 429 stall — an opted-in caller's HTTP 429 gets
+ * RATE_LIMIT_MAX_ATTEMPTS total attempts with the escalating
+ * `rateLimitStallDelayMs` floor (60s/120s/240s/480s/960s, ~31 min of
+ * waiting), a provider Retry-After header still wins when larger, every
+ * other transient class keeps the caller's bound and the exponential
+ * backoff, and the stall surfaces on the ingest progress channel via the
+ * `setRateLimitWaitReporter` seam (cleared when the run ends). All waits go
+ * through the injected sleeper — never wall-clock.
  */
 
 vi.mock('undici', () => ({ request: vi.fn() }));
@@ -98,6 +112,7 @@ afterEach(() => {
   vi.useRealTimers();
   setModelRouting(null);
   setTransportRetrySleeper(null);
+  setRateLimitWaitReporter(null);
   mockUndiciRequest.mockReset();
 });
 
@@ -919,8 +934,10 @@ test('gate 16.8: the transport retry backoff is exponential (5s/15s/45s), assert
     5000, 15000, 45000,
   ]);
 
-  // And callLLM actually waits those amounts between attempts: 429 x2 then a
-  // success with maxRetries 2, sleeper injected and recording.
+  // And callLLM actually waits those amounts between attempts: 503 x2 then a
+  // success with maxRetries 2, sleeper injected and recording. 503 is the
+  // non-rate-limit transient class — a 429 would trigger the Phase 16 v1.0.2
+  // stall floor instead (gates 16.13–16.15).
   const savedKey = process.env.ANTHROPIC_API_KEY;
   process.env.ANTHROPIC_API_KEY = 'gate-16-8-fake-key';
   const delays: number[] = [];
@@ -929,12 +946,12 @@ test('gate 16.8: the transport retry backoff is exponential (5s/15s/45s), assert
   });
   mockUndiciRequest
     .mockResolvedValueOnce({
-      statusCode: 429,
-      body: { json: async () => ({ error: { message: 'rate limited' } }) },
+      statusCode: 503,
+      body: { json: async () => ({ error: { message: 'unavailable' } }) },
     } as never)
     .mockResolvedValueOnce({
-      statusCode: 429,
-      body: { json: async () => ({ error: { message: 'rate limited' } }) },
+      statusCode: 503,
+      body: { json: async () => ({ error: { message: 'unavailable' } }) },
     } as never)
     .mockResolvedValueOnce({
       statusCode: 200,
@@ -968,6 +985,248 @@ test('gate 16.8 (supplementary): isTransientTransportError matches the client cl
   expect(isTransientTransportError(new Error('ANTHROPIC_API_KEY is not set.'))).toBe(false);
   expect(isTransientTransportError(new Error('some other failure'))).toBe(false);
   expect(isTransientTransportError('not an error')).toBe(false);
+});
+
+// ---------------------------------------------------------------------------
+// Gates 16.13–16.17: Reactive 429 stall (Phase 16 v1.0.2, user directive
+// 2026-08-20). A throttled provider's 429 gets RATE_LIMIT_MAX_ATTEMPTS total
+// attempts with the escalating stall floor (~31 min of waiting) so the
+// throttle window clears instead of aborting the run; every other transient
+// class keeps the caller's bound and the exponential backoff. All waits go
+// through the injected sleeper — never wall-clock.
+// ---------------------------------------------------------------------------
+
+/** Undici mock: a 429 with an optional Retry-After header (seconds). */
+function rateLimit429(retryAfterSeconds?: number) {
+  const headers: Record<string, string> = {};
+  if (retryAfterSeconds !== undefined) {
+    headers['retry-after'] = String(retryAfterSeconds);
+  }
+  return {
+    statusCode: 429,
+    headers,
+    body: { json: async () => ({ error: { message: 'rate limited' } }) },
+  } as never;
+}
+
+/** Undici mock: a plain 200 with a text answer. */
+function success200() {
+  return {
+    statusCode: 200,
+    body: {
+      json: async () => ({ content: [{ type: 'text', text: 'ok' }], usage: { input_tokens: 1, output_tokens: 1 } }),
+    },
+  } as never;
+}
+
+test('gate 16.13: the 429 stall floor escalates (60s/120s/240s/480s/960s); Retry-After wins when larger', async () => {
+  // The floor function IS the sequence (no wall-clock sleeping).
+  expect([1, 2, 3, 4, 5].map(rateLimitStallDelayMs)).toEqual([60000, 120000, 240000, 480000, 960000]);
+
+  const savedKey = process.env.ANTHROPIC_API_KEY;
+  process.env.ANTHROPIC_API_KEY = 'gate-16-13-fake-key';
+  const delays: number[] = [];
+  setTransportRetrySleeper(async (ms) => {
+    delays.push(ms);
+  });
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    // Retry-After: 7 -> the 60s floor wins on the first wait.
+    mockUndiciRequest
+      .mockResolvedValueOnce(rateLimit429(7))
+      .mockResolvedValueOnce(success200());
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(delays).toEqual([60000]);
+
+    // Retry-After: 90 -> the header wins over the 60s floor.
+    delays.length = 0;
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest
+      .mockResolvedValueOnce(rateLimit429(90))
+      .mockResolvedValueOnce(success200());
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(delays).toEqual([90000]);
+  } finally {
+    if (savedKey === undefined) {
+      delete process.env.ANTHROPIC_API_KEY;
+    } else {
+      process.env.ANTHROPIC_API_KEY = savedKey;
+    }
+  }
+});
+
+test('gate 16.14: a 429 gets 6 total attempts with escalating stalls — beyond the caller maxRetries', async () => {
+  const savedKey = process.env.ANTHROPIC_API_KEY;
+  process.env.ANTHROPIC_API_KEY = 'gate-16-14-fake-key';
+  const delays: number[] = [];
+  setTransportRetrySleeper(async (ms) => {
+    delays.push(ms);
+  });
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    mockUndiciRequest
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(success200());
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(6);
+    expect(RATE_LIMIT_MAX_ATTEMPTS).toBe(6);
+    expect(delays).toEqual([60000, 120000, 240000, 480000, 960000]);
+  } finally {
+    if (savedKey === undefined) {
+      delete process.env.ANTHROPIC_API_KEY;
+    } else {
+      process.env.ANTHROPIC_API_KEY = savedKey;
+    }
+  }
+});
+
+test('gate 16.15: a persistent 429 aborts after exactly 6 attempts with the attempt-count error', async () => {
+  const savedKey = process.env.ANTHROPIC_API_KEY;
+  process.env.ANTHROPIC_API_KEY = 'gate-16-15-fake-key';
+  setTransportRetrySleeper(async () => {});
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    mockUndiciRequest.mockResolvedValue(rateLimit429());
+    let error: Error | undefined;
+    try {
+      await callLLM('p', undefined, { maxRetries: 2 });
+    } catch (err) {
+      error = err as Error;
+    }
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(6);
+    expect(error).toBeInstanceOf(Error);
+    expect(error?.message).toMatch(/API error \(HTTP 429\) after 6 attempt\(s\)/);
+    expect(isTransientTransportError(error)).toBe(true);
+  } finally {
+    if (savedKey === undefined) {
+      delete process.env.ANTHROPIC_API_KEY;
+    } else {
+      process.env.ANTHROPIC_API_KEY = savedKey;
+    }
+  }
+});
+
+test('gate 16.16: non-429 transients are unchanged — 503 keeps 3 attempts with the exponential backoff; maxRetries 0 keeps the frozen 429 no-retry', async () => {
+  const savedKey = process.env.ANTHROPIC_API_KEY;
+  process.env.ANTHROPIC_API_KEY = 'gate-16-16-fake-key';
+  const delays: number[] = [];
+  setTransportRetrySleeper(async (ms) => {
+    delays.push(ms);
+  });
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    mockUndiciRequest
+      .mockResolvedValueOnce({ statusCode: 503, body: { json: async () => ({ error: { message: 'unavailable' } }) } } as never)
+      .mockResolvedValueOnce({ statusCode: 503, body: { json: async () => ({ error: { message: 'unavailable' } }) } } as never)
+      .mockResolvedValueOnce(success200());
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(3);
+    expect(delays).toEqual([5000, 15000]);
+
+    // Frozen default: maxRetries 0 -> a 429 throws on the first attempt.
+    delays.length = 0;
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest.mockResolvedValueOnce(rateLimit429());
+    await expect(callLLM('p')).rejects.toThrow(/API error \(HTTP 429\) after 1 attempt\(s\)/);
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(1);
+    expect(delays).toEqual([]);
+  } finally {
+    if (savedKey === undefined) {
+      delete process.env.ANTHROPIC_API_KEY;
+    } else {
+      process.env.ANTHROPIC_API_KEY = savedKey;
+    }
+  }
+});
+
+test('gate 16.17: the stall reporter receives the exact wait info and owns the 429 message; without it the warn fires', async () => {
+  const savedKey = process.env.ANTHROPIC_API_KEY;
+  process.env.ANTHROPIC_API_KEY = 'gate-16-17-fake-key';
+  setTransportRetrySleeper(async () => {});
+  const reported: RateLimitWaitInfo[] = [];
+  setRateLimitWaitReporter((info) => reported.push(info));
+  const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    mockUndiciRequest
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(success200());
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(reported).toEqual([
+      { waitSeconds: 60, attempt: 2, maxAttempts: 6 },
+      { waitSeconds: 120, attempt: 3, maxAttempts: 6 },
+    ]);
+    expect(warn).not.toHaveBeenCalled();
+
+    // Without a reporter the console.warn path fires with the stall line.
+    setRateLimitWaitReporter(null);
+    reported.length = 0;
+    warn.mockClear();
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(success200());
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(reported).toEqual([]);
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0]?.[0]).toMatch(/Rate limited \(HTTP 429\) — waiting 60s before retry \(attempt 2\/6\)/);
+  } finally {
+    setRateLimitWaitReporter(null);
+    if (savedKey === undefined) {
+      delete process.env.ANTHROPIC_API_KEY;
+    } else {
+      process.env.ANTHROPIC_API_KEY = savedKey;
+    }
+  }
+});
+
+test('gate 16.17 (ingest level): a stalled 429 surfaces on the run\'s progress channel; the reporter never outlives the run', async () => {
+  const workspace = setupWikiWithPdf();
+  const savedKey = process.env.ANTHROPIC_API_KEY;
+  process.env.ANTHROPIC_API_KEY = 'gate-16-17-fake-key';
+  setTransportRetrySleeper(async () => {});
+  const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  const lines: string[] = [];
+  try {
+    // First DOX LLM call of the run hits a 429 (stall through the instant
+    // sleeper), then everything else succeeds deterministically.
+    mockUndiciRequest
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValue(success200());
+    await ingest('test-wiki', {
+      workspace,
+      extract: false,
+      doxLlm: true,
+      onProgress: (line) => lines.push(line),
+    });
+    expect(
+      lines.some((line) =>
+        /Rate limited by provider \(HTTP 429\) — waiting 60s before retry \(attempt 2\/6\)/.test(line),
+      ),
+    ).toBe(true);
+
+    // The reporter must not outlive the run: a post-run 429 uses the
+    // console.warn path (the finished run's progress channel stays silent).
+    warn.mockClear();
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(success200());
+    await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(warn.mock.calls[0]?.[0]).toMatch(/Rate limited \(HTTP 429\) — waiting 60s before retry \(attempt 2\/6\)/);
+    expect(lines.some((line) => line.includes('waiting 60s before retry (attempt 2/6)') && line.startsWith('Rate limited by provider'))).toBe(true);
+  } finally {
+    if (savedKey === undefined) {
+      delete process.env.ANTHROPIC_API_KEY;
+    } else {
+      process.env.ANTHROPIC_API_KEY = savedKey;
+    }
+  }
 });
 
 // ---------------------------------------------------------------------------

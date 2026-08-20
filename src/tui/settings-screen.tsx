@@ -10,12 +10,14 @@ import {
   saveSettings,
   seedModelsForProvider,
   getModelCatalog,
+  getDefaultModelForProvider,
   createCustomProvider,
   MODEL_CATALOG,
   type Provider,
   type TuiSettings,
 } from './settings';
-import { getApiKeyStatus, resolveApiKeyForTest, resolveModelFromRouting, testModelConnection } from '../llm/client';
+import { getApiKeyStatus, resolveApiKeyForTest, resolveSlotFromRouting, testModelConnection } from '../llm/client';
+import type { ModelSlot } from '../llm/client';
 import type { ScreenProps } from './init-screen';
 
 export interface SettingsScreenProps extends ScreenProps {
@@ -37,6 +39,8 @@ type StaticSettingRow =
   | 'apiKeyAnthropic'
   | 'apiKeyOpenai'
   | 'apiKeyQwen'
+  | 'apiKeyDeepseek'
+  | 'apiKeyZhipu'
   | 'customProviderBaseUrl'
   | 'customProviderApiKey'
   | 'addCustomProviderHeader'
@@ -90,6 +94,8 @@ function buildRowOrder(settings: TuiSettings): SettingRow[] {
   order.push('apiKeyAnthropic');
   order.push('apiKeyOpenai');
   order.push('apiKeyQwen');
+  order.push('apiKeyDeepseek');
+  order.push('apiKeyZhipu');
   order.push('save');
   order.push('back');
   return order;
@@ -99,7 +105,14 @@ type SettingsStatus = 'idle' | 'saving' | 'success' | 'error';
 
 /** Compute the selectable providers from the current settings. */
 function providerList(settings: TuiSettings): readonly Provider[] {
-  return ['anthropic', 'openai', 'qwen', ...settings.customProviders.map((cp) => `custom:${cp.id}` as const)];
+  return [
+    'anthropic',
+    'openai',
+    'qwen',
+    'deepseek',
+    'zhipu',
+    ...settings.customProviders.map((cp) => `custom:${cp.id}` as const),
+  ];
 }
 
 /** Display label for any provider. */
@@ -107,18 +120,26 @@ function providerLabel(provider: Provider, customProviders: TuiSettings['customP
   if (provider.startsWith('custom:')) {
     return customProviders.find((cp) => cp.id === provider.slice(7))?.name ?? provider;
   }
-  return PROVIDER_LABELS[provider as 'anthropic' | 'openai' | 'qwen'];
+  return PROVIDER_LABELS[provider as 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu'];
 }
 
-const PROVIDER_LABELS: Record<'anthropic' | 'openai' | 'qwen', string> = {
+const PROVIDER_LABELS: Record<'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu', string> = {
   anthropic: 'Anthropic',
   openai: 'OpenAI',
   qwen: 'Qwen',
+  deepseek: 'DeepSeek',
+  zhipu: 'Zhipu',
 };
 
 /** Short display names for the UI across built-in catalogs; the persisted value is the full model id. */
 const MODEL_SHORT_NAMES: Record<string, string> = Object.fromEntries(
-  [...MODEL_CATALOG.anthropic, ...MODEL_CATALOG.openai, ...MODEL_CATALOG.qwen].map(({ id, label }) => [id, label]),
+  [
+    ...MODEL_CATALOG.anthropic,
+    ...MODEL_CATALOG.openai,
+    ...MODEL_CATALOG.qwen,
+    ...MODEL_CATALOG.deepseek,
+    ...MODEL_CATALOG.zhipu,
+  ].map(({ id, label }) => [id, label]),
 );
 
 /**
@@ -132,7 +153,7 @@ const MODEL_SHORT_NAMES: Record<string, string> = Object.fromEntries(
  * nothing. Phase 14 (phase doc §2.6): the Curation slot carries the ratified
  * mid-tier merge/drop-judgment label.
  */
-const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen', Partial<Record<SettingRow, string>>> = {
+const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen' | 'zhipu', Partial<Record<SettingRow, string>>> = {
   anthropic: {
     modelExtractor: 'Haiku — cheapest, good for structured JSON extraction',
     modelSynthesis: 'Sonnet — better prose, fewer preservation failures',
@@ -157,7 +178,28 @@ const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen', Partial<Record<Se
     modelCrossWiki: 'Qwen-Plus — cheapest for bulk cross-wiki tasks (summaries, matching, clustering)',
     modelCrossWikiJudgment: 'Qwen 3.7 Max — mid-tier review for uncertain cross-wiki matches and hypothesis signals',
   },
+  zhipu: {
+    modelExtractor: 'GLM-4.7-Flash — free; 1-request concurrency fits the sequential steps',
+    modelSynthesis: 'GLM-5.3 — flagship prose; mandatory reasoning raises token use',
+    modelDox: 'GLM-5.2 — mid-tier for structural navigation',
+    modelCuration: 'GLM-5.2 — mid-tier judgment for merge/drop decisions',
+    modelCrossWiki: 'GLM-4.7-Flash — free for bulk cross-wiki tasks',
+    modelCrossWikiJudgment: 'GLM-5.2 — mid-tier review for uncertain cross-wiki matches',
+  },
 };
+
+/**
+ * Recommendation for a row under the row's EFFECTIVE provider (the slot's own
+ * provider, or the default provider when the slot is "Same as default").
+ * DeepSeek and custom providers have no labels: DeepSeek carries a single
+ * model (nothing to guide), and custom providers are user-defined.
+ */
+function recommendationFor(row: SettingRow, provider: Provider): string | null {
+  if (provider !== 'anthropic' && provider !== 'openai' && provider !== 'qwen' && provider !== 'zhipu') {
+    return null;
+  }
+  return RECOMMENDATIONS[provider][row] ?? null;
+}
 
 function displayName(modelId: string): string {
   return MODEL_SHORT_NAMES[modelId] ?? modelId;
@@ -194,17 +236,26 @@ function currentProvider(settings: TuiSettings): Provider {
 /**
  * Settings screen (Phase 5): toggles for synthesis and AGENTS.md update
  * proposals, plus the Phase 11 "LLM Model Routing" section (phase doc §2.2,
- * v1.4.0 multi-provider extension; Qwen extension 2026-08-04) and the "API
- * Keys" section (v1.5.0, user directive 2026-07-23). A Provider row
- * (Anthropic / OpenAI / Qwen) sits above the model rows; below it one
- * Left/Right-cycling dropdown per LLM call type (Default, Extractor,
+ * v1.4.0 multi-provider extension; Qwen extension 2026-08-04; DeepSeek
+ * extension + per-step provider selection v1.9.0, user directive 2026-08-17)
+ * and the "API Keys" section (v1.5.0, user directive 2026-07-23).
+ *
+ * A Default Provider row (Anthropic / OpenAI / Qwen / DeepSeek / Zhipu /
+ * custom)
+ * sits above the model rows and defines the DEFAULT slot: the Default Model
+ * row's provider and what "Same as default" resolves to for every other
+ * row. Since v1.9.0 each of the seven model rows (Default, Extractor,
  * Synthesis Writer, DOX Writer, Curation — Phase 14 §2.6, Cross-Wiki Bulk,
- * Cross-Wiki Judgment — Phase 24) with inline recommendation labels that follow the
- * selected provider. Switching the provider RESETS all seven model slots to the new
- * provider's defaults (cheapest tier + mid-tier curation + "Same as default") so stale
- * cross-provider model ids can never persist. The per-call-type dropdowns
- * offer "Same as default" (persisted as null) plus the selected provider's
- * catalog ids.
+ * Cross-Wiki Judgment — Phase 24) is a self-describing
+ * `{ provider, model }` pair (persisted as null = "Same as default"):
+ * Left/Right cycles ONE combined list across every provider's catalog, and
+ * Enter on the row opens a custom-id editor scoped to that row's provider
+ * (a raw off-catalog id is pre-filled for editing). A row whose provider
+ * differs from the Default Provider shows the provider prefix
+ * (e.g. `Qwen · Qwen-Plus`). Switching the Default Provider re-seeds only
+ * the Default Model row; explicitly-configured rows are preserved because
+ * each carries its own provider, so a mixed-provider table (Qwen Extractor,
+ * Sonnet Synthesis, DeepSeek DOX) can never desync.
  *
  * API Keys section (v1.5.0): one row per provider BELOW the model rows.
  * A row only ever shows the key SOURCE + last 4 characters ('configured
@@ -226,7 +277,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
     synthesis: false,
     updateAgents: false,
     models: seedModelsForProvider('anthropic'),
-    apiKeys: { anthropic: null, openai: null, qwen: null },
+    apiKeys: { anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null },
     customProviders: [],
   });
   const [loaded, setLoaded] = useState(false);
@@ -238,7 +289,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
   /** Draft text of the in-progress key edit (masked on screen). */
   const [keyDraft, setKeyDraft] = useState('');
   /** Model row currently in custom-model edit mode (null = not editing). */
-  const [editingCustomModel, setEditingCustomModel] = useState<SettingRow | null>(null);
+  const [editingCustomModel, setEditingCustomModel] = useState<{ row: SettingRow; provider: Provider } | null>(null);
   /** Draft text of the in-progress custom model id. */
   const [customDraft, setCustomDraft] = useState('');
   /** Test-connection status for the per-row model test. */
@@ -297,21 +348,28 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
       if (next === currentProvider(prev)) {
         return prev;
       }
-      // Reset-on-switch: all five slots re-seed to the new provider's
-      // defaults immediately (cheapest tier + mid-tier curation + nulls) so a
-      // stale model id from the other provider can never be saved.
-      return { ...prev, models: seedModelsForProvider(next, prev.customProviders) };
+      // v1.9.0: only the DEFAULT slot follows the Default Provider row —
+      // the Default Model re-seeds to the new provider's cheapest tier.
+      // Explicitly-configured slots are self-describing { provider, model }
+      // pairs, so they are preserved (and null slots follow the new default
+      // automatically).
+      return {
+        ...prev,
+        models: {
+          ...prev.models,
+          provider: next,
+          default: getDefaultModelForProvider(next, prev.customProviders),
+        },
+      };
     });
   };
 
   const cycleModel = (row: SettingRow, delta: 1 | -1) => {
     setSettings((prev) => {
-      const provider = currentProvider(prev);
-      const ids = getModelCatalog(provider, prev.customProviders).map((entry) => entry.id);
-      const catalogIds = ids.filter((id) => id !== '__custom__');
-
-      const getCurrent = (): string | null => {
-        if (row === 'modelDefault') return prev.models.default;
+      const getCurrent = (): ModelSlot | null => {
+        if (row === 'modelDefault') {
+          return { provider: currentProvider(prev), model: prev.models.default };
+        }
         if (row === 'modelExtractor') return prev.models.extractor;
         if (row === 'modelSynthesis') return prev.models.synthesis;
         if (row === 'modelDox') return prev.models.dox;
@@ -322,44 +380,68 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
       };
 
       const current = getCurrent();
-      const baseChoices: Array<string | null> =
-        row === 'modelDefault' ? [...catalogIds] : [null, ...catalogIds];
-
-      // If the current value is a custom raw id (not in the catalog), insert it
-      // just before '__custom__' so cycling from it moves to edit mode or the
-      // previous catalog item.
-      const choices: Array<string | null> =
-        current !== null && !catalogIds.includes(current) && current !== '__custom__'
-          ? [...baseChoices, current, '__custom__']
-          : [...baseChoices, '__custom__'];
-
-      const next = cycle(choices, current, delta);
-
-      // Landing on '__custom__' enters edit mode instead of persisting the sentinel.
-      if (next === '__custom__') {
-        setEditingCustomModel(row);
-        setCustomDraft(current !== null && !catalogIds.includes(current) ? current : '');
-        return prev;
+      // v1.9.0: one combined choice list across every provider's catalog —
+      // "Same as default" first (not for the Default Model row), then each
+      // provider's models. Raw custom ids typed for a provider ride at the
+      // end of that provider's group so they stay cyclable. Enter on the row
+      // (not the cycle) opens the custom-id editor.
+      const choices: Array<{ provider: Provider; modelId: string | null }> = [];
+      if (row !== 'modelDefault') {
+        choices.push({ provider: currentProvider(prev), modelId: null });
       }
+      for (const p of providerList(prev)) {
+        const ids = getModelCatalog(p, prev.customProviders).map((entry) => entry.id);
+        for (const id of ids) {
+          if (id !== '__custom__') {
+            choices.push({ provider: p, modelId: id });
+          }
+        }
+        if (current !== null && current.provider === p && !ids.includes(current.model)) {
+          choices.push({ provider: p, modelId: current.model });
+        }
+      }
+
+      const currentChoice =
+        current === null
+          ? choices.find((c) => c.modelId === null)
+          : choices.find((c) => c.modelId === current.model && c.provider === current.provider);
+      const next = cycle(choices, currentChoice ?? choices[0], delta);
 
       const models = { ...prev.models };
       if (row === 'modelDefault') {
-        models.default = next as string;
-      } else if (row === 'modelExtractor') {
-        models.extractor = next;
-      } else if (row === 'modelSynthesis') {
-        models.synthesis = next;
-      } else if (row === 'modelDox') {
-        models.dox = next;
-      } else if (row === 'modelCuration') {
-        models.curation = next;
-      } else if (row === 'modelCrossWiki') {
-        models.crossWiki = next;
-      } else if (row === 'modelCrossWikiJudgment') {
-        models.crossWikiJudgment = next;
+        models.default = next.modelId as string;
+      } else {
+        const nextSlot: ModelSlot | null =
+          next.modelId === null ? null : { provider: next.provider, model: next.modelId };
+        if (row === 'modelExtractor') {
+          models.extractor = nextSlot;
+        } else if (row === 'modelSynthesis') {
+          models.synthesis = nextSlot;
+        } else if (row === 'modelDox') {
+          models.dox = nextSlot;
+        } else if (row === 'modelCuration') {
+          models.curation = nextSlot;
+        } else if (row === 'modelCrossWiki') {
+          models.crossWiki = nextSlot;
+        } else if (row === 'modelCrossWikiJudgment') {
+          models.crossWikiJudgment = nextSlot;
+        }
       }
       return { ...prev, models };
     });
+  };
+
+  /** The effective { provider, model } slot a model row resolves to. */
+  const slotForRow = (row: SettingRow): ModelSlot => {
+    const fallback: ModelSlot = { provider, model: settings.models.default };
+    if (row === 'modelDefault') return fallback;
+    if (row === 'modelExtractor') return settings.models.extractor ?? fallback;
+    if (row === 'modelSynthesis') return settings.models.synthesis ?? fallback;
+    if (row === 'modelDox') return settings.models.dox ?? fallback;
+    if (row === 'modelCuration') return settings.models.curation ?? fallback;
+    if (row === 'modelCrossWiki') return settings.models.crossWiki ?? fallback;
+    if (row === 'modelCrossWikiJudgment') return settings.models.crossWikiJudgment ?? fallback;
+    return fallback;
   };
 
   /**
@@ -415,8 +497,9 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
     setCustomDraft('');
   };
 
-  /** Submit the custom model id: a non-empty value stages it, empty cancels. */
-  const submitCustomModel = (row: SettingRow, value: string) => {
+  /** Submit the custom model id for the editing provider: a non-empty value
+   * stages a `{ provider, model }` slot, empty cancels. */
+  const submitCustomModel = (row: SettingRow, provider: Provider, value: string) => {
     const trimmed = value.trim();
     if (trimmed === '') {
       cancelCustomModel();
@@ -424,20 +507,21 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
     }
     setSettings((prev) => {
       const models = { ...prev.models };
+      const slot: ModelSlot = { provider, model: trimmed };
       if (row === 'modelDefault') {
         models.default = trimmed;
       } else if (row === 'modelExtractor') {
-        models.extractor = trimmed;
+        models.extractor = slot;
       } else if (row === 'modelSynthesis') {
-        models.synthesis = trimmed;
+        models.synthesis = slot;
       } else if (row === 'modelDox') {
-        models.dox = trimmed;
+        models.dox = slot;
       } else if (row === 'modelCuration') {
-        models.curation = trimmed;
+        models.curation = slot;
       } else if (row === 'modelCrossWiki') {
-        models.crossWiki = trimmed;
+        models.crossWiki = slot;
       } else if (row === 'modelCrossWikiJudgment') {
-        models.crossWikiJudgment = trimmed;
+        models.crossWikiJudgment = slot;
       }
       return { ...prev, models };
     });
@@ -445,19 +529,19 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
   };
 
   /**
-   * Run the per-row model test: resolve provider + slot model + API key, then
-   * call `testModelConnection`. The result is shown in a dedicated area that
+   * Run the per-row model test: resolve the row's OWN slot (provider +
+   * model — v1.9.0) + that provider's API key, then call
+   * `testModelConnection`. The result is shown in a dedicated area that
    * never interferes with the save status.
    */
   const runModelTest = async (row: SettingRow) => {
-    const provider = currentProvider(settings);
     const callType = rowToCallType(row);
-    const model = resolveModelFromRouting(settings.models, callType);
+    const slot = resolveSlotFromRouting(settings.models, callType);
     const apiKey = resolveApiKeyForTest(
-      provider,
-      provider.startsWith('custom:')
-        ? settings.customProviders.find((c) => c.id === provider.slice(7))?.apiKey ?? null
-        : settings.apiKeys[provider as 'anthropic' | 'openai' | 'qwen'],
+      slot.provider,
+      slot.provider.startsWith('custom:')
+        ? settings.customProviders.find((c) => c.id === slot.provider.slice(7))?.apiKey ?? null
+        : settings.apiKeys[slot.provider as 'anthropic' | 'openai' | 'qwen' | 'deepseek'],
       settings.customProviders,
     );
     if (!apiKey) {
@@ -468,7 +552,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
     setTestStatus('testing');
     setTestMessage('');
     try {
-      const result = await testModelConnection(provider, model, apiKey, settings.customProviders);
+      const result = await testModelConnection(slot.provider, slot.model, apiKey, settings.customProviders);
       setTestStatus(result.ok ? 'success' : 'error');
       setTestMessage(result.message);
     } catch (err) {
@@ -563,6 +647,30 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
         } else if (row === 'apiKeyQwen') {
           setEditingKey('qwen');
           setKeyDraft('');
+        } else if (row === 'apiKeyDeepseek') {
+          setEditingKey('deepseek');
+          setKeyDraft('');
+        } else if (row === 'apiKeyZhipu') {
+          setEditingKey('zhipu');
+          setKeyDraft('');
+        } else if (
+          row === 'modelDefault' ||
+          row === 'modelExtractor' ||
+          row === 'modelSynthesis' ||
+          row === 'modelDox' ||
+          row === 'modelCuration' ||
+          row === 'modelCrossWiki' ||
+          row === 'modelCrossWikiJudgment'
+        ) {
+          // v1.9.0: Enter on a model row opens the custom-id editor scoped
+          // to the row's effective provider. A raw (off-catalog) current id
+          // is pre-filled so it can be edited; catalog ids start empty.
+          const slot = slotForRow(row);
+          const catalogIds = getModelCatalog(slot.provider, settings.customProviders).map(
+            (entry) => entry.id,
+          );
+          setEditingCustomModel({ row, provider: slot.provider });
+          setCustomDraft(catalogIds.includes(slot.model) ? '' : slot.model);
         } else if (row === 'customProviderApiKey' && currentCustomProvider) {
           setEditingKey(`custom:${currentCustomProvider.id}`);
           setKeyDraft('');
@@ -626,17 +734,22 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
       <Box key="provider">
         <Text inverse={active} color={active ? 'cyan' : undefined}>
           {active ? '> ' : '  '}
-          Provider: [‹ {providerLabel(provider, settings.customProviders)} ›]
+          Default Provider: [‹ {providerLabel(provider, settings.customProviders)} ›]
         </Text>
       </Box>
     );
   };
 
-  const renderModelRow = (row: SettingRow, label: string, value: string | null) => {
+  const renderModelRow = (row: SettingRow, label: string, value: ModelSlot | null) => {
     const active = focus === row;
-    const shown = value === null ? 'Same as default' : displayName(value);
-    const recommendation = provider.startsWith('custom:') ? null : RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'][row];
-    const editing = editingCustomModel === row;
+    const shown =
+      value === null
+        ? 'Same as default'
+        : value.provider === provider
+          ? displayName(value.model)
+          : `${providerLabel(value.provider, settings.customProviders)} · ${displayName(value.model)}`;
+    const recommendation = recommendationFor(row, value?.provider ?? provider);
+    const editing = editingCustomModel !== null && editingCustomModel.row === row;
     return (
       <Box key={row} flexDirection="column">
         {editing ? (
@@ -648,7 +761,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
             <TextInput
               value={customDraft}
               onChange={setCustomDraft}
-              onSubmit={(v) => submitCustomModel(row, v)}
+              onSubmit={(v) => submitCustomModel(row, editingCustomModel.provider, v)}
               placeholder="model id"
               focus
             />
@@ -674,7 +787,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
     const editing = editingKey === keyProvider;
     const storedKey = keyProvider.startsWith('custom:')
       ? settings.customProviders.find((c) => c.id === keyProvider.slice(7))?.apiKey ?? null
-      : settings.apiKeys[keyProvider as 'anthropic' | 'openai' | 'qwen'];
+      : settings.apiKeys[keyProvider as 'anthropic' | 'openai' | 'qwen' | 'deepseek'];
     return (
       <Box key={row}>
         <Text inverse={active} color={active ? 'cyan' : undefined}>
@@ -908,7 +1021,21 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
     );
   };
 
-  const optionalLabel = (value: string | null): string => (value === null ? 'Same as default' : displayName(value));
+  /** Display string for one routing slot: "Same as default", or the model
+   * label with a provider prefix when the slot's provider differs from the
+   * Default Provider (e.g. `Qwen · Qwen-Plus`). */
+  const slotLabel = (value: ModelSlot | null): string =>
+    value === null
+      ? 'Same as default'
+      : value.provider === provider
+        ? displayName(value.model)
+        : `${providerLabel(value.provider, settings.customProviders)} · ${displayName(value.model)}`;
+
+  /** Recommendation line for a row under its effective provider (null = none). */
+  const recLine = (row: SettingRow, value: ModelSlot | null) => {
+    const recommendation = recommendationFor(row, value?.provider ?? provider);
+    return recommendation ? <Text dimColor>  {recommendation}</Text> : null;
+  };
 
   return (
     <Box flexDirection="column">
@@ -921,7 +1048,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           <Box flexDirection="column" marginTop={1}>
             <Text bold>LLM Model Routing</Text>
             {renderProviderRow()}
-            {renderModelRow('modelDefault', 'Default Model', settings.models.default)}
+            {renderModelRow('modelDefault', 'Default Model', { provider, model: settings.models.default })}
             {renderModelRow('modelExtractor', 'Extractor Model', settings.models.extractor)}
             {renderModelRow('modelSynthesis', 'Synthesis Writer Model', settings.models.synthesis)}
             {renderModelRow('modelDox', 'DOX Writer Model', settings.models.dox)}
@@ -941,6 +1068,8 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
             {renderKeyRow('apiKeyAnthropic', 'anthropic', 'Anthropic API Key')}
             {renderKeyRow('apiKeyOpenai', 'openai', 'OpenAI API Key')}
             {renderKeyRow('apiKeyQwen', 'qwen', 'Qwen API Key')}
+            {renderKeyRow('apiKeyDeepseek', 'deepseek', 'DeepSeek API Key')}
+            {renderKeyRow('apiKeyZhipu', 'zhipu', 'Zhipu API Key')}
           </Box>
           {testStatus !== 'idle' && (
             <Box marginTop={1}>
@@ -971,32 +1100,20 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           <Text>Synthesis: {settings.synthesis ? 'ON' : 'OFF'}</Text>
           <Text>Update Agents: {settings.updateAgents ? 'ON' : 'OFF'}</Text>
           <Text bold>LLM Model Routing</Text>
-          <Text>Provider: {providerLabel(provider, settings.customProviders)}</Text>
+          <Text>Default Provider: {providerLabel(provider, settings.customProviders)}</Text>
           <Text>Default Model: {displayName(settings.models.default)}</Text>
-          <Text>Extractor Model: {optionalLabel(settings.models.extractor)}</Text>
-          {!provider.startsWith('custom:') && (
-            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelExtractor}</Text>
-          )}
-          <Text>Synthesis Writer Model: {optionalLabel(settings.models.synthesis)}</Text>
-          {!provider.startsWith('custom:') && (
-            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelSynthesis}</Text>
-          )}
-          <Text>DOX Writer Model: {optionalLabel(settings.models.dox)}</Text>
-          {!provider.startsWith('custom:') && (
-            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelDox}</Text>
-          )}
-          <Text>Curation Model: {optionalLabel(settings.models.curation ?? null)}</Text>
-          {!provider.startsWith('custom:') && (
-            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelCuration}</Text>
-          )}
-          <Text>Cross-Wiki Bulk Model: {optionalLabel(settings.models.crossWiki ?? null)}</Text>
-          {!provider.startsWith('custom:') && (
-            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelCrossWiki}</Text>
-          )}
-          <Text>Cross-Wiki Judgment Model: {optionalLabel(settings.models.crossWikiJudgment ?? null)}</Text>
-          {!provider.startsWith('custom:') && (
-            <Text dimColor>  {RECOMMENDATIONS[provider as 'anthropic' | 'openai' | 'qwen'].modelCrossWikiJudgment}</Text>
-          )}
+          <Text>Extractor Model: {slotLabel(settings.models.extractor)}</Text>
+          {recLine('modelExtractor', settings.models.extractor)}
+          <Text>Synthesis Writer Model: {slotLabel(settings.models.synthesis)}</Text>
+          {recLine('modelSynthesis', settings.models.synthesis)}
+          <Text>DOX Writer Model: {slotLabel(settings.models.dox)}</Text>
+          {recLine('modelDox', settings.models.dox)}
+          <Text>Curation Model: {slotLabel(settings.models.curation ?? null)}</Text>
+          {recLine('modelCuration', settings.models.curation ?? null)}
+          <Text>Cross-Wiki Bulk Model: {slotLabel(settings.models.crossWiki ?? null)}</Text>
+          {recLine('modelCrossWiki', settings.models.crossWiki ?? null)}
+          <Text>Cross-Wiki Judgment Model: {slotLabel(settings.models.crossWikiJudgment ?? null)}</Text>
+          {recLine('modelCrossWikiJudgment', settings.models.crossWikiJudgment ?? null)}
           {currentCustomProvider && (
             <>
               <Text>Base URL: {currentCustomProvider.baseUrl}</Text>
@@ -1012,6 +1129,8 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           <Text>Anthropic API Key: {keyStatusText('anthropic', settings.apiKeys.anthropic)}</Text>
           <Text>OpenAI API Key: {keyStatusText('openai', settings.apiKeys.openai)}</Text>
           <Text>Qwen API Key: {keyStatusText('qwen', settings.apiKeys.qwen)}</Text>
+          <Text>DeepSeek API Key: {keyStatusText('deepseek', settings.apiKeys.deepseek)}</Text>
+          <Text>Zhipu API Key: {keyStatusText('zhipu', settings.apiKeys.zhipu)}</Text>
           {currentCustomProvider && (
             <Text>{currentCustomProvider.name} API Key: {keyStatusText(`custom:${currentCustomProvider.id}`, currentCustomProvider.apiKey)}</Text>
           )}
@@ -1021,7 +1140,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
       {!loaded && <Text dimColor>Loading settings...</Text>}
       {status === 'success' && <SuccessBox message={message} />}
       {status === 'error' && <ErrorBox message={message} />}
-      <Footer helpText="Up/Down: select | Space/Left/Right: toggle | Left/Right: cycle provider/model | T: test model | Enter: save/back/edit key/custom model (empty clears/cancels, Esc cancels) | Escape: back" />
+      <Footer helpText="Up/Down: select | Space/Left/Right: toggle | Left/Right: cycle model (all providers) | Enter on model row: custom id | T: test model | Enter: save/back/edit key (empty clears/cancels, Esc cancels) | Escape: back" />
     </Box>
   );
 }
