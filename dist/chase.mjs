@@ -72358,13 +72358,13 @@ function Footer({ helpText }) {
 
 // src/tui/settings.ts
 import { mkdir as mkdir2, readFile, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { join as join2 } from "node:path";
 
 // src/llm/client.ts
 var import_undici = __toESM(require_undici(), 1);
 import { existsSync as existsSync2, readFileSync as readFileSync2 } from "node:fs";
 import { mkdir, appendFile } from "node:fs/promises";
-import { dirname } from "node:path";
+import { dirname, join } from "node:path";
 import { resolve } from "node:path";
 
 // src/utils/serialized-writes.ts
@@ -72739,6 +72739,22 @@ async function appendLlmCallLog(logPath, entry) {
     }
   });
 }
+function transportStallsLogPath(logPath) {
+  return join(dirname(logPath), "transport-stalls.jsonl");
+}
+async function appendTransportStallLog(logPath, entry) {
+  if (!logPath) {
+    return;
+  }
+  const stallsPath = transportStallsLogPath(logPath);
+  await enqueueSerializedWrite(stallsPath, async () => {
+    try {
+      await mkdir(dirname(stallsPath), { recursive: true });
+      await appendFile(stallsPath, JSON.stringify(entry) + "\n", "utf-8");
+    } catch {
+    }
+  });
+}
 function displayProviderName(provider, customProviders) {
   if (provider.startsWith("custom:")) {
     return customProviders?.find((c) => c.id === provider.slice(7))?.name ?? provider;
@@ -72831,9 +72847,6 @@ async function callLLM(prompt, system, options2 = {}) {
     }
     const stalled = statusCode !== 0 && isTransientStatus(statusCode) && (options2.maxRetries ?? 0) > 0;
     const ceiling = stalled ? Math.max(maxAttempts, TRANSIENT_MAX_ATTEMPTS) : maxAttempts;
-    if (attempt >= ceiling) {
-      break;
-    }
     let delayMs = transportRetryDelayMs(attempt);
     if (stalled) {
       delayMs = Math.max(delayMs, transientStallDelayMs(attempt));
@@ -72846,6 +72859,23 @@ async function callLLM(prompt, system, options2 = {}) {
         }
       }
       const waitSeconds = Math.round(delayMs / 1e3);
+      const exhausted = attempt >= ceiling;
+      await appendTransportStallLog(options2.logPath, {
+        timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+        callType: options2.callType,
+        context: options2.context,
+        provider,
+        model,
+        statusCode,
+        attempt,
+        maxAttempts: ceiling,
+        exhausted,
+        waitSeconds: exhausted ? 0 : waitSeconds,
+        error: json?.error?.message
+      });
+      if (exhausted) {
+        break;
+      }
       const nextAttempt = attempt + 1;
       const info2 = {
         waitSeconds,
@@ -72862,6 +72892,9 @@ async function callLLM(prompt, system, options2 = {}) {
         );
       }
     } else {
+      if (attempt >= ceiling) {
+        break;
+      }
       const reason = lastTransportError?.message ?? `HTTP ${statusCode}`;
       console.warn(
         `LLM Call | Transient failure (${reason}), retrying (attempt ${attempt + 1}/${maxAttempts})...`
@@ -73088,10 +73121,10 @@ var DEFAULT_SETTINGS = {
   customProviders: []
 };
 function settingsPath(workspace) {
-  return join(workspace, ".paper-chase.json");
+  return join2(workspace, ".paper-chase.json");
 }
 function legacySettingsPath(workspace) {
-  return join(workspace, ".llm-wiki-cli.json");
+  return join2(workspace, ".llm-wiki-cli.json");
 }
 function normalizeModels(parsed, customProviders = []) {
   const provider = normalizeProviderValue(parsed?.provider);
@@ -73376,7 +73409,7 @@ function SuccessBox({ message }) {
 // src/commands/init.ts
 import { existsSync as existsSync5 } from "node:fs";
 import { mkdir as mkdir4, readFile as readFile3, writeFile as writeFile3 } from "node:fs/promises";
-import { join as join5 } from "node:path";
+import { join as join6 } from "node:path";
 
 // src/utils/language.ts
 var DA_NO_MAP = {
@@ -73471,13 +73504,13 @@ function sourceSlugForFile(fileName) {
 
 // src/state/language.ts
 import { mkdir as mkdir3, readFile as readFile2, writeFile as writeFile2 } from "node:fs/promises";
-import { join as join2 } from "node:path";
+import { join as join3 } from "node:path";
 var DEFAULT_WIKI_LANGUAGE = {
   outputLanguage: "en",
   lastInputLanguage: "en"
 };
 function wikiLanguagePath(wikiDir2) {
-  return join2(wikiDir2, ".state", "language.json");
+  return join3(wikiDir2, ".state", "language.json");
 }
 function isLanguageCode(value) {
   return typeof value === "string" && ["en", "da", "de", "fr", "es", "no", "sv"].includes(value);
@@ -73507,14 +73540,14 @@ async function readWikiLanguage(wikiDir2) {
 }
 async function writeWikiLanguage(wikiDir2, state) {
   const path = wikiLanguagePath(wikiDir2);
-  await mkdir3(join2(wikiDir2, ".state"), { recursive: true });
+  await mkdir3(join3(wikiDir2, ".state"), { recursive: true });
   await writeFile2(path, JSON.stringify(state, null, 2) + "\n", "utf-8");
 }
 
 // src/utils/paths.ts
-import { join as join3 } from "node:path";
+import { join as join4 } from "node:path";
 function wikiDir(workspace, slug) {
-  return join3(workspace ?? ".", "wikis", slug);
+  return join4(workspace ?? ".", "wikis", slug);
 }
 function sourcePdfPath(slug, fileName) {
   return `wikis/${slug}/raw/${fileName}`;
@@ -73525,7 +73558,7 @@ function wikiRelativePath(folder, fileName) {
 
 // src/utils/app-root.ts
 import { existsSync as existsSync4 } from "node:fs";
-import { dirname as dirname2, join as join4, resolve as resolve2 } from "node:path";
+import { dirname as dirname2, join as join5, resolve as resolve2 } from "node:path";
 import { fileURLToPath } from "node:url";
 function isPackaged() {
   return typeof process.pkg !== "undefined";
@@ -73550,7 +73583,7 @@ function appRoot() {
   }
   let dir = moduleDir();
   for (; ; ) {
-    if (existsSync4(join4(dir, "package.json"))) {
+    if (existsSync4(join5(dir, "package.json"))) {
       cachedRoot = dir;
       return dir;
     }
@@ -73566,7 +73599,7 @@ function appRoot() {
 // src/commands/init.ts
 var WIKI_SUBDIRECTORIES = ["raw", "documents", "sources", "entities", "topics", ".state"];
 function templatePath() {
-  return join5(appRoot(), "templates", "AGENTS.md");
+  return join6(appRoot(), "templates", "AGENTS.md");
 }
 async function init(slug, options2 = {}) {
   if (!isValidWikiSlug(slug)) {
@@ -73580,12 +73613,12 @@ async function init(slug, options2 = {}) {
     throw new Error(`Wiki '${slug}' already exists at ${dir}.`);
   }
   for (const subdir of WIKI_SUBDIRECTORIES) {
-    await mkdir4(join5(dir, subdir), { recursive: true });
+    await mkdir4(join6(dir, subdir), { recursive: true });
   }
   const template = await readFile3(templatePath(), "utf-8");
   const outputLanguage = getLanguage(options2.outputLanguage ?? "en");
   const constitution = template.replaceAll("{{WIKI_TITLE}}", title).replaceAll("{{SLUG}}", slug).replaceAll("{{OUTPUT_LANGUAGE}}", outputLanguage.name);
-  await writeFile3(join5(dir, "AGENTS.md"), constitution, "utf-8");
+  await writeFile3(join6(dir, "AGENTS.md"), constitution, "utf-8");
   await writeWikiLanguage(dir, {
     outputLanguage: outputLanguage.code,
     lastInputLanguage: "en"
@@ -73752,19 +73785,19 @@ function InitScreen({ onBack, onResult, defaultWorkspace = "./", onCreated }) {
 // src/tui/ingest-screen.tsx
 var import_react42 = __toESM(require_react(), 1);
 import { readdir as readdir14 } from "node:fs/promises";
-import { join as join41 } from "node:path";
+import { join as join42 } from "node:path";
 
 // src/tui/hooks/use-wiki-list.ts
 var import_react40 = __toESM(require_react(), 1);
 import { readdir } from "node:fs/promises";
-import { join as join6 } from "node:path";
+import { join as join7 } from "node:path";
 function useWikiList(workspace = ".") {
   const [wikis, setWikis] = (0, import_react40.useState)([]);
   (0, import_react40.useEffect)(() => {
     let cancelled = false;
     (async () => {
       try {
-        const entries = await readdir(join6(workspace, "wikis"), { withFileTypes: true });
+        const entries = await readdir(join7(workspace, "wikis"), { withFileTypes: true });
         if (!cancelled) {
           setWikis(entries.filter((e) => e.isDirectory() && e.name !== "cross-wiki").map((e) => e.name));
         }
@@ -73784,7 +73817,7 @@ function useWikiList(workspace = ".") {
 // src/tui/hooks/use-wiki-details.ts
 var import_react41 = __toESM(require_react(), 1);
 import { readdir as readdir2, readFile as readFile4 } from "node:fs/promises";
-import { join as join7 } from "node:path";
+import { join as join8 } from "node:path";
 function useWikiDetails(workspace, wiki, refreshKey = 0) {
   const [details, setDetails] = (0, import_react41.useState)({ pdfCount: null, lastIngest: null });
   (0, import_react41.useEffect)(() => {
@@ -73797,13 +73830,13 @@ function useWikiDetails(workspace, wiki, refreshKey = 0) {
       let pdfCount = null;
       let lastIngest = null;
       try {
-        const entries = await readdir2(join7(workspace, "wikis", wiki, "raw"));
+        const entries = await readdir2(join8(workspace, "wikis", wiki, "raw"));
         pdfCount = entries.filter((name) => name.toLowerCase().endsWith(".pdf")).length;
       } catch {
         pdfCount = null;
       }
       try {
-        const raw = await readFile4(join7(workspace, "wikis", wiki, ".state", "ingestion.json"), "utf-8");
+        const raw = await readFile4(join8(workspace, "wikis", wiki, ".state", "ingestion.json"), "utf-8");
         const state = JSON.parse(raw);
         const timestamps = Object.values(state.sources ?? {}).map((source) => source.ingestedAt).filter((value) => typeof value === "string");
         lastIngest = timestamps.length > 0 ? timestamps.sort()[timestamps.length - 1] : null;
@@ -73825,14 +73858,14 @@ function useWikiDetails(workspace, wiki, refreshKey = 0) {
 var import_gray_matter21 = __toESM(require_gray_matter(), 1);
 import { existsSync as existsSync10, readFileSync as readFileSync3 } from "node:fs";
 import { mkdir as mkdir26, readFile as readFile31, readdir as readdir13, rm as rm3, writeFile as writeFile26 } from "node:fs/promises";
-import { join as join40 } from "node:path";
+import { join as join41 } from "node:path";
 import { createHash as createHash5 } from "node:crypto";
 
 // src/extraction/pdf.ts
 import { copyFileSync, existsSync as existsSync6, mkdirSync } from "node:fs";
 import { readFile as readFile5 } from "node:fs/promises";
 import { createRequire } from "node:module";
-import { dirname as dirname3, join as join8, sep } from "node:path";
+import { dirname as dirname3, join as join9, sep } from "node:path";
 import { tmpdir } from "node:os";
 import { fileURLToPath as fileURLToPath2 } from "node:url";
 
@@ -75599,7 +75632,7 @@ var __webpack_modules__ = {
       var defineProperty = Object.defineProperty;
       var stringSlice = uncurryThis("".slice);
       var replace = uncurryThis("".replace);
-      var join45 = uncurryThis([].join);
+      var join46 = uncurryThis([].join);
       var CONFIGURABLE_LENGTH = DESCRIPTORS && !fails(function() {
         return defineProperty(function() {
         }, "length", { value: 8 }).length !== 8;
@@ -75626,7 +75659,7 @@ var __webpack_modules__ = {
         }
         var state = enforceInternalState(value);
         if (!hasOwn(state, "source")) {
-          state.source = join45(TEMPLATE, typeof name == "string" ? name : "");
+          state.source = join46(TEMPLATE, typeof name == "string" ? name : "");
         }
         return value;
       };
@@ -98919,13 +98952,13 @@ var __webpack_exports__version = __webpack_exports__.version;
 // src/extraction/pdf.ts
 function resolveStandardFontDataUrl() {
   if (isPackaged()) {
-    return join8(appRoot(), "node_modules", "pdfjs-dist", "standard_fonts") + sep;
+    return join9(appRoot(), "node_modules", "pdfjs-dist", "standard_fonts") + sep;
   }
   try {
     const pdfModulePath = fileURLToPath2(import.meta.resolve("pdfjs-dist/legacy/build/pdf.mjs"));
-    return join8(dirname3(pdfModulePath), "..", "..", "standard_fonts") + sep;
+    return join9(dirname3(pdfModulePath), "..", "..", "standard_fonts") + sep;
   } catch {
-    const bundled = join8(appRoot(), "node_modules", "pdfjs-dist", "standard_fonts") + sep;
+    const bundled = join9(appRoot(), "node_modules", "pdfjs-dist", "standard_fonts") + sep;
     return existsSync6(bundled) ? bundled : void 0;
   }
 }
@@ -98935,11 +98968,11 @@ function configurePackagedWorker() {
     return;
   }
   try {
-    const targetDir = join8(tmpdir(), "paper-chase");
-    const target = join8(targetDir, "pdf.worker.cjs");
+    const targetDir = join9(tmpdir(), "paper-chase");
+    const target = join9(targetDir, "pdf.worker.cjs");
     if (!existsSync6(target)) {
       mkdirSync(targetDir, { recursive: true });
-      copyFileSync(join8(appRoot(), "dist", "pdf.worker.cjs"), target);
+      copyFileSync(join9(appRoot(), "dist", "pdf.worker.cjs"), target);
     }
     const req = createRequire(import.meta.url || process.argv[1]);
     const worker = req(target);
@@ -99135,7 +99168,7 @@ function enforceAliasesInMarkdown(markdown, title, fileSlug, extraAliases) {
 // src/validation/link-checker.ts
 var import_gray_matter2 = __toESM(require_gray_matter(), 1);
 import { readFile as readFile6, readdir as readdir3 } from "node:fs/promises";
-import { join as join9, relative } from "node:path";
+import { join as join10, relative } from "node:path";
 
 // src/utils/wikilinks.ts
 function formatWikilink(target, display) {
@@ -99181,7 +99214,7 @@ async function walk(root, current, wikiSlug, out) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join9(current, entry.name);
+    const absolute = join10(current, entry.name);
     if (entry.isDirectory()) {
       await walk(root, absolute, wikiSlug, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -99251,7 +99284,7 @@ async function buildSlugUniverseForDir(wikiDir2, wikiSlug, options2 = {}) {
   return { wikiSlug, pages, slugToPage, pathToPage, ...options2.language ? { language: options2.language } : {} };
 }
 async function buildSlugUniverse(wikiSlug, workspace = ".", options2 = {}) {
-  return buildSlugUniverseForDir(join9(workspace, "wikis", wikiSlug), wikiSlug, options2);
+  return buildSlugUniverseForDir(join10(workspace, "wikis", wikiSlug), wikiSlug, options2);
 }
 function resolveWikilinkTarget(universe, target) {
   const pathKey = target.replace(/\.md$/i, "");
@@ -99261,7 +99294,7 @@ function stripFrontmatter(content) {
   return content.replace(/^---[\s\S]*?---/m, "");
 }
 async function checkLinks(wikiSlug, workspace = ".") {
-  const dir = join9(workspace, "wikis", wikiSlug);
+  const dir = join10(workspace, "wikis", wikiSlug);
   const universe = await buildSlugUniverseForDir(dir, wikiSlug);
   const { pages } = universe;
   const incoming = {};
@@ -99313,7 +99346,7 @@ async function checkLinks(wikiSlug, workspace = ".") {
   };
 }
 async function checkCrossWikiLinks(workspace = ".") {
-  const wikisRoot = join9(workspace, "wikis");
+  const wikisRoot = join10(workspace, "wikis");
   let entries;
   try {
     entries = await readdir3(wikisRoot, { withFileTypes: true });
@@ -99337,12 +99370,12 @@ async function checkCrossWikiLinks(workspace = ".") {
       continue;
     }
     const files = [];
-    await walk(join9(wikisRoot, entry.name), join9(wikisRoot, entry.name), entry.name, files);
+    await walk(join10(wikisRoot, entry.name), join10(wikisRoot, entry.name), entry.name, files);
     for (const file of files) {
       addPage(`${entry.name}/${file.wikiRelative.replace(/\.md$/i, "")}`, file.relative);
     }
   }
-  const crossWikiDir = join9(wikisRoot, "cross-wiki");
+  const crossWikiDir = join10(wikisRoot, "cross-wiki");
   const crossWikiFiles = [];
   const collect = async (dir) => {
     let dirEntries;
@@ -99352,7 +99385,7 @@ async function checkCrossWikiLinks(workspace = ".") {
       return;
     }
     for (const entry of dirEntries) {
-      const absolute = join9(dir, entry.name);
+      const absolute = join10(dir, entry.name);
       if (entry.isDirectory()) {
         await collect(absolute);
       } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -99385,12 +99418,12 @@ async function checkCrossWikiLinks(workspace = ".") {
 
 // src/state/ingestion-state.ts
 import { mkdir as mkdir5, readFile as readFile7, writeFile as writeFile4 } from "node:fs/promises";
-import { join as join10 } from "node:path";
+import { join as join11 } from "node:path";
 function emptyIngestionState() {
   return { sources: {} };
 }
 function ingestionStatePath(wikiDir2) {
-  return join10(wikiDir2, ".state", "ingestion.json");
+  return join11(wikiDir2, ".state", "ingestion.json");
 }
 async function readIngestionState(wikiDir2) {
   const path = ingestionStatePath(wikiDir2);
@@ -99415,7 +99448,7 @@ async function readIngestionState(wikiDir2) {
   return parsed;
 }
 async function writeIngestionState(wikiDir2, state) {
-  await mkdir5(join10(wikiDir2, ".state"), { recursive: true });
+  await mkdir5(join11(wikiDir2, ".state"), { recursive: true });
   await writeFile4(ingestionStatePath(wikiDir2), JSON.stringify(state, null, 2) + "\n", "utf-8");
 }
 
@@ -99780,9 +99813,9 @@ function enforceTopicSourcesSectionInMarkdown(markdown, citationMap) {
 
 // src/state/rolling-memory.ts
 import { mkdir as mkdir6, readFile as readFile8, writeFile as writeFile5 } from "node:fs/promises";
-import { join as join11 } from "node:path";
+import { join as join12 } from "node:path";
 function rollingMemoryPath(wikiDir2) {
-  return join11(wikiDir2, ".state", "rolling-memory.json");
+  return join12(wikiDir2, ".state", "rolling-memory.json");
 }
 async function readRollingMemory(wikiDir2) {
   const path = rollingMemoryPath(wikiDir2);
@@ -99808,7 +99841,7 @@ async function readRollingMemory(wikiDir2) {
 }
 async function saveRollingMemory(wikiDir2, memory) {
   const path = rollingMemoryPath(wikiDir2);
-  await mkdir6(join11(wikiDir2, ".state"), { recursive: true });
+  await mkdir6(join12(wikiDir2, ".state"), { recursive: true });
   await writeFile5(path, JSON.stringify(memory, null, 2) + "\n", "utf-8");
 }
 async function readFullRollingMemory(wikiDir2) {
@@ -99843,9 +99876,9 @@ async function readFullRollingMemory(wikiDir2) {
 
 // src/state/conflicts.ts
 import { mkdir as mkdir7, readFile as readFile9, writeFile as writeFile6 } from "node:fs/promises";
-import { join as join12 } from "node:path";
+import { join as join13 } from "node:path";
 function conflictsPath(wikiDir2) {
-  return join12(wikiDir2, ".state", "conflicts.json");
+  return join13(wikiDir2, ".state", "conflicts.json");
 }
 async function readConflicts(wikiDir2) {
   try {
@@ -99862,7 +99895,7 @@ async function readConflicts(wikiDir2) {
   return { conflicts: [] };
 }
 async function writeConflicts(wikiDir2, state) {
-  await mkdir7(join12(wikiDir2, ".state"), { recursive: true });
+  await mkdir7(join13(wikiDir2, ".state"), { recursive: true });
   await writeFile6(conflictsPath(wikiDir2), JSON.stringify(state, null, 2) + "\n", "utf-8");
 }
 async function logConflict(wikiDir2, slug, check2, pageType) {
@@ -99907,18 +99940,18 @@ async function logManualEditConflict(wikiDir2, page, reason) {
 
 // src/state/metrics.ts
 import { mkdir as mkdir8, readFile as readFile10, writeFile as writeFile7 } from "node:fs/promises";
-import { join as join13 } from "node:path";
+import { join as join14 } from "node:path";
 function metricsPath(wikiDir2) {
-  return join13(wikiDir2, ".state", "metrics.json");
+  return join14(wikiDir2, ".state", "metrics.json");
 }
 async function writeMetrics(wikiDir2, metrics) {
-  await mkdir8(join13(wikiDir2, ".state"), { recursive: true });
+  await mkdir8(join14(wikiDir2, ".state"), { recursive: true });
   await writeFile7(metricsPath(wikiDir2), JSON.stringify(metrics, null, 2) + "\n", "utf-8");
 }
 async function sumLlmUsageSince(wikiDir2, sinceIso) {
   let raw;
   try {
-    raw = await readFile10(join13(wikiDir2, ".state", "llm-calls.json"), "utf-8");
+    raw = await readFile10(join14(wikiDir2, ".state", "llm-calls.json"), "utf-8");
   } catch {
     return { cost: 0, inputTokens: 0, outputTokens: 0 };
   }
@@ -99951,7 +99984,7 @@ async function sumLlmUsageSince(wikiDir2, sinceIso) {
 async function countLlmCallsSince(wikiDir2, sinceIso) {
   let raw;
   try {
-    raw = await readFile10(join13(wikiDir2, ".state", "llm-calls.json"), "utf-8");
+    raw = await readFile10(join14(wikiDir2, ".state", "llm-calls.json"), "utf-8");
   } catch {
     return 0;
   }
@@ -100023,13 +100056,13 @@ async function runWithFeedbackRetry(runLlm, validate2, options2) {
 // src/state/synthesis-state.ts
 import { existsSync as existsSync7 } from "node:fs";
 import { mkdir as mkdir9, readFile as readFile11, writeFile as writeFile8 } from "node:fs/promises";
-import { join as join14 } from "node:path";
+import { join as join15 } from "node:path";
 import { createHash as createHash2 } from "node:crypto";
 function emptySynthesisState() {
   return { pages: {} };
 }
 function synthesisStatePath(wikiDir2) {
-  return join14(wikiDir2, ".state", "synthesis-state.json");
+  return join15(wikiDir2, ".state", "synthesis-state.json");
 }
 async function readSynthesisState(wikiDir2) {
   const path = synthesisStatePath(wikiDir2);
@@ -100079,7 +100112,7 @@ async function recordSynthesisPage(wikiDir2, pagePath, record) {
   await enqueueSerializedWrite(path, async () => {
     const state = await readSynthesisState(wikiDir2);
     for (const existingPath of Object.keys(state.pages)) {
-      if (!existsSync7(join14(wikiDir2, existingPath))) {
+      if (!existsSync7(join15(wikiDir2, existingPath))) {
         delete state.pages[existingPath];
       }
     }
@@ -100088,7 +100121,7 @@ async function recordSynthesisPage(wikiDir2, pagePath, record) {
     for (const key of Object.keys(state.pages).sort((a, b) => a.localeCompare(b))) {
       sorted[key] = state.pages[key];
     }
-    await mkdir9(join14(wikiDir2, ".state"), { recursive: true });
+    await mkdir9(join15(wikiDir2, ".state"), { recursive: true });
     await writeFile8(path, JSON.stringify({ pages: sorted }, null, 2) + "\n", "utf-8");
   });
 }
@@ -100096,7 +100129,7 @@ async function recordSynthesisPage(wikiDir2, pagePath, record) {
 // src/pages/source-page.ts
 var import_gray_matter5 = __toESM(require_gray_matter(), 1);
 import { mkdir as mkdir10, writeFile as writeFile9 } from "node:fs/promises";
-import { join as join15 } from "node:path";
+import { join as join16 } from "node:path";
 function renderSourcePage(data) {
   const title = `Source: ${data.fileName}`;
   const aliases = aliasesForTitle(title, data.sourceSlug);
@@ -100142,19 +100175,19 @@ ${lines.join("\n")}
 }
 async function writeSourcePage(wikiDir2, data) {
   const relativePath = wikiRelativePath("sources", `${data.sourceSlug}.md`);
-  await mkdir10(join15(wikiDir2, "sources"), { recursive: true });
-  await writeFile9(join15(wikiDir2, relativePath), renderSourcePage(data), "utf-8");
+  await mkdir10(join16(wikiDir2, "sources"), { recursive: true });
+  await writeFile9(join16(wikiDir2, relativePath), renderSourcePage(data), "utf-8");
   return relativePath;
 }
 
 // src/commands/extract-chunk.ts
 var import_gray_matter6 = __toESM(require_gray_matter(), 1);
 import { mkdir as mkdir12, readFile as readFile13, writeFile as writeFile11 } from "node:fs/promises";
-import { join as join17 } from "node:path";
+import { join as join18 } from "node:path";
 
 // src/agents/extractor.ts
 import { mkdir as mkdir11, readFile as readFile12, writeFile as writeFile10 } from "node:fs/promises";
-import { join as join16 } from "node:path";
+import { join as join17 } from "node:path";
 
 // src/validation/extractor-schema.ts
 var SLUG_PATTERN = /^[a-z0-9-]+$/;
@@ -100398,7 +100431,7 @@ async function loadPromptTemplate() {
   if (promptTemplateCache !== null) {
     return promptTemplateCache;
   }
-  const promptPath = join16(appRoot(), "prompts", "extractor.prompt.txt");
+  const promptPath = join17(appRoot(), "prompts", "extractor.prompt.txt");
   promptTemplateCache = await readFile12(promptPath, "utf-8");
   return promptTemplateCache;
 }
@@ -100431,10 +100464,10 @@ function stripCodeFences(text) {
 }
 async function debugWriteRawResponse(rawResponse) {
   try {
-    const debugDir = join16(appRoot(), ".state");
+    const debugDir = join17(appRoot(), ".state");
     await mkdir11(debugDir, { recursive: true });
     await writeFile10(
-      join16(debugDir, "debug-extractor-raw.txt"),
+      join17(debugDir, "debug-extractor-raw.txt"),
       rawResponse,
       "utf-8"
     );
@@ -100590,7 +100623,7 @@ ${feedback}`, void 0, {
 
 // src/commands/extract-chunk.ts
 async function extractDocumentChunk(wikiDir2, chunkId, language) {
-  const documentPath = join17(wikiDir2, "documents", `${chunkId}.md`);
+  const documentPath = join18(wikiDir2, "documents", `${chunkId}.md`);
   let rawPage;
   try {
     rawPage = await readFile13(documentPath, "utf-8");
@@ -100606,10 +100639,10 @@ async function extractDocumentChunk(wikiDir2, chunkId, language) {
   const sourceFile = typeof firstSource?.file === "string" ? firstSource.file : `documents/${chunkId}.md`;
   let agentsMd;
   try {
-    agentsMd = await readFile13(join17(wikiDir2, "AGENTS.md"), "utf-8");
+    agentsMd = await readFile13(join18(wikiDir2, "AGENTS.md"), "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
-      throw new Error(`Wiki constitution not found: ${join17(wikiDir2, "AGENTS.md")}. Run 'init' to repair the wiki.`);
+      throw new Error(`Wiki constitution not found: ${join18(wikiDir2, "AGENTS.md")}. Run 'init' to repair the wiki.`);
     }
     throw err;
   }
@@ -100621,11 +100654,11 @@ async function extractDocumentChunk(wikiDir2, chunkId, language) {
     agentsMd,
     memory.folders,
     memory.entitySlugs,
-    { logPath: join17(wikiDir2, ".state", "llm-calls.json"), context: chunkId, language }
+    { logPath: join18(wikiDir2, ".state", "llm-calls.json"), context: chunkId, language }
   );
-  const extractedDir = join17(wikiDir2, ".state", "extracted");
+  const extractedDir = join18(wikiDir2, ".state", "extracted");
   await mkdir12(extractedDir, { recursive: true });
-  const jsonPath = join17(extractedDir, `${chunkId}.json`);
+  const jsonPath = join18(extractedDir, `${chunkId}.json`);
   await writeFile11(jsonPath, JSON.stringify(result, null, 2) + "\n", "utf-8");
   return {
     chunkId,
@@ -100639,7 +100672,7 @@ async function extractDocumentChunk(wikiDir2, chunkId, language) {
 var import_gray_matter9 = __toESM(require_gray_matter(), 1);
 import { existsSync as existsSync8 } from "node:fs";
 import { mkdir as mkdir17, readdir as readdir4, readFile as readFile19, rm, writeFile as writeFile16 } from "node:fs/promises";
-import { dirname as dirname4, join as join24 } from "node:path";
+import { dirname as dirname4, join as join25 } from "node:path";
 import { createHash as createHash3 } from "node:crypto";
 
 // src/pages/composite-page.ts
@@ -101032,9 +101065,9 @@ function comparisonRowValues(markdown) {
 
 // src/state/structural-changes.ts
 import { mkdir as mkdir13, readFile as readFile14, writeFile as writeFile12 } from "node:fs/promises";
-import { join as join18 } from "node:path";
+import { join as join19 } from "node:path";
 function structuralChangesPath(wikiDir2) {
-  return join18(wikiDir2, ".state", "proposals", "structural-changes.json");
+  return join19(wikiDir2, ".state", "proposals", "structural-changes.json");
 }
 async function readStructuralChanges(wikiDir2) {
   const path = structuralChangesPath(wikiDir2);
@@ -101072,15 +101105,15 @@ async function logStructuralChanges(wikiDir2, changes, newlySeenPageTypes = []) 
   }
   log.knownPageTypes = Array.from(known).sort((a, b) => a.localeCompare(b));
   const path = structuralChangesPath(wikiDir2);
-  await mkdir13(join18(wikiDir2, ".state", "proposals"), { recursive: true });
+  await mkdir13(join19(wikiDir2, ".state", "proposals"), { recursive: true });
   await writeFile12(path, JSON.stringify(log, null, 2) + "\n", "utf-8");
 }
 
 // src/state/curation-overrides.ts
 import { mkdir as mkdir14, readFile as readFile15, writeFile as writeFile13 } from "node:fs/promises";
-import { join as join19 } from "node:path";
+import { join as join20 } from "node:path";
 function curationOverridesPath(wikiDir2) {
-  return join19(wikiDir2, ".state", "curation-overrides.json");
+  return join20(wikiDir2, ".state", "curation-overrides.json");
 }
 async function readCurationOverrides(wikiDir2) {
   const path = curationOverridesPath(wikiDir2);
@@ -101089,7 +101122,7 @@ async function readCurationOverrides(wikiDir2) {
     raw = await readFile15(path, "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
-      await mkdir14(join19(wikiDir2, ".state"), { recursive: true });
+      await mkdir14(join20(wikiDir2, ".state"), { recursive: true });
       await writeFile13(path, JSON.stringify({ neverMerge: [] }, null, 2) + "\n", "utf-8");
       return { neverMerge: [] };
     }
@@ -101116,20 +101149,20 @@ async function readCurationOverrides(wikiDir2) {
 
 // src/state/curation-report.ts
 import { mkdir as mkdir15, writeFile as writeFile14 } from "node:fs/promises";
-import { join as join20 } from "node:path";
+import { join as join21 } from "node:path";
 function curationReportPath(wikiDir2) {
-  return join20(wikiDir2, ".state", "curation-report.json");
+  return join21(wikiDir2, ".state", "curation-report.json");
 }
 async function writeCurationReport(wikiDir2, report) {
-  await mkdir15(join20(wikiDir2, ".state"), { recursive: true });
+  await mkdir15(join21(wikiDir2, ".state"), { recursive: true });
   await writeFile14(curationReportPath(wikiDir2), JSON.stringify(report, null, 2) + "\n", "utf-8");
 }
 
 // src/state/curation-decisions.ts
 import { mkdir as mkdir16, readFile as readFile16, writeFile as writeFile15 } from "node:fs/promises";
-import { join as join21 } from "node:path";
+import { join as join22 } from "node:path";
 function curationDecisionsPath(wikiDir2) {
-  return join21(wikiDir2, ".state", "curation-decisions.json");
+  return join22(wikiDir2, ".state", "curation-decisions.json");
 }
 function isValidRecord(entry) {
   if (typeof entry !== "object" || entry === null || Array.isArray(entry)) {
@@ -101161,7 +101194,7 @@ async function readCurationDecisions(wikiDir2) {
     raw = await readFile16(path, "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
-      await mkdir16(join21(wikiDir2, ".state"), { recursive: true });
+      await mkdir16(join22(wikiDir2, ".state"), { recursive: true });
       await writeFile15(path, JSON.stringify(EMPTY_DECISIONS, null, 2) + "\n", "utf-8");
       return { decisions: [], splits: [] };
     }
@@ -101193,7 +101226,7 @@ async function appendCurationDecisions(wikiDir2, newRecords) {
   if (raw !== null) {
     const parsed = parseDecisions(raw);
     if (parsed === null) {
-      await mkdir16(join21(wikiDir2, ".state"), { recursive: true });
+      await mkdir16(join22(wikiDir2, ".state"), { recursive: true });
       await writeFile15(curationDecisionsPath(wikiDir2).replace("curation-decisions.json", "curation-decisions.corrupt.json"), raw, "utf-8");
       console.warn(
         `Warning: .state/curation-decisions.json was malformed \u2014 backed up to curation-decisions.corrupt.json and rebuilt fresh.`
@@ -101222,7 +101255,7 @@ async function appendCurationDecisions(wikiDir2, newRecords) {
     }
   }
   const splits = base.splits.filter((slug) => !touched.has(slug));
-  await mkdir16(join21(wikiDir2, ".state"), { recursive: true });
+  await mkdir16(join22(wikiDir2, ".state"), { recursive: true });
   await writeFile15(
     path,
     JSON.stringify({ decisions: [...base.decisions, ...appended], splits }, null, 2) + "\n",
@@ -101232,19 +101265,19 @@ async function appendCurationDecisions(wikiDir2, newRecords) {
 
 // src/agents/curation.ts
 import { readFile as readFile18 } from "node:fs/promises";
-import { join as join23 } from "node:path";
+import { join as join24 } from "node:path";
 
 // src/agents/synthesis.ts
 import { readFile as readFile17 } from "node:fs/promises";
-import { join as join22 } from "node:path";
-var PROMPT_DIR = join22(appRoot(), "prompts");
+import { join as join23 } from "node:path";
+var PROMPT_DIR = join23(appRoot(), "prompts");
 var promptCache = {};
 var SYNTHESIS_MAX_TOKENS = 32768;
 async function loadPromptTemplate2(fileName) {
   if (promptCache[fileName]) {
     return promptCache[fileName];
   }
-  const promptPath = join22(PROMPT_DIR, fileName);
+  const promptPath = join23(PROMPT_DIR, fileName);
   const template = await readFile17(promptPath, "utf-8");
   promptCache[fileName] = template;
   return template;
@@ -102315,7 +102348,7 @@ async function loadPromptTemplate3(kind) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile18(join23(appRoot(), "prompts", PROMPT_FILES[kind]), "utf-8");
+  const template = await readFile18(join24(appRoot(), "prompts", PROMPT_FILES[kind]), "utf-8");
   promptCache2[kind] = template;
   return template;
 }
@@ -103398,7 +103431,7 @@ function dedupeTimeline(list) {
   });
 }
 async function loadChunkSource(wikiDir2, chunkId) {
-  const documentPath = join24(wikiDir2, "documents", `${chunkId}.md`);
+  const documentPath = join25(wikiDir2, "documents", `${chunkId}.md`);
   try {
     const raw = await readFile19(documentPath, "utf-8");
     const parsed = (0, import_gray_matter9.default)(raw);
@@ -103439,7 +103472,7 @@ async function collectEntityPageLocations(root, relPrefix, out) {
   for (const entry of await readdir4(root, { withFileTypes: true })) {
     const rel = relPrefix === "" ? entry.name : `${relPrefix}/${entry.name}`;
     if (entry.isDirectory()) {
-      await collectEntityPageLocations(join24(root, entry.name), rel, out);
+      await collectEntityPageLocations(join25(root, entry.name), rel, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
       const slug = entry.name.replace(/\.md$/i, "");
       const list = out.get(slug) ?? [];
@@ -103452,7 +103485,7 @@ async function collectSectionPageLocations(root, section, relPrefix, out) {
   for (const entry of await readdir4(root, { withFileTypes: true })) {
     const rel = relPrefix === "" ? entry.name : `${relPrefix}/${entry.name}`;
     if (entry.isDirectory()) {
-      await collectSectionPageLocations(join24(root, entry.name), section, rel, out);
+      await collectSectionPageLocations(join25(root, entry.name), section, rel, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
       const slug = entry.name.replace(/\.md$/i, "");
       const list = out.get(slug) ?? [];
@@ -103465,7 +103498,7 @@ async function collectContentPagePaths(root, section, relPrefix, out) {
   for (const entry of await readdir4(root, { withFileTypes: true })) {
     const rel = relPrefix === "" ? entry.name : `${relPrefix}/${entry.name}`;
     if (entry.isDirectory()) {
-      await collectContentPagePaths(join24(root, entry.name), section, rel, out);
+      await collectContentPagePaths(join25(root, entry.name), section, rel, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
       out.push(`${section}/${rel}`);
     }
@@ -103509,7 +103542,7 @@ async function readOnDiskEntityMeta(dir, locations) {
     aliases: []
   };
   try {
-    const parsed = (0, import_gray_matter9.default)(await readFile19(join24(dir, locations[0]), "utf-8"));
+    const parsed = (0, import_gray_matter9.default)(await readFile19(join25(dir, locations[0]), "utf-8"));
     if (typeof parsed.data.title === "string") {
       meta.title = parsed.data.title;
     }
@@ -103536,7 +103569,7 @@ async function readOnDiskTopicMeta(dir, locations) {
     claimSamples: []
   };
   try {
-    const parsed = (0, import_gray_matter9.default)(await readFile19(join24(dir, locations[0]), "utf-8"));
+    const parsed = (0, import_gray_matter9.default)(await readFile19(join25(dir, locations[0]), "utf-8"));
     if (typeof parsed.data.title === "string") {
       meta.title = parsed.data.title;
     }
@@ -103623,7 +103656,7 @@ async function folderIsRemovable(path) {
   }
   for (const entry of entries) {
     if (entry.isDirectory()) {
-      if (!await folderIsRemovable(join24(path, entry.name))) {
+      if (!await folderIsRemovable(join25(path, entry.name))) {
         return false;
       }
     } else if (!(entry.isFile() && entry.name.toLowerCase() === "index.md")) {
@@ -103705,7 +103738,7 @@ function collapseStickyMerges(records, concern) {
 }
 async function materialize(wikiSlug, options2) {
   const dir = wikiDir(options2?.workspace, wikiSlug);
-  const extractedDir = join24(dir, ".state", "extracted");
+  const extractedDir = join25(dir, ".state", "extracted");
   let extractionFiles;
   try {
     extractionFiles = (await readdir4(extractedDir)).filter((name) => name.toLowerCase().endsWith(".json")).sort();
@@ -103738,7 +103771,7 @@ async function materialize(wikiSlug, options2) {
       continue;
     }
     chunkSources.push({ chunkId, file: chunkSource.file, pages: chunkSource.pages });
-    const raw = await readFile19(join24(extractedDir, fileName), "utf-8");
+    const raw = await readFile19(join25(extractedDir, fileName), "utf-8");
     const extracted = JSON.parse(raw);
     for (const entity of extracted.entities ?? []) {
       const existing = entityMap.get(entity.slug);
@@ -103873,12 +103906,12 @@ async function materialize(wikiSlug, options2) {
   let curationRunTimestamp = null;
   if (options2?.curation === true && extractionFiles.length > 0) {
     const entityLocations = /* @__PURE__ */ new Map();
-    const entitiesRoot = join24(dir, "entities");
+    const entitiesRoot = join25(dir, "entities");
     if (existsSync8(entitiesRoot)) {
       await collectSectionPageLocations(entitiesRoot, "entities", "", entityLocations);
     }
     const topicLocations = /* @__PURE__ */ new Map();
-    const topicsRoot = join24(dir, "topics");
+    const topicsRoot = join25(dir, "topics");
     if (existsSync8(topicsRoot)) {
       await collectSectionPageLocations(topicsRoot, "topics", "", topicLocations);
     }
@@ -103939,7 +103972,7 @@ async function materialize(wikiSlug, options2) {
     if (hasCurationWork) {
       let agentsMd = "";
       try {
-        agentsMd = await readFile19(join24(dir, "AGENTS.md"), "utf-8");
+        agentsMd = await readFile19(join25(dir, "AGENTS.md"), "utf-8");
       } catch {
       }
       curationSummary = {
@@ -103968,7 +104001,7 @@ async function materialize(wikiSlug, options2) {
         if (!pageHashes) {
           return false;
         }
-        const absolute = join24(dir, relPath);
+        const absolute = join25(dir, relPath);
         if (!existsSync8(absolute)) {
           return false;
         }
@@ -104206,7 +104239,7 @@ async function materialize(wikiSlug, options2) {
       for (const fileName of extractionFiles) {
         const chunkId = fileName.replace(/\.json$/i, "");
         try {
-          corpusParts.push((0, import_gray_matter9.default)(await readFile19(join24(dir, "documents", `${chunkId}.md`), "utf-8")).content);
+          corpusParts.push((0, import_gray_matter9.default)(await readFile19(join25(dir, "documents", `${chunkId}.md`), "utf-8")).content);
         } catch {
         }
       }
@@ -104297,7 +104330,7 @@ async function materialize(wikiSlug, options2) {
       const callOptions = {
         agentsMd,
         language: options2?.language,
-        logPath: join24(dir, ".state", "llm-calls.json"),
+        logPath: join25(dir, ".state", "llm-calls.json"),
         neverMerge: overrides.neverMerge
       };
       const topicsFn = options2?.curateTopicsFn ?? curateTopics;
@@ -104451,7 +104484,7 @@ async function materialize(wikiSlug, options2) {
       for (const into of reversedClusterIntos) {
         for (const location of entityLocations.get(into) ?? []) {
           try {
-            const parsed = (0, import_gray_matter9.default)(await readFile19(join24(dir, location), "utf-8"));
+            const parsed = (0, import_gray_matter9.default)(await readFile19(join25(dir, location), "utf-8"));
             if (parsed.data.type === "composite") {
               deletions.add(location);
             }
@@ -104460,13 +104493,13 @@ async function materialize(wikiSlug, options2) {
         }
       }
       for (const location of deletions) {
-        const absolute = join24(dir, location);
+        const absolute = join25(dir, location);
         if (!existsSync8(absolute)) {
           continue;
         }
         await rm(absolute, { force: true });
         summary.removedPages.push(location);
-        await pruneEmptyFolderChain(join24(dir, location.split("/")[0]), dirname4(absolute));
+        await pruneEmptyFolderChain(join25(dir, location.split("/")[0]), dirname4(absolute));
       }
       folderStructure.clear();
       for (const entity of entityMap.values()) {
@@ -104622,7 +104655,7 @@ async function materialize(wikiSlug, options2) {
   const synthesisRecords = (await readSynthesisState(dir)).pages;
   const resumeLanguage = options2?.language ?? { input: "en", output: "en" };
   for (const [slug, entity] of entityMap.entries()) {
-    const folderPath = join24(dir, entity.folder);
+    const folderPath = join25(dir, entity.folder);
     await mkdir17(folderPath, { recursive: true });
     const significance = entity.significance.trim();
     const disambiguation = entity.disambiguation?.trim();
@@ -104665,7 +104698,7 @@ async function materialize(wikiSlug, options2) {
       // pre-Phase-17 (skip-eligible pages stay byte-stable).
       incomingRelationships: incomingRelationships.length > 0 ? incomingRelationships : void 0
     };
-    const pagePath = join24(folderPath, `${slug}.md`);
+    const pagePath = join25(folderPath, `${slug}.md`);
     const relativePath = synthesisPagePath(pageData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) && existsSync8(pagePath)) {
@@ -104741,9 +104774,9 @@ async function materialize(wikiSlug, options2) {
       ...aliasExtras.length > 0 ? { aliases: aliasExtras } : {},
       ...contexts.length > 0 ? { context: contexts.join("\n\n") } : {}
     };
-    const folderPath = join24(dir, folder);
+    const folderPath = join25(dir, folder);
     await mkdir17(folderPath, { recursive: true });
-    const pagePath = join24(folderPath, `${decision.into}.md`);
+    const pagePath = join25(folderPath, `${decision.into}.md`);
     const relativePath = synthesisPagePath(compositeData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) && existsSync8(pagePath)) {
@@ -104767,7 +104800,7 @@ async function materialize(wikiSlug, options2) {
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
   if (entityMap.size > 0) {
-    const entitiesRoot = join24(dir, "entities");
+    const entitiesRoot = join25(dir, "entities");
     const slugLocations = /* @__PURE__ */ new Map();
     if (existsSync8(entitiesRoot)) {
       await collectEntityPageLocations(entitiesRoot, "", slugLocations);
@@ -104779,9 +104812,9 @@ async function materialize(wikiSlug, options2) {
           continue;
         }
         const recorded = options2?.pageHashes?.[location];
-        const currentHash = hashContent(await readFile19(join24(dir, location), "utf-8"));
+        const currentHash = hashContent(await readFile19(join25(dir, location), "utf-8"));
         if (recorded !== void 0 && recorded === currentHash) {
-          await rm(join24(dir, location), { force: true });
+          await rm(join25(dir, location), { force: true });
           result.removedDuplicates.push({ path: location, canonicalPath });
         } else {
           await logManualEditConflict(
@@ -104794,7 +104827,7 @@ async function materialize(wikiSlug, options2) {
     }
   }
   for (const topic of topicMap.values()) {
-    const folderPath = join24(dir, topic.folder);
+    const folderPath = join25(dir, topic.folder);
     await mkdir17(folderPath, { recursive: true });
     const topicClaims = dedupeClaims(topic.claims);
     const topicEntities = Array.from(
@@ -104809,7 +104842,7 @@ async function materialize(wikiSlug, options2) {
       slugToTitle,
       entities: topicEntities
     };
-    const pagePath = join24(folderPath, `${topic.slug}.md`);
+    const pagePath = join25(folderPath, `${topic.slug}.md`);
     const relativePath = synthesisPagePath(pageData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) && existsSync8(pagePath)) {
@@ -104868,9 +104901,9 @@ async function materialize(wikiSlug, options2) {
       // a renamed/renumbered table's old titles still find the ONE page.
       aliases: aggregate.captions.length > 0 ? aggregate.captions : void 0
     };
-    const folderPath = join24(dir, "comparisons");
+    const folderPath = join25(dir, "comparisons");
     await mkdir17(folderPath, { recursive: true });
-    const pagePath = join24(folderPath, `${aggregate.slug}.md`);
+    const pagePath = join25(folderPath, `${aggregate.slug}.md`);
     const relativePath = synthesisPagePath(pageData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) && existsSync8(pagePath)) {
@@ -104897,7 +104930,7 @@ async function materialize(wikiSlug, options2) {
     const writtenSet = new Set(result.writtenPages.map((page) => page.path));
     const contentPages = [];
     for (const section of ["entities", "topics", "documents", "comparisons"]) {
-      const sectionRoot = join24(dir, section);
+      const sectionRoot = join25(dir, section);
       if (existsSync8(sectionRoot)) {
         await collectContentPagePaths(sectionRoot, section, "", contentPages);
       }
@@ -104906,7 +104939,7 @@ async function materialize(wikiSlug, options2) {
       if (writtenSet.has(relPath)) {
         continue;
       }
-      const absolute = join24(dir, relPath);
+      const absolute = join25(dir, relPath);
       const original = await readFile19(absolute, "utf-8");
       const rewritten = rewriteWikilinkTargets(original, mergeRewrites);
       if (rewritten === original) {
@@ -104917,7 +104950,7 @@ async function materialize(wikiSlug, options2) {
     }
   }
   for (const { chunkId, file, pages } of chunkSources) {
-    const extractionPath = join24(extractedDir, `${chunkId}.json`);
+    const extractionPath = join25(extractedDir, `${chunkId}.json`);
     let extracted;
     try {
       const raw = await readFile19(extractionPath, "utf-8");
@@ -104925,7 +104958,7 @@ async function materialize(wikiSlug, options2) {
     } catch {
       continue;
     }
-    const documentPath = join24(dir, "documents", `${chunkId}.md`);
+    const documentPath = join25(dir, "documents", `${chunkId}.md`);
     let documentRaw;
     try {
       documentRaw = await readFile19(documentPath, "utf-8");
@@ -105164,9 +105197,9 @@ async function materialize(wikiSlug, options2) {
 // src/dox-writer.ts
 var import_gray_matter10 = __toESM(require_gray_matter(), 1);
 import { readdir as readdir5, readFile as readFile20, writeFile as writeFile17 } from "node:fs/promises";
-import { join as join25 } from "node:path";
+import { join as join26 } from "node:path";
 var EXCLUDED_FOLDERS = /* @__PURE__ */ new Set([".state", "raw"]);
-var PROMPT_DIR2 = join25(appRoot(), "prompts");
+var PROMPT_DIR2 = join26(appRoot(), "prompts");
 var DOX_PROMPT_FILE = "dox-writer.prompt.txt";
 var DOX_WRITER_MAX_TOKENS = 8192;
 var cachedDoxPrompt;
@@ -105174,7 +105207,7 @@ async function loadDoxPromptTemplate() {
   if (cachedDoxPrompt !== void 0) {
     return cachedDoxPrompt;
   }
-  const template = await readFile20(join25(PROMPT_DIR2, DOX_PROMPT_FILE), "utf-8");
+  const template = await readFile20(join26(PROMPT_DIR2, DOX_PROMPT_FILE), "utf-8");
   cachedDoxPrompt = template;
   return template;
 }
@@ -105232,7 +105265,7 @@ async function readTextIfExists(absolutePath) {
   }
 }
 async function scanFolder(wikiDirPath, relativePath) {
-  const absolutePath = join25(wikiDirPath, relativePath);
+  const absolutePath = join26(wikiDirPath, relativePath);
   const entries = await readdir5(absolutePath, { withFileTypes: true });
   const subFolders = [];
   const files = [];
@@ -105248,8 +105281,8 @@ async function scanFolder(wikiDirPath, relativePath) {
       subFolders.push(await scanFolder(wikiDirPath, childRelativePath));
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
       const childRelativePath = relativePath ? `${relativePath}/${entry.name}` : entry.name;
-      const title = await readPageTitle(join25(wikiDirPath, childRelativePath));
-      const compositeMembers = await readCompositeMembers(join25(wikiDirPath, childRelativePath));
+      const title = await readPageTitle(join26(wikiDirPath, childRelativePath));
+      const compositeMembers = await readCompositeMembers(join26(wikiDirPath, childRelativePath));
       const fileSlug = entry.name.replace(/\.md$/i, "");
       const target = fileSlug.toLowerCase() === "index" ? childRelativePath.replace(/\.md$/i, "") : fileSlug;
       const linkText = formatWikilink(target, title || void 0);
@@ -105636,14 +105669,14 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
   );
   for (const file of contentFiles) {
     pages.push({ name: file.name, title: file.title, linkText: file.linkText });
-    const content = await readTextIfExists(join25(dir, file.relativePath));
+    const content = await readTextIfExists(join26(dir, file.relativePath));
     if (content.length > 0) {
       pageContents.push({ name: file.name, title: file.title, content });
     }
   }
   const childIndexes = [];
   for (const sub of folder.subFolders) {
-    const content = await readTextIfExists(join25(dir, sub.relativePath, "index.md"));
+    const content = await readTextIfExists(join26(dir, sub.relativePath, "index.md"));
     if (content.length === 0) {
       continue;
     }
@@ -105662,8 +105695,8 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
       content
     });
   }
-  const agentsMd = await readTextIfExists(join25(dir, "AGENTS.md"));
-  const rollingMemory = await readTextIfExists(join25(dir, ".state", "rolling-memory.json"));
+  const agentsMd = await readTextIfExists(join26(dir, "AGENTS.md"));
+  const rollingMemory = await readTextIfExists(join26(dir, ".state", "rolling-memory.json"));
   const parentTitle = isRoot ? "" : parentFolder && parentFolder.relativePath !== "" ? titleCase(parentFolder.name) : titleCase(wikiSlug);
   const siblingTitles = parentFolder ? parentFolder.subFolders.filter((sibling) => sibling.name !== folder.name).map((sibling) => titleCase(sibling.name)) : [];
   const parentLinkText = isRoot ? "" : parentFolder && parentFolder.relativePath !== "" ? folderIndexLink(parentFolder) : rootIndexLink(wikiSlug);
@@ -105686,7 +105719,7 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
     siblingLinkTexts,
     agentsMd,
     rollingMemory,
-    logPath: options2.logPath ?? join25(dir, ".state", "llm-calls.json"),
+    logPath: options2.logPath ?? join26(dir, ".state", "llm-calls.json"),
     language: options2.language
   };
 }
@@ -105742,7 +105775,7 @@ ${feedback}`, void 0, {
 }
 async function writeFolderIndexLlm(wikiSlug, folder, parentFolder, options2, linkIndex) {
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const absoluteFolderPath = join25(dir, folder.relativePath);
+  const absoluteFolderPath = join26(dir, folder.relativePath);
   const title = folder.relativePath === "" ? titleCase(wikiSlug) : titleCase(folder.name);
   const now = (/* @__PURE__ */ new Date()).toISOString();
   const children = buildChildrenList(folder);
@@ -105795,7 +105828,7 @@ async function writeFolderIndexLlm(wikiSlug, folder, parentFolder, options2, lin
     updated: now,
     children
   };
-  await writeFile17(join25(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile17(join26(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
 }
 async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIndex) {
   const hasContent = folder.files.length > 0 || folder.subFolders.length > 0;
@@ -105810,7 +105843,7 @@ async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIn
     return;
   }
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const absoluteFolderPath = join25(dir, folder.relativePath);
+  const absoluteFolderPath = join26(dir, folder.relativePath);
   const title = folder.relativePath === "" ? titleCase(wikiSlug) : titleCase(folder.name);
   const now = (/* @__PURE__ */ new Date()).toISOString();
   const children = buildChildrenList(folder);
@@ -105824,7 +105857,7 @@ async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIn
     updated: now,
     children
   };
-  await writeFile17(join25(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile17(join26(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
   for (const subFolder of folder.subFolders) {
     await writeFolderIndex(wikiSlug, subFolder, folder, options2);
   }
@@ -105846,7 +105879,7 @@ async function loadWorkspacePromptTemplate(fileName) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile20(join25(PROMPT_DIR2, fileName), "utf-8");
+  const template = await readFile20(join26(PROMPT_DIR2, fileName), "utf-8");
   workspacePromptCache[fileName] = template;
   return template;
 }
@@ -106014,7 +106047,7 @@ async function runWorkspaceEntryWithRetries(runLlm, contextLabel) {
   }
 }
 async function writeWorkspaceIndex(options2) {
-  const wikisRoot = join25(options2.workspace ?? ".", "wikis");
+  const wikisRoot = join26(options2.workspace ?? ".", "wikis");
   let entries;
   try {
     entries = await readdir5(wikisRoot, { withFileTypes: true });
@@ -106026,7 +106059,7 @@ async function writeWorkspaceIndex(options2) {
     if (!entry.isDirectory() || entry.name === "cross-wiki") {
       continue;
     }
-    const indexPath = join25(wikisRoot, entry.name, "index.md");
+    const indexPath = join26(wikisRoot, entry.name, "index.md");
     const content = await readTextIfExists(indexPath);
     if (content.length === 0) {
       continue;
@@ -106056,7 +106089,7 @@ async function writeWorkspaceIndex(options2) {
   let entities = 0;
   let topics = 0;
   for (const wiki of wikis) {
-    const tree = await scanFolder(join25(wikisRoot, wiki.slug), "");
+    const tree = await scanFolder(join26(wikisRoot, wiki.slug), "");
     sources += countContentFiles(findSubFolder(tree, "sources") ?? emptyFolder());
     documents += countContentFiles(findSubFolder(tree, "documents") ?? emptyFolder());
     entities += countContentFiles(findSubFolder(tree, "entities") ?? emptyFolder());
@@ -106070,7 +106103,7 @@ async function writeWorkspaceIndex(options2) {
     `Topic pages: ${topics}`
   ];
   const children = wikis.map((wiki) => wiki.indexPath);
-  const existing = await readTextIfExists(join25(wikisRoot, WORKSPACE_INDEX_FILE));
+  const existing = await readTextIfExists(join26(wikisRoot, WORKSPACE_INDEX_FILE));
   const preserved = parseWorkspaceSegments(existing);
   let existingChildren = [];
   if (existing.length > 0) {
@@ -106123,7 +106156,7 @@ async function writeWorkspaceIndex(options2) {
     }
     entryDescription = description ?? deterministicDescription(triggering);
   }
-  const crossWikiArtifacts = (await readTextIfExists(join25(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  const crossWikiArtifacts = (await readTextIfExists(join26(wikisRoot, "cross-wiki", "index.md"))).length > 0;
   const crossWikiSection = crossWikiArtifacts ? parseCrossWikiSection((0, import_gray_matter10.default)(existing).content ?? "") ?? crossWikiDiscoverySection() : null;
   const body = composeWorkspaceBody(
     wikis,
@@ -106142,11 +106175,11 @@ async function writeWorkspaceIndex(options2) {
     updated: (/* @__PURE__ */ new Date()).toISOString(),
     children
   };
-  await writeFile17(join25(wikisRoot, WORKSPACE_INDEX_FILE), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile17(join26(wikisRoot, WORKSPACE_INDEX_FILE), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
 }
 async function updateWorkspaceCrossWikiSection(workspace = ".") {
-  const wikisRoot = join25(workspace, "wikis");
-  const indexPath = join25(wikisRoot, WORKSPACE_INDEX_FILE);
+  const wikisRoot = join26(workspace, "wikis");
+  const indexPath = join26(wikisRoot, WORKSPACE_INDEX_FILE);
   const existing = await readTextIfExists(indexPath);
   if (existing.length === 0) {
     return;
@@ -106175,7 +106208,7 @@ async function updateWorkspaceCrossWikiSection(workspace = ".") {
       }
     }
   }
-  const artifactsExist = (await readTextIfExists(join25(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  const artifactsExist = (await readTextIfExists(join26(wikisRoot, "cross-wiki", "index.md"))).length > 0;
   if (artifactsExist) {
     const sectionLines = crossWikiDiscoverySection().replace(/\n+$/, "").split("\n");
     const statsIndex = lines.findIndex((line) => line.trim() === "## Statistics");
@@ -106195,12 +106228,12 @@ async function updateWorkspaceCrossWikiSection(workspace = ".") {
 // src/agents/agents-updater.ts
 var import_gray_matter11 = __toESM(require_gray_matter(), 1);
 import { readFile as readFile21, readdir as readdir6, writeFile as writeFile18, mkdir as mkdir18 } from "node:fs/promises";
-import { dirname as dirname5, join as join26, relative as relative2 } from "node:path";
-var PROMPT_DIR3 = join26(appRoot(), "prompts");
+import { dirname as dirname5, join as join27, relative as relative2 } from "node:path";
+var PROMPT_DIR3 = join27(appRoot(), "prompts");
 var promptCache3;
 async function loadPromptTemplate4() {
   if (promptCache3 === void 0) {
-    promptCache3 = await readFile21(join26(PROMPT_DIR3, "agents-updater.prompt.txt"), "utf-8");
+    promptCache3 = await readFile21(join27(PROMPT_DIR3, "agents-updater.prompt.txt"), "utf-8");
   }
   return promptCache3;
 }
@@ -106228,12 +106261,12 @@ async function collectWikiStructure(wikiDirPath) {
         if (entry.name === "raw" || entry.name === ".state") {
           continue;
         }
-        const folderPath = relative2(wikiDirPath, join26(dir, entry.name)).split("\\").join("/");
+        const folderPath = relative2(wikiDirPath, join27(dir, entry.name)).split("\\").join("/");
         folders.push(folderPath);
-        await walk5(join26(dir, entry.name));
+        await walk5(join27(dir, entry.name));
       } else if (entry.isFile() && entry.name.endsWith(".md")) {
         try {
-          const raw = await readFile21(join26(dir, entry.name), "utf-8");
+          const raw = await readFile21(join27(dir, entry.name), "utf-8");
           const type = (0, import_gray_matter11.default)(raw).data.type;
           if (typeof type === "string" && type.length > 0) {
             typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
@@ -106318,7 +106351,7 @@ ${typeLines}
 }
 async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const agentsMdPath = join26(dir, "AGENTS.md");
+  const agentsMdPath = join27(dir, "AGENTS.md");
   let currentAgentsMd;
   try {
     currentAgentsMd = await readFile21(agentsMdPath, "utf-8");
@@ -106343,7 +106376,7 @@ async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
     maxTokens: 8192,
     callType: "agents-updater",
     context: wikiSlug,
-    logPath: options2.logPath ?? join26(dir, ".state", "llm-calls.json"),
+    logPath: options2.logPath ?? join27(dir, ".state", "llm-calls.json"),
     // Bounded retry amendment: transient transport failures (429/5xx,
     // network) get 2 extra attempts; deterministic 4xx throws immediately.
     maxRetries: 2,
@@ -106388,7 +106421,7 @@ ${feedback}`;
     proposal = buildDeterministicFallback(currentAgentsMd, newFolders, newPageTypes);
   }
   proposal = enforceLanguageSection(proposal, currentAgentsMd);
-  const proposalPath = join26(dir, ".state", "proposed-agents.md");
+  const proposalPath = join27(dir, ".state", "proposed-agents.md");
   await mkdir18(dirname5(proposalPath), { recursive: true });
   await writeFile18(proposalPath, proposal, "utf-8");
   console.log("Proposed AGENTS.md updates saved to .state/proposed-agents.md. Review and apply manually.");
@@ -106397,7 +106430,7 @@ ${feedback}`;
 
 // src/cross-wiki/index.ts
 import { mkdir as mkdir23, writeFile as writeFile23 } from "node:fs/promises";
-import { join as join35 } from "node:path";
+import { join as join36 } from "node:path";
 
 // src/pages/cross-wiki/cross-wiki-index-page.ts
 var import_gray_matter12 = __toESM(require_gray_matter(), 1);
@@ -106481,7 +106514,7 @@ ${lines.join("\n")}
 // src/validation/cross-wiki-schema.ts
 var import_gray_matter13 = __toESM(require_gray_matter(), 1);
 import { readFile as readFile22, readdir as readdir7 } from "node:fs/promises";
-import { join as join27, relative as relative3 } from "node:path";
+import { join as join28, relative as relative3 } from "node:path";
 var CROSS_WIKI_TYPES = /* @__PURE__ */ new Set(["cross-wiki-index", "cross-wiki-topic"]);
 function isValidIsoTimestamp(value) {
   if (value instanceof Date) {
@@ -106508,7 +106541,7 @@ async function walk2(dir, root, out) {
     return;
   }
   for (const entry of entries) {
-    const absolute = join27(dir, entry.name);
+    const absolute = join28(dir, entry.name);
     if (entry.isDirectory()) {
       await walk2(absolute, root, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -106517,7 +106550,7 @@ async function walk2(dir, root, out) {
   }
 }
 async function validateCrossWikiSchema(workspace = ".") {
-  const root = join27(workspace, "wikis", "cross-wiki");
+  const root = join28(workspace, "wikis", "cross-wiki");
   const files = [];
   await walk2(root, root, files);
   const invalid = [];
@@ -106525,7 +106558,7 @@ async function validateCrossWikiSchema(workspace = ".") {
     const page = `wikis/cross-wiki/${rel}`;
     let parsed;
     try {
-      parsed = (0, import_gray_matter13.default)(await readFile22(join27(root, rel), "utf-8"));
+      parsed = (0, import_gray_matter13.default)(await readFile22(join28(root, rel), "utf-8"));
     } catch (err) {
       invalid.push({ page, issue: `Invalid YAML frontmatter: ${err.message}` });
       continue;
@@ -106567,7 +106600,7 @@ async function validateCrossWikiSchema(workspace = ".") {
 
 // src/cross-wiki/llm.ts
 import { readFile as readFile23 } from "node:fs/promises";
-import { join as join28 } from "node:path";
+import { join as join29 } from "node:path";
 var CROSS_WIKI_SMALL_MAX_TOKENS = 2048;
 var CROSS_WIKI_MAX_TOKENS = 8192;
 var CROSS_WIKI_MAX_ATTEMPTS = 3;
@@ -106577,7 +106610,7 @@ async function loadPrompt(fileName) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile23(join28(appRoot(), "prompts", fileName), "utf-8");
+  const template = await readFile23(join29(appRoot(), "prompts", fileName), "utf-8");
   promptCache4[fileName] = template;
   return template;
 }
@@ -106643,16 +106676,16 @@ ${feedback}`, void 0, {
 
 // src/cross-wiki/state.ts
 import { mkdir as mkdir19, readFile as readFile24, writeFile as writeFile19 } from "node:fs/promises";
-import { join as join29 } from "node:path";
+import { join as join30 } from "node:path";
 function crossWikiStatePath(workspace, fileName) {
-  return join29(workspace ?? ".", ".state", "cross-wiki", fileName);
+  return join30(workspace ?? ".", ".state", "cross-wiki", fileName);
 }
 function proposedCrossWikiMatchesPath(workspace) {
-  return join29(workspace ?? ".", ".state", "proposed-cross-wiki-matches.json");
+  return join30(workspace ?? ".", ".state", "proposed-cross-wiki-matches.json");
 }
 async function writeCrossWikiState(workspace, fileName, data) {
   const path = crossWikiStatePath(workspace, fileName);
-  await mkdir19(join29(workspace ?? ".", ".state", "cross-wiki"), { recursive: true });
+  await mkdir19(join30(workspace ?? ".", ".state", "cross-wiki"), { recursive: true });
   await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
 }
 async function readCrossWikiState(workspace, fileName) {
@@ -106664,7 +106697,7 @@ async function readCrossWikiState(workspace, fileName) {
 }
 async function writeProposedCrossWikiMatches(workspace, data) {
   const path = proposedCrossWikiMatchesPath(workspace);
-  await mkdir19(join29(workspace ?? ".", ".state"), { recursive: true });
+  await mkdir19(join30(workspace ?? ".", ".state"), { recursive: true });
   await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
 }
 
@@ -106756,7 +106789,7 @@ async function summarizeEntities(pages, options2 = {}) {
 
 // src/cross-wiki/entity-resolver.ts
 import { mkdir as mkdir20, writeFile as writeFile20 } from "node:fs/promises";
-import { join as join30 } from "node:path";
+import { join as join31 } from "node:path";
 
 // src/pages/cross-wiki/entity-registry-page.ts
 var import_gray_matter14 = __toESM(require_gray_matter(), 1);
@@ -107244,10 +107277,10 @@ async function resolveEntities(pages, summaries, options2 = {}) {
   }
   entries.sort((a, b) => a.canonicalTitle.localeCompare(b.canonicalTitle));
   remainingUncertain.sort((a, b) => groupKey(a.members.map((m) => m.path)).localeCompare(groupKey(b.members.map((m) => m.path))));
-  const crossWikiDir = join30(workspace, "wikis", "cross-wiki");
+  const crossWikiDir = join31(workspace, "wikis", "cross-wiki");
   await mkdir20(crossWikiDir, { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
-  await writeFile20(join30(crossWikiDir, "entities.md"), writeEntityRegistryPage(entries, updated), "utf-8");
+  await writeFile20(join31(crossWikiDir, "entities.md"), writeEntityRegistryPage(entries, updated), "utf-8");
   await writeCrossWikiState(workspace, "entity-registry.json", { generated: updated, entities: entries });
   await writeProposedCrossWikiMatches(workspace, {
     generated: updated,
@@ -107596,7 +107629,7 @@ function predicateLookup(groups) {
 
 // src/cross-wiki/relationship-graph.ts
 import { mkdir as mkdir21, writeFile as writeFile21 } from "node:fs/promises";
-import { join as join31 } from "node:path";
+import { join as join32 } from "node:path";
 
 // src/pages/cross-wiki/relationships-page.ts
 var import_gray_matter15 = __toESM(require_gray_matter(), 1);
@@ -107747,26 +107780,26 @@ async function buildRelationshipGraph(pages, registry, predicateGroups, options2
   edges.sort(
     (a, b) => `${a.subject.wiki}/${a.subject.slug}`.localeCompare(`${b.subject.wiki}/${b.subject.slug}`) || a.predicate.localeCompare(b.predicate) || `${a.object.wiki}/${a.object.slug}`.localeCompare(`${b.object.wiki}/${b.object.slug}`)
   );
-  const crossWikiDir = join31(workspace, "wikis", "cross-wiki");
+  const crossWikiDir = join32(workspace, "wikis", "cross-wiki");
   await mkdir21(crossWikiDir, { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
-  await writeFile21(join31(crossWikiDir, "relationships.md"), writeRelationshipsPage(edges, updated), "utf-8");
+  await writeFile21(join32(crossWikiDir, "relationships.md"), writeRelationshipsPage(edges, updated), "utf-8");
   await writeCrossWikiState(workspace, "relationship-graph.json", { generated: updated, edges });
   return edges;
 }
 
 // src/cross-wiki/run-control.ts
 import { readdir as readdir9, readFile as readFile26, stat } from "node:fs/promises";
-import { join as join33, relative as relative5 } from "node:path";
+import { join as join34, relative as relative5 } from "node:path";
 import { createHash as createHash4 } from "node:crypto";
 
 // src/cross-wiki/workspace-scan.ts
 var import_gray_matter16 = __toESM(require_gray_matter(), 1);
 import { readdir as readdir8, readFile as readFile25 } from "node:fs/promises";
-import { join as join32, relative as relative4 } from "node:path";
+import { join as join33, relative as relative4 } from "node:path";
 var CROSS_WIKI_FOLDER = "cross-wiki";
 async function listWorkspaceWikis(workspace = ".") {
-  const wikisRoot = join32(workspace, "wikis");
+  const wikisRoot = join33(workspace, "wikis");
   let entries;
   try {
     entries = await readdir8(wikisRoot, { withFileTypes: true });
@@ -107779,7 +107812,7 @@ async function listWorkspaceWikis(workspace = ".") {
       continue;
     }
     try {
-      await readFile25(join32(wikisRoot, entry.name, "index.md"), "utf-8");
+      await readFile25(join33(wikisRoot, entry.name, "index.md"), "utf-8");
       wikis.push(entry.name);
     } catch {
     }
@@ -107794,7 +107827,7 @@ async function walkMarkdown(dir, root, out) {
     return;
   }
   for (const entry of entries) {
-    const absolute = join32(dir, entry.name);
+    const absolute = join33(dir, entry.name);
     if (entry.isDirectory()) {
       await walkMarkdown(absolute, root, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -107895,15 +107928,15 @@ function frontmatterSources(data) {
   return result;
 }
 async function scanEntityPages(workspace, wiki) {
-  const wikiRoot = join32(workspace, "wikis", wiki);
-  const entitiesRoot = join32(wikiRoot, "entities");
+  const wikiRoot = join33(workspace, "wikis", wiki);
+  const entitiesRoot = join33(wikiRoot, "entities");
   const files = [];
   await walkMarkdown(entitiesRoot, entitiesRoot, files);
   const pages = [];
   for (const rel of files.sort((a, b) => a.localeCompare(b))) {
     let parsed;
     try {
-      parsed = (0, import_gray_matter16.default)(await readFile25(join32(entitiesRoot, rel), "utf-8"));
+      parsed = (0, import_gray_matter16.default)(await readFile25(join33(entitiesRoot, rel), "utf-8"));
     } catch {
       continue;
     }
@@ -107929,15 +107962,15 @@ async function scanEntityPages(workspace, wiki) {
   return pages;
 }
 async function scanTopicPages(workspace, wiki) {
-  const wikiRoot = join32(workspace, "wikis", wiki);
-  const topicsRoot = join32(wikiRoot, "topics");
+  const wikiRoot = join33(workspace, "wikis", wiki);
+  const topicsRoot = join33(wikiRoot, "topics");
   const files = [];
   await walkMarkdown(topicsRoot, topicsRoot, files);
   const pages = [];
   for (const rel of files.sort((a, b) => a.localeCompare(b))) {
     let parsed;
     try {
-      parsed = (0, import_gray_matter16.default)(await readFile25(join32(topicsRoot, rel), "utf-8"));
+      parsed = (0, import_gray_matter16.default)(await readFile25(join33(topicsRoot, rel), "utf-8"));
     } catch {
       continue;
     }
@@ -107966,7 +107999,7 @@ async function hashFile(absolute) {
 }
 async function collectPages(workspace, wiki, out) {
   for (const folder of ["entities", "topics"]) {
-    const root = join33(workspace, "wikis", wiki, folder);
+    const root = join34(workspace, "wikis", wiki, folder);
     const walk5 = async (dir) => {
       let entries;
       try {
@@ -107975,11 +108008,11 @@ async function collectPages(workspace, wiki, out) {
         return;
       }
       for (const entry of entries) {
-        const absolute = join33(dir, entry.name);
+        const absolute = join34(dir, entry.name);
         if (entry.isDirectory()) {
           await walk5(absolute);
         } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
-          const rel = relative5(join33(workspace, "wikis"), absolute).replace(/\\/g, "/");
+          const rel = relative5(join34(workspace, "wikis"), absolute).replace(/\\/g, "/");
           const stats = await stat(absolute);
           out[rel] = { sha256: await hashFile(absolute), mtimeMs: stats.mtimeMs, size: stats.size };
         }
@@ -108008,7 +108041,7 @@ async function readRunFingerprint(workspace) {
   return data;
 }
 function crossWikiArtifactsExist(workspace) {
-  return existsSync9(join33(workspace, "wikis", "cross-wiki", "index.md"));
+  return existsSync9(join34(workspace, "wikis", "cross-wiki", "index.md"));
 }
 async function preflightDecision(workspace, current) {
   if (current.wikis.length < 2) {
@@ -108073,7 +108106,7 @@ async function relevanceProbe(changes, options2 = {}) {
 
 // src/cross-wiki/topic-clusterer.ts
 import { mkdir as mkdir22, rm as rm2, writeFile as writeFile22 } from "node:fs/promises";
-import { join as join34 } from "node:path";
+import { join as join35 } from "node:path";
 import { readdir as readdir10 } from "node:fs/promises";
 
 // src/pages/cross-wiki/topic-cluster-page.ts
@@ -108185,7 +108218,7 @@ function formatTopicCandidate(page) {
 }
 async function clusterTopics(pages, options2 = {}) {
   const workspace = options2.workspace ?? ".";
-  const topicsDir = join34(workspace, "wikis", "cross-wiki", "topics");
+  const topicsDir = join35(workspace, "wikis", "cross-wiki", "topics");
   await mkdir22(topicsDir, { recursive: true });
   const candidates = new Map(pages.map((page) => [page.id, page]));
   let kept = [];
@@ -108242,13 +108275,13 @@ async function clusterTopics(pages, options2 = {}) {
   for (const entry of await readdir10(topicsDir, { withFileTypes: true })) {
     if (entry.isFile() && entry.name.endsWith(".md") && entry.name !== "index.md") {
       if (!kept.some((cluster) => `${cluster.clusterId}.md` === entry.name)) {
-        await rm2(join34(topicsDir, entry.name));
+        await rm2(join35(topicsDir, entry.name));
       }
     }
   }
   const updated = (/* @__PURE__ */ new Date()).toISOString();
   for (const cluster of kept) {
-    await writeFile22(join34(topicsDir, `${cluster.clusterId}.md`), writeTopicClusterPage(cluster, updated), "utf-8");
+    await writeFile22(join35(topicsDir, `${cluster.clusterId}.md`), writeTopicClusterPage(cluster, updated), "utf-8");
   }
   await writeCrossWikiState(workspace, "topic-clusters.json", { generated: updated, clusters: kept });
   return kept;
@@ -108259,7 +108292,7 @@ var import_gray_matter18 = __toESM(require_gray_matter(), 1);
 import { readFile as readFile27 } from "node:fs/promises";
 async function changedPageSummary(workspace, path) {
   try {
-    const parsed = (0, import_gray_matter18.default)(await readFile27(join35(workspace, "wikis", path), "utf-8"));
+    const parsed = (0, import_gray_matter18.default)(await readFile27(join36(workspace, "wikis", path), "utf-8"));
     const data = parsed.data;
     return {
       path,
@@ -108357,8 +108390,8 @@ async function runCrossWikiPass(options2) {
     generateSignalsFn: options2.generateSignalsFn,
     onProgress: progress
   });
-  const crossWikiDir = join35(workspace, "wikis", CROSS_WIKI_FOLDER);
-  await mkdir23(join35(crossWikiDir, "topics"), { recursive: true });
+  const crossWikiDir = join36(workspace, "wikis", CROSS_WIKI_FOLDER);
+  await mkdir23(join36(crossWikiDir, "topics"), { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
   const artifactWikis = /* @__PURE__ */ new Set();
   for (const entry of resolution.entries) {
@@ -108378,7 +108411,7 @@ async function runCrossWikiPass(options2) {
     }
   }
   await writeFile23(
-    join35(crossWikiDir, "index.md"),
+    join36(crossWikiDir, "index.md"),
     writeCrossWikiIndexPage(
       {
         entityCount: resolution.entries.length,
@@ -108391,7 +108424,7 @@ async function runCrossWikiPass(options2) {
     "utf-8"
   );
   await writeFile23(
-    join35(crossWikiDir, "topics", "index.md"),
+    join36(crossWikiDir, "topics", "index.md"),
     writeCrossWikiTopicsIndexPage(clusters, updated),
     "utf-8"
   );
@@ -108421,14 +108454,14 @@ async function runCrossWikiPass(options2) {
 
 // src/validation/index.ts
 import { mkdir as mkdir24, writeFile as writeFile24 } from "node:fs/promises";
-import { join as join38 } from "node:path";
+import { join as join39 } from "node:path";
 
 // src/validation/citation-checker.ts
 var import_gray_matter19 = __toESM(require_gray_matter(), 1);
 import { access, readFile as readFile28, readdir as readdir11 } from "node:fs/promises";
-import { join as join36, relative as relative6 } from "node:path";
+import { join as join37, relative as relative6 } from "node:path";
 async function findContentPages(wikiSlug, workspace) {
-  const dir = join36(workspace, "wikis", wikiSlug);
+  const dir = join37(workspace, "wikis", wikiSlug);
   const pages = [];
   await walk3(dir, dir, workspace, pages);
   return pages;
@@ -108439,7 +108472,7 @@ async function walk3(root, current, workspace, out) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join36(current, entry.name);
+    const absolute = join37(current, entry.name);
     if (entry.isDirectory()) {
       await walk3(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -108516,7 +108549,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
         invalid.push({ page: page.relative, citation: `[^${key}]` });
         continue;
       }
-      const sourcePath = join36(workspace, "wikis", wikiSlug, "raw", fileName);
+      const sourcePath = join37(workspace, "wikis", wikiSlug, "raw", fileName);
       try {
         await access(sourcePath);
       } catch {
@@ -108545,7 +108578,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
 // src/validation/schema-validator.ts
 var import_gray_matter20 = __toESM(require_gray_matter(), 1);
 import { readFile as readFile29, readdir as readdir12 } from "node:fs/promises";
-import { join as join37, relative as relative7 } from "node:path";
+import { join as join38, relative as relative7 } from "node:path";
 var KNOWN_TYPES = /* @__PURE__ */ new Set([
   "entity",
   "topic",
@@ -108563,7 +108596,7 @@ var KNOWN_TYPES = /* @__PURE__ */ new Set([
   "cross-wiki-topic"
 ]);
 async function findPages(wikiSlug, workspace) {
-  const dir = join37(workspace, "wikis", wikiSlug);
+  const dir = join38(workspace, "wikis", wikiSlug);
   const pages = [];
   await walk4(dir, dir, workspace, pages);
   return pages;
@@ -108574,7 +108607,7 @@ async function walk4(root, current, workspace, out) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join37(current, entry.name);
+    const absolute = join38(current, entry.name);
     if (entry.isDirectory()) {
       await walk4(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -108683,10 +108716,10 @@ function formatSchemaSummary(schema) {
 }
 async function writeValidationReport(wikiDir2, summary) {
   try {
-    const reportDir = join38(wikiDir2, ".state");
+    const reportDir = join39(wikiDir2, ".state");
     await mkdir24(reportDir, { recursive: true });
     await writeFile24(
-      join38(reportDir, "validation-report.json"),
+      join39(reportDir, "validation-report.json"),
       JSON.stringify(summary, null, 2) + "\n",
       "utf-8"
     );
@@ -108900,9 +108933,9 @@ function checkComparisonPreservation(originalData, writtenPage) {
 
 // src/state/synthesis-report.ts
 import { mkdir as mkdir25, readFile as readFile30, writeFile as writeFile25 } from "node:fs/promises";
-import { join as join39 } from "node:path";
+import { join as join40 } from "node:path";
 function reportPath(wikiDir2) {
-  return join39(wikiDir2, ".state", "synthesis-report.json");
+  return join40(wikiDir2, ".state", "synthesis-report.json");
 }
 async function readReport(wikiDir2) {
   try {
@@ -108919,7 +108952,7 @@ async function readReport(wikiDir2) {
   return { entries: [] };
 }
 async function writeReport(wikiDir2, state) {
-  await mkdir25(join39(wikiDir2, ".state"), { recursive: true });
+  await mkdir25(join40(wikiDir2, ".state"), { recursive: true });
   await writeFile25(reportPath(wikiDir2), JSON.stringify(state, null, 2) + "\n", "utf-8");
 }
 async function appendSynthesisReportEntries(wikiDir2, entries) {
@@ -109043,7 +109076,7 @@ async function trySynthesisMode(runSynthesis, runCheck, label) {
   return { page: outcome.output, attempts: outcome.attempts, lastCheck };
 }
 function loadAgentsMd(wikiDir2) {
-  const path = join40(wikiDir2, "AGENTS.md");
+  const path = join41(wikiDir2, "AGENTS.md");
   try {
     return readFileSync3(path, "utf-8");
   } catch {
@@ -109102,7 +109135,7 @@ async function runIngest(slug, options2) {
   if (!existsSync10(dir)) {
     throw new Error(`Wiki '${slug}' not found at ${dir}. Run 'init ${slug}' first.`);
   }
-  const rawDir = join40(dir, "raw");
+  const rawDir = join41(dir, "raw");
   if (!existsSync10(rawDir)) {
     throw new Error(`Wiki '${slug}' has no raw/ directory. Run 'init ${slug}' to repair it.`);
   }
@@ -109113,7 +109146,7 @@ async function runIngest(slug, options2) {
   const input = getLanguage(options2.inputLanguage ?? languageState.lastInputLanguage).code;
   const language = { input, output };
   if (input !== languageState.lastInputLanguage) {
-    const extractedDir = join40(dir, ".state", "extracted");
+    const extractedDir = join41(dir, ".state", "extracted");
     const hasExtractions = existsSync10(extractedDir) && (await readdir13(extractedDir)).some((file) => file.endsWith(".json"));
     if (hasExtractions) {
       console.log(
@@ -109218,7 +109251,7 @@ async function runIngest(slug, options2) {
     progress("Materialized entity, topic, and document pages.");
   };
   for (const fileName of pdfFiles) {
-    const pdfPath = join40(rawDir, fileName);
+    const pdfPath = join41(rawDir, fileName);
     const sourceSlug = sourceSlugForFile(fileName);
     const hash = await sha256(pdfPath);
     const existing = state.sources[sourceSlug];
@@ -109245,10 +109278,10 @@ async function runIngest(slug, options2) {
     }
     const chunkCount = Math.max(1, Math.ceil(pageCount / pagesPerChunk));
     for (const oldPage of existing?.documentPages ?? []) {
-      await rm3(join40(dir, oldPage), { force: true });
+      await rm3(join41(dir, oldPage), { force: true });
       const oldChunkId = oldPage.split("/").pop()?.replace(/\.md$/, "");
       if (oldChunkId) {
-        await rm3(join40(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
+        await rm3(join41(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
       }
     }
     const documentPages = [];
@@ -109284,8 +109317,8 @@ async function runIngest(slug, options2) {
 
 ${rendered.text}
 `;
-      await mkdir26(join40(dir, "documents"), { recursive: true });
-      await writeFile26(join40(dir, "documents", docFileName), import_gray_matter21.default.stringify(body, frontmatter), "utf-8");
+      await mkdir26(join41(dir, "documents"), { recursive: true });
+      await writeFile26(join41(dir, "documents", docFileName), import_gray_matter21.default.stringify(body, frontmatter), "utf-8");
       documentPages.push(wikiRelativePath("documents", docFileName));
       if (extract) {
         const chunkId = docFileName.replace(/\.md$/, "");
@@ -109336,7 +109369,7 @@ ${rendered.text}
     });
   }
   if (extract && lastMaterializeResult === void 0) {
-    const extractedDir = join40(dir, ".state", "extracted");
+    const extractedDir = join41(dir, ".state", "extracted");
     const hasExtractions = existsSync10(extractedDir) && (await readdir13(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
     if (hasExtractions) {
       await runMaterialize();
@@ -109348,7 +109381,7 @@ ${rendered.text}
     if (extract && writtenPagePaths.size > 0) {
       for (const relativePath of writtenPagePaths) {
         try {
-          const content = await readFile31(join40(dir, relativePath), "utf-8");
+          const content = await readFile31(join41(dir, relativePath), "utf-8");
           workingPageHashes[relativePath] = createHash5("sha256").update(content, "utf-8").digest("hex");
         } catch {
         }
@@ -109361,7 +109394,7 @@ ${rendered.text}
     if (extract && synthesis && lastMaterializeResult) {
       result.synthesisRan = true;
       const agentsMd = loadAgentsMd(dir);
-      const llmLogPath = join40(dir, ".state", "llm-calls.json");
+      const llmLogPath = join41(dir, ".state", "llm-calls.json");
       const slugUniverse = await buildSlugUniverse(slug, options2.workspace, { language: input });
       const repairPageLinks = (markdown, pageLabel) => {
         const { markdown: repaired, repairs, unrepairable } = repairWikilinksInMarkdown(markdown, slugUniverse);
@@ -109408,9 +109441,9 @@ ${rendered.text}
             entityPage.slug
           );
           if (strict.page !== null) {
-            const folderPath = join40(dir, entityPage.folder);
+            const folderPath = join41(dir, entityPage.folder);
             await writeFile26(
-              join40(folderPath, `${entityPage.slug}.md`),
+              join41(folderPath, `${entityPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceFrontmatterInMarkdown(
@@ -109448,9 +109481,9 @@ ${rendered.text}
             entityPage.slug
           );
           if (permissive.page !== null) {
-            const folderPath = join40(dir, entityPage.folder);
+            const folderPath = join41(dir, entityPage.folder);
             await writeFile26(
-              join40(folderPath, `${entityPage.slug}.md`),
+              join41(folderPath, `${entityPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceFrontmatterInMarkdown(
@@ -109574,9 +109607,9 @@ ${rendered.text}
             `topic ${topicPage.slug}`
           );
           if (strict.page !== null) {
-            const folderPath = join40(dir, topicPage.folder);
+            const folderPath = join41(dir, topicPage.folder);
             await writeFile26(
-              join40(folderPath, `${topicPage.slug}.md`),
+              join41(folderPath, `${topicPage.slug}.md`),
               repairPageLinks(
                 enforceTopicSourcesSectionInMarkdown(
                   enforceTopicFrontmatterInMarkdown(
@@ -109611,9 +109644,9 @@ ${rendered.text}
             `topic ${topicPage.slug}`
           );
           if (permissive.page !== null) {
-            const folderPath = join40(dir, topicPage.folder);
+            const folderPath = join41(dir, topicPage.folder);
             await writeFile26(
-              join40(folderPath, `${topicPage.slug}.md`),
+              join41(folderPath, `${topicPage.slug}.md`),
               repairPageLinks(
                 enforceTopicSourcesSectionInMarkdown(
                   enforceTopicFrontmatterInMarkdown(
@@ -109736,9 +109769,9 @@ ${rendered.text}
             `composite ${compositePage.slug}`
           );
           if (strict.page !== null) {
-            const folderPath = join40(dir, compositePage.folder);
+            const folderPath = join41(dir, compositePage.folder);
             await writeFile26(
-              join40(folderPath, `${compositePage.slug}.md`),
+              join41(folderPath, `${compositePage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceCompositeFrontmatterInMarkdown(strict.page, compositePage),
@@ -109770,9 +109803,9 @@ ${rendered.text}
             `composite ${compositePage.slug}`
           );
           if (permissive.page !== null) {
-            const folderPath = join40(dir, compositePage.folder);
+            const folderPath = join41(dir, compositePage.folder);
             await writeFile26(
-              join40(folderPath, `${compositePage.slug}.md`),
+              join41(folderPath, `${compositePage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceCompositeFrontmatterInMarkdown(permissive.page, compositePage),
@@ -109892,9 +109925,9 @@ ${rendered.text}
             `comparison ${comparisonPage.slug}`
           );
           if (strict.page !== null) {
-            const folderPath = join40(dir, comparisonPage.folder);
+            const folderPath = join41(dir, comparisonPage.folder);
             await writeFile26(
-              join40(folderPath, `${comparisonPage.slug}.md`),
+              join41(folderPath, `${comparisonPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceComparisonBridgeInMarkdown(
@@ -109929,9 +109962,9 @@ ${rendered.text}
             `comparison ${comparisonPage.slug}`
           );
           if (permissive.page !== null) {
-            const folderPath = join40(dir, comparisonPage.folder);
+            const folderPath = join41(dir, comparisonPage.folder);
             await writeFile26(
-              join40(folderPath, `${comparisonPage.slug}.md`),
+              join41(folderPath, `${comparisonPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceComparisonBridgeInMarkdown(
@@ -110167,7 +110200,7 @@ ${rendered.text}
     writeWorkspaceIndexFn: options2.writeWorkspaceIndexFn,
     writeWorkspaceProseFn: options2.writeWorkspaceProseFn,
     outputLanguage: getLanguage(output).name,
-    logPath: join40(dir, ".state", "llm-calls.json")
+    logPath: join41(dir, ".state", "llm-calls.json")
   });
   progress("Workspace index updated.");
   if (options2.crossWiki === true) {
@@ -110178,7 +110211,7 @@ ${rendered.text}
         wikiSlug: slug,
         language,
         forceCrossWiki: options2.forceCrossWiki,
-        logPath: join40(dir, ".state", "llm-calls.json"),
+        logPath: join41(dir, ".state", "llm-calls.json"),
         onProgress: progress
       });
       result.crossWiki = crossWiki;
@@ -110307,7 +110340,7 @@ function IngestScreen({
     readWikiLanguage(dir).then(async (state) => {
       let extracted = false;
       try {
-        extracted = (await readdir14(join41(dir, ".state", "extracted"))).some(
+        extracted = (await readdir14(join42(dir, ".state", "extracted"))).some(
           (file) => file.endsWith(".json")
         );
       } catch {
@@ -110544,7 +110577,7 @@ var import_react44 = __toESM(require_react(), 1);
 // src/tui/hooks/use-raw-contents.ts
 var import_react43 = __toESM(require_react(), 1);
 import { readdir as readdir15 } from "node:fs/promises";
-import { join as join42 } from "node:path";
+import { join as join43 } from "node:path";
 function useRawContents(workspace, wiki, refreshKey = 0) {
   const [files, setFiles] = (0, import_react43.useState)(null);
   (0, import_react43.useEffect)(() => {
@@ -110555,7 +110588,7 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
     }
     (async () => {
       try {
-        const entries = await readdir15(join42(workspace, "wikis", wiki, "raw"));
+        const entries = await readdir15(join43(workspace, "wikis", wiki, "raw"));
         if (!cancelled) {
           setFiles(entries.sort());
         }
@@ -110574,7 +110607,7 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
 
 // src/commands/add-pdf.ts
 import { copyFile, mkdir as mkdir27, stat as stat2 } from "node:fs/promises";
-import { basename, extname, join as join43, resolve as resolve3 } from "node:path";
+import { basename, extname, join as join44, resolve as resolve3 } from "node:path";
 var AddPdfError = class extends Error {
   constructor(message) {
     super(message);
@@ -110606,9 +110639,9 @@ async function addPdfToWiki(wikiDir2, sourcePath) {
   if (extname(fileName).toLowerCase() !== ".pdf") {
     throw new AddPdfError(`Not a PDF file: ${fileName}. Only .pdf files can be added to raw/.`);
   }
-  const rawDir = join43(wikiDir2, "raw");
+  const rawDir = join44(wikiDir2, "raw");
   await mkdir27(rawDir, { recursive: true });
-  const destPath = join43(rawDir, fileName);
+  const destPath = join44(rawDir, fileName);
   if (resolve3(cleaned) !== resolve3(destPath)) {
     try {
       await copyFile(cleaned, destPath);
@@ -111890,7 +111923,7 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
 // src/tui/agents-review-screen.tsx
 var import_react46 = __toESM(require_react(), 1);
 import { copyFile as copyFile2, readFile as readFile32 } from "node:fs/promises";
-import { join as join44 } from "node:path";
+import { join as join45 } from "node:path";
 
 // src/utils/line-diff.ts
 function diffLines(before, after) {
@@ -111985,10 +112018,10 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     setScrollOffset(0);
     try {
       const dir = wikiDir(workspace, slug);
-      const currentText = await readFile32(join44(dir, "AGENTS.md"), "utf-8");
+      const currentText = await readFile32(join45(dir, "AGENTS.md"), "utf-8");
       let proposalText;
       try {
-        proposalText = await readFile32(join44(dir, ".state", "proposed-agents.md"), "utf-8");
+        proposalText = await readFile32(join45(dir, ".state", "proposed-agents.md"), "utf-8");
       } catch (err) {
         if (err.code === "ENOENT") {
           proposalText = null;
@@ -112023,7 +112056,7 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     }
     try {
       const dir = wikiDir(workspace, activeWiki);
-      await copyFile2(join44(dir, ".state", "proposed-agents.md"), join44(dir, "AGENTS.md"));
+      await copyFile2(join45(dir, ".state", "proposed-agents.md"), join45(dir, "AGENTS.md"));
       const resultMessage = `Accepted proposed AGENTS.md updates for ${activeWiki}.`;
       setMessage(resultMessage);
       setStatus("done");
