@@ -72402,7 +72402,7 @@ var PRICE_PER_MTOK = {
   "qwen3.7-max": { input: 2, output: 5 },
   "qwen3.8-max": { input: 3, output: 6 },
   "deepseek-v4-pro": { input: 1.32, output: 3.96 },
-  "glm-4.7-flash": { input: 0, output: 0 },
+  "glm-4.7-flash": { input: 0.07, output: 0.4 },
   "glm-5.2": { input: 1.4, output: 4.4 },
   "glm-5.3": { input: 1.4, output: 4.4 },
   default: { input: 1, output: 5 }
@@ -72977,7 +72977,7 @@ var MODEL_CATALOG = {
     { id: "__custom__", label: "Custom model..." }
   ],
   zhipu: [
-    { id: "glm-4.7-flash", label: "GLM-4.7-Flash" },
+    { id: "glm-4.7-flash", label: "GLM-4.7-FlashX" },
     { id: "glm-5.2", label: "GLM-5.2" },
     { id: "glm-5.3", label: "GLM-5.3" },
     { id: "__custom__", label: "Custom model..." }
@@ -111058,11 +111058,11 @@ var RECOMMENDATIONS = {
     modelCrossWikiJudgment: "Qwen 3.7 Max \u2014 mid-tier review for uncertain cross-wiki matches and hypothesis signals"
   },
   zhipu: {
-    modelExtractor: "GLM-4.7-Flash \u2014 free; 1-request concurrency fits the sequential steps",
+    modelExtractor: "GLM-4.7-FlashX \u2014 $0.07/$0.40; 1-request concurrency fits the sequential steps",
     modelSynthesis: "GLM-5.3 \u2014 flagship prose; mandatory reasoning raises token use",
     modelDox: "GLM-5.2 \u2014 mid-tier for structural navigation",
     modelCuration: "GLM-5.2 \u2014 mid-tier judgment for merge/drop decisions",
-    modelCrossWiki: "GLM-4.7-Flash \u2014 free for bulk cross-wiki tasks",
+    modelCrossWiki: "GLM-4.7-FlashX \u2014 $0.07/$0.40 for bulk cross-wiki tasks",
     modelCrossWikiJudgment: "GLM-5.2 \u2014 mid-tier review for uncertain cross-wiki matches"
   }
 };
