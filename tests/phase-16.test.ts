@@ -32,6 +32,7 @@ import {
   TRANSIENT_MAX_ATTEMPTS,
   transientStallDelayMs,
   setStallWaitReporter,
+  transportStallsLogPath,
   type StallWaitInfo,
 } from '../src/llm/client';
 import {
@@ -1192,6 +1193,74 @@ test('gate 16.16b: a persistent 500 aborts after exactly 6 attempts with the att
   }
 });
 
+test('gate 16.18: every failed 429/5xx attempt persists to .state/transport-stalls.jsonl — retry waits and the exhausted abort included; the call log stays success-only', async () => {
+  const savedKey = process.env.ANTHROPIC_API_KEY;
+  process.env.ANTHROPIC_API_KEY = 'gate-16-18-fake-key';
+  setTransportRetrySleeper(async () => {});
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    // 429 then success: ONE stall record with the 60s wait; the call log
+    // holds only the successful call (cost accounting untouched).
+    const logPath = join(makeTempDir('paper-chase-g16-18-'), 'llm-calls.json');
+    mockUndiciRequest
+      .mockResolvedValueOnce(rateLimit429())
+      .mockResolvedValueOnce(success200());
+    await expect(
+      callLLM('p', undefined, { maxRetries: 2, callType: 'extractor', context: 'chunk-1', logPath }),
+    ).resolves.toBe('ok');
+    const stallRecords = readFileSync(transportStallsLogPath(logPath), 'utf-8')
+      .trim()
+      .split('\n')
+      .map((line) => JSON.parse(line) as Record<string, unknown>);
+    expect(stallRecords).toHaveLength(1);
+    expect(stallRecords[0]).toMatchObject({
+      callType: 'extractor',
+      context: 'chunk-1',
+      provider: 'anthropic',
+      statusCode: 429,
+      attempt: 1,
+      maxAttempts: 6,
+      exhausted: false,
+      waitSeconds: 60,
+      error: 'rate limited',
+    });
+    expect(typeof stallRecords[0]?.model).toBe('string');
+    expect(typeof stallRecords[0]?.timestamp).toBe('string');
+    const callRecords = readFileSync(logPath, 'utf-8')
+      .trim()
+      .split('\n')
+      .map((line) => JSON.parse(line) as Record<string, unknown>);
+    expect(callRecords).toHaveLength(1);
+    expect(callRecords[0]?.cost as number).toBeGreaterThan(0);
+
+    // Persistent 500: SIX records (attempts 1..6), the last exhausted with
+    // waitSeconds 0 and the provider's error message; no successful call
+    // logged at all.
+    const logPath2 = join(makeTempDir('paper-chase-g16-18b-'), 'llm-calls.json');
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest.mockResolvedValue(serverError500());
+    await expect(callLLM('p', undefined, { maxRetries: 2, logPath: logPath2 })).rejects.toThrow(
+      /API error \(HTTP 500\) after 6 attempt\(s\)/,
+    );
+    const stallRecords2 = readFileSync(transportStallsLogPath(logPath2), 'utf-8')
+      .trim()
+      .split('\n')
+      .map((line) => JSON.parse(line) as Record<string, unknown>);
+    expect(stallRecords2).toHaveLength(6);
+    expect(stallRecords2.map((r) => r.attempt)).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(stallRecords2.map((r) => r.waitSeconds)).toEqual([60, 300, 900, 2700, 5400, 0]);
+    expect(stallRecords2.map((r) => r.exhausted)).toEqual([false, false, false, false, false, true]);
+    expect(stallRecords2[5]?.error).toBe('Operation failed');
+    expect(existsSync(logPath2)).toBe(false);
+  } finally {
+    if (savedKey === undefined) {
+      delete process.env.ANTHROPIC_API_KEY;
+    } else {
+      process.env.ANTHROPIC_API_KEY = savedKey;
+    }
+  }
+});
+
 test('gate 16.17: the stall reporter receives the exact wait info (429 and 500) and owns the stall message; without it the warn fires', async () => {
   const savedKey = process.env.ANTHROPIC_API_KEY;
   process.env.ANTHROPIC_API_KEY = 'gate-16-17-fake-key';
@@ -1277,6 +1346,10 @@ test('gate 16.17 (ingest level): a stalled 429 surfaces on the run\'s progress c
         /Rate limited by provider \(HTTP 429\) — waiting 60s before retry \(attempt 2\/6\)/.test(line),
       ),
     ).toBe(true);
+
+    // Phase 16 v1.0.4: the stall also persists to the wiki's audit log.
+    const stallsFile = join(workspace, 'wikis', 'test-wiki', '.state', 'transport-stalls.jsonl');
+    expect(existsSync(stallsFile)).toBe(true);
 
     // The reporter must not outlive the run: a post-run 429 uses the
     // console.warn path (the finished run's progress channel stays silent).

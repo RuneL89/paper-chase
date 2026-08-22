@@ -80,8 +80,9 @@ import { spawnSync } from 'node:child_process';
 // bundle (src/tui/settings.ts + settings-screen.tsx) and the client bundle
 // (src/llm/client.ts price table) changed. The packaged runtime must
 // re-extract so users see the split GLM-4.7-Flash / GLM-4.7-FlashX catalog
-// and the 429/5xx stall ladder (Phase 16 v1.0.3, user directive 2026-08-22).
-const VERSION = '1.0.20';
+// and the 429/5xx stall ladder + stall audit log (Phase 16 v1.0.3/v1.0.4,
+// user directives 2026-08-22).
+const VERSION = '1.0.21';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

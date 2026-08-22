@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { mkdir, appendFile } from 'node:fs/promises';
-import { dirname } from 'node:path';
+import { dirname, join } from 'node:path';
 import { resolve } from 'node:path';
 import { request } from 'undici';
 import type { Dispatcher } from 'undici';
@@ -894,6 +894,60 @@ async function appendLlmCallLog(logPath: string | undefined, entry: LlmCallLogEn
   });
 }
 
+/**
+ * Phase 16 v1.0.4 (user directive 2026-08-22): one record per FAILED 429/5xx
+ * attempt, appended to the wiki's `.state/transport-stalls.jsonl` (beside
+ * `llm-calls.json`). The audit trail covers every retry wait AND the
+ * exhausted final attempt, so provider throttling/errors can be monitored
+ * and audited long after the live progress lines scroll by. Kept OUT of
+ * `llm-calls.json` on purpose: that log is one-entry-per-successful-call and
+ * feeds the cost sums and the repair-rate denominator — stall records must
+ * not perturb them.
+ */
+interface TransportStallLogEntry {
+  timestamp: string;
+  callType?: string;
+  context?: string;
+  /** Phase 11 v1.4.0 precedent: provider id ('anthropic' | 'openai' | ...). */
+  provider: Provider;
+  model: string;
+  statusCode: number;
+  /** 1-based index of the FAILED attempt this record describes. */
+  attempt: number;
+  /** Total attempts allowed for this stall sequence. */
+  maxAttempts: number;
+  /** True on the final failed attempt — no retry follows, the call throws. */
+  exhausted: boolean;
+  /** Seconds waited before the next attempt (0 when exhausted). */
+  waitSeconds: number;
+  /** The provider's error message from the response body (never key material). */
+  error?: string;
+  // SECURITY (Phase 11 v1.5.0): NEVER add API-key material to this entry.
+}
+
+/** The audit-log path for a call log: `<dir>/transport-stalls.jsonl`. Exported for tests. */
+export function transportStallsLogPath(logPath: string): string {
+  return join(dirname(logPath), 'transport-stalls.jsonl');
+}
+
+async function appendTransportStallLog(
+  logPath: string | undefined,
+  entry: TransportStallLogEntry,
+): Promise<void> {
+  if (!logPath) {
+    return;
+  }
+  const stallsPath = transportStallsLogPath(logPath);
+  await enqueueSerializedWrite(stallsPath, async () => {
+    try {
+      await mkdir(dirname(stallsPath), { recursive: true });
+      await appendFile(stallsPath, JSON.stringify(entry) + '\n', 'utf-8');
+    } catch {
+      // Best-effort logging; do not let a write failure break the retry loop.
+    }
+  });
+}
+
 /** Human-readable name for one provider (error messages, test results). */
 function displayProviderName(
   provider: Provider,
@@ -1050,9 +1104,6 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
     const stalled =
       statusCode !== 0 && isTransientStatus(statusCode) && (options.maxRetries ?? 0) > 0;
     const ceiling = stalled ? Math.max(maxAttempts, TRANSIENT_MAX_ATTEMPTS) : maxAttempts;
-    if (attempt >= ceiling) {
-      break; // Exhausted for THIS attempt's error class — handle below.
-    }
     let delayMs = transportRetryDelayMs(attempt);
     if (stalled) {
       // The stall floor outlasts a saturated free-tier throttle or error
@@ -1069,6 +1120,27 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
         }
       }
       const waitSeconds = Math.round(delayMs / 1000);
+      const exhausted = attempt >= ceiling;
+      // Phase 16 v1.0.4 (user directive 2026-08-22): persist EVERY failed
+      // 429/5xx attempt — the retry waits AND the exhausted final attempt —
+      // to the wiki's `.state/transport-stalls.jsonl` so provider
+      // throttling/errors can be monitored and audited after the fact.
+      await appendTransportStallLog(options.logPath, {
+        timestamp: new Date().toISOString(),
+        callType: options.callType,
+        context: options.context,
+        provider,
+        model,
+        statusCode,
+        attempt,
+        maxAttempts: ceiling,
+        exhausted,
+        waitSeconds: exhausted ? 0 : waitSeconds,
+        error: json?.error?.message,
+      });
+      if (exhausted) {
+        break; // Stall budget exhausted — handle below (loud abort).
+      }
       const nextAttempt = attempt + 1;
       const info: StallWaitInfo = {
         waitSeconds,
@@ -1089,6 +1161,9 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
         );
       }
     } else {
+      if (attempt >= ceiling) {
+        break; // Network retries exhausted — handle below.
+      }
       const reason =
         lastTransportError?.message ?? `HTTP ${statusCode}`;
       console.warn(

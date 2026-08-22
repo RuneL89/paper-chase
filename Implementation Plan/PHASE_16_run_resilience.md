@@ -148,6 +148,10 @@ A persistent 429 → exactly 6 attempts, then the fail-loud error `API error (HT
 
 The reporter receives the exact `{ waitSeconds, attempt, maxAttempts, statusCode }` per stall (429 and 500 both) and owns the stall message (console.warn suppressed); without a reporter the console.warn line fires (`Rate limited (HTTP 429)` / `Provider error (HTTP 500)` — waiting Ns before retry (attempt X/6)). Ingest-level: a stalled 429/5xx during a real (stubbed-transport) run surfaces the line on the run's `onProgress` channel, and the reporter never outlives the run (a post-run 429 warns on the console path). TUI-level: the ingest screen renders the stall line from the progress channel.
 
+### Gate 16.18: Stall audit log (v1.0.4)
+
+Every failed 429/5xx attempt is appended to the wiki's `.state/transport-stalls.jsonl` beside the call log — one record per attempt (timestamp, callType/context, provider, model, statusCode, attempt/maxAttempts, exhausted, waitSeconds, provider error message) including the exhausted final attempt (waitSeconds 0); `llm-calls.json` stays one-entry-per-successful-call so cost sums and the repair-rate denominator are untouched. Client-level: a mocked 429 then a 200 writes exactly one stall record (attempt 1, 60s wait) plus the success-only call log; a persistent 500 writes six records (attempts 1..6, waits 60/300/900/2700/5400/0, last exhausted). Ingest-level: a stalled 429 during a mocked-transport DOX run leaves the record in the workspace's `.state/transport-stalls.jsonl`.
+
 ---
 
 ## 4. User Acceptance Tests (UAT)
@@ -199,7 +203,7 @@ The reporter receives the exact `{ waitSeconds, attempt, maxAttempts, statusCode
 - Phase 8's incremental state shapes (checkpoint writes must match them exactly).
 
 ### What Phase 16 Produces
-- Per-page transport fallback + outage detector; `.state/synthesis-state.json` + `pageDataHash`; per-PDF checkpointing; 600s large-call timeout + staggered dispatch + exponential backoff; slim curation decision schema + size-based bucketing; additive `metrics.transportFailures`. v1.0.3 (user directive 2026-08-22): the reactive 429/5xx stall (`TRANSIENT_MAX_ATTEMPTS` + `transientStallDelayMs` (1/5/15/45/90 min) + Retry-After honoring in `src/llm/client.ts`) and the `setStallWaitReporter` stall-feedback seam (carrying `statusCode`) wired through ingest's `onProgress`; supersedes the v1.0.2 429-only 60s×2^(n-1) stall.
+- Per-page transport fallback + outage detector; `.state/synthesis-state.json` + `pageDataHash`; per-PDF checkpointing; 600s large-call timeout + staggered dispatch + exponential backoff; slim curation decision schema + size-based bucketing; additive `metrics.transportFailures`. v1.0.3 (user directive 2026-08-22): the reactive 429/5xx stall (`TRANSIENT_MAX_ATTEMPTS` + `transientStallDelayMs` (1/5/15/45/90 min) + Retry-After honoring in `src/llm/client.ts`) and the `setStallWaitReporter` stall-feedback seam (carrying `statusCode`) wired through ingest's `onProgress`; supersedes the v1.0.2 429-only 60s×2^(n-1) stall. v1.0.4 (user directive 2026-08-22): the 429/5xx stall audit log — `.state/transport-stalls.jsonl` beside the call log, one record per failed attempt via `appendTransportStallLog` (retry waits AND the exhausted final attempt; `llm-calls.json` untouched).
 
 ### Contract with Final Acceptance
 - Fail-loud preserved where it matters: 4xx, real outages (detector), Extractor exhaustion.
