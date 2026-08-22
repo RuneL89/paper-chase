@@ -76,7 +76,11 @@ import { spawnSync } from 'node:child_process';
 // setRateLimitWaitReporter seam, and ingest.ts gains the reporter-wiring
 // wrapper. The bundle is an extracted asset: installs must re-extract to get
 // the stall behavior and the live stall progress lines.
-const VERSION = '1.0.18';
+// 1.0.19 (2026-08-22): Zhipu GLM-4.7-FlashX label + pricing fix — the Settings
+// bundle (src/tui/settings.ts + settings-screen.tsx) and the client bundle
+// (src/llm/client.ts price table) changed. The packaged runtime must
+// re-extract so users see GLM-4.7-FlashX and the correct $0.07/$0.40 cost.
+const VERSION = '1.0.19';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');
