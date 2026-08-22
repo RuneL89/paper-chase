@@ -729,8 +729,8 @@ test('gate 14.3: transient exhaustion -> fallback only after the bounded transpo
   try {
     const outcome = await curateTopics([topicCandidate('alpha')], { agentsMd: 'Test constitution.' });
     // maxRetries: 2 inside the curation transport options -> 3 total calls for
-    // non-rate-limit transients. Phase 16 v1.0.2 (user directive 2026-08-20):
-    // a 429 gets RATE_LIMIT_MAX_ATTEMPTS total attempts instead -> 6 calls.
+    // network transients. Phase 16 v1.0.3 (user directive 2026-08-22):
+    // a 429 gets TRANSIENT_MAX_ATTEMPTS total attempts instead -> 6 calls.
     expect(mockUndiciRequest).toHaveBeenCalledTimes(6);
     expect(outcome.decisions).toBeNull();
     expect(outcome.fallbacks).toEqual([{ scope: 'curation-topics', cause: 'transport-exhaustion' }]);

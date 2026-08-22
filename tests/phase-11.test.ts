@@ -52,6 +52,7 @@ const QWEN_37_MAX = 'qwen3.7-max';
 const QWEN_38_MAX = 'qwen3.8-max';
 const DEEPSEEK_PRO = 'deepseek-v4-pro';
 const GLM_FLASH = 'glm-4.7-flash';
+const GLM_FLASHX = 'glm-4.7-flashx';
 const GLM_52 = 'glm-5.2';
 const GLM_53 = 'glm-5.3';
 const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
@@ -2568,8 +2569,9 @@ test('gate 11.17: zhipu posts the OpenAI-compatible shape to the international Z
   }
 });
 
-test('gate 11.17: glm-4.7-flash prices at $0.0003; the missing-key error names ZAI_API_KEY', async () => {
-  // 1. The cheapest Zhipu model costs $0.07/$0.40 per MTok (1000/500 tokens → $0.00027 → $0.0003).
+test('gate 11.17: glm-4.7-flash is the free tier ($0); glm-4.7-flashx prices at $0.0003; the missing-key error names ZAI_API_KEY', async () => {
+  // 1. GLM-4.7-Flash is the Z.ai free tier (0 in/out per MTok) → 1000/500
+  // tokens cost $0.0000.
   setModelRouting({
     provider: 'zhipu',
     default: GLM_FLASH,
@@ -2593,15 +2595,45 @@ test('gate 11.17: glm-4.7-flash prices at $0.0003; the missing-key error names Z
   const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
   try {
     await callLLM('hi');
-    expect(logSpy).toHaveBeenCalledWith('LLM Call | Tokens: 1000/500 | Cost: $0.0003');
+    expect(logSpy).toHaveBeenCalledWith('LLM Call | Tokens: 1000/500 | Cost: $0.0000');
   } finally {
     logSpy.mockRestore();
     setModelRouting(null);
     restoreEnv('ZAI_API_KEY', savedKey);
   }
 
-  // 2. Missing ZAI_API_KEY → the exact extended error naming the env var.
-  mockUndiciRequest.mockClear(); // isolate from the free-model leg above
+  // 2. GLM-4.7-FlashX costs $0.07/$0.40 per MTok (1000/500 tokens → $0.00027 → $0.0003).
+  setModelRouting({
+    provider: 'zhipu',
+    default: GLM_FLASHX,
+    extractor: null,
+    synthesis: null,
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+  });
+  process.env.ZAI_API_KEY = 'gate-11-17-flashx-key';
+  mockUndiciRequest.mockResolvedValueOnce({
+    statusCode: 200,
+    body: {
+      json: async () => ({
+        choices: [{ message: { content: 'ok' } }],
+        usage: { prompt_tokens: 1000, completion_tokens: 500 },
+      }),
+    },
+  } as never);
+  const logSpy2 = vi.spyOn(console, 'log').mockImplementation(() => {});
+  try {
+    await callLLM('hi');
+    expect(logSpy2).toHaveBeenCalledWith('LLM Call | Tokens: 1000/500 | Cost: $0.0003');
+  } finally {
+    logSpy2.mockRestore();
+    setModelRouting(null);
+    restoreEnv('ZAI_API_KEY', savedKey);
+  }
+
+  // 3. Missing ZAI_API_KEY → the exact extended error naming the env var.
+  mockUndiciRequest.mockClear(); // isolate from the model legs above
   setModelRouting({
     provider: 'zhipu',
     default: GLM_FLASH,
@@ -2638,13 +2670,13 @@ test('gate 11.17: the settings screen shows the Zhipu provider, GLM catalog, and
   await tick(50);
   const frame = screen.output();
   expect(frame).toContain('Default Provider: [‹ Zhipu ›]');
-  expect(frame).toContain('Default Model: [‹ GLM-4.7-FlashX ›]');
+  expect(frame).toContain('Default Model: [‹ GLM-4.7-Flash ›]');
   expect(frame).toContain('Zhipu API Key: [not set]');
   // Zhipu recommendation labels render under their rows; long labels may wrap,
   // so normalize whitespace before asserting the full label text.
   const normalizedFrame = frame.replace(/\s+/g, ' ');
   expect(normalizedFrame).toContain(
-    'GLM-4.7-FlashX — $0.07/$0.40; 1-request concurrency fits the sequential steps',
+    'GLM-4.7-Flash — free tier; 1-request concurrency fits the sequential steps',
   );
 }, 30000);
 
@@ -2664,7 +2696,7 @@ test('gate 11.17: cycling a model row reaches the GLM catalog and persists', asy
     await tick(80);
   }
   // 11 RIGHTs: Same as default -> anthropic (3) -> openai (3) -> qwen (3) ->
-  // DeepSeek-V4-Pro -> GLM-4.7-FlashX.
+  // DeepSeek-V4-Pro -> GLM-4.7-Flash.
   for (let i = 0; i < 11; i++) {
     screen.stdin.write(RIGHT);
     await tick(80);

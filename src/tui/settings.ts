@@ -117,8 +117,9 @@ export interface TuiSettings {
  * 2026-08-04): Qwen-Plus, Qwen 3.7 Max, Qwen 3.8 Max. DeepSeek
  * (OpenAI-compatible endpoint, 2026-08-17): DeepSeek-V4-Pro only for now
  * (user directive — more models later). Zhipu (2026-08-19, the
- * INTERNATIONAL Z.ai endpoint `https://api.z.ai/api/paas/v4`): GLM-4.7-FlashX
- * ($0.07/$0.40), GLM-5.2, GLM-5.3.
+ * INTERNATIONAL Z.ai endpoint `https://api.z.ai/api/paas/v4`; both Flash
+ * tiers added per user directive 2026-08-22): GLM-4.7-Flash (free, 1-request
+ * concurrency), GLM-4.7-FlashX ($0.07/$0.40), GLM-5.2, GLM-5.3.
  */
 type BuiltInProvider = 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu';
 
@@ -146,7 +147,8 @@ export const MODEL_CATALOG: Record<BuiltInProvider, Array<{ id: string; label: s
     { id: '__custom__', label: 'Custom model...' },
   ],
   zhipu: [
-    { id: 'glm-4.7-flash', label: 'GLM-4.7-FlashX' },
+    { id: 'glm-4.7-flash', label: 'GLM-4.7-Flash' },
+    { id: 'glm-4.7-flashx', label: 'GLM-4.7-FlashX' },
     { id: 'glm-5.2', label: 'GLM-5.2' },
     { id: 'glm-5.3', label: 'GLM-5.3' },
     { id: '__custom__', label: 'Custom model...' },

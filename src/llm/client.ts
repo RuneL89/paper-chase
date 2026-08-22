@@ -42,8 +42,10 @@ export type Provider = 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu' | 
  * DeepSeek-V4-Pro (added 2026-08-17): $1.32/$3.96 per MTok — the PEAK rates
  * from the DeepSeek pricing docs (off-peak is half; peak is used so run-cost
  * tracking errs conservative).
- * Zhipu GLM (added 2026-08-19, per the Z.ai pricing docs): GLM-4.7-FlashX is
- * $0.07/$0.40 per MTok; GLM-5.2 and GLM-5.3 are $1.40/$4.40 per MTok.
+ * Zhipu GLM (added 2026-08-19, per the Z.ai pricing docs; updated
+ * 2026-08-22): GLM-4.7-Flash is the FREE tier (id `glm-4.7-flash`, 1-request
+ * concurrency); GLM-4.7-FlashX is $0.07/$0.40 per MTok (id
+ * `glm-4.7-flashx`); GLM-5.2 and GLM-5.3 are $1.40/$4.40 per MTok.
  * Anthropic prices can be overridden via ANTHROPIC_INPUT_PRICE_PER_MTOK and
  * ANTHROPIC_OUTPUT_PRICE_PER_MTOK. Unknown models fall back to the
  * Haiku 4.5 prices.
@@ -60,7 +62,8 @@ const PRICE_PER_MTOK: Record<string, { input: number; output: number }> = {
   'qwen3.7-max': { input: 2, output: 5 },
   'qwen3.8-max': { input: 3, output: 6 },
   'deepseek-v4-pro': { input: 1.32, output: 3.96 },
-  'glm-4.7-flash': { input: 0.07, output: 0.4 },
+  'glm-4.7-flash': { input: 0, output: 0 },
+  'glm-4.7-flashx': { input: 0.07, output: 0.4 },
   'glm-5.2': { input: 1.4, output: 4.4 },
   'glm-5.3': { input: 1.4, output: 4.4 },
   default: { input: 1, output: 5 },
@@ -719,11 +722,11 @@ export interface CallLLMOptions {
    * `07` §5): max EXTRA attempts on transient transport failures (HTTP
    * 429/5xx, network errors). Deterministic failures (HTTP 4xx) always throw
    * immediately. Default 0 — the frozen pre-amendment no-retry behavior —
-   * so every existing caller is unchanged unless it opts in. Phase 16 v1.0.2
-   * (user directive 2026-08-20): an opted-in caller's HTTP 429 gets
-   * `RATE_LIMIT_MAX_ATTEMPTS` total attempts with the escalating
-   * `rateLimitStallDelayMs` stall instead of this bound; every other
-   * transient class keeps it.
+   * so every existing caller is unchanged unless it opts in. Phase 16 v1.0.3
+   * (user directive 2026-08-22): an opted-in caller's HTTP 429 OR 5xx gets
+   * `TRANSIENT_MAX_ATTEMPTS` total attempts with the escalating
+   * `transientStallDelayMs` stall instead of this bound; network errors keep
+   * the caller's bound and the exponential backoff.
    */
   maxRetries?: number;
   /**
@@ -762,29 +765,32 @@ export function transportRetryDelayMs(retry: number): number {
 }
 
 /**
- * Phase 16 v1.0.2 (user directive 2026-08-20): total attempts for a
- * rate-limit (HTTP 429) response when the caller has opted into retries
+ * Phase 16 v1.0.3 (user directive 2026-08-22): total attempts for an HTTP
+ * 429 or 5xx response when the caller has opted into retries
  * (`maxRetries > 0`) — 6 attempts with the escalating stall floor below,
- * about 31 minutes of waiting in total. A throttled free-tier provider
- * (e.g. Zhipu GLM-4.7-FlashX) needs its whole throttle window to pass; the
- * 2026-07-20 ≤3-attempt ratification stays in force for every OTHER
- * transient class, so this constant applies to 429 only.
+ * about 2.6 hours of waiting in total. A throttled or erroring provider
+ * (e.g. the Zhipu GLM-4.7-Flash free tier) is ridden out so the run
+ * completes cheaply instead of aborting. Network errors keep the
+ * 2026-07-20 ≤3-attempt caller bound, so this constant applies to 429 and
+ * 5xx only.
  */
-export const RATE_LIMIT_MAX_ATTEMPTS = 6;
+export const TRANSIENT_MAX_ATTEMPTS = 6;
 
 /**
- * Phase 16 v1.0.2 (user directive 2026-08-20): the stall floor between
- * rate-limit (HTTP 429) retries — 60s, 120s, 240s, 480s, 960s, ...
- * (60s x 2^(retry-1)). The old exponential backoff exhausted its 3 attempts
- * inside ~20 seconds — well within a throttle window, which is why a
- * free-tier 429 aborted the run. `retry` is the 1-based index of the wait
- * (the wait after attempt 1 is retry 1). Exported so tests assert the
- * sequence without wall-clock sleeping. Applied ONLY at the call site via
- * Math.max (the exponential backoff and a provider Retry-After header still
- * win when larger) — never baked into `transportRetryDelayMs`.
+ * Phase 16 v1.0.3 (user directive 2026-08-22): the stall floor between
+ * 429/5xx retries — 1, 5, 15, 45, 90 minutes (wait index 1..5; later waits
+ * clamp at 90 minutes). The v1.0.2 floor (60s x 2^(n-1)) exhausted in ~31
+ * minutes, which a saturated free tier outlasts. `retry` is the 1-based
+ * index of the wait (the wait after attempt 1 is retry 1). Exported so
+ * tests assert the sequence without wall-clock sleeping. Applied ONLY at
+ * the call site via Math.max (the exponential backoff and a provider
+ * Retry-After header still win when larger) — never baked into
+ * `transportRetryDelayMs`.
  */
-export function rateLimitStallDelayMs(retry: number): number {
-  return 60_000 * 2 ** (Math.max(1, retry) - 1);
+export function transientStallDelayMs(retry: number): number {
+  const stallMinutes = [1, 5, 15, 45, 90];
+  const index = Math.min(Math.max(1, retry) - 1, stallMinutes.length - 1);
+  return stallMinutes[index] * 60_000;
 }
 
 function sleep(ms: number): Promise<void> {
@@ -805,31 +811,33 @@ export function setTransportRetrySleeper(sleeper: ((ms: number) => Promise<void>
 }
 
 /**
- * Phase 16 v1.0.2 (user directive 2026-08-20): info handed to the rate-limit
- * wait reporter when a 429 stall is about to begin.
+ * Phase 16 v1.0.3 (user directive 2026-08-22): info handed to the stall wait
+ * reporter when a 429/5xx stall is about to begin.
  */
-export interface RateLimitWaitInfo {
+export interface StallWaitInfo {
   /** Seconds the client will wait before the retry. */
   waitSeconds: number;
   /** 1-based number of the upcoming retry attempt. */
   attempt: number;
-  /** Total attempts allowed for this 429 sequence. */
+  /** Total attempts allowed for this stall sequence. */
   maxAttempts: number;
+  /** The HTTP status that triggered the stall (429 or 5xx). */
+  statusCode: number;
 }
 
 /**
- * Module-level reporter for 429 stall waits (the `setModelRouting` /
+ * Module-level reporter for 429/5xx stall waits (the `setModelRouting` /
  * `setTransportRetrySleeper` precedent). `ingest` wires its `onProgress`
  * channel here so the TUI and CLI show a live "waiting Ns" line during a
- * multi-minute stall; when a reporter is set it owns the 429 message (the
+ * multi-minute stall; when a reporter is set it owns the stall message (the
  * console.warn is suppressed). Unset, the console.warn path fires as before,
  * so non-ingest callers are unchanged.
  */
-let rateLimitWaitReporter: ((info: RateLimitWaitInfo) => void) | null = null;
+let stallWaitReporter: ((info: StallWaitInfo) => void) | null = null;
 
-/** Test hook / ingest wiring: replace the 429 stall reporter; null restores the console.warn path. */
-export function setRateLimitWaitReporter(reporter: ((info: RateLimitWaitInfo) => void) | null): void {
-  rateLimitWaitReporter = reporter;
+/** Test hook / ingest wiring: replace the 429/5xx stall reporter; null restores the console.warn path. */
+export function setStallWaitReporter(reporter: ((info: StallWaitInfo) => void) | null): void {
+  stallWaitReporter = reporter;
 }
 
 /**
@@ -939,13 +947,13 @@ function openAiCompatibleUrl(provider: Provider): string {
  * exponential `transportRetryDelayMs` sequence (5s/15s/45s — was linear), and
  * large-output calls (`maxTokens >= LARGE_CALL_MAX_TOKENS`) carry the 600s
  * `LARGE_CALL_HEADERS_TIMEOUT_MS` headers timeout while smaller calls keep
- * undici's default. Phase 16 v1.0.2 (user directive 2026-08-20): an HTTP 429
- * from an opted-in caller gets `RATE_LIMIT_MAX_ATTEMPTS` total attempts with
- * the escalating `rateLimitStallDelayMs` stall floor (~31 min of waiting,
- * all providers), so a throttled free-tier model clears its window instead
- * of aborting; a 429 `Retry-After` header still wins when larger. Every
- * other transient class keeps the caller's bound and the exponential
- * backoff.
+ * undici's default. Phase 16 v1.0.3 (user directive 2026-08-22): an HTTP 429
+ * or 5xx from an opted-in caller gets `TRANSIENT_MAX_ATTEMPTS` total
+ * attempts with the escalating `transientStallDelayMs` stall floor
+ * (1/5/15/45/90 min, ~2.6 h of waiting, all providers), so a throttled or
+ * erroring free-tier model is ridden out instead of aborting; a 429
+ * `Retry-After` header still wins when larger. Network errors keep the
+ * caller's bound and the exponential backoff.
  */
 export async function callLLM(prompt: string, system?: string, options: CallLLMOptions = {}): Promise<string> {
   loadEnvFile();
@@ -1032,39 +1040,52 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
     if (!transient) {
       break; // Success or deterministic failure — handle below, never retry.
     }
-    // Phase 16 v1.0.2 (user directive 2026-08-20): a 429 from an opted-in
-    // caller gets the extended rate-limit budget (RATE_LIMIT_MAX_ATTEMPTS
-    // total attempts, ~31 min of escalating stalls) so a throttled provider
-    // can clear its window instead of aborting the run; every other
-    // transient class stays bounded by the caller's maxRetries. The ceiling
-    // is recomputed per attempt, so a 5xx after a 429 reverts to the
-    // caller's bound.
-    const rateLimited = statusCode === 429 && (options.maxRetries ?? 0) > 0;
-    const ceiling = rateLimited ? Math.max(maxAttempts, RATE_LIMIT_MAX_ATTEMPTS) : maxAttempts;
+    // Phase 16 v1.0.3 (user directive 2026-08-22): an HTTP 429 or 5xx from
+    // an opted-in caller gets the extended transient budget
+    // (TRANSIENT_MAX_ATTEMPTS total attempts, ~2.6 h of escalating stalls)
+    // so a throttled or erroring provider is ridden out instead of aborting
+    // the run; network errors stay bounded by the caller's maxRetries. The
+    // ceiling is recomputed per attempt, so a network error after a 429/5xx
+    // reverts to the caller's bound.
+    const stalled =
+      statusCode !== 0 && isTransientStatus(statusCode) && (options.maxRetries ?? 0) > 0;
+    const ceiling = stalled ? Math.max(maxAttempts, TRANSIENT_MAX_ATTEMPTS) : maxAttempts;
     if (attempt >= ceiling) {
       break; // Exhausted for THIS attempt's error class — handle below.
     }
     let delayMs = transportRetryDelayMs(attempt);
-    if (rateLimited) {
-      // The stall floor outlasts a free-tier throttle window (the old
-      // backoff exhausted in ~20s — well inside the window); a provider
+    if (stalled) {
+      // The stall floor outlasts a saturated free-tier throttle or error
+      // window (the v1.0.2 floor exhausted in ~31 min); a provider
       // Retry-After header still wins when it asks for more.
-      delayMs = Math.max(delayMs, rateLimitStallDelayMs(attempt));
-      const retryAfterRaw = lastResponse?.headers?.['retry-after'];
-      const retryAfterValue = Array.isArray(retryAfterRaw) ? retryAfterRaw[0] : retryAfterRaw;
-      const retryAfterSeconds =
-        typeof retryAfterValue === 'string' ? Number(retryAfterValue.trim()) : Number.NaN;
-      if (!Number.isNaN(retryAfterSeconds) && retryAfterSeconds > 0) {
-        delayMs = Math.max(delayMs, retryAfterSeconds * 1000);
+      delayMs = Math.max(delayMs, transientStallDelayMs(attempt));
+      if (statusCode === 429) {
+        const retryAfterRaw = lastResponse?.headers?.['retry-after'];
+        const retryAfterValue = Array.isArray(retryAfterRaw) ? retryAfterRaw[0] : retryAfterRaw;
+        const retryAfterSeconds =
+          typeof retryAfterValue === 'string' ? Number(retryAfterValue.trim()) : Number.NaN;
+        if (!Number.isNaN(retryAfterSeconds) && retryAfterSeconds > 0) {
+          delayMs = Math.max(delayMs, retryAfterSeconds * 1000);
+        }
       }
       const waitSeconds = Math.round(delayMs / 1000);
       const nextAttempt = attempt + 1;
-      if (rateLimitWaitReporter) {
+      const info: StallWaitInfo = {
+        waitSeconds,
+        attempt: nextAttempt,
+        maxAttempts: ceiling,
+        statusCode,
+      };
+      if (stallWaitReporter) {
         // The ingest reporter (TUI/CLI progress channel) owns the message.
-        rateLimitWaitReporter({ waitSeconds, attempt: nextAttempt, maxAttempts: ceiling });
+        stallWaitReporter(info);
       } else {
+        const label =
+          statusCode === 429
+            ? 'Rate limited (HTTP 429)'
+            : `Provider error (HTTP ${statusCode})`;
         console.warn(
-          `LLM Call | Rate limited (HTTP 429) — waiting ${waitSeconds}s before retry (attempt ${nextAttempt}/${ceiling})...`,
+          `LLM Call | ${label} — waiting ${waitSeconds}s before retry (attempt ${nextAttempt}/${ceiling})...`,
         );
       }
     } else {

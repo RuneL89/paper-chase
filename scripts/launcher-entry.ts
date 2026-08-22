@@ -79,8 +79,9 @@ import { spawnSync } from 'node:child_process';
 // 1.0.19 (2026-08-22): Zhipu GLM-4.7-FlashX label + pricing fix — the Settings
 // bundle (src/tui/settings.ts + settings-screen.tsx) and the client bundle
 // (src/llm/client.ts price table) changed. The packaged runtime must
-// re-extract so users see GLM-4.7-FlashX and the correct $0.07/$0.40 cost.
-const VERSION = '1.0.19';
+// re-extract so users see the split GLM-4.7-Flash / GLM-4.7-FlashX catalog
+// and the 429/5xx stall ladder (Phase 16 v1.0.3, user directive 2026-08-22).
+const VERSION = '1.0.20';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');
