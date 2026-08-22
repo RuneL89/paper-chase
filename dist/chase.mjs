@@ -72402,7 +72402,8 @@ var PRICE_PER_MTOK = {
   "qwen3.7-max": { input: 2, output: 5 },
   "qwen3.8-max": { input: 3, output: 6 },
   "deepseek-v4-pro": { input: 1.32, output: 3.96 },
-  "glm-4.7-flash": { input: 0.07, output: 0.4 },
+  "glm-4.7-flash": { input: 0, output: 0 },
+  "glm-4.7-flashx": { input: 0.07, output: 0.4 },
   "glm-5.2": { input: 1.4, output: 4.4 },
   "glm-5.3": { input: 1.4, output: 4.4 },
   default: { input: 1, output: 5 }
@@ -72702,17 +72703,19 @@ var LARGE_CALL_HEADERS_TIMEOUT_MS = 6e5;
 function transportRetryDelayMs(retry) {
   return 5e3 * 3 ** (Math.max(1, retry) - 1);
 }
-var RATE_LIMIT_MAX_ATTEMPTS = 6;
-function rateLimitStallDelayMs(retry) {
-  return 6e4 * 2 ** (Math.max(1, retry) - 1);
+var TRANSIENT_MAX_ATTEMPTS = 6;
+function transientStallDelayMs(retry) {
+  const stallMinutes = [1, 5, 15, 45, 90];
+  const index = Math.min(Math.max(1, retry) - 1, stallMinutes.length - 1);
+  return stallMinutes[index] * 6e4;
 }
 function sleep(ms) {
   return new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
 }
 var transportRetrySleeper = sleep;
-var rateLimitWaitReporter = null;
-function setRateLimitWaitReporter(reporter) {
-  rateLimitWaitReporter = reporter;
+var stallWaitReporter = null;
+function setStallWaitReporter(reporter) {
+  stallWaitReporter = reporter;
 }
 function isTransientTransportError(error) {
   if (!(error instanceof Error)) {
@@ -72826,27 +72829,36 @@ async function callLLM(prompt, system, options2 = {}) {
     if (!transient) {
       break;
     }
-    const rateLimited = statusCode === 429 && (options2.maxRetries ?? 0) > 0;
-    const ceiling = rateLimited ? Math.max(maxAttempts, RATE_LIMIT_MAX_ATTEMPTS) : maxAttempts;
+    const stalled = statusCode !== 0 && isTransientStatus(statusCode) && (options2.maxRetries ?? 0) > 0;
+    const ceiling = stalled ? Math.max(maxAttempts, TRANSIENT_MAX_ATTEMPTS) : maxAttempts;
     if (attempt >= ceiling) {
       break;
     }
     let delayMs = transportRetryDelayMs(attempt);
-    if (rateLimited) {
-      delayMs = Math.max(delayMs, rateLimitStallDelayMs(attempt));
-      const retryAfterRaw = lastResponse?.headers?.["retry-after"];
-      const retryAfterValue = Array.isArray(retryAfterRaw) ? retryAfterRaw[0] : retryAfterRaw;
-      const retryAfterSeconds = typeof retryAfterValue === "string" ? Number(retryAfterValue.trim()) : Number.NaN;
-      if (!Number.isNaN(retryAfterSeconds) && retryAfterSeconds > 0) {
-        delayMs = Math.max(delayMs, retryAfterSeconds * 1e3);
+    if (stalled) {
+      delayMs = Math.max(delayMs, transientStallDelayMs(attempt));
+      if (statusCode === 429) {
+        const retryAfterRaw = lastResponse?.headers?.["retry-after"];
+        const retryAfterValue = Array.isArray(retryAfterRaw) ? retryAfterRaw[0] : retryAfterRaw;
+        const retryAfterSeconds = typeof retryAfterValue === "string" ? Number(retryAfterValue.trim()) : Number.NaN;
+        if (!Number.isNaN(retryAfterSeconds) && retryAfterSeconds > 0) {
+          delayMs = Math.max(delayMs, retryAfterSeconds * 1e3);
+        }
       }
       const waitSeconds = Math.round(delayMs / 1e3);
       const nextAttempt = attempt + 1;
-      if (rateLimitWaitReporter) {
-        rateLimitWaitReporter({ waitSeconds, attempt: nextAttempt, maxAttempts: ceiling });
+      const info2 = {
+        waitSeconds,
+        attempt: nextAttempt,
+        maxAttempts: ceiling,
+        statusCode
+      };
+      if (stallWaitReporter) {
+        stallWaitReporter(info2);
       } else {
+        const label = statusCode === 429 ? "Rate limited (HTTP 429)" : `Provider error (HTTP ${statusCode})`;
         console.warn(
-          `LLM Call | Rate limited (HTTP 429) \u2014 waiting ${waitSeconds}s before retry (attempt ${nextAttempt}/${ceiling})...`
+          `LLM Call | ${label} \u2014 waiting ${waitSeconds}s before retry (attempt ${nextAttempt}/${ceiling})...`
         );
       }
     } else {
@@ -72977,7 +72989,8 @@ var MODEL_CATALOG = {
     { id: "__custom__", label: "Custom model..." }
   ],
   zhipu: [
-    { id: "glm-4.7-flash", label: "GLM-4.7-FlashX" },
+    { id: "glm-4.7-flash", label: "GLM-4.7-Flash" },
+    { id: "glm-4.7-flashx", label: "GLM-4.7-FlashX" },
     { id: "glm-5.2", label: "GLM-5.2" },
     { id: "glm-5.3", label: "GLM-5.3" },
     { id: "__custom__", label: "Custom model..." }
@@ -109055,16 +109068,17 @@ function formatIngestSummary(result) {
 async function ingest(slug, options2 = {}) {
   const reportProgress = options2.onProgress;
   if (reportProgress) {
-    setRateLimitWaitReporter(({ waitSeconds, attempt, maxAttempts }) => {
+    setStallWaitReporter(({ waitSeconds, attempt, maxAttempts, statusCode }) => {
+      const reason = statusCode === 429 ? "Rate limited by provider (HTTP 429)" : `Provider error (HTTP ${statusCode})`;
       reportProgress(
-        `Rate limited by provider (HTTP 429) \u2014 waiting ${waitSeconds}s before retry (attempt ${attempt}/${maxAttempts})...`
+        `${reason} \u2014 waiting ${waitSeconds}s before retry (attempt ${attempt}/${maxAttempts})...`
       );
     });
   }
   try {
     return await runIngest(slug, options2);
   } finally {
-    setRateLimitWaitReporter(null);
+    setStallWaitReporter(null);
   }
 }
 async function runIngest(slug, options2) {
@@ -111058,11 +111072,11 @@ var RECOMMENDATIONS = {
     modelCrossWikiJudgment: "Qwen 3.7 Max \u2014 mid-tier review for uncertain cross-wiki matches and hypothesis signals"
   },
   zhipu: {
-    modelExtractor: "GLM-4.7-FlashX \u2014 $0.07/$0.40; 1-request concurrency fits the sequential steps",
+    modelExtractor: "GLM-4.7-Flash \u2014 free tier; 1-request concurrency fits the sequential steps",
     modelSynthesis: "GLM-5.3 \u2014 flagship prose; mandatory reasoning raises token use",
     modelDox: "GLM-5.2 \u2014 mid-tier for structural navigation",
     modelCuration: "GLM-5.2 \u2014 mid-tier judgment for merge/drop decisions",
-    modelCrossWiki: "GLM-4.7-FlashX \u2014 $0.07/$0.40 for bulk cross-wiki tasks",
+    modelCrossWiki: "GLM-4.7-Flash \u2014 free tier for bulk cross-wiki tasks; FlashX ($0.07/$0.40) lifts the throttle",
     modelCrossWikiJudgment: "GLM-5.2 \u2014 mid-tier review for uncertain cross-wiki matches"
   }
 };
