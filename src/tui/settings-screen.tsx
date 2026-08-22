@@ -179,11 +179,11 @@ const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen' | 'zhipu', Partial
     modelCrossWikiJudgment: 'Qwen 3.7 Max — mid-tier review for uncertain cross-wiki matches and hypothesis signals',
   },
   zhipu: {
-    modelExtractor: 'GLM-4.7-Flash — free; 1-request concurrency fits the sequential steps',
+    modelExtractor: 'GLM-4.7-FlashX — $0.07/$0.40; 1-request concurrency fits the sequential steps',
     modelSynthesis: 'GLM-5.3 — flagship prose; mandatory reasoning raises token use',
     modelDox: 'GLM-5.2 — mid-tier for structural navigation',
     modelCuration: 'GLM-5.2 — mid-tier judgment for merge/drop decisions',
-    modelCrossWiki: 'GLM-4.7-Flash — free for bulk cross-wiki tasks',
+    modelCrossWiki: 'GLM-4.7-FlashX — $0.07/$0.40 for bulk cross-wiki tasks',
     modelCrossWikiJudgment: 'GLM-5.2 — mid-tier review for uncertain cross-wiki matches',
   },
 };

@@ -2568,8 +2568,8 @@ test('gate 11.17: zhipu posts the OpenAI-compatible shape to the international Z
   }
 });
 
-test('gate 11.17: the free glm-4.7-flash prices at $0.0000; the missing-key error names ZAI_API_KEY', async () => {
-  // 1. The free model costs exactly $0 per MTok.
+test('gate 11.17: glm-4.7-flash prices at $0.0003; the missing-key error names ZAI_API_KEY', async () => {
+  // 1. The cheapest Zhipu model costs $0.07/$0.40 per MTok (1000/500 tokens → $0.00027 → $0.0003).
   setModelRouting({
     provider: 'zhipu',
     default: GLM_FLASH,
@@ -2593,7 +2593,7 @@ test('gate 11.17: the free glm-4.7-flash prices at $0.0000; the missing-key erro
   const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
   try {
     await callLLM('hi');
-    expect(logSpy).toHaveBeenCalledWith('LLM Call | Tokens: 1000/500 | Cost: $0.0000');
+    expect(logSpy).toHaveBeenCalledWith('LLM Call | Tokens: 1000/500 | Cost: $0.0003');
   } finally {
     logSpy.mockRestore();
     setModelRouting(null);
@@ -2638,11 +2638,13 @@ test('gate 11.17: the settings screen shows the Zhipu provider, GLM catalog, and
   await tick(50);
   const frame = screen.output();
   expect(frame).toContain('Default Provider: [‹ Zhipu ›]');
-  expect(frame).toContain('Default Model: [‹ GLM-4.7-Flash ›]');
+  expect(frame).toContain('Default Model: [‹ GLM-4.7-FlashX ›]');
   expect(frame).toContain('Zhipu API Key: [not set]');
-  // Zhipu recommendation labels render under their rows.
-  expect(frame).toContain(
-    'GLM-4.7-Flash — free; 1-request concurrency fits the sequential steps',
+  // Zhipu recommendation labels render under their rows; long labels may wrap,
+  // so normalize whitespace before asserting the full label text.
+  const normalizedFrame = frame.replace(/\s+/g, ' ');
+  expect(normalizedFrame).toContain(
+    'GLM-4.7-FlashX — $0.07/$0.40; 1-request concurrency fits the sequential steps',
   );
 }, 30000);
 
@@ -2662,7 +2664,7 @@ test('gate 11.17: cycling a model row reaches the GLM catalog and persists', asy
     await tick(80);
   }
   // 11 RIGHTs: Same as default -> anthropic (3) -> openai (3) -> qwen (3) ->
-  // DeepSeek-V4-Pro -> GLM-4.7-Flash.
+  // DeepSeek-V4-Pro -> GLM-4.7-FlashX.
   for (let i = 0; i < 11; i++) {
     screen.stdin.write(RIGHT);
     await tick(80);

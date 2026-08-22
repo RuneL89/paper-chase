@@ -42,9 +42,8 @@ export type Provider = 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu' | 
  * DeepSeek-V4-Pro (added 2026-08-17): $1.32/$3.96 per MTok — the PEAK rates
  * from the DeepSeek pricing docs (off-peak is half; peak is used so run-cost
  * tracking errs conservative).
- * Zhipu GLM (added 2026-08-19, per the Z.ai pricing docs): GLM-4.7-Flash is
- * FREE ($0/$0) — the free tier allows 1 concurrent request, so it belongs on
- * the sequential steps only; GLM-5.2 and GLM-5.3 are $1.40/$4.40 per MTok.
+ * Zhipu GLM (added 2026-08-19, per the Z.ai pricing docs): GLM-4.7-FlashX is
+ * $0.07/$0.40 per MTok; GLM-5.2 and GLM-5.3 are $1.40/$4.40 per MTok.
  * Anthropic prices can be overridden via ANTHROPIC_INPUT_PRICE_PER_MTOK and
  * ANTHROPIC_OUTPUT_PRICE_PER_MTOK. Unknown models fall back to the
  * Haiku 4.5 prices.
@@ -61,7 +60,7 @@ const PRICE_PER_MTOK: Record<string, { input: number; output: number }> = {
   'qwen3.7-max': { input: 2, output: 5 },
   'qwen3.8-max': { input: 3, output: 6 },
   'deepseek-v4-pro': { input: 1.32, output: 3.96 },
-  'glm-4.7-flash': { input: 0, output: 0 },
+  'glm-4.7-flash': { input: 0.07, output: 0.4 },
   'glm-5.2': { input: 1.4, output: 4.4 },
   'glm-5.3': { input: 1.4, output: 4.4 },
   default: { input: 1, output: 5 },
@@ -767,7 +766,7 @@ export function transportRetryDelayMs(retry: number): number {
  * rate-limit (HTTP 429) response when the caller has opted into retries
  * (`maxRetries > 0`) — 6 attempts with the escalating stall floor below,
  * about 31 minutes of waiting in total. A throttled free-tier provider
- * (e.g. Zhipu GLM-4.7-Flash) needs its whole throttle window to pass; the
+ * (e.g. Zhipu GLM-4.7-FlashX) needs its whole throttle window to pass; the
  * 2026-07-20 ≤3-attempt ratification stays in force for every OTHER
  * transient class, so this constant applies to 429 only.
  */
