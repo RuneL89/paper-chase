@@ -1,0 +1,1 @@
+No implementation is required; this was a pure analysis request. The deliverable is the above comparison of rkkp-dhhd against the other workspace wikis, identifying DeepSeek-V4-Pro model routing and 45 transport stalls (~5.65 h of backoff) as the root causes of the high cost and long runtime.

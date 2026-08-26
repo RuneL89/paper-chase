@@ -10,16 +10,23 @@ const ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
 const ANTHROPIC_VERSION = '2023-06-01';
 const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 const QWEN_API_URL = 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions';
+const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
+const ZHIPU_API_URL = 'https://api.z.ai/api/paas/v4/chat/completions';
 const DEFAULT_MODEL = 'claude-haiku-4-5-20251001';
 
 /**
  * Supported LLM providers (Phase 11 v1.4.0 multi-provider extension, user
- * directive 2026-07-22; Qwen extension 2026-08-04; custom providers v1.8.0).
- * Built-in literals: 'anthropic' (default), 'openai', 'qwen'.
+ * directive 2026-07-22; Qwen extension 2026-08-04; custom providers v1.8.0;
+ * DeepSeek extension 2026-08-17 — OpenAI-compatible endpoint, per the
+ * DeepSeek API docs base URL `https://api.deepseek.com`; Zhipu extension
+ * 2026-08-19 — OpenAI-compatible endpoint, per the Z.ai docs base URL
+ * `https://api.z.ai/api/paas/v4`).
+ * Built-in literals: 'anthropic' (default), 'openai', 'qwen', 'deepseek',
+ * 'zhipu'.
  * Custom providers use the `custom:${id}` form where `id` is the slugified
  * custom provider name stored in `.paper-chase.json`.
  */
-export type Provider = 'anthropic' | 'openai' | 'qwen' | `custom:${string}`;
+export type Provider = 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu' | `custom:${string}`;
 
 /**
  * Price table in USD per million tokens (MTok).
@@ -32,6 +39,13 @@ export type Provider = 'anthropic' | 'openai' | 'qwen' | `custom:${string}`;
  * 2026-07-22 — see the compliance log).
  * Qwen (DashScope) prices are PLACEHOLDER (TODO: replace with the exact
  * per-MTok values from your DashScope console when available).
+ * DeepSeek-V4-Pro (added 2026-08-17): $1.32/$3.96 per MTok — the PEAK rates
+ * from the DeepSeek pricing docs (off-peak is half; peak is used so run-cost
+ * tracking errs conservative).
+ * Zhipu GLM (added 2026-08-19, per the Z.ai pricing docs; updated
+ * 2026-08-26): GLM-4.7-Flash is the FREE tier (id `glm-4.7-flash`, 1-request
+ * concurrency); GLM-4.7-FlashX is $0.07/$0.40 per MTok; GLM-5.2 and GLM-5.3
+ * are $1.40/$4.40 per MTok; GLM-5.3-Flash is $0.15/$0.50 per MTok.
  * Anthropic prices can be overridden via ANTHROPIC_INPUT_PRICE_PER_MTOK and
  * ANTHROPIC_OUTPUT_PRICE_PER_MTOK. Unknown models fall back to the
  * Haiku 4.5 prices.
@@ -47,6 +61,13 @@ const PRICE_PER_MTOK: Record<string, { input: number; output: number }> = {
   'qwen-plus': { input: 0.5, output: 1 },
   'qwen3.7-max': { input: 2, output: 5 },
   'qwen3.8-max': { input: 3, output: 6 },
+  'qwen3.8-flash': { input: 0.16, output: 0.47 },
+  'deepseek-v4-pro': { input: 1.32, output: 3.96 },
+  'glm-4.7-flash': { input: 0, output: 0 },
+  'glm-4.7-flashx': { input: 0.07, output: 0.4 },
+  'glm-5.2': { input: 1.4, output: 4.4 },
+  'glm-5.3': { input: 1.4, output: 4.4 },
+  'glm-5.3-flash': { input: 0.15, output: 0.5 },
   default: { input: 1, output: 5 },
 };
 
@@ -54,7 +75,7 @@ const PRICE_PER_MTOK: Record<string, { input: number; output: number }> = {
  * A concrete provider + model pair for one routing slot. Phase 11 v1.9.0
  * (user directive 2026-08-17): the per-call-type slots became composite so
  * EACH step can pick its own provider and model (e.g. Qwen for the
- * Extractor, OpenAI for the DOX Writer, Sonnet for the Synthesis Writer)
+ * Extractor, DeepSeek for the DOX Writer, Sonnet for the Synthesis Writer)
  * instead of sharing one global provider.
  */
 export interface ModelSlot {
@@ -104,6 +125,8 @@ export interface ModelRouting {
     anthropic?: string | null;
     openai?: string | null;
     qwen?: string | null;
+    deepseek?: string | null;
+    zhipu?: string | null;
   };
   /** Phase 11 v1.8.0: custom provider configs (OpenAI-compatible by default,
    * fully configurable). Used by `resolveApiKey`, `buildCustomProviderRequest`,
@@ -137,13 +160,13 @@ let modelRouting: ModelRouting | null = null;
 
 /**
  * Normalize an unknown provider string to a valid Provider literal.
- * Built-in literals ('anthropic', 'openai', 'qwen') and
+ * Built-in literals ('anthropic', 'openai', 'qwen', 'deepseek', 'zhipu') and
  * `custom:<id>` values pass through; anything else coerces to 'anthropic'.
  * Exported for `src/tui/settings.ts` (`normalizeModels`) so the load-time
  * and ingest-time normalization can never diverge.
  */
 export function normalizeProviderValue(value: unknown): Provider {
-  if (value === 'openai' || value === 'qwen') {
+  if (value === 'openai' || value === 'qwen' || value === 'deepseek' || value === 'zhipu') {
     return value;
   }
   if (typeof value === 'string' && value.startsWith('custom:')) {
@@ -202,6 +225,8 @@ export function setModelRouting(routing: ModelRouting | null): void {
             anthropic: normalizeStoredKey(routing.apiKeys?.anthropic),
             openai: normalizeStoredKey(routing.apiKeys?.openai),
             qwen: normalizeStoredKey(routing.apiKeys?.qwen),
+            deepseek: normalizeStoredKey(routing.apiKeys?.deepseek),
+            zhipu: normalizeStoredKey(routing.apiKeys?.zhipu),
           },
           // Phase 24: explicit cross-wiki slots; absent legacy configs → null
           // (fall back to default / synthesis as before).
@@ -374,9 +399,9 @@ function loadEnvFile(): void {
 /**
  * Phase 11 v1.5.0: resolve the API key for one provider. Order: (1) the
  * Settings-stored key carried by the routing config, (2) the environment
- * (`process.env.ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `DASHSCOPE_API_KEY` —
- * the `.env` fallback loader populates process.env first). Returns null when
- * neither exists.
+ * (`process.env.ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `DASHSCOPE_API_KEY` /
+ * `DEEPSEEK_API_KEY` / `ZAI_API_KEY` — the `.env` fallback loader populates
+ * process.env first). Returns null when neither exists.
  */
 function resolveApiKey(provider: Provider): string | null {
   if (provider.startsWith('custom:')) {
@@ -385,8 +410,8 @@ function resolveApiKey(provider: Provider): string | null {
     return cp?.apiKey ?? null;
   }
   return resolveApiKeyForProvider(
-    provider as 'anthropic' | 'openai' | 'qwen',
-    modelRouting?.apiKeys?.[provider as 'anthropic' | 'openai' | 'qwen'] ?? null,
+    provider as 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu',
+    modelRouting?.apiKeys?.[provider as 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu'] ?? null,
   );
 }
 
@@ -419,7 +444,11 @@ function resolveApiKeyForProvider(provider: Provider, storedKey: string | null):
       ? process.env.OPENAI_API_KEY
       : provider === 'qwen'
         ? process.env.DASHSCOPE_API_KEY
-        : process.env.ANTHROPIC_API_KEY;
+        : provider === 'deepseek'
+          ? process.env.DEEPSEEK_API_KEY
+          : provider === 'zhipu'
+            ? process.env.ZAI_API_KEY
+            : process.env.ANTHROPIC_API_KEY;
   return envKey ?? null;
 }
 
@@ -452,7 +481,11 @@ export function getApiKeyStatus(provider: Provider, storedKey?: string | null): 
       ? process.env.OPENAI_API_KEY
       : provider === 'qwen'
         ? process.env.DASHSCOPE_API_KEY
-        : process.env.ANTHROPIC_API_KEY;
+        : provider === 'deepseek'
+          ? process.env.DEEPSEEK_API_KEY
+          : provider === 'zhipu'
+            ? process.env.ZAI_API_KEY
+            : process.env.ANTHROPIC_API_KEY;
   if (envKey) {
     return { source: 'environment', last4: envKey.slice(-4) };
   }
@@ -1006,6 +1039,12 @@ function displayProviderName(
   if (provider === 'qwen') {
     return 'Qwen';
   }
+  if (provider === 'deepseek') {
+    return 'DeepSeek';
+  }
+  if (provider === 'zhipu') {
+    return 'Zhipu';
+  }
   return 'Anthropic';
 }
 
@@ -1013,6 +1052,12 @@ function displayProviderName(
 function openAiCompatibleUrl(provider: Provider): string {
   if (provider === 'qwen') {
     return QWEN_API_URL;
+  }
+  if (provider === 'deepseek') {
+    return DEEPSEEK_API_URL;
+  }
+  if (provider === 'zhipu') {
+    return ZHIPU_API_URL;
   }
   return OPENAI_API_URL;
 }
@@ -1056,7 +1101,11 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
         ? 'OPENAI_API_KEY'
         : provider === 'qwen'
           ? 'DASHSCOPE_API_KEY'
-          : 'ANTHROPIC_API_KEY';
+          : provider === 'deepseek'
+            ? 'DEEPSEEK_API_KEY'
+            : provider === 'zhipu'
+              ? 'ZAI_API_KEY'
+              : 'ANTHROPIC_API_KEY';
     throw new Error(
       `${keyName} is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.`,
     );
@@ -1072,7 +1121,7 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
       throw new Error(`Custom provider '${provider.slice(7)}' not found in settings.`);
     }
     providerRequest = buildCustomProviderRequest(config, model, prompt, system, options, apiKey);
-  } else if (provider === 'openai' || provider === 'qwen') {
+  } else if (provider === 'openai' || provider === 'qwen' || provider === 'deepseek' || provider === 'zhipu') {
     providerRequest = buildOpenAIRequest(
       model,
       prompt,
@@ -1290,7 +1339,7 @@ export async function testModelConnection(
       return { ok: false, message: `Custom provider '${provider.slice(7)}' not found in settings.` };
     }
     providerRequest = buildCustomProviderRequest(config, model, 'hi', undefined, { maxTokens: 256 }, apiKey);
-  } else if (provider === 'openai' || provider === 'qwen') {
+  } else if (provider === 'openai' || provider === 'qwen' || provider === 'deepseek' || provider === 'zhipu') {
     providerRequest = buildOpenAIRequest(
       model,
       'hi',
@@ -1337,7 +1386,7 @@ export async function testModelConnection(
   if (provider.startsWith('custom:')) {
     const config = customProviders?.find((c) => c.id === provider.slice(7));
     parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: '' });
-  } else if (provider === 'openai' || provider === 'qwen') {
+  } else if (provider === 'openai' || provider === 'qwen' || provider === 'deepseek' || provider === 'zhipu') {
     parsed = parseOpenAIResponse(json);
   } else {
     parsed = parseAnthropicResponse(json);

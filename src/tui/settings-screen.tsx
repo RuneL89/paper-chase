@@ -40,6 +40,8 @@ type StaticSettingRow =
   | 'apiKeyAnthropic'
   | 'apiKeyOpenai'
   | 'apiKeyQwen'
+  | 'apiKeyDeepseek'
+  | 'apiKeyZhipu'
   | 'customProviderBaseUrl'
   | 'customProviderApiKey'
   | 'addCustomProviderHeader'
@@ -94,6 +96,8 @@ function buildRowOrder(settings: TuiSettings): SettingRow[] {
   order.push('apiKeyAnthropic');
   order.push('apiKeyOpenai');
   order.push('apiKeyQwen');
+  order.push('apiKeyDeepseek');
+  order.push('apiKeyZhipu');
   order.push('save');
   order.push('back');
   return order;
@@ -107,6 +111,8 @@ function providerList(settings: TuiSettings): readonly Provider[] {
     'anthropic',
     'openai',
     'qwen',
+    'deepseek',
+    'zhipu',
     ...settings.customProviders.map((cp) => `custom:${cp.id}` as const),
   ];
 }
@@ -116,13 +122,15 @@ function providerLabel(provider: Provider, customProviders: TuiSettings['customP
   if (provider.startsWith('custom:')) {
     return customProviders.find((cp) => cp.id === provider.slice(7))?.name ?? provider;
   }
-  return PROVIDER_LABELS[provider as 'anthropic' | 'openai' | 'qwen'];
+  return PROVIDER_LABELS[provider as 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu'];
 }
 
-const PROVIDER_LABELS: Record<'anthropic' | 'openai' | 'qwen', string> = {
+const PROVIDER_LABELS: Record<'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu', string> = {
   anthropic: 'Anthropic',
   openai: 'OpenAI',
   qwen: 'Qwen',
+  deepseek: 'DeepSeek',
+  zhipu: 'Zhipu',
 };
 
 /** Short display names for the UI across built-in catalogs; the persisted value is the full model id. */
@@ -131,6 +139,8 @@ const MODEL_SHORT_NAMES: Record<string, string> = Object.fromEntries(
     ...MODEL_CATALOG.anthropic,
     ...MODEL_CATALOG.openai,
     ...MODEL_CATALOG.qwen,
+    ...MODEL_CATALOG.deepseek,
+    ...MODEL_CATALOG.zhipu,
   ].map(({ id, label }) => [id, label]),
 );
 
@@ -145,7 +155,7 @@ const MODEL_SHORT_NAMES: Record<string, string> = Object.fromEntries(
  * nothing. Phase 14 (phase doc §2.6): the Curation slot carries the ratified
  * mid-tier merge/drop-judgment label.
  */
-const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen', Partial<Record<SettingRow, string>>> = {
+const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu', Partial<Record<SettingRow, string>>> = {
   anthropic: {
     modelExtractor: 'Haiku — cheapest, good for structured JSON extraction',
     modelSynthesis: 'Sonnet — better prose, fewer preservation failures',
@@ -166,12 +176,30 @@ const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen', Partial<Record<Se
   },
   qwen: {
     modelExtractor: 'Qwen-Plus — cheapest, good for structured JSON extraction',
-    modelSynthesis: 'Qwen 3.7 Max — better prose, fewer preservation failures',
-    modelDox: 'Qwen 3.7 Max — mid-tier; structural navigation, correctness re-imposed deterministically',
-    modelCuration: 'Qwen 3.7 Max — mid-tier judgment for merge/drop decisions',
+    modelSynthesis: 'Qwen 3.8 Flash — Sonnet-tier prose, fewer preservation failures',
+    modelDox: 'Qwen 3.8 Flash — Sonnet-tier; structural navigation, correctness re-imposed deterministically',
+    modelCuration: 'Qwen 3.8 Flash — Sonnet-tier judgment for merge/drop decisions',
     modelCrossWiki: 'Qwen-Plus — cheapest for bulk cross-wiki tasks (summaries, matching, clustering)',
-    modelCrossWikiJudgment: 'Qwen 3.7 Max — mid-tier review for uncertain cross-wiki matches and hypothesis signals',
+    modelCrossWikiJudgment: 'Qwen 3.8 Flash — Sonnet-tier review for uncertain cross-wiki matches and hypothesis signals',
     modelJsonCorrector: 'Qwen-Plus — cheap; writes short JSON-repair instructions',
+  },
+  deepseek: {
+    modelExtractor: 'DeepSeek-V4-Pro — good for structured JSON extraction',
+    modelSynthesis: 'DeepSeek-V4-Pro — Sonnet-tier prose, fewer preservation failures',
+    modelDox: 'DeepSeek-V4-Pro — Sonnet-tier; structural navigation, correctness re-imposed deterministically',
+    modelCuration: 'DeepSeek-V4-Pro — Sonnet-tier judgment for merge/drop decisions',
+    modelCrossWiki: 'DeepSeek-V4-Pro — bulk cross-wiki tasks (summaries, matching, clustering)',
+    modelCrossWikiJudgment: 'DeepSeek-V4-Pro — Sonnet-tier review for uncertain cross-wiki matches and hypothesis signals',
+    modelJsonCorrector: 'DeepSeek-V4-Pro — writes short JSON-repair instructions',
+  },
+  zhipu: {
+    modelExtractor: 'GLM-4.7-Flash — free tier, good for structured JSON extraction',
+    modelSynthesis: 'GLM-5.3-Flash — Sonnet-tier prose, fewer preservation failures',
+    modelDox: 'GLM-5.3-Flash — Sonnet-tier; structural navigation, correctness re-imposed deterministically',
+    modelCuration: 'GLM-5.3-Flash — Sonnet-tier judgment for merge/drop decisions',
+    modelCrossWiki: 'GLM-4.7-Flash — free tier for bulk cross-wiki tasks (summaries, matching, clustering)',
+    modelCrossWikiJudgment: 'GLM-5.3-Flash — Sonnet-tier review for uncertain cross-wiki matches and hypothesis signals',
+    modelJsonCorrector: 'GLM-4.7-Flash — free tier; writes short JSON-repair instructions',
   },
 };
 
@@ -181,7 +209,7 @@ const RECOMMENDATIONS: Record<'anthropic' | 'openai' | 'qwen', Partial<Record<Se
  * Custom providers have no labels because they are user-defined.
  */
 function recommendationFor(row: SettingRow, provider: Provider): string | null {
-  if (provider !== 'anthropic' && provider !== 'openai' && provider !== 'qwen') {
+  if (provider !== 'anthropic' && provider !== 'openai' && provider !== 'qwen' && provider !== 'deepseek' && provider !== 'zhipu') {
     return null;
   }
   return RECOMMENDATIONS[provider][row] ?? null;
@@ -262,7 +290,7 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
     synthesis: false,
     updateAgents: false,
     models: seedModelsForProvider('anthropic'),
-    apiKeys: { anthropic: null, openai: null, qwen: null },
+    apiKeys: { anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null },
     customProviders: [],
   });
   const [loaded, setLoaded] = useState(false);
@@ -640,6 +668,12 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           setKeyDraft('');
         } else if (row === 'apiKeyQwen') {
           setEditingKey('qwen');
+          setKeyDraft('');
+        } else if (row === 'apiKeyDeepseek') {
+          setEditingKey('deepseek');
+          setKeyDraft('');
+        } else if (row === 'apiKeyZhipu') {
+          setEditingKey('zhipu');
           setKeyDraft('');
         } else if (
           row === 'modelDefault' ||
@@ -1058,6 +1092,8 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
             {renderKeyRow('apiKeyAnthropic', 'anthropic', 'Anthropic API Key')}
             {renderKeyRow('apiKeyOpenai', 'openai', 'OpenAI API Key')}
             {renderKeyRow('apiKeyQwen', 'qwen', 'Qwen API Key')}
+            {renderKeyRow('apiKeyDeepseek', 'deepseek', 'DeepSeek API Key')}
+            {renderKeyRow('apiKeyZhipu', 'zhipu', 'Zhipu API Key')}
           </Box>
           {testStatus !== 'idle' && (
             <Box marginTop={1}>
@@ -1119,6 +1155,8 @@ export function SettingsScreen({ onBack, onResult, workspace = '.' }: SettingsSc
           <Text>Anthropic API Key: {keyStatusText('anthropic', settings.apiKeys.anthropic)}</Text>
           <Text>OpenAI API Key: {keyStatusText('openai', settings.apiKeys.openai)}</Text>
           <Text>Qwen API Key: {keyStatusText('qwen', settings.apiKeys.qwen)}</Text>
+          <Text>DeepSeek API Key: {keyStatusText('deepseek', settings.apiKeys.deepseek)}</Text>
+          <Text>Zhipu API Key: {keyStatusText('zhipu', settings.apiKeys.zhipu)}</Text>
           {currentCustomProvider && (
             <Text>{currentCustomProvider.name} API Key: {keyStatusText(`custom:${currentCustomProvider.id}`, currentCustomProvider.apiKey)}</Text>
           )}

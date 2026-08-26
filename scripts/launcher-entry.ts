@@ -93,7 +93,12 @@ import { spawnSync } from 'node:child_process';
 // src/tui/settings-screen.tsx). The packaged runtime must re-extract so
 // installed runtimes drop the removed provider rows, catalogs, and API-key
 // fields.
-const VERSION = '1.0.24';
+// 1.0.25 (2026-08-26): DeepSeek/Zhipu/GLM built-in providers restored and
+// Qwen 3.8 Flash + GLM-5.3-Flash added as selectable Sonnet-tier models in
+// the Settings bundle. The packaged runtime must re-extract so installed
+// runtimes restore the provider rows/catalogs/API-key fields and show the
+// new model choices.
+const VERSION = '1.0.25';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

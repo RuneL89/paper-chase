@@ -17,6 +17,8 @@ export interface ApiKeys {
   anthropic: string | null;
   openai: string | null;
   qwen: string | null;
+  deepseek: string | null;
+  zhipu: string | null;
 }
 
 /**
@@ -81,9 +83,10 @@ export interface TuiSettings {
 /**
  * Phase 11: per-call LLM model routing. `provider` is the DEFAULT provider
  * ('anthropic' default; 'openai' and 'qwen' opt-in — v1.4.0 multi-provider
- * extension, user directive 2026-07-22; Qwen extension 2026-08-04); `default`
- * is a concrete model id for that provider; the per-call-type entries are
- * `{ provider, model }` pairs (v1.9.0, user directive 2026-08-17) or null,
+ * extension, user directive 2026-07-22; Qwen extension 2026-08-04;
+ * 'deepseek' — 2026-08-17; 'zhipu' — 2026-08-19; custom providers v1.8.0);
+ * `default` is a concrete model id for that provider; the per-call-type entries
+ * are `{ provider, model }` pairs (v1.9.0, user directive 2026-08-17) or null,
  * where null means "Same as default". Older config files without a `models`
  * block — or without `provider` inside it — load with the Anthropic defaults
  * filled in, and legacy per-call-type STRING entries migrate to
@@ -111,9 +114,12 @@ export interface TuiSettings {
  * full model id. Anthropic: Haiku/Sonnet/Opus. OpenAI (lineup verified
  * against live OpenAI docs 2026-07-22 — see the compliance log): the GPT-5.6
  * family Luna/Terra/Sol. Qwen (DashScope OpenAI-compatible endpoint,
- * 2026-08-04): Qwen-Plus, Qwen 3.7 Max, Qwen 3.8 Max.
+ * 2026-08-04): Qwen-Plus, Qwen 3.7 Max, Qwen 3.8 Max, Qwen 3.8 Flash.
+ * DeepSeek (OpenAI-compatible endpoint, 2026-08-17): DeepSeek-V4-Pro.
+ * Zhipu (2026-08-19, the international Z.ai endpoint): GLM-4.7-Flash,
+ * GLM-4.7-FlashX, GLM-5.2, GLM-5.3, GLM-5.3-Flash.
  */
-type BuiltInProvider = 'anthropic' | 'openai' | 'qwen';
+type BuiltInProvider = 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu';
 
 export const MODEL_CATALOG: Record<BuiltInProvider, Array<{ id: string; label: string }>> = {
   anthropic: [
@@ -132,6 +138,19 @@ export const MODEL_CATALOG: Record<BuiltInProvider, Array<{ id: string; label: s
     { id: 'qwen-plus', label: 'Qwen-Plus' },
     { id: 'qwen3.7-max', label: 'Qwen 3.7 Max' },
     { id: 'qwen3.8-max', label: 'Qwen 3.8 Max' },
+    { id: 'qwen3.8-flash', label: 'Qwen 3.8 Flash' },
+    { id: '__custom__', label: 'Custom model...' },
+  ],
+  deepseek: [
+    { id: 'deepseek-v4-pro', label: 'DeepSeek-V4-Pro' },
+    { id: '__custom__', label: 'Custom model...' },
+  ],
+  zhipu: [
+    { id: 'glm-4.7-flash', label: 'GLM-4.7-Flash' },
+    { id: 'glm-4.7-flashx', label: 'GLM-4.7-FlashX' },
+    { id: 'glm-5.2', label: 'GLM-5.2' },
+    { id: 'glm-5.3', label: 'GLM-5.3' },
+    { id: 'glm-5.3-flash', label: 'GLM-5.3-Flash' },
     { id: '__custom__', label: 'Custom model...' },
   ],
 };
@@ -141,16 +160,22 @@ export const DEFAULT_MODEL_FOR_PROVIDER: Record<BuiltInProvider, string> = {
   anthropic: 'claude-haiku-4-5-20251001',
   openai: 'gpt-5.6-luna',
   qwen: 'qwen-plus',
+  deepseek: 'deepseek-v4-pro',
+  zhipu: 'glm-4.7-flash',
 };
 
 /**
  * Phase 14 (phase doc §2.6, ratified mid-tier): the seeded `curation` slot per
- * provider — mid-tier judgment for merge/drop decisions.
+ * provider — mid-tier judgment for merge/drop decisions. DeepSeek has a
+ * single model for now, so it seeds v4-pro. Zhipu seeds GLM-5.2 as the
+ * mid tier (GLM-5.3 has mandatory reasoning, so it stays the premium pick).
  */
 export const CURATION_MODEL_FOR_PROVIDER: Record<BuiltInProvider, string> = {
   anthropic: 'claude-sonnet-5',
   openai: 'gpt-5.6-terra',
   qwen: 'qwen3.7-max',
+  deepseek: 'deepseek-v4-pro',
+  zhipu: 'glm-5.2',
 };
 
 /**
@@ -207,8 +232,8 @@ export function findCustomProvider(
 /** True when the provider is one of the built-in literals. */
 export function isBuiltInProvider(
   provider: Provider,
-): provider is 'anthropic' | 'openai' | 'qwen' {
-  return provider === 'anthropic' || provider === 'openai' || provider === 'qwen';
+): provider is 'anthropic' | 'openai' | 'qwen' | 'deepseek' | 'zhipu' {
+  return provider === 'anthropic' || provider === 'openai' || provider === 'qwen' || provider === 'deepseek' || provider === 'zhipu';
 }
 
 /**
@@ -291,7 +316,7 @@ const DEFAULT_SETTINGS: TuiSettings = {
   synthesis: false,
   updateAgents: false,
   models: seedModelsForProvider('anthropic'),
-  apiKeys: { anthropic: null, openai: null, qwen: null },
+  apiKeys: { anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null },
   customProviders: [],
 };
 
@@ -396,6 +421,8 @@ function normalizeApiKeys(parsed: Partial<ApiKeys> | undefined): ApiKeys {
     anthropic: concrete(parsed?.anthropic),
     openai: concrete(parsed?.openai),
     qwen: concrete(parsed?.qwen),
+    deepseek: concrete(parsed?.deepseek),
+    zhipu: concrete(parsed?.zhipu),
   };
 }
 
