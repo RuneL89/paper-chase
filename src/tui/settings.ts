@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { ModelRouting, Provider } from '../llm/client';
+import { normalizeModelSlot, normalizeProviderValue } from '../llm/client';
+import type { ModelRouting, ModelSlot, Provider } from '../llm/client';
 
 export type { Provider } from '../llm/client';
 
@@ -78,13 +79,15 @@ export interface TuiSettings {
   /** Phase 9: pre-check the "Propose AGENTS.md Updates" option. */
   updateAgents: boolean;
 /**
- * Phase 11: per-call LLM model routing. `provider` selects the API
- * ('anthropic' default, 'openai' and 'qwen' opt-in — v1.4.0 multi-provider
- * extension, user directive 2026-07-22; Qwen extension 2026-08-04);
- * `default` is a concrete model id for the current provider; the per-call-type
- * entries are either a concrete model id or null, where null means "Same as
- * default". Older config files without a `models` block — or without
- * `provider` inside it — load with the Anthropic defaults filled in.
+ * Phase 11: per-call LLM model routing. `provider` is the DEFAULT provider
+ * ('anthropic' default; 'openai' and 'qwen' opt-in — v1.4.0 multi-provider
+ * extension, user directive 2026-07-22; Qwen extension 2026-08-04); `default`
+ * is a concrete model id for that provider; the per-call-type entries are
+ * `{ provider, model }` pairs (v1.9.0, user directive 2026-08-17) or null,
+ * where null means "Same as default". Older config files without a `models`
+ * block — or without `provider` inside it — load with the Anthropic defaults
+ * filled in, and legacy per-call-type STRING entries migrate to
+ * `{ provider, model }` pairs under the (legacy) global provider.
  */
   models: ModelRouting;
   /**
@@ -202,7 +205,9 @@ export function findCustomProvider(
 }
 
 /** True when the provider is one of the built-in literals. */
-export function isBuiltInProvider(provider: Provider): provider is 'anthropic' | 'openai' | 'qwen' {
+export function isBuiltInProvider(
+  provider: Provider,
+): provider is 'anthropic' | 'openai' | 'qwen' {
   return provider === 'anthropic' || provider === 'openai' || provider === 'qwen';
 }
 
@@ -253,11 +258,11 @@ export function getCurationModelForProvider(
 }
 
 /**
- * Re-seed the five model slots for a provider switch (Settings screen):
- * `default` becomes the new provider's cheapest model, `curation` its
- * mid-tier (Phase 14 §2.6), and every other per-call-type entry resets to
- * null ("Same as default"), so stale cross-provider model ids can never
- * persist in `.paper-chase.json`.
+ * Seed a FRESH routing table for a provider (new settings, provider addition):
+ * `default` becomes the provider's cheapest model, `curation` its mid-tier
+ * (Phase 14 §2.6) as a concrete `{ provider, model }` pair, and every other
+ * per-call-type entry starts null ("Same as default"). Phase 11 v1.9.0: the
+ * seeded pairs carry their own provider, so seeding never mixes providers.
  * For custom providers (v1.8.0), the cheapest model is the first configured
  * model and the mid-tier is the second configured model (or the first when
  * only one exists).
@@ -275,7 +280,10 @@ export function seedModelsForProvider(
     // Phase 24: explicit Cross-Wiki Discovery slots start as "Same as default".
     crossWiki: null,
     crossWikiJudgment: null,
-    curation: getCurationModelForProvider(provider, customProviders),
+    // Phase 16 v1.0.5 (2026-08-23): the JSON-corrector slot starts as
+    // "Same as default" (falls back to the default slot at resolve time).
+    jsonCorrector: null,
+    curation: { provider, model: getCurationModelForProvider(provider, customProviders) },
   };
 }
 
@@ -303,38 +311,36 @@ export function legacySettingsPath(workspace: string): string {
 /**
  * Tolerate older config files: a missing `models` block gets the defaults,
  * and a `models` block without `provider` (pre-v1.4.0) loads as 'anthropic'.
- * Custom providers (v1.8.0) preserve their `custom:<id>` provider value and
- * use the configured model list for defaults.
+ * Phase 11 v1.9.0: per-call-type slots normalize through the shared client
+ * helper — legacy string ids migrate to `{ provider, model }` pairs under
+ * the (legacy) global provider; malformed values become null. Custom
+ * providers (v1.8.0) preserve their `custom:<id>` provider value and use the
+ * configured model list for defaults.
  */
 function normalizeModels(
   parsed: Partial<ModelRouting> | undefined,
   customProviders: CustomProviderConfig[] = [],
 ): ModelRouting {
-  const concrete = (value: unknown): string | null =>
-    typeof value === 'string' && value.length > 0 ? value : null;
-  const provider: Provider =
-    parsed?.provider === 'openai'
-      ? 'openai'
-      : parsed?.provider === 'qwen'
-        ? 'qwen'
-        : typeof parsed?.provider === 'string' && parsed.provider.startsWith('custom:')
-          ? parsed.provider
-          : 'anthropic';
+  const provider: Provider = normalizeProviderValue(parsed?.provider);
+  const slot = (value: unknown): ModelSlot | null => normalizeModelSlot(value, provider);
   return {
     provider,
     default:
       typeof parsed?.default === 'string' && parsed.default.length > 0
         ? parsed.default
         : getDefaultModelForProvider(provider, customProviders),
-    extractor: concrete(parsed?.extractor),
-    synthesis: concrete(parsed?.synthesis),
-    dox: concrete(parsed?.dox),
+    extractor: slot(parsed?.extractor),
+    synthesis: slot(parsed?.synthesis),
+    dox: slot(parsed?.dox),
     // Phase 24: explicit cross-wiki slots; absent in legacy configs → null.
-    crossWiki: concrete(parsed?.crossWiki),
-    crossWikiJudgment: concrete(parsed?.crossWikiJudgment),
+    crossWiki: slot(parsed?.crossWiki),
+    crossWikiJudgment: slot(parsed?.crossWikiJudgment),
+    // Phase 16 v1.0.5: absent in legacy configs → null (falls through to
+    // `default` at resolve time — byte-identical legacy behavior).
+    jsonCorrector: slot(parsed?.jsonCorrector),
     // Phase 14 §2.6: absent in legacy configs → null (falls through to
     // `default` at resolve time — byte-identical legacy behavior).
-    curation: concrete(parsed?.curation),
+    curation: slot(parsed?.curation),
   };
 }
 

@@ -2,6 +2,11 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { callLLM } from '../llm/client';
 import { runWithFeedbackRetry } from '../llm/reask';
+import {
+  diagnoseJsonParseFailure,
+  isTruncationFinishReason,
+  truncatedOutputEcho,
+} from '../llm/json-corrector';
 import { slugify } from '../utils/slug';
 import { appRoot } from '../utils/app-root';
 import {
@@ -382,6 +387,10 @@ export async function extractChunk(
     | { kind: 'schema'; issues: string[]; raw: string };
   let parsedSuccess: ExtractorResult | null = null;
   let lastFailure: ExtractorFailure | null = null;
+  // Phase 16 v1.0.5 (2026-08-23): the provider's stop reason for the latest
+  // attempt — the deterministic truncation signal handed to the JSON
+  // corrector ('length' / 'max_tokens' = the output hit the token ceiling).
+  let lastFinishReason: string | undefined;
 
   const outcome = await runWithFeedbackRetry<string>(
     (feedback, attempt) =>
@@ -395,6 +404,9 @@ export async function extractChunk(
             ? options?.context
             : `${options?.context ?? 'chunk'}#attempt${attempt}`,
         logPath: options?.logPath,
+        onResponseMeta: (meta) => {
+          lastFinishReason = meta.finishReason;
+        },
       }),
     (rawResponse) => {
       let parsed: unknown;
@@ -419,7 +431,34 @@ export async function extractChunk(
       parsedSuccess.tables = parsedSuccess.tables ?? [];
       return { valid: true, errors: [] };
     },
-    { maxAttempts: EXTRACTION_MAX_ATTEMPTS, label: options?.context ?? 'extractor chunk' },
+    {
+      maxAttempts: EXTRACTION_MAX_ATTEMPTS,
+      label: options?.context ?? 'extractor chunk',
+      // Phase 16 v1.0.5 (2026-08-23, user-ratified): on a PARSE failure, the
+      // JSON corrector diagnoses the raw output with an LLM call and its
+      // targeted fix instruction joins the correction block as a
+      // `Diagnosed cause and fix:` section. Truncated outputs echo only their
+      // tail into the block so the repair call does not approach the same
+      // ceiling. Schema failures keep the exact-issue feedback unchanged; a
+      // corrector-side failure degrades to the plain block (advisory only).
+      feedbackEnhancer: async (output) => {
+        if (lastFailure === null || lastFailure.kind !== 'parse' || typeof output !== 'string') {
+          return null;
+        }
+        const truncated = isTruncationFinishReason(lastFinishReason);
+        const guidance = await diagnoseJsonParseFailure({
+          rawResponse: output,
+          errorMessage: lastFailure.message,
+          truncated,
+          context: options?.context ?? 'chunk',
+          logPath: options?.logPath,
+        });
+        return {
+          guidance,
+          echoOverride: truncated ? truncatedOutputEcho(output) : null,
+        };
+      },
+    },
   );
 
   if (outcome.output === null || parsedSuccess === null) {

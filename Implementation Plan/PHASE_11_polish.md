@@ -1,12 +1,14 @@
 # Phase 11: Polish and Productionization
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-011`
-**Version:** 1.6.0
+**Version:** 1.9.0
 **Status:** Draft
-**Date:** 2026-07-23
+**Date:** 2026-08-17
 **Dependencies:** Phases 0-10
 **Estimated Time:** 4-6 hours
 **LLM Token Budget:** $0 (no new LLM calls; productionization touches only)
+
+**v1.9.0 amendment (user directive 2026-08-17):** "I want to be able to add different providers and models for specific steps in the model router setting. For example, I want to be able to use Qwen for the smaller tasks and a strong model for dox writing and Sonnet for wiki writing". **Per-step provider selection** replaces the global provider switch: each of the seven model rows is a self-describing `{ provider, model }` pair (persisted; legacy string slots migrate to `{ provider, model }` under the old global provider on load — byte-identical resolution), Left/Right cycles ONE combined list across every provider's catalog, rows whose provider differs from the Default Provider show a `Provider · Model` prefix, Enter on a row types a custom id scoped to that row's provider, and the `T` test plus recommendation labels follow the row's own provider. The Provider row becomes **Default Provider** and governs only the default slot — switching it re-seeds just the Default Model row and PRESERVES explicitly-configured rows (the v1.4.0 reset-on-switch rule is superseded). The Settings test-connection probe budget rises 16 → 256 tokens so reasoning models have room to emit visible content after hidden reasoning. Gate 11.16 (per-step routing) is added, and the approval-checklist counts grow from 12 gates / 8 UATs to **13 gates / 8 UATs**. The LLM budget stays $0 — all new gate tests use the mocked transport. Everything else is unchanged.
 
 **v1.6.0 amendment (user directive 2026-07-23):** "at the end of the ingestion, I want a shortcut into proposed new AGENTS file to be showed. It will show the diff and I can approve or reject straight there - Approve would replace the existing AGENTS file with the proposed one - REJECT would do nothing". §2.4 gains a post-ingest review shortcut: when an ingest finishes with a written AGENTS.md update proposal, the success state offers a `p` shortcut into the restored AGENTS.md review screen (inline diff, `[A]`/`[R]`, `[V]` full diff). Accept replaces AGENTS.md with the proposal; **Reject is a no-op** (the proposal file is KEPT — this supersedes the 2026-07-21 reject-deletes preference; newest user directive wins). The review screen is FLOW-ONLY — reachable only from the post-ingest shortcut; the main menu stays at exactly five items (Gate 11.3 unregressed). Gate 11.12 and UAT 11.8 are added, and the approval-checklist counts grow from 11 gates / 7 UATs to **12 gates / 8 UATs**. The LLM budget stays $0 — all Gate 11.12 tests use fixtures and a stubbed ingest. Everything else is unchanged.
 
@@ -95,21 +97,25 @@ Polish the CLI/TUI for production use: ship v2.0 under its final brand (**Paper 
 ║  API Keys                     (v1.5.0) ║
 ║  Anthropic API Key: [configured ••••ab12] ║
 ║  OpenAI API Key: [not set]             ║
+║  Qwen API Key: [not set]               ║
 ╠══════════════════════════════════════╣
 ║  [ Save ]  [ Back ]                  ║
 ╚══════════════════════════════════════╝
 ```
 
-**Provider dimension (v1.4.0, user directive 2026-07-22):**
+**Provider dimension (v1.4.0, user directive 2026-07-22; per-step providers v1.9.0, user directive 2026-08-17):**
 
-- A **Provider** row sits directly above **Default Model** and cycles Anthropic ↔ OpenAI with Left/Right (same dropdown idiom as the model rows).
+- A **Default Provider** row (v1.9.0; was "Provider" through v1.8.x) sits directly above **Default Model** and cycles Anthropic ↔ OpenAI ↔ Qwen (+ any custom providers) with Left/Right (same dropdown idiom as the model rows). Since v1.9.0 it defines ONLY the default slot: the Default Model row's provider and what "Same as default" resolves to.
 - **Per-provider model catalogs** — the dropdown choices follow the selected provider:
   - Anthropic: `claude-haiku-4-5-20251001` (Haiku), `claude-sonnet-5` (Sonnet), `claude-opus-4-8` (Opus)
   - OpenAI (GPT-5.6 family, lineup and prices verified against live OpenAI docs 2026-07-22 — see the compliance log): `gpt-5.6-luna` (GPT-5.6 Luna, $1/$6 per MTok), `gpt-5.6-terra` (GPT-5.6 Terra, $2.50/$15), `gpt-5.6-sol` (GPT-5.6 Sol, $5/$30)
-- **Reset-on-switch:** switching the provider RESETS all four model slots to the new provider's defaults (cheapest tier as the default model — Haiku / GPT-5.6 Luna — and `null` = "Same as default" for the per-call-type slots), shown immediately in the UI, so stale cross-provider model ids can never persist.
+  - Qwen (DashScope, 2026-08-04): `qwen-plus`, `qwen3.7-max`, `qwen3.8-max`
+  - Custom providers: any provider id configured in `.paper-chase.json` or typed in the Default Provider row (e.g. `openrouter`, `fireworks`) appears in the combined catalog with its own endpoint/key resolved from env/`.env`.
+- **Per-step provider selection (v1.9.0, supersedes reset-on-switch):** each of the seven model rows (Default, Extractor, Synthesis Writer, DOX Writer, Curation, Cross-Wiki Bulk, Cross-Wiki Judgment) is a self-describing `{ provider, model }` pair persisted in `.paper-chase.json` (null = "Same as default"); legacy STRING slot values migrate to `{ provider, model }` pairs under the old global provider on load. Left/Right cycles ONE combined list across every provider's catalog; rows whose provider differs from the Default Provider show a `Provider · Model` prefix (e.g. `Qwen · Qwen-Plus`); Enter on a row opens a custom-id editor scoped to that row's provider; the per-row `T` connection test and the inline recommendation labels follow the row's OWN (effective) provider. Switching the Default Provider re-seeds only the Default Model row — explicitly-configured rows are preserved because each carries its own provider, so a mixed table (Qwen Extractor + Anthropic Synthesis Writer + OpenAI DOX Writer) can never desync.
 - **Provider-aware recommendation labels** — the wording mirrors across providers:
   - Anthropic — Extractor: "Haiku — cheapest, good for structured JSON extraction"; Synthesis Writer: "Sonnet — better prose, fewer preservation failures"; DOX Writer: "Sonnet/Opus — strong contract writing for navigation"
   - OpenAI — Extractor: "GPT-5.6 Luna — cheapest, good for structured JSON extraction"; Synthesis Writer: "GPT-5.6 Terra — better prose, fewer preservation failures"; DOX Writer: "GPT-5.6 Terra/Sol — strong contract writing for navigation"
+  - Qwen — Extractor: "Qwen-Plus — cheapest, good for structured JSON extraction"; Synthesis Writer: "Qwen 3.7 Max — better prose, fewer preservation failures"; DOX Writer: "Qwen 3.7 Max — strong contract writing for navigation"
 - **OpenAI transport (all verified 2026-07-22):** `POST https://api.openai.com/v1/chat/completions` with `Authorization: Bearer $OPENAI_API_KEY`; body `{ model, max_completion_tokens, messages }` — `max_tokens` is deprecated and never sent; `temperature` is never sent (GPT-5.6 reasoning models reject it); the system prompt goes in a leading `{ role: 'system' }` message; the response is parsed from `choices[0].message.content` with usage from `prompt_tokens`/`completion_tokens`. Retry semantics are identical to Anthropic (429/5xx/network transient; other 4xx deterministic, never retried).
 - Anthropic remains the **default provider**: config files without a `provider` field load as `'anthropic'` with byte-identical legacy behavior. The `ANTHROPIC_MODEL` env fallback stays anthropic-scoped; there is deliberately no `OPENAI_MODEL` env fallback (OpenAI models are configured via Settings only — keeps scope tight).
 
@@ -151,26 +157,26 @@ Each dropdown shows a short suggestion:
   ```
 - `null` means "use default"; a missing `provider` means `'anthropic'` (legacy configs).
 - `callLLM` reads the model from the config via `process.env.ANTHROPIC_MODEL` as fallback (anthropic-scoped).
-- LLM keys: `ANTHROPIC_API_KEY` for Anthropic, `OPENAI_API_KEY` for OpenAI (v1.5.0: stored in Settings, or via the environment or the project-root `.env` fallback — see the API Keys section below).
+- LLM keys: `ANTHROPIC_API_KEY` for Anthropic, `OPENAI_API_KEY` for OpenAI, `DASHSCOPE_API_KEY` for Qwen (v1.5.0: stored in Settings, or via the environment or the project-root `.env` fallback — see the API Keys section below).
 
 **API Keys in Settings (v1.5.0, user directive 2026-07-23):**
 
 - **Storage shape.** `.paper-chase.json` gains a top-level block alongside `models`:
   ```json
   {
-    "apiKeys": { "anthropic": "sk-ant-…", "openai": null }
+    "apiKeys": { "anthropic": "sk-ant-…", "openai": null, "qwen": null }
   }
   ```
-  `null` means "not stored". Config files written before v1.5.0 (no `apiKeys` block) load as `{ anthropic: null, openai: null }`; saved configs always carry the block. There is deliberately **no format validation** — a malformed key fails loud at call time with the provider's own auth error.
-- **Resolution order (per call, per provider).** (1) the Settings-stored key from the routing config → (2) `process.env.ANTHROPIC_API_KEY` / `OPENAI_API_KEY` (the existing project-root `.env` fallback loader still populates `process.env` first) → (3) the missing-key error, which now names all three sources: `ANTHROPIC_API_KEY is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.` (same shape for `OPENAI_API_KEY`). The two providers resolve independently. `ingest()` picks stored keys up through the existing single integration point (`loadSettings` → `setModelRouting`); the routing config carries them via its additive `apiKeys` field.
-- **UI contract.** A new **API Keys** section sits BELOW the LLM Model Routing rows and ABOVE `[ Save ]` / `[ Back ]`, with one row per provider (`Anthropic API Key`, `OpenAI API Key`) integrated into the focus order. A row that is not being edited shows only the key SOURCE plus the last 4 characters of the resolved key: `[configured ••••ab12]` when a key is stored, `[from environment ••••ab12]` when resolvable via the environment/.env only, `[not set]` otherwise. Enter on a key row opens a masked `TextInput` (ink-text-input `mask` prop) on that row with an empty draft (the stored key is never pre-filled); Enter with a non-empty value STAGES the key into screen state, Enter with an EMPTY value stages a CLEAR (null), Escape cancels the edit. Staged values persist only via the existing `[ Save ]` button — the same semantics as every other row. The footer help names the key-row controls; the non-TTY static fallback lists both rows with their masked status strings.
+  `null` means "not stored". Config files written before v1.5.0 (no `apiKeys` block) load as `{ anthropic: null, openai: null, qwen: null }`; saved configs always carry the block. There is deliberately **no format validation** — a malformed key fails loud at call time with the provider's own auth error.
+- **Resolution order (per call, per provider).** (1) the Settings-stored key from the routing config → (2) `process.env.ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `DASHSCOPE_API_KEY` (the existing project-root `.env` fallback loader still populates `process.env` first) → (3) the missing-key error, which now names all three sources: `ANTHROPIC_API_KEY is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.` (same shape for `OPENAI_API_KEY` and `DASHSCOPE_API_KEY`). The three providers resolve independently. `ingest()` picks stored keys up through the existing single integration point (`loadSettings` → `setModelRouting`); the routing config carries them via its additive `apiKeys` field.
+- **UI contract.** A new **API Keys** section sits BELOW the LLM Model Routing rows and ABOVE `[ Save ]` / `[ Back ]`, with one row per provider (`Anthropic API Key`, `OpenAI API Key`, `Qwen API Key`) integrated into the focus order. A row that is not being edited shows only the key SOURCE plus the last 4 characters of the resolved key: `[configured ••••ab12]` when a key is stored, `[from environment ••••ab12]` when resolvable via the environment/.env only, `[not set]` otherwise. Enter on a key row opens a masked `TextInput` (ink-text-input `mask` prop) on that row with an empty draft (the stored key is never pre-filled); Enter with a non-empty value STAGES the key into screen state, Enter with an EMPTY value stages a CLEAR (null), Escape cancels the edit. Staged values persist only via the existing `[ Save ]` button — the same semantics as every other row. The footer help names the key-row controls; the non-TTY static fallback lists the three rows with their masked status strings.
 - **Masking/clear semantics helper.** The client exports `getApiKeyStatus(provider, storedKey): { source: 'stored' | 'environment' | 'none'; last4: string | null }`. It triggers the same one-time `.env` load as `callLLM` before checking the environment; a stored key wins (matching call-time resolution); `last4` is the last 4 characters of the RESOLVED key, null when none. The full key is never returned.
 - **SECURITY (absolute).** Full API keys are NEVER rendered in the TUI (masked display only), NEVER written to any log (`llm-calls.json`, `metrics.json`, console — the log-entry field set is unchanged: timestamp/callType/context/provider/model/inputTokens/outputTokens/cost), and NEVER committed to git. `.paper-chase.json` is gitignored (`.gitignore` covers it since this amendment was pre-checked); the file must never be added to the index. On the wire the key travels ONLY in the request auth header (`x-api-key` for Anthropic, `Authorization: Bearer` for OpenAI) — nothing else changes.
 
 **Files to modify:**
 - `src/tui/settings-screen.tsx` — add model routing section with dropdowns and labels; v1.4.0: the Provider row, per-provider catalogs/labels, reset-on-switch; v1.5.0: the API Keys section (masked rows + masked editor)
 - `src/tui/settings.ts` — extend settings schema with `models`; v1.4.0: `provider`, `MODEL_CATALOG`, provider-aware defaults, `seedModelsForProvider`; v1.5.0: the `apiKeys` block (tolerant load, always saved)
-- `src/llm/client.ts` — accept a model override per call or read from a global config setter; v1.4.0: dual-provider transport branch, OpenAI price-table entries, `provider` in the call log; v1.5.0: routing-carried `apiKeys`, per-call key resolution (stored → env → extended error), `getApiKeyStatus`
+- `src/llm/client.ts` — accept a model override per call or read from a global config setter; v1.4.0: multi-provider transport branches, price-table entries per built-in provider, `provider` in the call log; v1.5.0: routing-carried `apiKeys`, per-call key resolution (stored → env → extended error), `getApiKeyStatus`
 - `src/agents/extractor.ts` — use extractor model
 - `src/agents/synthesis.ts` — use synthesis model
 - `src/dox-writer.ts` (Phase 6) — use DOX model when implemented
@@ -413,10 +419,12 @@ test('provider persists and routes; the OpenAI request shape is correct (mocked 
   //    price table; the llm-calls.json entry carries provider: 'openai'.
   // 4. Missing OPENAI_API_KEY with provider openai throws
   //    'OPENAI_API_KEY is not set. Export it in your environment or add it to a .env file in the project root.'
-  // 5. Switching the provider in Settings re-seeds the four slots
-  //    (anthropic→openai: gpt-5.6-luna + nulls; back: haiku + nulls).
-  // 6. Anthropic regression: the request body stays byte-identical to the
-  //    pre-extension shape (model / max_tokens / messages [/system] [/temperature]).
+// 5. Switching the Default Provider in Settings re-seeds ONLY the Default
+//    Model row (anthropic→openai: gpt-5.6-luna; back: haiku) while
+//    explicitly configured per-step slots preserve their { provider, model }
+//    pairs byte-for-byte.
+// 6. Anthropic regression: the request body stays byte-identical to the
+//    pre-extension shape (model / max_tokens / messages [/system] [/temperature]).
   // All LLM-free: the transport is mocked; no live calls.
 });
 ```
@@ -482,6 +490,36 @@ test('post-ingest review shortcut: hint only when proposed, p routes to the revi
 });
 ```
 
+### Gate 11.16: Per-Step Provider + Model Routing (v1.9.0)
+
+```typescript
+test('mixed-provider tables route each call type to its own API; legacy strings migrate; slots survive a Default Provider switch', async () => {
+  // 1. resolveSlotFromRouting / resolveProviderForCall with
+  //    { provider: 'anthropic', default: 'claude-haiku-4-5-20251001',
+  //      extractor: { qwen, qwen-plus }, synthesis: { anthropic, claude-sonnet-5 },
+  //      dox: { openai, gpt-5.6-sol } }: extractor → qwen,
+  //    synthesis family → anthropic, dox-writer → openai, everything else
+  //    → the anthropic default slot; resolveModel mirrors the model strings.
+  // 2. callLLM with that table (mocked transport, stored keys per provider):
+  //    the extractor call posts to the DashScope URL with the qwen key, the
+  //    synthesis call posts to the Anthropic URL with x-api-key, the
+  //    dox-writer call posts to the OpenAI URL with the openai key —
+  //    three calls, three providers, no cross-provider key reuse.
+  // 3. Legacy migration: a .paper-chase.json with STRING slot values under
+  //    provider qwen loads as { provider: 'qwen', model: '<string>' } pairs
+  //    and re-saves in the composite shape; normalizeModelSlot accepts
+  //    composite pairs, migrates strings, coerces unknown provider strings
+  //    to 'anthropic', and rejects null/empty/malformed values.
+  // 4. Screen-driven: switching the Default Provider re-seeds ONLY the
+  //    Default Model row — a pre-set extractor slot survives the switch
+  //    byte-for-byte; the non-TTY/rendered frame shows 'Default Provider',
+  //    the 'Qwen · Qwen-Plus' provider prefix on off-default slots, and
+  //    'Same as default' on null slots.
+  // 5. Enter on a model row opens the custom-id editor scoped to that row's
+  //    provider and persists { provider, model: <typed id> }.
+});
+```
+
 ---
 
 ## 4. User Acceptance Tests (UAT)
@@ -515,19 +553,19 @@ Open `README.md` and verify it explains the app, flow, architecture, and project
 2. `chase` with no args — TUI header shows "Paper Chase v.1.0"; on first launch the splash shows "Paper Chase v.1.0 — the paper chase, automated."; no "LLM Wiki CLI" anywhere in the UI.
 3. Open `README.md` — titled "Paper Chase", primary tagline present, all examples use `chase`.
 
-### UAT 11.6: Provider switch works in Settings (v1.4.0, LLM-free)
+### UAT 11.6: Provider switch works in Settings (v1.4.0/v1.9.0, LLM-free)
 
-1. `chase` → Settings → cycle the **Provider** row to **OpenAI**.
-2. Verify the four model slots reset immediately (Default Model shows GPT-5.6 Luna, the per-call-type rows show "Same as default") and the recommendation labels switch to the OpenAI wording (GPT-5.6 Luna / Terra / Terra/Sol).
-3. Save → `.paper-chase.json` shows `"provider": "openai"` with `gpt-5.6-*` ids.
-4. Switch the Provider row back to **Anthropic** → Save → the config shows `"provider": "anthropic"` with the Haiku default restored.
+1. `chase` → Settings → cycle the **Default Provider** row to **OpenAI**.
+2. Verify the **Default Model** row re-seeds immediately (shows GPT-5.6 Luna) and the per-call-type rows show "Same as default"; explicitly configured rows are preserved. Verify the recommendation labels switch to the OpenAI wording (GPT-5.6 Luna / Terra / Terra/Sol).
+3. Save → `.paper-chase.json` shows `"provider": "openai"` with `gpt-5.6-*` ids on the Default Model row.
+4. Switch the Default Provider row back to **Anthropic** → Save → the config shows `"provider": "anthropic"` with the Haiku default restored.
 5. No API keys and no LLM calls are involved — this UAT touches only the Settings screen and the config file.
 
 ### UAT 11.7: API key entry works in Settings (v1.5.0, LLM-free with a fake key)
 
 1. `chase` → Settings → focus the **Anthropic API Key** row (in the API Keys section below the model rows) → Enter.
 2. Type a FAKE key (e.g. `sk-ant-test-0000-ab12`) — verify the editor masks every character; Enter to keep. The row re-renders as `Anthropic API Key: [configured ••••ab12]` — the full key is never shown.
-3. Save → `.paper-chase.json` contains the key under `apiKeys.anthropic` (`apiKeys.openai` stays null).
+3. Save → `.paper-chase.json` contains the key under `apiKeys.anthropic` (`apiKeys.openai` and `apiKeys.qwen` stay null).
 4. Re-open Settings: the row still shows `configured ••••ab12`. Enter on the row, then Enter again on the EMPTY editor (clear) → Save → `apiKeys.anthropic` is null and the row shows the environment/not-set status again.
 5. Escape mid-edit cancels without staging (the row keeps its previous status).
 6. No LLM calls are involved. **Optional variant (user may skip):** repeat step 2 with a REAL key, run one tiny `chase ingest` on a wiki with a single small PDF, and confirm the call succeeds with no env var set; then clear the key via step 4. This variant spends real tokens (~$0.01) and is explicitly optional.
@@ -550,14 +588,14 @@ Open `README.md` and verify it explains the app, flow, architecture, and project
 
 Before moving to final sign-off, verify:
 
-- [ ] All 12 technical gates pass (`npm test` is green) — 11.1–11.9 plus 11.10 (provider switching, v1.4.0), 11.11 (API keys in Settings, v1.5.0), and 11.12 (post-ingest AGENTS.md review shortcut, v1.6.0).
-- [ ] All 8 UAT steps pass — 11.1–11.5 plus 11.6 (provider switch, v1.4.0), 11.7 (API key entry, v1.5.0), and 11.8 (post-ingest AGENTS.md review shortcut, v1.6.0; optional-cost).
+- [ ] All 13 technical gates pass (`npm test` is green) — 11.1–11.14 plus 11.16 (per-step provider + model routing, v1.9.0).
+- [ ] All 8 UAT steps pass — 11.1–11.8.
 - [ ] Branding sweep complete across living docs and `src/` (Gate 11.7 green); forbidden forms (`paperchase`, `PaperChase`, `PaperCase`) absent.
 - [ ] `chase` bin works via `npm link`; `program.name()` is `chase`.
 - [ ] Settings write `.paper-chase.json`; legacy `.llm-wiki-cli.json` still loads via fallback.
 - [ ] GitHub repo renamed to `paper-chase`; canonical remote in root `AGENTS.md` updated.
 - [ ] Internal vocabulary unchanged (wiki / source / entity / topic / citation / DOX); `.state/` records and generated `wikis/<slug>/` content untouched.
-- [ ] Model routing settings persist and are applied — per-call models for the selected provider (Anthropic default, OpenAI optional since v1.4.0); switching providers resets the four model slots.
+- [ ] Model routing settings persist and are applied — per-call `{ provider, model }` pairs for any built-in or custom provider; switching the Default Provider re-seeds only the Default Model row, preserving explicitly configured slots.
 - [ ] API keys manageable in Settings (v1.5.0): masked entry (source + last 4 shown only), stored per workspace in `.paper-chase.json` (gitignored, never committed, never logged), resolution Settings-stored → env → `.env`, empty submit clears a stored key.
 - [ ] Production menu is clean: only Create New Wiki, Add PDFs, Ingest PDFs, Settings, Exit; removed items absent.
 - [ ] Post-ingest AGENTS.md review shortcut (v1.6.0): hint only when a proposal was written, `p` opens the flow-only review screen, Accept replaces AGENTS.md, Reject does nothing (proposal kept).
@@ -579,7 +617,7 @@ Before moving to final sign-off, verify:
 ### What Phase 11 Produces
 - Final brand shipped: **Paper Chase** — `chase` command, `paper-chase` package and repo, `.paper-chase.json` config.
 - Production-ready TUI.
-- Per-call model routing (multi-provider since v1.4.0: Anthropic default, OpenAI optional).
+- Per-call model routing (multi-provider since v1.4.0: Anthropic default, OpenAI and Qwen optional; per-step provider/model pairs since v1.9.0).
 - Complete README.md for new users and contributors.
 - Performance metrics and logging.
 

@@ -1,20 +1,20 @@
 # Phase 16: Run Resilience
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-016`
-**Version:** 1.0.0
+**Version:** 1.0.2
 **Status:** Draft
-**Date:** 2026-07-25
+**Date:** 2026-08-20
 **Dependencies:** Phases 0-9, 11-15
 **Estimated Time:** 5-8 hours
 **LLM Token Budget:** $0 (all gate tests are LLM-free — injected stubs, mocked transport; live resilience verification only during real ingests at the user's discretion)
 
-**Canon basis (user-ratified 2026-07-25, promoted compliance-log [2026-07-25 09:20]):** `Project Vision/04_orchestration_detailed.md` §6 (per-page transport fallback + outage detector), Step 9 (synthesis resume), Step 11 (per-PDF checkpointing), Step 6 (decision-list sizing), §1 (pool transport tuning); `Project Vision/07_validation_and_quality.md` §5 + §2.3. Evidence: the 2026-07-24 live test — run 4 aborted at 54/175 on one headers-timeout after ~$16 of work; the entity curation decision list overflowed 32768 output at ~200 candidates (keep-all fallback fired). This phase implements exactly those ratifications — no more, no less.
+**Canon basis (user-ratified 2026-07-25, promoted compliance-log [2026-07-25 09:20]):** `Project Vision/04_orchestration_detailed.md` §6 (per-page transport fallback + outage detector), Step 9 (synthesis resume), Step 11 (per-PDF checkpointing), Step 6 (decision-list sizing), §1 (pool transport tuning); `Project Vision/07_validation_and_quality.md` §5 + §2.3. Evidence: the 2026-07-24 live test — run 4 aborted at 54/175 on one headers-timeout after ~$16 of work; the entity curation decision list overflowed 32768 output at ~200 candidates (keep-all fallback fired). **Amended 2026-08-20 (user directive, compliance-log [2026-08-20 …]):** the reactive 429 stall — evidence: a throttled free-tier 429 aborted an extraction on chunk 2/42; the free tier's throttle window outlasted the 3-attempt / ~20s retry budget, so quick retries exhausted inside the window. The stall waits the window out instead (6 attempts, ~31 min), and a v1.1.0 draft that instead SKIPPED throttled chunks was rolled back the same day as a data-preservation violation — the 429 rule never loses a chunk. This phase implements exactly those ratifications — no more, no less.
 
 ---
 
 ## 1. Objective
 
-A single network hiccup must never again force a run to restart from zero. Three independent weaknesses made the 2026-07-24 run-4 abort expensive: (a) one page's transport failure killed the whole run, (b) nothing was hash-recorded until run end, (c) already-paid pages had no completion memory and would have been re-bought on resume. Fix all three — per-page transport fallback with an outage detector, per-PDF checkpointing, and content-addressed synthesis resume — plus the two organic findings: calmer pool transport, and curation decision lists that can no longer overflow the output ceiling.
+A single network hiccup must never again force a run to restart from zero. Three independent weaknesses made the 2026-07-24 run-4 abort expensive: (a) one page's transport failure killed the whole run, (b) nothing was hash-recorded until run end, (c) already-paid pages had no completion memory and would have been re-bought on resume. Fix all three — per-page transport fallback with an outage detector, per-PDF checkpointing, and content-addressed synthesis resume — plus the two organic findings: calmer pool transport, and curation decision lists that can no longer overflow the output ceiling. The 2026-08-20 amendment adds the reactive 429 stall: a throttled provider's rate limit must slow the run down, never lose data and never abort cheaply — stall, wait the window out, and complete.
 
 ---
 
@@ -64,6 +64,15 @@ A single network hiccup must never again force a run to restart from zero. Three
 - **Schema slimming:** the `keep` bucket is REMOVED from the output schema in both prompts — kept candidates are the deterministic complement (input minus `merge` sources, `drop`, `unsure`), computed by code. Validation still enforces "every candidate accounted for exactly once" via the derived keep. Per-decision justifications in the output are capped by the prompt (short or omitted).
 - **Size-based bucketing trigger:** before the call, estimate the decision-list output size from the candidate set; when the estimate approaches the ceiling (a conservative fraction of 32768), the lexical-stem bucketing + reconciliation scheme runs even below the old 250-candidate threshold. The candidate-count trigger stays as a second condition.
 - Backwards tolerance: if the model still emits a `keep` list, validation accepts it (checked for consistency) but never requires it.
+
+### 2.6 Reactive 429 stall (2026-08-20 user directive)
+
+**Files:** `src/llm/client.ts`, `src/commands/ingest.ts`, `src/tui/ingest-screen.tsx` (no screen change — progress plumbing only)
+
+- **Extended budget for 429 only:** when a caller that opted into retries (`maxRetries > 0`) receives an HTTP 429, that call gets `RATE_LIMIT_MAX_ATTEMPTS = 6` total attempts instead of the caller's 3 (a 2026-08-20 user-ratified amendment to the 2026-07-20 ≤3-attempt bounded-retry rule, scoped to 429; every other transient class keeps the caller's bound). The ceiling is recomputed per attempt, so a 5xx after a 429 reverts to the caller's bound. `maxRetries: 0` keeps the frozen no-retry default — a 429 throws on the first attempt, byte-identical to before.
+- **Escalating stall floor:** the wait between 429 retries is `max(exponential backoff, Retry-After header, 60s × 2^(retry-1))` — 60s, 120s, 240s, 480s, 960s, ~31 minutes of waiting in total. The old backoff exhausted its budget inside ~20 seconds, well within a free-tier throttle window; the floor waits the window out. All providers' 429s stall — 429 means "slow down" everywhere.
+- **Cheap completion over speed:** the goal on a throttled free model (e.g. a throttled free-tier model) is that the run completes, not that it is fast — no chunk is ever skipped, no data is lost, and only exhausted stalls (6 real 429s) abort with the fail-loud attempt-count error.
+- **Stall feedback:** `setRateLimitWaitReporter` (module-level, the `setModelRouting`/`setTransportRetrySleeper` precedent) hands each stall `{ waitSeconds, attempt, maxAttempts }` to a reporter; `ingest` wires it to the run's `onProgress` channel (`Rate limited by provider (HTTP 429) — waiting Ns before retry (attempt X/6)...`), so the TUI and CLI show the wait live instead of a frozen screen, and clears it in a `finally` so it never leaks into another run. Without a reporter the client console.warns the same line.
 
 ---
 
@@ -119,6 +128,30 @@ End-to-end: a 2-PDF ingest is killed mid-synthesis (stub counts tracked), resume
 
 `npx tsc --noEmit` clean; key-less `npm test` green. Pre-existing tests untouched except where the amended semantics REQUIRE updates (e.g. a thrown-transport-at-synthesis assertion now expects the per-page fallback; every such update is enumerated in the status file with the reason).
 
+### Gate 16.13: 429/5xx stall floor + Retry-After (v1.0.3)
+
+The stall floor function is the exact sequence 1min/5min/15min/45min/90min (60s/300s/900s/2700s/5400s, ~2.6 h of waiting); a mocked 429 with `Retry-After: 7` waits the 60s floor (floor wins), and `Retry-After: 90` waits 90s (header wins). All waits observed through the injected sleeper — no wall-clock.
+
+### Gate 16.14: Extended 429 attempt budget (v1.0.3)
+
+Five mocked 429s then a 200 with `maxRetries: 2` → exactly 6 total attempts with the escalating stalls recorded, and the call resolves successfully — the 429 budget exceeds the caller's 3-attempt bound.
+
+### Gate 16.15: Persistent 429 aborts after 6 (v1.0.3)
+
+A persistent 429 → exactly 6 attempts, then the fail-loud error `API error (HTTP 429) after 6 attempt(s)` — still classified transient by `isTransientTransportError`. No chunk is ever skipped; exhaustion stays loud.
+
+### Gate 16.16: 5xx shares the ladder; network keeps the old bound (v1.0.3)
+
+503 ×2 then a 200 → 3 attempts with the exact 60s/300s stall floors; a persistent 500 → exactly 6 attempts then `API error (HTTP 500) after 6 attempt(s)` (fail-loud, still transient-classified); network errors ×2 then a 200 with `maxRetries: 2` → 3 attempts with the exact 5s/15s waits (no stall floor); `maxRetries: 0` + 429/500 → exactly 1 attempt and an immediate throw (frozen default preserved).
+
+### Gate 16.17: Stall feedback wiring (v1.0.3)
+
+The reporter receives the exact `{ waitSeconds, attempt, maxAttempts, statusCode }` per stall (429 and 500 both) and owns the stall message (console.warn suppressed); without a reporter the console.warn line fires (`Rate limited (HTTP 429)` / `Provider error (HTTP 500)` — waiting Ns before retry (attempt X/6)). Ingest-level: a stalled 429/5xx during a real (stubbed-transport) run surfaces the line on the run's `onProgress` channel, and the reporter never outlives the run (a post-run 429 warns on the console path). TUI-level: the ingest screen renders the stall line from the progress channel.
+
+### Gate 16.18: Stall audit log (v1.0.4)
+
+Every failed 429/5xx attempt is appended to the wiki's `.state/transport-stalls.jsonl` beside the call log — one record per attempt (timestamp, callType/context, provider, model, statusCode, attempt/maxAttempts, exhausted, waitSeconds, provider error message) including the exhausted final attempt (waitSeconds 0); `llm-calls.json` stays one-entry-per-successful-call so cost sums and the repair-rate denominator are untouched. Client-level: a mocked 429 then a 200 writes exactly one stall record (attempt 1, 60s wait) plus the success-only call log; a persistent 500 writes six records (attempts 1..6, waits 60/300/900/2700/5400/0, last exhausted). Ingest-level: a stalled 429 during a mocked-transport DOX run leaves the record in the workspace's `.state/transport-stalls.jsonl`.
+
 ---
 
 ## 4. User Acceptance Tests (UAT)
@@ -138,13 +171,20 @@ End-to-end: a 2-PDF ingest is killed mid-synthesis (stub counts tracked), resume
 1. Re-run `ingest new-wiki-phase13-14-15 -w dist --input-language da --synthesis`.
 2. Expected: it completes end-to-end (this validates 16.1 in the wild); note that its pre-Phase-16 crash left no checkpoints/fingerprints, so this first completion re-extracts 2024 and re-synthesizes all pages — subsequent runs are then resume-cheap.
 
+### UAT 16.4: Throttled/erroring free-tier run stalls and completes (live, v1.0.3)
+
+1. Run the previously-throttled ingest with a free-tier model configured on a sequential step (e.g. the Extractor).
+2. Expected: a 429 shows `Rate limited by provider (HTTP 429) — waiting Ns before retry (attempt X/6)...` and a 500 shows `Provider error (HTTP 500) — waiting Ns before retry (attempt X/6)...` in the progress channel, with waits escalating 1/5/15/45/90 min; the run keeps its place (no chunk re-processing, no skipped chunks), and it completes — slower, but complete. A provider that stays throttled/erroring through 6 attempts still aborts loudly with the attempt-count error and the PDF unrecorded (clean resume later).
+
 ---
 
 ## 5. Approval Checklist
 
 - [ ] All 12 technical gates pass (`npm test` green; full suite unregressed except enumerated semantic updates).
-- [ ] UAT 16.1 passes (16.2/16.3 may be demonstrated by gate evidence).
+- [ ] Gates 16.13–16.17 pass: 429 stall floor + Retry-After, extended 6-attempt budget, fail-loud exhaustion, non-429 classes byte-unchanged, reporter wiring (client + ingest + TUI).
+- [ ] UAT 16.1 passes (16.2/16.3 may be demonstrated by gate evidence; 16.4 is live/observational).
 - [ ] Per-page fallback ONLY for exhausted transient transport at the two synthesis stages; 4xx and all other stages unchanged.
+- [ ] The 429 stall never skips data: it only waits; exhaustion still fails loud with the PDF unrecorded (clean resume).
 - [ ] Outage detector: 5 consecutive OR >10% → abort, both proven.
 - [ ] Skip rule honors only strict/permissive passes with matching fingerprints; templates retried; materialize never rewrites skip-eligible pages.
 - [ ] Per-PDF checkpoint produces exactly the uninterrupted-run state record.
@@ -163,7 +203,7 @@ End-to-end: a 2-PDF ingest is killed mid-synthesis (stub counts tracked), resume
 - Phase 8's incremental state shapes (checkpoint writes must match them exactly).
 
 ### What Phase 16 Produces
-- Per-page transport fallback + outage detector; `.state/synthesis-state.json` + `pageDataHash`; per-PDF checkpointing; 600s large-call timeout + staggered dispatch + exponential backoff; slim curation decision schema + size-based bucketing; additive `metrics.transportFailures`.
+- Per-page transport fallback + outage detector; `.state/synthesis-state.json` + `pageDataHash`; per-PDF checkpointing; 600s large-call timeout + staggered dispatch + exponential backoff; slim curation decision schema + size-based bucketing; additive `metrics.transportFailures`. v1.0.3 (user directive 2026-08-22): the reactive 429/5xx stall (`TRANSIENT_MAX_ATTEMPTS` + `transientStallDelayMs` (1/5/15/45/90 min) + Retry-After honoring in `src/llm/client.ts`) and the `setStallWaitReporter` stall-feedback seam (carrying `statusCode`) wired through ingest's `onProgress`; supersedes the v1.0.2 429-only 60s×2^(n-1) stall. v1.0.4 (user directive 2026-08-22): the 429/5xx stall audit log — `.state/transport-stalls.jsonl` beside the call log, one record per failed attempt via `appendTransportStallLog` (retry waits AND the exhausted final attempt; `llm-calls.json` untouched).
 
 ### Contract with Final Acceptance
 - Fail-loud preserved where it matters: 4xx, real outages (detector), Extractor exhaustion.

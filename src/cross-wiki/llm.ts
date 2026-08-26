@@ -2,6 +2,11 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { callLLM } from '../llm/client';
 import { runWithFeedbackRetry } from '../llm/reask';
+import {
+  diagnoseJsonParseFailure,
+  isTruncationFinishReason,
+  truncatedOutputEcho,
+} from '../llm/json-corrector';
 import { appRoot } from '../utils/app-root';
 import {
   applyLanguageDirective,
@@ -145,9 +150,16 @@ export async function runCrossWikiJsonCall<T>(args: CrossWikiJsonCallArgs<T>): P
       callType: args.callType,
       context: attempt > 1 ? `${args.context}#attempt${attempt}` : args.context,
       logPath: args.logPath,
+      onResponseMeta: (meta) => {
+        lastFinishReason = meta.finishReason;
+      },
     });
   };
   let parsedValue: T | null = null;
+  // Phase 16 v1.0.5 (2026-08-23): parse-failure tracking for the JSON
+  // corrector + the provider's stop reason (the truncation signal).
+  let lastParseError: string | null = null;
+  let lastFinishReason: string | undefined;
   const outcome = await runWithFeedbackRetry<string>(
     runLlm,
     (raw) => {
@@ -155,16 +167,49 @@ export async function runCrossWikiJsonCall<T>(args: CrossWikiJsonCallArgs<T>): P
       try {
         data = parseJsonResponse(raw);
       } catch (err) {
-        return { valid: false, errors: [`Invalid JSON: ${(err as Error).message}`] };
+        lastParseError = `Invalid JSON: ${(err as Error).message}`;
+        return { valid: false, errors: [lastParseError] };
       }
       const validation = args.validate(data);
       if (validation.valid) {
         parsedValue = validation.value ?? null;
+        lastParseError = null;
         return { valid: true, errors: [] };
       }
+      lastParseError = null;
       return { valid: false, errors: validation.errors };
     },
-    { maxAttempts: CROSS_WIKI_MAX_ATTEMPTS, label: args.label },
+    {
+      maxAttempts: CROSS_WIKI_MAX_ATTEMPTS,
+      label: args.label,
+      // Phase 16 v1.0.5: on a JSON parse failure, the corrector diagnoses the
+      // raw output and its instruction joins the correction block; truncated
+      // outputs echo only their tail. Advisory only — a corrector failure
+      // degrades to the plain block, and the pass's never-abort posture is
+      // unchanged. The enhancer rides the REAL transport only: an injected
+      // callLLMFn (test seam) owns the whole LLM surface, corrector included,
+      // so the LLM-free gates never fire a diagnosis call.
+      feedbackEnhancer:
+        args.callLLMFn === undefined
+          ? async (output) => {
+              if (lastParseError === null || typeof output !== 'string') {
+                return null;
+              }
+              const truncated = isTruncationFinishReason(lastFinishReason);
+              const guidance = await diagnoseJsonParseFailure({
+                rawResponse: output,
+                errorMessage: lastParseError,
+                truncated,
+                context: args.context,
+                logPath: args.logPath,
+              });
+              return {
+                guidance,
+                echoOverride: truncated ? truncatedOutputEcho(output) : null,
+              };
+            }
+          : undefined,
+    },
   );
   return { output: parsedValue, attempts: outcome.attempts, lastErrors: outcome.lastErrors };
 }

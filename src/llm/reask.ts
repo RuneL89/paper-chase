@@ -37,6 +37,26 @@ export interface ReaskResult<T> {
   lastErrors: string[];
 }
 
+/**
+ * Phase 16 v1.0.5 (2026-08-23, user-ratified): a validator may be ASYNC — the
+ * JSON-corrector wiring diagnoses a parse failure with an LLM call from inside
+ * the validator/enhancer pair. Sync validators remain valid.
+ */
+export type ReaskValidation = { valid: boolean; errors: string[] };
+
+/**
+ * Phase 16 v1.0.5: optional enrichment of the correction block. `guidance`
+ * lands as a `Diagnosed cause and fix:` section between the error list and
+ * the echoed output; `echoOverride` replaces the verbatim echo (e.g. a
+ * tail-only excerpt when the invalid output was truncated at the token
+ * ceiling and echoing it whole would push the repair call toward the same
+ * ceiling).
+ */
+export interface FeedbackEnhancement {
+  guidance?: string | null;
+  echoOverride?: string | null;
+}
+
 export interface ReaskOptions {
   /** Total attempts including the first; defaults to 3 (vision `04` §6). */
   maxAttempts?: number;
@@ -44,6 +64,18 @@ export interface ReaskOptions {
   label: string;
   /** Fired once per scheduled repair (a re-ask after a failed attempt). */
   onRepair?: (errors: string[]) => void;
+  /**
+   * Phase 16 v1.0.5: optional async hook fired after a validation failure,
+   * BEFORE the correction block is composed. Receives the failed output, the
+   * validator's errors, and the 1-based number of the attempt that failed.
+   * A thrown error is swallowed (enhancement is advisory — it can never break
+   * the loop).
+   */
+  feedbackEnhancer?: (
+    output: unknown,
+    errors: string[],
+    attempt: number,
+  ) => Promise<FeedbackEnhancement | null>;
 }
 
 /**
@@ -59,21 +91,34 @@ export const REASK_CORRECTION_INSTRUCTION =
  * Compose the feedback block handed to `runLlm` on attempts 2+: a clearly
  * delimited section carrying the correction instruction, the validator's
  * exact error list, and the invalid output verbatim. The site appends this
- * block to its normal prompt; the base prompt itself is unchanged.
+ * block to its normal prompt; the base prompt itself is unchanged. Phase 16
+ * v1.0.5: an optional enhancement inserts a `Diagnosed cause and fix:`
+ * section after the error list and may replace the echoed output.
  */
-export function buildCorrectionBlock(invalidOutput: string, errors: string[]): string {
+export function buildCorrectionBlock(
+  invalidOutput: string,
+  errors: string[],
+  enhancement?: FeedbackEnhancement | null,
+): string {
   const errorLines = errors.map((error) => `- ${error}`).join('\n');
-  return [
+  const lines = [
     '=== CORRECTION REQUIRED ===',
     REASK_CORRECTION_INSTRUCTION,
     '',
     'Validation errors:',
     errorLines,
+  ];
+  const guidance = enhancement?.guidance?.trim();
+  if (guidance) {
+    lines.push('', 'Diagnosed cause and fix:', guidance);
+  }
+  lines.push(
     '',
     'Your previous output:',
-    invalidOutput,
+    enhancement?.echoOverride ?? invalidOutput,
     '=== END CORRECTION ===',
-  ].join('\n');
+  );
+  return lines.join('\n');
 }
 
 /** Stringify a failed attempt's output for the correction block. */
@@ -116,7 +161,7 @@ export function reaskRepairs(): number {
  */
 export async function runWithFeedbackRetry<T>(
   runLlm: (feedback: string | null, attempt: number) => Promise<T>,
-  validate: (output: T) => { valid: boolean; errors: string[] },
+  validate: (output: T) => ReaskValidation | Promise<ReaskValidation>,
   options: ReaskOptions,
 ): Promise<ReaskResult<T>> {
   const maxAttempts = Math.max(1, options.maxAttempts ?? 3);
@@ -127,7 +172,7 @@ export async function runWithFeedbackRetry<T>(
   while (attempts < maxAttempts) {
     attempts++;
     const output = await runLlm(feedback, attempts);
-    const validation = validate(output);
+    const validation = await validate(output);
     if (validation.valid) {
       return { output, attempts, lastErrors: [] };
     }
@@ -135,7 +180,18 @@ export async function runWithFeedbackRetry<T>(
     if (attempts < maxAttempts) {
       repairsThisRun++;
       options.onRepair?.(validation.errors);
-      feedback = buildCorrectionBlock(stringifyInvalidOutput(output), validation.errors);
+      // Phase 16 v1.0.5: the optional enhancer (e.g. the JSON corrector) may
+      // attach a targeted diagnosis to the correction block; a throwing
+      // enhancer is advisory-only and never breaks the loop.
+      let enhancement: FeedbackEnhancement | null = null;
+      if (options.feedbackEnhancer) {
+        try {
+          enhancement = await options.feedbackEnhancer(output, validation.errors, attempts);
+        } catch {
+          enhancement = null;
+        }
+      }
+      feedback = buildCorrectionBlock(stringifyInvalidOutput(output), validation.errors, enhancement);
     }
   }
 

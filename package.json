@@ -10,7 +10,7 @@
     "test": "vitest run",
     "cli": "tsx src/cli.ts",
     "build": "tsx scripts/build-exe.ts",
-    "package:win": "npm run build && tsx scripts/build-launcher.ts && pkg dist/launcher.cjs --targets node22-win-x64 --output dist/paper-chase.exe --config pkg.config.launcher.json",
+    "package:win": "npm run build && tsx scripts/build-launcher.ts && pkg dist/launcher.cjs --targets node22-win-x64 --output dist/paper-chase.exe --config pkg.config.launcher.json && tsx scripts/set-icon.ts",
     "package:win:raw": "npm run build && pkg dist/chase.mjs --targets node22-win-x64 --output dist/paper-chase-raw.exe --config pkg.config.json",
     "package:win:bun": "npm run build && tsx scripts/generate-bun-assets.ts && tsx scripts/build-exe-bun.ts && bun build dist/chase-bun.mjs --compile --outfile dist/paper-chase-bun.exe"
   },

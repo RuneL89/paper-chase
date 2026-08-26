@@ -1,7 +1,7 @@
 import React from 'react';
 import { copyFileSync, existsSync, mkdirSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { PassThrough } from 'node:stream';
 import { afterAll, afterEach, beforeAll, expect, test } from 'vitest';
 import { render, type Instance } from 'ink';
@@ -133,6 +133,8 @@ test('init screen renders form fields', async () => {
   await tick(50);
   expect(screen.output()).toContain('Title');
   expect(screen.output()).toContain('Workspace');
+  expect(screen.output()).toContain('Browse'); // 2026-08-24 folder-picker button
+  expect(screen.output()).toContain('Wiki folder will be created at:'); // always-on breadcrumb
   expect(screen.output()).toContain('Create Wiki');
 });
 
@@ -156,9 +158,14 @@ test('init screen renders a static form without a TTY', async () => {
   await tick(50);
   expect(screen.output()).toContain('Title');
   expect(screen.output()).toContain('Workspace');
+  expect(screen.output()).toContain('Browse');
+  expect(screen.output()).toContain('Wiki folder will be created at:');
 });
 
 // §5.1 behavior: Tab between fields, Enter on "Create Wiki" runs init().
+// 2026-08-24: [ Browse... ] is a focus stop between Workspace and Output
+// Language, so the walk is Title → Tab → Workspace → Tab → Browse → Tab →
+// Language, and Enter on the language dropdown submits (unchanged rule).
 test('init screen creates a wiki from a title-derived slug', async () => {
   let result: string | undefined;
   const screen = renderCaptured(
@@ -169,9 +176,11 @@ test('init screen creates a wiki from a title-derived slug', async () => {
   await tick(100);
   screen.stdin.write('\t'); // -> Workspace (pre-filled with the temp workspace)
   await tick(100);
-  screen.stdin.write('\t'); // -> [ Create Wiki ]
+  screen.stdin.write('\t'); // -> [ Browse... ]
   await tick(100);
-  screen.stdin.write('\r'); // run init()
+  screen.stdin.write('\t'); // -> Output Language
+  await tick(100);
+  screen.stdin.write('\r'); // Enter on the dropdown runs init()
   await waitFor(() => result !== undefined);
   screen.unmount();
   await tick(50);
@@ -180,6 +189,199 @@ test('init screen creates a wiki from a title-derived slug', async () => {
   expect(screen.output()).toContain("Wiki 'tui-wiki' created");
   expect(existsSync(join(workspace, 'wikis', 'tui-wiki', 'AGENTS.md'))).toBe(true);
   expect(existsSync(join(workspace, 'wikis', 'tui-wiki', 'raw'))).toBe(true);
+});
+
+// 2026-08-24 user directive: the always-on breadcrumb shows the resolved
+// absolute target from the moment the screen opens (before any input), with
+// the slug placeholder until Title forms a valid slug.
+test('init screen shows the always-on target breadcrumb before any input', async () => {
+  const screen = renderCaptured(
+    <InitScreen onBack={() => {}} onResult={() => {}} defaultWorkspace={'C:\\w'} />,
+  );
+  await tick();
+  screen.unmount();
+  await tick(50);
+  const frame = screen.output();
+  expect(frame).toContain('Wiki folder will be created at:');
+  expect(frame).toContain('C:\\w\\wikis\\<title-slug>');
+});
+
+// The breadcrumb slug fills in live as the Title is typed.
+test('breadcrumb slug fills in as the Title is typed', async () => {
+  const screen = renderCaptured(
+    <InitScreen onBack={() => {}} onResult={() => {}} defaultWorkspace={'C:\\w'} />,
+  );
+  await tick();
+  screen.stdin.write('Tui Wiki'); // Title field (focused first)
+  await tick(150);
+  screen.unmount();
+  await tick(50);
+  expect(screen.output()).toContain('C:\\w\\wikis\\tui-wiki');
+});
+
+// 2026-08-24 folder picker: Enter on [ Browse... ] calls the injected picker
+// (never the real dialog in tests), pre-seeded with the current workspace
+// value when it exists, and the picked parent folder fills the field with the
+// breadcrumb following.
+test('browse opens the folder picker and fills the workspace field', async () => {
+  let pickedInitial: string | undefined;
+  const screen = renderCaptured(
+    <InitScreen
+      onBack={() => {}}
+      onResult={() => {}}
+      defaultWorkspace={workspace}
+      pickFolder={async (initial) => {
+        pickedInitial = initial;
+        return 'C:\\wf';
+      }}
+    />,
+  );
+  await tick();
+  screen.stdin.write('\t'); // -> Workspace
+  await tick(100);
+  screen.stdin.write('\t'); // -> [ Browse... ]
+  await tick(100);
+  screen.stdin.write('\r'); // open the picker
+  await waitFor(() => pickedInitial !== undefined);
+  await tick(150);
+  screen.unmount();
+  await tick(50);
+  const frame = screen.output();
+  expect(pickedInitial).toBe(resolve(workspace)); // pre-seeded with the existing temp workspace
+  expect(frame).toContain('C:\\wf'); // field value ...
+  expect(frame).toContain('C:\\wf\\wikis'); // ... and the breadcrumb follows
+});
+
+// Cancelling the folder picker is neutral (2026-07-17 picker contract).
+test('cancelling the folder picker is neutral', async () => {
+  let called = false;
+  const screen = renderCaptured(
+    <InitScreen
+      onBack={() => {}}
+      onResult={() => {}}
+      defaultWorkspace={'C:\\w'}
+      pickFolder={async () => {
+        called = true;
+        return null;
+      }}
+    />,
+  );
+  await tick();
+  screen.stdin.write('\t'); // -> Workspace
+  await tick(100);
+  screen.stdin.write('\t'); // -> [ Browse... ]
+  await tick(100);
+  screen.stdin.write('\r');
+  await waitFor(() => called);
+  await tick(150);
+  screen.unmount();
+  await tick(50);
+  const frame = screen.output();
+  expect(frame).toContain('No folder selected — workspace unchanged.');
+  expect(frame).toContain('C:\\w\\wikis'); // workspace value untouched
+});
+
+// A picker failure shows the manual-fallback guidance (asserted before any
+// typing — editing the field clears the stale error).
+test('folder picker failure shows the manual-fallback guidance', async () => {
+  let called = false;
+  const screen = renderCaptured(
+    <InitScreen
+      onBack={() => {}}
+      onResult={() => {}}
+      defaultWorkspace={'C:\\w'}
+      pickFolder={async () => {
+        called = true;
+        throw new Error('powershell.exe not found');
+      }}
+    />,
+  );
+  await tick();
+  screen.stdin.write('\t'); // -> Workspace
+  await tick(100);
+  screen.stdin.write('\t'); // -> [ Browse... ]
+  await tick(100);
+  screen.stdin.write('\r');
+  await waitFor(() => called);
+  await tick(150);
+  screen.unmount();
+  await tick(50);
+  const frame = screen.output();
+  expect(frame).toContain('The folder picker could not be opened');
+  expect(frame).toContain('powershell.exe not found');
+  // The guidance wraps at 80 columns — assert the unwrapped tail substring.
+  expect(frame).toContain('folder path in the Workspace field instead.');
+});
+
+// The workspace field stays fully usable after a picker failure: Tab wraps
+// browse -> language -> create -> back -> title -> workspace, and typing
+// lands in the field (clearing the stale error).
+test('workspace field stays usable after a picker failure', async () => {
+  let called = false;
+  const screen = renderCaptured(
+    <InitScreen
+      onBack={() => {}}
+      onResult={() => {}}
+      defaultWorkspace={'C:\\w'}
+      pickFolder={async () => {
+        called = true;
+        throw new Error('powershell.exe not found');
+      }}
+    />,
+  );
+  await tick();
+  screen.stdin.write('\t'); // -> Workspace
+  await tick(100);
+  screen.stdin.write('\t'); // -> [ Browse... ]
+  await tick(100);
+  screen.stdin.write('\r');
+  await waitFor(() => called);
+  await tick(150);
+  for (let i = 0; i < 5; i += 1) {
+    screen.stdin.write('\t');
+    await tick(80);
+  }
+  screen.stdin.write('D:\\manual'); // types into the Workspace field
+  await tick(150);
+  screen.unmount();
+  await tick(50);
+  const frame = screen.output();
+  expect(frame).toContain('D:\\manual'); // the typed path landed in the field
+  expect(frame).not.toContain('The folder picker could not be opened'); // editing cleared the stale error
+});
+
+// Input is gated while the picker is in flight: an Enter pressed during the
+// wait never reaches the form (no submit), and the resolved pick lands after.
+test('input is gated while the folder picker is in flight', async () => {
+  let releasePicker!: (value: string | null) => void;
+  const screen = renderCaptured(
+    <InitScreen
+      onBack={() => {}}
+      onResult={() => {}}
+      defaultWorkspace={'C:\\w'}
+      pickFolder={() =>
+        new Promise<string | null>((res) => {
+          releasePicker = res;
+        })
+      }
+    />,
+  );
+  await tick();
+  screen.stdin.write('\t'); // -> Workspace
+  await tick(100);
+  screen.stdin.write('\t'); // -> [ Browse... ]
+  await tick(100);
+  screen.stdin.write('\r'); // open the picker (stays pending)
+  await tick(200);
+  screen.stdin.write('\r'); // Enter while busy — must NOT submit the form
+  await tick(100);
+  releasePicker('C:\\picked');
+  await tick(300);
+  screen.unmount();
+  await tick(50);
+  const frame = screen.output();
+  expect(frame).toContain('C:\\picked'); // the resolved pick landed after the wait
+  expect(frame).not.toContain('Title is required.'); // the busy Enter was gated, not submitted
 });
 
 // §5.2 behavior: Enter on a wiki runs ingest() with progress lines.

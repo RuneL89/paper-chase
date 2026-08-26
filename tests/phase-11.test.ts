@@ -20,7 +20,16 @@ import { MenuScreen, MENU_ITEMS } from '../src/tui/menu';
 import { SettingsScreen } from '../src/tui/settings-screen';
 import { IngestScreen } from '../src/tui/ingest-screen';
 import { loadSettings, saveSettings, seedModelsForProvider } from '../src/tui/settings';
-import { callLLM, getApiKeyStatus, resolveModel, setModelRouting, type ModelRouting } from '../src/llm/client';
+import {
+  callLLM,
+  getApiKeyStatus,
+  normalizeModelSlot,
+  resolveModel,
+  resolveProviderForCall,
+  resolveSlotFromRouting,
+  setModelRouting,
+  type ModelRouting,
+} from '../src/llm/client';
 import { init } from '../src/commands/init';
 import { ingest } from '../src/commands/ingest';
 
@@ -185,13 +194,13 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   );
   await tick(400); // let loadSettings resolve (defaults in an empty workspace)
 
-  // Rows: Synthesis, Update Agents, Provider, Default Model, Extractor Model,
-  // Synthesis Writer Model, DOX Writer Model, Curation Model, Cross-Wiki Bulk
-  // Model, Cross-Wiki Judgment Model, [ Add Custom Provider ], Anthropic API
-  // Key, OpenAI API Key, Qwen API Key, [ Save ], [ Back ] (the v1.5.0 API-key
-  // rows sit AFTER the model rows; Phase 14 added the Curation Model row,
-  // Phase 24 added the two Cross-Wiki rows, Phase Qwen added the Qwen API Key
-  // row).
+  // Rows: Synthesis, Update Agents, Default Provider, Default Model,
+  // Extractor Model, Synthesis Writer Model, DOX Writer Model, Curation
+  // Model, Cross-Wiki Bulk Model, Cross-Wiki Judgment Model, JSON Corrector
+  // Model, [ Add Custom Provider ], Anthropic API Key, OpenAI API Key, Qwen
+  // API Key, [ Save ], [ Back ] (the v1.5.0 API-key rows sit AFTER the model
+  // rows; Phase 14 added the Curation Model row, Phase 24 added the two
+  // Cross-Wiki rows, Phase Qwen added the Qwen API Key row).
   screen.stdin.write(DOWN);
   await tick(100);
   screen.stdin.write(DOWN);
@@ -216,6 +225,8 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   await tick(100);
   screen.stdin.write(DOWN); // -> Cross-Wiki Judgment Model (Phase 24)
   await tick(100);
+  screen.stdin.write(DOWN); // -> JSON Corrector Model (Phase 16 v1.0.5)
+  await tick(100);
   screen.stdin.write(DOWN); // -> Add Custom Provider
   await tick(100);
   screen.stdin.write(DOWN); // -> Anthropic API Key
@@ -235,16 +246,18 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
     models: {
       provider: string;
       default: string;
-      extractor: string | null;
-      synthesis: string | null;
-      dox: string | null;
-      crossWiki: string | null;
-      crossWikiJudgment: string | null;
+      extractor: { provider: string; model: string } | null;
+      synthesis: { provider: string; model: string } | null;
+      dox: { provider: string; model: string } | null;
+      crossWiki: { provider: string; model: string } | null;
+      crossWikiJudgment: { provider: string; model: string } | null;
     };
   };
   expect(config.models.provider).toBe('anthropic');
-  expect(config.models.extractor).toBe(HAIKU);
-  expect(config.models.synthesis).toBe(SONNET);
+  // v1.9.0: per-call-type slots persist as self-describing
+  // { provider, model } pairs.
+  expect(config.models.extractor).toEqual({ provider: 'anthropic', model: HAIKU });
+  expect(config.models.synthesis).toEqual({ provider: 'anthropic', model: SONNET });
   expect(config.models.default).toBe(HAIKU);
   expect(config.models.dox).toBeNull();
   expect(config.models.crossWiki).toBeNull();
@@ -256,7 +269,14 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
 // ---------------------------------------------------------------------------
 
 test('gate 11.2: resolveModel maps call types through the routing table', () => {
-  const routing: ModelRouting = { default: HAIKU, extractor: HAIKU, synthesis: SONNET, dox: null, crossWiki: null, crossWikiJudgment: null };
+  const routing: ModelRouting = {
+    default: HAIKU,
+    extractor: { provider: 'anthropic', model: HAIKU },
+    synthesis: { provider: 'anthropic', model: SONNET },
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+  };
   setModelRouting(routing);
   try {
     expect(resolveModel('extractor')).toBe(HAIKU);
@@ -298,7 +318,14 @@ test('gate 11.2: with no routing set, resolution is the pre-Phase-11 env-then-de
 });
 
 test('gate 11.2: callLLM sends the routed extractor model in the request body', async () => {
-  setModelRouting({ default: HAIKU, extractor: SONNET, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
+  setModelRouting({
+    default: HAIKU,
+    extractor: { provider: 'anthropic', model: SONNET },
+    synthesis: null,
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+  });
   const savedKey = process.env.ANTHROPIC_API_KEY;
   process.env.ANTHROPIC_API_KEY = 'gate-11-2-test-key';
   mockUndiciRequest.mockResolvedValueOnce({
@@ -372,6 +399,8 @@ test('gate 11.4: after init, TUI goes to Add PDFs then prompts for ingest', asyn
     app.stdin.write('Flow Wiki'); // Title field (focused first)
     await tick(150);
     app.stdin.write('\t'); // -> Workspace (pre-filled with the temp workspace)
+    await tick(150);
+    app.stdin.write('\t'); // -> [ Browse... ] (2026-08-24 folder-picker stop)
     await tick(150);
     app.stdin.write('\t'); // -> Output Language
     await tick(150);
@@ -539,7 +568,7 @@ test('gate 11.9: settings load from legacy .llm-wiki-cli.json and save to .paper
   // Older files carry no models block — the routing defaults are filled in
   // (provider defaults to 'anthropic', Phase 11 v1.4.0). Phase 14: the
   // additive curation slot normalizes to null (legacy byte-identical).
-  expect(loaded.models).toEqual({ provider: 'anthropic', default: HAIKU, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null, curation: null });
+  expect(loaded.models).toEqual({ provider: 'anthropic', default: HAIKU, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null, jsonCorrector: null, curation: null });
 
   await saveSettings(workspace, loaded);
   expect(existsSync(join(workspace, '.paper-chase.json'))).toBe(true);
@@ -570,7 +599,15 @@ test('gate 11.9: the new .paper-chase.json wins when both files exist', async ()
 test('gate 11.10: provider persists through save/load and legacy configs load as anthropic', async () => {
   const workspace = makeTempDir('paper-chase-g11-10a-');
   const settings = await loadSettings(workspace); // defaults in an empty workspace
-  settings.models = { provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: GPT_TERRA, dox: null, crossWiki: null, crossWikiJudgment: null };
+  settings.models = {
+    provider: 'openai',
+    default: GPT_LUNA,
+    extractor: null,
+    synthesis: { provider: 'openai', model: GPT_TERRA },
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+  };
   await saveSettings(workspace, settings);
 
   const raw = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
@@ -581,10 +618,12 @@ test('gate 11.10: provider persists through save/load and legacy configs load as
   const loaded = await loadSettings(workspace);
   expect(loaded.models.provider).toBe('openai');
   expect(loaded.models.default).toBe(GPT_LUNA);
-  expect(loaded.models.synthesis).toBe(GPT_TERRA);
+  expect(loaded.models.synthesis).toEqual({ provider: 'openai', model: GPT_TERRA });
   expect(loaded.models.extractor).toBeNull();
 
-  // A pre-v1.4.0 config (models block without provider) loads as 'anthropic'.
+  // A pre-v1.4.0 config (models block without provider) loads as 'anthropic',
+  // and its v1.9.0-legacy STRING slot values migrate to { provider, model }
+  // pairs under that legacy global provider.
   const legacyWorkspace = makeTempDir('paper-chase-g11-10b-');
   writeFileSync(
     join(legacyWorkspace, '.paper-chase.json'),
@@ -592,11 +631,19 @@ test('gate 11.10: provider persists through save/load and legacy configs load as
   );
   const legacyLoaded = await loadSettings(legacyWorkspace);
   expect(legacyLoaded.models.provider).toBe('anthropic');
-  expect(legacyLoaded.models.synthesis).toBe(SONNET);
+  expect(legacyLoaded.models.synthesis).toEqual({ provider: 'anthropic', model: SONNET });
 });
 
 test('gate 11.10: provider-aware resolution routes call types through the openai table', () => {
-  setModelRouting({ provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: GPT_TERRA, dox: GPT_SOL , crossWiki: null, crossWikiJudgment: null});
+  setModelRouting({
+    provider: 'openai',
+    default: GPT_LUNA,
+    extractor: null,
+    synthesis: { provider: 'openai', model: GPT_TERRA },
+    dox: { provider: 'openai', model: GPT_SOL },
+    crossWiki: null,
+    crossWikiJudgment: null,
+  });
   try {
     // A null routing entry means "Same as default".
     expect(resolveModel('extractor')).toBe(GPT_LUNA);
@@ -616,7 +663,14 @@ test('gate 11.10: provider-aware resolution routes call types through the openai
 });
 
 test('gate 11.10: legacy routing without a provider field keeps anthropic resolution', () => {
-  setModelRouting({ default: HAIKU, extractor: SONNET, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
+  setModelRouting({
+    default: HAIKU,
+    extractor: { provider: 'anthropic', model: SONNET },
+    synthesis: null,
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+  });
   try {
     expect(resolveModel('extractor')).toBe(SONNET);
     expect(resolveModel('dox-writer')).toBe(HAIKU);
@@ -719,24 +773,24 @@ test('gate 11.10: seedModelsForProvider re-seeds all providers to cheapest tier 
     default: GPT_LUNA,
     extractor: null,
     synthesis: null,
-    dox: null, crossWiki: null, crossWikiJudgment: null,
-    curation: GPT_TERRA,
+    dox: null, crossWiki: null, crossWikiJudgment: null, jsonCorrector: null,
+    curation: { provider: 'openai', model: GPT_TERRA },
   });
   expect(seedModelsForProvider('anthropic')).toEqual({
     provider: 'anthropic',
     default: HAIKU,
     extractor: null,
     synthesis: null,
-    dox: null, crossWiki: null, crossWikiJudgment: null,
-    curation: SONNET,
+    dox: null, crossWiki: null, crossWikiJudgment: null, jsonCorrector: null,
+    curation: { provider: 'anthropic', model: SONNET },
   });
   expect(seedModelsForProvider('qwen')).toEqual({
     provider: 'qwen',
     default: QWEN_PLUS,
     extractor: null,
     synthesis: null,
-    dox: null, crossWiki: null, crossWikiJudgment: null,
-    curation: QWEN_37_MAX,
+    dox: null, crossWiki: null, crossWikiJudgment: null, jsonCorrector: null,
+    curation: { provider: 'qwen', model: QWEN_37_MAX },
   });
 });
 
@@ -824,7 +878,15 @@ test('gate 11.10: missing DASHSCOPE_API_KEY with provider qwen throws the exact 
 });
 
 test('gate 11.10: provider-aware resolution routes call types through the qwen table', () => {
-  setModelRouting({ provider: 'qwen', default: QWEN_PLUS, extractor: null, synthesis: QWEN_37_MAX, dox: QWEN_38_MAX , crossWiki: null, crossWikiJudgment: null});
+  setModelRouting({
+    provider: 'qwen',
+    default: QWEN_PLUS,
+    extractor: null,
+    synthesis: { provider: 'qwen', model: QWEN_37_MAX },
+    dox: { provider: 'qwen', model: QWEN_38_MAX },
+    crossWiki: null,
+    crossWikiJudgment: null,
+  });
   try {
     expect(resolveModel('extractor')).toBe(QWEN_PLUS);
     expect(resolveModel('synthesis')).toBe(QWEN_37_MAX);
@@ -840,8 +902,23 @@ test('gate 11.10: provider-aware resolution routes call types through the qwen t
   }
 });
 
-test('gate 11.10: switching provider in the settings screen re-seeds the seven model slots', async () => {
+test('gate 11.10: switching the Default Provider re-seeds only the Default Model — explicit slots are preserved', async () => {
   const workspace = makeTempDir('paper-chase-g11-10c-');
+  // Pre-seed an explicit selection on the Extractor row (v1.9.0 composite
+  // slot) plus the default anthropic table.
+  const settings = await loadSettings(workspace);
+  settings.models = {
+    provider: 'anthropic',
+    default: HAIKU,
+    extractor: { provider: 'anthropic', model: HAIKU },
+    synthesis: null,
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+    curation: { provider: 'anthropic', model: SONNET },
+  };
+  await saveSettings(workspace, settings);
+
   let result: string | undefined;
   const screen = renderCaptured(
     React.createElement(SettingsScreen, {
@@ -850,23 +927,22 @@ test('gate 11.10: switching provider in the settings screen re-seeds the seven m
       workspace,
     }),
   );
-  await tick(400); // let loadSettings resolve (defaults in an empty workspace)
+  await tick(400); // let loadSettings resolve
 
-  // Rows: Synthesis, Update Agents, Provider, Default Model, Extractor Model,
-  // Synthesis Writer Model, DOX Writer Model, Curation Model, Cross-Wiki Bulk
-  // Model, Cross-Wiki Judgment Model, Add Custom Provider, Anthropic API Key,
-  // OpenAI API Key, Qwen API Key, [ Save ], [ Back ] — Provider is index 2,
-  // [ Save ] is index 14 (12 Downs between them; Phase 14 added Curation,
-  // Phase 24 added the two Cross-Wiki rows, Phase Qwen added the Qwen key row,
-  // v1.8.0 added the Add Custom Provider row).
+  // Rows: Synthesis, Update Agents, Default Provider, Default Model,
+  // Extractor Model, Synthesis Writer Model, DOX Writer Model, Curation
+  // Model, Cross-Wiki Bulk Model, Cross-Wiki Judgment Model, JSON Corrector
+  // Model, Add Custom Provider, Anthropic API Key, OpenAI API Key, Qwen API
+  // Key, [ Save ], [ Back ] — Default Provider is index 2, [ Save ] is index
+  // 15 (13 Downs between them).
   screen.stdin.write(DOWN);
   await tick(100);
-  screen.stdin.write(DOWN); // -> Provider
+  screen.stdin.write(DOWN); // -> Default Provider
   await tick(100);
-  screen.stdin.write(RIGHT); // Anthropic -> OpenAI (slots re-seed immediately)
+  screen.stdin.write(RIGHT); // Anthropic -> OpenAI (default re-seeds immediately)
   await tick(100);
-  for (let i = 0; i < 12; i++) {
-    screen.stdin.write(DOWN); // Provider -> ... -> [ Save ]
+  for (let i = 0; i < 13; i++) {
+    screen.stdin.write(DOWN); // Default Provider -> ... -> [ Save ]
     await tick(100);
   }
   screen.stdin.write('\r');
@@ -875,58 +951,39 @@ test('gate 11.10: switching provider in the settings screen re-seeds the seven m
   await tick(50);
 
   const openaiConfig = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null; curation: string | null; crossWiki: string | null; crossWikiJudgment: string | null };
+    models: {
+      provider: string;
+      default: string;
+      extractor: { provider: string; model: string } | null;
+      synthesis: { provider: string; model: string } | null;
+      dox: { provider: string; model: string } | null;
+      curation: { provider: string; model: string } | null;
+      crossWiki: { provider: string; model: string } | null;
+      crossWikiJudgment: { provider: string; model: string } | null;
+    };
   };
   expect(openaiConfig.models.provider).toBe('openai');
   expect(openaiConfig.models.default).toBe(GPT_LUNA);
-  expect(openaiConfig.models.extractor).toBeNull();
+  // v1.9.0: the explicitly-set Extractor and Curation slots are PRESERVED —
+  // they carry their own provider, so no stale cross-provider id can exist.
+  expect(openaiConfig.models.extractor).toEqual({ provider: 'anthropic', model: HAIKU });
+  expect(openaiConfig.models.curation).toEqual({ provider: 'anthropic', model: SONNET });
   expect(openaiConfig.models.synthesis).toBeNull();
   expect(openaiConfig.models.dox).toBeNull();
-  expect(openaiConfig.models.curation).toBe(GPT_TERRA);
   expect(openaiConfig.models.crossWiki).toBeNull();
   expect(openaiConfig.models.crossWikiJudgment).toBeNull();
-
-  // Switch back: a fresh render loads the saved openai settings; LEFT on the
-  // Provider row re-seeds to the Anthropic defaults.
-  let result2: string | undefined;
-  const screen2 = renderCaptured(
-    React.createElement(SettingsScreen, {
-      onBack: () => {},
-      onResult: (message: string) => (result2 = message),
-      workspace,
-    }),
-  );
-  await tick(400);
-  screen2.stdin.write(DOWN);
-  await tick(100);
-  screen2.stdin.write(DOWN); // -> Provider
-  await tick(100);
-  screen2.stdin.write(LEFT); // OpenAI -> Anthropic
-  await tick(100);
-  for (let i = 0; i < 12; i++) {
-    screen2.stdin.write(DOWN);
-    await tick(100);
-  }
-  screen2.stdin.write('\r');
-  await waitFor(() => result2 !== undefined);
-  screen2.unmount();
-  await tick(50);
-
-  const anthropicConfig = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-    models: { provider: string; default: string; extractor: string | null; synthesis: string | null; dox: string | null; curation: string | null; crossWiki: string | null; crossWikiJudgment: string | null };
-  };
-  expect(anthropicConfig.models.provider).toBe('anthropic');
-  expect(anthropicConfig.models.default).toBe(HAIKU);
-  expect(anthropicConfig.models.extractor).toBeNull();
-  expect(anthropicConfig.models.synthesis).toBeNull();
-  expect(anthropicConfig.models.dox).toBeNull();
-  expect(anthropicConfig.models.curation).toBe(SONNET);
-  expect(anthropicConfig.models.crossWiki).toBeNull();
-  expect(anthropicConfig.models.crossWikiJudgment).toBeNull();
 }, 30000);
 
 test('gate 11.10: anthropic request shape is byte-identical to the pre-extension client', async () => {
-  setModelRouting({ provider: 'anthropic', default: HAIKU, extractor: SONNET, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null });
+  setModelRouting({
+    provider: 'anthropic',
+    default: HAIKU,
+    extractor: { provider: 'anthropic', model: SONNET },
+    synthesis: null,
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+  });
   const savedKey = process.env.ANTHROPIC_API_KEY;
   process.env.ANTHROPIC_API_KEY = 'gate-11-10-anthropic-key';
   const okBody = async () => ({
@@ -1191,8 +1248,8 @@ test('gate 11.11: the settings screen masks stored keys — last4 shown, the ful
       React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
     );
     await tick(400);
-    for (let i = 0; i < 11; i++) {
-      editScreen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; Phase 24: past the two Cross-Wiki rows; v1.8.0: past the Add Custom Provider row)
+    for (let i = 0; i < 12; i++) {
+      editScreen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; Phase 24: past the two Cross-Wiki rows; v1.8.0: past the Add Custom Provider row; Phase 16 v1.0.5: past the JSON Corrector Model row)
       await tick(60);
     }
     editScreen.stdin.write('\r'); // open the masked editor
@@ -1209,7 +1266,7 @@ test('gate 11.11: the settings screen masks stored keys — last4 shown, the ful
   }
   // The stored fake key renders as source + last4 only …
   expect(frame).toContain('Anthropic API Key: [configured ••••ab12]');
-  // … and the untouched provider shows 'not set'.
+  // … and the untouched providers show 'not set'.
   expect(frame).toContain('OpenAI API Key: [not set]');
   // The freshly staged edit re-renders with ITS last4 …
   expect(editFrame).toContain('Anthropic API Key: [configured ••••4321]');
@@ -1228,8 +1285,15 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
       apiKeys: { anthropic: string | null; openai: string | null; qwen: string | null };
     };
   const focusAnthropicKeyRow = async (screen: CapturedRender) => {
-    for (let i = 0; i < 11; i++) {
-      screen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; Phase 24: past the two Cross-Wiki rows; v1.8.0: past the Add Custom Provider row)
+    for (let i = 0; i < 12; i++) {
+      screen.stdin.write(DOWN); // -> Anthropic API Key (Phase 14: past the Curation Model row; Phase 24: past the two Cross-Wiki rows; v1.8.0: past the Add Custom Provider row; Phase 16 v1.0.5: past the JSON Corrector Model row)
+      await tick(80);
+    }
+  };
+  const downToSave = async (screen: CapturedRender) => {
+    // Anthropic API Key -> OpenAI API Key -> Qwen API Key -> [ Save ].
+    for (let i = 0; i < 3; i++) {
+      screen.stdin.write(DOWN);
       await tick(80);
     }
   };
@@ -1251,12 +1315,7 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   await tick(150);
   screen1.stdin.write('\r'); // submit -> staged
   await tick(100);
-  screen1.stdin.write(DOWN); // -> OpenAI API Key
-  await tick(80);
-  screen1.stdin.write(DOWN); // -> Qwen API Key
-  await tick(80);
-  screen1.stdin.write(DOWN); // -> [ Save ]
-  await tick(80);
+  await downToSave(screen1);
   screen1.stdin.write('\r');
   await waitFor(() => result1 !== undefined);
   screen1.unmount();
@@ -1283,12 +1342,7 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   await tick(150);
   screen2.stdin.write(ESC); // cancel the edit
   await tick(100);
-  screen2.stdin.write(DOWN); // -> OpenAI API Key
-  await tick(80);
-  screen2.stdin.write(DOWN); // -> Qwen API Key
-  await tick(80);
-  screen2.stdin.write(DOWN); // -> [ Save ]
-  await tick(80);
+  await downToSave(screen2);
   screen2.stdin.write('\r');
   await waitFor(() => result2 !== undefined);
   screen2.unmount();
@@ -1310,12 +1364,7 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   await tick(100);
   screen3.stdin.write('\r'); // empty submit -> staged clear
   await tick(100);
-  screen3.stdin.write(DOWN); // -> OpenAI API Key
-  await tick(80);
-  screen3.stdin.write(DOWN); // -> Qwen API Key
-  await tick(80);
-  screen3.stdin.write(DOWN); // -> [ Save ]
-  await tick(80);
+  await downToSave(screen3);
   screen3.stdin.write('\r');
   await waitFor(() => result3 !== undefined);
   screen3.unmount();
@@ -1558,7 +1607,7 @@ test('gate 11.12: the main menu is unchanged — five items, agents-review absen
 // Gate 11.13: Custom model override + per-row model test (Phase 11 v1.7.0)
 // ---------------------------------------------------------------------------
 
-test('gate 11.13: cycling to Custom model... opens an editor and persists the raw id', async () => {
+test('gate 11.13: Enter on a model row opens a custom-id editor and persists the raw id', async () => {
   const workspace = makeTempDir('paper-chase-g11-13-custom-');
   let result: string | undefined;
   const screen = renderCaptured(
@@ -1570,22 +1619,14 @@ test('gate 11.13: cycling to Custom model... opens an editor and persists the ra
   );
   await tick(400);
 
-  // Navigate to Extractor Model (row 4) and cycle to __custom__.
-  screen.stdin.write(DOWN);
-  await tick(100);
-  screen.stdin.write(DOWN);
-  await tick(100);
-  screen.stdin.write(DOWN); // -> Default Model
-  await tick(100);
-  screen.stdin.write(DOWN); // -> Extractor Model
-  await tick(100);
-  screen.stdin.write(RIGHT); // Same as default -> Haiku
-  await tick(100);
-  screen.stdin.write(RIGHT); // Haiku -> Sonnet
-  await tick(100);
-  screen.stdin.write(RIGHT); // Sonnet -> Opus
-  await tick(100);
-  screen.stdin.write(RIGHT); // Opus -> Custom model...
+  // Navigate to Extractor Model (row 4) and press Enter to open the
+  // custom-id editor (v1.9.0: Enter on a model row replaces the old
+  // "Custom model..." cycle sentinel).
+  for (let i = 0; i < 4; i++) {
+    screen.stdin.write(DOWN);
+    await tick(80);
+  }
+  screen.stdin.write('\r'); // open the editor
   await tick(100);
 
   // The row is now in custom-edit mode; type the raw id and submit.
@@ -1594,8 +1635,9 @@ test('gate 11.13: cycling to Custom model... opens an editor and persists the ra
   screen.stdin.write('\r');
   await tick(100);
 
-  // Navigate to Save and persist.
-  for (let i = 0; i < 10; i++) {
+  // Navigate to Save and persist (Phase 16 v1.0.5's JSON Corrector Model
+  // row adds one more to the pre-v1.0.5 count: 11 Downs).
+  for (let i = 0; i < 11; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
@@ -1605,15 +1647,17 @@ test('gate 11.13: cycling to Custom model... opens an editor and persists the ra
   await tick(50);
 
   const config = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-    models: { extractor: string | null };
+    models: { extractor: { provider: string; model: string } | null };
   };
-  expect(config.models.extractor).toBe('claude-custom-123');
+  // v1.9.0: the custom id persists as a { provider, model } pair scoped to
+  // the row's effective provider.
+  expect(config.models.extractor).toEqual({ provider: 'anthropic', model: 'claude-custom-123' });
 });
 
 test('gate 11.13: a persisted custom id is displayed and can be cycled back to edit mode', async () => {
   const workspace = makeTempDir('paper-chase-g11-13-cycle-');
   const settings = await loadSettings(workspace);
-  settings.models.extractor = 'my-custom-model';
+  settings.models.extractor = { provider: 'anthropic', model: 'my-custom-model' };
   await saveSettings(workspace, settings);
 
   const screen = renderCaptured(
@@ -1626,10 +1670,10 @@ test('gate 11.13: a persisted custom id is displayed and can be cycled back to e
   expect(frame).toContain('my-custom-model');
 });
 
-test('gate 11.13: switching providers resets the custom model to the new provider defaults', async () => {
+test('gate 11.13: switching the Default Provider preserves a custom model (v1.9.0)', async () => {
   const workspace = makeTempDir('paper-chase-g11-13-reset-');
   const settings = await loadSettings(workspace);
-  settings.models.extractor = 'claude-custom-123';
+  settings.models.extractor = { provider: 'anthropic', model: 'claude-custom-123' };
   await saveSettings(workspace, settings);
 
   let result: string | undefined;
@@ -1641,15 +1685,16 @@ test('gate 11.13: switching providers resets the custom model to the new provide
     }),
   );
   await tick(400);
-  // Navigate to Provider and switch to OpenAI.
+  // Navigate to Default Provider and switch to OpenAI.
   screen.stdin.write(DOWN);
   await tick(100);
-  screen.stdin.write(DOWN); // -> Provider
+  screen.stdin.write(DOWN); // -> Default Provider
   await tick(100);
   screen.stdin.write(RIGHT); // Anthropic -> OpenAI
   await tick(100);
-  // Navigate to Save and persist.
-  for (let i = 0; i < 12; i++) {
+  // Navigate to Save and persist (Phase 16 v1.0.5's JSON Corrector Model
+  // row adds one more to the pre-v1.0.5 count: 13 Downs).
+  for (let i = 0; i < 13; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
@@ -1658,10 +1703,12 @@ test('gate 11.13: switching providers resets the custom model to the new provide
   screen.unmount();
   await tick(50);
 
-  // The extractor slot re-seeded to null ("Same as default").
+  // The explicitly-set extractor slot is preserved with its own provider;
+  // only the Default Model row re-seeded to the OpenAI cheapest tier.
   const loaded = await loadSettings(workspace);
-  expect(loaded.models.extractor).toBeNull();
+  expect(loaded.models.extractor).toEqual({ provider: 'anthropic', model: 'claude-custom-123' });
   expect(loaded.models.provider).toBe('openai');
+  expect(loaded.models.default).toBe(GPT_LUNA);
 });
 
 test('gate 11.13: test connection reports success with a mocked 200 response', async () => {
@@ -1770,16 +1817,18 @@ test('gate 11.14: add a custom provider and it persists to .paper-chase.json', a
     }),
   );
   await tick(400);
-  // Navigate to Add Custom Provider (row 10) and press Enter.
-  for (let i = 0; i < 10; i++) {
+  // Navigate to Add Custom Provider (row 11 — Phase 16 v1.0.5's JSON
+  // Corrector Model row shifted it one down) and press Enter.
+  for (let i = 0; i < 11; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
   screen.stdin.write('\r');
   await tick(200);
   // After adding, the provider is the new custom provider and the row order
-  // has expanded with config rows. The focus stays on the custom provider's
-  // first config row (index 10); Save is at index 25 — 15 Downs.
+  // has expanded with config rows. The focus stays at index 11 (now the
+  // custom provider's first config row); Save is at index 26 — 15 Downs
+  // (Phase 16 v1.0.5's JSON Corrector Model row shifted Save one further).
   for (let i = 0; i < 15; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
@@ -2030,8 +2079,9 @@ test('gate 11.14: custom model names within a custom provider are selectable and
   await tick(100);
   // Navigate to Save and persist. With the custom provider selected, the row
   // order includes the config rows (12 rows for 2 models + 1 header); Save is
-  // at index 26 from Default Model (index 3) — 23 Downs.
-  for (let i = 0; i < 23; i++) {
+  // at index 27 from Default Model (index 3) — 24 Downs (Phase 16 v1.0.5's
+  // JSON Corrector Model row shifted Save one further).
+  for (let i = 0; i < 24; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
@@ -2086,3 +2136,262 @@ test('gate 11.14: custom provider rows appear in the row order only when selecte
   expect(customScreen.output()).toContain('OpenRouter API Key');
 });
 
+
+// ---------------------------------------------------------------------------
+// Gate 11.16: per-step provider + model routing (user directive 2026-08-17)
+// ---------------------------------------------------------------------------
+
+test('gate 11.16: each call type resolves its own provider + model slot', () => {
+  setModelRouting({
+    provider: 'openai',
+    default: GPT_LUNA,
+    extractor: { provider: 'qwen', model: QWEN_PLUS },
+    synthesis: { provider: 'anthropic', model: SONNET },
+    dox: { provider: 'openai', model: GPT_SOL },
+    crossWiki: null,
+    crossWikiJudgment: null,
+  });
+  try {
+    expect(resolveSlotFromRouting(
+      { provider: 'openai', default: GPT_LUNA, extractor: { provider: 'qwen', model: QWEN_PLUS }, synthesis: { provider: 'anthropic', model: SONNET }, dox: { provider: 'openai', model: GPT_SOL }, crossWiki: null, crossWikiJudgment: null },
+      'extractor',
+    )).toEqual({ provider: 'qwen', model: QWEN_PLUS });
+    expect(resolveProviderForCall('extractor')).toBe('qwen');
+    expect(resolveProviderForCall('synthesis')).toBe('anthropic');
+    expect(resolveProviderForCall('dox-writer')).toBe('openai');
+    // Unmapped call types and null slots fall to the default slot.
+    expect(resolveProviderForCall('agents-updater')).toBe('openai');
+    expect(resolveProviderForCall()).toBe('openai');
+    expect(resolveModel('agents-updater')).toBe(GPT_LUNA);
+    expect(resolveModel('extractor')).toBe(QWEN_PLUS);
+    expect(resolveModel('synthesis')).toBe(SONNET);
+  } finally {
+    setModelRouting(null);
+  }
+});
+
+test('gate 11.16: callLLM sends each call type to its own provider (mixed-provider table)', async () => {
+  setModelRouting({
+    provider: 'openai',
+    default: GPT_LUNA,
+    extractor: { provider: 'qwen', model: QWEN_PLUS },
+    synthesis: { provider: 'anthropic', model: SONNET },
+    dox: { provider: 'openai', model: GPT_SOL },
+    crossWiki: null,
+    crossWikiJudgment: null,
+    apiKeys: {
+      anthropic: FAKE_ANT_STORED,
+      qwen: 'fake-qwen-stored',
+      openai: FAKE_OPENAI_STORED,
+    },
+  });
+  mockUndiciRequest
+    .mockResolvedValueOnce(okOpenAIResponse()) // extractor -> qwen (DashScope)
+    .mockResolvedValueOnce(okAnthropicResponse()) // synthesis -> anthropic
+    .mockResolvedValueOnce(okOpenAIResponse()); // dox -> openai
+  const savedOpenAiEnv = process.env.OPENAI_API_KEY;
+  try {
+    await callLLM('p1', undefined, { callType: 'extractor' });
+    await callLLM('p2', undefined, { callType: 'synthesis' });
+    await callLLM('p3', undefined, { callType: 'dox-writer' });
+
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(3);
+
+    const [url1, options1] = mockUndiciRequest.mock.calls[0] as unknown as [
+      string,
+      { headers: Record<string, string>; body: string },
+    ];
+    expect(url1).toBe(QWEN_URL);
+    expect(options1.headers.authorization).toBe('Bearer fake-qwen-stored');
+    expect(JSON.parse(options1.body).model).toBe(QWEN_PLUS);
+
+    const [url2, options2] = mockUndiciRequest.mock.calls[1] as unknown as [
+      string,
+      { headers: Record<string, string>; body: string },
+    ];
+    expect(url2).toBe(ANTHROPIC_URL);
+    expect(options2.headers['x-api-key']).toBe(FAKE_ANT_STORED);
+    expect(JSON.parse(options2.body).model).toBe(SONNET);
+
+    const [url3, options3] = mockUndiciRequest.mock.calls[2] as unknown as [
+      string,
+      { headers: Record<string, string>; body: string },
+    ];
+    expect(url3).toBe(OPENAI_URL);
+    expect(options3.headers.authorization).toBe(`Bearer ${FAKE_OPENAI_STORED}`);
+    expect(JSON.parse(options3.body).model).toBe(GPT_SOL);
+  } finally {
+    setModelRouting(null);
+    if (savedOpenAiEnv === undefined) {
+      delete process.env.OPENAI_API_KEY;
+    } else {
+      process.env.OPENAI_API_KEY = savedOpenAiEnv;
+    }
+  }
+});
+
+test('gate 11.16: legacy string slots migrate to { provider, model } pairs under the legacy global provider', async () => {
+  const workspace = makeTempDir('paper-chase-g11-16-migrate-');
+  writeFileSync(
+    join(workspace, '.paper-chase.json'),
+    JSON.stringify({
+      models: {
+        provider: 'qwen',
+        default: 'qwen-plus',
+        extractor: 'qwen3.7-max',
+        synthesis: null,
+        dox: null,
+        crossWiki: null,
+        crossWikiJudgment: null,
+      },
+    }),
+    'utf-8',
+  );
+  const loaded = await loadSettings(workspace);
+  expect(loaded.models.provider).toBe('qwen');
+  expect(loaded.models.extractor).toEqual({ provider: 'qwen', model: 'qwen3.7-max' });
+  // Re-saving persists the composite shape.
+  await saveSettings(workspace, loaded);
+  const raw = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
+    models: { extractor: { provider: string; model: string } | null };
+  };
+  expect(raw.models.extractor).toEqual({ provider: 'qwen', model: 'qwen3.7-max' });
+});
+
+test('gate 11.16: normalizeModelSlot accepts composite pairs, migrates legacy strings, and rejects malformed values', () => {
+  expect(normalizeModelSlot({ provider: 'qwen', model: QWEN_PLUS }, 'anthropic')).toEqual({
+    provider: 'qwen',
+    model: QWEN_PLUS,
+  });
+  expect(normalizeModelSlot('legacy-id', 'openai')).toEqual({ provider: 'openai', model: 'legacy-id' });
+  // An unknown provider string in a composite pair coerces to 'anthropic'.
+  expect(normalizeModelSlot({ provider: 'bogus-provider', model: 'x' }, 'openai')).toEqual({
+    provider: 'anthropic',
+    model: 'x',
+  });
+  expect(normalizeModelSlot(null, 'anthropic')).toBeNull();
+  expect(normalizeModelSlot('', 'anthropic')).toBeNull();
+  expect(normalizeModelSlot({ provider: 'qwen', model: '' }, 'anthropic')).toBeNull();
+  expect(normalizeModelSlot(undefined, 'anthropic')).toBeNull();
+});
+
+test('gate 11.16: the settings screen prefixes slots whose provider differs from the Default Provider', async () => {
+  const workspace = makeTempDir('paper-chase-g11-16-prefix-');
+  const settings = await loadSettings(workspace);
+  settings.models = {
+    provider: 'openai',
+    default: GPT_LUNA,
+    extractor: { provider: 'qwen', model: QWEN_PLUS },
+    synthesis: { provider: 'anthropic', model: SONNET },
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+  };
+  await saveSettings(workspace, settings);
+
+  const screen = renderCaptured(
+    React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
+  );
+  await tick(400);
+  screen.unmount();
+  await tick(50);
+  const frame = screen.output();
+  expect(frame).toContain('Default Provider: [‹ OpenAI ›]');
+  expect(frame).toContain('Default Model: [‹ GPT-5.6 Luna ›]');
+  expect(frame).toContain('Extractor Model: [‹ Qwen · Qwen-Plus ›]');
+  expect(frame).toContain('Synthesis Writer Model: [‹ Anthropic · Sonnet 5 ›]');
+  // A null slot resolves to the openai default.
+  expect(frame).toContain('DOX Writer Model: [‹ Same as default ›]');
+}, 30000);
+
+// ---------------------------------------------------------------------------
+// Gate 11.18: the JSON Corrector Model slot (Phase 16 v1.0.5, user-ratified
+// 2026-08-23). The json-corrector call type routes through the additive
+// `jsonCorrector` slot with a Default-slot fallback; legacy configs normalize
+// to null; the Settings screen carries the row.
+// ---------------------------------------------------------------------------
+
+test('gate 11.18: the jsonCorrector slot seeds null, normalizes legacy configs to null, and resolves with the default fallback', async () => {
+  // Seed: the new slot starts as "Same as default".
+  expect(seedModelsForProvider('anthropic').jsonCorrector).toBeNull();
+
+  // Legacy config (no jsonCorrector field at all) loads with the slot null.
+  const workspace = makeTempDir('paper-chase-g11-18-');
+  writeFileSync(
+    join(workspace, '.paper-chase.json'),
+    JSON.stringify({
+      synthesis: true,
+      models: { provider: 'anthropic', default: HAIKU, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null },
+    }),
+  );
+  const loaded = await loadSettings(workspace);
+  expect(loaded.models.jsonCorrector).toBeNull();
+
+  // Resolution: 'json-corrector' falls back to the default slot when null...
+  setModelRouting({
+    provider: 'anthropic',
+    default: HAIKU,
+    extractor: null,
+    synthesis: { provider: 'anthropic', model: SONNET },
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+  });
+  try {
+    expect(resolveSlotFromRouting(
+      {
+        provider: 'anthropic',
+        default: HAIKU,
+        extractor: null,
+        synthesis: { provider: 'anthropic', model: SONNET },
+        dox: null,
+        crossWiki: null,
+        crossWikiJudgment: null,
+      },
+      'json-corrector',
+    )).toEqual({ provider: 'anthropic', model: HAIKU });
+    expect(resolveProviderForCall('json-corrector')).toBe('anthropic');
+    expect(resolveModel('json-corrector')).toBe(HAIKU);
+  } finally {
+    setModelRouting(null);
+  }
+
+  // ...and to its OWN provider+model when set (a mixed-provider table).
+  setModelRouting({
+    provider: 'openai',
+    default: GPT_LUNA,
+    extractor: null,
+    synthesis: null,
+    dox: null,
+    crossWiki: null,
+    crossWikiJudgment: null,
+    jsonCorrector: { provider: 'qwen', model: 'qwen-plus' },
+  });
+  try {
+    expect(resolveProviderForCall('json-corrector')).toBe('qwen');
+    expect(resolveModel('json-corrector')).toBe('qwen-plus');
+    // Other call types are untouched.
+    expect(resolveProviderForCall('extractor')).toBe('openai');
+  } finally {
+    setModelRouting(null);
+  }
+
+  // The composite slot round-trips through save/load.
+  loaded.models.jsonCorrector = { provider: 'qwen', model: 'qwen-plus' };
+  await saveSettings(workspace, loaded);
+  const reloaded = await loadSettings(workspace);
+  expect(reloaded.models.jsonCorrector).toEqual({ provider: 'qwen', model: 'qwen-plus' });
+});
+
+test('gate 11.18: the settings screen shows the JSON Corrector Model row with its recommendation label', async () => {
+  const workspace = makeTempDir('paper-chase-g11-18row-');
+  const screen = renderCaptured(
+    React.createElement(SettingsScreen, { onBack: () => {}, workspace }),
+  );
+  await tick(400);
+  screen.unmount();
+  await tick(50);
+  const frame = screen.output();
+  expect(frame).toContain('JSON Corrector Model');
+  expect(frame).toContain('Haiku — cheap; writes short JSON-repair instructions');
+}, 30000);

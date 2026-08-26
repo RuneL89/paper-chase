@@ -55,7 +55,45 @@ import { spawnSync } from 'node:child_process';
 // 1.0.13 (2026-08-14): Phase 24 `--force-cross-wiki` CLI flag + TUI `F`
 // toggle (src/cli.ts and src/tui/ingest-screen.tsx bundle change). The
 // packaged runtime must re-extract so users see the new flag and toggle.
-const VERSION = '1.0.13';
+// 1.0.16 (2026-08-20): Phase 16 v1.1.0 extraction transport fallback build —
+// rolled back the same day (never a release).
+// 1.0.17 (2026-08-20): ROLLBACK release — src/commands/ingest.ts returns to the
+// pre-amendment extraction loop (per-chunk transport fallback removed), while
+// src/llm/client.ts KEEPS the option-3 changes (attempt count in exhausted
+// transport errors + Retry-After honoring on 429). The bundle is an extracted
+// asset: installs that extracted the prior release must re-extract to drop the
+// rejected fallback and gain Retry-After honoring.
+// 1.0.18 (2026-08-20): Phase 16 v1.0.2 reactive 429 stall — the client bundle
+// gains the stall (RATE_LIMIT_MAX_ATTEMPTS + rateLimitStallDelayMs) and the
+// setRateLimitWaitReporter seam, and ingest.ts gains the reporter-wiring
+// wrapper. The bundle is an extracted asset: installs must re-extract to get
+// the stall behavior and the live stall progress lines.
+// 1.0.20 (2026-08-22): Phase 16 v1.0.3/v1.0.4 — the Settings bundle
+// (src/llm/client.ts, src/tui/settings.ts, src/tui/settings-screen.tsx,
+// src/commands/ingest.ts) gains the 429/5xx stall ladder (1/5/15/45/90 min;
+// TRANSIENT_MAX_ATTEMPTS/transientStallDelayMs/setStallWaitReporter) and the
+// 429/5xx stall audit log (`.state/transport-stalls.jsonl` per wiki). The
+// packaged runtime must re-extract so users get stall ladder behavior and
+// auditable stall records.
+// 1.0.22 (2026-08-23): Phase 16 v1.0.5 — the NEW prompts/json-corrector.prompt.txt
+// (an extracted asset via the "prompts/**/*" glob) and the bundle gains the
+// JSON-corrector recovery loop (src/llm/json-corrector.ts + the reask
+// feedbackEnhancer + the extractor/curation/cross-wiki wiring), the
+// per-attempt absolute deadline + Retry-After clamp + finish-reason tap
+// (src/llm/client.ts), and the JSON Corrector Model Settings row
+// (src/tui/settings.ts + settings-screen.tsx). The packaged runtime must
+// re-extract so users get the new prompt file and the new Settings row.
+// 1.0.23 (2026-08-24): Create New Wiki folder picker (user directive) — the
+// bundle gains the NEW src/utils/folder-dialog.ts (native FolderBrowserDialog)
+// and the init-screen changes (the [ Browse... ] stop + the always-on
+// resolved-target breadcrumb in src/tui/init-screen.tsx). The packaged runtime
+// must re-extract so users see the folder picker and the breadcrumb.
+// 1.0.24 (2026-08-25): DeepSeek/Zhipu/GLM built-in providers removed from the
+// Settings bundle (src/llm/client.ts, src/tui/settings.ts,
+// src/tui/settings-screen.tsx). The packaged runtime must re-extract so
+// installed runtimes drop the removed provider rows, catalogs, and API-key
+// fields.
+const VERSION = '1.0.24';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

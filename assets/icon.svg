@@ -1,0 +1,44 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper Chase app icon: fanned paper stack, top sheet carries a wiki link-graph.
+       Phosphor green on a dark terminal plate. Rendered 32px and up by scripts/build-icon.ts. -->
+  <defs>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#262d27"/>
+      <stop offset="1" stop-color="#141914"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#3dff7c" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#3dff7c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="512" height="512" rx="116" fill="url(#plate)"/>
+  <rect x="0" y="0" width="512" height="512" rx="116" fill="url(#glow)"/>
+
+  <!-- back sheet -->
+  <rect x="78" y="96" width="296" height="372" rx="26" fill="#232a25"/>
+  <!-- mid sheet -->
+  <rect x="108" y="70" width="296" height="372" rx="26" fill="#2d3a31"/>
+  <!-- front sheet -->
+  <rect x="138" y="44" width="296" height="372" rx="26" fill="#3a4c40" stroke="#59745c" stroke-width="3"/>
+
+  <!-- faint content lines under the graph (wiki page body) -->
+  <g stroke="#55705a" stroke-width="12" stroke-linecap="round" opacity="0.5">
+    <line x1="176" y1="356" x2="330" y2="356"/>
+    <line x1="176" y1="384" x2="262" y2="384"/>
+  </g>
+
+  <!-- wiki link-graph -->
+  <g stroke="#3dff7c" stroke-width="16" stroke-linecap="round" opacity="0.95">
+    <line x1="306" y1="212" x2="214" y2="132"/>
+    <line x1="306" y1="212" x2="224" y2="308"/>
+    <line x1="306" y1="212" x2="366" y2="320"/>
+    <line x1="214" y1="132" x2="224" y2="308"/>
+  </g>
+  <g fill="#35e56e" stroke="#1e5c36" stroke-width="6">
+    <circle cx="214" cy="132" r="23"/>
+    <circle cx="224" cy="308" r="23"/>
+    <circle cx="366" cy="320" r="19"/>
+  </g>
+  <circle cx="306" cy="212" r="35" fill="#52ff8e" stroke="#1e5c36" stroke-width="6"/>
+</svg>

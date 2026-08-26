@@ -2,7 +2,7 @@
 
 ## Purpose
 
-One-off, committed utility scripts (run with `npx tsx`) that create or verify project fixtures. Not part of the shipped CLI.
+One-off, committed utility scripts (run with `npx tsx`) that create or verify project fixtures and drive the Windows packaging pipeline (build-exe → build-launcher → pkg → set-icon). Not part of the shipped CLI.
 
 ## Ownership
 
@@ -16,6 +16,9 @@ One-off, committed utility scripts (run with `npx tsx`) that create or verify pr
 * `launcher-entry.ts` — the paper-chase.exe payload: extracts the runtime (real node.exe, chase.mjs, prompts, template, pdfjs fonts + native canvas) once to `%LOCALAPPDATA%\paper-chase\runtime\<asset-version>` (marker-guarded) and hands off to real Node with inherited stdio — pkg's patched Node runtime segfaults inside react-reconciler's commit when ink renders, so the TUI must run under real Node (see the file's header comment for the full rationale)
 * `react-devtools-core-stub.js` — esbuild alias stub for ink's optional, guarded `react-devtools-core` import (the package is deliberately not installed)
 * `repair-wikilinks.ts` — Phase 20 one-time wikilink remediation (B20, user-directed 2026-07-29): `npx tsx scripts/repair-wikilinks.ts [wikisRoot=dist/wikis] [--dry]` walks every wiki under the root and applies the deterministic unique-prefix/alias repair (`src/utils/wikilink-repair.ts`) to every entity/topic page, rewrites changed pages, and re-converges `.state/ingestion.json` `pageHashes` from disk for every modified page (no B19-class false flags); `--dry` prints the full report without writing; per-wiki report of repairs (old → new), unrepairable + candidates, unchanged counts
+* `build-icon.ts` — regenerates `assets/icon.ico` (multi-size 16/24/32/48/64/128/256) from `assets/icon.svg` + `assets/icon-small.svg` using headless Chrome/Edge screenshots (transparency via `--default-background-color=00000000`) and a dependency-free ICO packer (this build machine has no standalone npm on PATH — see `assets/AGENTS.md`); run only when the SVG sources change; also writes throwaway review previews (512px + pixelated small-size strip) to the OS temp dir
+* `set-icon.ts` — packaging step 3: patches `assets/icon.ico` into `dist/paper-chase.exe` with the vendored rcedit. pkg has no icon support, and a bare `rcedit --set-icon` BREAKS the exe: rcedit's PE rewrite drops pkg's appended payload overlay AND pkg bakes PAYLOAD_POSITION (its own section end) into the prelude at build time, so a mis-placed payload boots degraded ("Pkg: Error reading from file." — the launcher then "extracts" live project files instead of the snapshot). The script captures the overlay, runs rcedit, zero-pads the section-table gap, and re-appends the overlay at the original baked position (final size == fresh pkg output); it runs on a FRESH pkg output only (always true inside `npm run package:win`) and refuses loudly if rcedit grows the sections past the baked position
+* `vendor/rcedit-x64.exe` — the only vendored binary (electron/rcedit v2.0.0, downloaded 2026-08-24); used solely by `set-icon.ts`; keep it in lockstep with the rcedit usage there
 
 ## Local Contracts
 

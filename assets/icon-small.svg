@@ -1,0 +1,28 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Small-size variant of assets/icon.svg (16/24 px): same composition, fewer nodes,
+       oversized strokes, lighter sheet tones for contrast. Rendered by scripts/build-icon.ts. -->
+  <defs>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#262d27"/>
+      <stop offset="1" stop-color="#141914"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="512" height="512" rx="116" fill="url(#plate)"/>
+
+  <rect x="78" y="96" width="296" height="372" rx="26" fill="#2e3830"/>
+  <rect x="108" y="70" width="296" height="372" rx="26" fill="#3c4b3f"/>
+  <rect x="138" y="44" width="296" height="372" rx="26" fill="#4d6352"/>
+
+  <!-- triangle graph, thick strokes -->
+  <g stroke="#45ff82" stroke-width="34" stroke-linecap="round">
+    <line x1="298" y1="212" x2="206" y2="128"/>
+    <line x1="298" y1="212" x2="222" y2="318"/>
+    <line x1="206" y1="128" x2="222" y2="318"/>
+  </g>
+  <g fill="#45ff82" stroke="#17502d" stroke-width="8">
+    <circle cx="206" cy="128" r="38"/>
+    <circle cx="222" cy="318" r="38"/>
+  </g>
+  <circle cx="298" cy="212" r="54" fill="#5cff94" stroke="#17502d" stroke-width="8"/>
+</svg>

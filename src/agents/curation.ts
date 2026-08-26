@@ -1,7 +1,12 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { callLLM } from '../llm/client';
+import { callLLM, type LlmResponseMeta } from '../llm/client';
 import { runWithFeedbackRetry } from '../llm/reask';
+import {
+  diagnoseJsonParseFailure,
+  isTruncationFinishReason,
+  truncatedOutputEcho,
+} from '../llm/json-corrector';
 import { appRoot } from '../utils/app-root';
 import {
   applyLanguageDirective,
@@ -234,6 +239,10 @@ export interface CurationLlmCallOptions {
   callType: string;
   context?: string;
   logPath?: string;
+  /** Phase 16 v1.0.5 (2026-08-23): response-metadata tap (finish reason) so the
+   * JSON corrector knows when an invalid response was truncated at the token
+   * ceiling. Ignored by callLLMFn stubs. */
+  onResponseMeta?: (meta: LlmResponseMeta) => void;
 }
 
 export type CurationLlmFn = (prompt: string, options: CurationLlmCallOptions) => Promise<string>;
@@ -1450,6 +1459,14 @@ async function curateSingleCall(
   // An array (not a scalar let) because TS narrows closure-assigned scalars to
   // `never` at the post-await reads.
   const validations: DecisionValidation[] = [];
+  // Phase 16 v1.0.5 (2026-08-23): parse-failure tracking for the JSON
+  // corrector. The parse error line is the exact `output is not valid JSON
+  // (<parse message>)` string produced by parseDecisionList above (same
+  // module — keep them in sync); rule violations do not trigger the
+  // corrector. `lastFinishReason` is the provider's stop reason for the
+  // latest attempt (the deterministic truncation signal).
+  let lastParseError: string | null = null;
+  let lastFinishReason: string | undefined;
   let thrown: unknown;
   let outcome: Awaited<ReturnType<typeof runWithFeedbackRetry<string>>> | null = null;
   try {
@@ -1462,6 +1479,9 @@ async function curateSingleCall(
           callType: 'curation',
           context: attempt > 1 ? `${scope}#attempt${attempt}` : scope,
           logPath: options.logPath,
+          onResponseMeta: (meta) => {
+            lastFinishReason = meta.finishReason;
+          },
         });
       },
       (text) => {
@@ -1474,9 +1494,42 @@ async function curateSingleCall(
           proposedClusters,
         );
         validations.push(validation);
+        lastParseError =
+          validation.errors.find((error) => error.startsWith('output is not valid JSON')) ?? null;
         return { valid: validation.valid, errors: validation.errors };
       },
-      { label: scope, maxAttempts: CURATION_MAX_ATTEMPTS },
+      {
+        label: scope,
+        maxAttempts: CURATION_MAX_ATTEMPTS,
+        // Phase 16 v1.0.5: on a JSON parse failure, the corrector's targeted
+        // fix instruction joins the correction block; truncated outputs echo
+        // only their tail (a verbatim echo of a near-ceiling decision list
+        // would push the repair call toward the same ceiling). Corrector-side
+        // failure degrades to the plain block — advisory only. The enhancer
+        // rides the REAL transport only: an injected callLLMFn (test seam)
+        // owns the whole LLM surface, corrector included, so the LLM-free
+        // gates never fire a diagnosis call.
+        feedbackEnhancer:
+          options.callLLMFn === undefined
+            ? async (output) => {
+                if (lastParseError === null || typeof output !== 'string') {
+                  return null;
+                }
+                const truncated = isTruncationFinishReason(lastFinishReason);
+                const guidance = await diagnoseJsonParseFailure({
+                  rawResponse: output,
+                  errorMessage: lastParseError,
+                  truncated,
+                  context: scope,
+                  logPath: options.logPath,
+                });
+                return {
+                  guidance,
+                  echoOverride: truncated ? truncatedOutputEcho(output) : null,
+                };
+              }
+            : undefined,
+      },
     );
   } catch (err) {
     thrown = err;
