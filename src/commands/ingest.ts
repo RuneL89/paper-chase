@@ -35,12 +35,23 @@ import {
   readSynthesisState,
   recordSynthesisPage,
   synthesisPagePath,
+  type SynthesisPageKind,
   type SynthesisPageRecord,
 } from '../state/synthesis-state';
 import { loadSettings } from '../tui/settings';
 import { writeSourcePage } from '../pages/source-page';
 import { extractDocumentChunk, type ChunkExtraction } from './extract-chunk';
-import { materialize, type MaterializeOptions, type MaterializeResult } from '../materializer';
+import {
+  materialize,
+  evidenceKeysFor,
+  newEvidenceFor,
+  type MaterializeOptions,
+  type MaterializeResult,
+  type NewEvidenceDelta,
+} from '../materializer';
+import { writeAmendment, buildAmendmentRequest, type AmendmentRequest } from '../agents/amendment';
+import { parsePatch, validatePatch, applyPatch, type Patch } from '../llm/patch';
+import { appendAmendmentLogRecord, countOperations } from '../state/amendment-log';
 import type {
   CurateCallOptions,
   EntityCurationCandidate,
@@ -206,6 +217,20 @@ export interface IngestOptions {
     attempt?: number,
   ) => Promise<string>;
   /**
+   * Phase 26 (§2.3; the `synthesizeEntityFn` precedent): injectable Amendment
+   * Writer (test-only). Defaults to the real `writeAmendment` (a patch-JSON
+   * string out); tests inject a deterministic stub so every gate except the
+   * live 26.11 is LLM-free.
+   */
+  amendmentFn?: (
+    request: AmendmentRequest,
+    agentsMd: string,
+    logPath?: string,
+    language?: { input: LanguageCode; output: LanguageCode },
+    feedback?: string,
+    attempt?: number,
+  ) => Promise<string>;
+  /**
    * Phase 6: run the DOX Writer in LLM mode — one LLM call per folder plus the
    * wiki root writes rich, content-based `index.md` descriptions. Deterministic
    * code always re-imposes the frontmatter and statistics over the LLM output,
@@ -359,6 +384,14 @@ export interface IngestResult {
   synthesizedComparisonsPermissive?: number;
   /** Phase 23: comparison pages where preservation check failed (shell kept). */
   comparisonConflicts?: number;
+  /**
+   * Phase 26 (§2.5): pages successfully amended by a validated patch this
+   * run (synthesis-report `finalMode: 'patch-amended'`; one
+   * `.state/amendment-log.jsonl` episode each).
+   */
+  patchedPages?: number;
+  /** Phase 26 (§2.5): amendment episodes that exhausted into full synthesis. */
+  patchFallbacks?: number;
   /** Phase 7: the resolved input/output languages of this run. */
   languages?: { input: LanguageCode; output: LanguageCode };
   /** Phase 9: true when the AGENTS.md Updater wrote `.state/proposed-agents.md`. */
@@ -588,11 +621,14 @@ export function formatIngestSummary(result: IngestResult): string {
       (result.synthesizedTopicsPermissive ?? 0) +
       (result.synthesizedCompositesPermissive ?? 0) +
       (result.synthesizedComparisonsPermissive ?? 0);
+    const patched = result.patchedPages ?? 0;
     const conflicts =
       (result.synthesisConflicts ?? 0) + (result.topicConflicts ?? 0) + (result.compositeConflicts ?? 0) + (result.comparisonConflicts ?? 0);
+    // Phase 26 (§2.5): the synthesis segment mentions `Patched N` when any
+    // page was amended (byte-identical to the pre-Phase-26 banner otherwise).
     summary +=
-      ` Synthesis: ${strict + permissive} pages written ` +
-      `(${strict} strict, ${permissive} permissive), ${conflicts} conflicts.`;
+      ` Synthesis: ${strict + permissive + patched} pages written ` +
+      `(${strict} strict, ${permissive} permissive${patched > 0 ? `, ${patched} patched` : ''}), ${conflicts} conflicts.`;
   }
   const validation = result.finalValidation ?? result.validation;
   if (validation) {
@@ -752,6 +788,8 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     synthesizedTopicsPermissive: 0,
     synthesisConflicts: 0,
     topicConflicts: 0,
+    patchedPages: 0,
+    patchFallbacks: 0,
     languages: language,
   };
 
@@ -796,6 +834,10 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
   // Phase 16 (vision `04` §6): per-page transport fallbacks across this run's
   // synthesis stages (additive metrics.transportFailures counter).
   let transportFailuresThisRun = 0;
+  // Phase 26 (§2.5): pages successfully patch-amended this run, and amendment
+  // episodes that exhausted into normal full synthesis (metrics counters).
+  let patchedPagesThisRun = 0;
+  let patchFallbacksThisRun = 0;
 
   // Phase 8 (phase doc §2.2): removed PDFs — recorded in the ingestion state
   // but no longer present in raw/. Warn only; derived pages are KEPT so the
@@ -887,6 +929,82 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     progress('Materialized entity, topic, and document pages.');
   };
 
+  // ------------------------------------------------------------------
+  // Phase 26 (§2.1–§2.3, vision `04` §1 per-PDF sequential ingestion +
+  // §3.2 Step 9 amendment synthesis): the per-PDF loop state.
+  // ------------------------------------------------------------------
+
+  /**
+   * The AMENDMENT SNAPSHOT: every skip-eligible page's PRE-materialize
+   * on-disk content (the synthesized page a patch applies to), refreshed
+   * before each PDF's materialize — materialize rewrites changed-fingerprint
+   * pages as structured templates, so the amendment input must be captured
+   * first. A run-level map: later PDFs overwrite entries, so it always holds
+   * the latest synthesized/patched content per page, which is also how
+   * amendments CHAIN across PDFs (PDF 3's snapshot re-reads PDF 2's patched
+   * page from disk).
+   */
+  const amendmentSnapshot = new Map<string, string>();
+  const snapshotAmendmentPages = async (): Promise<void> => {
+    if (!(extract && synthesis)) {
+      return;
+    }
+    const records = (await readSynthesisState(dir)).pages;
+    for (const [relPath, record] of Object.entries(records)) {
+      if (!isSkipEligible(record)) {
+        continue;
+      }
+      const absolute = join(dir, relPath);
+      if (!existsSync(absolute)) {
+        continue;
+      }
+      try {
+        amendmentSnapshot.set(relPath, await readFile(absolute, 'utf-8'));
+      } catch {
+        // Page vanished mid-run; no snapshot entry (the page is not amendable).
+      }
+    }
+  };
+
+  /**
+   * Phase 26: run-level skip-count dedupe — a page skip-confirmed in more
+   * than one per-PDF stage invocation (e.g. skipped in PDF 2's AND PDF 3's
+   * stages) counts ONCE in the run-level result counters (the counter names
+   * a page-level fact; the per-stage progress lines stay per-invocation).
+   */
+  const synthesisSkipCountedPages = new Set<string>();
+
+  /**
+   * Phase 19 (B19): the per-PDF checkpoint persists PRE-synthesis hashes; an
+   * abort between a synthesis write and the end-of-run re-hash leaves
+   * recorded(template) != disk(synthesized) and false-flags tool-written
+   * pages next run. Re-hash from disk in a finally so even an aborting run
+   * converges what it wrote. Phase 26: the guard now wraps the WHOLE
+   * loop+stages region (defined here, invoked in the finally below).
+   */
+  const rehashWrittenPagesFromDisk = async (): Promise<void> => {
+    if (extract && writtenPagePaths.size > 0) {
+      for (const relativePath of writtenPagePaths) {
+        try {
+          const content = await readFile(join(dir, relativePath), 'utf-8');
+          workingPageHashes[relativePath] = createHash('sha256').update(content, 'utf-8').digest('hex');
+        } catch {
+          // Page vanished between materialization and now; keep the old hash.
+        }
+      }
+      state.pageHashes = workingPageHashes;
+      await writeIngestionState(dir, state);
+    }
+  };
+
+  // Phase 26 (vision `04` §1/§3.2, user-ratified 2026-08-26): each PDF runs
+  // its own complete mini-pipeline — chunk → extract → materialize (with the
+  // curation pair) → synthesize-or-AMEND — and is checkpointed only when its
+  // pass through Steps 3-9 completes. The synthesis stages live in the
+  // HOISTED `runSynthesisStages` function declared further below (after the
+  // loop in source order; function declarations hoist, and every capture is
+  // run-level state).
+  try {
   for (const fileName of pdfFiles) {
     const pdfPath = join(rawDir, fileName);
     const sourceSlug = sourceSlugForFile(fileName);
@@ -1005,7 +1123,11 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
 
     // Layer 3: after a source's chunks are extracted, materialize all
     // entity, topic, and document pages from every .state/extracted/*.json.
+    // Phase 26 (§2.3): snapshot the skip-eligible pages' PRE-materialize
+    // content FIRST — it is the amendment input, and materialize is about to
+    // rewrite changed-fingerprint pages as structured templates.
     if (extract) {
+      await snapshotAmendmentPages();
       await runMaterialize();
     }
 
@@ -1022,16 +1144,25 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       documentPages,
     });
 
+    // Phase 26 (§2.1, vision `04` §1 + §3.2): the synthesis stage (entities →
+    // topics → composites → comparisons, pool cap 4, WITH the amendment
+    // path) runs INSIDE the per-PDF loop — this PDF's pass through Steps 3-9
+    // completes here, so the next PDF materializes and synthesizes against a
+    // wiki that already includes this PDF's synthesized pages.
+    if (extract) {
+      await runSynthesisStages(fileName);
+    }
+
     // Phase 8 (vision `04` §9.3): record the input language this source was
     // extracted under so a later changed-PDF re-process can warn on drift.
     state.sources[sourceSlug] = { hash, documentPages, ingestedAt: now, language: input };
-    // Phase 16 (vision `04` Step 11 checkpointing, user-ratified 2026-07-25):
-    // persist this PDF's ingestion record THE MOMENT its own processing is
-    // complete (chunks extracted, per-PDF materialize done) — exactly the
-    // record the end-of-run write produces for it, with the working page
-    // hashes as currently known. An abort after this point never re-extracts
-    // a finished PDF: the resume's Phase 8 hash-skip sees the checkpoint.
-    // The end-of-run write below stays the final, complete record.
+    // Phase 16 (vision `04` Step 11 checkpointing, user-ratified 2026-07-25;
+    // Phase 26 amendment 2026-08-26): persist this PDF's ingestion record the
+    // moment its OWN pass through Steps 3-9 completes — chunks extracted,
+    // materialize done, synthesis/amendment done. An abort after this point
+    // never re-extracts a finished PDF: the resume's Phase 8 hash-skip sees
+    // the checkpoint. An abort BEFORE it re-processes the PDF, with the
+    // per-page synthesis records preserving whatever already completed.
     state.pageHashes = workingPageHashes;
     await writeIngestionState(dir, state);
     progress(`Ingested ${fileName} -> ${documentPages.length} document page(s)`);
@@ -1050,15 +1181,27 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
   // when nothing changed (re-deriving pages from the same extraction set is
   // idempotent; recorded hashes prevent false manual-edit conflicts). Runs
   // only when extractions exist so a wiki without Layer-2 data keeps its
-  // rolling memory untouched.
+  // rolling memory untouched. Phase 26: the fallback materialize ALSO runs
+  // the synthesis stages once (with the amendment path — template-retry
+  // semantics preserved; a wiki whose every PDF hash-skips still retries its
+  // template-fallback pages exactly as before).
   if (extract && lastMaterializeResult === undefined) {
     const extractedDir = join(dir, '.state', 'extracted');
     const hasExtractions =
       existsSync(extractedDir) &&
       (await readdir(extractedDir)).some((file) => file.toLowerCase().endsWith('.json'));
     if (hasExtractions) {
+      await snapshotAmendmentPages();
       await runMaterialize();
+      await runSynthesisStages(null);
     }
+  }
+  } finally {
+    // Phase 26 (vision `04` §3.2): the abort-convergence guard now wraps the
+    // whole per-PDF loop + fallback region — re-hash every page written this
+    // run FROM DISK so the recorded hashes always reflect the tool's own
+    // final writes, even for an aborting run (Phase 19 B19).
+    await rehashWrittenPagesFromDisk();
   }
 
   // Phase 19 (B19): carry the working folds (preservedPages convergence,
@@ -1088,7 +1231,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
   // additions ride the same pool shape. (a) PER-PAGE TRANSPORT FALLBACK: a
   // transient transport error still throwing after the client's bounded
   // retries is caught for THAT page — the page lands on the structured
-  // template with report finalMode 'transport-fallback', a loud warning, and
+  // template with report finalMode `transport-fallback`, a loud warning, and
   // a metrics.transportFailures increment; HTTP 4xx (and every other class)
   // still aborts the run. (b) OUTAGE DETECTOR: per stage, 5 consecutive
   // transport-failed pages OR more than 10% of the stage's attempted pages
@@ -1103,24 +1246,55 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
   // abort between a synthesis write and the end-of-run re-hash leaves
   // recorded(template) != disk(synthesized) and false-flags tool-written
   // pages next run. Re-hash from disk in a finally so even an aborting run
-  // converges what it wrote.
-  const rehashWrittenPagesFromDisk = async (): Promise<void> => {
-    if (extract && writtenPagePaths.size > 0) {
-      for (const relativePath of writtenPagePaths) {
-        try {
-          const content = await readFile(join(dir, relativePath), 'utf-8');
-          workingPageHashes[relativePath] = createHash('sha256').update(content, 'utf-8').digest('hex');
-        } catch {
-          // Page vanished between materialization and now; keep the old hash.
-        }
-      }
-      state.pageHashes = workingPageHashes;
-      await writeIngestionState(dir, state);
-    }
-  };
+  // converges what it wrote. (Definition moved above the loop; the finally
+  // that invokes it wraps the loop+fallback region.)
 
-  try {
-  if (extract && synthesis && lastMaterializeResult) {
+  /**
+   * Phase 26 (§2.1, vision `04` §1 + §3.2): ONE synthesis-stage invocation —
+   * entity → topic → composite → comparison, pool cap 4, WITH the amendment
+   * path of §2.3. Called (a) inside the per-PDF loop right after that PDF's
+   * materialize, and (b) once after the all-skipped fallback materialize.
+   * PER-INVOCATION state below refreshes on every call: the synthesis
+   * records (fresh readSynthesisState), rewrittenThisRun (THIS invocation's
+   * materialize result), the Phase 20 slug universe (the tree changed since
+   * the previous PDF wrote pages), and the outage detectors. Shared
+   * run-level state (counters, seams, the amendment snapshot) is captured
+   * from the enclosing scope. Declared AFTER the loop that calls it —
+   * function declarations hoist.
+   *
+   * Phase 15 (vision `04` §1, user-ratified 2026-07-23): each stage's per-page
+   * loop runs through runPool(…, { concurrency: SYNTHESIS_POOL_SIZE }). Each
+   * pool task is exactly the pre-Phase-15 per-page body — strict
+   * trySynthesisMode → permissive → structured-template fallback with the
+   * Phase 12 reask loop inside — so per-page outcomes (synthesized counts,
+   * fallbacks, attempt counts, #attemptN contexts) are byte-equivalent to the
+   * sequential loop. The task RETURNS its synthesis-report entry; entries are
+   * appended once per stage in original page order after the pool completes
+   * (deterministic, diff-friendly regardless of completion order). Progress is
+   * the aggregate `Synthesis: N/M pages complete (4 workers)` counter
+   * re-emitted on each completion — identical for the TUI and the CLI; the
+   * per-page preservation-failure WARNING lines are unchanged. Extraction,
+   * curation, DOX, workspace, and updater stages stay sequential (§2.5).
+   * Phase 16 (vision `04` §6 + Step 9, user-ratified 2026-07-25): three
+   * additions ride the same pool shape. (a) PER-PAGE TRANSPORT FALLBACK: a
+   * transient transport error still throwing after the client's bounded
+   * retries is caught for THAT page — the page lands on the structured
+   * template with report finalMode `transport-fallback`, a loud warning, and
+   * a metrics.transportFailures increment; HTTP 4xx (and every other class)
+   * still aborts the run. (b) OUTAGE DETECTOR: per stage, 5 consecutive
+   * transport-failed pages OR more than 10% of the stage's attempted pages
+   * aborts the run with the transport error (fail loud). (c) SYNTHESIS
+   * RESUME: pages with a skip-eligible .state/synthesis-state.json record
+   * (strict/permissive pass, matching aggregate fingerprint, not rewritten
+   * by the Materializer this run) are skipped — no LLM call, no rewrite;
+   * template-fallback pages are retried. Every pooled page checkpoints its
+   * record as it completes (serialized queue), and skipped pages contribute
+   * reconstructed report entries so the stage's ordered report is complete.
+   */
+  async function runSynthesisStages(pdfLabel: string | null): Promise<void> {
+    if (!(extract && synthesis && lastMaterializeResult)) {
+      return;
+    }
     result.synthesisRan = true;
     const agentsMd = loadAgentsMd(dir);
     const llmLogPath = join(dir, '.state', 'llm-calls.json');
@@ -1154,8 +1328,8 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     interface SynthesisOutcome {
       /** The report entry appended once per stage, in original page order. */
       entry: SynthesisReportEntry;
-      /** Which per-stage result counter this page lands on. */
-      kind: 'strict' | 'permissive' | 'template' | 'transport';
+      /** Which per-stage result counter this page lands on ('patched' = Phase 26 amendment). */
+      kind: 'strict' | 'permissive' | 'template' | 'transport' | 'patched';
     }
 
     /**
@@ -1165,26 +1339,26 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
      * helper the Materializer's preservation check uses, so the two gates can
      * never disagree.
      */
-    const partitionStage = <P extends EntityPageData | TopicPageData | CompositePageData | ComparisonPageData>(
-      pages: P[],
-    ): { skipped: Map<string, SynthesisPageRecord>; toRun: P[] } => {
-      const skipped = new Map<string, SynthesisPageRecord>();
-      const toRun: P[] = [];
-      for (const page of pages) {
-        const relPath = synthesisPagePath(page);
-        const record = synthesisRecords[relPath];
-        if (
-          isSkipEligible(record) &&
-          record.dataHash === pageDataHash(page, language) &&
-          !rewrittenThisRun.has(relPath)
-        ) {
-          skipped.set(page.slug, record);
-        } else {
-          toRun.push(page);
+      const partitionStage = <P extends EntityPageData | TopicPageData | CompositePageData | ComparisonPageData>(
+        pages: P[],
+      ): { skipped: Map<string, SynthesisPageRecord>; toRun: P[] } => {
+        const skipped = new Map<string, SynthesisPageRecord>();
+        const toRun: P[] = [];
+        for (const page of pages) {
+          const relPath = synthesisPagePath(page);
+          const record = synthesisRecords[relPath];
+          if (
+            isSkipEligible(record) &&
+            record.dataHash === pageDataHash(page, language) &&
+            !rewrittenThisRun.has(relPath)
+          ) {
+            skipped.set(page.slug, record);
+          } else {
+            toRun.push(page);
+          }
         }
-      }
-      return { skipped, toRun };
-    };
+        return { skipped, toRun };
+      };
 
     /**
      * Phase 16 (Step 9): a skipped page's report entry, reconstructed from
@@ -1202,7 +1376,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       pageType,
       slug,
       strict:
-        record.mode === 'strict-synthesis'
+        record.mode === 'strict-synthesis' || record.mode === 'patch-amended'
           ? { attempted: true, passed: true, attempts: 1 }
           : { attempted: true, passed: false, attempts: 1 },
       permissive:
@@ -1211,6 +1385,437 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
           : { attempted: false, passed: false },
       finalMode: record.mode,
     });
+
+    /**
+     * Phase 26 (§2.2): checkpoint one page's synthesis record with the
+     * additive amendment fields — the page KIND (a kind change is a shape
+     * change: not patchable) and, on a successful synthesis (strict or
+     * permissive), the aggregate's evidence-key set (the amendment delta's
+     * baseline). Template/transport records carry no baseline (never
+     * amendment-eligible: no computable delta).
+     */
+    const recordSynthesisOutcome = async (
+      page: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData,
+      pageKind: SynthesisPageKind,
+      entry: SynthesisReportEntry,
+    ): Promise<void> => {
+      await recordSynthesisPage(dir, synthesisPagePath(page), {
+        mode: entry.finalMode,
+        dataHash: pageDataHash(page, language),
+        synthesizedAt: entry.timestamp,
+        pageKind,
+        ...(entry.finalMode === 'strict-synthesis' ||
+        entry.finalMode === 'permissive-synthesis' ||
+        entry.finalMode === 'patch-amended'
+          ? { baselineKeys: evidenceKeysFor(page) }
+          : {}),
+      });
+    };
+
+    // ------------------------------------------------------------------
+    // Phase 26 (§2.3–§2.4): THE AMENDMENT PATH. For a page in this
+    // invocation's to-run set (changed fingerprint or rewritten) that already
+    // carries a same-kind, same-shape successful synthesis, the Amendment
+    // Writer patches the existing page instead of re-emitting it in full —
+    // output cost scales with the new evidence, never with the page.
+    // ------------------------------------------------------------------
+
+    /**
+     * The kind-specific deterministic enforcement chain over a MERGED page —
+     * EXACTLY the chain the kind's synthesis write points apply (frontmatter
+     * re-imposition with the real `updated` and the aggregated `sources`, the
+     * members block when add-member grew the composite, the `## Sources`
+     * rebuild over the FULL current citation map, sparse for entities, and
+     * the Phase 20 link repair outermost; the comparison bridge is re-imposed
+     * deterministically too).
+     */
+    const enforceMergedPage = (
+      mergedBody: string,
+      page: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData,
+      kind: SynthesisPageKind,
+    ): string => {
+      if (kind === 'entity') {
+        const entity = page as EntityPageData;
+        return repairPageLinks(
+          enforceSourcesSectionInMarkdown(
+            enforceFrontmatterInMarkdown(
+              enforceSparseInMarkdown(
+                enforceAliasesInMarkdown(mergedBody, entity.title, entity.slug, entity.mergedAliases),
+                entity.sparse === true,
+              ),
+              entity,
+            ),
+            buildCitationMap(entity).citationMap,
+          ),
+          entity.slug,
+        );
+      }
+      if (kind === 'topic') {
+        const topic = page as TopicPageData;
+        return repairPageLinks(
+          enforceTopicSourcesSectionInMarkdown(
+            enforceTopicFrontmatterInMarkdown(
+              enforceAliasesInMarkdown(mergedBody, topic.title, topic.slug),
+              topic,
+            ),
+            buildCitationMap({ mentions: [], relationships: [], claims: topic.claims }).citationMap,
+          ),
+          `topic ${topic.slug}`,
+        );
+      }
+      if (kind === 'composite') {
+        const composite = page as CompositePageData;
+        return repairPageLinks(
+          enforceSourcesSectionInMarkdown(
+            enforceCompositeFrontmatterInMarkdown(mergedBody, composite),
+            buildCompositeCitationMap(composite).citationMap,
+          ),
+          `composite ${composite.slug}`,
+        );
+      }
+      const comparison = page as ComparisonPageData;
+      return repairPageLinks(
+        enforceSourcesSectionInMarkdown(
+          enforceComparisonBridgeInMarkdown(
+            enforceComparisonFrontmatterInMarkdown(mergedBody, comparison),
+            comparison,
+          ),
+          buildComparisonCitationMap(comparison).citationMap,
+        ),
+        `comparison ${comparison.slug}`,
+      );
+    };
+
+    /** The kind's existing preservation checker (unioned check, §2.4). */
+    const runPreservationCheck = (
+      page: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData,
+      kind: SynthesisPageKind,
+      writtenPage: string,
+    ):
+      | ReturnType<typeof checkPreservation>
+      | ReturnType<typeof checkTopicPreservation>
+      | ReturnType<typeof checkCompositePreservation>
+      | ReturnType<typeof checkComparisonPreservation> => {
+      if (kind === 'entity') {
+        return checkPreservation(page as EntityPageData, writtenPage);
+      }
+      if (kind === 'topic') {
+        return checkTopicPreservation(page as TopicPageData, writtenPage);
+      }
+      if (kind === 'composite') {
+        return checkCompositePreservation(page as CompositePageData, writtenPage);
+      }
+      return checkComparisonPreservation(page as ComparisonPageData, writtenPage);
+    };
+
+    /**
+     * Amendment ELIGIBILITY (per page already in a stage's to-run set): a
+     * skip-eligible record of the SAME KIND with a recorded baseline, a
+     * non-empty delta, a pre-materialize snapshot of the page, and no
+     * curation-merge/cluster veto (gate 26.8: a survivor that absorbed a
+     * page which itself carried a synthesis record is a SHAPE change — full
+     * synthesis, not patch). Everything else — new pages, template/transport
+     * fallbacks, shape changes, kind changes, empty deltas — takes the normal
+     * full-synthesis chain.
+     */
+    const mergeAffectedSurvivors = new Set<string>();
+    {
+      const curation = lastMaterializeResult.curation;
+      if (curation) {
+        const preMaterializeSkipSlugs = new Set(
+          [...amendmentSnapshot.keys()].map((path) => path.split('/').pop()?.replace(/\.md$/, '') ?? ''),
+        );
+        const vetoIfAbsorbedSynthesized = (into: string, from: string[]): void => {
+          if (from.some((slug) => preMaterializeSkipSlugs.has(slug))) {
+            mergeAffectedSurvivors.add(into);
+          }
+        };
+        for (const merge of curation.entityMerges) {
+          vetoIfAbsorbedSynthesized(merge.into, merge.from);
+        }
+        for (const merge of curation.fromSticky.entityMerges) {
+          vetoIfAbsorbedSynthesized(merge.into, merge.from);
+        }
+        for (const merge of curation.topicMerges) {
+          vetoIfAbsorbedSynthesized(merge.into, merge.from);
+        }
+        for (const merge of curation.fromSticky.topicMerges) {
+          vetoIfAbsorbedSynthesized(merge.into, merge.from);
+        }
+        for (const entry of curation.autoApplied) {
+          vetoIfAbsorbedSynthesized(entry.into, [entry.from]);
+        }
+        for (const cluster of curation.entityClusters) {
+          vetoIfAbsorbedSynthesized(cluster.into, cluster.members);
+        }
+        for (const cluster of curation.fromSticky.entityClusters) {
+          vetoIfAbsorbedSynthesized(cluster.into, cluster.members);
+        }
+      }
+    }
+
+    interface AmendmentPlan {
+      delta: NewEvidenceDelta;
+      snapshot: string;
+    }
+
+    const amendmentPlanFor = (
+      page: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData,
+      kind: SynthesisPageKind,
+    ): AmendmentPlan | null => {
+      const relPath = synthesisPagePath(page);
+      const record = synthesisRecords[relPath];
+      if (
+        !isSkipEligible(record) ||
+        record.pageKind !== kind ||
+        record.baselineKeys === undefined ||
+        mergeAffectedSurvivors.has(page.slug)
+      ) {
+        return null;
+      }
+      const snapshot = amendmentSnapshot.get(relPath);
+      if (snapshot === undefined) {
+        return null;
+      }
+      const delta = newEvidenceFor(page, record.baselineKeys);
+      if (delta.empty) {
+        return null;
+      }
+      return { delta, snapshot };
+    };
+
+    /**
+     * Best-effort output-token lookup for the amendment log: the last
+     * `.state/llm-calls.json` entry whose context matches this page's
+     * `amendment:<slug>` episode (never fabricated).
+     */
+    const amendmentOutputTokens = async (pageSlug: string): Promise<number | null> => {
+      try {
+        const raw = await readFile(llmLogPath, 'utf-8');
+        const prefix = `amendment:${pageSlug}`;
+        let last: number | null = null;
+        for (const line of raw.split('\n')) {
+          const trimmed = line.trim();
+          if (trimmed === '') {
+            continue;
+          }
+          try {
+            const entry = JSON.parse(trimmed) as { context?: unknown; outputTokens?: unknown };
+            if (
+              typeof entry.context === 'string' &&
+              (entry.context === prefix || entry.context.startsWith(`${prefix}#`)) &&
+              typeof entry.outputTokens === 'number'
+            ) {
+              last = entry.outputTokens;
+            }
+          } catch {
+            // Skip malformed lines.
+          }
+        }
+        return last;
+      } catch {
+        return null;
+      }
+    };
+
+    /**
+     * ONE amendment EPISODE (§2.4): Amendment Writer → parse → validate →
+     * apply → enforce → merged-page preservation, re-asked ≤3 total attempts
+     * via `runWithFeedbackRetry` with the validator's exact errors (a JSON
+     * parse failure additionally rides the Phase 16 v1.0.5 JSON corrector
+     * inside the real writer). The MERGED-page preservation check runs the
+     * kind's EXISTING checker over the enforced merge against the FULL
+     * current pageData — equivalent to old ∪ new in the amendment-eligible
+     * growth scenario (baseline ∪ new = the current key set when the
+     * aggregate only grew; the aggregate may also have re-ordered, which the
+     * full-data check covers exactly). Exhaustion returns null — the caller
+     * falls back to the normal full-synthesis chain; the on-disk page is
+     * touched only by a validated merged result. A THROWN transient
+     * transport error also returns null (the chain retries the page in full
+     * under the Phase 16 semantics); HTTP 4xx propagates and aborts the run.
+     */
+    const runAmendmentEpisode = async (args: {
+      page: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData;
+      kind: SynthesisPageKind;
+      plan: AmendmentPlan;
+    }): Promise<{ mergedPage: string; entry: SynthesisReportEntry; attempts: number; opCounts: Record<string, number> } | null> => {
+      const { page, kind, plan } = args;
+      const relPath = synthesisPagePath(page);
+      const request = buildAmendmentRequest({ pageData: page, delta: plan.delta, pageContent: plan.snapshot });
+      const runAmendment = options.amendmentFn ?? writeAmendment;
+      // The landed merge (holder object: assignments inside the validator
+      // closure must survive TypeScript's control-flow narrowing).
+      const landed: { patch: Patch | null; content: string | null } = { patch: null, content: null };
+      let attemptsMade = 0;
+      let lastErrors: string[] = [];
+      try {
+        const outcome = await runWithFeedbackRetry<string>(
+          (feedback, attempt) => {
+            attemptsMade = attempt;
+            return runAmendment(request, agentsMd, llmLogPath, language, feedback ?? undefined, attempt);
+          },
+          (rawText) => {
+            const parsed = parsePatch(rawText);
+            if (parsed.patch === undefined) {
+              lastErrors = parsed.errors;
+              return { valid: false, errors: parsed.errors };
+            }
+            const validation = validatePatch(parsed.patch, {
+              pageContent: plan.snapshot,
+              pageKind: kind,
+              ...(kind === 'composite'
+                ? {
+                    members: (page as CompositePageData).members.map((member) => ({
+                      slug: member.slug,
+                      title: member.title,
+                    })),
+                  }
+                : {}),
+            });
+            if (!validation.valid) {
+              lastErrors = validation.errors;
+              return { valid: false, errors: validation.errors };
+            }
+            let mergedBody: string;
+            try {
+              mergedBody = applyPatch(plan.snapshot, parsed.patch);
+            } catch (err) {
+              const errors = [(err as Error).message];
+              lastErrors = errors;
+              return { valid: false, errors };
+            }
+            const enforced = enforceMergedPage(mergedBody, page, kind);
+            const check = runPreservationCheck(page, kind, enforced);
+            if (!check.passed) {
+              const errors = preservationFeedbackErrors(check);
+              lastErrors = errors;
+              return { valid: false, errors };
+            }
+            landed.patch = parsed.patch;
+            landed.content = enforced;
+            return { valid: true, errors: [] };
+          },
+          {
+            maxAttempts: SYNTHESIS_MAX_ATTEMPTS,
+            label: `amendment:${page.slug}`,
+            onRepair: (errors) => {
+              console.warn(
+                `Amendment patch failed validation for ${page.slug} (${errors[0] ?? 'unknown error'}); retrying with validator feedback.`,
+              );
+            },
+          },
+        );
+        if (outcome.output === null || landed.content === null || landed.patch === null) {
+          const cause = lastErrors[0] ?? 'validation-exhaustion';
+          console.warn(
+            `Warning: amendment for ${relPath} failed after ${outcome.attempts} attempt(s) (${cause}) — falling back to full synthesis.`,
+          );
+          patchFallbacksThisRun += 1;
+          result.patchFallbacks = (result.patchFallbacks ?? 0) + 1;
+          await appendAmendmentLogRecord(
+            dir,
+            {
+              timestamp: new Date().toISOString(),
+              page: relPath,
+              pdf: pdfLabel,
+              attempts: outcome.attempts,
+              operations: {},
+              outcome: 'fallback-full-synthesis',
+              cause,
+            },
+            () => amendmentOutputTokens(page.slug),
+          );
+          return null;
+        }
+        const entry: SynthesisReportEntry = {
+          timestamp: new Date().toISOString(),
+          pageType: kind,
+          slug: page.slug,
+          strict: { attempted: false, passed: false },
+          permissive: { attempted: false, passed: false },
+          finalMode: 'patch-amended',
+        };
+        return {
+          mergedPage: landed.content,
+          entry,
+          attempts: outcome.attempts,
+          opCounts: countOperations(landed.patch.operations),
+        };
+      } catch (error) {
+        // A transient transport error during the amendment call: the episode
+        // ends without a patch; the page's normal full-synthesis chain runs
+        // next and carries the Phase 16 per-page transport semantics. HTTP
+        // 4xx and every other class rethrow (abort the run).
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        console.warn(
+          `Warning: amendment for ${relPath} hit a transport failure after retries — falling back to full synthesis.`,
+        );
+        patchFallbacksThisRun += 1;
+        result.patchFallbacks = (result.patchFallbacks ?? 0) + 1;
+        await appendAmendmentLogRecord(
+          dir,
+          {
+            timestamp: new Date().toISOString(),
+            page: relPath,
+            pdf: pdfLabel,
+            attempts: Math.max(attemptsMade, 1),
+            operations: {},
+            outcome: 'fallback-full-synthesis',
+            cause: 'transport-exhaustion',
+          },
+          () => amendmentOutputTokens(page.slug),
+        );
+        return null;
+      }
+    };
+
+    /**
+     * The per-page amendment hook (§2.3): returns the PATCHED outcome when a
+     * validated merged page was written (page on disk, record
+     * 'patch-amended' with the new baseline, amendment-log episode, metrics),
+     * null when the page was not amendable or the patch failed (the caller's
+     * normal strict → permissive → template chain takes over — never a
+     * half-patched page).
+     */
+    const tryAmendPage = async (
+      page: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData,
+      kind: SynthesisPageKind,
+    ): Promise<SynthesisOutcome | null> => {
+      const plan = amendmentPlanFor(page, kind);
+      if (plan === null) {
+        return null;
+      }
+      const episode = await runAmendmentEpisode({ page, kind, plan });
+      if (episode === null) {
+        return null;
+      }
+      const relPath = synthesisPagePath(page);
+      await writeFile(join(dir, relPath), episode.mergedPage, 'utf-8');
+      writtenPagePaths.add(relPath);
+      patchedPagesThisRun += 1;
+      result.patchedPages = (result.patchedPages ?? 0) + 1;
+      await recordSynthesisOutcome(page, kind, episode.entry);
+      await appendAmendmentLogRecord(
+        dir,
+        {
+          timestamp: episode.entry.timestamp,
+          page: relPath,
+          pdf: pdfLabel,
+          attempts: episode.attempts,
+          operations: episode.opCounts,
+          outcome: 'patched',
+          cause: null,
+        },
+        () => amendmentOutputTokens(page.slug),
+      );
+      const opSummary = Object.entries(episode.opCounts)
+        .map(([op, count]) => `${count} ${op}`)
+        .join(', ');
+      progress(`Amended ${relPath} (patch: ${opSummary}).`);
+      return { kind: 'patched', entry: episode.entry };
+    };
 
     // 1. Entity synthesis. The per-page body below is the pre-Phase-15 loop
     // body verbatim, with only the report logging inverted (the entry is
@@ -1224,6 +1829,14 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       // throws — recorded in the transport-fallback report entry.
       let chainPhase: 'strict' | 'permissive' = 'strict';
       try {
+        // Phase 26 (§2.3): the amendment path FIRST — an existing synthesized
+        // page of unchanged shape whose aggregate grew takes a patch, not a
+        // full re-emit (returns null whenever the page is not amendable or
+        // the patch failed; the normal chain below is the universal fallback).
+        const amended = await tryAmendPage(entityPage, 'entity');
+        if (amended !== null) {
+          return amended;
+        }
         // Strict synthesis first (readable prose that preserves exact
         // mention/relationship/claim strings), retried up to
         // SYNTHESIS_MAX_ATTEMPTS times on preservation failure (Phase 7
@@ -1394,11 +2007,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
         // Phase 16 (vision `04` Step 11): per-page checkpoint — the page's
         // synthesis record is persisted as it completes (through the Phase 15
         // serialized write queue), so an abort costs only pages in flight.
-        await recordSynthesisPage(dir, synthesisPagePath(entityPage), {
-          mode: outcome.entry.finalMode,
-          dataHash: pageDataHash(entityPage, language),
-          synthesizedAt: outcome.entry.timestamp,
-        });
+        await recordSynthesisOutcome(entityPage, 'entity', outcome.entry);
         entityCompleted += 1;
         progress(
           `Synthesis: ${entityCompleted}/${entityStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
@@ -1415,7 +2024,12 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       const skippedRecord = entityStage.skipped.get(entityPage.slug);
       if (skippedRecord) {
         entityEntries.push(reconstructedSkipEntry('entity', entityPage.slug, skippedRecord));
-        result.synthesisSkipped = (result.synthesisSkipped ?? 0) + 1;
+        // Phase 26: run-level skip dedupe — a page skip-confirmed in more
+        // than one per-PDF stage invocation counts once per run.
+        if (!synthesisSkipCountedPages.has(synthesisPagePath(entityPage))) {
+          synthesisSkipCountedPages.add(synthesisPagePath(entityPage));
+          result.synthesisSkipped = (result.synthesisSkipped ?? 0) + 1;
+        }
         continue;
       }
       const outcome = entityOutcomeBySlug.get(entityPage.slug);
@@ -1446,6 +2060,11 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     ): Promise<SynthesisOutcome> => {
       let chainPhase: 'strict' | 'permissive' = 'strict';
       try {
+        // Phase 26 (§2.3): the amendment path first (same rule as entities).
+        const amended = await tryAmendPage(topicPage, 'topic');
+        if (amended !== null) {
+          return amended;
+        }
         const strict = await trySynthesisMode(
           (feedback, attempt) => runTopicSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
           (page) => checkTopicPreservation(topicPage, page),
@@ -1580,11 +2199,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
         if (outcome.kind !== 'transport') {
           recordDetectorSuccess(topicDetector);
         }
-        await recordSynthesisPage(dir, synthesisPagePath(topicPage), {
-          mode: outcome.entry.finalMode,
-          dataHash: pageDataHash(topicPage, language),
-          synthesizedAt: outcome.entry.timestamp,
-        });
+        await recordSynthesisOutcome(topicPage, 'topic', outcome.entry);
         topicCompleted += 1;
         progress(
           `Synthesis: ${topicCompleted}/${topicStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
@@ -1599,7 +2214,10 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       const skippedRecord = topicStage.skipped.get(topicPage.slug);
       if (skippedRecord) {
         topicEntries.push(reconstructedSkipEntry('topic', topicPage.slug, skippedRecord));
-        result.synthesisTopicsSkipped = (result.synthesisTopicsSkipped ?? 0) + 1;
+        if (!synthesisSkipCountedPages.has(synthesisPagePath(topicPage))) {
+          synthesisSkipCountedPages.add(synthesisPagePath(topicPage));
+          result.synthesisTopicsSkipped = (result.synthesisTopicsSkipped ?? 0) + 1;
+        }
         continue;
       }
       const outcome = topicOutcomeBySlug.get(topicPage.slug);
@@ -1634,6 +2252,12 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     ): Promise<SynthesisOutcome> => {
       let chainPhase: 'strict' | 'permissive' = 'strict';
       try {
+        // Phase 26 (§2.3): the amendment path first (member-anchored
+        // add-evidence / add-member; same rule as the other kinds).
+        const amended = await tryAmendPage(compositePage, 'composite');
+        if (amended !== null) {
+          return amended;
+        }
         const strict = await trySynthesisMode(
           (feedback, attempt) => runCompositeSynthesis(compositePage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
           (page) => checkCompositePreservation(compositePage, page),
@@ -1765,11 +2389,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
         // Phase 16 (vision `04` Step 11): per-page checkpoint — the composite
         // fingerprint over { members, unioned evidence, language } drives
         // skip-eligibility on later runs (gate 22.8's resume contract).
-        await recordSynthesisPage(dir, synthesisPagePath(compositePage), {
-          mode: outcome.entry.finalMode,
-          dataHash: pageDataHash(compositePage, language),
-          synthesizedAt: outcome.entry.timestamp,
-        });
+        await recordSynthesisOutcome(compositePage, 'composite', outcome.entry);
         compositeCompleted += 1;
         progress(
           `Synthesis: ${compositeCompleted}/${compositeStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
@@ -1784,7 +2404,10 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       const skippedRecord = compositeStage.skipped.get(compositePage.slug);
       if (skippedRecord) {
         compositeEntries.push(reconstructedSkipEntry('composite', compositePage.slug, skippedRecord));
-        result.synthesisCompositesSkipped = (result.synthesisCompositesSkipped ?? 0) + 1;
+        if (!synthesisSkipCountedPages.has(synthesisPagePath(compositePage))) {
+          synthesisSkipCountedPages.add(synthesisPagePath(compositePage));
+          result.synthesisCompositesSkipped = (result.synthesisCompositesSkipped ?? 0) + 1;
+        }
         continue;
       }
       const outcome = compositeOutcomeBySlug.get(compositePage.slug);
@@ -1820,6 +2443,12 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     ): Promise<SynthesisOutcome> => {
       let chainPhase: 'strict' | 'permissive' = 'strict';
       try {
+        // Phase 26 (§2.3): the amendment path first (new dated table sections
+        // anchor under their exact `## Table:` headings; same rule overall).
+        const amended = await tryAmendPage(comparisonPage, 'comparison');
+        if (amended !== null) {
+          return amended;
+        }
         const strict = await trySynthesisMode(
           (feedback, attempt) => runComparisonSynthesis(comparisonPage, agentsMd, llmLogPath, language, feedback ?? undefined, attempt),
           (page) => checkComparisonPreservation(comparisonPage, page),
@@ -1958,11 +2587,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
         // Phase 16 (vision `04` Step 11): per-page checkpoint — the
         // comparison fingerprint over { subject, dated sections, bridge,
         // language } drives skip-eligibility on later runs.
-        await recordSynthesisPage(dir, synthesisPagePath(comparisonPage), {
-          mode: outcome.entry.finalMode,
-          dataHash: pageDataHash(comparisonPage, language),
-          synthesizedAt: outcome.entry.timestamp,
-        });
+        await recordSynthesisOutcome(comparisonPage, 'comparison', outcome.entry);
         comparisonCompleted += 1;
         progress(
           `Synthesis: ${comparisonCompleted}/${comparisonStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
@@ -1977,7 +2602,10 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       const skippedRecord = comparisonStage.skipped.get(comparisonPage.slug);
       if (skippedRecord) {
         comparisonEntries.push(reconstructedSkipEntry('comparison', comparisonPage.slug, skippedRecord));
-        result.synthesisComparisonsSkipped = (result.synthesisComparisonsSkipped ?? 0) + 1;
+        if (!synthesisSkipCountedPages.has(synthesisPagePath(comparisonPage))) {
+          synthesisSkipCountedPages.add(synthesisPagePath(comparisonPage));
+          result.synthesisComparisonsSkipped = (result.synthesisComparisonsSkipped ?? 0) + 1;
+        }
         continue;
       }
       const outcome = comparisonOutcomeBySlug.get(comparisonPage.slug);
@@ -1998,21 +2626,37 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       progress(`Synthesis: ${comparisonStage.skipped.size} page(s) skipped (unchanged data).`);
     }
 
+    // Phase 26 (§2.1): fold the final on-disk content of every page that ran
+    // through this synthesis invocation into the working hash map BEFORE the
+    // per-PDF checkpoint. The checkpoint's page hashes must match the actual
+    // files on disk (synthesized or patched), not the pre-synthesis structured
+    // template; otherwise the next PDF's Materializer sees a phantom manual-edit
+    // conflict and excludes the page from synthesis.
+    const pagesToRehash = [
+      ...entityStage.toRun,
+      ...topicStage.toRun,
+      ...compositeStage.toRun,
+      ...comparisonStage.toRun,
+    ];
+    for (const page of pagesToRehash) {
+      const relPath = synthesisPagePath(page);
+      const absolute = join(dir, relPath);
+      if (existsSync(absolute)) {
+        const content = await readFile(absolute, 'utf-8');
+        workingPageHashes[relPath] = createHash('sha256').update(content).digest('hex');
+        writtenPagePaths.add(relPath);
+      }
+    }
+
     // Phase 16 (vision `04` §6): below both outage thresholds the run
     // completes — with a summary warning when any page transport-fell-back.
+    // Phase 26: the counter is run-level, so the warning fires once after the
+    // LAST invocation of the run (idempotent message).
     if (transportFailuresThisRun > 0) {
       progress(
         `Warning: ${transportFailuresThisRun} page(s) fell back to the structured template after transport failures this run — re-run ingest to retry them.`,
       );
     }
-  }
-
-  } finally {
-    // Phase 8 (phase doc §2.5): after synthesis (which may have replaced the
-    // structured pages the Materializer wrote), re-hash every page written
-    // this run FROM DISK so the recorded hashes always reflect the tool's own
-    // final writes. Phase 19 (B19): in a finally so an aborted run converges.
-    await rehashWrittenPagesFromDisk();
   }
 
   // Phase 8 (phase doc §5.1): the compounding metrics that power the TUI
@@ -2122,6 +2766,10 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       // Phase 16 (vision `04` §6): per-page transport fallbacks this run
       // (both synthesis stages; 0 on a healthy run).
       transportFailures: transportFailuresThisRun,
+      // Phase 26 (§2.5): patch-amendment counters (0 on runs without
+      // amendments; the amendment-log carries the per-episode detail).
+      patchedPages: patchedPagesThisRun,
+      patchFallbacks: patchFallbacksThisRun,
     };
   };
 

@@ -1,0 +1,47 @@
+{
+  "run": "2026-08-27T10:00:00.000Z",
+  "topics": {
+    "merges": [],
+    "drops": [],
+    "attempts": 1,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [],
+      "drops": []
+    },
+    "decidedThisRun": {
+      "merges": [],
+      "drops": [],
+      "denials": []
+    },
+    "proposedPairs": [],
+    "autoApplied": []
+  },
+  "entities": {
+    "merges": [],
+    "drops": [],
+    "attempts": 1,
+    "fallbacks": [],
+    "vetoes": [],
+    "fromSticky": {
+      "merges": [],
+      "drops": [],
+      "clusters": []
+    },
+    "decidedThisRun": {
+      "merges": [],
+      "drops": [],
+      "denials": [],
+      "clusters": [],
+      "clusterDenials": []
+    },
+    "proposedPairs": [],
+    "autoApplied": [],
+    "proposedClusters": []
+  },
+  "manualEditSkips": [],
+  "removedPages": [],
+  "rewrittenLinks": [],
+  "splitReversals": []
+}

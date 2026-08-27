@@ -1,0 +1,24 @@
+{
+  "wikiSlug": "test-wiki",
+  "links": {
+    "broken": [],
+    "orphaned": [],
+    "islands": [
+      "wikis/test-wiki/entities/organizations/alpha-corp.md",
+      "wikis/test-wiki/entities/people/jane-doe.md",
+      "wikis/test-wiki/topics/financial/financial.md"
+    ],
+    "totalLinks": 38,
+    "totalPages": 13
+  },
+  "citations": {
+    "invalid": [],
+    "missingSource": [],
+    "missingFrontmatterSource": [],
+    "totalCitations": 3
+  },
+  "schema": {
+    "invalid": [],
+    "totalPages": 13
+  }
+}

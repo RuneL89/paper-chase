@@ -93,7 +93,28 @@ import { spawnSync } from 'node:child_process';
 // src/tui/settings-screen.tsx). The packaged runtime must re-extract so
 // installed runtimes drop the removed provider rows, catalogs, and API-key
 // fields.
-const VERSION = '1.0.24';
+// 1.0.25 (2026-08-26): DeepSeek/Zhipu/GLM built-in providers restored and
+// Qwen 3.8 Flash + GLM-5.3-Flash added as selectable Sonnet-tier models in
+// the Settings bundle. The packaged runtime must re-extract so installed
+// runtimes restore the provider rows/catalogs/API-key fields and show the
+// new model choices.
+// 1.0.26 (2026-08-27): Phase 25 — the NEW prompts/disambiguation.prompt.txt
+// (an extracted asset via the same prompts/**/* globs in both pkg configs)
+// plus the disambiguation bundle (src/agents/disambiguation.ts, the
+// materializer detection/sticky pass, src/agents/pre-merge.ts, the
+// curation-decisions sourceMap, the class-6 composite writers, the schema
+// validator, the client.ts 'disambiguate' curation-slot routing). The
+// packaged runtime must re-extract so the generic-label disambiguation pass
+// can load its prompt.
+// 1.0.27 (2026-08-27): Phase 26 — the NEW prompts/amendment.prompt.txt (an
+// extracted asset via the same prompts/**/* globs in both pkg configs) plus
+// the amendment bundle (src/agents/amendment.ts, src/llm/patch.ts,
+// src/state/amendment-log.ts, the ingest.ts per-PDF loop restructure, the
+// materializer evidence-key exports, the synthesis-state baselineKeys/
+// pageKind extension, the client.ts 'synthesis-amend' routing). The packaged
+// runtime must re-extract so the per-PDF patch-amendment pass can load its
+// prompt.
+const VERSION = '1.0.27';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

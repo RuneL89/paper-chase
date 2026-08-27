@@ -1303,7 +1303,7 @@ test('gate 14.10: the Settings screen shows the Curation Model row with mid-tier
       synthesis: true,
       updateAgents: false,
       models: { provider: 'openai', default: GPT_LUNA, extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null },
-      apiKeys: { anthropic: null, openai: null, qwen: null },
+      apiKeys: { anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null },
     }),
     'utf-8',
   );
@@ -1318,13 +1318,13 @@ test('gate 14.10: the Settings screen shows the Curation Model row with mid-tier
       synthesis: true,
       updateAgents: false,
       models: { provider: 'qwen', default: 'qwen-plus', extractor: null, synthesis: null, dox: null, crossWiki: null, crossWikiJudgment: null },
-      apiKeys: { anthropic: null, openai: null, qwen: null },
+      apiKeys: { anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null },
     }),
     'utf-8',
   );
   const qwenOutput = await renderSettingsOutput(qwenWorkspace);
   expect(qwenOutput).toContain('Curation Model');
-  expect(qwenOutput).toContain('Qwen 3.7 Max — mid-tier judgment for merge/drop decisions');
+  expect(qwenOutput).toContain('Qwen 3.8 Flash — Sonnet-tier judgment for merge/drop decisions');
 }, 30000);
 
 // ---------------------------------------------------------------------------

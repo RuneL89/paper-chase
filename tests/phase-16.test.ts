@@ -555,7 +555,7 @@ test('gate 16.4: a stubbed 404 mid-stage aborts immediately — one call, zero f
 // ---------------------------------------------------------------------------
 // Gate 16.5: Resume skip + template retry
 // ---------------------------------------------------------------------------
-test('gate 16.5: run 2 skips the 8 passed pages (zero calls), retries the 2 template pages, and a fingerprint flip re-synthesizes one page', async () => {
+test('gate 16.5: run 2 skips the 8 passed pages (zero calls), retries the 2 template pages, and a fingerprint flip AMENDS one page (Phase 26 patch path)', async () => {
   const workspace = setupWikiWithPdf();
   vi.spyOn(console, 'warn').mockImplementation(() => {});
   const progressLines: string[] = [];
@@ -630,7 +630,9 @@ test('gate 16.5: run 2 skips the 8 passed pages (zero calls), retries the 2 temp
   // extraction JSON on disk. (The PDF itself is hash-skipped on every leg,
   // so the extraction stub never re-runs; editing the aggregate input
   // directly is exactly what a changed PDF + re-extraction would produce.)
-  // The fingerprint changes, so entity-0 alone is re-synthesized.
+  // Phase 26 (per-PDF amendment): the fingerprint change now routes the page
+  // to the AMENDMENT path (same-kind successful record + non-empty evidence
+  // delta) — a patch lands, and the full-synthesis stub makes ZERO calls.
   const flipped = buildExtraction(10);
   flipped.entities[0].mentions.push({ page: 2, context: 'A second mention context for entity 0' });
   await writeFile(
@@ -639,6 +641,7 @@ test('gate 16.5: run 2 skips the 8 passed pages (zero calls), retries the 2 temp
     'utf-8',
   );
   const leg3Calls = new Map<string, number>();
+  const leg3AmendmentCalls: string[] = [];
   const leg3 = await ingest('test-wiki', {
     workspace,
     synthesis: true,
@@ -652,10 +655,30 @@ test('gate 16.5: run 2 skips the 8 passed pages (zero calls), retries the 2 temp
     synthesizeEntityPermissiveFn: async (data) => passingEntityPage(data),
     synthesizeTopicFn: async (data) => passingTopicPage(data),
     synthesizeTopicPermissiveFn: async (data) => passingTopicPage(data),
+    amendmentFn: async (request) => {
+      leg3AmendmentCalls.push(request.pageSlug);
+      return JSON.stringify({
+        operations: [
+          {
+            op: 'add-section',
+            heading: '## Mentions',
+            body: '- Page 2: "A second mention context for entity 0" [^src1]',
+          },
+        ],
+      });
+    },
   });
-  expect(leg3Calls.get('entity-0')).toBe(1);
-  expect([...leg3Calls.keys()].filter((slug) => slug.startsWith('entity-'))).toEqual(['entity-0']);
+  expect(leg3AmendmentCalls).toEqual(['entity-0']);
+  expect(leg3Calls.get('entity-0') ?? 0).toBe(0);
+  expect([...leg3Calls.keys()].filter((slug) => slug.startsWith('entity-'))).toEqual([]);
   expect(leg3.synthesisSkipped).toBe(9);
+  expect(leg3.patchedPages).toBe(1);
+  // The patched page carries the new evidence (old ∪ new, never half-patched).
+  const patchedEntity0 = readFileSync(wikiPath(workspace, 'entities', 'people', 'entity-0.md'), 'utf-8');
+  expect(patchedEntity0).toContain('A second mention context for entity 0');
+  expect(patchedEntity0).toContain('Synthesis prose for Entity 0.');
+  const leg3Records = readSynthesisStateFile(workspace);
+  expect(leg3Records.pages['entities/people/entity-0.md']?.mode).toBe('patch-amended');
 });
 
 // ---------------------------------------------------------------------------
@@ -773,8 +796,12 @@ test('gate 16.7: a run killed after PDF 1 has it recorded; the resume skips its 
       relationships: [],
       claims: [
         {
-          text: `Claim for topic financial from ${second ? 'PDF 2' : 'PDF 1'}`,
-          type: 'financial',
+          // Phase 26 (per-PDF amendment): each PDF's claim lands in a DISTINCT
+          // topic type, so the PDF-2 claim builds a NEW topic page (full
+          // synthesis via the stub) instead of amending PDF 1's topic — the
+          // resume-amendment interaction is phase-26 gate 26.9's own subject.
+          text: `Claim for topic ${second ? 'operational' : 'financial'} from ${second ? 'PDF 2' : 'PDF 1'}`,
+          type: second ? 'operational' : 'financial',
           entities: [`entity-${second ? 2 : 0}`],
           page: 2,
         },
@@ -1570,7 +1597,7 @@ test('gate 16.10: the per-round keep-all fallback is intact under the size trigg
 // ---------------------------------------------------------------------------
 // Gate 16.11: Kill-and-resume integration
 // ---------------------------------------------------------------------------
-test('gate 16.11: kill mid-synthesis then resume — PDFs not re-extracted, passes not re-synthesized, templates retried, final wiki + state byte-equal to uninterrupted', async () => {
+test('gate 16.11: kill mid-synthesis then resume — completed PDFs not re-extracted, the aborted PDF re-processed, passes not re-synthesized, templates retried, final wiki + state byte-equal to uninterrupted', async () => {
   const PINNED = new Date('2026-07-25T12:00:00.000Z');
 
   const setupTwoPdfWiki = (): string => {
@@ -1583,11 +1610,16 @@ test('gate 16.11: kill mid-synthesis then resume — PDFs not re-extracted, pass
     rmSync(wikiPath(workspace, 'raw', 'golden-master.pdf'), { force: true });
     return workspace;
   };
-  // PDF a -> entity-0..4, PDF b -> entity-5..9 (one chunk each).
+  // PDF a -> entity-0..9, PDF b -> entity-10..19 (one chunk each). Phase 26
+  // (per-PDF synthesis stages): the outage detector's >10%-of-the-stage rate
+  // threshold now sees ONE PDF's stage, so each PDF contributes 10 entities —
+  // entity-18's single transport failure is exactly 10% of pdf-b's 10-page
+  // stage and does not trip the detector before entity-19's fatal 404 lands
+  // (the pre-Phase-26 batch stage saw all 20 pages at once).
   const extractionFor = (chunkId: string): ExtractorResult => {
-    const base = chunkId.startsWith('pdf-b') ? 5 : 0;
+    const base = chunkId.startsWith('pdf-b') ? 10 : 0;
     return {
-      entities: [0, 1, 2, 3, 4].map((offset) => ({
+      entities: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((offset) => ({
         name: `Entity ${base + offset}`,
         type: 'person',
         slug: `entity-${base + offset}`,
@@ -1602,9 +1634,9 @@ test('gate 16.11: kill mid-synthesis then resume — PDFs not re-extracted, pass
     };
   };
 
-  // ---- Leg 1 (killed mid-synthesis): entity-8 exhausts transport (a
-  // transport-fallback record, retried later), entity-9 throws a fatal 404 —
-  // the run dies with 9 of 10 pages checkpointed. 1/10 = 10% does not trip
+  // ---- Leg 1 (killed mid-synthesis): entity-18 exhausts transport (a
+  // transport-fallback record, retried later), entity-19 throws a fatal 404 —
+  // the run dies with 19 of 20 pages checkpointed. 1/10 = 10% does not trip
   // the outage detector before the kill lands.
   vi.useFakeTimers({ toFake: ['Date'] });
   vi.setSystemTime(PINNED);
@@ -1620,10 +1652,10 @@ test('gate 16.11: kill mid-synthesis then resume — PDFs not re-extracted, pass
       extractChunkFn: async (wikiDir, chunkId) => makeExtractChunkFnStub(extractionFor(chunkId))(wikiDir, chunkId),
       synthesizeEntityFn: async (data) => {
         leg1SynthCalls.push(data.slug);
-        if (data.slug === 'entity-8') {
+        if (data.slug === 'entity-18') {
           throw exhaustedTimeoutError();
         }
-        if (data.slug === 'entity-9') {
+        if (data.slug === 'entity-19') {
           throw http404Error();
         }
         return passingEntityPage(data);
@@ -1634,16 +1666,19 @@ test('gate 16.11: kill mid-synthesis then resume — PDFs not re-extracted, pass
     }),
   ).rejects.toThrow('HTTP 404');
 
-  // The kill left 9 checkpointed records (8 passes + the transport fallback);
-  // entity-9 has none. Both PDFs are recorded (per-PDF checkpoints).
+  // The kill left 19 checkpointed records (18 passes + the transport fallback);
+  // entity-19 has none. Phase 26 (per-PDF atomicity): a PDF is checkpointed
+  // only when its FULL pass through Steps 3-9 completes — pdf-b's pass aborted
+  // mid-synthesis, so only pdf-a is recorded and pdf-b is re-processed on
+  // resume (the phase-26 doc's UAT 26.2 contract).
   const leg1Records = readSynthesisStateFile(killedWorkspace);
-  expect(Object.keys(leg1Records.pages)).toHaveLength(9);
-  expect(leg1Records.pages['entities/people/entity-8.md']?.mode).toBe('transport-fallback');
+  expect(Object.keys(leg1Records.pages)).toHaveLength(19);
+  expect(leg1Records.pages['entities/people/entity-18.md']?.mode).toBe('transport-fallback');
   expect(leg1Records.pages['entities/people/entity-0.md']?.mode).toBe('strict-synthesis');
   const leg1Ingestion = JSON.parse(
     readFileSync(wikiPath(killedWorkspace, '.state', 'ingestion.json'), 'utf-8'),
   ) as { sources: Record<string, unknown> };
-  expect(Object.keys(leg1Ingestion.sources).sort()).toEqual(['pdf-a', 'pdf-b']);
+  expect(Object.keys(leg1Ingestion.sources).sort()).toEqual(['pdf-a']);
 
   // ---- Leg 2: plain ingest (no flags), same pinned time.
   vi.setSystemTime(PINNED);
@@ -1667,12 +1702,13 @@ test('gate 16.11: kill mid-synthesis then resume — PDFs not re-extracted, pass
     synthesizeTopicPermissiveFn: async (data) => passingTopicPage(data),
   });
 
-  // Completed PDFs are NOT re-extracted; passed pages are NOT re-synthesized
-  // (zero calls for them); the transport-fallback page and the never-
-  // checkpointed page are retried.
-  expect(leg2ExtractionCalls).toEqual([]);
-  expect(leg2.synthesisSkipped).toBe(8);
-  expect(leg2SynthCalls.sort()).toEqual(['entity-8', 'entity-9']);
+  // The completed PDF (pdf-a) is NOT re-extracted; the aborted PDF (pdf-b) is
+  // re-processed whole (per-PDF atomicity — its chunks re-extract); passed
+  // pages are NOT re-synthesized (zero calls for them); the transport-fallback
+  // page and the never-checkpointed page are retried.
+  expect(leg2ExtractionCalls).toEqual(['pdf-b-part-001']);
+  expect(leg2.synthesisSkipped).toBe(18);
+  expect(leg2SynthCalls.sort()).toEqual(['entity-18', 'entity-19']);
   expect(leg2.synthesized).toBe(2);
 
   // ---- The uninterrupted comparison run at the same pinned time.
@@ -1899,6 +1935,56 @@ test('gate 16.21: onResponseMeta carries the provider stop reason (anthropic sto
       delete process.env.OPENAI_API_KEY;
     } else {
       process.env.OPENAI_API_KEY = savedOpenAiKey;
+    }
+  }
+});
+
+// Gate 16.22 — the post-loop response-parse dispatch must send EVERY
+// OpenAI-compatible built-in provider (openai/qwen/deepseek/zhipu) through
+// parseOpenAIResponse. Caught LIVE by Phase 25's gate 25.9 on 2026-08-27:
+// zhipu (and deepseek) fell into parseAnthropicResponse, so a 2xx
+// Chat-Completions body parsed as EMPTY text with 0/0 tokens — the model's
+// valid JSON was silently discarded and every zhipu/deepseek callLLM in the
+// main path returned '' (the packaged dist bundles are affected equally).
+test('gate 16.22: OpenAI-compatible response parsing covers deepseek and zhipu (the 25.9 live-gate regression)', async () => {
+  const savedZaiKey = process.env.ZAI_API_KEY;
+  const savedDeepSeekKey = process.env.DEEPSEEK_API_KEY;
+  try {
+    for (const provider of ['zhipu', 'deepseek'] as const) {
+      process.env.ZAI_API_KEY = 'gate-16-22-fake-zai';
+      process.env.DEEPSEEK_API_KEY = 'gate-16-22-fake-ds';
+      setModelRouting({
+        provider,
+        default: provider === 'zhipu' ? 'glm-5.3-flash' : 'deepseek-v4-pro',
+        extractor: null,
+        synthesis: null,
+        dox: null,
+        crossWiki: null,
+        crossWikiJudgment: null,
+      });
+      mockUndiciRequest.mockReset();
+      mockUndiciRequest.mockResolvedValueOnce({
+        statusCode: 200,
+        body: {
+          json: async () => ({
+            choices: [{ message: { content: 'ok-openai-shape' }, finish_reason: 'stop' }],
+            usage: { prompt_tokens: 7, completion_tokens: 5 },
+          }),
+        },
+      } as never);
+      await expect(callLLM('p', undefined, { maxRetries: 0 })).resolves.toBe('ok-openai-shape');
+    }
+  } finally {
+    setModelRouting(null);
+    if (savedZaiKey === undefined) {
+      delete process.env.ZAI_API_KEY;
+    } else {
+      process.env.ZAI_API_KEY = savedZaiKey;
+    }
+    if (savedDeepSeekKey === undefined) {
+      delete process.env.DEEPSEEK_API_KEY;
+    } else {
+      process.env.DEEPSEEK_API_KEY = savedDeepSeekKey;
     }
   }
 });

@@ -1,0 +1,33 @@
+{
+  "phase": "26",
+  "status": "complete",
+  "goal": "All 11 technical gates in PHASE_26_per_pdf_patch_amendment.md pass (key-less npm test green + gate 26.11 green with ZAI_API_KEY), all 3 UAT steps documented with expected output, compliance log shows no unresolved contradictions, and total live LLM cost is under $15.00 (glm-5.3-flash only for every live call).",
+  "lastAction": "UAT 26.1 live run complete (2 PDFs, 5 patched pages, $0.2288); verifier pass complete; DOX closeout complete (2026-08-27 ~21:00)",
+  "gatesPassed": ["26.1", "26.2", "26.3", "26.4", "26.5", "26.6", "26.7", "26.8", "26.9", "26.10", "26.11"],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "llmCost": "$0.2328 total: gate 26.11 $0.003967 (1 synthesis-amend call, glm-5.3-flash, 1427 in / 7505 out tokens incl. reasoning) + UAT 26.1 $0.2288 (56 live calls, glm-5.3-flash only)",
+  "tokenBudgetRemaining": "$14.767 (hard cap $15.00, pause at $12.00 = 80%; glm-5.3-flash ONLY for every live call per the 2026-08-27 user directive)",
+  "blocker": null,
+  "nextAction": null,
+  "deviations": [
+    "Gate 26.1 (loop order) and gate 26.9 (abort/resume) were not covered by the original sub-agent test file (the doc's gate numbering had drifted); both were added as explicit tests in tests/phase-26.test.ts before closeout.",
+    "Phase 16 gate 16.5 (leg 3) updated: a fingerprint flip of an already-synthesized page now takes the AMENDMENT path (the Phase 26 contract), asserted via an injected amendmentFn — patch lands, the full-synthesis stub makes zero calls, record mode patch-amended.",
+    "Phase 16 gate 16.7 updated: PDF 2's claim moved to a distinct topic type (operational) so no page is amendment-eligible and the gate's byte-equality contract stays testable; the resume-amendment interaction is covered by phase-26 gate 26.9.",
+    "Phase 16 gate 16.11 updated to the per-PDF atomicity contract: a PDF is checkpointed only when its FULL pass (extract → materialize → synthesize/amend) completes, so pdf-b (aborted mid-synthesis) is NOT recorded and is re-processed on resume (re-extracted, passed pages still skipped). Fixture widened to 10 entities per PDF so entity-18's single transport failure stays at exactly 10% of the per-PDF stage (the outage detector's per-stage >10% rate threshold now sees one PDF's stage — canon-literal: vision 04 §6 ratified 'per synthesis stage', and Phase 26 makes stages per-PDF).",
+    "Phase 19 gate 19.4 updated: PDF 2 re-contributes identical evidence under its own source keys, so the survivors take the amendment path; an injected amendmentFn lands every new item via add-section (patched, never re-synthesized — result.synthesized stays 1 and the hash invariant holds).",
+    "Phase 23 gates 23.4/23.5 updated: gate23IngestOptions now injects an amendmentFn — the comparison's delta (PDF 2's dated table section) lands via add-section; other pages' empty patches degrade to the same full-synthesis fallback the pre-Phase-26 pipeline took. The 23.4-resume report-entry assertion now expects the patch-amended mode, and 23.5's double-failure conflict count is 2 (the template-fallback comparison is retried in BOTH per-PDF passes — the Phase 16 template-retry semantic under the loop).",
+    "Phase 11 gate 11.5 updated to the Phase-26-era README structure (the root AGENTS.md-mandated lean progressive-disclosure document: Introduction → pipeline at a glance → pipeline in detail → pointers); the Phase-11 architecture headings were folded into those sections.",
+    "tests/snapshots/phase-26-golden regenerated from the current deterministic single-PDF output (26 files) — the earlier snapshot predated the sectioned fixture helpers."
+  ],
+  "llmCallInventory": {
+    "gate-26.11": "1 synthesis-amend call (glm-5.3-flash) — happy path on attempt 1, schema-valid patch, merged-page preservation passed. $0.003967.",
+    "uat-26.1": "LIVE, passed (mechanism) with one honest cost finding — see watchItems. 56 calls total (2 extractor, 4 curation, 11 entity synthesis, 9 topic synthesis, 8 synthesis-amend, 22 DOX/workspace): 2 PDFs ingested sequentially, 20 pages (15 strict, 0 permissive, 5 patched), 6 amendment episodes (4 entity + 1 topic + 1 comparison), 2 attempts each (one reask per episode), the comparison page patched with a flag-contradiction; final validation clean (241 links 0 broken, 20 citations 0 invalid, 37 pages 0 invalid). $0.2288.",
+    "uat-26.2": "kill-and-resume proven deterministically by gate 26.9 (abort mid-PDF-3; resume re-processes only PDF 3; patched pages skip-eligible with zero re-amendments). The live variant was not re-run — it exercises the identical code path.",
+    "uat-26.3": "mechanism-level reading check PASSED by the main agent: the patched pages read as one coherent article (the 2024 legal thread integrated into the prose via edit-prose, no patch seams), every citation resolves, and the acme-corp contradiction block quotes both reports verbatim. Human final read deferred to the Reporter."
+  },
+  "watchItems": [
+    "UAT 26.1 token finding (honest): under the mandated glm-5.3-flash (a REASONING model), the amendment calls' BILLED output tokens were 1.8-8.4× the original creation calls (john-smith 5431→25016, jane-doe 4969→41929, acme-corp 17472→48247, revenue-by-quarter 13807→25328) — the phase doc's 'amendment output is a small fraction of creation' cost story did NOT materialize on this model in this two-PDF run. Root causes: (a) glm-5.3-flash bills hidden reasoning tokens as output (~2-3× overhead on a small-JSON task), and (b) every episode needed ONE reask (attempts: 2 in every amendment-log record) — the patch prompt is doing real semantic work but misses an item on attempt 1. The MECHANISM goals all held: data preserved verbatim, pages coherent, contradictions flagged, final validation clean. Recommendation for the Reporter: the token win should be re-measured on a non-reasoning cheap-tier model (Haiku-tier) and/or after a prompt polish pass that cuts the reask rate; the phase's preservation/atomicity goals are fully met regardless.",
+    "The live run emitted the Phase 12 repair warning (9 of 56 calls needed validator-feedback repair — the amendment reasks + 2 DOX reasks). Expected for a first live pass of a new prompt; not a blocker."
+  ]
+}

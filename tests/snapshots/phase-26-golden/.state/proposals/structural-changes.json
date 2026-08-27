@@ -1,0 +1,53 @@
+{
+  "changes": [
+    {
+      "timestamp": "2026-08-27T10:00:00.000Z",
+      "type": "new-folder",
+      "path": "entities/organizations",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "alpha-corp"
+      ]
+    },
+    {
+      "timestamp": "2026-08-27T10:00:00.000Z",
+      "type": "new-folder",
+      "path": "entities/people",
+      "reason": "1 entity placed in this folder",
+      "affectedEntities": [
+        "jane-doe"
+      ]
+    },
+    {
+      "timestamp": "2026-08-27T10:00:00.000Z",
+      "type": "new-folder",
+      "path": "topics/financial",
+      "reason": "Topic page 'financial' created from claims of type 'financial'",
+      "affectedEntities": [
+        "alpha-corp"
+      ]
+    },
+    {
+      "timestamp": "2026-08-27T10:00:00.000Z",
+      "type": "new-page-type",
+      "path": "organization",
+      "reason": "New entity page type 'organization' discovered during extraction",
+      "affectedEntities": [
+        "alpha-corp"
+      ]
+    },
+    {
+      "timestamp": "2026-08-27T10:00:00.000Z",
+      "type": "new-page-type",
+      "path": "person",
+      "reason": "New entity page type 'person' discovered during extraction",
+      "affectedEntities": [
+        "jane-doe"
+      ]
+    }
+  ],
+  "knownPageTypes": [
+    "organization",
+    "person"
+  ]
+}

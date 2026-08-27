@@ -1,0 +1,50 @@
+{
+  "phase": "25",
+  "status": "verified",
+  "lastAction": "INDEPENDENT Verifier pass complete 2026-08-27 (.state/phase-25-verification.md): COMPLIANT, all gates PASS. Cold compliance check vs vision 02 §4.6 / 05 §6+§7 / 04 §3.2 Step 6b — clean (detection = pattern AND ≥2 sources AND min-pairwise Jaccard < 0.2, all three required; deterministic-proposes/LLM-confirms; ONE composite at the generic slug; class 6 legal on topics with 1-5 rejected; sticky sourceMap + splits dissolution; keep-one-page fallback; 'disambiguate' rides the curation slot, no new Settings row; per-member verbatim preservation via the unioned citation map). Independent runs: key-less FULL suite 548 passed + 15 skipped / 37 files, zero failures (.env stashed/restored byte-identical, 171 bytes; one transient first-run EPERM flake raced between the untracked .state/upgrade debug scripts sharing one sandbox — clean immediate re-run green, environmental, not a project test); npx tsc --noEmit clean; gate 16.22 PASS; LIVE gate 25.9 PASS (2 glm-5.3-flash calls ≈$0.0009, both invocations schema-valid, llm-calls.json entry provider zhipu / model glm-5.3-flash / callType disambiguate; ZAI key injected from dist/.paper-chase.json, never printed). All five recorded deviations verified in code and judged legitimate implementation choices, NOT spec violations (slug-derived member titles are forced by the doc's slug-only record shape + gate 25.3's byte-identical zero-call rebuild; source-less items → first member is deterministic and lossless; no topic-composite synthesis stage is wired or required by the doc; denied splits were never specified sticky; splits suppression is required for gate 25.7 and mirrors the Phase 21/22 vetoSlugs precedent). Both 2026-08-27 live fixes verified against their contracts (basename normalization canonicalizes unique basenames only, full paths retained downstream; client.ts parse dispatch covers openai/qwen/deepseek/zhipu at BOTH sites — grep-confirmed no other dispatch site). Two non-blocking observations: the .state/upgrade debug-script sandbox race (suggest excluding .state/ from vitest discovery) and the untested ambiguous-basename guard leg.",
+  "gatesPassed": [
+    "25.1",
+    "25.2",
+    "25.3",
+    "25.4",
+    "25.5",
+    "25.6",
+    "25.7",
+    "25.8",
+    "25.9"
+  ],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "gateTests": {
+    "25.1": "gate 25.1: the generic-label shape — pattern families recognized, non-generic slugs rejected + gate 25.1: two-source disjoint tokens IS flagged; single source, high overlap, and non-generic slugs are NOT",
+    "25.2": "gate 25.2: the prompt carries the language directive, per-source evidence, and the member rules; the RE-ENTRY block strips byte-identically + schema accepts/rejects with member-naming errors + the reask correction block, exhaustion, and 4xx + routing rides the curation slot + re-entry validation fixes existing members + basename-echo normalization regression legs (2026-08-27)",
+    "25.3": "gate 25.3: a confirmed split writes ONE class-6 composite at the generic slug, records the sticky sourceMap, and run 2 makes ZERO judgment calls and reproduces the composite byte-identically",
+    "25.4": "gate 25.4: a class-6 TOPIC composite renders with members block, per-member claim groups, and complete topic frontmatter; a class-3 cluster on a topic is still a validation error",
+    "25.5": "gate 25.5: every per-member verbatim item is present, the unioned citation map defines every marker, wikilinks to the generic slug resolve, and member pages are absent",
+    "25.6": "gate 25.6: a third source with a new meaning re-enters the judgment scoped to that source; existing members untouched; sourceMap grows (+ the same-meaning control: deterministic routing, zero calls)",
+    "25.7": "gate 25.7: listing the generic slug in splits dissolves the composite — ordinary page rebuilt, reversal logged",
+    "25.8": "aggregate: full key-less suite 548 passed + 15 skipped / 37 files (post-fix counts incl. gate 16.22), zero unenumerated regressions; npx tsc --noEmit clean",
+    "25.9": "LIVE, GREEN 2026-08-27: the real disambiguate() against the curation slot pinned to zhipu/glm-5.3-flash — schema-valid JSON for the DPD/HOFTER divergent evidence AND the same-register control, llm-calls.json entry provider zhipu / model glm-5.3-flash / callType disambiguate; self-skips without ZAI_API_KEY"
+  },
+  "llmCost": "$0.007 ($0.006 implementer + ~$0.0009 verifier live gate 25.9 re-run)",
+  "tokenBudgetRemaining": "$5.99 (spend: 9 discarded-parse diagnosis attempts + 4 successful gate calls (2 implementer + 2 verifier) + 4 direct endpoint probes, all glm-5.3-flash)",
+  "blocker": null,
+  "nextAction": "Reporter presents UATs 25.1-25.3 for user acceptance (UAT 25.1/25.2 live with every routing slot pinned to zhipu/glm-5.3-flash; UAT 25.3 is the human Obsidian reading check). Reminder: rebuild the packaged exe (asset VERSION 1.0.26) before any zhipu/deepseek production use — the parse-dispatch fix must ship in dist.",
+  "deviations": [
+    "Member TITLES render deterministically from the member slug (the aggregation title-case rule, e.g. indikator-2-first-treatment-contact -> 'Indikator 2 First Treatment Contact') on BOTH the fresh and the sticky path; the judgment's member titles are validated but advisory. The phase doc's record shape stores member slugs only, so byte-identical sticky rebuilds (gate 25.3) require slug-derived titles.",
+    "Source-less aggregate items (entity timeline events and chunk contexts carry no per-item source) follow the FIRST member in application order on a class-6 split — deterministic and lossless; all source-carrying evidence partitions exactly by the sourceMap.",
+    "No synthesis stage is wired for class-6 TOPIC composites in this phase (they render as deterministic shells via result.topicCompositePages). Class-6 ENTITY composites flow through the existing Phase 22 composite synthesis stage unchanged.",
+    "A denied split (no-split verdict) is NOT recorded sticky — per phase doc §2.3 (self-healing next run), a flagged-but-denied label is re-proposed on a later run (~1 call).",
+    "splits suppression: a generic slug currently listed in splits is excluded from fresh detection until a new decision touching it consumes the split — without this, the dissolving run would immediately re-split (gate 25.7 asserts zero re-proposals)."
+  ],
+  "liveFixes2026_08_27": [
+    "Basename source-echo normalization in validateDisambiguationVerdict (Implementer; caught by the first live 25.9 run — the model echoes 'DPD_2025.pdf' against full-path proposals).",
+    "src/llm/client.ts parse dispatch: deepseek + zhipu now parse via parseOpenAIResponse (main agent; latent HEAD bug — zhipu/deepseek callLLM responses parsed as empty text/0 tokens; NEW regression gate 16.22)."
+  ],
+  "compliance": {
+    "lastCheck": "2026-08-27 (post-implementation, INDEPENDENT Verifier sub-agent)",
+    "result": "compliant — verified cold against vision 02 §4.6 / 05 §6+§7 / 04 §3.2 Step 6b and the phase doc; all 9 gates + 16.22 pass; all 5 deviations are legitimate implementation choices, none a violation; see .state/phase-25-verification.md",
+    "checkedBy": "implementer-subagent + main-agent + independent-verifier-subagent",
+    "note": "Vision docs untouched by the implementation (all vision edits in the working tree predate it). Independent Verifier pass COMPLETE."
+  }
+}

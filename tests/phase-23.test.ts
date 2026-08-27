@@ -1077,6 +1077,19 @@ function gate23IngestOptions(
     synthesizeEntityPermissiveFn: async (data: EntityPageData) => passingEntityPage(data),
     synthesizeTopicFn: async (data: TopicPageData) => passingTopicPage(data),
     synthesizeTopicPermissiveFn: async (data: TopicPageData) => passingTopicPage(data),
+    // Phase 26 (per-PDF amendment): PDF 2's pass finds same-shape pages with
+    // non-empty deltas and routes them to the Amendment Writer. The
+    // comparison's delta is exactly PDF 2's dated table section (added as a
+    // new section); every other page's new items are already verbatim in the
+    // passing stubs' full-aggregate render, so an empty patch degrades to the
+    // same full-synthesis fallback the pre-Phase-26 pipeline took.
+    amendmentFn: async (request) =>
+      JSON.stringify({
+        operations:
+          request.pageKind === 'comparison'
+            ? [{ op: 'add-section', heading: '## Table: report-2024.pdf, p. 15', body: TABLE_MD_2024 }]
+            : [],
+      }),
     ...comparisonStubs,
   };
 }
@@ -1183,7 +1196,10 @@ test('gate 23.5 (stage): double failure keeps the deterministic shell (finalMode
     }),
   });
 
-  expect(result.comparisonConflicts).toBe(1);
+  // Phase 26 (per-PDF passes): the template-fallback comparison is retried in
+  // BOTH PDFs' passes (the Phase 16 template-retry semantic under the loop),
+  // so the conflict is logged once per pass.
+  expect(result.comparisonConflicts).toBe(2);
   expect(result.synthesizedComparisons ?? 0).toBe(0);
   expect(result.synthesizedComparisonsPermissive ?? 0).toBe(0);
 
@@ -1196,7 +1212,8 @@ test('gate 23.5 (stage): double failure keeps the deterministic shell (finalMode
   expect(matter(raw).data.type).toBe('comparison');
 
   const report = await readSynthesisReport(wikiPath(workspace));
-  const entry = report.entries.find((item) => item.pageType === 'comparison');
+  const entries = report.entries.filter((item) => item.pageType === 'comparison');
+  const entry = entries[entries.length - 1];
   expect(entry).toMatchObject({
     strict: { attempted: true, passed: false, attempts: 3 },
     permissive: { attempted: true, passed: false, attempts: 3 },
@@ -1256,9 +1273,12 @@ test('gate 23.4 (stage): run 2 with unchanged data makes ZERO comparison LLM cal
   expect(run2.synthesisComparisonsSkipped).toBe(1);
   expect(readFileSync(comparisonPath, 'utf-8')).toBe(run1Bytes);
 
-  // The skipped comparison contributes a reconstructed report entry.
+  // The skipped comparison contributes a reconstructed report entry (the
+  // PDF-2 pass PATCH-amended it under Phase 26, so both run-1 entries and the
+  // run-2 reconstructed entry replay the patch-amended mode).
   const report = await readSynthesisReport(wikiPath(workspace));
   const comparisonEntries = report.entries.filter((item) => item.pageType === 'comparison');
-  expect(comparisonEntries).toHaveLength(2);
-  expect(comparisonEntries[1]).toMatchObject({ finalMode: 'strict-synthesis' });
+  expect(comparisonEntries).toHaveLength(3);
+  expect(comparisonEntries[1]).toMatchObject({ finalMode: 'patch-amended' });
+  expect(comparisonEntries[2]).toMatchObject({ finalMode: 'patch-amended' });
 });

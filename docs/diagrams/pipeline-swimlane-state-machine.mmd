@@ -1,0 +1,130 @@
+flowchart LR
+    Start
+    U1
+    D0
+    C1
+    L1
+    D1
+    C9
+    C2
+    D2
+    L2
+    C3
+    L3
+    C4
+    D4
+    L5
+    D5
+    L4
+    D6
+    C5
+    C6
+    C7
+    L6
+    L7
+    D7
+    L8
+    D8
+    L9
+    C8
+    U2
+    Done
+
+    subgraph LLM["LLM — prompted model calls"]
+        L1["[LLM] EXTRACTOR — prompted to read the chunk,<br/>constitution + rolling memory, then list entities,<br/>relationships, claims, tables as cited JSON"]
+        L2["[LLM] DISAMBIGUATION — prompted: do the per-source<br/>evidences mean the same thing, or different<br/>meanings that must be split apart?"]
+        L3["[LLM] CURATION — prompted to confirm or deny<br/>each proposed entity/topic merge,<br/>drop and cluster"]
+        L4["[LLM] SYNTHESIS — prompted to write the readable<br/>article: prose in the output language,<br/>evidence quotes kept verbatim underneath"]
+        L5["[LLM] AMENDMENT — prompted to emit a structured patch:<br/>add-evidence, add-section, add-member,<br/>edit-prose, flag-contradiction — never rewrites"]
+        L6["[LLM] DOX WRITER — prompted to write each folder's<br/>index.md navigation contract<br/>with links + statistics"]
+        L7["[LLM] WORKSPACE INDEX — prompted to write this wiki's<br/>segment of the workspace index; every other<br/>wiki's bytes preserved untouched"]
+        L8["[LLM] CROSS-WIKI — prompted to match entities across<br/>wikis, normalize predicates, cluster topics —<br/>never aborts the ingest on failure"]
+        L9["[LLM] UPDATER — prompted to propose an updated<br/>wiki constitution from the<br/>current wiki structure"]
+    end
+
+    subgraph CODE["CODE — deterministic TypeScript"]
+        D0{"PDF hash<br/>unchanged?"}
+        C1["[CODE] Chunk PDF — split into<br/>page-size chunks; a page is<br/>never split across chunks"]
+        C2["[CODE] Materialize — aggregate evidence<br/>across chunks + prior PDFs,<br/>flag generic-label suspects"]
+        D2{"Generic label with<br/>divergent sources?"}
+        C3["[CODE] Write composite page at the<br/>generic slug — per-meaning member<br/>sections, sticky sourceMap"]
+        C4["[CODE] Apply curation decisions,<br/>write candidate pages —<br/>human edits never overwritten"]
+        D4{"Page already<br/>successfully<br/>synthesized?"}
+        C5["[CODE] Page written + fingerprint stored —<br/>becomes skip-eligible / patch-eligible<br/>on later runs"]
+        C6["[CODE] Checkpoint PDF state —<br/>interrupted runs resume<br/>without redoing finished PDFs"]
+        C7["[CODE] Validate — wikilinks, citations,<br/>frontmatter, evidence preservation"]
+        D1{"Extractor JSON<br/>+ schema valid?"}
+        D5{"Patch valid, old and new<br/>evidence preserved?"}
+        D6{"All evidence<br/>preserved?"}
+        D7{"2+ wikis in<br/>workspace?"}
+        D8{"AGENTS.md<br/>updater enabled?"}
+        C8["[CODE] Persist metrics, LLM call log,<br/>stall log, amendment log, state"]
+        C9["Run aborted —<br/>fail-loud, nothing skipped"]
+    end
+
+    subgraph USER["USER — human actions"]
+        Start(["PDFs already dropped<br/>into wiki/raw/"])
+        U1["[USER] Press 'Ingest PDFs' in TUI/CLI.<br/>Pipeline loads settings, AGENTS.md,<br/>rolling memory + prior state"]
+    end
+
+    U2["[USER] Optional, post-run: press P to review<br/>the proposed AGENTS.md diff —<br/>applied only by explicit human action"]
+    Done(["Wiki updated"])
+
+    Start --> U1
+    U1 -->|"for each PDF in raw/"| D0
+    D0 -->|"yes — skip this PDF"| C6
+    D0 -->|"no — hash changed"| C1
+    C1 -->|"per chunk, sequential"| L1
+    L1 --> D1
+    D1 -->|"invalid — JSON Corrector diagnoses, reask max 3"| L1
+    D1 -->|"reasks exhausted — fail-loud"| C9
+    D1 -->|"valid"| C2
+    C2 --> D2
+    D2 -->|"yes"| L2
+    D2 -->|"no"| L3
+    L2 -->|"split confirmed"| C3
+    L2 -->|"keep one page — also the exhaustion fallback"| L3
+    C3 --> L3
+    L3 -->|"validated decision list"| C4
+    C4 -->|"for each changed page"| D4
+    D4 -->|"yes"| L5
+    D4 -->|"no — new or reshaped page"| L4
+    L5 --> D5
+    D5 -->|"invalid — reask max 3"| L5
+    D5 -->|"exhausted — full synthesis, never half-patched"| L4
+    D5 -->|"applied"| C5
+    L4 --> D6
+    D6 -->|"evidence lost — reask max 3"| L4
+    D6 -->|"preserved — or exhausted, fallback page"| C5
+    C5 -->|"more changed pages"| D4
+    C5 -->|"PDF complete"| C6
+    C6 -->|"more PDFs"| D0
+    C6 -->|"all PDFs done"| C7
+    C7 --> L6
+    L6 -->|"indexes pass final validation"| L7
+    L7 --> D7
+    D7 -->|"yes"| L8
+    D7 -->|"no"| D8
+    L8 --> D8
+    D8 -->|"yes"| L9
+    D8 -->|"no"| C8
+    L9 --> C8
+    C8 --> U2
+    U2 --> Done
+    C9 --> Done
+
+    classDef userNode fill:#fff4e6,stroke:#ff6600,color:#000,font-weight:bold
+    classDef codeNode fill:#e6ffe6,stroke:#009900,color:#000,font-weight:bold
+    classDef llmNode fill:#e6f3ff,stroke:#0066cc,color:#000,font-weight:bold
+    classDef checkNode fill:#ffffcc,stroke:#cc9900,color:#000,font-weight:bold
+    classDef abortNode fill:#ffcccc,stroke:#cc0000,color:#000,font-weight:bold
+
+    class Start,U1,U2,Done userNode
+    class C1,C2,C3,C4,C5,C6,C7,C8 codeNode
+    class D0,D1,D2,D4,D5,D6,D7,D8 checkNode
+    class L1,L2,L3,L4,L5,L6,L7,L8,L9 llmNode
+    class C9 abortNode
+
+    style LLM fill:#f5faff,stroke:#0066cc
+    style CODE fill:#f7fff7,stroke:#009900
+    style USER fill:#fffaf2,stroke:#ff6600

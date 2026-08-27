@@ -1,0 +1,25 @@
+{
+  "entities": [
+    {
+      "slug": "alpha-corp",
+      "folder": "entities/organizations",
+      "mentionCount": 2
+    },
+    {
+      "slug": "jane-doe",
+      "folder": "entities/people",
+      "mentionCount": 1
+    }
+  ],
+  "topics": [
+    "financial"
+  ],
+  "sources": [
+    "golden-master"
+  ],
+  "folderStructure": [
+    "entities/organizations",
+    "entities/people",
+    "topics/financial"
+  ]
+}

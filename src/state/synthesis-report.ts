@@ -30,9 +30,11 @@ export interface SynthesisReportEntry {
    * synthesis, or the structured template. Phase 16 (vision `04` §6):
    * 'transport-fallback' records a page that landed on the structured
    * template because a transient transport error was still throwing after
-   * the bounded retries (the per-page transport fallback).
+   * the bounded retries (the per-page transport fallback). Phase 26 (§2.4):
+   * 'patch-amended' records a page successfully amended by a validated patch
+   * (skip-eligible like strict/permissive).
    */
-  finalMode: 'strict-synthesis' | 'permissive-synthesis' | 'structured-template' | 'transport-fallback';
+  finalMode: 'strict-synthesis' | 'permissive-synthesis' | 'structured-template' | 'transport-fallback' | 'patch-amended';
 }
 
 export interface SynthesisReportState {

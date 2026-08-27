@@ -1,0 +1,17 @@
+{
+  "sources": {
+    "golden-master": {
+      "hash": "1e4f2cbec74a83bf8ae56f3a45035827ec405bd02989d6b38f08929b80ac339d",
+      "documentPages": [
+        "documents/golden-master-part-001.md"
+      ],
+      "ingestedAt": "2026-08-27T10:00:00.000Z",
+      "language": "en"
+    }
+  },
+  "pageHashes": {
+    "entities/organizations/alpha-corp.md": "061af3617ed003cebe54943909330160d60a54994e0de08a0d8a04524f4177bf",
+    "entities/people/jane-doe.md": "b583a4f0d6dcc8c8720ca1ed5418e2e221518cd2f513843dc2d9393c62de94a8",
+    "topics/financial/financial.md": "35aed8020a16526eab15ad9eb9e437aa622f1e1a57fac2199c323f045d5edd38"
+  }
+}

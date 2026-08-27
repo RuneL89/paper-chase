@@ -566,6 +566,24 @@ test('gate 19.4: hash-consistency invariant across a two-PDF ingest with curatio
     synthesizeEntityPermissiveFn: async (data) => passingEntityPage(data),
     synthesizeTopicFn: async (data) => passingTopicPage(data),
     synthesizeTopicPermissiveFn: async (data) => passingTopicPage(data),
+    // Phase 26 (per-PDF amendment): PDF 2 re-contributes the same evidence
+    // under its own source keys, so the survivors take the amendment path.
+    // A deterministic patch lands every new item (the preservation check then
+    // sees old ∪ new verbatim); the pages are patched, never re-synthesized.
+    amendmentFn: async (request) => {
+      const items =
+        request.pageKind === 'topic'
+          ? ['- Claim A about alpha [^src2]', '- Claim B about beta [^src2]']
+          : [
+              '- Page 1: "Alpha addressed the board" [^src2]',
+              '- Page 2: "Beta seconded the motion" [^src2]',
+              '- Claim A about alpha [^src2]',
+              '- Claim B about beta [^src2]',
+            ];
+      return JSON.stringify({
+        operations: [{ op: 'add-section', heading: '## New evidence', body: items.join('\n') }],
+      });
+    },
   });
 
   // Curation applied: one survivor entity page, one survivor topic page.

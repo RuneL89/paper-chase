@@ -1,0 +1,216 @@
+{
+  "entities": [
+    {
+      "name": "Dansk Hysterektomi og Hysteroskopi Database",
+      "type": "organization",
+      "slug": "dansk-hysterektomi-og-hysteroskopi-database",
+      "folder": "entities/organizations/health-research",
+      "significance": "Dansk Hysterektomi og Hysteroskopi Database (DHHD) er det nationale registre, der overvåger kvaliteten og frekvensen af kirurgiske indgreb som hysterektomi og hysteroskopi i Danmark.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Dansk Hysterektomi og Hysteroskopi Database. Årsrapport 2022/23"
+        }
+      ]
+    },
+    {
+      "name": "RKKP",
+      "type": "organization",
+      "slug": "rkkp",
+      "folder": "entities/organizations/quality-development",
+      "significance": "Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP) er udgiveren af årsrapporten og har ansvaret for det nationale kvalitetsprogram for regionerne.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Udgiver: Regionernes Kliniske Kvalitetsudviklingsprogram (RKKP)"
+        }
+      ]
+    },
+    {
+      "name": "Helle Hare-Bruun",
+      "type": "person",
+      "slug": "helle-hare-bruun",
+      "folder": "entities/people/health-research",
+      "significance": "Helle Hare-Bruun er klinisk epidemiolog og medforfatter til årsrapporten.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Udarbejdet af: Klinisk epidemiolog Helle Hare-Bruun"
+        }
+      ]
+    },
+    {
+      "name": "Pia Arnum Frøslev",
+      "type": "person",
+      "slug": "pia-arnum-froslev",
+      "folder": "entities/people/health-research",
+      "significance": "Pia Arnum Frøslev er datamanager og medforfatter til årsrapporten.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "...og datamanager Pia Arnum Frøslev fra RKKPs Videncenter"
+        }
+      ]
+    },
+    {
+      "name": "Annette Settnes",
+      "type": "person",
+      "slug": "annette-settnes",
+      "folder": "entities/people/health-research",
+      "significance": "Annette Settnes er formand for styregruppen i DHHD og ledende overlæge.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Formand for DHHD: Ledende overlæge, Ph.d. Annette Settnes"
+        }
+      ]
+    },
+    {
+      "name": "Märta Fink Topsøe",
+      "type": "person",
+      "slug": "maerta-fink-topsoe",
+      "folder": "entities/people/health-research",
+      "significance": "Märta Fink Topsøe er tovholder for styregruppen i DHHD.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Tovholder for DHHD: Afdelingslæge, Ph.d. Märta Fink Topsøe"
+        }
+      ]
+    },
+    {
+      "name": "Julie Mark",
+      "type": "person",
+      "slug": "julie-mark",
+      "folder": "entities/people/health-research",
+      "significance": "Julie Mark er kontaktperson for DHHD.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Henvendelse til: Kontaktperson Julie Mark"
+        }
+      ]
+    },
+    {
+      "name": "Regionerne",
+      "type": "location",
+      "slug": "regionerne",
+      "folder": "topics/locations/regions",
+      "significance": "Regionerne er de geografiske enheder, der indsamler og rapporterer data til DHHD.",
+      "mentions": [
+        {
+          "page": 5,
+          "context": "Region | Hovedstaden | 208"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "dansk-hysterektomi-og-hysteroskopi-database",
+      "predicate": "is-published-by",
+      "object": "rkkp",
+      "evidence": "RKKP er udgiver af årsrapporten",
+      "page": 1
+    },
+    {
+      "subject": "helle-hare-bruun",
+      "predicate": "is-author-of",
+      "object": "dansk-hysterektomi-og-hysteroskopi-database",
+      "evidence": "Udarbejdet af: Klinisk epidemiolog Helle Hare-Bruun",
+      "page": 1
+    },
+    {
+      "subject": "pia-arnum-froslev",
+      "predicate": "is-author-of",
+      "object": "dansk-hysterektomi-og-hysteroskopi-database",
+      "evidence": "...og datamanager Pia Arnum Frøslev",
+      "page": 1
+    },
+    {
+      "subject": "annette-settnes",
+      "predicate": "is-chair-of",
+      "object": "dansk-hysterektomi-og-hysteroskopi-database",
+      "evidence": "Formand for DHHD: Ledende overlæge, Ph.d. Annette Settnes",
+      "page": 1
+    },
+    {
+      "subject": "maerta-fink-topsoe",
+      "predicate": "is-co-chair-of",
+      "object": "dansk-hysterektomi-og-hysteroskopi-database",
+      "evidence": "Tovholder for DHHD: Afdelingslæge, Ph.d. Märta Fink Topsøe",
+      "page": 1
+    },
+    {
+      "subject": "julie-mark",
+      "predicate": "is-contact-for",
+      "object": "dansk-hysterektomi-og-hysteroskopi-database",
+      "evidence": "Henvendelse til: Kontaktperson Julie Mark",
+      "page": 1
+    }
+  ],
+  "claims": [
+    {
+      "text": "Årsrapporten dækker perioden 1. juni 2022 – 31. maj 2023 [^src1]",
+      "type": "factual",
+      "entities": [
+        "dansk-hysterektomi-og-hysteroskopi-database"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Rapporten er kommenteret og auditeret af styregruppen for DHHD [^src1]",
+      "type": "factual",
+      "entities": [
+        "dansk-hysterektomi-og-hysteroskopi-database"
+      ],
+      "page": 1
+    },
+    {
+      "text": "Offentliggjort version, versionsdato 30/11 2023 [^src1]",
+      "type": "factual",
+      "entities": [
+        "dansk-hysterektomi-og-hysteroskopi-database"
+      ],
+      "page": 1
+    }
+  ],
+  "timeline": [
+    {
+      "date": "1. juni 2022",
+      "event": "Rapportens rapporteringsperiode starter for Dansk Hysterektomi og Hysteroskopi Database [^src1]",
+      "entities": [
+        "dansk-hysterektomi-og-hysteroskopi-database"
+      ]
+    },
+    {
+      "date": "31. maj 2023",
+      "event": "Rapportens rapporteringsperiode slutter [^src1]",
+      "entities": [
+        "dansk-hysterektomi-og-hysteroskopi-database"
+      ]
+    },
+    {
+      "date": "30. november 2023",
+      "event": "Offentliggørelse af årsrapporten [^src1]",
+      "entities": [
+        "dansk-hysterektomi-og-hysteroskopi-database"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "subject": "regionale-kommentarer",
+      "title": "Regionale kommentarer",
+      "page": 5,
+      "rowDimension": "Region",
+      "colDimension": "Kommentar og side",
+      "entities": [
+        "regionerne"
+      ],
+      "markdown": "| Regionale kommentarer |\n| --- | --- |\n| Region | Hovedstaden | 208 |\n| Region | Sjælland | 208 |\n| Region | Syddanmark | 208 |\n| Region | Midtjylland | 208 |\n| Region | Nordjylland | 209 |",
+      "summary": "Oversigt over regionale kommentarer for hvert dansk område og henvisning til sidens sider."
+    }
+  ],
+  "context": "Dette er omslaget og indholdsfortegnelsen for Årsrapport 2022/23 fra Dansk Hysterektomi og Hysteroskopi Database (DHHD). Rapporten dækker perioden fra 1. juni 2022 til 31. maj 2023 og indeholder data om kirurgiske indgreb som hysterektomi og hysteroskopi. Den er udarbejdet af RKKPs Videncenter i samarbejde med ledende overlæger, herunder Formand Annette Settnes og Tovholder Märta Fink Topsøe. Rapporten omfatter indikatorer for behandlingskvalitet, komplikationer og genindlæggelser, samt en oversigt over regionale kommentarer."
+}

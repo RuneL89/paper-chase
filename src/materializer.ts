@@ -7,9 +7,11 @@ import { wikiDir, wikiRelativePath } from './utils/paths';
 import { writeEntityPage, isSparseEntity, type EntityPageData, type EntityPageIncomingRelationship } from './pages/entity-page';
 import {
   writeCompositePage,
+  writeTopicCompositePage,
   type CompositeMember,
   type CompositeMemberEvidence,
   type CompositePageData,
+  type TopicCompositePageData,
 } from './pages/composite-page';
 import { writeTopicPage, type TopicPageData } from './pages/topic-page';
 import {
@@ -27,6 +29,7 @@ import { writeCurationReport } from './state/curation-report';
 import {
   appendCurationDecisions,
   readCurationDecisions,
+  updateCurationDecisionSourceMap,
   type CurationDecisionRecord,
 } from './state/curation-decisions';
 import { isSkipEligible, pageDataHash, readSynthesisState, synthesisPagePath } from './state/synthesis-state';
@@ -44,10 +47,25 @@ import {
   type TopicCurationOutcome,
 } from './agents/curation';
 import {
+  disambiguateLabel,
+  validateDisambiguationReentry,
+  validateDisambiguationVerdict,
+  type DisambiguationCallOptions,
+  type DisambiguationMember,
+  type DisambiguationRequest,
+  type DisambiguationOutcome,
+} from './agents/disambiguation';
+import {
   curationPairKey,
   detectPreMergePairs,
   isIndicatorSlug,
+  isGenericLabelSlug,
+  labelSlugTokens,
+  substantiveTokens,
+  tokenOverlapJaccard,
+  GENERIC_LABEL_OVERLAP_THRESHOLD,
   type ProposedCluster,
+  type ProposedDisambiguation,
   type ProposedPair,
 } from './agents/pre-merge';
 import { rewriteWikilinkTargets, type WikilinkRewrite } from './utils/wikilinks';
@@ -90,6 +108,12 @@ export interface MaterializeOptions {
    */
   curateTopicsFn?: (candidates: TopicCurationCandidate[], options: CurateCallOptions) => Promise<TopicCurationOutcome>;
   curateEntitiesFn?: (candidates: EntityCurationCandidate[], options: CurateCallOptions) => Promise<EntityCurationOutcome>;
+  /**
+   * Phase 25 (§2.2) test seam (the `curateTopicsFn` precedent): injected
+   * disambiguation judgment — replaces the whole agent call, keeping every
+   * gate LLM-free. Default to the real `disambiguateLabel`.
+   */
+  disambiguateFn?: (request: DisambiguationRequest, options: DisambiguationCallOptions) => Promise<DisambiguationOutcome>;
 }
 
 /**
@@ -102,6 +126,77 @@ export interface AppliedCluster {
   into: string;
   signal: string;
   rationale?: string;
+}
+
+// ---------------------------------------------------------------------------
+// Phase 25 (§2.1–§2.4; canon: vision `04` §3.2 Step 6b, `02` §4.6 class 6,
+// `05` §6 class 6 + §7 same-label rule; backlog B23): generic-label
+// disambiguation — internal entry shapes + the run summary.
+// ---------------------------------------------------------------------------
+
+/**
+ * One member's partition of the generic label's aggregate evidence (entity
+ * legs): every item keeps its member association (the sourceMap routing).
+ */
+interface DisambiguationEvidenceGroup {
+  slug: string;
+  mentions: EntityPageData['mentions'];
+  relationships: EntityPageData['relationships'];
+  incomingRelationships: EntityPageIncomingRelationship[];
+  claims: EntityPageData['claims'];
+  timeline: ExtractorTimelineEvent[];
+  contexts: string[];
+}
+
+/** One ACTIVE class-6 entity disambiguation, held for the composite write loop. */
+interface EntityDisambiguationEntry {
+  /** The generic slug — the composite takes over the ordinary page's exact path. */
+  into: string;
+  folder: string;
+  entityType: string;
+  members: DisambiguationMember[];
+  evidence: DisambiguationEvidenceGroup[];
+  /** The aggregate's accumulated variant titles (joined into the aliases union). */
+  aliases: string[];
+}
+
+/** One ACTIVE class-6 topic disambiguation, held for the composite write loop. */
+interface TopicDisambiguationEntry {
+  into: string;
+  folder: string;
+  members: DisambiguationMember[];
+  claims: Array<{ slug: string; claims: TopicPageData['claims'] }>;
+}
+
+/**
+ * Phase 25 (§2.1): the disambiguation pass's per-run summary, present on
+ * MaterializeResult only when the pass ran (curation enabled + extraction
+ * data). Additive — pre-Phase-25 results carry no field.
+ */
+export interface DisambiguationSummary {
+  ran: true;
+  /** Flagged this run by the deterministic detector (judged split/no-split). */
+  proposed: ProposedDisambiguation[];
+  /** Splits applied THIS run (from the judgment) — recorded sticky. */
+  applied: Array<{
+    concern: 'topics' | 'entities';
+    into: string;
+    members: Array<{ slug: string; sources: string[] }>;
+    reason?: string;
+  }>;
+  /** Sticky records pre-applied this run (ZERO judgment calls for known sources). */
+  fromSticky: Array<{ concern: 'topics' | 'entities'; into: string; members: string[] }>;
+  /** New divergent sources re-judged this run, scoped to their placement (gate 25.6). */
+  reentries: Array<{
+    concern: 'topics' | 'entities';
+    into: string;
+    newSources: string[];
+    newMembers: string[];
+  }>;
+  /** Judged no-split this run (the label stays one ordinary page). */
+  denials: Array<{ concern: 'topics' | 'entities'; slug: string }>;
+  /** Keep-one-page fallback events (exhaustion/transport/4xx/application). */
+  fallbacks: Array<{ concern: 'topics' | 'entities'; slug: string; cause: string }>;
 }
 
 /**
@@ -166,6 +261,12 @@ export interface MaterializeResult {
    * tagged). Empty on the pre-Phase-22 paths.
    */
   compositePages: CompositePageData[];
+  /**
+   * Phase 25 (§2.4): structured data for every class-6 TOPIC disambiguation
+   * composite written (deterministic shells — no synthesis stage this phase).
+   * Empty on the pre-Phase-25 paths.
+   */
+  topicCompositePages: TopicCompositePageData[];
   /** Structured data for every topic page written. */
   topicPages: TopicPageData[];
   /**
@@ -231,6 +332,11 @@ export interface MaterializeResult {
    * candidates), which is the byte-identical pre-Phase-14 path.
    */
   curation?: CurationSummary;
+  /**
+   * Phase 25 (§2.1): the generic-label disambiguation pass's summary —
+   * present only when the pass ran, additive over the pre-Phase-25 shape.
+   */
+  disambiguation?: DisambiguationSummary;
 }
 
 interface MaterializedEntity {
@@ -267,10 +373,40 @@ function sourceSlugFromChunkId(chunkId: string): string {
   return chunkId.replace(/-part-\d{3}$/, '');
 }
 
+// ---------------------------------------------------------------------------
+// Phase 26 (§2.2, the per-PDF patch amendment): per-item EVIDENCE KEYS — the
+// same composite keys the dedupe functions have always computed, extracted
+// into exported per-item builders so the amendment delta (newEvidenceFor) and
+// the aggregation dedupe can NEVER drift apart. One key names one evidence
+// item; a section prefix keeps a mention and a claim that stringify alike
+// distinct.
+// ---------------------------------------------------------------------------
+
+export function mentionEvidenceKey(item: EntityPageData['mentions'][number]): string {
+  return `m:${item.page}|${item.context}|${item.source}|${item.pages}`;
+}
+
+export function relationshipEvidenceKey(item: EntityPageData['relationships'][number]): string {
+  return `r:${item.subject}|${item.predicate}|${item.object}|${item.page}|${item.source}|${item.pages}`;
+}
+
+/** Phase 17 (B10): the incoming mirror — the object side carries no `object`. */
+export function incomingRelationshipEvidenceKey(item: EntityPageIncomingRelationship): string {
+  return `i:${item.subject}|${item.predicate}|${item.page}|${item.source}|${item.pages}`;
+}
+
+export function claimEvidenceKey(item: EntityPageData['claims'][number]): string {
+  return `c:${item.text}|${item.type}|${item.page}|${item.source}|${item.pages}|${item.entities.join(',')}`;
+}
+
+export function timelineEvidenceKey(item: ExtractorTimelineEvent): string {
+  return `t:${item.date}|${item.event}|${item.entities.join(',')}`;
+}
+
 function dedupeMentions(list: EntityPageData['mentions']): EntityPageData['mentions'] {
   const seen = new Set<string>();
   return list.filter((item) => {
-    const key = `${item.page}|${item.context}|${item.source}|${item.pages}`;
+    const key = mentionEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -280,7 +416,7 @@ function dedupeMentions(list: EntityPageData['mentions']): EntityPageData['menti
 function dedupeRelationships(list: EntityPageData['relationships']): EntityPageData['relationships'] {
   const seen = new Set<string>();
   return list.filter((item) => {
-    const key = `${item.subject}|${item.predicate}|${item.object}|${item.page}|${item.source}|${item.pages}`;
+    const key = relationshipEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -295,7 +431,7 @@ function dedupeRelationships(list: EntityPageData['relationships']): EntityPageD
 function dedupeIncomingRelationships(list: EntityPageIncomingRelationship[]): EntityPageIncomingRelationship[] {
   const seen = new Set<string>();
   return list.filter((item) => {
-    const key = `${item.subject}|${item.predicate}|${item.page}|${item.source}|${item.pages}`;
+    const key = incomingRelationshipEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -305,7 +441,7 @@ function dedupeIncomingRelationships(list: EntityPageIncomingRelationship[]): En
 function dedupeClaims(list: EntityPageData['claims']): EntityPageData['claims'] {
   const seen = new Set<string>();
   return list.filter((item) => {
-    const key = `${item.text}|${item.type}|${item.page}|${item.source}|${item.pages}|${item.entities.join(',')}`;
+    const key = claimEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -315,11 +451,237 @@ function dedupeClaims(list: EntityPageData['claims']): EntityPageData['claims'] 
 function dedupeTimeline(list: ExtractorTimelineEvent[]): ExtractorTimelineEvent[] {
   const seen = new Set<string>();
   return list.filter((item) => {
-    const key = `${item.date}|${item.event}|${item.entities.join(',')}`;
+    const key = timelineEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
   });
+}
+
+// ---------------------------------------------------------------------------
+// Phase 26 (§2.2): per-kind EVIDENCE-KEY SETS + the new-evidence DELTA.
+// The key set is recorded on every successful synthesis write point as the
+// record's `baselineKeys`; on a later run, the delta for a changed-fingerprint
+// page is exactly the items whose keys are absent from the baseline — "the
+// items the new PDF contributed". The SAME key builders back the dedupe above
+// (single source of truth; they can never drift).
+// ---------------------------------------------------------------------------
+
+/** The synthesis page kinds (mirrors the synthesis-report pageType union). */
+export type SynthesisPageKind = 'entity' | 'topic' | 'composite' | 'comparison';
+
+export function entityEvidenceKeys(pageData: EntityPageData): string[] {
+  return [
+    ...pageData.mentions.map(mentionEvidenceKey),
+    ...pageData.relationships.map(relationshipEvidenceKey),
+    ...(pageData.incomingRelationships ?? []).map(incomingRelationshipEvidenceKey),
+    ...pageData.claims.map(claimEvidenceKey),
+    ...(pageData.timeline ?? []).map(timelineEvidenceKey),
+  ];
+}
+
+export function topicEvidenceKeys(pageData: TopicPageData): string[] {
+  return pageData.claims.map(claimEvidenceKey);
+}
+
+/** Composite keys are member-scoped: `<member-slug>|<item key>` per member. */
+export function compositeEvidenceKeys(pageData: CompositePageData): string[] {
+  const keys: string[] = [];
+  for (const group of pageData.memberEvidence) {
+    for (const mention of group.mentions) {
+      keys.push(`${group.slug}|${mentionEvidenceKey(mention)}`);
+    }
+    for (const rel of group.relationships) {
+      keys.push(`${group.slug}|${relationshipEvidenceKey(rel)}`);
+    }
+    for (const rel of group.incomingRelationships) {
+      keys.push(`${group.slug}|${incomingRelationshipEvidenceKey(rel)}`);
+    }
+    for (const claim of group.claims) {
+      keys.push(`${group.slug}|${claimEvidenceKey(claim)}`);
+    }
+    for (const event of group.timeline) {
+      keys.push(`${group.slug}|${timelineEvidenceKey(event)}`);
+    }
+  }
+  return keys;
+}
+
+/**
+ * Comparison keys: one per dated table section (the aggregation dedupe key)
+ * plus one per prose-bridge claim (the bridge dedupe key).
+ */
+export function comparisonEvidenceKeys(pageData: ComparisonPageData): string[] {
+  return [
+    ...pageData.tables.map(
+      (table) => `tb:${table.source}|${table.page}|${table.tableTitle}|${table.markdown}`,
+    ),
+    ...pageData.bridge.map((entry) => `br:${entry.text}|${entry.topicSlug}|${entry.source}|${entry.pages}`),
+  ];
+}
+
+/** The per-kind key set for a page aggregate of any synthesis kind. */
+export function evidenceKeysFor(
+  pageData: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData,
+): string[] {
+  if ('memberEvidence' in pageData) {
+    return compositeEvidenceKeys(pageData);
+  }
+  if ('tables' in pageData) {
+    return comparisonEvidenceKeys(pageData);
+  }
+  if ('claims' in pageData && 'mentions' in pageData) {
+    return entityEvidenceKeys(pageData);
+  }
+  return topicEvidenceKeys(pageData as TopicPageData);
+}
+
+/** One member's new evidence, member-tagged (composites only). */
+export interface NewEvidenceMemberGroup {
+  slug: string;
+  title: string;
+  mentions: EntityPageData['mentions'];
+  relationships: EntityPageData['relationships'];
+  incomingRelationships: EntityPageIncomingRelationship[];
+  claims: EntityPageData['claims'];
+  timeline: ExtractorTimelineEvent[];
+}
+
+/**
+ * Phase 26 (§2.2): the structured new-evidence delta — every item of the
+ * page's CURRENT aggregate whose evidence key is absent from the recorded
+ * baseline key set, grouped per section (and per member for composites).
+ * Non-evidence changes (significance, aliases, member metadata, contexts)
+ * flip the fingerprint but produce an EMPTY delta — the caller then routes
+ * the page to full synthesis (nothing patch-sized to add).
+ */
+export interface NewEvidenceDelta {
+  kind: SynthesisPageKind;
+  mentions: EntityPageData['mentions'];
+  relationships: EntityPageData['relationships'];
+  incomingRelationships: EntityPageIncomingRelationship[];
+  claims: EntityPageData['claims'];
+  timeline: ExtractorTimelineEvent[];
+  /** Composite pages: the per-member new-evidence groups (member order). */
+  members: NewEvidenceMemberGroup[];
+  /** Comparison pages: the new dated table sections + new bridge entries. */
+  tables: ComparisonTableSection[];
+  bridge: ComparisonBridgeEntry[];
+  /** True when no section carries any new item (→ full synthesis). */
+  empty: boolean;
+}
+
+export function newEvidenceFor(
+  pageData: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData,
+  baselineKeys: readonly string[],
+): NewEvidenceDelta {
+  const baseline = new Set(baselineKeys);
+  if ('memberEvidence' in pageData) {
+    const members: NewEvidenceMemberGroup[] = [];
+    for (const group of pageData.memberEvidence) {
+      const title =
+        pageData.members.find((member) => member.slug === group.slug)?.title ??
+        pageData.slugToTitle[group.slug] ??
+        group.slug;
+      const member: NewEvidenceMemberGroup = {
+        slug: group.slug,
+        title,
+        mentions: group.mentions.filter((item) => !baseline.has(`${group.slug}|${mentionEvidenceKey(item)}`)),
+        relationships: group.relationships.filter(
+          (item) => !baseline.has(`${group.slug}|${relationshipEvidenceKey(item)}`),
+        ),
+        incomingRelationships: group.incomingRelationships.filter(
+          (item) => !baseline.has(`${group.slug}|${incomingRelationshipEvidenceKey(item)}`),
+        ),
+        claims: group.claims.filter((item) => !baseline.has(`${group.slug}|${claimEvidenceKey(item)}`)),
+        timeline: group.timeline.filter((item) => !baseline.has(`${group.slug}|${timelineEvidenceKey(item)}`)),
+      };
+      members.push(member);
+    }
+    const anyMember = members.some(
+      (member) =>
+        member.mentions.length +
+          member.relationships.length +
+          member.incomingRelationships.length +
+          member.claims.length +
+          member.timeline.length >
+        0,
+    );
+    return {
+      kind: 'composite',
+      mentions: [],
+      relationships: [],
+      incomingRelationships: [],
+      claims: [],
+      timeline: [],
+      members,
+      tables: [],
+      bridge: [],
+      empty: !anyMember,
+    };
+  }
+  if ('tables' in pageData) {
+    const tables = pageData.tables.filter(
+      (table) => !baseline.has(`tb:${table.source}|${table.page}|${table.tableTitle}|${table.markdown}`),
+    );
+    const bridge = pageData.bridge.filter(
+      (entry) => !baseline.has(`br:${entry.text}|${entry.topicSlug}|${entry.source}|${entry.pages}`),
+    );
+    return {
+      kind: 'comparison',
+      mentions: [],
+      relationships: [],
+      incomingRelationships: [],
+      claims: [],
+      timeline: [],
+      members: [],
+      tables,
+      bridge,
+      empty: tables.length === 0 && bridge.length === 0,
+    };
+  }
+  if ('mentions' in pageData) {
+    const entity = pageData as EntityPageData;
+    const mentions = entity.mentions.filter((item) => !baseline.has(mentionEvidenceKey(item)));
+    const relationships = entity.relationships.filter((item) => !baseline.has(relationshipEvidenceKey(item)));
+    const incomingRelationships = (entity.incomingRelationships ?? []).filter(
+      (item) => !baseline.has(incomingRelationshipEvidenceKey(item)),
+    );
+    const claims = entity.claims.filter((item) => !baseline.has(claimEvidenceKey(item)));
+    const timeline = (entity.timeline ?? []).filter((item) => !baseline.has(timelineEvidenceKey(item)));
+    return {
+      kind: 'entity',
+      mentions,
+      relationships,
+      incomingRelationships,
+      claims,
+      timeline,
+      members: [],
+      tables: [],
+      bridge: [],
+      empty:
+        mentions.length +
+          relationships.length +
+          incomingRelationships.length +
+          claims.length +
+          timeline.length ===
+        0,
+    };
+  }
+  const topic = pageData as TopicPageData;
+  const claims = topic.claims.filter((item) => !baseline.has(claimEvidenceKey(item)));
+  return {
+    kind: 'topic',
+    mentions: [],
+    relationships: [],
+    incomingRelationships: [],
+    claims,
+    timeline: [],
+    members: [],
+    tables: [],
+    bridge: [],
+    empty: claims.length === 0,
+  };
 }
 
 async function loadChunkSource(wikiDir: string, chunkId: string): Promise<ChunkSource | null> {
@@ -570,14 +932,20 @@ async function readOnDiskTopicMeta(dir: string, locations: string[]): Promise<On
 /**
  * Build the topic curation input (phase doc §2.2): every aggregated candidate
  * AND every on-disk-only topic (the self-healing property — update runs
- * re-curate the full set).
+ * re-curate the full set). Phase 25: `excludeSlugs` keeps disambiguated
+ * generic labels (their on-disk pages are class-6 composites) out of the
+ * candidate set — the `buildEntityCandidates` precedent.
  */
 function buildTopicCandidates(
   topicMap: Map<string, MaterializedTopic>,
   onDiskTopics: Map<string, OnDiskTopicMeta>,
+  excludeSlugs?: ReadonlySet<string>,
 ): TopicCurationCandidate[] {
   const candidates: TopicCurationCandidate[] = [];
   for (const topic of topicMap.values()) {
+    if (excludeSlugs?.has(topic.slug)) {
+      continue;
+    }
     const claims = dedupeClaims(topic.claims);
     candidates.push({
       slug: topic.slug,
@@ -589,7 +957,7 @@ function buildTopicCandidates(
     });
   }
   for (const [slug, meta] of Array.from(onDiskTopics.entries()).sort(([a], [b]) => a.localeCompare(b))) {
-    if (topicMap.has(slug)) {
+    if (topicMap.has(slug) || excludeSlugs?.has(slug)) {
       continue;
     }
     candidates.push({
@@ -649,6 +1017,133 @@ function buildEntityCandidates(
     });
   }
   return candidates;
+}
+
+// ---------------------------------------------------------------------------
+// Phase 25 (§2.1): the deterministic generic-label detector's sample helpers
+// ---------------------------------------------------------------------------
+
+/**
+ * Per source file: up to 3 truncated entity-evidence samples (mention
+ * contexts first — the identity evidence — then claim texts, then
+ * relationship evidence both directions).
+ */
+function entitySourceSamples(entity: MaterializedEntity): Map<string, string[]> {
+  const samples = new Map<string, string[]>();
+  const add = (file: string, text: string): void => {
+    if (text.trim().length === 0) {
+      return;
+    }
+    const list = samples.get(file) ?? [];
+    if (list.length < 3) {
+      list.push(truncateSample(text));
+    }
+    samples.set(file, list);
+  };
+  for (const mention of entity.mentions) {
+    add(mention.source, mention.context);
+  }
+  for (const claim of entity.claims) {
+    add(claim.source, claim.text);
+  }
+  for (const rel of entity.relationships) {
+    add(rel.source, rel.evidence);
+  }
+  for (const rel of entity.incomingRelationships) {
+    add(rel.source, rel.evidence);
+  }
+  return samples;
+}
+
+/** Per source file: up to 3 truncated topic-claim texts. */
+function topicSourceSamples(topic: MaterializedTopic): Map<string, string[]> {
+  const samples = new Map<string, string[]>();
+  for (const claim of topic.claims) {
+    const list = samples.get(claim.source) ?? [];
+    if (list.length < 3) {
+      list.push(truncateSample(claim.text));
+    }
+    samples.set(claim.source, list);
+  }
+  return samples;
+}
+
+/**
+ * Phase 25 (§2.1, vision `04` §3.2 Step 6b step 1 — the DETERMINISTIC
+ * detector): flag every generic-pattern slug whose evidence arrives from ≥2
+ * distinct source files whose sample sets share less than
+ * `GENERIC_LABEL_OVERLAP_THRESHOLD` substantive tokens (the MINIMUM pairwise
+ * Jaccard; stopwords, bare numbers, and the label's own tokens excluded;
+ * pairs with an empty token set are skipped — thin evidence never flags).
+ * BOTH conditions are required: the shape alone never fires, and a
+ * same-meaning label across report years (high overlap) never fires.
+ * `splitSlugs` (the escape hatch) suppress re-proposal until re-decided — a
+ * dissolved composite must not be re-split by the same run that dissolved it.
+ */
+function detectGenericLabelDisambiguations(
+  entityMap: Map<string, MaterializedEntity>,
+  topicMap: Map<string, MaterializedTopic>,
+  splitSlugs?: ReadonlySet<string>,
+): ProposedDisambiguation[] {
+  const proposals: ProposedDisambiguation[] = [];
+  const scan = (
+    entries: Array<{
+      slug: string;
+      title: string;
+      concern: 'topics' | 'entities';
+      samples: Map<string, string[]>;
+    }>,
+  ): void => {
+    for (const entry of entries) {
+      if (!isGenericLabelSlug(entry.slug) || entry.samples.size < 2 || splitSlugs?.has(entry.slug)) {
+        continue;
+      }
+      const labelTokens = labelSlugTokens(entry.slug);
+      const tokenSets = new Map<string, Set<string>>();
+      for (const [file, texts] of entry.samples) {
+        tokenSets.set(file, substantiveTokens(texts, labelTokens));
+      }
+      const files = Array.from(tokenSets.keys()).sort();
+      let minOverlap = 1;
+      for (let i = 0; i < files.length; i++) {
+        for (let j = i + 1; j < files.length; j++) {
+          const a = tokenSets.get(files[i])!;
+          const b = tokenSets.get(files[j])!;
+          if (a.size === 0 || b.size === 0) {
+            continue; // thin evidence — no signal either way
+          }
+          minOverlap = Math.min(minOverlap, tokenOverlapJaccard(a, b));
+        }
+      }
+      if (minOverlap >= GENERIC_LABEL_OVERLAP_THRESHOLD) {
+        continue;
+      }
+      proposals.push({
+        slug: entry.slug,
+        title: entry.title,
+        concern: entry.concern,
+        sources: files.map((file) => ({ file, samples: entry.samples.get(file) ?? [] })),
+      });
+    }
+  };
+  scan(
+    Array.from(entityMap.entries()).map(([slug, entity]) => ({
+      slug,
+      title: entity.name,
+      concern: 'entities' as const,
+      samples: entitySourceSamples(entity),
+    })),
+  );
+  scan(
+    Array.from(topicMap.entries()).map(([slug, topic]) => ({
+      slug,
+      title: topic.title,
+      concern: 'topics' as const,
+      samples: topicSourceSamples(topic),
+    })),
+  );
+  proposals.sort((a, b) => a.slug.localeCompare(b.slug) || a.concern.localeCompare(b.concern));
+  return proposals;
 }
 
 /**
@@ -1013,7 +1508,18 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
    * at the `into` member's folder/slug.
    */
   const clusterMap = new Map<string, { decision: AppliedCluster; members: Array<{ slug: string; aggregate: MaterializedEntity }> }>();
+  /**
+   * Phase 25 (§2.3–§2.4): the ACTIVE class-6 disambiguations. The generic
+   * slug's aggregate is pulled OUT of the entity/topic map (the label never
+   * becomes a curation candidate) and partitioned per member by the
+   * sourceMap routing; the class-6 composite takes over the ordinary page's
+   * exact path, so every pre-existing wikilink to the generic slug keeps
+   * resolving. Member pages never exist.
+   */
+  const entityDisambiguations = new Map<string, EntityDisambiguationEntry>();
+  const topicDisambiguations = new Map<string, TopicDisambiguationEntry>();
   let curationSummary: CurationSummary | null = null;
+  let disambiguationSummary: DisambiguationSummary | null = null;
   let topicOutcome: TopicCurationOutcome | null = null;
   let entityOutcome: EntityCurationOutcome | null = null;
   /** Phase 21 (§2.3): one timestamp per curation stage — the report's `run` and the decisions' `runId`. */
@@ -1068,13 +1574,16 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     // Phase 22 (§2.2/gate 22.7): the reversed cluster records — their
     // composite pages are deleted below (member pages rebuilt) when the
     // on-disk page at the `into` path IS a composite (frontmatter check).
-    const reversedClusterIntos = new Set<string>();
+    // Phase 25 (§2.3/gate 25.7): reversed DISAMBIGUATION records dissolve the
+    // same way — the generic slug's composite is deleted (ordinary page
+    // rebuilt from the aggregate), under entities/ OR topics/.
+    const reversedCompositeIntos = new Set<string>();
     for (const record of decisionsData.decisions) {
       const involved = record.into !== undefined ? [record.into, ...record.from] : [...record.from];
       if (involved.some((slug) => splitSlugs.has(slug))) {
         splitReversals.push({ concern: record.concern, from: record.from, into: record.into, reason: 'split' });
-        if (record.action === 'cluster' && record.into !== undefined) {
-          reversedClusterIntos.add(record.into);
+        if ((record.action === 'cluster' || record.action === 'disambiguate') && record.into !== undefined) {
+          reversedCompositeIntos.add(record.into);
         }
         continue;
       }
@@ -1095,7 +1604,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         );
         if (vetoed) {
           splitReversals.push({ concern: record.concern, from: record.from, into: record.into, reason: 'neverMerge' });
-          reversedClusterIntos.add(record.into);
+          reversedCompositeIntos.add(record.into);
           continue;
         }
       }
@@ -1117,6 +1626,12 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         signal: record.signal,
         ...(record.rationale !== undefined ? { rationale: record.rationale } : {}),
       }));
+    // Phase 25 (§2.3): sticky DISAMBIGUATION records — `into` is the generic
+    // slug, `from` lists the member slugs (into is NOT a member), and the
+    // `sourceMap` routes evidence from known sources with zero judgment calls.
+    const stickyDisambiguationsAll = activeRecords.filter(
+      (record) => record.action === 'disambiguate' && record.into !== undefined && record.sourceMap !== undefined,
+    );
 
     // Phase 21 widened guard: the stage runs when there are candidates
     // (aggregate ∪ on-disk, exactly the pre-Phase-21 rule) OR sticky work to
@@ -1124,7 +1639,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     const hasCurationWork =
       entityMap.size + topicMap.size + onDiskEntities.size + onDiskTopics.size > 0 ||
       stickyTopicMergesAll.length + stickyEntityMergesAll.length + stickyTopicDropsAll.length +
-        stickyEntityClustersAll.length > 0;
+        stickyEntityClustersAll.length + stickyDisambiguationsAll.length > 0;
 
     if (hasCurationWork) {
       let agentsMd = '';
@@ -1461,11 +1976,403 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         entityClusters: stickyEntityClusters,
       };
 
+      // ------------------------------------------------------------------
+      // Phase 25 (§2.1–§2.3, vision `04` §3.2 Step 6b): GENERIC-LABEL
+      // DISAMBIGUATION — between aggregation and curation-candidate
+      // construction. (1) Sticky records PRE-APPLY: evidence from mapped
+      // sources routes to its member with ZERO judgment calls; a NEW source
+      // file routes deterministically to a high-overlap member or re-enters
+      // the judgment scoped to placing that source (the record's sourceMap
+      // grows — gate 25.6). (2) The deterministic detector flags
+      // heterogeneous generic labels among the remaining aggregates; ONE
+      // judgment call per flagged slug confirms/denies; a confirmed split
+      // pulls the label out of the maps (a class-6 composite at the generic
+      // slug replaces the ordinary page — same path, so every pre-existing
+      // wikilink keeps resolving). Every failure mode keeps one ordinary page
+      // (logged, self-healing next run) — the pass NEVER throws.
+      // ------------------------------------------------------------------
+      const disambiguationWork: DisambiguationSummary = {
+        ran: true,
+        proposed: [],
+        applied: [],
+        fromSticky: [],
+        reentries: [],
+        denials: [],
+        fallbacks: [],
+      };
+      const disambiguationRecords: CurationDecisionRecord[] = [];
+      const disambiguatedSlugs = new Set<string>();
+      const disambiguationCallOptions: DisambiguationCallOptions = {
+        agentsMd,
+        language: options?.language,
+        logPath: join(dir, '.state', 'llm-calls.json'),
+      };
+      const runDisambiguation = options?.disambiguateFn ?? disambiguateLabel;
+
+      // Collision guard (§2.3, all-or-nothing per label): a member slug that
+      // already names a different page (or the label itself) vetoes the split.
+      const memberSlugsAreFree = (
+        concern: 'topics' | 'entities',
+        labelSlug: string,
+        members: DisambiguationMember[],
+      ): boolean => {
+        const occupied = new Set<string>([
+          ...entityMap.keys(),
+          ...topicMap.keys(),
+          ...onDiskEntities.keys(),
+          ...onDiskTopics.keys(),
+        ]);
+        occupied.delete(labelSlug);
+        return members.every((member) => member.slug !== labelSlug && !occupied.has(member.slug));
+      };
+      const membersFromSourceMap = (
+        memberSlugs: string[],
+        sourceMap: Record<string, string>,
+      ): DisambiguationMember[] =>
+        memberSlugs.map((slug) => ({
+          slug,
+          title: titleCaseSlug(slug),
+          sources: Object.entries(sourceMap)
+            .filter(([, memberSlug]) => memberSlug === slug)
+            .map(([file]) => file)
+            .sort(),
+        }));
+
+      // The class-6 application closures (the Phase 22 cluster precedent):
+      // partition the generic slug's aggregate by the sourceMap routing and
+      // pull the label out of its map. Member titles render deterministically
+      // from the member slug (titleCaseSlug) so a sticky rebuild is
+      // byte-identical to the first application — the judgment's titles are
+      // advisory. Items whose source is unmapped (validation prevents this on
+      // the fresh path; the sticky path resolves every new source first) and
+      // source-less items (timeline, contexts) follow the FIRST member —
+      // deterministic, never dropped (the preservation contract).
+      const applyEntityDisambiguationToMaps = (
+        into: string,
+        members: DisambiguationMember[],
+      ): boolean => {
+        const aggregate = entityMap.get(into);
+        if (aggregate === undefined) {
+          return false;
+        }
+        const sourceToMember = new Map<string, string>();
+        for (const member of members) {
+          for (const file of member.sources) {
+            sourceToMember.set(file, member.slug);
+          }
+        }
+        const memberOf = (source: string): string => sourceToMember.get(source) ?? members[0].slug;
+        const groups = new Map<string, DisambiguationEvidenceGroup>(
+          members.map((member) => [
+            member.slug,
+            {
+              slug: member.slug,
+              mentions: [],
+              relationships: [],
+              incomingRelationships: [],
+              claims: [],
+              timeline: [],
+              contexts: [],
+            },
+          ]),
+        );
+        for (const mention of aggregate.mentions) {
+          groups.get(memberOf(mention.source))!.mentions.push(mention);
+        }
+        for (const rel of aggregate.relationships) {
+          groups.get(memberOf(rel.source))!.relationships.push(rel);
+        }
+        for (const rel of aggregate.incomingRelationships) {
+          groups.get(memberOf(rel.source))!.incomingRelationships.push(rel);
+        }
+        for (const claim of aggregate.claims) {
+          groups.get(memberOf(claim.source))!.claims.push(claim);
+        }
+        const firstGroup = groups.get(members[0].slug)!;
+        firstGroup.timeline.push(...aggregate.timeline);
+        firstGroup.contexts.push(...Array.from(aggregate.contexts));
+        entityMap.delete(into);
+        entityDisambiguations.set(into, {
+          into,
+          folder: aggregate.folder,
+          entityType: aggregate.type,
+          members,
+          evidence: members.map((member) => groups.get(member.slug)!),
+          aliases: aggregate.aliases,
+        });
+        return true;
+      };
+      const applyTopicDisambiguationToMaps = (
+        into: string,
+        members: DisambiguationMember[],
+      ): boolean => {
+        const topic = topicMap.get(into);
+        if (topic === undefined) {
+          return false;
+        }
+        const sourceToMember = new Map<string, string>();
+        for (const member of members) {
+          for (const file of member.sources) {
+            sourceToMember.set(file, member.slug);
+          }
+        }
+        const memberOf = (source: string): string => sourceToMember.get(source) ?? members[0].slug;
+        const groups = new Map<string, { slug: string; claims: TopicPageData['claims'] }>(
+          members.map((member) => [member.slug, { slug: member.slug, claims: [] }]),
+        );
+        for (const claim of topic.claims) {
+          groups.get(memberOf(claim.source))!.claims.push(claim);
+        }
+        topicMap.delete(into);
+        topicDisambiguations.set(into, {
+          into,
+          folder: topic.folder,
+          members,
+          claims: members.map((member) => groups.get(member.slug)!),
+        });
+        return true;
+      };
+
+      // ---- STICKY PRE-APPLICATION (§2.3, the Phase 21 tier) ----
+      for (const record of stickyDisambiguationsAll) {
+        const into = record.into as string;
+        const isEntity = record.concern === 'entities';
+        if (isEntity ? !entityMap.has(into) : !topicMap.has(into)) {
+          // No evidence for the label this run — the record stays on disk and
+          // re-applies when evidence returns (the cluster contract precedent).
+          continue;
+        }
+        const samplesBySource = isEntity
+          ? entitySourceSamples(entityMap.get(into)!)
+          : topicSourceSamples(topicMap.get(into)!);
+        const sourceMap: Record<string, string> = { ...(record.sourceMap ?? {}) };
+        let memberSlugs = [...record.from];
+        // Sources the record does not know yet (new since the last run).
+        const unmapped = Array.from(samplesBySource.keys())
+          .filter((file) => sourceMap[file] === undefined)
+          .sort();
+        if (unmapped.length > 0) {
+          const labelTokens = labelSlugTokens(into);
+          let members = membersFromSourceMap(memberSlugs, sourceMap);
+          const tokensByMember = new Map<string, Set<string>>();
+          for (const member of members) {
+            tokensByMember.set(
+              member.slug,
+              substantiveTokens(
+                member.sources.flatMap((file) => samplesBySource.get(file) ?? []),
+                labelTokens,
+              ),
+            );
+          }
+          const bestMemberFor = (file: string): { slug: string; score: number } => {
+            const tokens = substantiveTokens(samplesBySource.get(file) ?? [], labelTokens);
+            let bestSlug = members[0]?.slug ?? '';
+            let bestScore = -1;
+            for (const member of members) {
+              const score = tokenOverlapJaccard(tokens, tokensByMember.get(member.slug) ?? new Set());
+              if (score > bestScore) {
+                bestScore = score;
+                bestSlug = member.slug;
+              }
+            }
+            return { slug: bestSlug, score: bestScore };
+          };
+          const divergent: string[] = [];
+          for (const file of unmapped) {
+            const best = bestMemberFor(file);
+            if (best.score >= GENERIC_LABEL_OVERLAP_THRESHOLD) {
+              // Same meaning as an existing member — deterministic routing, no call.
+              sourceMap[file] = best.slug;
+            } else {
+              divergent.push(file);
+            }
+          }
+          if (divergent.length > 0) {
+            // Scoped re-entry: ONE judgment placing the divergent sources.
+            // Existing members are FIXED (validated: sources unchanged); a
+            // divergent source joins one of them or founds a new member.
+            const title = isEntity ? entityMap.get(into)!.name : topicMap.get(into)!.title;
+            members = membersFromSourceMap(memberSlugs, sourceMap);
+            const proposal: ProposedDisambiguation = {
+              slug: into,
+              title,
+              concern: record.concern,
+              sources: Array.from(samplesBySource.keys())
+                .sort()
+                .map((file) => ({ file, samples: samplesBySource.get(file) ?? [] })),
+            };
+            const outcome = await runDisambiguation(
+              { proposal, existingMembers: members },
+              disambiguationCallOptions,
+            );
+            let placed = false;
+            let newMembers: string[] = [];
+            if (outcome.verdict !== null) {
+              const validation = validateDisambiguationReentry(outcome.verdict, {
+                proposal,
+                existingMembers: members,
+              });
+              if (validation.valid && validation.verdict?.split === true && validation.verdict.members !== undefined) {
+                for (const verdictMember of validation.verdict.members) {
+                  for (const file of verdictMember.sources) {
+                    if (sourceMap[file] === undefined) {
+                      sourceMap[file] = verdictMember.slug;
+                    }
+                  }
+                }
+                newMembers = validation.verdict.members
+                  .map((member) => member.slug)
+                  .filter((slug) => !members.some((member) => member.slug === slug));
+                memberSlugs = [...memberSlugs, ...newMembers];
+                placed = true;
+                disambiguationWork.reentries.push({
+                  concern: record.concern,
+                  into,
+                  newSources: divergent,
+                  newMembers,
+                });
+              }
+            }
+            if (!placed) {
+              // Keep-one-page fallback: park each divergent source on its
+              // best-overlap member (logged; re-judged next run).
+              disambiguationWork.fallbacks.push({
+                concern: record.concern,
+                slug: into,
+                cause:
+                  outcome.verdict === null
+                    ? outcome.fallbacks[0]?.cause ?? 'validation-exhaustion'
+                    : 'validation-exhaustion',
+              });
+              console.warn(
+                `Warning: generic-label disambiguation re-entry fallback for '${into}' — new source(s) parked on the closest member (${divergent.join(', ')}).`,
+              );
+              for (const file of divergent) {
+                sourceMap[file] = bestMemberFor(file).slug;
+              }
+            }
+          }
+          // Persist the growth (deterministic or judged) — paid for once.
+          const growth: Record<string, string> = {};
+          for (const [file, memberSlug] of Object.entries(sourceMap)) {
+            if (record.sourceMap?.[file] === undefined) {
+              growth[file] = memberSlug;
+            }
+          }
+          if (Object.keys(growth).length > 0) {
+            await updateCurationDecisionSourceMap(dir, into, growth, memberSlugs);
+          }
+        }
+        const finalMembers = membersFromSourceMap(memberSlugs, sourceMap);
+        if (!memberSlugsAreFree(record.concern, into, finalMembers)) {
+          console.warn(
+            `Warning: sticky disambiguation members for '${into}' collide with existing slugs — the label stays one ordinary page this run.`,
+          );
+          continue;
+        }
+        const appliedOk = isEntity
+          ? applyEntityDisambiguationToMaps(into, finalMembers)
+          : applyTopicDisambiguationToMaps(into, finalMembers);
+        if (appliedOk) {
+          disambiguatedSlugs.add(into);
+          disambiguationWork.fromSticky.push({
+            concern: record.concern,
+            into,
+            members: finalMembers.map((member) => member.slug),
+          });
+        }
+      }
+
+      // ---- FRESH DETECTION + JUDGMENT (§2.1–§2.2) ----
+      // A split label's aggregate left the maps above, so a sticky label is
+      // never re-proposed (gate 25.3's zero-call second run); `splits` slugs
+      // are suppressed until re-decided (gate 25.7 — a dissolved composite
+      // must not be re-split by the run that dissolved it).
+      const proposals = detectGenericLabelDisambiguations(entityMap, topicMap, splitSlugs);
+      disambiguationWork.proposed = proposals;
+      for (const proposal of proposals) {
+        const outcome = await runDisambiguation({ proposal }, disambiguationCallOptions);
+        if (outcome.verdict === null) {
+          disambiguationWork.fallbacks.push({
+            concern: proposal.concern,
+            slug: proposal.slug,
+            cause: outcome.fallbacks[0]?.cause ?? 'validation-exhaustion',
+          });
+          console.warn(
+            `Warning: generic-label disambiguation fallback for '${proposal.slug}' — the label stays one ordinary page (self-healing next run).`,
+          );
+          continue;
+        }
+        if (!outcome.verdict.split) {
+          disambiguationWork.denials.push({ concern: proposal.concern, slug: proposal.slug });
+          continue;
+        }
+        // The injected seam may bypass the agent's own validation — verify.
+        const validation = validateDisambiguationVerdict(outcome.verdict, proposal);
+        if (!validation.valid || validation.verdict?.members === undefined) {
+          disambiguationWork.fallbacks.push({
+            concern: proposal.concern,
+            slug: proposal.slug,
+            cause: 'validation-exhaustion',
+          });
+          console.warn(
+            `Warning: generic-label disambiguation verdict for '${proposal.slug}' failed application validation — the label stays one ordinary page.`,
+          );
+          continue;
+        }
+        const members = validation.verdict.members;
+        if (!memberSlugsAreFree(proposal.concern, proposal.slug, members)) {
+          disambiguationWork.fallbacks.push({
+            concern: proposal.concern,
+            slug: proposal.slug,
+            cause: 'member-slug-collision',
+          });
+          console.warn(
+            `Warning: disambiguation members for '${proposal.slug}' collide with existing slugs — the label stays one ordinary page.`,
+          );
+          continue;
+        }
+        const sourceMap: Record<string, string> = {};
+        for (const member of members) {
+          for (const file of member.sources) {
+            sourceMap[file] = member.slug;
+          }
+        }
+        const appliedOk =
+          proposal.concern === 'entities'
+            ? applyEntityDisambiguationToMaps(proposal.slug, members)
+            : applyTopicDisambiguationToMaps(proposal.slug, members);
+        if (!appliedOk) {
+          continue;
+        }
+        disambiguatedSlugs.add(proposal.slug);
+        disambiguationWork.applied.push({
+          concern: proposal.concern,
+          into: proposal.slug,
+          members: members.map((member) => ({ slug: member.slug, sources: member.sources })),
+          ...(validation.verdict.reason !== undefined ? { reason: validation.verdict.reason } : {}),
+        });
+        disambiguationRecords.push({
+          concern: proposal.concern,
+          action: 'disambiguate',
+          from: members.map((member) => member.slug),
+          into: proposal.slug,
+          signal: 'generic-heterogeneity',
+          sourceMap,
+          decidedAt: runTimestamp,
+          runId: runTimestamp,
+        });
+      }
+      disambiguationSummary = disambiguationWork;
+
       // Candidates are built AFTER the sticky pre-application, so the model
       // only ever judges unstuck candidates (gate 21.4). Phase 22: cluster
       // members (and the composite's `into`) are excluded the same way.
-      let topicCandidates = buildTopicCandidates(topicMap, onDiskTopics);
-      let entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, clusteredMemberSlugs);
+      // Phase 25: disambiguated generic labels are excluded on BOTH concerns
+      // (their on-disk pages are class-6 composites, never curation input).
+      const excludedFromCandidates = new Set<string>([...clusteredMemberSlugs, ...disambiguatedSlugs]);
+      let topicCandidates = buildTopicCandidates(topicMap, onDiskTopics, excludedFromCandidates);
+      let entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, excludedFromCandidates);
 
       // ---- Phase 21 (§2.1): DETERMINISTIC PRE-MERGE SIGNALS ----
       // The corpus text feeds the `Full Name (ABBR)` abbreviation mining.
@@ -1549,8 +2456,8 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       // Auto-apply changed the maps — rebuild the candidates so the
       // merged-away slugs vanish and the survivors carry the unioned data.
       if (autoApplied.length > 0) {
-        topicCandidates = buildTopicCandidates(topicMap, onDiskTopics);
-        entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, clusteredMemberSlugs);
+        topicCandidates = buildTopicCandidates(topicMap, onDiskTopics, excludedFromCandidates);
+        entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, excludedFromCandidates);
       }
 
       // ---- Phase 21 (§2.2): PROPOSED PAIRS + residual open discovery ----
@@ -1790,8 +2697,11 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
           }
         }
       }
-      for (const into of reversedClusterIntos) {
-        for (const location of entityLocations.get(into) ?? []) {
+      // Phase 25 (§2.3/gate 25.7): a reversed disambiguation's composite can
+      // live under entities/ OR topics/ — check both location maps.
+      for (const into of reversedCompositeIntos) {
+        const locations = [...(entityLocations.get(into) ?? []), ...(topicLocations.get(into) ?? [])];
+        for (const location of locations) {
           try {
             const parsed = matter(await readFile(join(dir, location), 'utf-8'));
             if (parsed.data.type === 'composite') {
@@ -1816,6 +2726,8 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
       // memory + structural changes diff); identical to the aggregated set
       // when nothing merged/dropped, so the OFF path stays byte-identical.
       // Phase 22: composite folders (the `into` members' folders) included.
+      // Phase 25: disambiguation composites live at the label's unchanged
+      // folder — re-asserted here because the label left its map.
       folderStructure.clear();
       for (const entity of entityMap.values()) {
         folderStructure.add(entity.folder);
@@ -1828,6 +2740,12 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
         if (intoAggregate) {
           folderStructure.add(intoAggregate.aggregate.folder);
         }
+      }
+      for (const entry of entityDisambiguations.values()) {
+        folderStructure.add(entry.folder);
+      }
+      for (const entry of topicDisambiguations.values()) {
+        folderStructure.add(entry.folder);
       }
 
       summary.entityMerges = appliedEntityMerges;
@@ -1909,6 +2827,13 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
           runId: runTimestamp,
         });
       }
+      // Phase 25 (§2.3): every applied split is recorded sticky with its
+      // sourceMap (from = the member slugs in application order) and
+      // pre-applied deterministically from the next run on — the judgment is
+      // paid for once.
+      for (const record of disambiguationRecords) {
+        newRecords.push(record);
+      }
       if (newRecords.length > 0) {
         await appendCurationDecisions(dir, newRecords);
       }
@@ -1929,6 +2854,14 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     slugToTitle[composite.decision.into] = composite.members
       .map((member) => member.aggregate.name)
       .join(' — ');
+  }
+  // Phase 25 (§2.4): class-6 composites render under the generic slug with
+  // the member titles (derived from the member slugs) joined ' — '.
+  for (const entry of entityDisambiguations.values()) {
+    slugToTitle[entry.into] = entry.members.map((member) => titleCaseSlug(member.slug)).join(' — ');
+  }
+  for (const entry of topicDisambiguations.values()) {
+    slugToTitle[entry.into] = entry.members.map((member) => titleCaseSlug(member.slug)).join(' — ');
   }
 
   // ------------------------------------------------------------------
@@ -2013,7 +2946,7 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     folderStructure.add('comparisons');
   }
 
-  const result: MaterializeResult = { entityPages: [], compositePages: [], topicPages: [], comparisonPages: [], documentPages: [], writtenPages: [], preservedPages: [], conflicts: [], convergedPages: [], removedDuplicates: [] };
+  const result: MaterializeResult = { entityPages: [], compositePages: [], topicCompositePages: [], topicPages: [], comparisonPages: [], documentPages: [], writtenPages: [], preservedPages: [], conflicts: [], convergedPages: [], removedDuplicates: [] };
 
   // Phase 16 (vision `04` Step 9): the synthesis completion memory. A page
   // with a skip-eligible record (strict/permissive pass whose dataHash still
@@ -2242,6 +3175,129 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
     }
 
     result.compositePages.push(compositeData);
+    await writeFile(pagePath, rendered, 'utf-8');
+    result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
+  }
+
+  // Phase 25 (§2.4): write the class-6 ENTITY disambiguation composites — one
+  // per active disambiguation, at the GENERIC slug (the ordinary page's exact
+  // path, so every pre-existing wikilink to the label keeps resolving).
+  // Member pages never exist; member titles derive from the member slugs so
+  // a sticky rebuild is byte-identical to the first application. Same Phase
+  // 16 resume preservation and Phase 8/19 conflict/convergence postures as
+  // the loops above.
+  for (const entry of entityDisambiguations.values()) {
+    const memberTitles = entry.members.map((member) => titleCaseSlug(member.slug));
+    const memberDatas: CompositeMember[] = entry.members.map((member) => ({
+      slug: member.slug,
+      title: titleCaseSlug(member.slug),
+      type: entry.entityType,
+    }));
+    const memberEvidence: CompositeMemberEvidence[] = entry.evidence.map((group) => ({
+      slug: group.slug,
+      mentions: dedupeMentions(group.mentions),
+      relationships: dedupeRelationships(group.relationships),
+      incomingRelationships: dedupeIncomingRelationships(group.incomingRelationships),
+      claims: dedupeClaims(group.claims),
+      timeline: dedupeTimeline(group.timeline),
+      contexts: group.contexts,
+    }));
+    const aliasExtras = Array.from(new Set([...memberTitles, ...entry.aliases]));
+    const contexts = Array.from(new Set(entry.evidence.flatMap((group) => group.contexts)));
+
+    const compositeData: CompositePageData = {
+      title: memberTitles.join(' — '),
+      slug: entry.into,
+      folder: entry.folder,
+      wiki: wikiSlug,
+      class: 6,
+      members: memberDatas,
+      memberEvidence,
+      slugToTitle,
+      ...(aliasExtras.length > 0 ? { aliases: aliasExtras } : {}),
+      ...(contexts.length > 0 ? { context: contexts.join('\n\n') } : {}),
+    };
+
+    const folderPath = join(dir, entry.folder);
+    await mkdir(folderPath, { recursive: true });
+    const pagePath = join(folderPath, `${entry.into}.md`);
+    const relativePath = synthesisPagePath(compositeData);
+    const synthesisRecord = synthesisRecords[relativePath];
+    if (
+      isSkipEligible(synthesisRecord) &&
+      synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) &&
+      existsSync(pagePath)
+    ) {
+      result.compositePages.push(compositeData);
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile(pagePath, 'utf-8')) });
+      continue;
+    }
+    const rendered = writeCompositePage(compositeData);
+    const verdict = await checkPageConflict(pagePath, relativePath, options?.pageHashes, rendered);
+    if (verdict === 'conflict') {
+      await logManualEditConflict(dir, relativePath);
+      result.conflicts.push(relativePath);
+      continue;
+    }
+    if (verdict === 'converge') {
+      logHashConvergence(relativePath);
+      result.convergedPages.push(relativePath);
+    }
+
+    result.compositePages.push(compositeData);
+    await writeFile(pagePath, rendered, 'utf-8');
+    result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
+  }
+
+  // Phase 25 (§2.4): write the class-6 TOPIC disambiguation composites —
+  // deterministic shells at `topics/<slug>/<slug>.md` (the ordinary topic
+  // page's exact path), with the members block and per-member claim groups.
+  // No synthesis stage this phase (the phase doc wires none for topics).
+  for (const entry of topicDisambiguations.values()) {
+    const memberTitles = entry.members.map((member) => titleCaseSlug(member.slug));
+    const compositeData: TopicCompositePageData = {
+      title: memberTitles.join(' — '),
+      slug: entry.into,
+      folder: entry.folder,
+      wiki: wikiSlug,
+      class: 6,
+      members: entry.members.map((member) => ({
+        slug: member.slug,
+        title: titleCaseSlug(member.slug),
+        sources: member.sources,
+      })),
+      memberClaims: entry.claims.map((group) => ({ slug: group.slug, claims: dedupeClaims(group.claims) })),
+      slugToTitle,
+      aliases: memberTitles,
+    };
+
+    const folderPath = join(dir, entry.folder);
+    await mkdir(folderPath, { recursive: true });
+    const pagePath = join(folderPath, `${entry.into}.md`);
+    const relativePath = synthesisPagePath(compositeData);
+    const synthesisRecord = synthesisRecords[relativePath];
+    if (
+      isSkipEligible(synthesisRecord) &&
+      synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) &&
+      existsSync(pagePath)
+    ) {
+      result.topicCompositePages.push(compositeData);
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile(pagePath, 'utf-8')) });
+      continue;
+    }
+    const rendered = writeTopicCompositePage(compositeData);
+    const verdict = await checkPageConflict(pagePath, relativePath, options?.pageHashes, rendered);
+    if (verdict === 'conflict') {
+      await logManualEditConflict(dir, relativePath);
+      result.conflicts.push(relativePath);
+      continue;
+    }
+    if (verdict === 'converge') {
+      logHashConvergence(relativePath);
+      result.convergedPages.push(relativePath);
+    }
+
+    result.topicCompositePages.push(compositeData);
     await writeFile(pagePath, rendered, 'utf-8');
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
@@ -2522,10 +3578,21 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
           mentionCount: composite.members.reduce((count, member) => count + member.aggregate.mentions.length, 0),
         };
       }),
+      // Phase 25 (§2.3): class-6 entity composites are tracked at the generic
+      // slug (the label's own page path); member slugs are per-meaning
+      // identities that never had pages.
+      ...Array.from(entityDisambiguations.values()).map((entry) => ({
+        slug: entry.into,
+        folder: entry.folder,
+        mentionCount: entry.evidence.reduce((count, group) => count + group.mentions.length, 0),
+      })),
     ].sort((a, b) => a.slug.localeCompare(b.slug)),
-    topics: Array.from(topicMap.values())
-      .map((topic) => topic.folder.replace(/^topics\//, ''))
-      .sort((a, b) => a.localeCompare(b)),
+    topics: [
+      ...Array.from(topicMap.values()).map((topic) => topic.folder.replace(/^topics\//, '')),
+      // Phase 25 (§2.3): a disambiguated topic stays tracked at its (unchanged)
+      // generic slug — the composite lives at the ordinary page's path.
+      ...Array.from(topicDisambiguations.values()).map((entry) => entry.folder.replace(/^topics\//, '')),
+    ].sort((a, b) => a.localeCompare(b)),
     sources: Array.from(sourceSlugs).sort((a, b) => a.localeCompare(b)),
     folderStructure: Array.from(folderStructure).sort((a, b) => a.localeCompare(b)),
   };
@@ -2633,6 +3700,12 @@ export async function materialize(wikiSlug: string, options?: MaterializeOptions
   // reversals — all additive fields over the frozen legacy shape.
   if (curationSummary !== null) {
     result.curation = curationSummary;
+    // Phase 25 (§2.1): the disambiguation pass's own additive summary (the
+    // pass runs inside the curation stage; its reversals already flow through
+    // curationSummary.splitReversals into the curation report).
+    if (disambiguationSummary !== null) {
+      result.disambiguation = disambiguationSummary;
+    }
     const reportRun = curationRunTimestamp ?? new Date().toISOString();
     const decidedMerges = (
       concern: 'topics' | 'entities',

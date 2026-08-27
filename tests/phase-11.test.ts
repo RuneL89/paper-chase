@@ -198,9 +198,10 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   // Extractor Model, Synthesis Writer Model, DOX Writer Model, Curation
   // Model, Cross-Wiki Bulk Model, Cross-Wiki Judgment Model, JSON Corrector
   // Model, [ Add Custom Provider ], Anthropic API Key, OpenAI API Key, Qwen
-  // API Key, [ Save ], [ Back ] (the v1.5.0 API-key rows sit AFTER the model
-  // rows; Phase 14 added the Curation Model row, Phase 24 added the two
-  // Cross-Wiki rows, Phase Qwen added the Qwen API Key row).
+  // API Key, DeepSeek API Key, Zhipu API Key, [ Save ], [ Back ] (the v1.5.0
+  // API-key rows sit AFTER the model rows; Phase 14 added the Curation Model
+  // row, Phase 24 added the two Cross-Wiki rows, Phase Qwen added the Qwen
+  // API Key row, the multi-provider branch restored DeepSeek/Zhipu keys).
   screen.stdin.write(DOWN);
   await tick(100);
   screen.stdin.write(DOWN);
@@ -234,6 +235,10 @@ test('gate 11.1: settings screen saves model routing to .paper-chase.json', asyn
   screen.stdin.write(DOWN); // -> OpenAI API Key
   await tick(100);
   screen.stdin.write(DOWN); // -> Qwen API Key
+  await tick(100);
+  screen.stdin.write(DOWN); // -> DeepSeek API Key
+  await tick(100);
+  screen.stdin.write(DOWN); // -> Zhipu API Key
   await tick(100);
   screen.stdin.write(DOWN); // -> [ Save ]
   await tick(100);
@@ -437,10 +442,14 @@ test('gate 11.5: README.md contains all required sections', () => {
   expect(readme).toContain('# Paper Chase');
   expect(readme).toContain('The paper chase, automated.');
   expect(readme).toContain('## Introduction');
-  expect(readme).toContain('## Functional Architecture');
-  expect(readme).toContain('## Step-by-Step Architecture');
-  expect(readme).toContain('## Detailed Technical Architecture');
-  expect(readme).toContain('## Project Structure');
+  // The Phase-26-era README is the lean progressive-disclosure document the
+  // root AGENTS.md mandates (Introduction → pipeline at a glance → pipeline
+  // in detail → pointers) — the Phase-11 architecture headings were folded
+  // into these sections.
+  expect(readme).toContain('## The pipeline at a glance');
+  expect(readme).toContain('## The pipeline in detail');
+  expect(readme).toContain('## Getting the app');
+  expect(readme).toContain('## Documentation Map');
 });
 
 // ---------------------------------------------------------------------------
@@ -933,15 +942,15 @@ test('gate 11.10: switching the Default Provider re-seeds only the Default Model
   // Extractor Model, Synthesis Writer Model, DOX Writer Model, Curation
   // Model, Cross-Wiki Bulk Model, Cross-Wiki Judgment Model, JSON Corrector
   // Model, Add Custom Provider, Anthropic API Key, OpenAI API Key, Qwen API
-  // Key, [ Save ], [ Back ] — Default Provider is index 2, [ Save ] is index
-  // 15 (13 Downs between them).
+  // Key, DeepSeek API Key, Zhipu API Key, [ Save ], [ Back ] — Default Provider
+  // is index 2, [ Save ] is index 17 (17 Downs between them).
   screen.stdin.write(DOWN);
   await tick(100);
   screen.stdin.write(DOWN); // -> Default Provider
   await tick(100);
   screen.stdin.write(RIGHT); // Anthropic -> OpenAI (default re-seeds immediately)
   await tick(100);
-  for (let i = 0; i < 13; i++) {
+  for (let i = 0; i < 15; i++) {
     screen.stdin.write(DOWN); // Default Provider -> ... -> [ Save ]
     await tick(100);
   }
@@ -1088,25 +1097,25 @@ const okOpenAIResponse = () =>
 test('gate 11.11: apiKeys round-trip through save/load; a missing block loads as nulls', async () => {
   const workspace = makeTempDir('paper-chase-g11-11a-');
   const settings = await loadSettings(workspace); // defaults in an empty workspace
-  expect(settings.apiKeys).toEqual({ anthropic: null, openai: null, qwen: null });
+  expect(settings.apiKeys).toEqual({ anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null });
 
-  settings.apiKeys = { anthropic: FAKE_ANT_KEY, openai: null, qwen: null };
+  settings.apiKeys = { anthropic: FAKE_ANT_KEY, openai: null, qwen: null, deepseek: null, zhipu: null };
   await saveSettings(workspace, settings);
 
   const raw = JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-    apiKeys: { anthropic: string | null; openai: string | null; qwen: string | null };
+    apiKeys: { anthropic: string | null; openai: string | null; qwen: string | null; deepseek: string | null; zhipu: string | null };
   };
-  expect(raw.apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null });
+  expect(raw.apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null, deepseek: null, zhipu: null });
 
   const loaded = await loadSettings(workspace);
-  expect(loaded.apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null });
+  expect(loaded.apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null, deepseek: null, zhipu: null });
 
   // A pre-v1.5.0 config (no apiKeys block) loads with nulls.
   const legacyWorkspace = makeTempDir('paper-chase-g11-11b-');
   writeFileSync(join(legacyWorkspace, '.paper-chase.json'), JSON.stringify({ synthesis: true }));
   const legacyLoaded = await loadSettings(legacyWorkspace);
   expect(legacyLoaded.synthesis).toBe(true);
-  expect(legacyLoaded.apiKeys).toEqual({ anthropic: null, openai: null, qwen: null });
+  expect(legacyLoaded.apiKeys).toEqual({ anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null });
 });
 
 test('gate 11.11: anthropic key resolution — stored beats env, env without stored, neither throws the Settings error', async () => {
@@ -1222,7 +1231,7 @@ test('gate 11.11: getApiKeyStatus reports stored/environment/none and never more
 test('gate 11.11: the settings screen masks stored keys — last4 shown, the full key never rendered', async () => {
   const workspace = makeTempDir('paper-chase-g11-11mask-');
   const settings = await loadSettings(workspace);
-  settings.apiKeys = { anthropic: FAKE_ANT_KEY, openai: null, qwen: null };
+  settings.apiKeys = { anthropic: FAKE_ANT_KEY, openai: null, qwen: null, deepseek: null, zhipu: null };
   await saveSettings(workspace, settings);
 
   // Guarantee the '[not set]' assertion for the untouched provider even if
@@ -1282,7 +1291,7 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   const workspace = makeTempDir('paper-chase-g11-11stage-');
   const readConfig = () =>
     JSON.parse(readFileSync(join(workspace, '.paper-chase.json'), 'utf-8')) as {
-      apiKeys: { anthropic: string | null; openai: string | null; qwen: string | null };
+      apiKeys: { anthropic: string | null; openai: string | null; qwen: string | null; deepseek: string | null; zhipu: string | null };
     };
   const focusAnthropicKeyRow = async (screen: CapturedRender) => {
     for (let i = 0; i < 12; i++) {
@@ -1291,8 +1300,8 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
     }
   };
   const downToSave = async (screen: CapturedRender) => {
-    // Anthropic API Key -> OpenAI API Key -> Qwen API Key -> [ Save ].
-    for (let i = 0; i < 3; i++) {
+    // Anthropic API Key -> OpenAI API Key -> Qwen API Key -> DeepSeek API Key -> Zhipu API Key -> [ Save ].
+    for (let i = 0; i < 5; i++) {
       screen.stdin.write(DOWN);
       await tick(80);
     }
@@ -1320,7 +1329,7 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   await waitFor(() => result1 !== undefined);
   screen1.unmount();
   await tick(50);
-  expect(readConfig().apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null });
+  expect(readConfig().apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null, deepseek: null, zhipu: null });
 
   // 2. Escape cancels an edit: typed junk is never staged, so the saved
   //    config still holds the key from step 1. (If Escape failed, the editor
@@ -1347,7 +1356,7 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   await waitFor(() => result2 !== undefined);
   screen2.unmount();
   await tick(50);
-  expect(readConfig().apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null });
+  expect(readConfig().apiKeys).toEqual({ anthropic: FAKE_ANT_KEY, openai: null, qwen: null, deepseek: null, zhipu: null });
 
   // 3. Empty submit stages a CLEAR; Save persists the null.
   let result3: string | undefined;
@@ -1369,7 +1378,7 @@ test('gate 11.11: stage a key -> Save persists it; Escape cancels an edit; empty
   await waitFor(() => result3 !== undefined);
   screen3.unmount();
   await tick(50);
-  expect(readConfig().apiKeys).toEqual({ anthropic: null, openai: null, qwen: null });
+  expect(readConfig().apiKeys).toEqual({ anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null });
 }, 60000);
 
 test('gate 11.11: a call made with a stored key writes no key material to llm-calls.json or the console', async () => {
@@ -1636,8 +1645,9 @@ test('gate 11.13: Enter on a model row opens a custom-id editor and persists the
   await tick(100);
 
   // Navigate to Save and persist (Phase 16 v1.0.5's JSON Corrector Model
-  // row adds one more to the pre-v1.0.5 count: 11 Downs).
-  for (let i = 0; i < 11; i++) {
+  // row plus the restored DeepSeek/Zhipu API-key rows add three to the
+  // pre-v1.0.5 count: 13 Downs).
+  for (let i = 0; i < 13; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
@@ -1693,8 +1703,9 @@ test('gate 11.13: switching the Default Provider preserves a custom model (v1.9.
   screen.stdin.write(RIGHT); // Anthropic -> OpenAI
   await tick(100);
   // Navigate to Save and persist (Phase 16 v1.0.5's JSON Corrector Model
-  // row adds one more to the pre-v1.0.5 count: 13 Downs).
-  for (let i = 0; i < 13; i++) {
+  // row plus the restored DeepSeek/Zhipu API-key rows add three to the
+  // pre-v1.0.5 count: 15 Downs).
+  for (let i = 0; i < 15; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
@@ -1827,9 +1838,10 @@ test('gate 11.14: add a custom provider and it persists to .paper-chase.json', a
   await tick(200);
   // After adding, the provider is the new custom provider and the row order
   // has expanded with config rows. The focus stays at index 11 (now the
-  // custom provider's first config row); Save is at index 26 — 15 Downs
-  // (Phase 16 v1.0.5's JSON Corrector Model row shifted Save one further).
-  for (let i = 0; i < 15; i++) {
+  // custom provider's first config row); Save is at index 28 — 17 Downs
+  // (Phase 16 v1.0.5's JSON Corrector Model row plus the restored
+  // DeepSeek/Zhipu API-key rows shifted Save three further).
+  for (let i = 0; i < 17; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
@@ -2079,9 +2091,10 @@ test('gate 11.14: custom model names within a custom provider are selectable and
   await tick(100);
   // Navigate to Save and persist. With the custom provider selected, the row
   // order includes the config rows (12 rows for 2 models + 1 header); Save is
-  // at index 27 from Default Model (index 3) — 24 Downs (Phase 16 v1.0.5's
-  // JSON Corrector Model row shifted Save one further).
-  for (let i = 0; i < 24; i++) {
+  // at index 29 from Default Model (index 3) — 26 Downs (Phase 16 v1.0.5's
+  // JSON Corrector Model row plus the restored DeepSeek/Zhipu API-key rows
+  // shifted Save three further).
+  for (let i = 0; i < 26; i++) {
     screen.stdin.write(DOWN);
     await tick(80);
   }
