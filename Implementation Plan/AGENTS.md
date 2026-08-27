@@ -2,14 +2,14 @@
 
 ## Purpose
 
-The phased implementation plan for Paper Chase v.1.0: phases 0–9 and 11–24, each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent.
+The phased implementation plan for Paper Chase v.1.0: phases 0–9 and 11–26, each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent. All phases through 26 are implemented; Phases 25 (generic-label disambiguation) and 26 (per-PDF patch amendment) completed 2026-08-27 — their vision amendments are law and their phase docs remain the build records.
 
 ## Ownership
 
 * `IMPLEMENTATION_PLAN_MASTER_INDEX.md` — phase directory, golden rules, approval workflow
 * `MASTER_IMPLEMENTATION_PROMPT.md` — loop engineering framework, compliance rule, sub-agent architecture, phase prompt template
 * `START_PHASE_PROMPT.md` — kickoff prompt template for starting a phase
-* `PHASE_00_infrastructure.md` … `PHASE_24_cross_wiki_discovery.md` — one document per phase: objective, files to build, gates, UAT, checklist, integration notes
+* `PHASE_00_infrastructure.md` … `PHASE_26_per_pdf_patch_amendment.md` — one document per phase: objective, files to build, gates, UAT, checklist, integration notes
 * `BACKLOG.md` — living list of open issues, accepted residuals, and future tracks (multi-format ingestion since 2026-07-25); entries are unscheduled and move into a `PHASE_XX` doc when scheduled
 
 ## Local Contracts

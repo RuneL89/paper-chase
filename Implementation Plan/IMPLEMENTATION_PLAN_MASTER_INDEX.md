@@ -9,7 +9,7 @@
 
 ## Overview
 
-This implementation plan breaks Paper Chase v.1.0 into phases 0–9 and 11–23. Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
+This implementation plan breaks Paper Chase v.1.0 into phases 0–9 and 11–26. Each phase is a standalone deliverable that can be tested in isolation and integrated with previously accepted phases. **You do not move to the next phase until every gate in the current phase passes.**
 
 This structure prevents the compounding bug problem that destroyed the previous implementation. Each phase has:
 - A clear objective
@@ -49,9 +49,11 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 22 | [PHASE_22_composite_pages.md](PHASE_22_composite_pages.md) | Composite pages (Option C): cluster-granular rich articles over the entity-granular graph within five ratified rollup classes; vision `02` §4.6/`05` §6 amendment (backlog B22) | $0 | 8-12h |
 | 23 | [PHASE_23_comparison_articles.md](PHASE_23_comparison_articles.md) | Comparison-table articles: extractor `tables` output, `comparison` page type, `comparisons/` folder, per-subject accumulation across sources (backlog B21) | $0 | 4-6h |
 | 24 | [PHASE_24_cross_wiki_discovery.md](PHASE_24_cross_wiki_discovery.md) | Cross-wiki discovery layer (v1.2.1): agent-first entity registry, relationship graph, topic clusters, entity summaries, predicate normalization, hypothesis signals, and preflight run-control for downstream agents (backlog B14) | $0 | 12-18h |
+| 25 | [PHASE_25_generic_label_disambiguation.md](PHASE_25_generic_label_disambiguation.md) | Generic-label disambiguation (Option E Variant B): class-6 composite pages at generic slugs whose per-source meanings diverge — deterministic heterogeneity proposal, LLM split judgment, sticky `disambiguate` records with source→member mapping (backlog B23) | ≤$6 (glm-5.3-flash only) | 6-9h |
+| 26 | [PHASE_26_per_pdf_patch_amendment.md](PHASE_26_per_pdf_patch_amendment.md) | Per-PDF sequential ingestion (Option B Patch, new default pipeline): each PDF runs extract → materialize (+per-PDF curation) → synthesize-or-AMEND with LLM patch output, deterministic applier, merged-page preservation, full-synthesis fallback; DOX/cross-wiki deferred to after the loop (backlog B24) | ≤$15 (glm-5.3-flash only) | 10-14h |
 
 **Total Estimated LLM Cost (all phases):** Variable; baseline ~$32.00 plus quality-first DOX Writer cost per wiki.
-**Total Estimated Time:** 52-76 hours
+**Total Estimated Time:** 68-99 hours
 
 ---
 
@@ -100,6 +102,8 @@ Every phase has two kinds of tests:
 | 14 | $0 | LLM-free gates (injected curation stubs); live curation calls only during real ingests. |
 | 15 | $0 | LLM-free gates (delay-stubbed synthesis); live timing verification only during real ingests. |
 | 16 | $0 | LLM-free gates (stubbed transport + injected fingerprints); live resilience drills only during real ingests. |
+| 25 | $6.00 | glm-5.3-flash ONLY (user directive 2026-08-27; cap tripled same day), pinned via the UAT workspace's slot config; one designated live gate (25.9, self-skips key-less) + live UAT ingests; everything else stub-based. Expected actual spend <$0.50. |
+| 26 | $15.00 | glm-5.3-flash ONLY (user directive 2026-08-27; cap tripled same day), pinned via the UAT workspace's slot config; one designated live gate (26.11, self-skips key-less) + live UAT ingests incl. abort/resume re-fires; everything else stub-based. Expected actual spend <$1. |
 
 **No retry loops.** If an LLM call fails, fix the prompt and run again. Do not burn tokens on retries.
 
@@ -139,6 +143,8 @@ Before starting each phase, read the relevant vision document (all in `Project V
 | 13 | `04_orchestration_detailed.md` §6, `07_validation_and_quality.md` §5, `02_WIKI_concept_detailed.md` §4.7/§4.8, `05_page_types_specification.md` §2 | Output-token ceilings, self-sizing prompts restoring §4.7/§4.8 fidelity, the `sparse` frontmatter field. |
 | 14 | `01_PRODUCT_VISION_AND_ARCHITECTURE.md` §4.1/§5, `04_orchestration_detailed.md` §1/§3.2/§6/§9.4, `05_page_types_specification.md` §6/§7, `07_validation_and_quality.md` §1/§2.3/§5 | Curate-then-write placement, topic eligibility, entity identity, decision-list validation, keep-all fallback. |
 | 15 | `04_orchestration_detailed.md` §1 | The concurrency note (bounded pool, cap 4, deterministic order; everything else sequential). |
+| 25 | `02_WIKI_concept_detailed.md` §4.6, `05_page_types_specification.md` §6 + §7, `04_orchestration_detailed.md` §3.2 Step 6b | Class-6 disambiguation composites; the same-label-different-meaning topic rule; the disambiguation pass mechanism. |
+| 26 | `04_orchestration_detailed.md` §1 + §3.2 + §4 + §6, `07_validation_and_quality.md` §3, `01_PRODUCT_VISION_AND_ARCHITECTURE.md` §4.1 | The per-PDF loop; amendment synthesis (patch output); patched-page preservation; per-PDF curation cadence. |
 
 After completing each phase, update the relevant vision document if the implementation diverged from the spec. The vision documents are the source of truth.
 
@@ -179,6 +185,8 @@ For each phase:
 | 14 | Browse a curated wiki: duplicate topics merged, meta-descriptor junk gone, forked entities unified into one rich page with aliases. |
 | 15 | Wait hours less for the same wiki — entity/topic synthesis runs four pages at a time. |
 | 16 | Kill a run mid-flight and watch the re-run skip finished PDFs and already-paid pages; a network hiccup costs one page, not the run. |
+| 25 | Trust that `Indikator 2` from two different registries is never conflated — one page, two clearly separated meanings, each with its own evidence. |
+| 26 | Ingest 100 PDFs and watch entity pages grow one amendment at a time — each new report pays only for ITS new information, not for re-writing the page. |
 
 ---
 
@@ -224,7 +232,9 @@ Wiki v5/                              # project root — all code and tests are 
     ├── PHASE_21_curation_overhaul.md
     ├── PHASE_22_composite_pages.md
     ├── PHASE_23_comparison_articles.md
-    └── PHASE_24_cross_wiki_discovery.md
+    ├── PHASE_24_cross_wiki_discovery.md
+    ├── PHASE_25_generic_label_disambiguation.md
+    └── PHASE_26_per_pdf_patch_amendment.md
 ```
 
 ---

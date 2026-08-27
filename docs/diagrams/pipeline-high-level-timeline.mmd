@@ -1,0 +1,29 @@
+---
+config:
+  theme: 'base'
+  themeVariables:
+    cScale0: '#fff4e6'
+    cScale1: '#e6f3ff'
+    cScale2: '#f3e6ff'
+    cScaleLabel0: '#000000'
+    cScaleLabel1: '#000000'
+    cScaleLabel2: '#000000'
+---
+timeline TD
+    title Paper Chase v1.0 — Ingestion Pipeline at a Glance
+    section [USER] Triggers
+        Drop PDFs : Drop PDFs into wiki/raw/
+        Start : Press "Ingest PDFs" in TUI/CLI
+    section [CODE] + [LLM] Per-PDF loop
+        Chunk : [CODE] Split PDF into page chunks (a page is never split across chunks)
+        Extract : [LLM] Extractor reads chunk + AGENTS.md + rolling memory; emits entities, relationships, claims, tables
+        Materialize : [CODE] Aggregate evidence, detect generic labels, curate identities, write candidate pages
+        Synthesize/Amend : [LLM] Write a full page OR patch an existing page with structured amendments
+        Checkpoint : [CODE] Save PDF state; next PDF
+    section [CODE] + [LLM] Finalize
+        Validate : [CODE] Check links, citations, frontmatter, preservation
+        DOX : [LLM] Write folder + root index.md navigation contracts
+        Workspace : [LLM] Add this wiki's segment to the workspace index
+        Cross-Wiki : [LLM] Build entity registry, relationship graph, topic clusters (only when 2+ wikis exist)
+        Updater : [LLM] Propose AGENTS.md constitution updates (optional)
+        Persist : [CODE] Write metrics and final state files
