@@ -46041,7 +46041,7 @@ var require_snapshot_utils = __commonJS({
 var require_snapshot_recorder = __commonJS({
   "node_modules/undici/lib/mock/snapshot-recorder.js"(exports2, module2) {
     "use strict";
-    var { writeFile: writeFile27, readFile: readFile34, mkdir: mkdir28 } = __require("node:fs/promises");
+    var { writeFile: writeFile27, readFile: readFile35, mkdir: mkdir28 } = __require("node:fs/promises");
     var { dirname: dirname6, resolve: resolve6 } = __require("node:path");
     var { setTimeout: setTimeout2, clearTimeout: clearTimeout2 } = __require("node:timers");
     var { InvalidArgumentError: InvalidArgumentError2, UndiciError } = require_errors();
@@ -46258,7 +46258,7 @@ var require_snapshot_recorder = __commonJS({
           throw new InvalidArgumentError2("Snapshot path is required");
         }
         try {
-          const data = await readFile34(resolve6(path), "utf8");
+          const data = await readFile35(resolve6(path), "utf8");
           const parsed = JSON.parse(data);
           if (Array.isArray(parsed)) {
             this.#snapshots.clear();
@@ -72387,6 +72387,8 @@ var ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
 var ANTHROPIC_VERSION = "2023-06-01";
 var OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
 var QWEN_API_URL = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions";
+var DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions";
+var ZHIPU_API_URL = "https://api.z.ai/api/paas/v4/chat/completions";
 var DEFAULT_MODEL = "claude-haiku-4-5-20251001";
 var PRICE_PER_MTOK = {
   "claude-haiku-4-5-20251001": { input: 1, output: 5 },
@@ -72399,6 +72401,13 @@ var PRICE_PER_MTOK = {
   "qwen-plus": { input: 0.5, output: 1 },
   "qwen3.7-max": { input: 2, output: 5 },
   "qwen3.8-max": { input: 3, output: 6 },
+  "qwen3.8-flash": { input: 0.16, output: 0.47 },
+  "deepseek-v4-pro": { input: 1.32, output: 3.96 },
+  "glm-4.7-flash": { input: 0, output: 0 },
+  "glm-4.7-flashx": { input: 0.07, output: 0.4 },
+  "glm-5.2": { input: 1.4, output: 4.4 },
+  "glm-5.3": { input: 1.4, output: 4.4 },
+  "glm-5.3-flash": { input: 0.15, output: 0.5 },
   default: { input: 1, output: 5 }
 };
 var SYNTHESIS_CALL_TYPES = /* @__PURE__ */ new Set([
@@ -72409,7 +72418,7 @@ var SYNTHESIS_CALL_TYPES = /* @__PURE__ */ new Set([
 ]);
 var modelRouting = null;
 function normalizeProviderValue(value) {
-  if (value === "openai" || value === "qwen") {
+  if (value === "openai" || value === "qwen" || value === "deepseek" || value === "zhipu") {
     return value;
   }
   if (typeof value === "string" && value.startsWith("custom:")) {
@@ -72446,7 +72455,9 @@ function setModelRouting(routing) {
     apiKeys: {
       anthropic: normalizeStoredKey(routing.apiKeys?.anthropic),
       openai: normalizeStoredKey(routing.apiKeys?.openai),
-      qwen: normalizeStoredKey(routing.apiKeys?.qwen)
+      qwen: normalizeStoredKey(routing.apiKeys?.qwen),
+      deepseek: normalizeStoredKey(routing.apiKeys?.deepseek),
+      zhipu: normalizeStoredKey(routing.apiKeys?.zhipu)
     },
     // Phase 24: explicit cross-wiki slots; absent legacy configs → null
     // (fall back to default / synthesis as before).
@@ -72490,7 +72501,7 @@ function resolveSlotFromRouting(routing, callType) {
   if (callType === "dox-writer" && routing.dox !== null) {
     return routing.dox;
   }
-  if (callType === "curation" && routing.curation != null) {
+  if ((callType === "curation" || callType === "disambiguate") && routing.curation != null) {
     return routing.curation;
   }
   return { provider: routing.provider ?? "anthropic", model: routing.default };
@@ -72567,7 +72578,7 @@ function resolveApiKeyForProvider(provider, storedKey) {
   if (stored !== null) {
     return stored;
   }
-  const envKey = provider === "openai" ? process.env.OPENAI_API_KEY : provider === "qwen" ? process.env.DASHSCOPE_API_KEY : process.env.ANTHROPIC_API_KEY;
+  const envKey = provider === "openai" ? process.env.OPENAI_API_KEY : provider === "qwen" ? process.env.DASHSCOPE_API_KEY : provider === "deepseek" ? process.env.DEEPSEEK_API_KEY : provider === "zhipu" ? process.env.ZAI_API_KEY : process.env.ANTHROPIC_API_KEY;
   return envKey ?? null;
 }
 function getApiKeyStatus(provider, storedKey) {
@@ -72579,7 +72590,7 @@ function getApiKeyStatus(provider, storedKey) {
   if (provider.startsWith("custom:")) {
     return { source: "none", last4: null };
   }
-  const envKey = provider === "openai" ? process.env.OPENAI_API_KEY : provider === "qwen" ? process.env.DASHSCOPE_API_KEY : process.env.ANTHROPIC_API_KEY;
+  const envKey = provider === "openai" ? process.env.OPENAI_API_KEY : provider === "qwen" ? process.env.DASHSCOPE_API_KEY : provider === "deepseek" ? process.env.DEEPSEEK_API_KEY : provider === "zhipu" ? process.env.ZAI_API_KEY : process.env.ANTHROPIC_API_KEY;
   if (envKey) {
     return { source: "environment", last4: envKey.slice(-4) };
   }
@@ -72779,11 +72790,23 @@ function displayProviderName(provider, customProviders) {
   if (provider === "qwen") {
     return "Qwen";
   }
+  if (provider === "deepseek") {
+    return "DeepSeek";
+  }
+  if (provider === "zhipu") {
+    return "Zhipu";
+  }
   return "Anthropic";
 }
 function openAiCompatibleUrl(provider) {
   if (provider === "qwen") {
     return QWEN_API_URL;
+  }
+  if (provider === "deepseek") {
+    return DEEPSEEK_API_URL;
+  }
+  if (provider === "zhipu") {
+    return ZHIPU_API_URL;
   }
   return OPENAI_API_URL;
 }
@@ -72792,7 +72815,7 @@ async function callLLM(prompt, system, options2 = {}) {
   const provider = resolveProviderForCall(options2.callType);
   const apiKey = resolveApiKey(provider);
   if (!apiKey) {
-    const keyName2 = provider.startsWith("custom:") ? `Custom provider API key (${provider.slice(7)})` : provider === "openai" ? "OPENAI_API_KEY" : provider === "qwen" ? "DASHSCOPE_API_KEY" : "ANTHROPIC_API_KEY";
+    const keyName2 = provider.startsWith("custom:") ? `Custom provider API key (${provider.slice(7)})` : provider === "openai" ? "OPENAI_API_KEY" : provider === "qwen" ? "DASHSCOPE_API_KEY" : provider === "deepseek" ? "DEEPSEEK_API_KEY" : provider === "zhipu" ? "ZAI_API_KEY" : "ANTHROPIC_API_KEY";
     throw new Error(
       `${keyName2} is not set. Add it in Settings, export it in your environment, or add it to a .env file in the project root.`
     );
@@ -72806,7 +72829,7 @@ async function callLLM(prompt, system, options2 = {}) {
       throw new Error(`Custom provider '${provider.slice(7)}' not found in settings.`);
     }
     providerRequest = buildCustomProviderRequest(config, model, prompt, system, options2, apiKey);
-  } else if (provider === "openai" || provider === "qwen") {
+  } else if (provider === "openai" || provider === "qwen" || provider === "deepseek" || provider === "zhipu") {
     providerRequest = buildOpenAIRequest(
       model,
       prompt,
@@ -72924,7 +72947,7 @@ async function callLLM(prompt, system, options2 = {}) {
   if (provider.startsWith("custom:")) {
     const config = modelRouting?.customProviders?.find((c) => c.id === provider.slice(7));
     parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: "" });
-  } else if (provider === "openai" || provider === "qwen") {
+  } else if (provider === "openai" || provider === "qwen" || provider === "deepseek" || provider === "zhipu") {
     parsed = parseOpenAIResponse(json);
   } else {
     parsed = parseAnthropicResponse(json);
@@ -72958,7 +72981,7 @@ async function testModelConnection(provider, model, apiKey, customProviders) {
       return { ok: false, message: `Custom provider '${provider.slice(7)}' not found in settings.` };
     }
     providerRequest = buildCustomProviderRequest(config, model, "hi", void 0, { maxTokens: 256 }, apiKey);
-  } else if (provider === "openai" || provider === "qwen") {
+  } else if (provider === "openai" || provider === "qwen" || provider === "deepseek" || provider === "zhipu") {
     providerRequest = buildOpenAIRequest(
       model,
       "hi",
@@ -72999,7 +73022,7 @@ async function testModelConnection(provider, model, apiKey, customProviders) {
   if (provider.startsWith("custom:")) {
     const config = customProviders?.find((c) => c.id === provider.slice(7));
     parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: "" });
-  } else if (provider === "openai" || provider === "qwen") {
+  } else if (provider === "openai" || provider === "qwen" || provider === "deepseek" || provider === "zhipu") {
     parsed = parseOpenAIResponse(json);
   } else {
     parsed = parseAnthropicResponse(json);
@@ -73028,18 +73051,35 @@ var MODEL_CATALOG = {
     { id: "qwen-plus", label: "Qwen-Plus" },
     { id: "qwen3.7-max", label: "Qwen 3.7 Max" },
     { id: "qwen3.8-max", label: "Qwen 3.8 Max" },
+    { id: "qwen3.8-flash", label: "Qwen 3.8 Flash" },
+    { id: "__custom__", label: "Custom model..." }
+  ],
+  deepseek: [
+    { id: "deepseek-v4-pro", label: "DeepSeek-V4-Pro" },
+    { id: "__custom__", label: "Custom model..." }
+  ],
+  zhipu: [
+    { id: "glm-4.7-flash", label: "GLM-4.7-Flash" },
+    { id: "glm-4.7-flashx", label: "GLM-4.7-FlashX" },
+    { id: "glm-5.2", label: "GLM-5.2" },
+    { id: "glm-5.3", label: "GLM-5.3" },
+    { id: "glm-5.3-flash", label: "GLM-5.3-Flash" },
     { id: "__custom__", label: "Custom model..." }
   ]
 };
 var DEFAULT_MODEL_FOR_PROVIDER = {
   anthropic: "claude-haiku-4-5-20251001",
   openai: "gpt-5.6-luna",
-  qwen: "qwen-plus"
+  qwen: "qwen-plus",
+  deepseek: "deepseek-v4-pro",
+  zhipu: "glm-4.7-flash"
 };
 var CURATION_MODEL_FOR_PROVIDER = {
   anthropic: "claude-sonnet-5",
   openai: "gpt-5.6-terra",
-  qwen: "qwen3.7-max"
+  qwen: "qwen3.7-max",
+  deepseek: "deepseek-v4-pro",
+  zhipu: "glm-5.2"
 };
 function slugifyCustomProviderId(name, existingIds) {
   const base = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "custom";
@@ -73075,7 +73115,7 @@ function findCustomProvider(provider, customProviders) {
   return customProviders.find((cp) => cp.id === id);
 }
 function isBuiltInProvider(provider) {
-  return provider === "anthropic" || provider === "openai" || provider === "qwen";
+  return provider === "anthropic" || provider === "openai" || provider === "qwen" || provider === "deepseek" || provider === "zhipu";
 }
 function getModelCatalog(provider, customProviders) {
   if (isBuiltInProvider(provider)) {
@@ -73118,7 +73158,7 @@ var DEFAULT_SETTINGS = {
   synthesis: false,
   updateAgents: false,
   models: seedModelsForProvider("anthropic"),
-  apiKeys: { anthropic: null, openai: null, qwen: null },
+  apiKeys: { anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null },
   customProviders: []
 };
 function settingsPath(workspace) {
@@ -73175,7 +73215,9 @@ function normalizeApiKeys(parsed) {
   return {
     anthropic: concrete(parsed?.anthropic),
     openai: concrete(parsed?.openai),
-    qwen: concrete(parsed?.qwen)
+    qwen: concrete(parsed?.qwen),
+    deepseek: concrete(parsed?.deepseek),
+    zhipu: concrete(parsed?.zhipu)
   };
 }
 function defaultSettings() {
@@ -73942,7 +73984,7 @@ function InitScreen({ onBack, onResult, defaultWorkspace = "./", pickFolder: pic
 // src/tui/ingest-screen.tsx
 var import_react42 = __toESM(require_react(), 1);
 import { readdir as readdir14 } from "node:fs/promises";
-import { join as join44 } from "node:path";
+import { join as join45 } from "node:path";
 
 // src/tui/hooks/use-wiki-list.ts
 var import_react40 = __toESM(require_react(), 1);
@@ -74014,8 +74056,8 @@ function useWikiDetails(workspace, wiki, refreshKey = 0) {
 // src/commands/ingest.ts
 var import_gray_matter21 = __toESM(require_gray_matter(), 1);
 import { existsSync as existsSync11, readFileSync as readFileSync3 } from "node:fs";
-import { mkdir as mkdir26, readFile as readFile32, readdir as readdir13, rm as rm3, writeFile as writeFile26 } from "node:fs/promises";
-import { join as join43 } from "node:path";
+import { mkdir as mkdir26, readFile as readFile33, readdir as readdir13, rm as rm3, writeFile as writeFile26 } from "node:fs/promises";
+import { join as join44 } from "node:path";
 import { createHash as createHash5 } from "node:crypto";
 
 // src/extraction/pdf.ts
@@ -75789,7 +75831,7 @@ var __webpack_modules__ = {
       var defineProperty = Object.defineProperty;
       var stringSlice = uncurryThis("".slice);
       var replace = uncurryThis("".replace);
-      var join48 = uncurryThis([].join);
+      var join49 = uncurryThis([].join);
       var CONFIGURABLE_LENGTH = DESCRIPTORS && !fails(function() {
         return defineProperty(function() {
         }, "length", { value: 8 }).length !== 8;
@@ -75816,7 +75858,7 @@ var __webpack_modules__ = {
         }
         var state = enforceInternalState(value);
         if (!hasOwn(state, "source")) {
-          state.source = join48(TEMPLATE, typeof name == "string" ? name : "");
+          state.source = join49(TEMPLATE, typeof name == "string" ? name : "");
         }
         return value;
       };
@@ -100960,8 +101002,8 @@ async function extractDocumentChunk(wikiDir2, chunkId, language) {
 // src/materializer.ts
 var import_gray_matter9 = __toESM(require_gray_matter(), 1);
 import { existsSync as existsSync9 } from "node:fs";
-import { mkdir as mkdir17, readdir as readdir4, readFile as readFile20, rm, writeFile as writeFile16 } from "node:fs/promises";
-import { dirname as dirname4, join as join27 } from "node:path";
+import { mkdir as mkdir17, readdir as readdir4, readFile as readFile21, rm, writeFile as writeFile16 } from "node:fs/promises";
+import { dirname as dirname4, join as join28 } from "node:path";
 import { createHash as createHash3 } from "node:crypto";
 
 // src/pages/composite-page.ts
@@ -101153,6 +101195,101 @@ function enforceCompositeFrontmatterInMarkdown(markdown, pageData) {
     body = parsed.content;
   }
   return import_gray_matter7.default.stringify(body, buildCompositeFrontmatter(pageData, (/* @__PURE__ */ new Date()).toISOString()));
+}
+function buildTopicCompositeCitationMap(data) {
+  const citationMap = /* @__PURE__ */ new Map();
+  let next = 1;
+  for (const group of data.memberClaims) {
+    for (const claim of group.claims) {
+      const key = sourceKey3(claim.source, claim.pages);
+      if (!citationMap.has(key)) {
+        citationMap.set(key, next);
+        next += 1;
+      }
+    }
+  }
+  return { citationMap, keys: Array.from(citationMap.keys()) };
+}
+function buildTopicCompositeFrontmatterSources(data) {
+  const sourceRanges = /* @__PURE__ */ new Map();
+  for (const group of data.memberClaims) {
+    for (const claim of group.claims) {
+      const set = sourceRanges.get(claim.source) ?? /* @__PURE__ */ new Set();
+      set.add(claim.pages);
+      sourceRanges.set(claim.source, set);
+    }
+  }
+  return Array.from(sourceRanges.entries()).sort(([a], [b]) => a.localeCompare(b)).map(([file, pagesSet]) => ({
+    file,
+    pages: Array.from(pagesSet).sort((x, y) => x.localeCompare(y)).join(", ")
+  }));
+}
+function buildTopicCompositeFrontmatter(data, updated) {
+  const aliases = combinedAliases(data.title, data.slug, data.aliases);
+  return {
+    title: escapeYamlString2(data.title),
+    type: "composite",
+    class: data.class,
+    members: data.members.map((member) => ({
+      slug: member.slug,
+      title: member.title,
+      sources: member.sources
+    })),
+    ...aliases ? { aliases } : {},
+    wiki: data.wiki,
+    updated,
+    sources: buildTopicCompositeFrontmatterSources(data),
+    tags: [data.slug]
+  };
+}
+function writeTopicCompositePage(data) {
+  const updated = (/* @__PURE__ */ new Date()).toISOString();
+  const { citationMap } = buildTopicCompositeCitationMap(data);
+  const getCitation2 = (file, pages) => {
+    const index = citationMap.get(sourceKey3(file, pages));
+    if (index === void 0) {
+      throw new Error(`Citation map missing entry for ${file} pages ${pages}.`);
+    }
+    return `[^src${index}]`;
+  };
+  const titleOf = (slug) => data.members.find((member) => member.slug === slug)?.title ?? data.slugToTitle[slug] ?? slug;
+  const lines = [];
+  lines.push("## Members", "");
+  for (const member of data.members) {
+    lines.push(
+      `- **${member.title}** (\`${member.slug}\`) \u2014 sources: ${member.sources.map((file) => sourceFileName3(file)).join(", ")}`
+    );
+  }
+  lines.push("");
+  if (data.memberClaims.some((group) => group.claims.length > 0)) {
+    lines.push("## Claims", "");
+    for (const group of data.memberClaims) {
+      if (group.claims.length === 0) {
+        continue;
+      }
+      lines.push(`### ${titleOf(group.slug)}`, "");
+      for (const claim of group.claims) {
+        const entityLinks = claim.entities.map((slug) => formatWikilink(slug, data.slugToTitle[slug])).join(", ");
+        lines.push(
+          `- ${stripCitations3(claim.text)} ${getCitation2(claim.source, claim.pages)}${entityLinks ? ` (${entityLinks})` : ""}`
+        );
+      }
+      lines.push("");
+    }
+  }
+  const definitionEntries = Array.from(citationMap.entries()).map(([key, index]) => ({ key, index })).sort((a, b) => a.index - b.index);
+  if (definitionEntries.length > 0) {
+    lines.push("## Sources", "");
+    for (const { key, index } of definitionEntries) {
+      const [file, pages] = key.split("|");
+      lines.push(`[^src${index}]: ${sourceFileName3(file)}, pages ${pages}`);
+    }
+    lines.push("");
+  }
+  const body = `
+${lines.join("\n")}
+`;
+  return import_gray_matter7.default.stringify(body, buildTopicCompositeFrontmatter(data, updated));
 }
 
 // src/pages/comparison-page.ts
@@ -101458,8 +101595,13 @@ function isValidRecord(entry) {
     return false;
   }
   const record = entry;
-  return (record.concern === "topics" || record.concern === "entities") && (record.action === "merge" || record.action === "drop" || record.action === "cluster") && Array.isArray(record.from) && record.from.every((slug) => typeof slug === "string" && slug.length > 0) && (record.into === void 0 || typeof record.into === "string" && record.into.length > 0) && typeof record.signal === "string" && typeof record.decidedAt === "string" && typeof record.runId === "string" && // Phase 22 (§2.1): optional cluster metadata.
-  (record.class === void 0 || typeof record.class === "number" && Number.isInteger(record.class) && record.class >= 1 && record.class <= 5) && (record.rationale === void 0 || typeof record.rationale === "string");
+  const validSourceMap = record.sourceMap === void 0 || typeof record.sourceMap === "object" && record.sourceMap !== null && !Array.isArray(record.sourceMap) && Object.values(record.sourceMap).every(
+    (slug) => typeof slug === "string" && slug.length > 0
+  );
+  return (record.concern === "topics" || record.concern === "entities") && (record.action === "merge" || record.action === "drop" || record.action === "cluster" || record.action === "disambiguate") && Array.isArray(record.from) && record.from.every((slug) => typeof slug === "string" && slug.length > 0) && (record.into === void 0 || typeof record.into === "string" && record.into.length > 0) && typeof record.signal === "string" && typeof record.decidedAt === "string" && typeof record.runId === "string" && // Phase 22 (§2.1): optional cluster metadata.
+  (record.class === void 0 || typeof record.class === "number" && Number.isInteger(record.class) && record.class >= 1 && record.class <= 5) && (record.rationale === void 0 || typeof record.rationale === "string") && // Phase 25 (§2.3): a disambiguate record REQUIRES into + sourceMap (the
+  // mapping IS the stickiness); the field is malformed-shape-checked above.
+  validSourceMap && (record.action !== "disambiguate" || typeof record.into === "string" && record.sourceMap !== void 0);
 }
 function parseDecisions(raw) {
   try {
@@ -101550,6 +101692,45 @@ async function appendCurationDecisions(wikiDir2, newRecords) {
     JSON.stringify({ decisions: [...base.decisions, ...appended], splits }, null, 2) + "\n",
     "utf-8"
   );
+}
+async function updateCurationDecisionSourceMap(wikiDir2, into, sourceMap, memberSlugs) {
+  const path = curationDecisionsPath(wikiDir2);
+  let raw;
+  try {
+    raw = await readFile17(path, "utf-8");
+  } catch {
+    console.warn(
+      `Warning: could not grow the disambiguation record for '${into}' \u2014 .state/curation-decisions.json is absent.`
+    );
+    return;
+  }
+  const parsed = parseDecisions(raw);
+  if (parsed === null) {
+    console.warn(
+      `Warning: could not grow the disambiguation record for '${into}' \u2014 .state/curation-decisions.json is malformed.`
+    );
+    return;
+  }
+  let updated = false;
+  for (const record of parsed.decisions) {
+    if (record.action !== "disambiguate" || record.into !== into) {
+      continue;
+    }
+    record.sourceMap = { ...record.sourceMap ?? {}, ...sourceMap };
+    if (memberSlugs !== void 0 && memberSlugs.length > 0) {
+      record.from = memberSlugs;
+    }
+    updated = true;
+    break;
+  }
+  if (!updated) {
+    console.warn(
+      `Warning: could not grow the disambiguation record for '${into}' \u2014 no matching record found.`
+    );
+    return;
+  }
+  await mkdir16(join24(wikiDir2, ".state"), { recursive: true });
+  await writeFile15(path, JSON.stringify(parsed, null, 2) + "\n", "utf-8");
 }
 
 // src/agents/curation.ts
@@ -102388,6 +102569,219 @@ var INDICATOR_PATTERN = /^(?:indikator|indicator)-(\d+)(?:-(.+))?$/;
 function isIndicatorSlug(slug) {
   return INDICATOR_PATTERN.test(slug);
 }
+var GENERIC_LABEL_PATTERN = /^(?:indikator|indicator|table|tabel|section|afsnit|appendix|appendiks|figure|figur)-\d+(?:-.+)?$/;
+function isGenericLabelSlug(slug) {
+  return GENERIC_LABEL_PATTERN.test(slug);
+}
+function isBareGenericLabelSlug(slug) {
+  return /^(?:indikator|indicator|table|tabel|section|afsnit|appendix|appendiks|figure|figur)-\d+$/.test(slug);
+}
+var GENERIC_LABEL_STOPWORDS = /* @__PURE__ */ new Set([
+  // English
+  "the",
+  "a",
+  "an",
+  "of",
+  "in",
+  "to",
+  "for",
+  "and",
+  "or",
+  "is",
+  "are",
+  "was",
+  "were",
+  "be",
+  "been",
+  "with",
+  "on",
+  "at",
+  "by",
+  "from",
+  "as",
+  "that",
+  "this",
+  "it",
+  "its",
+  "their",
+  "than",
+  "then",
+  "after",
+  "before",
+  "within",
+  "across",
+  "per",
+  "not",
+  "no",
+  "all",
+  "any",
+  "each",
+  "which",
+  "who",
+  "whom",
+  "has",
+  "have",
+  "had",
+  "can",
+  "could",
+  "will",
+  "would",
+  "should",
+  "may",
+  "might",
+  "must",
+  "do",
+  "does",
+  "did",
+  "more",
+  "most",
+  "less",
+  "least",
+  "between",
+  "during",
+  "under",
+  "over",
+  "into",
+  "onto",
+  "up",
+  "down",
+  "out",
+  "off",
+  "same",
+  "other",
+  "such",
+  "only",
+  "own",
+  "so",
+  "if",
+  "but",
+  "when",
+  "while",
+  "where",
+  "how",
+  "what",
+  "why",
+  "also",
+  "here",
+  "there",
+  // Danish
+  "og",
+  "i",
+  "p\xE5",
+  "af",
+  "til",
+  "for",
+  "med",
+  "der",
+  "som",
+  "en",
+  "et",
+  "de",
+  "den",
+  "det",
+  "at",
+  "er",
+  "var",
+  "har",
+  "have",
+  "haft",
+  "v\xE6re",
+  "v\xE6ret",
+  "ikke",
+  "eller",
+  "kan",
+  "skal",
+  "vil",
+  "m\xE5",
+  "efter",
+  "f\xF8r",
+  "inden",
+  "over",
+  "under",
+  "mellem",
+  "gennem",
+  "mod",
+  "hos",
+  "fra",
+  "om",
+  "alle",
+  "enhver",
+  "ingen",
+  "samme",
+  "anden",
+  "andet",
+  "andre",
+  "deres",
+  "sin",
+  "sit",
+  "sine",
+  "denne",
+  "dette",
+  "disse",
+  "hvis",
+  "hvordan",
+  "hvorfor",
+  "hvad",
+  "n\xE5r",
+  "mens",
+  "hvor",
+  "s\xE5",
+  "ogs\xE5",
+  "kun",
+  "endnu",
+  "allerede",
+  "mere",
+  "mest",
+  "mindre",
+  "mindst",
+  "dog",
+  "jo",
+  "bare",
+  "lige",
+  "ud",
+  "op",
+  "ned",
+  "fx",
+  "bl.a.",
+  "inkl",
+  "via",
+  "ved"
+]);
+function substantiveTokens(texts, labelTokens) {
+  const tokens = /* @__PURE__ */ new Set();
+  for (const text of texts) {
+    for (const token of text.toLowerCase().split(/[^a-z0-9æøåäöüéèêàâçñ]+/)) {
+      if (token.length < 2 || /^\d+$/.test(token)) {
+        continue;
+      }
+      if (GENERIC_LABEL_STOPWORDS.has(token)) {
+        continue;
+      }
+      if (labelTokens?.has(token)) {
+        continue;
+      }
+      tokens.add(token);
+    }
+  }
+  return tokens;
+}
+function labelSlugTokens(slug) {
+  return new Set(slug.split("-"));
+}
+function tokenOverlapJaccard(a, b) {
+  if (a.size === 0 && b.size === 0) {
+    return 0;
+  }
+  let intersection = 0;
+  for (const token of a) {
+    if (b.has(token)) {
+      intersection += 1;
+    }
+  }
+  const union = a.size + b.size - intersection;
+  return union === 0 ? 0 : intersection / union;
+}
+var GENERIC_LABEL_OVERLAP_THRESHOLD = 0.2;
 function indicatorEdges(candidates) {
   const edges = [];
   const clusters = [];
@@ -103704,6 +104098,325 @@ async function curateEntities(candidates, options2) {
   return curateWithScaling("entities", candidates, options2);
 }
 
+// src/agents/disambiguation.ts
+import { readFile as readFile20 } from "node:fs/promises";
+import { join as join27 } from "node:path";
+var PROMPT_FILE = "disambiguation.prompt.txt";
+var DISAMBIGUATION_MAX_ATTEMPTS = 3;
+var DISAMBIGUATION_MAX_RETRIES = 2;
+var DISAMBIGUATION_MAX_TOKENS = 4096;
+var promptTemplate = null;
+async function loadPromptTemplate4() {
+  if (promptTemplate !== null) {
+    return promptTemplate;
+  }
+  promptTemplate = await readFile20(join27(appRoot(), "prompts", PROMPT_FILE), "utf-8");
+  return promptTemplate;
+}
+function fillPromptTemplate4(template, values) {
+  let output = template;
+  for (const [key, value] of Object.entries(values)) {
+    output = output.split(`{${key}}`).join(value);
+  }
+  return output;
+}
+function formatEvidenceBlock(proposal) {
+  return JSON.stringify(
+    proposal.sources.map((source) => ({ file: source.file, samples: source.samples })),
+    null,
+    2
+  );
+}
+function formatReEntryRules(existingMembers) {
+  return [
+    "This label is ALREADY split \u2014 the split itself is fixed. Judge ONLY where the NEW source files (sources not yet claimed by any member) belong:",
+    '- Re-state every existing member EXACTLY as listed, with its existing "sources" UNCHANGED \u2014 existing members are never altered, merged, or dropped.',
+    "- Assign each new source file to exactly one member: an existing member when its evidence matches that meaning, or ONE new member when it is a distinct new meaning (2-4 members total).",
+    "- New member slugs follow the member rules above.",
+    "",
+    "Existing members:",
+    JSON.stringify(
+      existingMembers.map((member) => ({ slug: member.slug, title: member.title, sources: member.sources })),
+      null,
+      2
+    )
+  ].join("\n");
+}
+function stripReEntryBlock(prompt) {
+  return prompt.split("\n=== RE-ENTRY ===\n{reEntryRules}\n=== END RE-ENTRY ===\n").join("").split("\r\n=== RE-ENTRY ===\r\n{reEntryRules}\r\n=== END RE-ENTRY ===\r\n").join("");
+}
+var KEBAB_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+function memberLabel(index, slug) {
+  return typeof slug === "string" && slug.length > 0 ? `members[${index}] ("${slug}")` : `members[${index}]`;
+}
+function validateDisambiguationVerdict(verdict, proposal) {
+  if (typeof verdict !== "object" || verdict === null || Array.isArray(verdict)) {
+    return { valid: false, errors: ["output must be a single JSON object"] };
+  }
+  const raw = verdict;
+  if (typeof raw.split !== "boolean") {
+    return { valid: false, errors: ["missing or invalid required field: split (boolean)"] };
+  }
+  if (!raw.split) {
+    return { valid: true, errors: [], verdict: { split: false } };
+  }
+  const errors = [];
+  if (!Array.isArray(raw.members)) {
+    return { valid: false, errors: ['split requires a "members" array'] };
+  }
+  const members = raw.members;
+  if (members.length < 2 || members.length > 4) {
+    errors.push(`split requires 2-4 members (got ${members.length})`);
+  }
+  const proposalFiles = new Set(proposal.sources.map((source) => source.file));
+  const proposalFileByBasename = /* @__PURE__ */ new Map();
+  const basenameCounts = /* @__PURE__ */ new Map();
+  for (const file of proposalFiles) {
+    const base = file.split("/").pop() ?? file;
+    basenameCounts.set(base, (basenameCounts.get(base) ?? 0) + 1);
+  }
+  for (const file of proposalFiles) {
+    const base = file.split("/").pop() ?? file;
+    if (basenameCounts.get(base) === 1) {
+      proposalFileByBasename.set(base, file);
+    }
+  }
+  const canonicalSourceEcho = (echoed) => {
+    if (proposalFiles.has(echoed)) {
+      return echoed;
+    }
+    const canonical = proposalFileByBasename.get(echoed.split("/").pop() ?? echoed);
+    return canonical ?? null;
+  };
+  const seenSlugs = /* @__PURE__ */ new Set();
+  const normalized = [];
+  for (let i = 0; i < members.length; i++) {
+    const member = members[i];
+    if (typeof member !== "object" || member === null || Array.isArray(member)) {
+      errors.push(`members[${i}]: must be an object`);
+      continue;
+    }
+    const entry = member;
+    const label = memberLabel(i, entry.slug);
+    if (typeof entry.slug !== "string" || entry.slug.length === 0 || !KEBAB_SLUG_PATTERN.test(entry.slug)) {
+      errors.push(`${label}: "slug" must be a non-empty lowercase kebab-case slug`);
+    } else if (isBareGenericLabelSlug(entry.slug)) {
+      errors.push(
+        `${label}: a bare renumbering of a generic label is not a member slug \u2014 derive it from the meaning or the source register`
+      );
+    } else if (entry.slug === proposal.slug) {
+      errors.push(`${label}: must differ from the label's own slug`);
+    } else if (seenSlugs.has(entry.slug)) {
+      errors.push(`${label}: duplicate member slug "${entry.slug}"`);
+    }
+    if (typeof entry.title !== "string" || entry.title.trim().length === 0) {
+      errors.push(`${label}: "title" must be a non-empty string`);
+    }
+    if (!Array.isArray(entry.sources) || entry.sources.length === 0 || !entry.sources.every((file) => typeof file === "string" && file.length > 0)) {
+      errors.push(`${label}: "sources" must be a non-empty list of source files`);
+    }
+    if (typeof entry.slug === "string") {
+      seenSlugs.add(entry.slug);
+      const echoedSources = Array.isArray(entry.sources) ? entry.sources.filter((file) => typeof file === "string") : [];
+      const canonicalSources = [];
+      for (const file of echoedSources) {
+        const canonical = canonicalSourceEcho(file);
+        if (canonical === null) {
+          errors.push(`${label}: source "${file}" is not one of the label's source files`);
+          continue;
+        }
+        if (!canonicalSources.includes(canonical)) {
+          canonicalSources.push(canonical);
+        }
+      }
+      normalized.push({
+        slug: entry.slug,
+        title: typeof entry.title === "string" ? entry.title.trim() : "",
+        sources: canonicalSources
+      });
+    }
+  }
+  const fileToMembers = /* @__PURE__ */ new Map();
+  for (const member of normalized) {
+    for (const file of member.sources) {
+      const holders = fileToMembers.get(file) ?? [];
+      holders.push(member.slug);
+      fileToMembers.set(file, holders);
+    }
+  }
+  for (const source of proposal.sources) {
+    const holders = fileToMembers.get(source.file) ?? [];
+    if (holders.length === 0) {
+      errors.push(`source "${source.file}" is not mapped to any member`);
+    } else if (holders.length > 1) {
+      errors.push(`source "${source.file}" is mapped to two members ("${holders[0]}", "${holders[1]}")`);
+    }
+  }
+  if (errors.length > 0) {
+    return { valid: false, errors };
+  }
+  return {
+    valid: true,
+    errors: [],
+    verdict: {
+      split: true,
+      ...typeof raw.reason === "string" && raw.reason.trim().length > 0 ? { reason: raw.reason.trim() } : {},
+      members: normalized
+    }
+  };
+}
+function validateDisambiguationReentry(verdict, request2) {
+  const shape = validateDisambiguationVerdict(verdict, request2.proposal);
+  if (!shape.valid || shape.verdict === void 0 || !shape.verdict.split) {
+    if (shape.valid && shape.verdict?.split === false) {
+      return {
+        valid: false,
+        errors: ['the label is already split \u2014 "split" must be true and the members list must place the new source(s)']
+      };
+    }
+    return shape;
+  }
+  const errors = [];
+  const memberBySlug = new Map((shape.verdict.members ?? []).map((member) => [member.slug, member]));
+  for (const existing of request2.existingMembers) {
+    const member = memberBySlug.get(existing.slug);
+    if (member === void 0) {
+      errors.push(`existing member "${existing.slug}" is missing from the members list`);
+      continue;
+    }
+    const sameSources = member.sources.length === existing.sources.length && existing.sources.every((file) => member.sources.includes(file));
+    if (!sameSources) {
+      errors.push(
+        `existing member "${existing.slug}" must keep exactly its existing sources [${existing.sources.map((file) => `"${file}"`).join(", ")}] \u2014 sources are never re-assigned on re-entry`
+      );
+    }
+  }
+  if (errors.length > 0) {
+    return { valid: false, errors };
+  }
+  return shape;
+}
+function parseDisambiguationVerdict(rawText) {
+  const candidate = stripCodeFences(rawText);
+  try {
+    return { verdict: JSON.parse(candidate), errors: [] };
+  } catch (err) {
+    return { errors: [`output is not valid JSON (${err.message})`] };
+  }
+}
+function classifyFallbackCause2(err) {
+  const message = err instanceof Error ? err.message : String(err);
+  const http = /HTTP (\d{3})/.exec(message);
+  if (http !== null && Number(http[1]) >= 400 && Number(http[1]) < 500 && Number(http[1]) !== 429) {
+    return "http-4xx";
+  }
+  return "transport-exhaustion";
+}
+async function disambiguateLabel(request2, options2) {
+  const reentry = request2.existingMembers ?? [];
+  const isReentry = reentry.length > 0;
+  let template = await loadPromptTemplate4();
+  if (!isReentry) {
+    template = stripReEntryBlock(template);
+  }
+  const filled = fillPromptTemplate4(template, {
+    agentsMd: options2.agentsMd.trim().length > 0 ? options2.agentsMd : "(No AGENTS.md provided.)",
+    slug: request2.proposal.slug,
+    title: request2.proposal.title,
+    evidence: formatEvidenceBlock(request2.proposal),
+    reEntryRules: isReentry ? formatReEntryRules(reentry) : ""
+  });
+  const basePrompt = applyLanguageDirective(
+    filled,
+    buildLanguageDirective("curation", options2.language?.input ?? "en", options2.language?.output ?? "en")
+  );
+  const context = `disambiguate:${request2.proposal.slug}`;
+  const llm = options2.callLLMFn ?? ((prompt, callOptions) => callLLM(prompt, void 0, callOptions));
+  let attemptsMade = 0;
+  const validations = [];
+  let lastParseError = null;
+  let lastFinishReason;
+  let thrown;
+  let outcome = null;
+  try {
+    outcome = await runWithFeedbackRetry(
+      (feedback, attempt) => {
+        attemptsMade = attempt;
+        return llm(feedback === null ? basePrompt : `${basePrompt}
+
+${feedback}`, {
+          maxTokens: DISAMBIGUATION_MAX_TOKENS,
+          maxRetries: DISAMBIGUATION_MAX_RETRIES,
+          callType: "disambiguate",
+          context: attempt > 1 ? `${context}#attempt${attempt}` : context,
+          logPath: options2.logPath,
+          onResponseMeta: (meta) => {
+            lastFinishReason = meta.finishReason;
+          }
+        });
+      },
+      (text) => {
+        const parsed = parseDisambiguationVerdict(text);
+        if (parsed.verdict === void 0) {
+          validations.push({ valid: false, errors: parsed.errors });
+          lastParseError = parsed.errors[0] ?? null;
+          return { valid: false, errors: parsed.errors };
+        }
+        const validation = isReentry ? validateDisambiguationReentry(parsed.verdict, {
+          proposal: request2.proposal,
+          existingMembers: reentry
+        }) : validateDisambiguationVerdict(parsed.verdict, request2.proposal);
+        validations.push(validation);
+        lastParseError = validation.errors.find((error) => error.startsWith("output is not valid JSON")) ?? null;
+        return { valid: validation.valid, errors: validation.errors };
+      },
+      {
+        label: context,
+        maxAttempts: DISAMBIGUATION_MAX_ATTEMPTS,
+        feedbackEnhancer: options2.callLLMFn === void 0 ? async (output) => {
+          if (lastParseError === null || typeof output !== "string") {
+            return null;
+          }
+          const truncated = isTruncationFinishReason(lastFinishReason);
+          const guidance = await diagnoseJsonParseFailure({
+            rawResponse: output,
+            errorMessage: lastParseError,
+            truncated,
+            context,
+            logPath: options2.logPath
+          });
+          return {
+            guidance,
+            echoOverride: truncated ? truncatedOutputEcho(output) : null
+          };
+        } : void 0
+      }
+    );
+  } catch (err) {
+    thrown = err;
+  }
+  if (outcome === null) {
+    return {
+      verdict: null,
+      attempts: Math.max(attemptsMade, 1),
+      fallbacks: [{ cause: classifyFallbackCause2(thrown) }]
+    };
+  }
+  if (outcome.output === null) {
+    return {
+      verdict: null,
+      attempts: outcome.attempts,
+      fallbacks: [{ cause: "validation-exhaustion" }]
+    };
+  }
+  const captured = validations[validations.length - 1];
+  return {
+    verdict: captured?.verdict ?? null,
+    attempts: outcome.attempts,
+    fallbacks: []
+  };
+}
+
 // src/materializer.ts
 function sourceSlugFromChunkId(chunkId) {
   return chunkId.replace(/-part-\d{3}$/, "");
@@ -103754,9 +104467,9 @@ function dedupeTimeline(list) {
   });
 }
 async function loadChunkSource(wikiDir2, chunkId) {
-  const documentPath = join27(wikiDir2, "documents", `${chunkId}.md`);
+  const documentPath = join28(wikiDir2, "documents", `${chunkId}.md`);
   try {
-    const raw = await readFile20(documentPath, "utf-8");
+    const raw = await readFile21(documentPath, "utf-8");
     const parsed = (0, import_gray_matter9.default)(raw);
     const firstSource = Array.isArray(parsed.data.sources) ? parsed.data.sources[0] : void 0;
     const file = typeof firstSource?.file === "string" ? firstSource.file : "";
@@ -103780,7 +104493,7 @@ async function checkPageConflict(pagePath, relativePath, pageHashes, rendered) {
   if (recorded === void 0) {
     return "write";
   }
-  const current = hashContent(await readFile20(pagePath, "utf-8"));
+  const current = hashContent(await readFile21(pagePath, "utf-8"));
   if (current === recorded) {
     return "write";
   }
@@ -103795,7 +104508,7 @@ async function collectEntityPageLocations(root, relPrefix, out) {
   for (const entry of await readdir4(root, { withFileTypes: true })) {
     const rel = relPrefix === "" ? entry.name : `${relPrefix}/${entry.name}`;
     if (entry.isDirectory()) {
-      await collectEntityPageLocations(join27(root, entry.name), rel, out);
+      await collectEntityPageLocations(join28(root, entry.name), rel, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
       const slug = entry.name.replace(/\.md$/i, "");
       const list = out.get(slug) ?? [];
@@ -103808,7 +104521,7 @@ async function collectSectionPageLocations(root, section, relPrefix, out) {
   for (const entry of await readdir4(root, { withFileTypes: true })) {
     const rel = relPrefix === "" ? entry.name : `${relPrefix}/${entry.name}`;
     if (entry.isDirectory()) {
-      await collectSectionPageLocations(join27(root, entry.name), section, rel, out);
+      await collectSectionPageLocations(join28(root, entry.name), section, rel, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
       const slug = entry.name.replace(/\.md$/i, "");
       const list = out.get(slug) ?? [];
@@ -103821,7 +104534,7 @@ async function collectContentPagePaths(root, section, relPrefix, out) {
   for (const entry of await readdir4(root, { withFileTypes: true })) {
     const rel = relPrefix === "" ? entry.name : `${relPrefix}/${entry.name}`;
     if (entry.isDirectory()) {
-      await collectContentPagePaths(join27(root, entry.name), section, rel, out);
+      await collectContentPagePaths(join28(root, entry.name), section, rel, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
       out.push(`${section}/${rel}`);
     }
@@ -103865,7 +104578,7 @@ async function readOnDiskEntityMeta(dir, locations) {
     aliases: []
   };
   try {
-    const parsed = (0, import_gray_matter9.default)(await readFile20(join27(dir, locations[0]), "utf-8"));
+    const parsed = (0, import_gray_matter9.default)(await readFile21(join28(dir, locations[0]), "utf-8"));
     if (typeof parsed.data.title === "string") {
       meta.title = parsed.data.title;
     }
@@ -103892,7 +104605,7 @@ async function readOnDiskTopicMeta(dir, locations) {
     claimSamples: []
   };
   try {
-    const parsed = (0, import_gray_matter9.default)(await readFile20(join27(dir, locations[0]), "utf-8"));
+    const parsed = (0, import_gray_matter9.default)(await readFile21(join28(dir, locations[0]), "utf-8"));
     if (typeof parsed.data.title === "string") {
       meta.title = parsed.data.title;
     }
@@ -103903,9 +104616,12 @@ async function readOnDiskTopicMeta(dir, locations) {
   }
   return meta;
 }
-function buildTopicCandidates(topicMap, onDiskTopics) {
+function buildTopicCandidates(topicMap, onDiskTopics, excludeSlugs) {
   const candidates = [];
   for (const topic of topicMap.values()) {
+    if (excludeSlugs?.has(topic.slug)) {
+      continue;
+    }
     const claims = dedupeClaims(topic.claims);
     candidates.push({
       slug: topic.slug,
@@ -103917,7 +104633,7 @@ function buildTopicCandidates(topicMap, onDiskTopics) {
     });
   }
   for (const [slug, meta] of Array.from(onDiskTopics.entries()).sort(([a], [b]) => a.localeCompare(b))) {
-    if (topicMap.has(slug)) {
+    if (topicMap.has(slug) || excludeSlugs?.has(slug)) {
       continue;
     }
     candidates.push({
@@ -103970,6 +104686,97 @@ function buildEntityCandidates(entityMap, onDiskEntities, excludeSlugs) {
   }
   return candidates;
 }
+function entitySourceSamples(entity) {
+  const samples = /* @__PURE__ */ new Map();
+  const add = (file, text) => {
+    if (text.trim().length === 0) {
+      return;
+    }
+    const list = samples.get(file) ?? [];
+    if (list.length < 3) {
+      list.push(truncateSample(text));
+    }
+    samples.set(file, list);
+  };
+  for (const mention of entity.mentions) {
+    add(mention.source, mention.context);
+  }
+  for (const claim of entity.claims) {
+    add(claim.source, claim.text);
+  }
+  for (const rel of entity.relationships) {
+    add(rel.source, rel.evidence);
+  }
+  for (const rel of entity.incomingRelationships) {
+    add(rel.source, rel.evidence);
+  }
+  return samples;
+}
+function topicSourceSamples(topic) {
+  const samples = /* @__PURE__ */ new Map();
+  for (const claim of topic.claims) {
+    const list = samples.get(claim.source) ?? [];
+    if (list.length < 3) {
+      list.push(truncateSample(claim.text));
+    }
+    samples.set(claim.source, list);
+  }
+  return samples;
+}
+function detectGenericLabelDisambiguations(entityMap, topicMap, splitSlugs) {
+  const proposals = [];
+  const scan = (entries) => {
+    for (const entry of entries) {
+      if (!isGenericLabelSlug(entry.slug) || entry.samples.size < 2 || splitSlugs?.has(entry.slug)) {
+        continue;
+      }
+      const labelTokens = labelSlugTokens(entry.slug);
+      const tokenSets = /* @__PURE__ */ new Map();
+      for (const [file, texts] of entry.samples) {
+        tokenSets.set(file, substantiveTokens(texts, labelTokens));
+      }
+      const files = Array.from(tokenSets.keys()).sort();
+      let minOverlap = 1;
+      for (let i = 0; i < files.length; i++) {
+        for (let j = i + 1; j < files.length; j++) {
+          const a = tokenSets.get(files[i]);
+          const b = tokenSets.get(files[j]);
+          if (a.size === 0 || b.size === 0) {
+            continue;
+          }
+          minOverlap = Math.min(minOverlap, tokenOverlapJaccard(a, b));
+        }
+      }
+      if (minOverlap >= GENERIC_LABEL_OVERLAP_THRESHOLD) {
+        continue;
+      }
+      proposals.push({
+        slug: entry.slug,
+        title: entry.title,
+        concern: entry.concern,
+        sources: files.map((file) => ({ file, samples: entry.samples.get(file) ?? [] }))
+      });
+    }
+  };
+  scan(
+    Array.from(entityMap.entries()).map(([slug, entity]) => ({
+      slug,
+      title: entity.name,
+      concern: "entities",
+      samples: entitySourceSamples(entity)
+    }))
+  );
+  scan(
+    Array.from(topicMap.entries()).map(([slug, topic]) => ({
+      slug,
+      title: topic.title,
+      concern: "topics",
+      samples: topicSourceSamples(topic)
+    }))
+  );
+  proposals.sort((a, b) => a.slug.localeCompare(b.slug) || a.concern.localeCompare(b.concern));
+  return proposals;
+}
 async function folderIsRemovable(path) {
   let entries;
   try {
@@ -103979,7 +104786,7 @@ async function folderIsRemovable(path) {
   }
   for (const entry of entries) {
     if (entry.isDirectory()) {
-      if (!await folderIsRemovable(join27(path, entry.name))) {
+      if (!await folderIsRemovable(join28(path, entry.name))) {
         return false;
       }
     } else if (!(entry.isFile() && entry.name.toLowerCase() === "index.md")) {
@@ -104061,7 +104868,7 @@ function collapseStickyMerges(records, concern) {
 }
 async function materialize(wikiSlug, options2) {
   const dir = wikiDir(options2?.workspace, wikiSlug);
-  const extractedDir = join27(dir, ".state", "extracted");
+  const extractedDir = join28(dir, ".state", "extracted");
   let extractionFiles;
   try {
     extractionFiles = (await readdir4(extractedDir)).filter((name) => name.toLowerCase().endsWith(".json")).sort();
@@ -104094,7 +104901,7 @@ async function materialize(wikiSlug, options2) {
       continue;
     }
     chunkSources.push({ chunkId, file: chunkSource.file, pages: chunkSource.pages });
-    const raw = await readFile20(join27(extractedDir, fileName), "utf-8");
+    const raw = await readFile21(join28(extractedDir, fileName), "utf-8");
     const extracted = JSON.parse(raw);
     for (const entity of extracted.entities ?? []) {
       const existing = entityMap.get(entity.slug);
@@ -104223,18 +105030,21 @@ async function materialize(wikiSlug, options2) {
   const entitySlugRemap = /* @__PURE__ */ new Map();
   const mergeRewrites = /* @__PURE__ */ new Map();
   const clusterMap = /* @__PURE__ */ new Map();
+  const entityDisambiguations = /* @__PURE__ */ new Map();
+  const topicDisambiguations = /* @__PURE__ */ new Map();
   let curationSummary = null;
+  let disambiguationSummary = null;
   let topicOutcome = null;
   let entityOutcome = null;
   let curationRunTimestamp = null;
   if (options2?.curation === true && extractionFiles.length > 0) {
     const entityLocations = /* @__PURE__ */ new Map();
-    const entitiesRoot = join27(dir, "entities");
+    const entitiesRoot = join28(dir, "entities");
     if (existsSync9(entitiesRoot)) {
       await collectSectionPageLocations(entitiesRoot, "entities", "", entityLocations);
     }
     const topicLocations = /* @__PURE__ */ new Map();
-    const topicsRoot = join27(dir, "topics");
+    const topicsRoot = join28(dir, "topics");
     if (existsSync9(topicsRoot)) {
       await collectSectionPageLocations(topicsRoot, "topics", "", topicLocations);
     }
@@ -104254,13 +105064,13 @@ async function materialize(wikiSlug, options2) {
     const neverMergeSet = new Set(overrides.neverMerge.map(([a, b]) => curationPairKey(a, b)));
     const splitReversals = [];
     const activeRecords = [];
-    const reversedClusterIntos = /* @__PURE__ */ new Set();
+    const reversedCompositeIntos = /* @__PURE__ */ new Set();
     for (const record of decisionsData.decisions) {
       const involved = record.into !== void 0 ? [record.into, ...record.from] : [...record.from];
       if (involved.some((slug) => splitSlugs.has(slug))) {
         splitReversals.push({ concern: record.concern, from: record.from, into: record.into, reason: "split" });
-        if (record.action === "cluster" && record.into !== void 0) {
-          reversedClusterIntos.add(record.into);
+        if ((record.action === "cluster" || record.action === "disambiguate") && record.into !== void 0) {
+          reversedCompositeIntos.add(record.into);
         }
         continue;
       }
@@ -104275,7 +105085,7 @@ async function materialize(wikiSlug, options2) {
         );
         if (vetoed) {
           splitReversals.push({ concern: record.concern, from: record.from, into: record.into, reason: "neverMerge" });
-          reversedClusterIntos.add(record.into);
+          reversedCompositeIntos.add(record.into);
           continue;
         }
       }
@@ -104291,11 +105101,14 @@ async function materialize(wikiSlug, options2) {
       signal: record.signal,
       ...record.rationale !== void 0 ? { rationale: record.rationale } : {}
     }));
-    const hasCurationWork = entityMap.size + topicMap.size + onDiskEntities.size + onDiskTopics.size > 0 || stickyTopicMergesAll.length + stickyEntityMergesAll.length + stickyTopicDropsAll.length + stickyEntityClustersAll.length > 0;
+    const stickyDisambiguationsAll = activeRecords.filter(
+      (record) => record.action === "disambiguate" && record.into !== void 0 && record.sourceMap !== void 0
+    );
+    const hasCurationWork = entityMap.size + topicMap.size + onDiskEntities.size + onDiskTopics.size > 0 || stickyTopicMergesAll.length + stickyEntityMergesAll.length + stickyTopicDropsAll.length + stickyEntityClustersAll.length + stickyDisambiguationsAll.length > 0;
     if (hasCurationWork) {
       let agentsMd = "";
       try {
-        agentsMd = await readFile20(join27(dir, "AGENTS.md"), "utf-8");
+        agentsMd = await readFile21(join28(dir, "AGENTS.md"), "utf-8");
       } catch {
       }
       curationSummary = {
@@ -104324,7 +105137,7 @@ async function materialize(wikiSlug, options2) {
         if (!pageHashes) {
           return false;
         }
-        const absolute = join27(dir, relPath);
+        const absolute = join28(dir, relPath);
         if (!existsSync9(absolute)) {
           return false;
         }
@@ -104332,7 +105145,7 @@ async function materialize(wikiSlug, options2) {
         if (recorded === void 0) {
           return true;
         }
-        return hashContent(await readFile20(absolute, "utf-8")) !== recorded;
+        return hashContent(await readFile21(absolute, "utf-8")) !== recorded;
       };
       const filterMerges = async (merges, locations, concern, intoLabel, reasonLabel) => {
         const reason = reasonLabel ?? `Curation ${concern} merge`;
@@ -104556,13 +105369,322 @@ async function materialize(wikiSlug, options2) {
         entityMerges: stickyEntityMerges,
         entityClusters: stickyEntityClusters
       };
-      let topicCandidates = buildTopicCandidates(topicMap, onDiskTopics);
-      let entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, clusteredMemberSlugs);
+      const disambiguationWork = {
+        ran: true,
+        proposed: [],
+        applied: [],
+        fromSticky: [],
+        reentries: [],
+        denials: [],
+        fallbacks: []
+      };
+      const disambiguationRecords = [];
+      const disambiguatedSlugs = /* @__PURE__ */ new Set();
+      const disambiguationCallOptions = {
+        agentsMd,
+        language: options2?.language,
+        logPath: join28(dir, ".state", "llm-calls.json")
+      };
+      const runDisambiguation = options2?.disambiguateFn ?? disambiguateLabel;
+      const memberSlugsAreFree = (concern, labelSlug, members) => {
+        const occupied = /* @__PURE__ */ new Set([
+          ...entityMap.keys(),
+          ...topicMap.keys(),
+          ...onDiskEntities.keys(),
+          ...onDiskTopics.keys()
+        ]);
+        occupied.delete(labelSlug);
+        return members.every((member) => member.slug !== labelSlug && !occupied.has(member.slug));
+      };
+      const membersFromSourceMap = (memberSlugs, sourceMap) => memberSlugs.map((slug) => ({
+        slug,
+        title: titleCaseSlug2(slug),
+        sources: Object.entries(sourceMap).filter(([, memberSlug]) => memberSlug === slug).map(([file]) => file).sort()
+      }));
+      const applyEntityDisambiguationToMaps = (into, members) => {
+        const aggregate = entityMap.get(into);
+        if (aggregate === void 0) {
+          return false;
+        }
+        const sourceToMember = /* @__PURE__ */ new Map();
+        for (const member of members) {
+          for (const file of member.sources) {
+            sourceToMember.set(file, member.slug);
+          }
+        }
+        const memberOf = (source) => sourceToMember.get(source) ?? members[0].slug;
+        const groups = new Map(
+          members.map((member) => [
+            member.slug,
+            {
+              slug: member.slug,
+              mentions: [],
+              relationships: [],
+              incomingRelationships: [],
+              claims: [],
+              timeline: [],
+              contexts: []
+            }
+          ])
+        );
+        for (const mention of aggregate.mentions) {
+          groups.get(memberOf(mention.source)).mentions.push(mention);
+        }
+        for (const rel of aggregate.relationships) {
+          groups.get(memberOf(rel.source)).relationships.push(rel);
+        }
+        for (const rel of aggregate.incomingRelationships) {
+          groups.get(memberOf(rel.source)).incomingRelationships.push(rel);
+        }
+        for (const claim of aggregate.claims) {
+          groups.get(memberOf(claim.source)).claims.push(claim);
+        }
+        const firstGroup = groups.get(members[0].slug);
+        firstGroup.timeline.push(...aggregate.timeline);
+        firstGroup.contexts.push(...Array.from(aggregate.contexts));
+        entityMap.delete(into);
+        entityDisambiguations.set(into, {
+          into,
+          folder: aggregate.folder,
+          entityType: aggregate.type,
+          members,
+          evidence: members.map((member) => groups.get(member.slug)),
+          aliases: aggregate.aliases
+        });
+        return true;
+      };
+      const applyTopicDisambiguationToMaps = (into, members) => {
+        const topic = topicMap.get(into);
+        if (topic === void 0) {
+          return false;
+        }
+        const sourceToMember = /* @__PURE__ */ new Map();
+        for (const member of members) {
+          for (const file of member.sources) {
+            sourceToMember.set(file, member.slug);
+          }
+        }
+        const memberOf = (source) => sourceToMember.get(source) ?? members[0].slug;
+        const groups = new Map(
+          members.map((member) => [member.slug, { slug: member.slug, claims: [] }])
+        );
+        for (const claim of topic.claims) {
+          groups.get(memberOf(claim.source)).claims.push(claim);
+        }
+        topicMap.delete(into);
+        topicDisambiguations.set(into, {
+          into,
+          folder: topic.folder,
+          members,
+          claims: members.map((member) => groups.get(member.slug))
+        });
+        return true;
+      };
+      for (const record of stickyDisambiguationsAll) {
+        const into = record.into;
+        const isEntity = record.concern === "entities";
+        if (isEntity ? !entityMap.has(into) : !topicMap.has(into)) {
+          continue;
+        }
+        const samplesBySource = isEntity ? entitySourceSamples(entityMap.get(into)) : topicSourceSamples(topicMap.get(into));
+        const sourceMap = { ...record.sourceMap ?? {} };
+        let memberSlugs = [...record.from];
+        const unmapped = Array.from(samplesBySource.keys()).filter((file) => sourceMap[file] === void 0).sort();
+        if (unmapped.length > 0) {
+          const labelTokens = labelSlugTokens(into);
+          let members = membersFromSourceMap(memberSlugs, sourceMap);
+          const tokensByMember = /* @__PURE__ */ new Map();
+          for (const member of members) {
+            tokensByMember.set(
+              member.slug,
+              substantiveTokens(
+                member.sources.flatMap((file) => samplesBySource.get(file) ?? []),
+                labelTokens
+              )
+            );
+          }
+          const bestMemberFor = (file) => {
+            const tokens = substantiveTokens(samplesBySource.get(file) ?? [], labelTokens);
+            let bestSlug = members[0]?.slug ?? "";
+            let bestScore = -1;
+            for (const member of members) {
+              const score = tokenOverlapJaccard(tokens, tokensByMember.get(member.slug) ?? /* @__PURE__ */ new Set());
+              if (score > bestScore) {
+                bestScore = score;
+                bestSlug = member.slug;
+              }
+            }
+            return { slug: bestSlug, score: bestScore };
+          };
+          const divergent = [];
+          for (const file of unmapped) {
+            const best = bestMemberFor(file);
+            if (best.score >= GENERIC_LABEL_OVERLAP_THRESHOLD) {
+              sourceMap[file] = best.slug;
+            } else {
+              divergent.push(file);
+            }
+          }
+          if (divergent.length > 0) {
+            const title = isEntity ? entityMap.get(into).name : topicMap.get(into).title;
+            members = membersFromSourceMap(memberSlugs, sourceMap);
+            const proposal = {
+              slug: into,
+              title,
+              concern: record.concern,
+              sources: Array.from(samplesBySource.keys()).sort().map((file) => ({ file, samples: samplesBySource.get(file) ?? [] }))
+            };
+            const outcome = await runDisambiguation(
+              { proposal, existingMembers: members },
+              disambiguationCallOptions
+            );
+            let placed = false;
+            let newMembers = [];
+            if (outcome.verdict !== null) {
+              const validation = validateDisambiguationReentry(outcome.verdict, {
+                proposal,
+                existingMembers: members
+              });
+              if (validation.valid && validation.verdict?.split === true && validation.verdict.members !== void 0) {
+                for (const verdictMember of validation.verdict.members) {
+                  for (const file of verdictMember.sources) {
+                    if (sourceMap[file] === void 0) {
+                      sourceMap[file] = verdictMember.slug;
+                    }
+                  }
+                }
+                newMembers = validation.verdict.members.map((member) => member.slug).filter((slug) => !members.some((member) => member.slug === slug));
+                memberSlugs = [...memberSlugs, ...newMembers];
+                placed = true;
+                disambiguationWork.reentries.push({
+                  concern: record.concern,
+                  into,
+                  newSources: divergent,
+                  newMembers
+                });
+              }
+            }
+            if (!placed) {
+              disambiguationWork.fallbacks.push({
+                concern: record.concern,
+                slug: into,
+                cause: outcome.verdict === null ? outcome.fallbacks[0]?.cause ?? "validation-exhaustion" : "validation-exhaustion"
+              });
+              console.warn(
+                `Warning: generic-label disambiguation re-entry fallback for '${into}' \u2014 new source(s) parked on the closest member (${divergent.join(", ")}).`
+              );
+              for (const file of divergent) {
+                sourceMap[file] = bestMemberFor(file).slug;
+              }
+            }
+          }
+          const growth = {};
+          for (const [file, memberSlug] of Object.entries(sourceMap)) {
+            if (record.sourceMap?.[file] === void 0) {
+              growth[file] = memberSlug;
+            }
+          }
+          if (Object.keys(growth).length > 0) {
+            await updateCurationDecisionSourceMap(dir, into, growth, memberSlugs);
+          }
+        }
+        const finalMembers = membersFromSourceMap(memberSlugs, sourceMap);
+        if (!memberSlugsAreFree(record.concern, into, finalMembers)) {
+          console.warn(
+            `Warning: sticky disambiguation members for '${into}' collide with existing slugs \u2014 the label stays one ordinary page this run.`
+          );
+          continue;
+        }
+        const appliedOk = isEntity ? applyEntityDisambiguationToMaps(into, finalMembers) : applyTopicDisambiguationToMaps(into, finalMembers);
+        if (appliedOk) {
+          disambiguatedSlugs.add(into);
+          disambiguationWork.fromSticky.push({
+            concern: record.concern,
+            into,
+            members: finalMembers.map((member) => member.slug)
+          });
+        }
+      }
+      const proposals = detectGenericLabelDisambiguations(entityMap, topicMap, splitSlugs);
+      disambiguationWork.proposed = proposals;
+      for (const proposal of proposals) {
+        const outcome = await runDisambiguation({ proposal }, disambiguationCallOptions);
+        if (outcome.verdict === null) {
+          disambiguationWork.fallbacks.push({
+            concern: proposal.concern,
+            slug: proposal.slug,
+            cause: outcome.fallbacks[0]?.cause ?? "validation-exhaustion"
+          });
+          console.warn(
+            `Warning: generic-label disambiguation fallback for '${proposal.slug}' \u2014 the label stays one ordinary page (self-healing next run).`
+          );
+          continue;
+        }
+        if (!outcome.verdict.split) {
+          disambiguationWork.denials.push({ concern: proposal.concern, slug: proposal.slug });
+          continue;
+        }
+        const validation = validateDisambiguationVerdict(outcome.verdict, proposal);
+        if (!validation.valid || validation.verdict?.members === void 0) {
+          disambiguationWork.fallbacks.push({
+            concern: proposal.concern,
+            slug: proposal.slug,
+            cause: "validation-exhaustion"
+          });
+          console.warn(
+            `Warning: generic-label disambiguation verdict for '${proposal.slug}' failed application validation \u2014 the label stays one ordinary page.`
+          );
+          continue;
+        }
+        const members = validation.verdict.members;
+        if (!memberSlugsAreFree(proposal.concern, proposal.slug, members)) {
+          disambiguationWork.fallbacks.push({
+            concern: proposal.concern,
+            slug: proposal.slug,
+            cause: "member-slug-collision"
+          });
+          console.warn(
+            `Warning: disambiguation members for '${proposal.slug}' collide with existing slugs \u2014 the label stays one ordinary page.`
+          );
+          continue;
+        }
+        const sourceMap = {};
+        for (const member of members) {
+          for (const file of member.sources) {
+            sourceMap[file] = member.slug;
+          }
+        }
+        const appliedOk = proposal.concern === "entities" ? applyEntityDisambiguationToMaps(proposal.slug, members) : applyTopicDisambiguationToMaps(proposal.slug, members);
+        if (!appliedOk) {
+          continue;
+        }
+        disambiguatedSlugs.add(proposal.slug);
+        disambiguationWork.applied.push({
+          concern: proposal.concern,
+          into: proposal.slug,
+          members: members.map((member) => ({ slug: member.slug, sources: member.sources })),
+          ...validation.verdict.reason !== void 0 ? { reason: validation.verdict.reason } : {}
+        });
+        disambiguationRecords.push({
+          concern: proposal.concern,
+          action: "disambiguate",
+          from: members.map((member) => member.slug),
+          into: proposal.slug,
+          signal: "generic-heterogeneity",
+          sourceMap,
+          decidedAt: runTimestamp,
+          runId: runTimestamp
+        });
+      }
+      disambiguationSummary = disambiguationWork;
+      const excludedFromCandidates = /* @__PURE__ */ new Set([...clusteredMemberSlugs, ...disambiguatedSlugs]);
+      let topicCandidates = buildTopicCandidates(topicMap, onDiskTopics, excludedFromCandidates);
+      let entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, excludedFromCandidates);
       const corpusParts = [];
       for (const fileName of extractionFiles) {
         const chunkId = fileName.replace(/\.json$/i, "");
         try {
-          corpusParts.push((0, import_gray_matter9.default)(await readFile20(join27(dir, "documents", `${chunkId}.md`), "utf-8")).content);
+          corpusParts.push((0, import_gray_matter9.default)(await readFile21(join28(dir, "documents", `${chunkId}.md`), "utf-8")).content);
         } catch {
         }
       }
@@ -104618,8 +105740,8 @@ async function materialize(wikiSlug, options2) {
         ...entityDetection.vetoed.map((pair) => ({ concern: "entities", from: pair.from, into: pair.into }))
       );
       if (autoApplied.length > 0) {
-        topicCandidates = buildTopicCandidates(topicMap, onDiskTopics);
-        entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, clusteredMemberSlugs);
+        topicCandidates = buildTopicCandidates(topicMap, onDiskTopics, excludedFromCandidates);
+        entityCandidates = buildEntityCandidates(entityMap, onDiskEntities, excludedFromCandidates);
       }
       const topicCandidateSlugs = new Set(topicCandidates.map((candidate) => candidate.slug));
       const entityCandidateSlugs = new Set(entityCandidates.map((candidate) => candidate.slug));
@@ -104653,7 +105775,7 @@ async function materialize(wikiSlug, options2) {
       const callOptions = {
         agentsMd,
         language: options2?.language,
-        logPath: join27(dir, ".state", "llm-calls.json"),
+        logPath: join28(dir, ".state", "llm-calls.json"),
         neverMerge: overrides.neverMerge
       };
       const topicsFn = options2?.curateTopicsFn ?? curateTopics;
@@ -104804,10 +105926,11 @@ async function materialize(wikiSlug, options2) {
           }
         }
       }
-      for (const into of reversedClusterIntos) {
-        for (const location of entityLocations.get(into) ?? []) {
+      for (const into of reversedCompositeIntos) {
+        const locations = [...entityLocations.get(into) ?? [], ...topicLocations.get(into) ?? []];
+        for (const location of locations) {
           try {
-            const parsed = (0, import_gray_matter9.default)(await readFile20(join27(dir, location), "utf-8"));
+            const parsed = (0, import_gray_matter9.default)(await readFile21(join28(dir, location), "utf-8"));
             if (parsed.data.type === "composite") {
               deletions.add(location);
             }
@@ -104816,13 +105939,13 @@ async function materialize(wikiSlug, options2) {
         }
       }
       for (const location of deletions) {
-        const absolute = join27(dir, location);
+        const absolute = join28(dir, location);
         if (!existsSync9(absolute)) {
           continue;
         }
         await rm(absolute, { force: true });
         summary.removedPages.push(location);
-        await pruneEmptyFolderChain(join27(dir, location.split("/")[0]), dirname4(absolute));
+        await pruneEmptyFolderChain(join28(dir, location.split("/")[0]), dirname4(absolute));
       }
       folderStructure.clear();
       for (const entity of entityMap.values()) {
@@ -104836,6 +105959,12 @@ async function materialize(wikiSlug, options2) {
         if (intoAggregate) {
           folderStructure.add(intoAggregate.aggregate.folder);
         }
+      }
+      for (const entry of entityDisambiguations.values()) {
+        folderStructure.add(entry.folder);
+      }
+      for (const entry of topicDisambiguations.values()) {
+        folderStructure.add(entry.folder);
       }
       summary.entityMerges = appliedEntityMerges;
       summary.topicMerges = appliedTopicMerges;
@@ -104906,6 +106035,9 @@ async function materialize(wikiSlug, options2) {
           runId: runTimestamp
         });
       }
+      for (const record of disambiguationRecords) {
+        newRecords.push(record);
+      }
       if (newRecords.length > 0) {
         await appendCurationDecisions(dir, newRecords);
       }
@@ -104917,6 +106049,12 @@ async function materialize(wikiSlug, options2) {
   }
   for (const composite of clusterMap.values()) {
     slugToTitle[composite.decision.into] = composite.members.map((member) => member.aggregate.name).join(" \u2014 ");
+  }
+  for (const entry of entityDisambiguations.values()) {
+    slugToTitle[entry.into] = entry.members.map((member) => titleCaseSlug2(member.slug)).join(" \u2014 ");
+  }
+  for (const entry of topicDisambiguations.values()) {
+    slugToTitle[entry.into] = entry.members.map((member) => titleCaseSlug2(member.slug)).join(" \u2014 ");
   }
   const comparisonMap = /* @__PURE__ */ new Map();
   const remapTableSlug = (slug) => entitySlugRemap.get(slug) ?? slug;
@@ -104974,11 +106112,11 @@ async function materialize(wikiSlug, options2) {
   if (comparisonMap.size > 0) {
     folderStructure.add("comparisons");
   }
-  const result = { entityPages: [], compositePages: [], topicPages: [], comparisonPages: [], documentPages: [], writtenPages: [], preservedPages: [], conflicts: [], convergedPages: [], removedDuplicates: [] };
+  const result = { entityPages: [], compositePages: [], topicCompositePages: [], topicPages: [], comparisonPages: [], documentPages: [], writtenPages: [], preservedPages: [], conflicts: [], convergedPages: [], removedDuplicates: [] };
   const synthesisRecords = (await readSynthesisState(dir)).pages;
   const resumeLanguage = options2?.language ?? { input: "en", output: "en" };
   for (const [slug, entity] of entityMap.entries()) {
-    const folderPath = join27(dir, entity.folder);
+    const folderPath = join28(dir, entity.folder);
     await mkdir17(folderPath, { recursive: true });
     const significance = entity.significance.trim();
     const disambiguation = entity.disambiguation?.trim();
@@ -105021,12 +106159,12 @@ async function materialize(wikiSlug, options2) {
       // pre-Phase-17 (skip-eligible pages stay byte-stable).
       incomingRelationships: incomingRelationships.length > 0 ? incomingRelationships : void 0
     };
-    const pagePath = join27(folderPath, `${slug}.md`);
+    const pagePath = join28(folderPath, `${slug}.md`);
     const relativePath = synthesisPagePath(pageData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) && existsSync9(pagePath)) {
       result.entityPages.push(pageData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile20(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeEntityPage(pageData);
@@ -105097,14 +106235,14 @@ async function materialize(wikiSlug, options2) {
       ...aliasExtras.length > 0 ? { aliases: aliasExtras } : {},
       ...contexts.length > 0 ? { context: contexts.join("\n\n") } : {}
     };
-    const folderPath = join27(dir, folder);
+    const folderPath = join28(dir, folder);
     await mkdir17(folderPath, { recursive: true });
-    const pagePath = join27(folderPath, `${decision.into}.md`);
+    const pagePath = join28(folderPath, `${decision.into}.md`);
     const relativePath = synthesisPagePath(compositeData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) && existsSync9(pagePath)) {
       result.compositePages.push(compositeData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile20(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeCompositePage(compositeData);
@@ -105122,8 +106260,105 @@ async function materialize(wikiSlug, options2) {
     await writeFile16(pagePath, rendered, "utf-8");
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
+  for (const entry of entityDisambiguations.values()) {
+    const memberTitles = entry.members.map((member) => titleCaseSlug2(member.slug));
+    const memberDatas = entry.members.map((member) => ({
+      slug: member.slug,
+      title: titleCaseSlug2(member.slug),
+      type: entry.entityType
+    }));
+    const memberEvidence = entry.evidence.map((group) => ({
+      slug: group.slug,
+      mentions: dedupeMentions(group.mentions),
+      relationships: dedupeRelationships(group.relationships),
+      incomingRelationships: dedupeIncomingRelationships(group.incomingRelationships),
+      claims: dedupeClaims(group.claims),
+      timeline: dedupeTimeline(group.timeline),
+      contexts: group.contexts
+    }));
+    const aliasExtras = Array.from(/* @__PURE__ */ new Set([...memberTitles, ...entry.aliases]));
+    const contexts = Array.from(new Set(entry.evidence.flatMap((group) => group.contexts)));
+    const compositeData = {
+      title: memberTitles.join(" \u2014 "),
+      slug: entry.into,
+      folder: entry.folder,
+      wiki: wikiSlug,
+      class: 6,
+      members: memberDatas,
+      memberEvidence,
+      slugToTitle,
+      ...aliasExtras.length > 0 ? { aliases: aliasExtras } : {},
+      ...contexts.length > 0 ? { context: contexts.join("\n\n") } : {}
+    };
+    const folderPath = join28(dir, entry.folder);
+    await mkdir17(folderPath, { recursive: true });
+    const pagePath = join28(folderPath, `${entry.into}.md`);
+    const relativePath = synthesisPagePath(compositeData);
+    const synthesisRecord = synthesisRecords[relativePath];
+    if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) && existsSync9(pagePath)) {
+      result.compositePages.push(compositeData);
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
+      continue;
+    }
+    const rendered = writeCompositePage(compositeData);
+    const verdict = await checkPageConflict(pagePath, relativePath, options2?.pageHashes, rendered);
+    if (verdict === "conflict") {
+      await logManualEditConflict(dir, relativePath);
+      result.conflicts.push(relativePath);
+      continue;
+    }
+    if (verdict === "converge") {
+      logHashConvergence(relativePath);
+      result.convergedPages.push(relativePath);
+    }
+    result.compositePages.push(compositeData);
+    await writeFile16(pagePath, rendered, "utf-8");
+    result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
+  }
+  for (const entry of topicDisambiguations.values()) {
+    const memberTitles = entry.members.map((member) => titleCaseSlug2(member.slug));
+    const compositeData = {
+      title: memberTitles.join(" \u2014 "),
+      slug: entry.into,
+      folder: entry.folder,
+      wiki: wikiSlug,
+      class: 6,
+      members: entry.members.map((member) => ({
+        slug: member.slug,
+        title: titleCaseSlug2(member.slug),
+        sources: member.sources
+      })),
+      memberClaims: entry.claims.map((group) => ({ slug: group.slug, claims: dedupeClaims(group.claims) })),
+      slugToTitle,
+      aliases: memberTitles
+    };
+    const folderPath = join28(dir, entry.folder);
+    await mkdir17(folderPath, { recursive: true });
+    const pagePath = join28(folderPath, `${entry.into}.md`);
+    const relativePath = synthesisPagePath(compositeData);
+    const synthesisRecord = synthesisRecords[relativePath];
+    if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) && existsSync9(pagePath)) {
+      result.topicCompositePages.push(compositeData);
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
+      continue;
+    }
+    const rendered = writeTopicCompositePage(compositeData);
+    const verdict = await checkPageConflict(pagePath, relativePath, options2?.pageHashes, rendered);
+    if (verdict === "conflict") {
+      await logManualEditConflict(dir, relativePath);
+      result.conflicts.push(relativePath);
+      continue;
+    }
+    if (verdict === "converge") {
+      logHashConvergence(relativePath);
+      result.convergedPages.push(relativePath);
+    }
+    result.topicCompositePages.push(compositeData);
+    await writeFile16(pagePath, rendered, "utf-8");
+    result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
+  }
   if (entityMap.size > 0) {
-    const entitiesRoot = join27(dir, "entities");
+    const entitiesRoot = join28(dir, "entities");
     const slugLocations = /* @__PURE__ */ new Map();
     if (existsSync9(entitiesRoot)) {
       await collectEntityPageLocations(entitiesRoot, "", slugLocations);
@@ -105135,9 +106370,9 @@ async function materialize(wikiSlug, options2) {
           continue;
         }
         const recorded = options2?.pageHashes?.[location];
-        const currentHash = hashContent(await readFile20(join27(dir, location), "utf-8"));
+        const currentHash = hashContent(await readFile21(join28(dir, location), "utf-8"));
         if (recorded !== void 0 && recorded === currentHash) {
-          await rm(join27(dir, location), { force: true });
+          await rm(join28(dir, location), { force: true });
           result.removedDuplicates.push({ path: location, canonicalPath });
         } else {
           await logManualEditConflict(
@@ -105150,7 +106385,7 @@ async function materialize(wikiSlug, options2) {
     }
   }
   for (const topic of topicMap.values()) {
-    const folderPath = join27(dir, topic.folder);
+    const folderPath = join28(dir, topic.folder);
     await mkdir17(folderPath, { recursive: true });
     const topicClaims = dedupeClaims(topic.claims);
     const topicEntities = Array.from(
@@ -105165,12 +106400,12 @@ async function materialize(wikiSlug, options2) {
       slugToTitle,
       entities: topicEntities
     };
-    const pagePath = join27(folderPath, `${topic.slug}.md`);
+    const pagePath = join28(folderPath, `${topic.slug}.md`);
     const relativePath = synthesisPagePath(pageData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) && existsSync9(pagePath)) {
       result.topicPages.push(pageData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile20(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeTopicPage(pageData);
@@ -105224,14 +106459,14 @@ async function materialize(wikiSlug, options2) {
       // a renamed/renumbered table's old titles still find the ONE page.
       aliases: aggregate.captions.length > 0 ? aggregate.captions : void 0
     };
-    const folderPath = join27(dir, "comparisons");
+    const folderPath = join28(dir, "comparisons");
     await mkdir17(folderPath, { recursive: true });
-    const pagePath = join27(folderPath, `${aggregate.slug}.md`);
+    const pagePath = join28(folderPath, `${aggregate.slug}.md`);
     const relativePath = synthesisPagePath(pageData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) && existsSync9(pagePath)) {
       result.comparisonPages.push(pageData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile20(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeComparisonPage(pageData);
@@ -105253,7 +106488,7 @@ async function materialize(wikiSlug, options2) {
     const writtenSet = new Set(result.writtenPages.map((page) => page.path));
     const contentPages = [];
     for (const section of ["entities", "topics", "documents", "comparisons"]) {
-      const sectionRoot = join27(dir, section);
+      const sectionRoot = join28(dir, section);
       if (existsSync9(sectionRoot)) {
         await collectContentPagePaths(sectionRoot, section, "", contentPages);
       }
@@ -105262,8 +106497,8 @@ async function materialize(wikiSlug, options2) {
       if (writtenSet.has(relPath)) {
         continue;
       }
-      const absolute = join27(dir, relPath);
-      const original = await readFile20(absolute, "utf-8");
+      const absolute = join28(dir, relPath);
+      const original = await readFile21(absolute, "utf-8");
       const rewritten = rewriteWikilinkTargets(original, mergeRewrites);
       if (rewritten === original) {
         continue;
@@ -105273,18 +106508,18 @@ async function materialize(wikiSlug, options2) {
     }
   }
   for (const { chunkId, file, pages } of chunkSources) {
-    const extractionPath = join27(extractedDir, `${chunkId}.json`);
+    const extractionPath = join28(extractedDir, `${chunkId}.json`);
     let extracted;
     try {
-      const raw = await readFile20(extractionPath, "utf-8");
+      const raw = await readFile21(extractionPath, "utf-8");
       extracted = JSON.parse(raw);
     } catch {
       continue;
     }
-    const documentPath = join27(dir, "documents", `${chunkId}.md`);
+    const documentPath = join28(dir, "documents", `${chunkId}.md`);
     let documentRaw;
     try {
-      documentRaw = await readFile20(documentPath, "utf-8");
+      documentRaw = await readFile21(documentPath, "utf-8");
     } catch {
       continue;
     }
@@ -105335,9 +106570,22 @@ async function materialize(wikiSlug, options2) {
           folder: intoAggregate?.folder ?? "entities",
           mentionCount: composite.members.reduce((count, member) => count + member.aggregate.mentions.length, 0)
         };
-      })
+      }),
+      // Phase 25 (§2.3): class-6 entity composites are tracked at the generic
+      // slug (the label's own page path); member slugs are per-meaning
+      // identities that never had pages.
+      ...Array.from(entityDisambiguations.values()).map((entry) => ({
+        slug: entry.into,
+        folder: entry.folder,
+        mentionCount: entry.evidence.reduce((count, group) => count + group.mentions.length, 0)
+      }))
     ].sort((a, b) => a.slug.localeCompare(b.slug)),
-    topics: Array.from(topicMap.values()).map((topic) => topic.folder.replace(/^topics\//, "")).sort((a, b) => a.localeCompare(b)),
+    topics: [
+      ...Array.from(topicMap.values()).map((topic) => topic.folder.replace(/^topics\//, "")),
+      // Phase 25 (§2.3): a disambiguated topic stays tracked at its (unchanged)
+      // generic slug — the composite lives at the ordinary page's path.
+      ...Array.from(topicDisambiguations.values()).map((entry) => entry.folder.replace(/^topics\//, ""))
+    ].sort((a, b) => a.localeCompare(b)),
     sources: Array.from(sourceSlugs).sort((a, b) => a.localeCompare(b)),
     folderStructure: Array.from(folderStructure).sort((a, b) => a.localeCompare(b))
   };
@@ -105411,6 +106659,9 @@ async function materialize(wikiSlug, options2) {
   await saveRollingMemory(dir, memory);
   if (curationSummary !== null) {
     result.curation = curationSummary;
+    if (disambiguationSummary !== null) {
+      result.disambiguation = disambiguationSummary;
+    }
     const reportRun = curationRunTimestamp ?? (/* @__PURE__ */ new Date()).toISOString();
     const decidedMerges = (concern, merges) => {
       const details = [];
@@ -105519,10 +106770,10 @@ async function materialize(wikiSlug, options2) {
 
 // src/dox-writer.ts
 var import_gray_matter10 = __toESM(require_gray_matter(), 1);
-import { readdir as readdir5, readFile as readFile21, writeFile as writeFile17 } from "node:fs/promises";
-import { join as join28 } from "node:path";
+import { readdir as readdir5, readFile as readFile22, writeFile as writeFile17 } from "node:fs/promises";
+import { join as join29 } from "node:path";
 var EXCLUDED_FOLDERS = /* @__PURE__ */ new Set([".state", "raw"]);
-var PROMPT_DIR2 = join28(appRoot(), "prompts");
+var PROMPT_DIR2 = join29(appRoot(), "prompts");
 var DOX_PROMPT_FILE = "dox-writer.prompt.txt";
 var DOX_WRITER_MAX_TOKENS = 8192;
 var cachedDoxPrompt;
@@ -105530,11 +106781,11 @@ async function loadDoxPromptTemplate() {
   if (cachedDoxPrompt !== void 0) {
     return cachedDoxPrompt;
   }
-  const template = await readFile21(join28(PROMPT_DIR2, DOX_PROMPT_FILE), "utf-8");
+  const template = await readFile22(join29(PROMPT_DIR2, DOX_PROMPT_FILE), "utf-8");
   cachedDoxPrompt = template;
   return template;
 }
-function fillPromptTemplate4(template, values) {
+function fillPromptTemplate5(template, values) {
   let output = template;
   for (const [key, value] of Object.entries(values)) {
     output = output.split(`{${key}}`).join(value);
@@ -105549,7 +106800,7 @@ function folderDescription(name) {
 }
 async function readPageTitle(absolutePath) {
   try {
-    const content = await readFile21(absolutePath, "utf-8");
+    const content = await readFile22(absolutePath, "utf-8");
     const parsed = (0, import_gray_matter10.default)(content);
     if (typeof parsed.data.title === "string" && parsed.data.title.trim().length > 0) {
       return parsed.data.title.trim();
@@ -105560,7 +106811,7 @@ async function readPageTitle(absolutePath) {
 }
 async function readCompositeMembers(absolutePath) {
   try {
-    const content = await readFile21(absolutePath, "utf-8");
+    const content = await readFile22(absolutePath, "utf-8");
     const parsed = (0, import_gray_matter10.default)(content);
     if (parsed.data.type !== "composite" || !Array.isArray(parsed.data.members)) {
       return void 0;
@@ -105582,13 +106833,13 @@ async function readCompositeMembers(absolutePath) {
 }
 async function readTextIfExists(absolutePath) {
   try {
-    return await readFile21(absolutePath, "utf-8");
+    return await readFile22(absolutePath, "utf-8");
   } catch {
     return "";
   }
 }
 async function scanFolder(wikiDirPath, relativePath) {
-  const absolutePath = join28(wikiDirPath, relativePath);
+  const absolutePath = join29(wikiDirPath, relativePath);
   const entries = await readdir5(absolutePath, { withFileTypes: true });
   const subFolders = [];
   const files = [];
@@ -105604,8 +106855,8 @@ async function scanFolder(wikiDirPath, relativePath) {
       subFolders.push(await scanFolder(wikiDirPath, childRelativePath));
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
       const childRelativePath = relativePath ? `${relativePath}/${entry.name}` : entry.name;
-      const title = await readPageTitle(join28(wikiDirPath, childRelativePath));
-      const compositeMembers = await readCompositeMembers(join28(wikiDirPath, childRelativePath));
+      const title = await readPageTitle(join29(wikiDirPath, childRelativePath));
+      const compositeMembers = await readCompositeMembers(join29(wikiDirPath, childRelativePath));
       const fileSlug = entry.name.replace(/\.md$/i, "");
       const target = fileSlug.toLowerCase() === "index" ? childRelativePath.replace(/\.md$/i, "") : fileSlug;
       const linkText = formatWikilink(target, title || void 0);
@@ -105992,14 +107243,14 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
   );
   for (const file of contentFiles) {
     pages.push({ name: file.name, title: file.title, linkText: file.linkText });
-    const content = await readTextIfExists(join28(dir, file.relativePath));
+    const content = await readTextIfExists(join29(dir, file.relativePath));
     if (content.length > 0) {
       pageContents.push({ name: file.name, title: file.title, content });
     }
   }
   const childIndexes = [];
   for (const sub of folder.subFolders) {
-    const content = await readTextIfExists(join28(dir, sub.relativePath, "index.md"));
+    const content = await readTextIfExists(join29(dir, sub.relativePath, "index.md"));
     if (content.length === 0) {
       continue;
     }
@@ -106018,8 +107269,8 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
       content
     });
   }
-  const agentsMd = await readTextIfExists(join28(dir, "AGENTS.md"));
-  const rollingMemory = await readTextIfExists(join28(dir, ".state", "rolling-memory.json"));
+  const agentsMd = await readTextIfExists(join29(dir, "AGENTS.md"));
+  const rollingMemory = await readTextIfExists(join29(dir, ".state", "rolling-memory.json"));
   const parentTitle = isRoot ? "" : parentFolder && parentFolder.relativePath !== "" ? titleCase(parentFolder.name) : titleCase(wikiSlug);
   const siblingTitles = parentFolder ? parentFolder.subFolders.filter((sibling) => sibling.name !== folder.name).map((sibling) => titleCase(sibling.name)) : [];
   const parentLinkText = isRoot ? "" : parentFolder && parentFolder.relativePath !== "" ? folderIndexLink(parentFolder) : rootIndexLink(wikiSlug);
@@ -106042,7 +107293,7 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
     siblingLinkTexts,
     agentsMd,
     rollingMemory,
-    logPath: options2.logPath ?? join28(dir, ".state", "llm-calls.json"),
+    logPath: options2.logPath ?? join29(dir, ".state", "llm-calls.json"),
     language: options2.language
   };
 }
@@ -106064,7 +107315,7 @@ async function writeDoxIndexWithLlm(context, feedback, attempt) {
       linkTargetLines.push(`- sibling folder \u2014 link as ${siblingLink}`);
     }
   }
-  const filledPrompt = fillPromptTemplate4(template, {
+  const filledPrompt = fillPromptTemplate5(template, {
     wikiSlug: context.wikiSlug,
     folderPath: context.contextLabel,
     folderTitle: context.title,
@@ -106098,7 +107349,7 @@ ${feedback}`, void 0, {
 }
 async function writeFolderIndexLlm(wikiSlug, folder, parentFolder, options2, linkIndex) {
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const absoluteFolderPath = join28(dir, folder.relativePath);
+  const absoluteFolderPath = join29(dir, folder.relativePath);
   const title = folder.relativePath === "" ? titleCase(wikiSlug) : titleCase(folder.name);
   const now = (/* @__PURE__ */ new Date()).toISOString();
   const children = buildChildrenList(folder);
@@ -106151,7 +107402,7 @@ async function writeFolderIndexLlm(wikiSlug, folder, parentFolder, options2, lin
     updated: now,
     children
   };
-  await writeFile17(join28(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile17(join29(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
 }
 async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIndex) {
   const hasContent = folder.files.length > 0 || folder.subFolders.length > 0;
@@ -106166,7 +107417,7 @@ async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIn
     return;
   }
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const absoluteFolderPath = join28(dir, folder.relativePath);
+  const absoluteFolderPath = join29(dir, folder.relativePath);
   const title = folder.relativePath === "" ? titleCase(wikiSlug) : titleCase(folder.name);
   const now = (/* @__PURE__ */ new Date()).toISOString();
   const children = buildChildrenList(folder);
@@ -106180,7 +107431,7 @@ async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIn
     updated: now,
     children
   };
-  await writeFile17(join28(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile17(join29(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
   for (const subFolder of folder.subFolders) {
     await writeFolderIndex(wikiSlug, subFolder, folder, options2);
   }
@@ -106202,7 +107453,7 @@ async function loadWorkspacePromptTemplate(fileName) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile21(join28(PROMPT_DIR2, fileName), "utf-8");
+  const template = await readFile22(join29(PROMPT_DIR2, fileName), "utf-8");
   workspacePromptCache[fileName] = template;
   return template;
 }
@@ -106300,7 +107551,7 @@ function composeWorkspaceBody(wikis, statistics, workspaceProse, entryDescriptio
 }
 async function writeWorkspaceProseWithLlm(context, feedback, attempt) {
   const template = await loadWorkspacePromptTemplate(DOX_WORKSPACE_PROMPT_FILE);
-  const prompt = fillPromptTemplate4(template, {
+  const prompt = fillPromptTemplate5(template, {
     outputLanguage: context.outputLanguage,
     childIndexes: context.wikis.map((wiki) => `--- ${wiki.indexPath} (wiki "${wiki.title}") ---
 ${wiki.content}`).join("\n\n")
@@ -106317,7 +107568,7 @@ ${feedback}`, void 0, {
 }
 async function writeWorkspaceEntryWithLlm(context, feedback, attempt) {
   const template = await loadWorkspacePromptTemplate(DOX_WORKSPACE_ENTRY_PROMPT_FILE);
-  const prompt = fillPromptTemplate4(template, {
+  const prompt = fillPromptTemplate5(template, {
     wikiSlug: context.wikiSlug,
     wikiTitle: context.wikiTitle,
     outputLanguage: context.outputLanguage,
@@ -106370,7 +107621,7 @@ async function runWorkspaceEntryWithRetries(runLlm, contextLabel) {
   }
 }
 async function writeWorkspaceIndex(options2) {
-  const wikisRoot = join28(options2.workspace ?? ".", "wikis");
+  const wikisRoot = join29(options2.workspace ?? ".", "wikis");
   let entries;
   try {
     entries = await readdir5(wikisRoot, { withFileTypes: true });
@@ -106382,7 +107633,7 @@ async function writeWorkspaceIndex(options2) {
     if (!entry.isDirectory() || entry.name === "cross-wiki") {
       continue;
     }
-    const indexPath = join28(wikisRoot, entry.name, "index.md");
+    const indexPath = join29(wikisRoot, entry.name, "index.md");
     const content = await readTextIfExists(indexPath);
     if (content.length === 0) {
       continue;
@@ -106412,7 +107663,7 @@ async function writeWorkspaceIndex(options2) {
   let entities = 0;
   let topics = 0;
   for (const wiki of wikis) {
-    const tree = await scanFolder(join28(wikisRoot, wiki.slug), "");
+    const tree = await scanFolder(join29(wikisRoot, wiki.slug), "");
     sources += countContentFiles(findSubFolder(tree, "sources") ?? emptyFolder());
     documents += countContentFiles(findSubFolder(tree, "documents") ?? emptyFolder());
     entities += countContentFiles(findSubFolder(tree, "entities") ?? emptyFolder());
@@ -106426,7 +107677,7 @@ async function writeWorkspaceIndex(options2) {
     `Topic pages: ${topics}`
   ];
   const children = wikis.map((wiki) => wiki.indexPath);
-  const existing = await readTextIfExists(join28(wikisRoot, WORKSPACE_INDEX_FILE));
+  const existing = await readTextIfExists(join29(wikisRoot, WORKSPACE_INDEX_FILE));
   const preserved = parseWorkspaceSegments(existing);
   let existingChildren = [];
   if (existing.length > 0) {
@@ -106479,7 +107730,7 @@ async function writeWorkspaceIndex(options2) {
     }
     entryDescription = description ?? deterministicDescription(triggering);
   }
-  const crossWikiArtifacts = (await readTextIfExists(join28(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  const crossWikiArtifacts = (await readTextIfExists(join29(wikisRoot, "cross-wiki", "index.md"))).length > 0;
   const crossWikiSection = crossWikiArtifacts ? parseCrossWikiSection((0, import_gray_matter10.default)(existing).content ?? "") ?? crossWikiDiscoverySection() : null;
   const body = composeWorkspaceBody(
     wikis,
@@ -106498,11 +107749,11 @@ async function writeWorkspaceIndex(options2) {
     updated: (/* @__PURE__ */ new Date()).toISOString(),
     children
   };
-  await writeFile17(join28(wikisRoot, WORKSPACE_INDEX_FILE), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile17(join29(wikisRoot, WORKSPACE_INDEX_FILE), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
 }
 async function updateWorkspaceCrossWikiSection(workspace = ".") {
-  const wikisRoot = join28(workspace, "wikis");
-  const indexPath = join28(wikisRoot, WORKSPACE_INDEX_FILE);
+  const wikisRoot = join29(workspace, "wikis");
+  const indexPath = join29(wikisRoot, WORKSPACE_INDEX_FILE);
   const existing = await readTextIfExists(indexPath);
   if (existing.length === 0) {
     return;
@@ -106531,7 +107782,7 @@ async function updateWorkspaceCrossWikiSection(workspace = ".") {
       }
     }
   }
-  const artifactsExist = (await readTextIfExists(join28(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  const artifactsExist = (await readTextIfExists(join29(wikisRoot, "cross-wiki", "index.md"))).length > 0;
   if (artifactsExist) {
     const sectionLines = crossWikiDiscoverySection().replace(/\n+$/, "").split("\n");
     const statsIndex = lines.findIndex((line) => line.trim() === "## Statistics");
@@ -106550,17 +107801,17 @@ async function updateWorkspaceCrossWikiSection(workspace = ".") {
 
 // src/agents/agents-updater.ts
 var import_gray_matter11 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile22, readdir as readdir6, writeFile as writeFile18, mkdir as mkdir18 } from "node:fs/promises";
-import { dirname as dirname5, join as join29, relative as relative2 } from "node:path";
-var PROMPT_DIR3 = join29(appRoot(), "prompts");
+import { readFile as readFile23, readdir as readdir6, writeFile as writeFile18, mkdir as mkdir18 } from "node:fs/promises";
+import { dirname as dirname5, join as join30, relative as relative2 } from "node:path";
+var PROMPT_DIR3 = join30(appRoot(), "prompts");
 var promptCache3;
-async function loadPromptTemplate4() {
+async function loadPromptTemplate5() {
   if (promptCache3 === void 0) {
-    promptCache3 = await readFile22(join29(PROMPT_DIR3, "agents-updater.prompt.txt"), "utf-8");
+    promptCache3 = await readFile23(join30(PROMPT_DIR3, "agents-updater.prompt.txt"), "utf-8");
   }
   return promptCache3;
 }
-function fillPromptTemplate5(template, values) {
+function fillPromptTemplate6(template, values) {
   let output = template;
   for (const [key, value] of Object.entries(values)) {
     output = output.split(`{${key}}`).join(value);
@@ -106584,12 +107835,12 @@ async function collectWikiStructure(wikiDirPath) {
         if (entry.name === "raw" || entry.name === ".state") {
           continue;
         }
-        const folderPath = relative2(wikiDirPath, join29(dir, entry.name)).split("\\").join("/");
+        const folderPath = relative2(wikiDirPath, join30(dir, entry.name)).split("\\").join("/");
         folders.push(folderPath);
-        await walk5(join29(dir, entry.name));
+        await walk5(join30(dir, entry.name));
       } else if (entry.isFile() && entry.name.endsWith(".md")) {
         try {
-          const raw = await readFile22(join29(dir, entry.name), "utf-8");
+          const raw = await readFile23(join30(dir, entry.name), "utf-8");
           const type = (0, import_gray_matter11.default)(raw).data.type;
           if (typeof type === "string" && type.length > 0) {
             typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
@@ -106674,10 +107925,10 @@ ${typeLines}
 }
 async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const agentsMdPath = join29(dir, "AGENTS.md");
+  const agentsMdPath = join30(dir, "AGENTS.md");
   let currentAgentsMd;
   try {
-    currentAgentsMd = await readFile22(agentsMdPath, "utf-8");
+    currentAgentsMd = await readFile23(agentsMdPath, "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
       throw new Error(`Wiki '${wikiSlug}' has no AGENTS.md at ${agentsMdPath}. Run 'init ${wikiSlug}' first.`);
@@ -106688,8 +107939,8 @@ async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
   const structuralLog = await readStructuralChanges(dir);
   const newFolders = structuralLog.changes.filter((change) => change.type === "new-folder").map((change) => ({ path: change.path, reason: change.reason }));
   const newPageTypes = structuralLog.changes.filter((change) => change.type === "new-page-type").map((change) => ({ path: change.path, reason: change.reason }));
-  const template = await loadPromptTemplate4();
-  const prompt = fillPromptTemplate5(template, {
+  const template = await loadPromptTemplate5();
+  const prompt = fillPromptTemplate6(template, {
     currentAgentsMd,
     wikiStructure: formatStructure(structure),
     newFolders: newFolders.length > 0 ? newFolders.map((folder) => `- ${folder.path} \u2014 ${folder.reason}`).join("\n") : "(none)",
@@ -106699,7 +107950,7 @@ async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
     maxTokens: 8192,
     callType: "agents-updater",
     context: wikiSlug,
-    logPath: options2.logPath ?? join29(dir, ".state", "llm-calls.json"),
+    logPath: options2.logPath ?? join30(dir, ".state", "llm-calls.json"),
     // Bounded retry amendment: transient transport failures (429/5xx,
     // network) get 2 extra attempts; deterministic 4xx throws immediately.
     maxRetries: 2,
@@ -106744,7 +107995,7 @@ ${feedback}`;
     proposal = buildDeterministicFallback(currentAgentsMd, newFolders, newPageTypes);
   }
   proposal = enforceLanguageSection(proposal, currentAgentsMd);
-  const proposalPath = join29(dir, ".state", "proposed-agents.md");
+  const proposalPath = join30(dir, ".state", "proposed-agents.md");
   await mkdir18(dirname5(proposalPath), { recursive: true });
   await writeFile18(proposalPath, proposal, "utf-8");
   console.log("Proposed AGENTS.md updates saved to .state/proposed-agents.md. Review and apply manually.");
@@ -106753,7 +108004,7 @@ ${feedback}`;
 
 // src/cross-wiki/index.ts
 import { mkdir as mkdir23, writeFile as writeFile23 } from "node:fs/promises";
-import { join as join38 } from "node:path";
+import { join as join39 } from "node:path";
 
 // src/pages/cross-wiki/cross-wiki-index-page.ts
 var import_gray_matter12 = __toESM(require_gray_matter(), 1);
@@ -106836,8 +108087,8 @@ ${lines.join("\n")}
 
 // src/validation/cross-wiki-schema.ts
 var import_gray_matter13 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile23, readdir as readdir7 } from "node:fs/promises";
-import { join as join30, relative as relative3 } from "node:path";
+import { readFile as readFile24, readdir as readdir7 } from "node:fs/promises";
+import { join as join31, relative as relative3 } from "node:path";
 var CROSS_WIKI_TYPES = /* @__PURE__ */ new Set(["cross-wiki-index", "cross-wiki-topic"]);
 function isValidIsoTimestamp(value) {
   if (value instanceof Date) {
@@ -106864,7 +108115,7 @@ async function walk2(dir, root, out) {
     return;
   }
   for (const entry of entries) {
-    const absolute = join30(dir, entry.name);
+    const absolute = join31(dir, entry.name);
     if (entry.isDirectory()) {
       await walk2(absolute, root, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -106873,7 +108124,7 @@ async function walk2(dir, root, out) {
   }
 }
 async function validateCrossWikiSchema(workspace = ".") {
-  const root = join30(workspace, "wikis", "cross-wiki");
+  const root = join31(workspace, "wikis", "cross-wiki");
   const files = [];
   await walk2(root, root, files);
   const invalid = [];
@@ -106881,7 +108132,7 @@ async function validateCrossWikiSchema(workspace = ".") {
     const page = `wikis/cross-wiki/${rel}`;
     let parsed;
     try {
-      parsed = (0, import_gray_matter13.default)(await readFile23(join30(root, rel), "utf-8"));
+      parsed = (0, import_gray_matter13.default)(await readFile24(join31(root, rel), "utf-8"));
     } catch (err) {
       invalid.push({ page, issue: `Invalid YAML frontmatter: ${err.message}` });
       continue;
@@ -106922,8 +108173,8 @@ async function validateCrossWikiSchema(workspace = ".") {
 }
 
 // src/cross-wiki/llm.ts
-import { readFile as readFile24 } from "node:fs/promises";
-import { join as join31 } from "node:path";
+import { readFile as readFile25 } from "node:fs/promises";
+import { join as join32 } from "node:path";
 var CROSS_WIKI_SMALL_MAX_TOKENS = 2048;
 var CROSS_WIKI_MAX_TOKENS = 8192;
 var CROSS_WIKI_MAX_ATTEMPTS = 3;
@@ -106933,7 +108184,7 @@ async function loadPrompt(fileName) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile24(join31(appRoot(), "prompts", fileName), "utf-8");
+  const template = await readFile25(join32(appRoot(), "prompts", fileName), "utf-8");
   promptCache4[fileName] = template;
   return template;
 }
@@ -107033,29 +108284,29 @@ ${feedback}`, void 0, {
 }
 
 // src/cross-wiki/state.ts
-import { mkdir as mkdir19, readFile as readFile25, writeFile as writeFile19 } from "node:fs/promises";
-import { join as join32 } from "node:path";
+import { mkdir as mkdir19, readFile as readFile26, writeFile as writeFile19 } from "node:fs/promises";
+import { join as join33 } from "node:path";
 function crossWikiStatePath(workspace, fileName) {
-  return join32(workspace ?? ".", ".state", "cross-wiki", fileName);
+  return join33(workspace ?? ".", ".state", "cross-wiki", fileName);
 }
 function proposedCrossWikiMatchesPath(workspace) {
-  return join32(workspace ?? ".", ".state", "proposed-cross-wiki-matches.json");
+  return join33(workspace ?? ".", ".state", "proposed-cross-wiki-matches.json");
 }
 async function writeCrossWikiState(workspace, fileName, data) {
   const path = crossWikiStatePath(workspace, fileName);
-  await mkdir19(join32(workspace ?? ".", ".state", "cross-wiki"), { recursive: true });
+  await mkdir19(join33(workspace ?? ".", ".state", "cross-wiki"), { recursive: true });
   await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
 }
 async function readCrossWikiState(workspace, fileName) {
   try {
-    return JSON.parse(await readFile25(crossWikiStatePath(workspace, fileName), "utf-8"));
+    return JSON.parse(await readFile26(crossWikiStatePath(workspace, fileName), "utf-8"));
   } catch {
     return null;
   }
 }
 async function writeProposedCrossWikiMatches(workspace, data) {
   const path = proposedCrossWikiMatchesPath(workspace);
-  await mkdir19(join32(workspace ?? ".", ".state"), { recursive: true });
+  await mkdir19(join33(workspace ?? ".", ".state"), { recursive: true });
   await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
 }
 
@@ -107147,7 +108398,7 @@ async function summarizeEntities(pages, options2 = {}) {
 
 // src/cross-wiki/entity-resolver.ts
 import { mkdir as mkdir20, writeFile as writeFile20 } from "node:fs/promises";
-import { join as join33 } from "node:path";
+import { join as join34 } from "node:path";
 
 // src/pages/cross-wiki/entity-registry-page.ts
 var import_gray_matter14 = __toESM(require_gray_matter(), 1);
@@ -107635,10 +108886,10 @@ async function resolveEntities(pages, summaries, options2 = {}) {
   }
   entries.sort((a, b) => a.canonicalTitle.localeCompare(b.canonicalTitle));
   remainingUncertain.sort((a, b) => groupKey(a.members.map((m) => m.path)).localeCompare(groupKey(b.members.map((m) => m.path))));
-  const crossWikiDir = join33(workspace, "wikis", "cross-wiki");
+  const crossWikiDir = join34(workspace, "wikis", "cross-wiki");
   await mkdir20(crossWikiDir, { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
-  await writeFile20(join33(crossWikiDir, "entities.md"), writeEntityRegistryPage(entries, updated), "utf-8");
+  await writeFile20(join34(crossWikiDir, "entities.md"), writeEntityRegistryPage(entries, updated), "utf-8");
   await writeCrossWikiState(workspace, "entity-registry.json", { generated: updated, entities: entries });
   await writeProposedCrossWikiMatches(workspace, {
     generated: updated,
@@ -107987,7 +109238,7 @@ function predicateLookup(groups) {
 
 // src/cross-wiki/relationship-graph.ts
 import { mkdir as mkdir21, writeFile as writeFile21 } from "node:fs/promises";
-import { join as join34 } from "node:path";
+import { join as join35 } from "node:path";
 
 // src/pages/cross-wiki/relationships-page.ts
 var import_gray_matter15 = __toESM(require_gray_matter(), 1);
@@ -108138,26 +109389,26 @@ async function buildRelationshipGraph(pages, registry, predicateGroups, options2
   edges.sort(
     (a, b) => `${a.subject.wiki}/${a.subject.slug}`.localeCompare(`${b.subject.wiki}/${b.subject.slug}`) || a.predicate.localeCompare(b.predicate) || `${a.object.wiki}/${a.object.slug}`.localeCompare(`${b.object.wiki}/${b.object.slug}`)
   );
-  const crossWikiDir = join34(workspace, "wikis", "cross-wiki");
+  const crossWikiDir = join35(workspace, "wikis", "cross-wiki");
   await mkdir21(crossWikiDir, { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
-  await writeFile21(join34(crossWikiDir, "relationships.md"), writeRelationshipsPage(edges, updated), "utf-8");
+  await writeFile21(join35(crossWikiDir, "relationships.md"), writeRelationshipsPage(edges, updated), "utf-8");
   await writeCrossWikiState(workspace, "relationship-graph.json", { generated: updated, edges });
   return edges;
 }
 
 // src/cross-wiki/run-control.ts
-import { readdir as readdir9, readFile as readFile27, stat } from "node:fs/promises";
-import { join as join36, relative as relative5 } from "node:path";
+import { readdir as readdir9, readFile as readFile28, stat } from "node:fs/promises";
+import { join as join37, relative as relative5 } from "node:path";
 import { createHash as createHash4 } from "node:crypto";
 
 // src/cross-wiki/workspace-scan.ts
 var import_gray_matter16 = __toESM(require_gray_matter(), 1);
-import { readdir as readdir8, readFile as readFile26 } from "node:fs/promises";
-import { join as join35, relative as relative4 } from "node:path";
+import { readdir as readdir8, readFile as readFile27 } from "node:fs/promises";
+import { join as join36, relative as relative4 } from "node:path";
 var CROSS_WIKI_FOLDER = "cross-wiki";
 async function listWorkspaceWikis(workspace = ".") {
-  const wikisRoot = join35(workspace, "wikis");
+  const wikisRoot = join36(workspace, "wikis");
   let entries;
   try {
     entries = await readdir8(wikisRoot, { withFileTypes: true });
@@ -108170,7 +109421,7 @@ async function listWorkspaceWikis(workspace = ".") {
       continue;
     }
     try {
-      await readFile26(join35(wikisRoot, entry.name, "index.md"), "utf-8");
+      await readFile27(join36(wikisRoot, entry.name, "index.md"), "utf-8");
       wikis.push(entry.name);
     } catch {
     }
@@ -108185,7 +109436,7 @@ async function walkMarkdown(dir, root, out) {
     return;
   }
   for (const entry of entries) {
-    const absolute = join35(dir, entry.name);
+    const absolute = join36(dir, entry.name);
     if (entry.isDirectory()) {
       await walkMarkdown(absolute, root, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -108286,15 +109537,15 @@ function frontmatterSources(data) {
   return result;
 }
 async function scanEntityPages(workspace, wiki) {
-  const wikiRoot = join35(workspace, "wikis", wiki);
-  const entitiesRoot = join35(wikiRoot, "entities");
+  const wikiRoot = join36(workspace, "wikis", wiki);
+  const entitiesRoot = join36(wikiRoot, "entities");
   const files = [];
   await walkMarkdown(entitiesRoot, entitiesRoot, files);
   const pages = [];
   for (const rel of files.sort((a, b) => a.localeCompare(b))) {
     let parsed;
     try {
-      parsed = (0, import_gray_matter16.default)(await readFile26(join35(entitiesRoot, rel), "utf-8"));
+      parsed = (0, import_gray_matter16.default)(await readFile27(join36(entitiesRoot, rel), "utf-8"));
     } catch {
       continue;
     }
@@ -108320,15 +109571,15 @@ async function scanEntityPages(workspace, wiki) {
   return pages;
 }
 async function scanTopicPages(workspace, wiki) {
-  const wikiRoot = join35(workspace, "wikis", wiki);
-  const topicsRoot = join35(wikiRoot, "topics");
+  const wikiRoot = join36(workspace, "wikis", wiki);
+  const topicsRoot = join36(wikiRoot, "topics");
   const files = [];
   await walkMarkdown(topicsRoot, topicsRoot, files);
   const pages = [];
   for (const rel of files.sort((a, b) => a.localeCompare(b))) {
     let parsed;
     try {
-      parsed = (0, import_gray_matter16.default)(await readFile26(join35(topicsRoot, rel), "utf-8"));
+      parsed = (0, import_gray_matter16.default)(await readFile27(join36(topicsRoot, rel), "utf-8"));
     } catch {
       continue;
     }
@@ -108353,11 +109604,11 @@ async function scanTopicPages(workspace, wiki) {
 // src/cross-wiki/run-control.ts
 import { existsSync as existsSync10 } from "node:fs";
 async function hashFile(absolute) {
-  return createHash4("sha256").update(await readFile27(absolute)).digest("hex");
+  return createHash4("sha256").update(await readFile28(absolute)).digest("hex");
 }
 async function collectPages(workspace, wiki, out) {
   for (const folder of ["entities", "topics"]) {
-    const root = join36(workspace, "wikis", wiki, folder);
+    const root = join37(workspace, "wikis", wiki, folder);
     const walk5 = async (dir) => {
       let entries;
       try {
@@ -108366,11 +109617,11 @@ async function collectPages(workspace, wiki, out) {
         return;
       }
       for (const entry of entries) {
-        const absolute = join36(dir, entry.name);
+        const absolute = join37(dir, entry.name);
         if (entry.isDirectory()) {
           await walk5(absolute);
         } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
-          const rel = relative5(join36(workspace, "wikis"), absolute).replace(/\\/g, "/");
+          const rel = relative5(join37(workspace, "wikis"), absolute).replace(/\\/g, "/");
           const stats = await stat(absolute);
           out[rel] = { sha256: await hashFile(absolute), mtimeMs: stats.mtimeMs, size: stats.size };
         }
@@ -108399,7 +109650,7 @@ async function readRunFingerprint(workspace) {
   return data;
 }
 function crossWikiArtifactsExist(workspace) {
-  return existsSync10(join36(workspace, "wikis", "cross-wiki", "index.md"));
+  return existsSync10(join37(workspace, "wikis", "cross-wiki", "index.md"));
 }
 async function preflightDecision(workspace, current) {
   if (current.wikis.length < 2) {
@@ -108464,7 +109715,7 @@ async function relevanceProbe(changes, options2 = {}) {
 
 // src/cross-wiki/topic-clusterer.ts
 import { mkdir as mkdir22, rm as rm2, writeFile as writeFile22 } from "node:fs/promises";
-import { join as join37 } from "node:path";
+import { join as join38 } from "node:path";
 import { readdir as readdir10 } from "node:fs/promises";
 
 // src/pages/cross-wiki/topic-cluster-page.ts
@@ -108576,7 +109827,7 @@ function formatTopicCandidate(page) {
 }
 async function clusterTopics(pages, options2 = {}) {
   const workspace = options2.workspace ?? ".";
-  const topicsDir = join37(workspace, "wikis", "cross-wiki", "topics");
+  const topicsDir = join38(workspace, "wikis", "cross-wiki", "topics");
   await mkdir22(topicsDir, { recursive: true });
   const candidates = new Map(pages.map((page) => [page.id, page]));
   let kept = [];
@@ -108633,13 +109884,13 @@ async function clusterTopics(pages, options2 = {}) {
   for (const entry of await readdir10(topicsDir, { withFileTypes: true })) {
     if (entry.isFile() && entry.name.endsWith(".md") && entry.name !== "index.md") {
       if (!kept.some((cluster) => `${cluster.clusterId}.md` === entry.name)) {
-        await rm2(join37(topicsDir, entry.name));
+        await rm2(join38(topicsDir, entry.name));
       }
     }
   }
   const updated = (/* @__PURE__ */ new Date()).toISOString();
   for (const cluster of kept) {
-    await writeFile22(join37(topicsDir, `${cluster.clusterId}.md`), writeTopicClusterPage(cluster, updated), "utf-8");
+    await writeFile22(join38(topicsDir, `${cluster.clusterId}.md`), writeTopicClusterPage(cluster, updated), "utf-8");
   }
   await writeCrossWikiState(workspace, "topic-clusters.json", { generated: updated, clusters: kept });
   return kept;
@@ -108647,10 +109898,10 @@ async function clusterTopics(pages, options2 = {}) {
 
 // src/cross-wiki/index.ts
 var import_gray_matter18 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile28 } from "node:fs/promises";
+import { readFile as readFile29 } from "node:fs/promises";
 async function changedPageSummary(workspace, path) {
   try {
-    const parsed = (0, import_gray_matter18.default)(await readFile28(join38(workspace, "wikis", path), "utf-8"));
+    const parsed = (0, import_gray_matter18.default)(await readFile29(join39(workspace, "wikis", path), "utf-8"));
     const data = parsed.data;
     return {
       path,
@@ -108748,8 +109999,8 @@ async function runCrossWikiPass(options2) {
     generateSignalsFn: options2.generateSignalsFn,
     onProgress: progress
   });
-  const crossWikiDir = join38(workspace, "wikis", CROSS_WIKI_FOLDER);
-  await mkdir23(join38(crossWikiDir, "topics"), { recursive: true });
+  const crossWikiDir = join39(workspace, "wikis", CROSS_WIKI_FOLDER);
+  await mkdir23(join39(crossWikiDir, "topics"), { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
   const artifactWikis = /* @__PURE__ */ new Set();
   for (const entry of resolution.entries) {
@@ -108769,7 +110020,7 @@ async function runCrossWikiPass(options2) {
     }
   }
   await writeFile23(
-    join38(crossWikiDir, "index.md"),
+    join39(crossWikiDir, "index.md"),
     writeCrossWikiIndexPage(
       {
         entityCount: resolution.entries.length,
@@ -108782,7 +110033,7 @@ async function runCrossWikiPass(options2) {
     "utf-8"
   );
   await writeFile23(
-    join38(crossWikiDir, "topics", "index.md"),
+    join39(crossWikiDir, "topics", "index.md"),
     writeCrossWikiTopicsIndexPage(clusters, updated),
     "utf-8"
   );
@@ -108812,14 +110063,14 @@ async function runCrossWikiPass(options2) {
 
 // src/validation/index.ts
 import { mkdir as mkdir24, writeFile as writeFile24 } from "node:fs/promises";
-import { join as join41 } from "node:path";
+import { join as join42 } from "node:path";
 
 // src/validation/citation-checker.ts
 var import_gray_matter19 = __toESM(require_gray_matter(), 1);
-import { access, readFile as readFile29, readdir as readdir11 } from "node:fs/promises";
-import { join as join39, relative as relative6 } from "node:path";
+import { access, readFile as readFile30, readdir as readdir11 } from "node:fs/promises";
+import { join as join40, relative as relative6 } from "node:path";
 async function findContentPages(wikiSlug, workspace) {
-  const dir = join39(workspace, "wikis", wikiSlug);
+  const dir = join40(workspace, "wikis", wikiSlug);
   const pages = [];
   await walk3(dir, dir, workspace, pages);
   return pages;
@@ -108830,7 +110081,7 @@ async function walk3(root, current, workspace, out) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join39(current, entry.name);
+    const absolute = join40(current, entry.name);
     if (entry.isDirectory()) {
       await walk3(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -108881,7 +110132,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
     if (page.relative.endsWith("index.md")) {
       continue;
     }
-    const content = await readFile29(page.absolute, "utf-8");
+    const content = await readFile30(page.absolute, "utf-8");
     const body = stripFrontmatter2(content);
     const definitions = /* @__PURE__ */ new Map();
     let defMatch;
@@ -108907,7 +110158,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
         invalid.push({ page: page.relative, citation: `[^${key}]` });
         continue;
       }
-      const sourcePath = join39(workspace, "wikis", wikiSlug, "raw", fileName);
+      const sourcePath = join40(workspace, "wikis", wikiSlug, "raw", fileName);
       try {
         await access(sourcePath);
       } catch {
@@ -108935,8 +110186,8 @@ async function checkCitations(wikiSlug, workspace = ".") {
 
 // src/validation/schema-validator.ts
 var import_gray_matter20 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile30, readdir as readdir12 } from "node:fs/promises";
-import { join as join40, relative as relative7 } from "node:path";
+import { readFile as readFile31, readdir as readdir12 } from "node:fs/promises";
+import { join as join41, relative as relative7 } from "node:path";
 var KNOWN_TYPES = /* @__PURE__ */ new Set([
   "entity",
   "topic",
@@ -108954,7 +110205,7 @@ var KNOWN_TYPES = /* @__PURE__ */ new Set([
   "cross-wiki-topic"
 ]);
 async function findPages(wikiSlug, workspace) {
-  const dir = join40(workspace, "wikis", wikiSlug);
+  const dir = join41(workspace, "wikis", wikiSlug);
   const pages = [];
   await walk4(dir, dir, workspace, pages);
   return pages;
@@ -108965,7 +110216,7 @@ async function walk4(root, current, workspace, out) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join40(current, entry.name);
+    const absolute = join41(current, entry.name);
     if (entry.isDirectory()) {
       await walk4(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -108998,7 +110249,7 @@ async function validateSchema(wikiSlug, workspace = ".") {
   const pages = await findPages(wikiSlug, workspace);
   const invalid = [];
   for (const page of pages) {
-    const content = await readFile30(page.absolute, "utf-8");
+    const content = await readFile31(page.absolute, "utf-8");
     let parsed;
     try {
       parsed = (0, import_gray_matter20.default)(content);
@@ -109025,8 +110276,14 @@ async function validateSchema(wikiSlug, workspace = ".") {
         });
       }
       const rollupClass = data.class;
-      if (typeof rollupClass !== "number" || !Number.isInteger(rollupClass) || rollupClass < 1 || rollupClass > 5) {
-        invalid.push({ page: page.relative, issue: 'type composite requires a "class" field (integer 1-5)' });
+      const onTopics = /(^|\/)topics\//.test(page.relative);
+      if (typeof rollupClass !== "number" || !Number.isInteger(rollupClass) || rollupClass < 1 || rollupClass > 6) {
+        invalid.push({ page: page.relative, issue: 'type composite requires a "class" field (integer 1-6)' });
+      } else if (onTopics && rollupClass >= 1 && rollupClass <= 5) {
+        invalid.push({
+          page: page.relative,
+          issue: "composite class 1-5 is not allowed on topic pages \u2014 only class 6 (generic-label disambiguation) is"
+        });
       }
     } else if (data.type === "cross-wiki-index") {
       if (!Array.isArray(data.children)) {
@@ -109074,10 +110331,10 @@ function formatSchemaSummary(schema) {
 }
 async function writeValidationReport(wikiDir2, summary) {
   try {
-    const reportDir = join41(wikiDir2, ".state");
+    const reportDir = join42(wikiDir2, ".state");
     await mkdir24(reportDir, { recursive: true });
     await writeFile24(
-      join41(reportDir, "validation-report.json"),
+      join42(reportDir, "validation-report.json"),
       JSON.stringify(summary, null, 2) + "\n",
       "utf-8"
     );
@@ -109290,14 +110547,14 @@ function checkComparisonPreservation(originalData, writtenPage) {
 }
 
 // src/state/synthesis-report.ts
-import { mkdir as mkdir25, readFile as readFile31, writeFile as writeFile25 } from "node:fs/promises";
-import { join as join42 } from "node:path";
+import { mkdir as mkdir25, readFile as readFile32, writeFile as writeFile25 } from "node:fs/promises";
+import { join as join43 } from "node:path";
 function reportPath(wikiDir2) {
-  return join42(wikiDir2, ".state", "synthesis-report.json");
+  return join43(wikiDir2, ".state", "synthesis-report.json");
 }
 async function readReport(wikiDir2) {
   try {
-    const raw = await readFile31(reportPath(wikiDir2), "utf-8");
+    const raw = await readFile32(reportPath(wikiDir2), "utf-8");
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed.entries)) {
       return parsed;
@@ -109310,7 +110567,7 @@ async function readReport(wikiDir2) {
   return { entries: [] };
 }
 async function writeReport(wikiDir2, state) {
-  await mkdir25(join42(wikiDir2, ".state"), { recursive: true });
+  await mkdir25(join43(wikiDir2, ".state"), { recursive: true });
   await writeFile25(reportPath(wikiDir2), JSON.stringify(state, null, 2) + "\n", "utf-8");
 }
 async function appendSynthesisReportEntries(wikiDir2, entries) {
@@ -109434,7 +110691,7 @@ async function trySynthesisMode(runSynthesis, runCheck, label) {
   return { page: outcome.output, attempts: outcome.attempts, lastCheck };
 }
 function loadAgentsMd(wikiDir2) {
-  const path = join43(wikiDir2, "AGENTS.md");
+  const path = join44(wikiDir2, "AGENTS.md");
   try {
     return readFileSync3(path, "utf-8");
   } catch {
@@ -109493,7 +110750,7 @@ async function runIngest(slug, options2) {
   if (!existsSync11(dir)) {
     throw new Error(`Wiki '${slug}' not found at ${dir}. Run 'init ${slug}' first.`);
   }
-  const rawDir = join43(dir, "raw");
+  const rawDir = join44(dir, "raw");
   if (!existsSync11(rawDir)) {
     throw new Error(`Wiki '${slug}' has no raw/ directory. Run 'init ${slug}' to repair it.`);
   }
@@ -109504,7 +110761,7 @@ async function runIngest(slug, options2) {
   const input = getLanguage(options2.inputLanguage ?? languageState.lastInputLanguage).code;
   const language = { input, output };
   if (input !== languageState.lastInputLanguage) {
-    const extractedDir = join43(dir, ".state", "extracted");
+    const extractedDir = join44(dir, ".state", "extracted");
     const hasExtractions = existsSync11(extractedDir) && (await readdir13(extractedDir)).some((file) => file.endsWith(".json"));
     if (hasExtractions) {
       console.log(
@@ -109609,7 +110866,7 @@ async function runIngest(slug, options2) {
     progress("Materialized entity, topic, and document pages.");
   };
   for (const fileName of pdfFiles) {
-    const pdfPath = join43(rawDir, fileName);
+    const pdfPath = join44(rawDir, fileName);
     const sourceSlug = sourceSlugForFile(fileName);
     const hash = await sha256(pdfPath);
     const existing = state.sources[sourceSlug];
@@ -109636,10 +110893,10 @@ async function runIngest(slug, options2) {
     }
     const chunkCount = Math.max(1, Math.ceil(pageCount / pagesPerChunk));
     for (const oldPage of existing?.documentPages ?? []) {
-      await rm3(join43(dir, oldPage), { force: true });
+      await rm3(join44(dir, oldPage), { force: true });
       const oldChunkId = oldPage.split("/").pop()?.replace(/\.md$/, "");
       if (oldChunkId) {
-        await rm3(join43(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
+        await rm3(join44(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
       }
     }
     const documentPages = [];
@@ -109675,8 +110932,8 @@ async function runIngest(slug, options2) {
 
 ${rendered.text}
 `;
-      await mkdir26(join43(dir, "documents"), { recursive: true });
-      await writeFile26(join43(dir, "documents", docFileName), import_gray_matter21.default.stringify(body, frontmatter), "utf-8");
+      await mkdir26(join44(dir, "documents"), { recursive: true });
+      await writeFile26(join44(dir, "documents", docFileName), import_gray_matter21.default.stringify(body, frontmatter), "utf-8");
       documentPages.push(wikiRelativePath("documents", docFileName));
       if (extract) {
         const chunkId = docFileName.replace(/\.md$/, "");
@@ -109727,7 +110984,7 @@ ${rendered.text}
     });
   }
   if (extract && lastMaterializeResult === void 0) {
-    const extractedDir = join43(dir, ".state", "extracted");
+    const extractedDir = join44(dir, ".state", "extracted");
     const hasExtractions = existsSync11(extractedDir) && (await readdir13(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
     if (hasExtractions) {
       await runMaterialize();
@@ -109739,7 +110996,7 @@ ${rendered.text}
     if (extract && writtenPagePaths.size > 0) {
       for (const relativePath of writtenPagePaths) {
         try {
-          const content = await readFile32(join43(dir, relativePath), "utf-8");
+          const content = await readFile33(join44(dir, relativePath), "utf-8");
           workingPageHashes[relativePath] = createHash5("sha256").update(content, "utf-8").digest("hex");
         } catch {
         }
@@ -109752,7 +111009,7 @@ ${rendered.text}
     if (extract && synthesis && lastMaterializeResult) {
       result.synthesisRan = true;
       const agentsMd = loadAgentsMd(dir);
-      const llmLogPath = join43(dir, ".state", "llm-calls.json");
+      const llmLogPath = join44(dir, ".state", "llm-calls.json");
       const slugUniverse = await buildSlugUniverse(slug, options2.workspace, { language: input });
       const repairPageLinks = (markdown, pageLabel) => {
         const { markdown: repaired, repairs, unrepairable } = repairWikilinksInMarkdown(markdown, slugUniverse);
@@ -109799,9 +111056,9 @@ ${rendered.text}
             entityPage.slug
           );
           if (strict.page !== null) {
-            const folderPath = join43(dir, entityPage.folder);
+            const folderPath = join44(dir, entityPage.folder);
             await writeFile26(
-              join43(folderPath, `${entityPage.slug}.md`),
+              join44(folderPath, `${entityPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceFrontmatterInMarkdown(
@@ -109839,9 +111096,9 @@ ${rendered.text}
             entityPage.slug
           );
           if (permissive.page !== null) {
-            const folderPath = join43(dir, entityPage.folder);
+            const folderPath = join44(dir, entityPage.folder);
             await writeFile26(
-              join43(folderPath, `${entityPage.slug}.md`),
+              join44(folderPath, `${entityPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceFrontmatterInMarkdown(
@@ -109965,9 +111222,9 @@ ${rendered.text}
             `topic ${topicPage.slug}`
           );
           if (strict.page !== null) {
-            const folderPath = join43(dir, topicPage.folder);
+            const folderPath = join44(dir, topicPage.folder);
             await writeFile26(
-              join43(folderPath, `${topicPage.slug}.md`),
+              join44(folderPath, `${topicPage.slug}.md`),
               repairPageLinks(
                 enforceTopicSourcesSectionInMarkdown(
                   enforceTopicFrontmatterInMarkdown(
@@ -110002,9 +111259,9 @@ ${rendered.text}
             `topic ${topicPage.slug}`
           );
           if (permissive.page !== null) {
-            const folderPath = join43(dir, topicPage.folder);
+            const folderPath = join44(dir, topicPage.folder);
             await writeFile26(
-              join43(folderPath, `${topicPage.slug}.md`),
+              join44(folderPath, `${topicPage.slug}.md`),
               repairPageLinks(
                 enforceTopicSourcesSectionInMarkdown(
                   enforceTopicFrontmatterInMarkdown(
@@ -110127,9 +111384,9 @@ ${rendered.text}
             `composite ${compositePage.slug}`
           );
           if (strict.page !== null) {
-            const folderPath = join43(dir, compositePage.folder);
+            const folderPath = join44(dir, compositePage.folder);
             await writeFile26(
-              join43(folderPath, `${compositePage.slug}.md`),
+              join44(folderPath, `${compositePage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceCompositeFrontmatterInMarkdown(strict.page, compositePage),
@@ -110161,9 +111418,9 @@ ${rendered.text}
             `composite ${compositePage.slug}`
           );
           if (permissive.page !== null) {
-            const folderPath = join43(dir, compositePage.folder);
+            const folderPath = join44(dir, compositePage.folder);
             await writeFile26(
-              join43(folderPath, `${compositePage.slug}.md`),
+              join44(folderPath, `${compositePage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceCompositeFrontmatterInMarkdown(permissive.page, compositePage),
@@ -110283,9 +111540,9 @@ ${rendered.text}
             `comparison ${comparisonPage.slug}`
           );
           if (strict.page !== null) {
-            const folderPath = join43(dir, comparisonPage.folder);
+            const folderPath = join44(dir, comparisonPage.folder);
             await writeFile26(
-              join43(folderPath, `${comparisonPage.slug}.md`),
+              join44(folderPath, `${comparisonPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceComparisonBridgeInMarkdown(
@@ -110320,9 +111577,9 @@ ${rendered.text}
             `comparison ${comparisonPage.slug}`
           );
           if (permissive.page !== null) {
-            const folderPath = join43(dir, comparisonPage.folder);
+            const folderPath = join44(dir, comparisonPage.folder);
             await writeFile26(
-              join43(folderPath, `${comparisonPage.slug}.md`),
+              join44(folderPath, `${comparisonPage.slug}.md`),
               repairPageLinks(
                 enforceSourcesSectionInMarkdown(
                   enforceComparisonBridgeInMarkdown(
@@ -110558,7 +111815,7 @@ ${rendered.text}
     writeWorkspaceIndexFn: options2.writeWorkspaceIndexFn,
     writeWorkspaceProseFn: options2.writeWorkspaceProseFn,
     outputLanguage: getLanguage(output).name,
-    logPath: join43(dir, ".state", "llm-calls.json")
+    logPath: join44(dir, ".state", "llm-calls.json")
   });
   progress("Workspace index updated.");
   if (options2.crossWiki === true) {
@@ -110569,7 +111826,7 @@ ${rendered.text}
         wikiSlug: slug,
         language,
         forceCrossWiki: options2.forceCrossWiki,
-        logPath: join43(dir, ".state", "llm-calls.json"),
+        logPath: join44(dir, ".state", "llm-calls.json"),
         onProgress: progress
       });
       result.crossWiki = crossWiki;
@@ -110698,7 +111955,7 @@ function IngestScreen({
     readWikiLanguage(dir).then(async (state) => {
       let extracted = false;
       try {
-        extracted = (await readdir14(join44(dir, ".state", "extracted"))).some(
+        extracted = (await readdir14(join45(dir, ".state", "extracted"))).some(
           (file) => file.endsWith(".json")
         );
       } catch {
@@ -110935,7 +112192,7 @@ var import_react44 = __toESM(require_react(), 1);
 // src/tui/hooks/use-raw-contents.ts
 var import_react43 = __toESM(require_react(), 1);
 import { readdir as readdir15 } from "node:fs/promises";
-import { join as join45 } from "node:path";
+import { join as join46 } from "node:path";
 function useRawContents(workspace, wiki, refreshKey = 0) {
   const [files, setFiles] = (0, import_react43.useState)(null);
   (0, import_react43.useEffect)(() => {
@@ -110946,7 +112203,7 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
     }
     (async () => {
       try {
-        const entries = await readdir15(join45(workspace, "wikis", wiki, "raw"));
+        const entries = await readdir15(join46(workspace, "wikis", wiki, "raw"));
         if (!cancelled) {
           setFiles(entries.sort());
         }
@@ -110965,7 +112222,7 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
 
 // src/commands/add-pdf.ts
 import { copyFile, mkdir as mkdir27, stat as stat2 } from "node:fs/promises";
-import { basename, extname, join as join46, resolve as resolve4 } from "node:path";
+import { basename, extname, join as join47, resolve as resolve4 } from "node:path";
 var AddPdfError = class extends Error {
   constructor(message) {
     super(message);
@@ -110997,9 +112254,9 @@ async function addPdfToWiki(wikiDir2, sourcePath) {
   if (extname(fileName).toLowerCase() !== ".pdf") {
     throw new AddPdfError(`Not a PDF file: ${fileName}. Only .pdf files can be added to raw/.`);
   }
-  const rawDir = join46(wikiDir2, "raw");
+  const rawDir = join47(wikiDir2, "raw");
   await mkdir27(rawDir, { recursive: true });
-  const destPath = join46(rawDir, fileName);
+  const destPath = join47(rawDir, fileName);
   if (resolve4(cleaned) !== resolve4(destPath)) {
     try {
       await copyFile(cleaned, destPath);
@@ -111400,6 +112657,8 @@ function buildRowOrder(settings) {
   order.push("apiKeyAnthropic");
   order.push("apiKeyOpenai");
   order.push("apiKeyQwen");
+  order.push("apiKeyDeepseek");
+  order.push("apiKeyZhipu");
   order.push("save");
   order.push("back");
   return order;
@@ -111409,6 +112668,8 @@ function providerList(settings) {
     "anthropic",
     "openai",
     "qwen",
+    "deepseek",
+    "zhipu",
     ...settings.customProviders.map((cp) => `custom:${cp.id}`)
   ];
 }
@@ -111421,13 +112682,17 @@ function providerLabel(provider, customProviders) {
 var PROVIDER_LABELS = {
   anthropic: "Anthropic",
   openai: "OpenAI",
-  qwen: "Qwen"
+  qwen: "Qwen",
+  deepseek: "DeepSeek",
+  zhipu: "Zhipu"
 };
 var MODEL_SHORT_NAMES = Object.fromEntries(
   [
     ...MODEL_CATALOG.anthropic,
     ...MODEL_CATALOG.openai,
-    ...MODEL_CATALOG.qwen
+    ...MODEL_CATALOG.qwen,
+    ...MODEL_CATALOG.deepseek,
+    ...MODEL_CATALOG.zhipu
   ].map(({ id, label }) => [id, label])
 );
 var RECOMMENDATIONS = {
@@ -111451,16 +112716,34 @@ var RECOMMENDATIONS = {
   },
   qwen: {
     modelExtractor: "Qwen-Plus \u2014 cheapest, good for structured JSON extraction",
-    modelSynthesis: "Qwen 3.7 Max \u2014 better prose, fewer preservation failures",
-    modelDox: "Qwen 3.7 Max \u2014 mid-tier; structural navigation, correctness re-imposed deterministically",
-    modelCuration: "Qwen 3.7 Max \u2014 mid-tier judgment for merge/drop decisions",
+    modelSynthesis: "Qwen 3.8 Flash \u2014 Sonnet-tier prose, fewer preservation failures",
+    modelDox: "Qwen 3.8 Flash \u2014 Sonnet-tier; structural navigation, correctness re-imposed deterministically",
+    modelCuration: "Qwen 3.8 Flash \u2014 Sonnet-tier judgment for merge/drop decisions",
     modelCrossWiki: "Qwen-Plus \u2014 cheapest for bulk cross-wiki tasks (summaries, matching, clustering)",
-    modelCrossWikiJudgment: "Qwen 3.7 Max \u2014 mid-tier review for uncertain cross-wiki matches and hypothesis signals",
+    modelCrossWikiJudgment: "Qwen 3.8 Flash \u2014 Sonnet-tier review for uncertain cross-wiki matches and hypothesis signals",
     modelJsonCorrector: "Qwen-Plus \u2014 cheap; writes short JSON-repair instructions"
+  },
+  deepseek: {
+    modelExtractor: "DeepSeek-V4-Pro \u2014 good for structured JSON extraction",
+    modelSynthesis: "DeepSeek-V4-Pro \u2014 Sonnet-tier prose, fewer preservation failures",
+    modelDox: "DeepSeek-V4-Pro \u2014 Sonnet-tier; structural navigation, correctness re-imposed deterministically",
+    modelCuration: "DeepSeek-V4-Pro \u2014 Sonnet-tier judgment for merge/drop decisions",
+    modelCrossWiki: "DeepSeek-V4-Pro \u2014 bulk cross-wiki tasks (summaries, matching, clustering)",
+    modelCrossWikiJudgment: "DeepSeek-V4-Pro \u2014 Sonnet-tier review for uncertain cross-wiki matches and hypothesis signals",
+    modelJsonCorrector: "DeepSeek-V4-Pro \u2014 writes short JSON-repair instructions"
+  },
+  zhipu: {
+    modelExtractor: "GLM-4.7-Flash \u2014 free tier, good for structured JSON extraction",
+    modelSynthesis: "GLM-5.3-Flash \u2014 Sonnet-tier prose, fewer preservation failures",
+    modelDox: "GLM-5.3-Flash \u2014 Sonnet-tier; structural navigation, correctness re-imposed deterministically",
+    modelCuration: "GLM-5.3-Flash \u2014 Sonnet-tier judgment for merge/drop decisions",
+    modelCrossWiki: "GLM-4.7-Flash \u2014 free tier for bulk cross-wiki tasks (summaries, matching, clustering)",
+    modelCrossWikiJudgment: "GLM-5.3-Flash \u2014 Sonnet-tier review for uncertain cross-wiki matches and hypothesis signals",
+    modelJsonCorrector: "GLM-4.7-Flash \u2014 free tier; writes short JSON-repair instructions"
   }
 };
 function recommendationFor(row, provider) {
-  if (provider !== "anthropic" && provider !== "openai" && provider !== "qwen") {
+  if (provider !== "anthropic" && provider !== "openai" && provider !== "qwen" && provider !== "deepseek" && provider !== "zhipu") {
     return null;
   }
   return RECOMMENDATIONS[provider][row] ?? null;
@@ -111492,7 +112775,7 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
     synthesis: false,
     updateAgents: false,
     models: seedModelsForProvider("anthropic"),
-    apiKeys: { anthropic: null, openai: null, qwen: null },
+    apiKeys: { anthropic: null, openai: null, qwen: null, deepseek: null, zhipu: null },
     customProviders: []
   });
   const [loaded, setLoaded] = (0, import_react45.useState)(false);
@@ -111797,6 +113080,12 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
           setKeyDraft("");
         } else if (row === "apiKeyQwen") {
           setEditingKey("qwen");
+          setKeyDraft("");
+        } else if (row === "apiKeyDeepseek") {
+          setEditingKey("deepseek");
+          setKeyDraft("");
+        } else if (row === "apiKeyZhipu") {
+          setEditingKey("zhipu");
           setKeyDraft("");
         } else if (row === "modelDefault" || row === "modelExtractor" || row === "modelSynthesis" || row === "modelDox" || row === "modelCuration" || row === "modelCrossWiki" || row === "modelCrossWikiJudgment" || row === "modelJsonCorrector") {
           const slot = slotForRow(row);
@@ -112141,7 +113430,9 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { bold: true, children: "API Keys" }),
         renderKeyRow("apiKeyAnthropic", "anthropic", "Anthropic API Key"),
         renderKeyRow("apiKeyOpenai", "openai", "OpenAI API Key"),
-        renderKeyRow("apiKeyQwen", "qwen", "Qwen API Key")
+        renderKeyRow("apiKeyQwen", "qwen", "Qwen API Key"),
+        renderKeyRow("apiKeyDeepseek", "deepseek", "DeepSeek API Key"),
+        renderKeyRow("apiKeyZhipu", "zhipu", "Zhipu API Key")
       ] }),
       testStatus !== "idle" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Box_default, { marginTop: 1, children: testStatus === "testing" ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Text, { dimColor: true, children: "Testing model connection..." }) : testStatus === "success" ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SuccessBox, { message: `Test connection: ${testMessage}` }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(ErrorBox, { message: `Test connection: ${testMessage}` }) }),
       /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Box_default, { marginTop: 1, gap: 2, children: [
@@ -112249,6 +113540,14 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
           "Qwen API Key: ",
           keyStatusText("qwen", settings.apiKeys.qwen)
         ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+          "DeepSeek API Key: ",
+          keyStatusText("deepseek", settings.apiKeys.deepseek)
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
+          "Zhipu API Key: ",
+          keyStatusText("zhipu", settings.apiKeys.zhipu)
+        ] }),
         currentCustomProvider && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Text, { children: [
           currentCustomProvider.name,
           " API Key: ",
@@ -112266,8 +113565,8 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
 
 // src/tui/agents-review-screen.tsx
 var import_react46 = __toESM(require_react(), 1);
-import { copyFile as copyFile2, readFile as readFile33 } from "node:fs/promises";
-import { join as join47 } from "node:path";
+import { copyFile as copyFile2, readFile as readFile34 } from "node:fs/promises";
+import { join as join48 } from "node:path";
 
 // src/utils/line-diff.ts
 function diffLines(before, after) {
@@ -112362,10 +113661,10 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     setScrollOffset(0);
     try {
       const dir = wikiDir(workspace, slug);
-      const currentText = await readFile33(join47(dir, "AGENTS.md"), "utf-8");
+      const currentText = await readFile34(join48(dir, "AGENTS.md"), "utf-8");
       let proposalText;
       try {
-        proposalText = await readFile33(join47(dir, ".state", "proposed-agents.md"), "utf-8");
+        proposalText = await readFile34(join48(dir, ".state", "proposed-agents.md"), "utf-8");
       } catch (err) {
         if (err.code === "ENOENT") {
           proposalText = null;
@@ -112400,7 +113699,7 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     }
     try {
       const dir = wikiDir(workspace, activeWiki);
-      await copyFile2(join47(dir, ".state", "proposed-agents.md"), join47(dir, "AGENTS.md"));
+      await copyFile2(join48(dir, ".state", "proposed-agents.md"), join48(dir, "AGENTS.md"));
       const resultMessage = `Accepted proposed AGENTS.md updates for ${activeWiki}.`;
       setMessage(resultMessage);
       setStatus("done");
