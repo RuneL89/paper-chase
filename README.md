@@ -20,6 +20,10 @@ What you end up with:
 
 The rest of this page shows how the ingestion pipeline works, twice: first at a glance, then in detail. If you just want to run it, skip to [Getting the app](#getting-the-app).
 
+![The Paper Chase main menu with its five items: Create New Wiki, Add PDFs, Ingest PDFs, Settings, Exit](docs/images/tui-main-menu.png)
+
+*The main menu: five items, and everything a wiki needs starts here.*
+
 ## The pipeline at a glance
 
 ![The Paper Chase ingestion pipeline at a glance: a vertical timeline from dropping PDFs into raw/ through the per-PDF loop (chunk, extract, materialize, synthesize or amend, checkpoint) to the finalize steps (validate, DOX, workspace index, cross-wiki, updater, persist), each step tagged USER, CODE, or LLM](docs/images/pipeline-high-level-timeline.png)
