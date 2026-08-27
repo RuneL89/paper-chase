@@ -442,10 +442,14 @@ test('gate 11.5: README.md contains all required sections', () => {
   expect(readme).toContain('# Paper Chase');
   expect(readme).toContain('The paper chase, automated.');
   expect(readme).toContain('## Introduction');
-  expect(readme).toContain('## Functional Architecture');
-  expect(readme).toContain('## Step-by-Step Architecture');
-  expect(readme).toContain('## Detailed Technical Architecture');
-  expect(readme).toContain('## Project Structure');
+  // The Phase-26-era README is the lean progressive-disclosure document the
+  // root AGENTS.md mandates (Introduction → pipeline at a glance → pipeline
+  // in detail → pointers) — the Phase-11 architecture headings were folded
+  // into these sections.
+  expect(readme).toContain('## The pipeline at a glance');
+  expect(readme).toContain('## The pipeline in detail');
+  expect(readme).toContain('## Getting the app');
+  expect(readme).toContain('## Documentation Map');
 });
 
 // ---------------------------------------------------------------------------

@@ -614,6 +614,139 @@ export function isIndicatorSlug(slug: string): boolean {
   return INDICATOR_PATTERN.test(slug);
 }
 
+/**
+ * Phase 25 (§2.1, canon: vision `04` §3.2 Step 6b — the generic-label SHAPE
+ * families, slug-language-agnostic by regex alternation, never a corpus term
+ * list): `indikator-N`/`indicator-N` plus the same numbered shape for tables,
+ * sections, appendices, and figures (da/en spellings both recognized),
+ * optionally with a trailing name suffix (`indikator-2-ct-skanning`). Extend
+ * the alternation to add a family — never a term list.
+ */
+const GENERIC_LABEL_PATTERN = /^(?:indikator|indicator|table|tabel|section|afsnit|appendix|appendiks|figure|figur)-\d+(?:-.+)?$/;
+
+/**
+ * Phase 25 (§2.1): is the slug a GENERIC LABEL (one of the numbered shape
+ * families)? Exported for the Materializer's disambiguation detector (a
+ * generalization of `isIndicatorSlug` above — the class-3 family rule keeps
+ * the narrower indicator-only pattern).
+ */
+export function isGenericLabelSlug(slug: string): boolean {
+  return GENERIC_LABEL_PATTERN.test(slug);
+}
+
+/**
+ * Phase 25 (§2.2, gate 25.2): is the slug a BARE generic label — the family
+ * word plus a number, nothing else (`indikator-3`)? A disambiguation member
+ * slug must NEVER be one: members derive from the meaning or the source
+ * register, never from renumbering the label.
+ */
+export function isBareGenericLabelSlug(slug: string): boolean {
+  return /^(?:indikator|indicator|table|tabel|section|afsnit|appendix|appendiks|figure|figur)-\d+$/.test(slug);
+}
+
+// ---------------------------------------------------------------------------
+// Phase 25 (§2.1): the heterogeneity signal — substantive-token overlap
+// ---------------------------------------------------------------------------
+
+/**
+ * Phase 25 (§2.1): a small checked-in da/en stopword list. Tokens are counted
+ * after lowercasing and stopword/number removal, so the overlap signal reads
+ * SUBSTANTIVE words only (clinical terms, measures, definitions) — never
+ * boilerplate grammar.
+ */
+const GENERIC_LABEL_STOPWORDS = new Set([
+  // English
+  'the', 'a', 'an', 'of', 'in', 'to', 'for', 'and', 'or', 'is', 'are', 'was', 'were',
+  'be', 'been', 'with', 'on', 'at', 'by', 'from', 'as', 'that', 'this', 'it', 'its',
+  'their', 'than', 'then', 'after', 'before', 'within', 'across', 'per', 'not', 'no',
+  'all', 'any', 'each', 'which', 'who', 'whom', 'has', 'have', 'had', 'can', 'could',
+  'will', 'would', 'should', 'may', 'might', 'must', 'do', 'does', 'did', 'more',
+  'most', 'less', 'least', 'between', 'during', 'under', 'over', 'into', 'onto',
+  'up', 'down', 'out', 'off', 'same', 'other', 'such', 'only', 'own', 'so', 'if',
+  'but', 'when', 'while', 'where', 'how', 'what', 'why', 'also', 'here', 'there',
+  // Danish
+  'og', 'i', 'på', 'af', 'til', 'for', 'med', 'der', 'som', 'en', 'et', 'de', 'den',
+  'det', 'at', 'er', 'var', 'har', 'have', 'haft', 'være', 'været', 'ikke', 'eller',
+  'kan', 'skal', 'vil', 'må', 'efter', 'før', 'inden', 'over', 'under', 'mellem',
+  'gennem', 'mod', 'hos', 'fra', 'om', 'alle', 'enhver', 'ingen', 'samme', 'anden',
+  'andet', 'andre', 'deres', 'sin', 'sit', 'sine', 'denne', 'dette', 'disse', 'hvis',
+  'hvordan', 'hvorfor', 'hvad', 'når', 'mens', 'hvor', 'så', 'også', 'kun', 'endnu',
+  'allerede', 'mere', 'mest', 'mindre', 'mindst', 'dog', 'jo', 'bare', 'lige', 'ud',
+  'op', 'ned', 'fx', 'bl.a.', 'inkl', 'via', 'ved',
+]);
+
+/**
+ * Phase 25 (§2.1): the substantive-token set of one side's sample texts —
+ * lowercase word tokens (da/en letters + digits) minus stopwords, bare
+ * numbers, and the label's own tokens (the label itself proves nothing about
+ * meaning). Exported for the Materializer's detector and re-entry assignment.
+ */
+export function substantiveTokens(
+  texts: ReadonlyArray<string>,
+  labelTokens?: ReadonlySet<string>,
+): Set<string> {
+  const tokens = new Set<string>();
+  for (const text of texts) {
+    for (const token of text.toLowerCase().split(/[^a-z0-9æøåäöüéèêàâçñ]+/)) {
+      if (token.length < 2 || /^\d+$/.test(token)) {
+        continue;
+      }
+      if (GENERIC_LABEL_STOPWORDS.has(token)) {
+        continue;
+      }
+      if (labelTokens?.has(token)) {
+        continue;
+      }
+      tokens.add(token);
+    }
+  }
+  return tokens;
+}
+
+/** The label's own slug tokens (`indikator-2` → indikator, 2) — excluded from overlap. */
+export function labelSlugTokens(slug: string): Set<string> {
+  return new Set(slug.split('-'));
+}
+
+/** Jaccard similarity of two token sets (|∩| / |∪|; 0 when both are empty). */
+export function tokenOverlapJaccard(a: ReadonlySet<string>, b: ReadonlySet<string>): number {
+  if (a.size === 0 && b.size === 0) {
+    return 0;
+  }
+  let intersection = 0;
+  for (const token of a) {
+    if (b.has(token)) {
+      intersection += 1;
+    }
+  }
+  const union = a.size + b.size - intersection;
+  return union === 0 ? 0 : intersection / union;
+}
+
+/**
+ * Phase 25 (§2.1): the heterogeneity threshold — a generic label is flagged
+ * only when the MINIMUM pairwise Jaccard overlap between its per-source
+ * substantive-token sets falls below this (same-meaning sources restating one
+ * measure share most substantive words; different meanings share almost
+ * none). Both detector conditions (generic shape AND low overlap) are
+ * required — the pattern alone never fires.
+ */
+export const GENERIC_LABEL_OVERLAP_THRESHOLD = 0.2;
+
+/**
+ * Phase 25 (§2.1, vision `04` §3.2 Step 6b): one DETERMINISTIC disambiguation
+ * proposal — a generic-label slug whose evidence arrives from ≥2 source files
+ * with divergent substantive tokens. Mirrors `ProposedPair`/`ProposedCluster`;
+ * judged split/no-split by ONE `disambiguate` call (`src/agents/disambiguation.ts`).
+ */
+export interface ProposedDisambiguation {
+  slug: string;
+  title: string;
+  concern: 'topics' | 'entities';
+  /** Per source file: 2-3 truncated sample claims/mentions (the judgment evidence). */
+  sources: Array<{ file: string; samples: string[] }>;
+}
+
 function indicatorEdges(candidates: PreMergeCandidate[]): { edges: RawEdge[]; clusters: ProposedCluster[] } {
   const edges: RawEdge[] = [];
   const clusters: ProposedCluster[] = [];

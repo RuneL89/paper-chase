@@ -111,7 +111,11 @@ export async function validateSchema(wikiSlug: string, workspace: string = '.'):
     } else if (data.type === 'composite') {
       // Phase 22 (§2.4, the five-class rollup amendment): a composite page
       // must carry its members block (2-4 entries, each with a slug) and the
-      // ratified rollup class (integer 1-5).
+      // ratified rollup class (integer 1-5). Phase 25 (§2.4, vision `05` §6
+      // class 6 + §7): the class range widens to 1-6, and class 6 (the
+      // generic-label disambiguation composite) is the ONE class legal on
+      // BOTH concerns — classes 1-5 remain entity-only, so a class 1-5
+      // composite under topics/ is a validation error.
       const members = data.members;
       if (
         !Array.isArray(members) ||
@@ -131,8 +135,14 @@ export async function validateSchema(wikiSlug: string, workspace: string = '.'):
         });
       }
       const rollupClass = data.class;
-      if (typeof rollupClass !== 'number' || !Number.isInteger(rollupClass) || rollupClass < 1 || rollupClass > 5) {
-        invalid.push({ page: page.relative, issue: 'type composite requires a "class" field (integer 1-5)' });
+      const onTopics = /(^|\/)topics\//.test(page.relative);
+      if (typeof rollupClass !== 'number' || !Number.isInteger(rollupClass) || rollupClass < 1 || rollupClass > 6) {
+        invalid.push({ page: page.relative, issue: 'type composite requires a "class" field (integer 1-6)' });
+      } else if (onTopics && rollupClass >= 1 && rollupClass <= 5) {
+        invalid.push({
+          page: page.relative,
+          issue: 'composite class 1-5 is not allowed on topic pages — only class 6 (generic-label disambiguation) is',
+        });
       }
     } else if (data.type === 'cross-wiki-index') {
       // Phase 24 (vision `05` §9.1): children list required; entityCount/

@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { enqueueSerializedWrite } from '../utils/serialized-writes';
 import type { EntityPageData } from '../pages/entity-page';
 import type { TopicPageData } from '../pages/topic-page';
-import type { CompositePageData } from '../pages/composite-page';
+import type { CompositePageData, TopicCompositePageData } from '../pages/composite-page';
 import type { ComparisonPageData } from '../pages/comparison-page';
 import type { LanguageCode } from '../utils/language';
 
@@ -43,7 +43,18 @@ export type SynthesisPageMode =
   | 'strict-synthesis'
   | 'permissive-synthesis'
   | 'structured-template'
-  | 'transport-fallback';
+  | 'transport-fallback'
+  /** Phase 26 (§2.4): a successfully patch-amended page (skip-eligible). */
+  | 'patch-amended';
+
+/**
+ * Phase 26 (§2.2): the synthesis page kinds — the kind the record was written
+ * for. Amendment eligibility is kind-scoped: a page whose KIND changed (e.g.
+ * an ordinary entity page that became a class-6 composite at the same path,
+ * Phase 25) is a shape change and takes full synthesis even when a record
+ * exists at the path. Legacy records (pre-Phase-26) lack the field.
+ */
+export type SynthesisPageKind = 'entity' | 'topic' | 'composite' | 'comparison';
 
 export interface SynthesisPageRecord {
   mode: SynthesisPageMode;
@@ -51,6 +62,16 @@ export interface SynthesisPageRecord {
   dataHash: string;
   /** ISO 8601 timestamp of that synthesis-stage completion. */
   synthesizedAt: string;
+  /**
+   * Phase 26 (§2.2): the evidence-key set (the materializer's exported key
+   * builders) of the aggregate this page was last successfully synthesized
+   * (strict/permissive/patch-amended) from — the amendment delta's baseline.
+   * Absent on legacy records and on template/transport fallbacks (never
+   * amendment-eligible: no computable delta).
+   */
+  baselineKeys?: string[];
+  /** Phase 26: the page kind this record was written for (see above). */
+  pageKind?: SynthesisPageKind;
 }
 
 export interface SynthesisState {
@@ -100,15 +121,22 @@ export async function readSynthesisState(wikiDir: string): Promise<SynthesisStat
 
 /**
  * True when a record makes its page skip-eligible: only pages that PASSED
- * synthesis (strict or permissive) are skipped on later runs; template
- * fallbacks are always retried.
+ * synthesis (strict, permissive, or — Phase 26 — a patch amendment) are
+ * skipped on later runs; template fallbacks are always retried.
  */
 export function isSkipEligible(record: SynthesisPageRecord | undefined): record is SynthesisPageRecord {
-  return record !== undefined && (record.mode === 'strict-synthesis' || record.mode === 'permissive-synthesis');
+  return (
+    record !== undefined &&
+    (record.mode === 'strict-synthesis' ||
+      record.mode === 'permissive-synthesis' ||
+      record.mode === 'patch-amended')
+  );
 }
 
 /** Wiki-relative page path for a page-data aggregate (forward slashes). */
-export function synthesisPagePath(pageData: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData): string {
+export function synthesisPagePath(
+  pageData: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData | TopicCompositePageData,
+): string {
   return `${pageData.folder}/${pageData.slug}.md`;
 }
 
@@ -144,7 +172,7 @@ function canonicalJson(value: unknown): string {
  * check and the ingest skip rule so the two can never drift apart.
  */
 export function pageDataHash(
-  pageData: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData,
+  pageData: EntityPageData | TopicPageData | CompositePageData | ComparisonPageData | TopicCompositePageData,
   language: { input: LanguageCode; output: LanguageCode },
 ): string {
   const { slugToTitle: _globalContext, ...aggregate } = pageData;

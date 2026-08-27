@@ -140,6 +140,9 @@ const SYNTHESIS_CALL_TYPES = new Set([
   'permissive-synthesis',
   'topic-synthesis',
   'permissive-topic-synthesis',
+  // Phase 26 (§2.3): the Amendment Writer rides the SAME synthesis slot —
+  // deliberately no new Settings row (a patch is synthesis-family output).
+  'synthesis-amend',
 ]);
 
 /**
@@ -317,7 +320,10 @@ export function resolveSlotFromRouting(routing: ModelRouting, callType?: string)
     return routing.dox;
   }
   // Phase 14 §2.6: 'curation' → routing.curation → default when null.
-  if (callType === 'curation' && routing.curation != null) {
+  // Phase 25 (§2.2): the generic-label disambiguation judgment rides the SAME
+  // curation slot (the same mid-tier judgment tier; fallback Default) —
+  // deliberately no new Settings row.
+  if ((callType === 'curation' || callType === 'disambiguate') && routing.curation != null) {
     return routing.curation;
   }
   return { provider: routing.provider ?? 'anthropic', model: routing.default };
@@ -1279,7 +1285,7 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
   if (provider.startsWith('custom:')) {
     const config = modelRouting?.customProviders?.find((c) => c.id === provider.slice(7));
     parsed = parseCustomProviderResponse(json, config?.responseTemplate ?? { textPath: '' });
-  } else if (provider === 'openai' || provider === 'qwen') {
+  } else if (provider === 'openai' || provider === 'qwen' || provider === 'deepseek' || provider === 'zhipu') {
     parsed = parseOpenAIResponse(json);
   } else {
     parsed = parseAnthropicResponse(json);

@@ -1,0 +1,48 @@
+{
+  "run": "2026-08-27T10:00:00.000Z",
+  "newPdfs": [
+    "golden-master.pdf"
+  ],
+  "newEntities": [
+    {
+      "slug": "alpha-corp",
+      "title": "Alpha Corp",
+      "folder": "entities/organizations"
+    },
+    {
+      "slug": "jane-doe",
+      "title": "Jane Doe",
+      "folder": "entities/people"
+    }
+  ],
+  "updatedEntities": [],
+  "conflicts": 0,
+  "totalCost": 0,
+  "chunksProcessed": 1,
+  "chunksSkipped": 0,
+  "chunksFailed": 0,
+  "entitiesNew": 2,
+  "entitiesUpdated": 0,
+  "relationshipsExtracted": 1,
+  "claimsExtracted": 1,
+  "claimsByType": {
+    "financial": 1
+  },
+  "pagesByType": {
+    "entity": 2,
+    "topic": 1,
+    "document": 1
+  },
+  "foldersCreated": 3,
+  "brokenLinks": 0,
+  "orphanedPages": 0,
+  "conflictsManualEdit": 0,
+  "conflictsPreservation": 0,
+  "totalTokens": 0,
+  "wallClockMs": 0,
+  "feedbackRepairs": 0,
+  "curationFallbacks": 0,
+  "transportFailures": 0,
+  "patchedPages": 0,
+  "patchFallbacks": 0
+}

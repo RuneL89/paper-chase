@@ -1,0 +1,36 @@
+{
+  "pages": {
+    "entities/organizations/alpha-corp.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "e8cfe87c33c20dde636f1530e562eea1e15ae00a000de9495bc49ccdd9aed12c",
+      "synthesizedAt": "2026-08-27T10:00:00.000Z",
+      "pageKind": "entity",
+      "baselineKeys": [
+        "m:1|Alpha Corp led the consortium bid|wikis/test-wiki/raw/golden-master.pdf|1-3",
+        "m:2|The Alpha Corp board met twice|wikis/test-wiki/raw/golden-master.pdf|1-3",
+        "i:jane-doe|is-ceo-of|2|wikis/test-wiki/raw/golden-master.pdf|1-3",
+        "c:Alpha Corp won the regional tender|financial|3|wikis/test-wiki/raw/golden-master.pdf|1-3|alpha-corp",
+        "t:2024-03-01|Tender decision announced|alpha-corp"
+      ]
+    },
+    "entities/people/jane-doe.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "019bdf917348c1c646ac4ee23d172c1541d35578e1bf3b07215834053a16c829",
+      "synthesizedAt": "2026-08-27T10:00:00.000Z",
+      "pageKind": "entity",
+      "baselineKeys": [
+        "m:2|Jane Doe chairs the Alpha Corp board|wikis/test-wiki/raw/golden-master.pdf|1-3",
+        "r:jane-doe|is-ceo-of|alpha-corp|2|wikis/test-wiki/raw/golden-master.pdf|1-3"
+      ]
+    },
+    "topics/financial/financial.md": {
+      "mode": "strict-synthesis",
+      "dataHash": "1e87dc9c8e14ce0e1c3eea54d1596d6bb645c87e2bb4a3581f93a69f6c5678ce",
+      "synthesizedAt": "2026-08-27T10:00:00.000Z",
+      "pageKind": "topic",
+      "baselineKeys": [
+        "c:Alpha Corp won the regional tender|financial|3|wikis/test-wiki/raw/golden-master.pdf|1-3|alpha-corp"
+      ]
+    }
+  }
+}

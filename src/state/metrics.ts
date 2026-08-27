@@ -31,7 +31,9 @@ import { join } from 'node:path';
  *   "wallClockMs": 42000,
  *   "feedbackRepairs": 0,
  *   "curationFallbacks": 0,
- *   "transportFailures": 0
+ *   "transportFailures": 0,
+ *   "patchedPages": 0,
+ *   "patchFallbacks": 0
  * }
  * ```
  */
@@ -107,6 +109,20 @@ export interface IngestionMetrics {
    * synthesis-report entry records `finalMode: 'transport-fallback'`.
    */
   transportFailures: number;
+  /**
+   * Phase 26 (§2.5, per-PDF patch amendment): pages successfully amended by
+   * a validated patch this run (`finalMode: 'patch-amended'` on their
+   * synthesis-report entries; one `.state/amendment-log.jsonl` episode each
+   * with outcome `patched`). 0 on a run without amendments.
+   */
+  patchedPages: number;
+  /**
+   * Phase 26 (§2.5): amendment episodes that exhausted their reask and fell
+   * back to normal full synthesis this run (logged loudly; the
+   * amendment-log episodes carry outcome `fallback-full-synthesis`). 0 on a
+   * healthy run.
+   */
+  patchFallbacks: number;
 }
 
 export function metricsPath(wikiDir: string): string {

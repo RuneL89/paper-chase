@@ -1,0 +1,63 @@
+{
+  "entities": [
+    {
+      "name": "Alpha Corp",
+      "type": "organization",
+      "slug": "alpha-corp",
+      "folder": "entities/organizations",
+      "significance": "The fixture survivor.",
+      "mentions": [
+        {
+          "page": 1,
+          "context": "Alpha Corp led the consortium bid"
+        },
+        {
+          "page": 2,
+          "context": "The Alpha Corp board met twice"
+        }
+      ]
+    },
+    {
+      "name": "Jane Doe",
+      "type": "person",
+      "slug": "jane-doe",
+      "folder": "entities/people",
+      "significance": "Alpha Corp CEO.",
+      "mentions": [
+        {
+          "page": 2,
+          "context": "Jane Doe chairs the Alpha Corp board"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "jane-doe",
+      "predicate": "is-ceo-of",
+      "object": "alpha-corp",
+      "evidence": "Jane Doe chairs the Alpha Corp board",
+      "page": 2
+    }
+  ],
+  "claims": [
+    {
+      "text": "Alpha Corp won the regional tender",
+      "type": "financial",
+      "entities": [
+        "alpha-corp"
+      ],
+      "page": 3
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-03-01",
+      "event": "Tender decision announced",
+      "entities": [
+        "alpha-corp"
+      ]
+    }
+  ],
+  "context": "Phase 26 golden fixture extraction."
+}

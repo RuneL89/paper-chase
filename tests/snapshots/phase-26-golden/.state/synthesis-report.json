@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "timestamp": "2026-08-27T10:00:00.000Z",
+      "pageType": "entity",
+      "slug": "alpha-corp",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-27T10:00:00.000Z",
+      "pageType": "entity",
+      "slug": "jane-doe",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    },
+    {
+      "timestamp": "2026-08-27T10:00:00.000Z",
+      "pageType": "topic",
+      "slug": "financial",
+      "strict": {
+        "attempted": true,
+        "passed": true,
+        "attempts": 1
+      },
+      "permissive": {
+        "attempted": false,
+        "passed": false
+      },
+      "finalMode": "strict-synthesis"
+    }
+  ]
+}

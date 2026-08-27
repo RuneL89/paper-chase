@@ -60,9 +60,12 @@ The wiki root also contains `AGENTS.md` (this file), `index.md` (navigation cont
 | `topic` | Theme or concept across the corpus | `topics/<subfolder>/` | Your content, assembled by the Materializer |
 | `entity` | Named person, company, organization, etc. | `entities/<subfolder>/` | Your content, assembled by the Materializer |
 | `comparison` | One article per comparison-table subject | `comparisons/` | Your extracted `tables`, assembled by the Materializer |
+| `composite` | One article pooling logically-mapped identities (or one generic label's distinct meanings) | `entities/` or `topics/` | Deterministic code (curation clusters + the disambiguation pass) |
 | `raw` | Unparseable or scanned PDF page | Per source | Deterministic extraction |
 
 A `comparison` page is written for each structured comparison table you extract (the `tables` output): the article's identity is the table's SUBJECT entity (its canonical slug when resolvable, never the drifting caption), each source's table is preserved verbatim in its own dated `## Table: <source>, p. <page>` section — the markdown structure is reconstructed, every row label and value stays the document's own — and a deterministic `## Related comparisons in prose` section links out to the topic/entity pages where free-text comparisons live. Synthesis reads ACROSS the dated sections (leaders, trailers, targets met or missed, trends, outliers).
+
+A `composite` page (class 6, generic-label disambiguation) is written by the CLI when one GENERIC label — a numbered shape like `indikator-2` or `table-3`, never a name — turns out to mean different real things in different source documents: the composite lives AT the generic slug (so every wikilink to the label keeps resolving), carries a `members` block naming one member per distinct meaning, and groups each source's verbatim evidence under its own meaning's subheading. You never create or split composites yourself — extraction feeds the evidence and the CLI judges the meanings.
 
 You may introduce new page types when the corpus demands them (e.g., `timeline`, `transaction`, `case`, `claim`). New types must be documented in the folder-level `index.md` and in this `AGENTS.md`.
 
