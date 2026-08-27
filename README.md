@@ -94,7 +94,7 @@ When a PDF's pages are done, its state is checkpointed. An interrupted run picks
 
 ### Finalize
 
-Validation sweeps the whole wiki: links, citations, frontmatter. The DOX Writer writes each folder's `index.md` navigation contract, with children and statistics re-imposed by code, and the workspace index gains this wiki's segment with every other wiki's bytes untouched. With two or more wikis, the Cross-Wiki pass builds the entity registry, relationship graph, and topic clusters; uncertain matches are held for human review, and the pass never aborts the ingest on failure. If enabled, the Updater drafts an `AGENTS.md` proposal, applied only when you press `P` and accept the diff (or left on disk for later). Metrics, the LLM call log, and the stall log are persisted, and the wiki is ready.
+Validation sweeps the whole wiki: links, citations, frontmatter. The DOX Writer writes each folder's `index.md` navigation contract, with children and statistics re-imposed by code, and the workspace index gains this wiki's segment with every other wiki's bytes untouched. With two or more wikis, the Cross-Wiki pass builds the entity registry, relationship graph, and topic clusters; uncertain matches are held for human review, and the pass never aborts the ingest on failure. If enabled, the Updater drafts an `AGENTS.md` proposal, applied only when you press `P` and accept the diff (or left on disk for later). Metrics, the LLM call log, the stall log, and the amendment log are persisted, and the wiki is ready.
 
 ### Guard rails (apply to every LLM call)
 
