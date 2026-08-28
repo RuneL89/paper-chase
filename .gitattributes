@@ -1,2 +1,12 @@
 dist/paper-chase.exe filter=lfs diff=lfs merge=lfs -text
 dist/runtime-node.exe filter=lfs diff=lfs merge=lfs -text
+
+# Line-ending hygiene (2026-08-28): these files are byte-asserted with LF
+# strings by the test suite — prompt-template gates (e.g. gate 25.2 asserts
+# `=== LANGUAGE ===\n{languageDirective}\n` verbatim) and the phase-26 golden
+# snapshot replay (gate 26.2 byte-compares generated output against the
+# frozen tree). With `core.autocrlf=true` a checkout smudges them to CRLF and
+# those gates fail, so the conversion is pinned off for exactly these paths.
+prompts/*.txt text eol=lf
+templates/AGENTS.md text eol=lf
+tests/snapshots/** text eol=lf

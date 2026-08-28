@@ -1515,7 +1515,7 @@ test('gate 11.12: the review hint shows only when the run proposed AGENTS.md upd
       onBack: () => {},
       workspace,
       ingestFn: async () => stubIngestResult(false),
-      onReviewAgents: (wiki: string) => (reviewed = wiki),
+      onReviewAgents: (wiki) => (reviewed = wiki.slug),
     }),
   );
   await waitFor(() => withoutProposal.output().includes('review-wiki'));

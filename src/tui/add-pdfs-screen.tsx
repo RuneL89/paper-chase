@@ -6,7 +6,7 @@ import { Footer } from './components/footer';
 import { LoadingSpinner } from './components/spinner';
 import { ErrorBox } from './components/error-box';
 import { SuccessBox } from './components/success-box';
-import { useWikiList } from './hooks/use-wiki-list';
+import { useWikiList, type WikiRef } from './hooks/use-wiki-list';
 import { useRawContents } from './hooks/use-raw-contents';
 import { addPdfToWiki } from '../commands/add-pdf';
 import { pickPdfFiles } from '../utils/file-dialog';
@@ -17,6 +17,13 @@ export interface AddPdfsScreenProps extends ScreenProps {
   /** Workspace directory containing wikis/ (used by tests; default '.'). */
   workspace?: string;
   /**
+   * 2026-08-28: every registered workspace — the selector aggregates the
+   * wikis of ALL of them (workspace labels shown when there is more than
+   * one). Falls back to `[workspace ?? '.']` so single-workspace callers
+   * behave exactly as before.
+   */
+  workspaces?: string[];
+  /**
    * File-picker implementation. Defaults to the native Windows OpenFileDialog
    * (src/utils/file-dialog.ts); tests inject a stub so no real dialog spawns.
    */
@@ -24,15 +31,16 @@ export interface AddPdfsScreenProps extends ScreenProps {
   /**
    * Phase 11 (phase doc §2.4, Gate 11.4): continuous workflow — when set, the
    * screen starts directly in add mode for this wiki (no selector), and
-   * Escape from add mode goes back to the menu.
+   * Escape from add mode goes back to the menu. 2026-08-28: the workspace
+   * rides along so the copy targets the wiki's own folder, not the cwd.
    */
-  initialWiki?: string;
+  initialWiki?: WikiRef;
   /**
    * Phase 11 (phase doc §2.4): invoked when the post-add "Start ingesting
    * now? [Y/n]" prompt is confirmed. When omitted, confirming falls back to
    * onBack().
    */
-  onStartIngest?: (wiki: string) => void;
+  onStartIngest?: (wiki: WikiRef) => void;
 }
 
 type Mode = 'select' | 'add' | 'confirm-ingest';
@@ -97,20 +105,22 @@ function RawContents({ wiki, files }: { wiki: string | undefined; files: string[
 export function AddPdfsScreen({
   onBack,
   onResult,
-  workspace = '.',
+  workspace,
+  workspaces,
   pickFiles,
   initialWiki,
   onStartIngest,
 }: AddPdfsScreenProps) {
   const { isRawModeSupported } = useStdin();
-  const wikis = useWikiList(workspace);
+  const list = workspaces ?? [workspace ?? '.'];
+  const wikis = useWikiList(list);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedWiki = wikis.length > 0 ? wikis[Math.min(selectedIndex, wikis.length - 1)] : undefined;
   const [mode, setMode] = useState<Mode>(initialWiki ? 'add' : 'select');
-  const [activeWiki, setActiveWiki] = useState<string | undefined>(initialWiki);
+  const [activeWiki, setActiveWiki] = useState<WikiRef | undefined>(initialWiki);
   const [refreshKey, setRefreshKey] = useState(0);
   const shownWiki = mode === 'select' ? selectedWiki : activeWiki;
-  const rawFiles = useRawContents(workspace, shownWiki, refreshKey);
+  const rawFiles = useRawContents(shownWiki?.workspace ?? list[0], shownWiki?.slug, refreshKey);
   const [focus, setFocus] = useState<AddFocus>('browse');
   const [pathInput, setPathInput] = useState('');
   const [status, setStatus] = useState<AddStatus>('idle');
@@ -118,6 +128,12 @@ export function AddPdfsScreen({
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [notice, setNotice] = useState('');
+
+  // 2026-08-28: the workspace label is shown only when the list spans more
+  // than one workspace — single-workspace frames stay byte-identical.
+  const multiWorkspace = new Set(wikis.map((wiki) => wiki.workspace)).size > 1;
+  const wikiLabel = (wiki: WikiRef) => (multiWorkspace ? `${wiki.slug} (${wiki.workspace})` : wiki.slug);
+  const wikiKey = (wiki: WikiRef) => `${wiki.workspace}/${wiki.slug}`;
 
   const clearFeedback = () => {
     setSuccessMsg('');
@@ -130,7 +146,7 @@ export function AddPdfsScreen({
     if (!activeWiki) {
       return;
     }
-    const summary = `Copied ${count} file(s) to wikis/${activeWiki}/raw/.`;
+    const summary = `Copied ${count} file(s) to wikis/${activeWiki.slug}/raw/.`;
     setSuccessMsg(summary);
     onResult?.(summary);
     setPathInput(''); // ready for the next file immediately
@@ -146,7 +162,7 @@ export function AddPdfsScreen({
     setBusyLabel('Copying PDF...');
     clearFeedback();
     try {
-      await addPdfToWiki(wikiDir(workspace, activeWiki), rawPath);
+      await addPdfToWiki(wikiDir(activeWiki.workspace, activeWiki.slug), rawPath);
       finishSuccessfulAdd(1);
     } catch (err) {
       setErrorMsg((err as Error).message);
@@ -188,7 +204,7 @@ export function AddPdfsScreen({
     const failures: string[] = [];
     for (const filePath of picked) {
       try {
-        const result = await addPdfToWiki(wikiDir(workspace, activeWiki), filePath);
+        const result = await addPdfToWiki(wikiDir(activeWiki.workspace, activeWiki.slug), filePath);
         added.push(result.fileName);
       } catch (err) {
         failures.push(`${filePath}: ${(err as Error).message}`);
@@ -307,7 +323,11 @@ export function AddPdfsScreen({
       <Header />
       <Text bold>Add PDFs</Text>
       {wikis.length === 0 && !activeWiki ? (
-        <Text dimColor>No wikis found in {workspace}/wikis. Create one first (init).</Text>
+        <Text dimColor>
+          {list.length === 1
+            ? `No wikis found in ${list[0]}/wikis. Create one first (init).`
+            : 'No wikis found in the registered workspaces. Create one first (init).'}
+        </Text>
       ) : !isRawModeSupported ? (
         // Non-TTY fallback (piped output, test runner): the picker and text
         // input require raw mode, so render the wiki list, raw/ contents, and
@@ -316,9 +336,9 @@ export function AddPdfsScreen({
         <Box flexDirection="column" marginTop={1}>
           <Text>Select Wiki:</Text>
           {(activeWiki ? [activeWiki] : wikis).map((wiki) => (
-            <Text key={wiki}> {wiki}</Text>
+            <Text key={wikiKey(wiki)}> {wikiLabel(wiki)}</Text>
           ))}
-          <RawContents wiki={shownWiki} files={rawFiles} />
+          <RawContents wiki={shownWiki?.slug} files={rawFiles} />
           <Text> [ Browse for PDFs... ]</Text>
           <Text dimColor> Fallback: enter path manually (PDF path:)</Text>
           <Text dimColor>Interactive picker and path input require a TTY.</Text>
@@ -327,12 +347,12 @@ export function AddPdfsScreen({
         <Box flexDirection="column" marginTop={1}>
           <Text>Select Wiki:</Text>
           {wikis.map((wiki, index) => (
-            <Text key={wiki} color={index === selectedIndex ? 'cyan' : undefined}>
+            <Text key={wikiKey(wiki)} color={index === selectedIndex ? 'cyan' : undefined}>
               {index === selectedIndex ? '> ' : '  '}
-              {wiki}
+              {wikiLabel(wiki)}
             </Text>
           ))}
-          <RawContents wiki={shownWiki} files={rawFiles} />
+          <RawContents wiki={shownWiki?.slug} files={rawFiles} />
         </Box>
       ) : mode === 'confirm-ingest' ? (
         <Box flexDirection="column" marginTop={1}>
@@ -342,8 +362,8 @@ export function AddPdfsScreen({
         </Box>
       ) : (
         <Box flexDirection="column" marginTop={1}>
-          <Text>Adding to: {activeWiki}</Text>
-          <RawContents wiki={activeWiki} files={rawFiles} />
+          <Text>Adding to: {activeWiki?.slug}</Text>
+          <RawContents wiki={activeWiki?.slug} files={rawFiles} />
           <Box marginTop={1}>
             <Text color={focus === 'browse' ? 'cyan' : undefined} bold={focus === 'browse'}>
               {focus === 'browse' ? '> ' : '  '}[ Browse for PDFs... ]

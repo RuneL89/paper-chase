@@ -7,8 +7,7 @@ import { Footer } from './components/footer';
 import { LoadingSpinner } from './components/spinner';
 import { ErrorBox } from './components/error-box';
 import { SuccessBox } from './components/success-box';
-import { useWikiList } from './hooks/use-wiki-list';
-import { wikiDir } from '../utils/paths';
+import { useWikiList } from './hooks/use-wiki-list';import { wikiDir } from '../utils/paths';
 import { diffLines, diffHunks, type LineDiff } from '../utils/line-diff';
 import { readStructuralChanges, type StructuralChangeLog } from '../state/structural-changes';
 import type { ScreenProps } from './init-screen';
@@ -47,7 +46,9 @@ const DIFF_LINE_STEP = 4;
  */
 export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: initialWiki }: AgentsReviewScreenProps) {
   const { isRawModeSupported } = useStdin();
-  const wikis = useWikiList(workspace);
+  // 2026-08-28: single-workspace on purpose — App targets the flow wiki's own
+  // workspace; the screen only needs the wikis of that one folder.
+  const wikis = useWikiList([workspace]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedWiki = wikis.length > 0 ? wikis[Math.min(selectedIndex, wikis.length - 1)] : undefined;
   const [activeWiki, setActiveWiki] = useState(initialWiki);
@@ -89,7 +90,7 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
   };
 
   useEffect(() => {
-    if (initialWiki && wikis.length > 0 && wikis.includes(initialWiki)) {
+    if (initialWiki && wikis.length > 0 && wikis.some((entry) => entry.slug === initialWiki)) {
       setActiveWiki(initialWiki);
     }
   }, [initialWiki, wikis]);
@@ -206,7 +207,7 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
         } else if (key.downArrow) {
           setSelectedIndex((idx) => (idx + 1) % wikis.length);
         } else if (key.return) {
-          setActiveWiki(selectedWiki);
+          setActiveWiki(selectedWiki?.slug);
         }
       }
     },
@@ -226,13 +227,13 @@ export function AgentsReviewScreen({ onBack, onResult, workspace = '.', wiki: in
           <Text>Select Wiki:</Text>
           {isRawModeSupported ? (
             wikis.map((wiki, index) => (
-              <Text key={wiki} color={index === selectedIndex ? 'cyan' : undefined}>
+              <Text key={`${wiki.workspace}/${wiki.slug}`} color={index === selectedIndex ? 'cyan' : undefined}>
                 {index === selectedIndex ? '> ' : '  '}
-                {wiki}
+                {wiki.slug}
               </Text>
             ))
           ) : (
-            wikis.map((wiki) => <Text key={wiki}> {wiki}</Text>)
+            wikis.map((wiki) => <Text key={`${wiki.workspace}/${wiki.slug}`}> {wiki.slug}</Text>)
           )}
         </Box>
       )}

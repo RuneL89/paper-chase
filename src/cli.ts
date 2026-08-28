@@ -8,6 +8,7 @@ import { render } from 'ink';
 import { App } from './tui/app';
 import { init } from './commands/init';
 import { ingest, formatIngestSummary } from './commands/ingest';
+import { loadWorkspaceRegistry, registerWorkspace } from './tui/workspace-bootstrap';
 import { isPackaged } from './utils/app-root';
 
 export const program = new Command();
@@ -17,9 +18,31 @@ program
   .description('The paper chase, automated. Turn PDFs into citation-backed markdown wikis.')
   .version('1.0.0');
 
-// TUI mode (default: no subcommand)
-program.action(() => {
-  render(React.createElement(App));
+// TUI mode (default: no subcommand). 2026-08-28: the workspace bootstrap —
+// the persisted registry (which folders hold wikis) is loaded from the launch
+// folder's `.paper-chase.json` and the active workspace gets its one-time
+// settings migration; a bootstrap failure never blocks the TUI (default '.').
+program.action(async () => {
+  let registry: string[] = [];
+  let active = '.';
+  try {
+    const bootstrap = await loadWorkspaceRegistry();
+    registry = bootstrap.workspaces.length > 0 ? bootstrap.workspaces : [bootstrap.active];
+    active = bootstrap.active;
+    await registerWorkspace(active);
+  } catch {
+    registry = ['.'];
+    active = '.';
+  }
+  render(
+    React.createElement(App, {
+      workspaces: registry,
+      workspace: active,
+      onWorkspaceRegistered: (workspace) => {
+        void registerWorkspace(workspace).catch(() => {});
+      },
+    }),
+  );
 });
 
 // CLI commands (for power users and scripts)

@@ -490,7 +490,7 @@ test('after a successful add, answering y starts ingesting that wiki', async () 
   const workspace = makeTempDir('llm-wiki-addpdfs-prompt-y-');
   mkdirSync(join(workspace, 'wikis', 'add-me', 'raw'), { recursive: true });
 
-  let ingestWiki: string | undefined;
+  let ingestWiki: { slug: string; workspace: string } | undefined;
   let result: string | undefined;
   const screen = renderCaptured(
     <AddPdfsScreen
@@ -512,7 +512,7 @@ test('after a successful add, answering y starts ingesting that wiki', async () 
   await waitFor(() => ingestWiki !== undefined);
   screen.unmount();
   await tick(50);
-  expect(ingestWiki).toBe('add-me');
+  expect(ingestWiki?.slug).toBe('add-me');
 }, 30000);
 
 // Enter is the default Yes of the [Y/n] prompt.
@@ -520,7 +520,7 @@ test('Enter on the ingest prompt is the default yes', async () => {
   const workspace = makeTempDir('llm-wiki-addpdfs-prompt-enter-');
   mkdirSync(join(workspace, 'wikis', 'add-me', 'raw'), { recursive: true });
 
-  let ingestWiki: string | undefined;
+  let ingestWiki: { slug: string; workspace: string } | undefined;
   let result: string | undefined;
   const screen = renderCaptured(
     <AddPdfsScreen
@@ -542,7 +542,7 @@ test('Enter on the ingest prompt is the default yes', async () => {
   await waitFor(() => ingestWiki !== undefined);
   screen.unmount();
   await tick(50);
-  expect(ingestWiki).toBe('add-me');
+  expect(ingestWiki?.slug).toBe('add-me');
 }, 30000);
 
 // Escape on the ingest prompt is a no (back to the menu).
@@ -551,7 +551,7 @@ test('Escape on the ingest prompt goes back without ingesting', async () => {
   mkdirSync(join(workspace, 'wikis', 'add-me', 'raw'), { recursive: true });
 
   let backCount = 0;
-  let ingestWiki: string | undefined;
+  let ingestWiki: { slug: string; workspace: string } | undefined;
   let result: string | undefined;
   const screen = renderCaptured(
     <AddPdfsScreen
@@ -592,7 +592,7 @@ test('initialWiki starts in add mode and Escape goes straight back', async () =>
         }}
       onResult={() => {}}
       workspace={workspace}
-      initialWiki="flow-wiki"
+      initialWiki={{ workspace, slug: 'flow-wiki' }}
     />,
   );
   await tick(400);

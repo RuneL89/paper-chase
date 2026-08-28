@@ -12,6 +12,8 @@ You don't need Node.js to *run* Paper Chase, only to build the exe once:
 
 Two things worth knowing: the exe is unsigned, so Windows SmartScreen may ask for a one-time confirmation, and it embeds the code it was built from — **rebuild it after upgrading** (`npm run package:win` refreshes it). On other operating systems, run from source with Node.js ≥ 20 (see the [README's Documentation Map](../README.md#documentation-map)).
 
+Your wikis don't have to share one folder: whenever you create a wiki in any folder you pick (or type), that folder is registered and remembered, and the **Add PDFs** and **Ingest PDFs** screens list the wikis of every registered folder in one selector, each labeled with its folder. The list is a live scan of those folders — delete a wiki folder and it disappears from the selectors on the next visit; nothing needs unregistering.
+
 ![The Paper Chase main menu — Create New Wiki, Add PDFs, Ingest PDFs, Settings, Exit](images/tui-main-menu.png)
 
 *The main menu — five items, and everything a wiki needs starts here.*

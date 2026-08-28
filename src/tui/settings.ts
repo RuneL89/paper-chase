@@ -106,6 +106,16 @@ export interface TuiSettings {
    * a `customProviders` block load as an empty array.
    */
   customProviders: CustomProviderConfig[];
+  /**
+   * 2026-08-28 workspace registry (user-reported bug fix): the folders the
+   * TUI knows about. `workspace` is the last-used folder (pre-fills the
+   * Create New Wiki form); `workspaces` is the registry every wiki selector
+   * scans. Both live only in the LAUNCH folder's bootstrap config — a
+   * workspace's own `.paper-chase.json` never carries them (the one-time
+   * migration strips the pair). Older configs load with both undefined.
+   */
+  workspace?: string;
+  workspaces?: string[];
 }
 
 /**
@@ -406,7 +416,31 @@ function parseSettings(raw: string): TuiSettings {
     models: normalizeModels(parsed.models, customProviders),
     apiKeys: normalizeApiKeys(parsed.apiKeys),
     customProviders,
+    // 2026-08-28: the workspace registry — non-empty strings only, deduped.
+    workspace:
+      typeof parsed.workspace === 'string' && parsed.workspace.trim().length > 0
+        ? parsed.workspace
+        : undefined,
+    workspaces: normalizeWorkspaces(parsed.workspaces),
   };
+}
+
+/**
+ * Tolerate garbage in the workspace registry (2026-08-28): non-string or
+ * empty entries are dropped and duplicates collapse; an empty result is
+ * undefined so the JSON key stays absent (legacy files unchanged).
+ */
+function normalizeWorkspaces(parsed: unknown): string[] | undefined {
+  if (!Array.isArray(parsed)) {
+    return undefined;
+  }
+  const list: string[] = [];
+  for (const item of parsed) {
+    if (typeof item === 'string' && item.trim().length > 0 && !list.includes(item)) {
+      list.push(item);
+    }
+  }
+  return list.length > 0 ? list : undefined;
 }
 
 /**

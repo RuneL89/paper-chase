@@ -3906,21 +3906,21 @@ var require_react_development = __commonJS({
         );
         actScopeDepth = prevActScopeDepth;
       }
-      function recursivelyFlushAsyncActWork(returnValue, resolve6, reject) {
+      function recursivelyFlushAsyncActWork(returnValue, resolve7, reject) {
         var queue = ReactSharedInternals.actQueue;
         if (null !== queue)
           if (0 !== queue.length)
             try {
               flushActQueue(queue);
               enqueueTask(function() {
-                return recursivelyFlushAsyncActWork(returnValue, resolve6, reject);
+                return recursivelyFlushAsyncActWork(returnValue, resolve7, reject);
               });
               return;
             } catch (error) {
               ReactSharedInternals.thrownErrors.push(error);
             }
           else ReactSharedInternals.actQueue = null;
-        0 < ReactSharedInternals.thrownErrors.length ? (queue = aggregateErrors(ReactSharedInternals.thrownErrors), ReactSharedInternals.thrownErrors.length = 0, reject(queue)) : resolve6(returnValue);
+        0 < ReactSharedInternals.thrownErrors.length ? (queue = aggregateErrors(ReactSharedInternals.thrownErrors), ReactSharedInternals.thrownErrors.length = 0, reject(queue)) : resolve7(returnValue);
       }
       function flushActQueue(queue) {
         if (!isFlushing) {
@@ -4107,7 +4107,7 @@ var require_react_development = __commonJS({
             ));
           });
           return {
-            then: function(resolve6, reject) {
+            then: function(resolve7, reject) {
               didAwaitActCall = true;
               thenable.then(
                 function(returnValue) {
@@ -4117,7 +4117,7 @@ var require_react_development = __commonJS({
                       flushActQueue(queue), enqueueTask(function() {
                         return recursivelyFlushAsyncActWork(
                           returnValue,
-                          resolve6,
+                          resolve7,
                           reject
                         );
                       });
@@ -4131,7 +4131,7 @@ var require_react_development = __commonJS({
                       ReactSharedInternals.thrownErrors.length = 0;
                       reject(_thrownError);
                     }
-                  } else resolve6(returnValue);
+                  } else resolve7(returnValue);
                 },
                 function(error) {
                   popActScope(prevActQueue, prevActScopeDepth);
@@ -4153,15 +4153,15 @@ var require_react_development = __commonJS({
         if (0 < ReactSharedInternals.thrownErrors.length)
           throw callback = aggregateErrors(ReactSharedInternals.thrownErrors), ReactSharedInternals.thrownErrors.length = 0, callback;
         return {
-          then: function(resolve6, reject) {
+          then: function(resolve7, reject) {
             didAwaitActCall = true;
             0 === prevActScopeDepth ? (ReactSharedInternals.actQueue = queue, enqueueTask(function() {
               return recursivelyFlushAsyncActWork(
                 returnValue$jscomp$0,
-                resolve6,
+                resolve7,
                 reject
               );
-            })) : resolve6(returnValue$jscomp$0);
+            })) : resolve7(returnValue$jscomp$0);
           }
         };
       };
@@ -6243,8 +6243,8 @@ var require_react_reconciler_production = __commonJS({
           currentEntangledActionThenable = {
             status: "pending",
             value: void 0,
-            then: function(resolve6) {
-              entangledListeners.push(resolve6);
+            then: function(resolve7) {
+              entangledListeners.push(resolve7);
             }
           };
         }
@@ -6267,8 +6267,8 @@ var require_react_reconciler_production = __commonJS({
           status: "pending",
           value: null,
           reason: null,
-          then: function(resolve6) {
-            listeners.push(resolve6);
+          then: function(resolve7) {
+            listeners.push(resolve7);
           }
         };
         thenable.then(
@@ -15867,8 +15867,8 @@ var require_react_reconciler_development = __commonJS({
           currentEntangledActionThenable = {
             status: "pending",
             value: void 0,
-            then: function(resolve6) {
-              entangledListeners.push(resolve6);
+            then: function(resolve7) {
+              entangledListeners.push(resolve7);
             }
           };
         }
@@ -15891,8 +15891,8 @@ var require_react_reconciler_development = __commonJS({
           status: "pending",
           value: null,
           reason: null,
-          then: function(resolve6) {
-            listeners.push(resolve6);
+          then: function(resolve7) {
+            listeners.push(resolve7);
           }
         };
         thenable.then(
@@ -30970,22 +30970,22 @@ var init_devtools = __esm({
     init_devtools_window_polyfill();
     init_wrapper();
     init_react_devtools_core_stub();
-    isDevToolsReachable = async () => new Promise((resolve6) => {
+    isDevToolsReachable = async () => new Promise((resolve7) => {
       const socket = new wrapper_default("ws://localhost:8097");
       const timeout = setTimeout(() => {
         socket.terminate();
-        resolve6(false);
+        resolve7(false);
       }, 2e3);
       timeout.unref();
       socket.on("open", () => {
         clearTimeout(timeout);
         socket.terminate();
-        resolve6(true);
+        resolve7(true);
       });
       socket.on("error", () => {
         clearTimeout(timeout);
         socket.terminate();
-        resolve6(false);
+        resolve7(false);
       });
     });
     if (await isDevToolsReachable()) {
@@ -34244,9 +34244,9 @@ var require_dispatcher_base = __commonJS({
       }
       close(callback) {
         if (callback === void 0) {
-          return new Promise((resolve6, reject) => {
+          return new Promise((resolve7, reject) => {
             this.close((err, data) => {
-              return err ? reject(err) : resolve6(data);
+              return err ? reject(err) : resolve7(data);
             });
           });
         }
@@ -34284,9 +34284,9 @@ var require_dispatcher_base = __commonJS({
           err = null;
         }
         if (callback === void 0) {
-          return new Promise((resolve6, reject) => {
+          return new Promise((resolve7, reject) => {
             this.destroy(err, (err2, data) => {
-              return err2 ? reject(err2) : resolve6(data);
+              return err2 ? reject(err2) : resolve7(data);
             });
           });
         }
@@ -39202,12 +39202,12 @@ upgrade: ${upgrade}\r
           cb();
         }
       }
-      const waitForDrain = () => new Promise((resolve6, reject) => {
+      const waitForDrain = () => new Promise((resolve7, reject) => {
         assert2(callback === null);
         if (socket[kError]) {
           reject(socket[kError]);
         } else {
-          callback = resolve6;
+          callback = resolve7;
         }
       });
       socket.on("close", onDrain).on("drain", onDrain);
@@ -40479,12 +40479,12 @@ var require_client_h2 = __commonJS({
           cb();
         }
       }
-      const waitForDrain = () => new Promise((resolve6, reject) => {
+      const waitForDrain = () => new Promise((resolve7, reject) => {
         assert2(callback === null);
         if (socket[kError]) {
           reject(socket[kError]);
         } else {
-          callback = resolve6;
+          callback = resolve7;
         }
       });
       h2stream.on("close", onDrain).on("drain", onDrain);
@@ -40809,16 +40809,16 @@ var require_client = __commonJS({
         return this[kNeedDrain] < 2;
       }
       [kClose]() {
-        return new Promise((resolve6) => {
+        return new Promise((resolve7) => {
           if (this[kSize]) {
-            this[kClosedResolve] = resolve6;
+            this[kClosedResolve] = resolve7;
           } else {
-            resolve6(null);
+            resolve7(null);
           }
         });
       }
       [kDestroy](err) {
-        return new Promise((resolve6) => {
+        return new Promise((resolve7) => {
           const requests = this[kQueue].splice(this[kPendingIdx]);
           for (let i = 0; i < requests.length; i++) {
             const request2 = requests[i];
@@ -40831,7 +40831,7 @@ var require_client = __commonJS({
               this[kClosedResolve]();
               this[kClosedResolve] = null;
             }
-            resolve6(null);
+            resolve7(null);
           };
           if (this[kHTTPContext]) {
             this[kHTTPContext].destroy(err, callback);
@@ -41243,8 +41243,8 @@ var require_pool_base = __commonJS({
           }
           return Promise.all(closeAll);
         } else {
-          return new Promise((resolve6) => {
-            this[kClosedResolve] = resolve6;
+          return new Promise((resolve7) => {
+            this[kClosedResolve] = resolve7;
           });
         }
       }
@@ -43711,7 +43711,7 @@ var require_readable = __commonJS({
         if (this._readableState.closeEmitted) {
           return Promise.resolve(null);
         }
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve7, reject) => {
           if (this[kContentLength] && this[kContentLength] > limit || this[kBytesRead] > limit) {
             this.destroy(new AbortError());
           }
@@ -43725,11 +43725,11 @@ var require_readable = __commonJS({
               if (signal.aborted) {
                 reject(signal.reason ?? new AbortError());
               } else {
-                resolve6(null);
+                resolve7(null);
               }
             });
           } else {
-            this.on("close", resolve6);
+            this.on("close", resolve7);
           }
           this.on("error", noop2).on("data", () => {
             if (this[kBytesRead] > limit) {
@@ -43772,7 +43772,7 @@ var require_readable = __commonJS({
     }
     function consume(stream, type) {
       assert2(!stream[kConsume]);
-      return new Promise((resolve6, reject) => {
+      return new Promise((resolve7, reject) => {
         if (isUnusable(stream)) {
           const rState = stream._readableState;
           if (rState.destroyed && rState.closeEmitted === false) {
@@ -43787,7 +43787,7 @@ var require_readable = __commonJS({
             stream[kConsume] = {
               type,
               stream,
-              resolve: resolve6,
+              resolve: resolve7,
               reject,
               length: 0,
               body: []
@@ -43867,18 +43867,18 @@ var require_readable = __commonJS({
       return buffer;
     }
     function consumeEnd(consume2, encoding) {
-      const { type, body, resolve: resolve6, stream, length } = consume2;
+      const { type, body, resolve: resolve7, stream, length } = consume2;
       try {
         if (type === "text") {
-          resolve6(chunksDecode(body, length, encoding));
+          resolve7(chunksDecode(body, length, encoding));
         } else if (type === "json") {
-          resolve6(JSON.parse(chunksDecode(body, length, encoding)));
+          resolve7(JSON.parse(chunksDecode(body, length, encoding)));
         } else if (type === "arrayBuffer") {
-          resolve6(chunksConcat(body, length).buffer);
+          resolve7(chunksConcat(body, length).buffer);
         } else if (type === "blob") {
-          resolve6(new Blob(body, { type: stream[kContentType] }));
+          resolve7(new Blob(body, { type: stream[kContentType] }));
         } else if (type === "bytes") {
-          resolve6(chunksConcat(body, length));
+          resolve7(chunksConcat(body, length));
         }
         consumeFinish(consume2);
       } catch (err) {
@@ -44094,9 +44094,9 @@ var require_api_request = __commonJS({
     };
     function request2(opts, callback) {
       if (callback === void 0) {
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve7, reject) => {
           request2.call(this, opts, (err, data) => {
-            return err ? reject(err) : resolve6(data);
+            return err ? reject(err) : resolve7(data);
           });
         });
       }
@@ -44357,9 +44357,9 @@ var require_api_stream = __commonJS({
     };
     function stream(opts, factory, callback) {
       if (callback === void 0) {
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve7, reject) => {
           stream.call(this, opts, factory, (err, data) => {
-            return err ? reject(err) : resolve6(data);
+            return err ? reject(err) : resolve7(data);
           });
         });
       }
@@ -44659,9 +44659,9 @@ var require_api_upgrade = __commonJS({
     };
     function upgrade(opts, callback) {
       if (callback === void 0) {
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve7, reject) => {
           upgrade.call(this, opts, (err, data) => {
-            return err ? reject(err) : resolve6(data);
+            return err ? reject(err) : resolve7(data);
           });
         });
       }
@@ -44755,9 +44755,9 @@ var require_api_connect = __commonJS({
     };
     function connect(opts, callback) {
       if (callback === void 0) {
-        return new Promise((resolve6, reject) => {
+        return new Promise((resolve7, reject) => {
           connect.call(this, opts, (err, data) => {
-            return err ? reject(err) : resolve6(data);
+            return err ? reject(err) : resolve7(data);
           });
         });
       }
@@ -46041,8 +46041,8 @@ var require_snapshot_utils = __commonJS({
 var require_snapshot_recorder = __commonJS({
   "node_modules/undici/lib/mock/snapshot-recorder.js"(exports2, module2) {
     "use strict";
-    var { writeFile: writeFile27, readFile: readFile35, mkdir: mkdir28 } = __require("node:fs/promises");
-    var { dirname: dirname6, resolve: resolve6 } = __require("node:path");
+    var { writeFile: writeFile27, readFile: readFile36, mkdir: mkdir29 } = __require("node:fs/promises");
+    var { dirname: dirname6, resolve: resolve7 } = __require("node:path");
     var { setTimeout: setTimeout2, clearTimeout: clearTimeout2 } = __require("node:timers");
     var { InvalidArgumentError: InvalidArgumentError2, UndiciError } = require_errors();
     var { hashId, isUrlExcludedFactory, normalizeHeaders, createHeaderFilters } = require_snapshot_utils();
@@ -46258,7 +46258,7 @@ var require_snapshot_recorder = __commonJS({
           throw new InvalidArgumentError2("Snapshot path is required");
         }
         try {
-          const data = await readFile35(resolve6(path), "utf8");
+          const data = await readFile36(resolve7(path), "utf8");
           const parsed = JSON.parse(data);
           if (Array.isArray(parsed)) {
             this.#snapshots.clear();
@@ -46287,8 +46287,8 @@ var require_snapshot_recorder = __commonJS({
         if (!path) {
           throw new InvalidArgumentError2("Snapshot path is required");
         }
-        const resolvedPath = resolve6(path);
-        await mkdir28(dirname6(resolvedPath), { recursive: true });
+        const resolvedPath = resolve7(path);
+        await mkdir29(dirname6(resolvedPath), { recursive: true });
         const data = Array.from(this.#snapshots.entries()).map(([hash, snapshot]) => ({
           hash,
           snapshot
@@ -53245,7 +53245,7 @@ var require_fetch = __commonJS({
         const hasTrailingQuestionMark = url.search.length === 0 && url.href[url.href.length - url.hash.length - 1] === "?";
         return dispatchWithProtocolPreference(body);
         function dispatchWithProtocolPreference(body2, allowH2) {
-          return new Promise((resolve6, reject) => agent.dispatch(
+          return new Promise((resolve7, reject) => agent.dispatch(
             {
               path: hasTrailingQuestionMark ? `${path}?` : path,
               origin: url.origin,
@@ -53328,7 +53328,7 @@ var require_fetch = __commonJS({
                   }
                 }
                 const onError = (err) => this.onResponseError(controller, err);
-                resolve6({
+                resolve7({
                   status,
                   statusText,
                   headersList,
@@ -53361,7 +53361,7 @@ var require_fetch = __commonJS({
                   fetchParams.controller.off("terminated", this.abort);
                 }
                 if (request2.mode === "websocket" && allowH2 !== false && error?.code === "UND_ERR_INFO" && error?.message === "HTTP/2: Extended CONNECT protocol not supported by server") {
-                  resolve6(dispatchWithProtocolPreference(body2, false));
+                  resolve7(dispatchWithProtocolPreference(body2, false));
                   return;
                 }
                 this.body?.destroy(error);
@@ -53375,7 +53375,7 @@ var require_fetch = __commonJS({
                 const rawHeaders = controller?.rawHeaders ?? [];
                 const headersList = new HeadersList();
                 appendHeadersListFromResponseHeaders(headersList, headers, rawHeaders);
-                resolve6({
+                resolve7({
                   status,
                   statusText: STATUS_CODES[status],
                   headersList,
@@ -62746,7 +62746,7 @@ var {
 var import_react48 = __toESM(require_react(), 1);
 import { spawn as spawn3 } from "node:child_process";
 import { fileURLToPath as fileURLToPath3 } from "node:url";
-import { resolve as resolve5 } from "node:path";
+import { resolve as resolve6 } from "node:path";
 
 // node_modules/ink/build/render.js
 import { Stream } from "node:stream";
@@ -70508,8 +70508,8 @@ var kittyModifiers = {
 var noop = () => {
 };
 var textEncoder = new TextEncoder();
-var yieldImmediate = async () => new Promise((resolve6) => {
-  setImmediate(resolve6);
+var yieldImmediate = async () => new Promise((resolve7) => {
+  setImmediate(resolve7);
 });
 var kittyQueryEscapeByte = 27;
 var kittyQueryOpenBracketByte = 91;
@@ -70726,8 +70726,8 @@ var Ink = class {
       };
     }
     this.initKittyKeyboard();
-    this.exitPromise = new Promise((resolve6, reject) => {
-      this.resolveExitPromise = resolve6;
+    this.exitPromise = new Promise((resolve7, reject) => {
+      this.resolveExitPromise = resolve7;
       this.rejectExitPromise = reject;
     });
     void this.exitPromise.catch(noop);
@@ -71038,9 +71038,9 @@ var Ink = class {
     settleThrottle(this.throttledOnRender, canWriteToStdout);
     settleThrottle(this.throttledLog, canWriteToStdout);
     if (canWriteToStdout && hasWritableState) {
-      await new Promise((resolve6) => {
+      await new Promise((resolve7) => {
         this.options.stdout.write("", () => {
-          resolve6();
+          resolve7();
         });
       });
       return;
@@ -71126,8 +71126,8 @@ var Ink = class {
   async awaitNextRender() {
     if (!this.nextRenderCommit) {
       let resolveRender;
-      const promise = new Promise((resolve6) => {
-        resolveRender = resolve6;
+      const promise = new Promise((resolve7) => {
+        resolveRender = resolve7;
       });
       this.nextRenderCommit = { promise, resolve: resolveRender };
     }
@@ -72414,7 +72414,10 @@ var SYNTHESIS_CALL_TYPES = /* @__PURE__ */ new Set([
   "synthesis",
   "permissive-synthesis",
   "topic-synthesis",
-  "permissive-topic-synthesis"
+  "permissive-topic-synthesis",
+  // Phase 26 (§2.3): the Amendment Writer rides the SAME synthesis slot —
+  // deliberately no new Settings row (a patch is synthesis-family output).
+  "synthesis-amend"
 ]);
 var modelRouting = null;
 function normalizeProviderValue(value) {
@@ -73207,8 +73210,23 @@ function parseSettings(raw) {
     updateAgents: Boolean(parsed.updateAgents),
     models: normalizeModels(parsed.models, customProviders),
     apiKeys: normalizeApiKeys(parsed.apiKeys),
-    customProviders
+    customProviders,
+    // 2026-08-28: the workspace registry — non-empty strings only, deduped.
+    workspace: typeof parsed.workspace === "string" && parsed.workspace.trim().length > 0 ? parsed.workspace : void 0,
+    workspaces: normalizeWorkspaces(parsed.workspaces)
   };
+}
+function normalizeWorkspaces(parsed) {
+  if (!Array.isArray(parsed)) {
+    return void 0;
+  }
+  const list = [];
+  for (const item of parsed) {
+    if (typeof item === "string" && item.trim().length > 0 && !list.includes(item)) {
+      list.push(item);
+    }
+  }
+  return list.length > 0 ? list : void 0;
 }
 function normalizeApiKeys(parsed) {
   const concrete = (value) => typeof value === "string" && value.length > 0 ? value : null;
@@ -73791,16 +73809,17 @@ function InitScreen({ onBack, onResult, defaultWorkspace = "./", pickFolder: pic
     setValidationError("");
     setStatus("busy");
     setBusyLabel("Creating wiki...");
+    const normalizedWorkspace = workspace.trim().length > 0 ? workspace.trim() : ".";
     try {
       const result = await init(slug, {
         title: trimmedTitle,
-        workspace: workspace.trim().length > 0 ? workspace.trim() : ".",
+        workspace: normalizedWorkspace,
         outputLanguage: SUPPORTED_LANGUAGES[languageIndex].code
       });
       setStatus("success");
       setMessage(result.message);
       onResult?.(result.message);
-      onCreated?.(slug);
+      onCreated?.({ slug, workspace: normalizedWorkspace });
     } catch (err) {
       const errorMessage = err.message;
       setStatus("error");
@@ -73984,32 +74003,41 @@ function InitScreen({ onBack, onResult, defaultWorkspace = "./", pickFolder: pic
 // src/tui/ingest-screen.tsx
 var import_react42 = __toESM(require_react(), 1);
 import { readdir as readdir14 } from "node:fs/promises";
-import { join as join45 } from "node:path";
+import { join as join47 } from "node:path";
 
 // src/tui/hooks/use-wiki-list.ts
 var import_react40 = __toESM(require_react(), 1);
 import { readdir } from "node:fs/promises";
 import { join as join8 } from "node:path";
-function useWikiList(workspace = ".") {
+function useWikiList(workspaces = ["."]) {
   const [wikis, setWikis] = (0, import_react40.useState)([]);
+  const workspacesKey = workspaces.join("\0");
   (0, import_react40.useEffect)(() => {
     let cancelled = false;
     (async () => {
-      try {
-        const entries = await readdir(join8(workspace, "wikis"), { withFileTypes: true });
-        if (!cancelled) {
-          setWikis(entries.filter((e) => e.isDirectory() && e.name !== "cross-wiki").map((e) => e.name));
+      const found = [];
+      for (const workspace of workspaces) {
+        try {
+          const entries = await readdir(join8(workspace, "wikis"), { withFileTypes: true });
+          for (const entry of entries) {
+            if (entry.isDirectory() && entry.name !== "cross-wiki") {
+              found.push({ workspace, slug: entry.name });
+            }
+          }
+        } catch {
         }
-      } catch {
-        if (!cancelled) {
-          setWikis([]);
-        }
+      }
+      if (!cancelled) {
+        found.sort(
+          (a, b) => a.slug !== b.slug ? a.slug.localeCompare(b.slug) : a.workspace.localeCompare(b.workspace)
+        );
+        setWikis(found);
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [workspace]);
+  }, [workspacesKey]);
   return wikis;
 }
 
@@ -74056,8 +74084,8 @@ function useWikiDetails(workspace, wiki, refreshKey = 0) {
 // src/commands/ingest.ts
 var import_gray_matter21 = __toESM(require_gray_matter(), 1);
 import { existsSync as existsSync11, readFileSync as readFileSync3 } from "node:fs";
-import { mkdir as mkdir26, readFile as readFile33, readdir as readdir13, rm as rm3, writeFile as writeFile26 } from "node:fs/promises";
-import { join as join44 } from "node:path";
+import { mkdir as mkdir27, readFile as readFile34, readdir as readdir13, rm as rm3, writeFile as writeFile26 } from "node:fs/promises";
+import { join as join46 } from "node:path";
 import { createHash as createHash5 } from "node:crypto";
 
 // src/extraction/pdf.ts
@@ -75831,7 +75859,7 @@ var __webpack_modules__ = {
       var defineProperty = Object.defineProperty;
       var stringSlice = uncurryThis("".slice);
       var replace = uncurryThis("".replace);
-      var join49 = uncurryThis([].join);
+      var join51 = uncurryThis([].join);
       var CONFIGURABLE_LENGTH = DESCRIPTORS && !fails(function() {
         return defineProperty(function() {
         }, "length", { value: 8 }).length !== 8;
@@ -75858,7 +75886,7 @@ var __webpack_modules__ = {
         }
         var state = enforceInternalState(value);
         if (!hasOwn(state, "source")) {
-          state.source = join49(TEMPLATE, typeof name == "string" ? name : "");
+          state.source = join51(TEMPLATE, typeof name == "string" ? name : "");
         }
         return value;
       };
@@ -75886,13 +75914,13 @@ var __webpack_modules__ = {
       var aCallable = __webpack_require__2(9306);
       var $TypeError = TypeError;
       var PromiseCapability = function(C) {
-        var resolve6, reject;
+        var resolve7, reject;
         this.promise = new C(function($$resolve, $$reject) {
-          if (resolve6 !== void 0 || reject !== void 0) throw new $TypeError("Bad Promise constructor");
-          resolve6 = $$resolve;
+          if (resolve7 !== void 0 || reject !== void 0) throw new $TypeError("Bad Promise constructor");
+          resolve7 = $$resolve;
           reject = $$reject;
         });
-        this.resolve = aCallable(resolve6);
+        this.resolve = aCallable(resolve7);
         this.reject = aCallable(reject);
       };
       module2.exports.f = function(C) {
@@ -78734,7 +78762,7 @@ async function fetchData(url, type = "text") {
     }
     return response.text();
   }
-  return new Promise((resolve6, reject) => {
+  return new Promise((resolve7, reject) => {
     const request2 = new XMLHttpRequest();
     request2.open("GET", url, true);
     request2.responseType = type;
@@ -78747,10 +78775,10 @@ async function fetchData(url, type = "text") {
           case "arraybuffer":
           case "blob":
           case "json":
-            resolve6(request2.response);
+            resolve7(request2.response);
             return;
         }
-        resolve6(request2.responseText);
+        resolve7(request2.responseText);
         return;
       }
       reject(new Error(request2.statusText));
@@ -79364,11 +79392,11 @@ var ImageManager = class _ImageManager {
         const mustRemoveAspectRatioPromise = _ImageManager._isSVGFittingCanvas;
         const fileReader = new FileReader();
         const imageElement = new Image();
-        const imagePromise = new Promise((resolve6, reject) => {
+        const imagePromise = new Promise((resolve7, reject) => {
           imageElement.onload = () => {
             data.bitmap = imageElement;
             data.isSvg = true;
-            resolve6();
+            resolve7();
           };
           fileReader.onload = async () => {
             const url = data.svgUrl = fileReader.result;
@@ -83217,8 +83245,8 @@ var FontLoader = class {
       if (this.isSyncFontLoadingSupported) {
         return;
       }
-      await new Promise((resolve6) => {
-        const request2 = this._queueLoadingCallback(resolve6);
+      await new Promise((resolve7) => {
+        const request2 = this._queueLoadingCallback(resolve7);
         this._prepareFontLoadEvent(font, request2);
       });
     }
@@ -89650,14 +89678,14 @@ var PDFPageProxy = class {
       return this.getXfa().then((xfa) => XfaText.textContent(xfa));
     }
     const readableStream = this.streamTextContent(params);
-    return new Promise(function(resolve6, reject) {
+    return new Promise(function(resolve7, reject) {
       function pump() {
         reader.read().then(function({
           value,
           done
         }) {
           if (done) {
-            resolve6(textContent);
+            resolve7(textContent);
             return;
           }
           textContent.lang ??= value.lang;
@@ -97766,7 +97794,7 @@ var StampEditor = class _StampEditor extends AnnotationEditor {
     input.type = "file";
     input.accept = _StampEditor.supportedTypesStr;
     const signal = this._uiManager._signal;
-    this.#bitmapPromise = new Promise((resolve6) => {
+    this.#bitmapPromise = new Promise((resolve7) => {
       input.addEventListener("change", async () => {
         if (!input.files || input.files.length === 0) {
           this.remove();
@@ -97781,13 +97809,13 @@ var StampEditor = class _StampEditor extends AnnotationEditor {
           });
           this.#getBitmapFetched(data);
         }
-        resolve6();
+        resolve7();
       }, {
         signal
       });
       input.addEventListener("cancel", () => {
         this.remove();
-        resolve6();
+        resolve7();
       }, {
         signal
       });
@@ -100301,7 +100329,7 @@ async function readSynthesisState(wikiDir2) {
   return parsed;
 }
 function isSkipEligible(record) {
-  return record !== void 0 && (record.mode === "strict-synthesis" || record.mode === "permissive-synthesis");
+  return record !== void 0 && (record.mode === "strict-synthesis" || record.mode === "permissive-synthesis" || record.mode === "patch-amended");
 }
 function synthesisPagePath(pageData) {
   return `${pageData.folder}/${pageData.slug}.md`;
@@ -104421,10 +104449,25 @@ ${feedback}`, {
 function sourceSlugFromChunkId(chunkId) {
   return chunkId.replace(/-part-\d{3}$/, "");
 }
+function mentionEvidenceKey(item) {
+  return `m:${item.page}|${item.context}|${item.source}|${item.pages}`;
+}
+function relationshipEvidenceKey(item) {
+  return `r:${item.subject}|${item.predicate}|${item.object}|${item.page}|${item.source}|${item.pages}`;
+}
+function incomingRelationshipEvidenceKey(item) {
+  return `i:${item.subject}|${item.predicate}|${item.page}|${item.source}|${item.pages}`;
+}
+function claimEvidenceKey(item) {
+  return `c:${item.text}|${item.type}|${item.page}|${item.source}|${item.pages}|${item.entities.join(",")}`;
+}
+function timelineEvidenceKey(item) {
+  return `t:${item.date}|${item.event}|${item.entities.join(",")}`;
+}
 function dedupeMentions(list) {
   const seen = /* @__PURE__ */ new Set();
   return list.filter((item) => {
-    const key = `${item.page}|${item.context}|${item.source}|${item.pages}`;
+    const key = mentionEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -104433,7 +104476,7 @@ function dedupeMentions(list) {
 function dedupeRelationships(list) {
   const seen = /* @__PURE__ */ new Set();
   return list.filter((item) => {
-    const key = `${item.subject}|${item.predicate}|${item.object}|${item.page}|${item.source}|${item.pages}`;
+    const key = relationshipEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -104442,7 +104485,7 @@ function dedupeRelationships(list) {
 function dedupeIncomingRelationships(list) {
   const seen = /* @__PURE__ */ new Set();
   return list.filter((item) => {
-    const key = `${item.subject}|${item.predicate}|${item.page}|${item.source}|${item.pages}`;
+    const key = incomingRelationshipEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -104451,7 +104494,7 @@ function dedupeIncomingRelationships(list) {
 function dedupeClaims(list) {
   const seen = /* @__PURE__ */ new Set();
   return list.filter((item) => {
-    const key = `${item.text}|${item.type}|${item.page}|${item.source}|${item.pages}|${item.entities.join(",")}`;
+    const key = claimEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -104460,11 +104503,158 @@ function dedupeClaims(list) {
 function dedupeTimeline(list) {
   const seen = /* @__PURE__ */ new Set();
   return list.filter((item) => {
-    const key = `${item.date}|${item.event}|${item.entities.join(",")}`;
+    const key = timelineEvidenceKey(item);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
   });
+}
+function entityEvidenceKeys(pageData) {
+  return [
+    ...pageData.mentions.map(mentionEvidenceKey),
+    ...pageData.relationships.map(relationshipEvidenceKey),
+    ...(pageData.incomingRelationships ?? []).map(incomingRelationshipEvidenceKey),
+    ...pageData.claims.map(claimEvidenceKey),
+    ...(pageData.timeline ?? []).map(timelineEvidenceKey)
+  ];
+}
+function topicEvidenceKeys(pageData) {
+  return pageData.claims.map(claimEvidenceKey);
+}
+function compositeEvidenceKeys(pageData) {
+  const keys = [];
+  for (const group of pageData.memberEvidence) {
+    for (const mention of group.mentions) {
+      keys.push(`${group.slug}|${mentionEvidenceKey(mention)}`);
+    }
+    for (const rel of group.relationships) {
+      keys.push(`${group.slug}|${relationshipEvidenceKey(rel)}`);
+    }
+    for (const rel of group.incomingRelationships) {
+      keys.push(`${group.slug}|${incomingRelationshipEvidenceKey(rel)}`);
+    }
+    for (const claim of group.claims) {
+      keys.push(`${group.slug}|${claimEvidenceKey(claim)}`);
+    }
+    for (const event of group.timeline) {
+      keys.push(`${group.slug}|${timelineEvidenceKey(event)}`);
+    }
+  }
+  return keys;
+}
+function comparisonEvidenceKeys(pageData) {
+  return [
+    ...pageData.tables.map(
+      (table) => `tb:${table.source}|${table.page}|${table.tableTitle}|${table.markdown}`
+    ),
+    ...pageData.bridge.map((entry) => `br:${entry.text}|${entry.topicSlug}|${entry.source}|${entry.pages}`)
+  ];
+}
+function evidenceKeysFor(pageData) {
+  if ("memberEvidence" in pageData) {
+    return compositeEvidenceKeys(pageData);
+  }
+  if ("tables" in pageData) {
+    return comparisonEvidenceKeys(pageData);
+  }
+  if ("claims" in pageData && "mentions" in pageData) {
+    return entityEvidenceKeys(pageData);
+  }
+  return topicEvidenceKeys(pageData);
+}
+function newEvidenceFor(pageData, baselineKeys) {
+  const baseline = new Set(baselineKeys);
+  if ("memberEvidence" in pageData) {
+    const members = [];
+    for (const group of pageData.memberEvidence) {
+      const title = pageData.members.find((member2) => member2.slug === group.slug)?.title ?? pageData.slugToTitle[group.slug] ?? group.slug;
+      const member = {
+        slug: group.slug,
+        title,
+        mentions: group.mentions.filter((item) => !baseline.has(`${group.slug}|${mentionEvidenceKey(item)}`)),
+        relationships: group.relationships.filter(
+          (item) => !baseline.has(`${group.slug}|${relationshipEvidenceKey(item)}`)
+        ),
+        incomingRelationships: group.incomingRelationships.filter(
+          (item) => !baseline.has(`${group.slug}|${incomingRelationshipEvidenceKey(item)}`)
+        ),
+        claims: group.claims.filter((item) => !baseline.has(`${group.slug}|${claimEvidenceKey(item)}`)),
+        timeline: group.timeline.filter((item) => !baseline.has(`${group.slug}|${timelineEvidenceKey(item)}`))
+      };
+      members.push(member);
+    }
+    const anyMember = members.some(
+      (member) => member.mentions.length + member.relationships.length + member.incomingRelationships.length + member.claims.length + member.timeline.length > 0
+    );
+    return {
+      kind: "composite",
+      mentions: [],
+      relationships: [],
+      incomingRelationships: [],
+      claims: [],
+      timeline: [],
+      members,
+      tables: [],
+      bridge: [],
+      empty: !anyMember
+    };
+  }
+  if ("tables" in pageData) {
+    const tables = pageData.tables.filter(
+      (table) => !baseline.has(`tb:${table.source}|${table.page}|${table.tableTitle}|${table.markdown}`)
+    );
+    const bridge = pageData.bridge.filter(
+      (entry) => !baseline.has(`br:${entry.text}|${entry.topicSlug}|${entry.source}|${entry.pages}`)
+    );
+    return {
+      kind: "comparison",
+      mentions: [],
+      relationships: [],
+      incomingRelationships: [],
+      claims: [],
+      timeline: [],
+      members: [],
+      tables,
+      bridge,
+      empty: tables.length === 0 && bridge.length === 0
+    };
+  }
+  if ("mentions" in pageData) {
+    const entity = pageData;
+    const mentions = entity.mentions.filter((item) => !baseline.has(mentionEvidenceKey(item)));
+    const relationships = entity.relationships.filter((item) => !baseline.has(relationshipEvidenceKey(item)));
+    const incomingRelationships = (entity.incomingRelationships ?? []).filter(
+      (item) => !baseline.has(incomingRelationshipEvidenceKey(item))
+    );
+    const claims2 = entity.claims.filter((item) => !baseline.has(claimEvidenceKey(item)));
+    const timeline = (entity.timeline ?? []).filter((item) => !baseline.has(timelineEvidenceKey(item)));
+    return {
+      kind: "entity",
+      mentions,
+      relationships,
+      incomingRelationships,
+      claims: claims2,
+      timeline,
+      members: [],
+      tables: [],
+      bridge: [],
+      empty: mentions.length + relationships.length + incomingRelationships.length + claims2.length + timeline.length === 0
+    };
+  }
+  const topic = pageData;
+  const claims = topic.claims.filter((item) => !baseline.has(claimEvidenceKey(item)));
+  return {
+    kind: "topic",
+    mentions: [],
+    relationships: [],
+    incomingRelationships: [],
+    claims,
+    timeline: [],
+    members: [],
+    tables: [],
+    bridge: [],
+    empty: claims.length === 0
+  };
 }
 async function loadChunkSource(wikiDir2, chunkId) {
   const documentPath = join28(wikiDir2, "documents", `${chunkId}.md`);
@@ -106768,12 +106958,637 @@ async function materialize(wikiSlug, options2) {
   return result;
 }
 
+// src/agents/amendment.ts
+import { readFile as readFile22 } from "node:fs/promises";
+import { join as join29 } from "node:path";
+var PROMPT_FILE2 = "amendment.prompt.txt";
+var promptTemplate2 = null;
+async function loadPromptTemplate5() {
+  if (promptTemplate2 !== null) {
+    return promptTemplate2;
+  }
+  promptTemplate2 = await readFile22(join29(appRoot(), "prompts", PROMPT_FILE2), "utf-8");
+  return promptTemplate2;
+}
+function fillPromptTemplate5(template, values) {
+  let output = template;
+  for (const [key, value] of Object.entries(values)) {
+    output = output.split(`{${key}}`).join(value);
+  }
+  return output;
+}
+function markerFor(map, source, pages) {
+  const index = map.get(`${source}|${pages}`);
+  return index === void 0 ? "" : `[^src${index}]`;
+}
+function formatCitationKeys(map) {
+  if (map.size === 0) {
+    return "(none)";
+  }
+  return Array.from(map.entries()).map(([key, index]) => ({ key, index })).sort((a, b) => a.index - b.index).map(({ key, index }) => {
+    const [file, pages] = key.split("|");
+    const base = file.split("/").pop() ?? file;
+    return `[^src${index}]: ${base}, pages ${pages}`;
+  }).join("\n");
+}
+function formatNewMentions(delta, map, out) {
+  if (delta.mentions.length === 0) {
+    return;
+  }
+  out.push("New mentions:");
+  for (const mention of delta.mentions) {
+    out.push(`- Page ${mention.page}: "${mention.context}" ${markerFor(map, mention.source, mention.pages)}`);
+  }
+  out.push("");
+}
+function formatNewRelationships(delta, map, out) {
+  if (delta.relationships.length > 0) {
+    out.push("New relationships (this entity is the SUBJECT):");
+    for (const rel of delta.relationships) {
+      out.push(
+        `- ${rel.subject} \u2014 ${rel.predicate} \u2014 ${rel.object}: "${rel.evidence}" ${markerFor(map, rel.source, rel.pages)}`
+      );
+    }
+    out.push("");
+  }
+  if (delta.incomingRelationships.length > 0) {
+    out.push("New relationships (this entity is the OBJECT):");
+    for (const rel of delta.incomingRelationships) {
+      out.push(
+        `- ${rel.subject} \u2014 ${rel.predicate} (incoming): "${rel.evidence}" ${markerFor(map, rel.source, rel.pages)}`
+      );
+    }
+    out.push("");
+  }
+}
+function formatNewClaims(delta, map, out) {
+  if (delta.claims.length === 0) {
+    return;
+  }
+  out.push("New claims:");
+  for (const claim of delta.claims) {
+    const entities = claim.entities.length > 0 ? ` (${claim.entities.join(", ")})` : "";
+    out.push(`- ${claim.text}${entities} ${markerFor(map, claim.source, claim.pages)}`);
+  }
+  out.push("");
+}
+function formatNewTimeline(delta, out) {
+  if (delta.timeline.length === 0) {
+    return;
+  }
+  out.push("New timeline events:");
+  for (const event of delta.timeline) {
+    const entities = event.entities.length > 0 ? ` (${event.entities.join(", ")})` : "";
+    out.push(`- ${event.date}: ${event.event}${entities}`);
+  }
+  out.push("");
+}
+function buildAmendmentRequest(args) {
+  const { pageData, delta, pageContent } = args;
+  const out = [];
+  let citationMap;
+  let related;
+  if (delta.kind === "composite") {
+    const composite = pageData;
+    citationMap = buildCompositeCitationMap(composite).citationMap;
+    related = buildCompositeRelatedEntities(composite);
+    for (const member of delta.members) {
+      const count = member.mentions.length + member.relationships.length + member.incomingRelationships.length + member.claims.length + member.timeline.length;
+      if (count === 0) {
+        continue;
+      }
+      out.push(`### New evidence for member: ${member.title} (${member.slug})`, "");
+      formatNewMentions(
+        {
+          ...delta,
+          mentions: member.mentions,
+          relationships: member.relationships,
+          incomingRelationships: member.incomingRelationships,
+          claims: member.claims,
+          timeline: member.timeline
+        },
+        citationMap,
+        out
+      );
+      formatNewRelationships(
+        {
+          ...delta,
+          mentions: [],
+          relationships: member.relationships,
+          incomingRelationships: member.incomingRelationships,
+          claims: [],
+          timeline: []
+        },
+        citationMap,
+        out
+      );
+      formatNewClaims(
+        { ...delta, claims: member.claims, mentions: [], relationships: [], incomingRelationships: [], timeline: [] },
+        citationMap,
+        out
+      );
+      formatNewTimeline(
+        { ...delta, timeline: member.timeline, mentions: [], relationships: [], incomingRelationships: [], claims: [] },
+        out
+      );
+    }
+  } else if (delta.kind === "comparison") {
+    const comparison = pageData;
+    citationMap = buildComparisonCitationMap(comparison).citationMap;
+    related = buildComparisonRelatedEntities(comparison);
+    if (delta.tables.length > 0) {
+      out.push("New dated table sections (reproduce each verbatim under its exact heading):");
+      for (const table of delta.tables) {
+        const base = table.source.split("/").pop() ?? table.source;
+        out.push(
+          `## Table: ${base}, p. ${table.page}`,
+          "",
+          table.markdown,
+          `Summary: ${table.summary !== "" ? table.summary : "(not recorded)"} ${markerFor(citationMap, table.source, String(table.page))}`,
+          ""
+        );
+      }
+    }
+    if (delta.bridge.length > 0) {
+      out.push("New prose-bridge entries (claims sharing the table entities):");
+      for (const entry of delta.bridge) {
+        out.push(`- ${entry.text} (topic: ${entry.topicSlug}) ${markerFor(citationMap, entry.source, entry.pages)}`);
+      }
+      out.push("");
+    }
+  } else if (delta.kind === "entity") {
+    const entity = pageData;
+    citationMap = buildCitationMap(entity).citationMap;
+    related = buildRelatedEntities(entity);
+    formatNewMentions(delta, citationMap, out);
+    formatNewRelationships(delta, citationMap, out);
+    formatNewClaims(delta, citationMap, out);
+    formatNewTimeline(delta, out);
+  } else {
+    const topic = pageData;
+    citationMap = buildCitationMap({ mentions: [], relationships: [], claims: topic.claims }).citationMap;
+    related = [];
+    formatNewClaims(delta, citationMap, out);
+  }
+  return {
+    pageKind: delta.kind,
+    pageTitle: pageData.title,
+    pageSlug: pageData.slug,
+    pageContent,
+    newEvidence: out.join("\n").trim(),
+    citationKeys: formatCitationKeys(citationMap),
+    relatedEntities: formatRelatedEntities(related)
+  };
+}
+async function writeAmendment(request2, agentsMd, logPath, language, feedback, attempt, callLLMFn) {
+  const template = await loadPromptTemplate5();
+  const filled = fillPromptTemplate5(template, {
+    pageKind: request2.pageKind,
+    pageTitle: request2.pageTitle,
+    pageSlug: request2.pageSlug,
+    pageContent: request2.pageContent,
+    newEvidence: request2.newEvidence,
+    citationKeys: request2.citationKeys,
+    relatedEntities: request2.relatedEntities,
+    agentsMd: agentsMd.trim().length > 0 ? agentsMd : "(No AGENTS.md provided.)"
+  });
+  const prompt = applyLanguageDirective(
+    filled,
+    buildLanguageDirective("synthesis", language?.input ?? "en", language?.output ?? "en")
+  );
+  const fullPrompt = `${prompt}
+
+=== WIKI CONSTITUTION ===
+${agentsMd.trim().length > 0 ? agentsMd : "(No AGENTS.md provided.)"}
+
+All citation, page structure, and writing rules above must follow this constitution.`;
+  const callOptions = {
+    maxTokens: SYNTHESIS_MAX_TOKENS,
+    temperature: 0,
+    maxRetries: 2,
+    callType: "synthesis-amend",
+    context: attempt !== void 0 && attempt > 1 ? `amendment:${request2.pageSlug}#attempt${attempt}` : `amendment:${request2.pageSlug}`,
+    logPath
+  };
+  if (callLLMFn !== void 0) {
+    return callLLMFn(
+      feedback === void 0 ? fullPrompt : `${fullPrompt}
+
+${feedback}`,
+      callOptions
+    );
+  }
+  return callLLM(feedback === void 0 ? fullPrompt : `${fullPrompt}
+
+${feedback}`, void 0, callOptions);
+}
+
+// src/llm/patch.ts
+function parsePatch(rawText) {
+  const candidate = stripCodeFences(rawText);
+  let parsed;
+  try {
+    parsed = JSON.parse(candidate);
+  } catch (err) {
+    return { errors: [`output is not valid JSON (${err.message})`] };
+  }
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return { errors: ['output must be a single JSON object of the shape { "operations": [...] }'] };
+  }
+  const raw = parsed;
+  if (!Array.isArray(raw.operations)) {
+    return { errors: ['output must be a single JSON object of the shape { "operations": [...] }'] };
+  }
+  return { patch: { operations: raw.operations }, errors: [] };
+}
+var HEADING_PATTERN = /^(#{1,6})\s+(.*)$/;
+function headingsOf(content) {
+  const headings = [];
+  const lines = content.split("\n");
+  for (let index = 0; index < lines.length; index++) {
+    const match = HEADING_PATTERN.exec(lines[index]);
+    if (match !== null) {
+      headings.push({ level: match[1].length, text: match[2].trim(), line: index });
+    }
+  }
+  return headings;
+}
+function anchorPartText(part) {
+  const match = /^(#{1,6})\s+(.*)$/.exec(part.trim());
+  return (match !== null ? match[2] : part).trim();
+}
+function resolveAnchor(content, spec) {
+  const parts = spec.split(">").map((part) => anchorPartText(part));
+  if (parts.some((part) => part.length === 0)) {
+    return { errors: [`anchor "${spec}" is malformed \u2014 use "## Section" or "## Section > ### Member"`] };
+  }
+  const headings = headingsOf(content);
+  const lines = content.split("\n");
+  const scopeEnd = (fromLine, level) => {
+    for (let index = fromLine + 1; index < lines.length; index++) {
+      const match = HEADING_PATTERN.exec(lines[index]);
+      if (match !== null && match[1].length <= level) {
+        return index;
+      }
+    }
+    return lines.length;
+  };
+  if (parts.length === 1) {
+    const matches = headings.filter((heading) => heading.level === 2 && heading.text === parts[0]);
+    if (matches.length === 0) {
+      return { errors: [`anchor "${spec}": no section with this exact heading exists on the page`] };
+    }
+    if (matches.length > 1) {
+      return {
+        errors: [
+          `anchor "${spec}": the heading appears ${matches.length} times \u2014 qualify it as "## Parent > ### Member"`
+        ]
+      };
+    }
+    const start2 = matches[0].line;
+    return { anchor: { startLine: start2, endLine: scopeEnd(start2, 2) }, errors: [] };
+  }
+  if (parts.length > 2) {
+    return { errors: [`anchor "${spec}" is malformed \u2014 use "## Section" or "## Section > ### Member"`] };
+  }
+  const parents = headings.filter((heading) => heading.level === 2 && heading.text === parts[0]);
+  if (parents.length === 0) {
+    return { errors: [`anchor "${spec}": no section with this exact heading exists on the page`] };
+  }
+  if (parents.length > 1) {
+    return {
+      errors: [`anchor "${spec}": the parent heading appears ${parents.length} times`]
+    };
+  }
+  const parentStart = parents[0].line;
+  const parentEnd = scopeEnd(parentStart, 2);
+  const members = headings.filter(
+    (heading) => heading.level === 3 && heading.text === parts[1] && heading.line > parentStart && heading.line < parentEnd
+  );
+  if (members.length === 0) {
+    return {
+      errors: [
+        `anchor "${spec}": no member group with this exact heading exists inside "## ${parts[0]}"`
+      ]
+    };
+  }
+  if (members.length > 1) {
+    return {
+      errors: [`anchor "${spec}": the member heading appears ${members.length} times inside "## ${parts[0]}"`]
+    };
+  }
+  const start = members[0].line;
+  return { anchor: { startLine: start, endLine: scopeEnd(start, 3) }, errors: [] };
+}
+function insertBlockAtAnchor(content, anchor, block) {
+  const lines = content.split("\n");
+  let insertAt = anchor.endLine;
+  while (insertAt > anchor.startLine + 1 && lines[insertAt - 1].trim() === "") {
+    insertAt -= 1;
+  }
+  const before = lines.slice(0, insertAt);
+  const after = lines.slice(insertAt);
+  const needsLeadingBlank = before.length === 0 || before[before.length - 1].trim() !== "";
+  const merged = [...before, ...needsLeadingBlank ? [""] : [], ...block, ...after];
+  return merged.join("\n");
+}
+var DETERMINISTIC_SECTIONS = /* @__PURE__ */ new Set(["Sources"]);
+function validatePatch(patch, ctx) {
+  const errors = [];
+  const content = ctx.pageContent;
+  const isNonEmptyString2 = (value) => typeof value === "string" && value.trim().length > 0;
+  patch.operations.forEach((operation, index) => {
+    const label = `operations[${index}]`;
+    if (typeof operation !== "object" || operation === null || Array.isArray(operation)) {
+      errors.push(`${label}: must be an object`);
+      return;
+    }
+    const op = operation.op;
+    if (typeof op !== "string") {
+      errors.push(`${label}: missing "op" (allowed: add-evidence, add-section, add-member, edit-prose, flag-contradiction)`);
+      return;
+    }
+    if (op === "add-evidence") {
+      const entry = operation;
+      if (!isNonEmptyString2(entry.section)) {
+        errors.push(`${label} (add-evidence): "section" must be a non-empty string`);
+        return;
+      }
+      if (!Array.isArray(entry.items) || entry.items.length === 0 || !entry.items.every(isNonEmptyString2)) {
+        errors.push(`${label} (add-evidence): "items" must be a non-empty list of non-empty strings`);
+        return;
+      }
+      if (DETERMINISTIC_SECTIONS.has(anchorPartText(entry.section.split(">")[0]))) {
+        errors.push(
+          `${label} (add-evidence): "## Sources" is rebuilt deterministically \u2014 anchor the items in a content section instead`
+        );
+        return;
+      }
+      const resolved = resolveAnchor(content, entry.section);
+      errors.push(...resolved.errors.map((error) => `${label} (add-evidence) ${error}`));
+      return;
+    }
+    if (op === "add-section") {
+      const entry = operation;
+      if (!isNonEmptyString2(entry.heading)) {
+        errors.push(`${label} (add-section): "heading" must be a non-empty string`);
+        return;
+      }
+      if (typeof entry.body !== "string" || entry.body.trim().length === 0) {
+        errors.push(`${label} (add-section): "body" must be a non-empty string`);
+        return;
+      }
+      const headingText = anchorPartText(entry.heading);
+      if (headingsOf(content).some((heading) => heading.text === headingText)) {
+        errors.push(`${label} (add-section): a heading "${headingText}" already exists on the page`);
+      }
+      if (DETERMINISTIC_SECTIONS.has(headingText)) {
+        errors.push(
+          `${label} (add-section): "## Sources" is rebuilt deterministically \u2014 never add it as a section`
+        );
+      }
+      return;
+    }
+    if (op === "add-member") {
+      const entry = operation;
+      if (ctx.pageKind !== "composite") {
+        errors.push(`${label} (add-member): add-member is only valid on composite pages`);
+        return;
+      }
+      const member = entry.member;
+      if (typeof member !== "object" || member === null || !isNonEmptyString2(member.slug) || !isNonEmptyString2(member.title)) {
+        errors.push(`${label} (add-member): "member" must be { "slug", "title" } with non-empty strings`);
+        return;
+      }
+      const covered = (ctx.members ?? []).some((candidate) => candidate.slug === member.slug);
+      if (!covered) {
+        errors.push(
+          `${label} (add-member): member "${member.slug}" is not covered by the composite's current members \u2014 the source must route through materialize (Step 6b) first`
+        );
+      }
+      const alreadyOnPage = content.includes(`\`${member.slug}\``) || headingsOf(content).some((heading) => heading.level === 3 && heading.text === member.title);
+      if (alreadyOnPage) {
+        errors.push(`${label} (add-member): member "${member.slug}" is already on the page`);
+      }
+      if (!Array.isArray(entry.sections) || entry.sections.length === 0) {
+        errors.push(`${label} (add-member): "sections" must be a non-empty list of { "section", "items" }`);
+        return;
+      }
+      for (const group of entry.sections) {
+        const groupEntry = group;
+        if (!isNonEmptyString2(groupEntry.section)) {
+          errors.push(`${label} (add-member): each member section needs a non-empty "section"`);
+          continue;
+        }
+        if (!Array.isArray(groupEntry.items) || groupEntry.items.length === 0 || !groupEntry.items.every(isNonEmptyString2)) {
+          errors.push(`${label} (add-member): section "${groupEntry.section}" needs a non-empty "items" list`);
+        }
+      }
+      return;
+    }
+    if (op === "edit-prose") {
+      const entry = operation;
+      if (!isNonEmptyString2(entry.oldText) || typeof entry.newText !== "string") {
+        errors.push(`${label} (edit-prose): "oldText" and "newText" must be non-empty strings`);
+        return;
+      }
+      const occurrences = content.split(entry.oldText).length - 1;
+      if (occurrences === 0) {
+        errors.push(`${label} (edit-prose): oldText is not found on the page \u2014 quote the exact existing span`);
+      } else if (occurrences > 1) {
+        errors.push(
+          `${label} (edit-prose): oldText matches ${occurrences} places on the page \u2014 it must be unique (widen the span)`
+        );
+      }
+      return;
+    }
+    if (op === "flag-contradiction") {
+      const entry = operation;
+      if (!isNonEmptyString2(entry.section) || !isNonEmptyString2(entry.olderClaim) || !isNonEmptyString2(entry.olderCitation) || !isNonEmptyString2(entry.newerClaim) || !isNonEmptyString2(entry.newerCitation)) {
+        errors.push(
+          `${label} (flag-contradiction): "section", "olderClaim", "olderCitation", "newerClaim", "newerCitation" must all be non-empty strings`
+        );
+        return;
+      }
+      if (!content.includes(entry.olderClaim)) {
+        errors.push(
+          `${label} (flag-contradiction): the older claim text is not on the page \u2014 quote the existing claim verbatim`
+        );
+      }
+      if (DETERMINISTIC_SECTIONS.has(anchorPartText(entry.section.split(">")[0]))) {
+        errors.push(
+          `${label} (flag-contradiction): "## Sources" is rebuilt deterministically \u2014 flag inside a content section`
+        );
+        return;
+      }
+      const resolved = resolveAnchor(content, entry.section);
+      errors.push(...resolved.errors.map((error) => `${label} (flag-contradiction) ${error}`));
+      return;
+    }
+    errors.push(
+      `${label}: unknown operation "${op}" (allowed: add-evidence, add-section, add-member, edit-prose, flag-contradiction)`
+    );
+  });
+  return { valid: errors.length === 0, errors };
+}
+function sourcesInsertLine(content) {
+  const lines = content.split("\n");
+  for (let index = 0; index < lines.length; index++) {
+    const match = HEADING_PATTERN.exec(lines[index]);
+    if (match !== null && match[1].length === 2 && match[2].trim() === "Sources") {
+      return index;
+    }
+  }
+  return lines.length;
+}
+function normalizeSectionHeading(heading) {
+  const trimmed = heading.trim();
+  return trimmed.startsWith("#") ? trimmed : `## ${trimmed}`;
+}
+function applyPatch(pageContent, patch) {
+  let content = pageContent;
+  for (let index = 0; index < patch.operations.length; index++) {
+    const operation = patch.operations[index];
+    const label = `operations[${index}]`;
+    const op = operation.op;
+    if (op === "add-evidence") {
+      const entry = operation;
+      const resolved = resolveAnchor(content, entry.section);
+      if (resolved.anchor === void 0) {
+        throw new Error(
+          `${label} (add-evidence) anchor "${entry.section}": no longer resolves after the preceding operations`
+        );
+      }
+      content = insertBlockAtAnchor(content, resolved.anchor, entry.items.map((item) => item.trimEnd()));
+      continue;
+    }
+    if (op === "add-section") {
+      const entry = operation;
+      const heading = normalizeSectionHeading(entry.heading);
+      if (headingsOf(content).some((candidate) => candidate.text === anchorPartText(heading))) {
+        throw new Error(`${label} (add-section): a heading "${anchorPartText(heading)}" already exists`);
+      }
+      const lines = content.split("\n");
+      const insertAt = sourcesInsertLine(content);
+      const before = lines.slice(0, insertAt);
+      const after = lines.slice(insertAt);
+      while (before.length > 0 && before[before.length - 1].trim() === "") {
+        before.pop();
+      }
+      content = [...before, "", heading, "", entry.body.trim(), "", ...after].join("\n");
+      continue;
+    }
+    if (op === "add-member") {
+      const entry = operation;
+      content = applyAddMember(content, entry, label);
+      continue;
+    }
+    if (op === "edit-prose") {
+      const entry = operation;
+      const occurrences = content.split(entry.oldText).length - 1;
+      if (occurrences !== 1) {
+        throw new Error(
+          `${label} (edit-prose): oldText matches ${occurrences} place(s) after the preceding operations \u2014 it must be unique`
+        );
+      }
+      content = content.replace(entry.oldText, entry.newText);
+      continue;
+    }
+    if (op === "flag-contradiction") {
+      const entry = operation;
+      const resolved = resolveAnchor(content, entry.section);
+      if (resolved.anchor === void 0) {
+        throw new Error(
+          `${label} (flag-contradiction) anchor "${entry.section}": no longer resolves after the preceding operations`
+        );
+      }
+      const block = [
+        "> [!contradiction] Contradiction flagged between sources",
+        `> **Older claim:** "${entry.olderClaim}" ${entry.olderCitation}`,
+        `> **Newer claim:** "${entry.newerClaim}" ${entry.newerCitation}`,
+        "> (Both claims are preserved verbatim above; the contradiction is unresolved pending further evidence.)"
+      ];
+      content = insertBlockAtAnchor(content, resolved.anchor, block);
+      continue;
+    }
+    throw new Error(`${label}: unknown operation "${String(op)}"`);
+  }
+  return content;
+}
+function applyAddMember(content, entry, label) {
+  const { slug, title } = entry.member;
+  if (content.includes(`\`${slug}\``)) {
+    throw new Error(`${label} (add-member): member "${slug}" is already on the page`);
+  }
+  let working = content;
+  const membersAnchor = resolveAnchor(working, "## Members");
+  if (membersAnchor.anchor === void 0) {
+    throw new Error(`${label} (add-member): the page has no "## Members" section to extend`);
+  }
+  working = insertBlockAtAnchor(working, membersAnchor.anchor, [`- **${title}** (\`${slug}\`)`]);
+  for (const group of entry.sections) {
+    const parentText = anchorPartText(group.section.split(">")[0]);
+    const existing = headingsOf(working).some(
+      (heading) => heading.level === 2 && heading.text === parentText && !DETERMINISTIC_SECTIONS.has(heading.text)
+    );
+    const block = [`### ${title}`, "", ...group.items.map((item) => item.trimEnd())];
+    if (existing) {
+      const resolved = resolveAnchor(working, `## ${parentText}`);
+      if (resolved.anchor === void 0) {
+        throw new Error(`${label} (add-member): section "## ${parentText}" no longer resolves`);
+      }
+      working = insertBlockAtAnchor(working, resolved.anchor, block);
+    } else {
+      const lines = working.split("\n");
+      const insertAt = sourcesInsertLine(working);
+      const before = lines.slice(0, insertAt);
+      const after = lines.slice(insertAt);
+      while (before.length > 0 && before[before.length - 1].trim() === "") {
+        before.pop();
+      }
+      working = [...before, "", `## ${parentText}`, "", ...block, "", ...after].join("\n");
+    }
+  }
+  return working;
+}
+
+// src/state/amendment-log.ts
+import { mkdir as mkdir18, appendFile as appendFile2 } from "node:fs/promises";
+import { join as join30 } from "node:path";
+function amendmentLogPath(wikiDir2) {
+  return join30(wikiDir2, ".state", "amendment-log.jsonl");
+}
+function countOperations(operations) {
+  const counts = {};
+  for (const operation of operations) {
+    counts[operation.op] = (counts[operation.op] ?? 0) + 1;
+  }
+  return counts;
+}
+async function appendAmendmentLogRecord(wikiDir2, record, readOutputTokens) {
+  const path = amendmentLogPath(wikiDir2);
+  await enqueueSerializedWrite(path, async () => {
+    let outputTokens = null;
+    if (readOutputTokens !== void 0) {
+      try {
+        outputTokens = await readOutputTokens();
+      } catch {
+        outputTokens = null;
+      }
+    }
+    const line = `${JSON.stringify({ ...record, outputTokens })}
+`;
+    await mkdir18(join30(wikiDir2, ".state"), { recursive: true });
+    await appendFile2(path, line, "utf-8");
+  });
+}
+
 // src/dox-writer.ts
 var import_gray_matter10 = __toESM(require_gray_matter(), 1);
-import { readdir as readdir5, readFile as readFile22, writeFile as writeFile17 } from "node:fs/promises";
-import { join as join29 } from "node:path";
+import { readdir as readdir5, readFile as readFile23, writeFile as writeFile17 } from "node:fs/promises";
+import { join as join31 } from "node:path";
 var EXCLUDED_FOLDERS = /* @__PURE__ */ new Set([".state", "raw"]);
-var PROMPT_DIR2 = join29(appRoot(), "prompts");
+var PROMPT_DIR2 = join31(appRoot(), "prompts");
 var DOX_PROMPT_FILE = "dox-writer.prompt.txt";
 var DOX_WRITER_MAX_TOKENS = 8192;
 var cachedDoxPrompt;
@@ -106781,11 +107596,11 @@ async function loadDoxPromptTemplate() {
   if (cachedDoxPrompt !== void 0) {
     return cachedDoxPrompt;
   }
-  const template = await readFile22(join29(PROMPT_DIR2, DOX_PROMPT_FILE), "utf-8");
+  const template = await readFile23(join31(PROMPT_DIR2, DOX_PROMPT_FILE), "utf-8");
   cachedDoxPrompt = template;
   return template;
 }
-function fillPromptTemplate5(template, values) {
+function fillPromptTemplate6(template, values) {
   let output = template;
   for (const [key, value] of Object.entries(values)) {
     output = output.split(`{${key}}`).join(value);
@@ -106800,7 +107615,7 @@ function folderDescription(name) {
 }
 async function readPageTitle(absolutePath) {
   try {
-    const content = await readFile22(absolutePath, "utf-8");
+    const content = await readFile23(absolutePath, "utf-8");
     const parsed = (0, import_gray_matter10.default)(content);
     if (typeof parsed.data.title === "string" && parsed.data.title.trim().length > 0) {
       return parsed.data.title.trim();
@@ -106811,7 +107626,7 @@ async function readPageTitle(absolutePath) {
 }
 async function readCompositeMembers(absolutePath) {
   try {
-    const content = await readFile22(absolutePath, "utf-8");
+    const content = await readFile23(absolutePath, "utf-8");
     const parsed = (0, import_gray_matter10.default)(content);
     if (parsed.data.type !== "composite" || !Array.isArray(parsed.data.members)) {
       return void 0;
@@ -106833,13 +107648,13 @@ async function readCompositeMembers(absolutePath) {
 }
 async function readTextIfExists(absolutePath) {
   try {
-    return await readFile22(absolutePath, "utf-8");
+    return await readFile23(absolutePath, "utf-8");
   } catch {
     return "";
   }
 }
 async function scanFolder(wikiDirPath, relativePath) {
-  const absolutePath = join29(wikiDirPath, relativePath);
+  const absolutePath = join31(wikiDirPath, relativePath);
   const entries = await readdir5(absolutePath, { withFileTypes: true });
   const subFolders = [];
   const files = [];
@@ -106855,8 +107670,8 @@ async function scanFolder(wikiDirPath, relativePath) {
       subFolders.push(await scanFolder(wikiDirPath, childRelativePath));
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
       const childRelativePath = relativePath ? `${relativePath}/${entry.name}` : entry.name;
-      const title = await readPageTitle(join29(wikiDirPath, childRelativePath));
-      const compositeMembers = await readCompositeMembers(join29(wikiDirPath, childRelativePath));
+      const title = await readPageTitle(join31(wikiDirPath, childRelativePath));
+      const compositeMembers = await readCompositeMembers(join31(wikiDirPath, childRelativePath));
       const fileSlug = entry.name.replace(/\.md$/i, "");
       const target = fileSlug.toLowerCase() === "index" ? childRelativePath.replace(/\.md$/i, "") : fileSlug;
       const linkText = formatWikilink(target, title || void 0);
@@ -107243,14 +108058,14 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
   );
   for (const file of contentFiles) {
     pages.push({ name: file.name, title: file.title, linkText: file.linkText });
-    const content = await readTextIfExists(join29(dir, file.relativePath));
+    const content = await readTextIfExists(join31(dir, file.relativePath));
     if (content.length > 0) {
       pageContents.push({ name: file.name, title: file.title, content });
     }
   }
   const childIndexes = [];
   for (const sub of folder.subFolders) {
-    const content = await readTextIfExists(join29(dir, sub.relativePath, "index.md"));
+    const content = await readTextIfExists(join31(dir, sub.relativePath, "index.md"));
     if (content.length === 0) {
       continue;
     }
@@ -107269,8 +108084,8 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
       content
     });
   }
-  const agentsMd = await readTextIfExists(join29(dir, "AGENTS.md"));
-  const rollingMemory = await readTextIfExists(join29(dir, ".state", "rolling-memory.json"));
+  const agentsMd = await readTextIfExists(join31(dir, "AGENTS.md"));
+  const rollingMemory = await readTextIfExists(join31(dir, ".state", "rolling-memory.json"));
   const parentTitle = isRoot ? "" : parentFolder && parentFolder.relativePath !== "" ? titleCase(parentFolder.name) : titleCase(wikiSlug);
   const siblingTitles = parentFolder ? parentFolder.subFolders.filter((sibling) => sibling.name !== folder.name).map((sibling) => titleCase(sibling.name)) : [];
   const parentLinkText = isRoot ? "" : parentFolder && parentFolder.relativePath !== "" ? folderIndexLink(parentFolder) : rootIndexLink(wikiSlug);
@@ -107293,7 +108108,7 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
     siblingLinkTexts,
     agentsMd,
     rollingMemory,
-    logPath: options2.logPath ?? join29(dir, ".state", "llm-calls.json"),
+    logPath: options2.logPath ?? join31(dir, ".state", "llm-calls.json"),
     language: options2.language
   };
 }
@@ -107315,7 +108130,7 @@ async function writeDoxIndexWithLlm(context, feedback, attempt) {
       linkTargetLines.push(`- sibling folder \u2014 link as ${siblingLink}`);
     }
   }
-  const filledPrompt = fillPromptTemplate5(template, {
+  const filledPrompt = fillPromptTemplate6(template, {
     wikiSlug: context.wikiSlug,
     folderPath: context.contextLabel,
     folderTitle: context.title,
@@ -107349,7 +108164,7 @@ ${feedback}`, void 0, {
 }
 async function writeFolderIndexLlm(wikiSlug, folder, parentFolder, options2, linkIndex) {
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const absoluteFolderPath = join29(dir, folder.relativePath);
+  const absoluteFolderPath = join31(dir, folder.relativePath);
   const title = folder.relativePath === "" ? titleCase(wikiSlug) : titleCase(folder.name);
   const now = (/* @__PURE__ */ new Date()).toISOString();
   const children = buildChildrenList(folder);
@@ -107402,7 +108217,7 @@ async function writeFolderIndexLlm(wikiSlug, folder, parentFolder, options2, lin
     updated: now,
     children
   };
-  await writeFile17(join29(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile17(join31(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
 }
 async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIndex) {
   const hasContent = folder.files.length > 0 || folder.subFolders.length > 0;
@@ -107417,7 +108232,7 @@ async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIn
     return;
   }
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const absoluteFolderPath = join29(dir, folder.relativePath);
+  const absoluteFolderPath = join31(dir, folder.relativePath);
   const title = folder.relativePath === "" ? titleCase(wikiSlug) : titleCase(folder.name);
   const now = (/* @__PURE__ */ new Date()).toISOString();
   const children = buildChildrenList(folder);
@@ -107431,7 +108246,7 @@ async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIn
     updated: now,
     children
   };
-  await writeFile17(join29(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile17(join31(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
   for (const subFolder of folder.subFolders) {
     await writeFolderIndex(wikiSlug, subFolder, folder, options2);
   }
@@ -107453,7 +108268,7 @@ async function loadWorkspacePromptTemplate(fileName) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile22(join29(PROMPT_DIR2, fileName), "utf-8");
+  const template = await readFile23(join31(PROMPT_DIR2, fileName), "utf-8");
   workspacePromptCache[fileName] = template;
   return template;
 }
@@ -107551,7 +108366,7 @@ function composeWorkspaceBody(wikis, statistics, workspaceProse, entryDescriptio
 }
 async function writeWorkspaceProseWithLlm(context, feedback, attempt) {
   const template = await loadWorkspacePromptTemplate(DOX_WORKSPACE_PROMPT_FILE);
-  const prompt = fillPromptTemplate5(template, {
+  const prompt = fillPromptTemplate6(template, {
     outputLanguage: context.outputLanguage,
     childIndexes: context.wikis.map((wiki) => `--- ${wiki.indexPath} (wiki "${wiki.title}") ---
 ${wiki.content}`).join("\n\n")
@@ -107568,7 +108383,7 @@ ${feedback}`, void 0, {
 }
 async function writeWorkspaceEntryWithLlm(context, feedback, attempt) {
   const template = await loadWorkspacePromptTemplate(DOX_WORKSPACE_ENTRY_PROMPT_FILE);
-  const prompt = fillPromptTemplate5(template, {
+  const prompt = fillPromptTemplate6(template, {
     wikiSlug: context.wikiSlug,
     wikiTitle: context.wikiTitle,
     outputLanguage: context.outputLanguage,
@@ -107621,7 +108436,7 @@ async function runWorkspaceEntryWithRetries(runLlm, contextLabel) {
   }
 }
 async function writeWorkspaceIndex(options2) {
-  const wikisRoot = join29(options2.workspace ?? ".", "wikis");
+  const wikisRoot = join31(options2.workspace ?? ".", "wikis");
   let entries;
   try {
     entries = await readdir5(wikisRoot, { withFileTypes: true });
@@ -107633,7 +108448,7 @@ async function writeWorkspaceIndex(options2) {
     if (!entry.isDirectory() || entry.name === "cross-wiki") {
       continue;
     }
-    const indexPath = join29(wikisRoot, entry.name, "index.md");
+    const indexPath = join31(wikisRoot, entry.name, "index.md");
     const content = await readTextIfExists(indexPath);
     if (content.length === 0) {
       continue;
@@ -107663,7 +108478,7 @@ async function writeWorkspaceIndex(options2) {
   let entities = 0;
   let topics = 0;
   for (const wiki of wikis) {
-    const tree = await scanFolder(join29(wikisRoot, wiki.slug), "");
+    const tree = await scanFolder(join31(wikisRoot, wiki.slug), "");
     sources += countContentFiles(findSubFolder(tree, "sources") ?? emptyFolder());
     documents += countContentFiles(findSubFolder(tree, "documents") ?? emptyFolder());
     entities += countContentFiles(findSubFolder(tree, "entities") ?? emptyFolder());
@@ -107677,7 +108492,7 @@ async function writeWorkspaceIndex(options2) {
     `Topic pages: ${topics}`
   ];
   const children = wikis.map((wiki) => wiki.indexPath);
-  const existing = await readTextIfExists(join29(wikisRoot, WORKSPACE_INDEX_FILE));
+  const existing = await readTextIfExists(join31(wikisRoot, WORKSPACE_INDEX_FILE));
   const preserved = parseWorkspaceSegments(existing);
   let existingChildren = [];
   if (existing.length > 0) {
@@ -107730,7 +108545,7 @@ async function writeWorkspaceIndex(options2) {
     }
     entryDescription = description ?? deterministicDescription(triggering);
   }
-  const crossWikiArtifacts = (await readTextIfExists(join29(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  const crossWikiArtifacts = (await readTextIfExists(join31(wikisRoot, "cross-wiki", "index.md"))).length > 0;
   const crossWikiSection = crossWikiArtifacts ? parseCrossWikiSection((0, import_gray_matter10.default)(existing).content ?? "") ?? crossWikiDiscoverySection() : null;
   const body = composeWorkspaceBody(
     wikis,
@@ -107749,11 +108564,11 @@ async function writeWorkspaceIndex(options2) {
     updated: (/* @__PURE__ */ new Date()).toISOString(),
     children
   };
-  await writeFile17(join29(wikisRoot, WORKSPACE_INDEX_FILE), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile17(join31(wikisRoot, WORKSPACE_INDEX_FILE), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
 }
 async function updateWorkspaceCrossWikiSection(workspace = ".") {
-  const wikisRoot = join29(workspace, "wikis");
-  const indexPath = join29(wikisRoot, WORKSPACE_INDEX_FILE);
+  const wikisRoot = join31(workspace, "wikis");
+  const indexPath = join31(wikisRoot, WORKSPACE_INDEX_FILE);
   const existing = await readTextIfExists(indexPath);
   if (existing.length === 0) {
     return;
@@ -107782,7 +108597,7 @@ async function updateWorkspaceCrossWikiSection(workspace = ".") {
       }
     }
   }
-  const artifactsExist = (await readTextIfExists(join29(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  const artifactsExist = (await readTextIfExists(join31(wikisRoot, "cross-wiki", "index.md"))).length > 0;
   if (artifactsExist) {
     const sectionLines = crossWikiDiscoverySection().replace(/\n+$/, "").split("\n");
     const statsIndex = lines.findIndex((line) => line.trim() === "## Statistics");
@@ -107801,17 +108616,17 @@ async function updateWorkspaceCrossWikiSection(workspace = ".") {
 
 // src/agents/agents-updater.ts
 var import_gray_matter11 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile23, readdir as readdir6, writeFile as writeFile18, mkdir as mkdir18 } from "node:fs/promises";
-import { dirname as dirname5, join as join30, relative as relative2 } from "node:path";
-var PROMPT_DIR3 = join30(appRoot(), "prompts");
+import { readFile as readFile24, readdir as readdir6, writeFile as writeFile18, mkdir as mkdir19 } from "node:fs/promises";
+import { dirname as dirname5, join as join32, relative as relative2 } from "node:path";
+var PROMPT_DIR3 = join32(appRoot(), "prompts");
 var promptCache3;
-async function loadPromptTemplate5() {
+async function loadPromptTemplate6() {
   if (promptCache3 === void 0) {
-    promptCache3 = await readFile23(join30(PROMPT_DIR3, "agents-updater.prompt.txt"), "utf-8");
+    promptCache3 = await readFile24(join32(PROMPT_DIR3, "agents-updater.prompt.txt"), "utf-8");
   }
   return promptCache3;
 }
-function fillPromptTemplate6(template, values) {
+function fillPromptTemplate7(template, values) {
   let output = template;
   for (const [key, value] of Object.entries(values)) {
     output = output.split(`{${key}}`).join(value);
@@ -107835,12 +108650,12 @@ async function collectWikiStructure(wikiDirPath) {
         if (entry.name === "raw" || entry.name === ".state") {
           continue;
         }
-        const folderPath = relative2(wikiDirPath, join30(dir, entry.name)).split("\\").join("/");
+        const folderPath = relative2(wikiDirPath, join32(dir, entry.name)).split("\\").join("/");
         folders.push(folderPath);
-        await walk5(join30(dir, entry.name));
+        await walk5(join32(dir, entry.name));
       } else if (entry.isFile() && entry.name.endsWith(".md")) {
         try {
-          const raw = await readFile23(join30(dir, entry.name), "utf-8");
+          const raw = await readFile24(join32(dir, entry.name), "utf-8");
           const type = (0, import_gray_matter11.default)(raw).data.type;
           if (typeof type === "string" && type.length > 0) {
             typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
@@ -107925,10 +108740,10 @@ ${typeLines}
 }
 async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const agentsMdPath = join30(dir, "AGENTS.md");
+  const agentsMdPath = join32(dir, "AGENTS.md");
   let currentAgentsMd;
   try {
-    currentAgentsMd = await readFile23(agentsMdPath, "utf-8");
+    currentAgentsMd = await readFile24(agentsMdPath, "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
       throw new Error(`Wiki '${wikiSlug}' has no AGENTS.md at ${agentsMdPath}. Run 'init ${wikiSlug}' first.`);
@@ -107939,8 +108754,8 @@ async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
   const structuralLog = await readStructuralChanges(dir);
   const newFolders = structuralLog.changes.filter((change) => change.type === "new-folder").map((change) => ({ path: change.path, reason: change.reason }));
   const newPageTypes = structuralLog.changes.filter((change) => change.type === "new-page-type").map((change) => ({ path: change.path, reason: change.reason }));
-  const template = await loadPromptTemplate5();
-  const prompt = fillPromptTemplate6(template, {
+  const template = await loadPromptTemplate6();
+  const prompt = fillPromptTemplate7(template, {
     currentAgentsMd,
     wikiStructure: formatStructure(structure),
     newFolders: newFolders.length > 0 ? newFolders.map((folder) => `- ${folder.path} \u2014 ${folder.reason}`).join("\n") : "(none)",
@@ -107950,7 +108765,7 @@ async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
     maxTokens: 8192,
     callType: "agents-updater",
     context: wikiSlug,
-    logPath: options2.logPath ?? join30(dir, ".state", "llm-calls.json"),
+    logPath: options2.logPath ?? join32(dir, ".state", "llm-calls.json"),
     // Bounded retry amendment: transient transport failures (429/5xx,
     // network) get 2 extra attempts; deterministic 4xx throws immediately.
     maxRetries: 2,
@@ -107995,16 +108810,16 @@ ${feedback}`;
     proposal = buildDeterministicFallback(currentAgentsMd, newFolders, newPageTypes);
   }
   proposal = enforceLanguageSection(proposal, currentAgentsMd);
-  const proposalPath = join30(dir, ".state", "proposed-agents.md");
-  await mkdir18(dirname5(proposalPath), { recursive: true });
+  const proposalPath = join32(dir, ".state", "proposed-agents.md");
+  await mkdir19(dirname5(proposalPath), { recursive: true });
   await writeFile18(proposalPath, proposal, "utf-8");
   console.log("Proposed AGENTS.md updates saved to .state/proposed-agents.md. Review and apply manually.");
   return proposal;
 }
 
 // src/cross-wiki/index.ts
-import { mkdir as mkdir23, writeFile as writeFile23 } from "node:fs/promises";
-import { join as join39 } from "node:path";
+import { mkdir as mkdir24, writeFile as writeFile23 } from "node:fs/promises";
+import { join as join41 } from "node:path";
 
 // src/pages/cross-wiki/cross-wiki-index-page.ts
 var import_gray_matter12 = __toESM(require_gray_matter(), 1);
@@ -108087,8 +108902,8 @@ ${lines.join("\n")}
 
 // src/validation/cross-wiki-schema.ts
 var import_gray_matter13 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile24, readdir as readdir7 } from "node:fs/promises";
-import { join as join31, relative as relative3 } from "node:path";
+import { readFile as readFile25, readdir as readdir7 } from "node:fs/promises";
+import { join as join33, relative as relative3 } from "node:path";
 var CROSS_WIKI_TYPES = /* @__PURE__ */ new Set(["cross-wiki-index", "cross-wiki-topic"]);
 function isValidIsoTimestamp(value) {
   if (value instanceof Date) {
@@ -108115,7 +108930,7 @@ async function walk2(dir, root, out) {
     return;
   }
   for (const entry of entries) {
-    const absolute = join31(dir, entry.name);
+    const absolute = join33(dir, entry.name);
     if (entry.isDirectory()) {
       await walk2(absolute, root, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -108124,7 +108939,7 @@ async function walk2(dir, root, out) {
   }
 }
 async function validateCrossWikiSchema(workspace = ".") {
-  const root = join31(workspace, "wikis", "cross-wiki");
+  const root = join33(workspace, "wikis", "cross-wiki");
   const files = [];
   await walk2(root, root, files);
   const invalid = [];
@@ -108132,7 +108947,7 @@ async function validateCrossWikiSchema(workspace = ".") {
     const page = `wikis/cross-wiki/${rel}`;
     let parsed;
     try {
-      parsed = (0, import_gray_matter13.default)(await readFile24(join31(root, rel), "utf-8"));
+      parsed = (0, import_gray_matter13.default)(await readFile25(join33(root, rel), "utf-8"));
     } catch (err) {
       invalid.push({ page, issue: `Invalid YAML frontmatter: ${err.message}` });
       continue;
@@ -108173,8 +108988,8 @@ async function validateCrossWikiSchema(workspace = ".") {
 }
 
 // src/cross-wiki/llm.ts
-import { readFile as readFile25 } from "node:fs/promises";
-import { join as join32 } from "node:path";
+import { readFile as readFile26 } from "node:fs/promises";
+import { join as join34 } from "node:path";
 var CROSS_WIKI_SMALL_MAX_TOKENS = 2048;
 var CROSS_WIKI_MAX_TOKENS = 8192;
 var CROSS_WIKI_MAX_ATTEMPTS = 3;
@@ -108184,7 +108999,7 @@ async function loadPrompt(fileName) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile25(join32(appRoot(), "prompts", fileName), "utf-8");
+  const template = await readFile26(join34(appRoot(), "prompts", fileName), "utf-8");
   promptCache4[fileName] = template;
   return template;
 }
@@ -108284,29 +109099,29 @@ ${feedback}`, void 0, {
 }
 
 // src/cross-wiki/state.ts
-import { mkdir as mkdir19, readFile as readFile26, writeFile as writeFile19 } from "node:fs/promises";
-import { join as join33 } from "node:path";
+import { mkdir as mkdir20, readFile as readFile27, writeFile as writeFile19 } from "node:fs/promises";
+import { join as join35 } from "node:path";
 function crossWikiStatePath(workspace, fileName) {
-  return join33(workspace ?? ".", ".state", "cross-wiki", fileName);
+  return join35(workspace ?? ".", ".state", "cross-wiki", fileName);
 }
 function proposedCrossWikiMatchesPath(workspace) {
-  return join33(workspace ?? ".", ".state", "proposed-cross-wiki-matches.json");
+  return join35(workspace ?? ".", ".state", "proposed-cross-wiki-matches.json");
 }
 async function writeCrossWikiState(workspace, fileName, data) {
   const path = crossWikiStatePath(workspace, fileName);
-  await mkdir19(join33(workspace ?? ".", ".state", "cross-wiki"), { recursive: true });
+  await mkdir20(join35(workspace ?? ".", ".state", "cross-wiki"), { recursive: true });
   await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
 }
 async function readCrossWikiState(workspace, fileName) {
   try {
-    return JSON.parse(await readFile26(crossWikiStatePath(workspace, fileName), "utf-8"));
+    return JSON.parse(await readFile27(crossWikiStatePath(workspace, fileName), "utf-8"));
   } catch {
     return null;
   }
 }
 async function writeProposedCrossWikiMatches(workspace, data) {
   const path = proposedCrossWikiMatchesPath(workspace);
-  await mkdir19(join33(workspace ?? ".", ".state"), { recursive: true });
+  await mkdir20(join35(workspace ?? ".", ".state"), { recursive: true });
   await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
 }
 
@@ -108397,8 +109212,8 @@ async function summarizeEntities(pages, options2 = {}) {
 }
 
 // src/cross-wiki/entity-resolver.ts
-import { mkdir as mkdir20, writeFile as writeFile20 } from "node:fs/promises";
-import { join as join34 } from "node:path";
+import { mkdir as mkdir21, writeFile as writeFile20 } from "node:fs/promises";
+import { join as join36 } from "node:path";
 
 // src/pages/cross-wiki/entity-registry-page.ts
 var import_gray_matter14 = __toESM(require_gray_matter(), 1);
@@ -108886,10 +109701,10 @@ async function resolveEntities(pages, summaries, options2 = {}) {
   }
   entries.sort((a, b) => a.canonicalTitle.localeCompare(b.canonicalTitle));
   remainingUncertain.sort((a, b) => groupKey(a.members.map((m) => m.path)).localeCompare(groupKey(b.members.map((m) => m.path))));
-  const crossWikiDir = join34(workspace, "wikis", "cross-wiki");
-  await mkdir20(crossWikiDir, { recursive: true });
+  const crossWikiDir = join36(workspace, "wikis", "cross-wiki");
+  await mkdir21(crossWikiDir, { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
-  await writeFile20(join34(crossWikiDir, "entities.md"), writeEntityRegistryPage(entries, updated), "utf-8");
+  await writeFile20(join36(crossWikiDir, "entities.md"), writeEntityRegistryPage(entries, updated), "utf-8");
   await writeCrossWikiState(workspace, "entity-registry.json", { generated: updated, entities: entries });
   await writeProposedCrossWikiMatches(workspace, {
     generated: updated,
@@ -109237,8 +110052,8 @@ function predicateLookup(groups) {
 }
 
 // src/cross-wiki/relationship-graph.ts
-import { mkdir as mkdir21, writeFile as writeFile21 } from "node:fs/promises";
-import { join as join35 } from "node:path";
+import { mkdir as mkdir22, writeFile as writeFile21 } from "node:fs/promises";
+import { join as join37 } from "node:path";
 
 // src/pages/cross-wiki/relationships-page.ts
 var import_gray_matter15 = __toESM(require_gray_matter(), 1);
@@ -109389,26 +110204,26 @@ async function buildRelationshipGraph(pages, registry, predicateGroups, options2
   edges.sort(
     (a, b) => `${a.subject.wiki}/${a.subject.slug}`.localeCompare(`${b.subject.wiki}/${b.subject.slug}`) || a.predicate.localeCompare(b.predicate) || `${a.object.wiki}/${a.object.slug}`.localeCompare(`${b.object.wiki}/${b.object.slug}`)
   );
-  const crossWikiDir = join35(workspace, "wikis", "cross-wiki");
-  await mkdir21(crossWikiDir, { recursive: true });
+  const crossWikiDir = join37(workspace, "wikis", "cross-wiki");
+  await mkdir22(crossWikiDir, { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
-  await writeFile21(join35(crossWikiDir, "relationships.md"), writeRelationshipsPage(edges, updated), "utf-8");
+  await writeFile21(join37(crossWikiDir, "relationships.md"), writeRelationshipsPage(edges, updated), "utf-8");
   await writeCrossWikiState(workspace, "relationship-graph.json", { generated: updated, edges });
   return edges;
 }
 
 // src/cross-wiki/run-control.ts
-import { readdir as readdir9, readFile as readFile28, stat } from "node:fs/promises";
-import { join as join37, relative as relative5 } from "node:path";
+import { readdir as readdir9, readFile as readFile29, stat } from "node:fs/promises";
+import { join as join39, relative as relative5 } from "node:path";
 import { createHash as createHash4 } from "node:crypto";
 
 // src/cross-wiki/workspace-scan.ts
 var import_gray_matter16 = __toESM(require_gray_matter(), 1);
-import { readdir as readdir8, readFile as readFile27 } from "node:fs/promises";
-import { join as join36, relative as relative4 } from "node:path";
+import { readdir as readdir8, readFile as readFile28 } from "node:fs/promises";
+import { join as join38, relative as relative4 } from "node:path";
 var CROSS_WIKI_FOLDER = "cross-wiki";
 async function listWorkspaceWikis(workspace = ".") {
-  const wikisRoot = join36(workspace, "wikis");
+  const wikisRoot = join38(workspace, "wikis");
   let entries;
   try {
     entries = await readdir8(wikisRoot, { withFileTypes: true });
@@ -109421,7 +110236,7 @@ async function listWorkspaceWikis(workspace = ".") {
       continue;
     }
     try {
-      await readFile27(join36(wikisRoot, entry.name, "index.md"), "utf-8");
+      await readFile28(join38(wikisRoot, entry.name, "index.md"), "utf-8");
       wikis.push(entry.name);
     } catch {
     }
@@ -109436,7 +110251,7 @@ async function walkMarkdown(dir, root, out) {
     return;
   }
   for (const entry of entries) {
-    const absolute = join36(dir, entry.name);
+    const absolute = join38(dir, entry.name);
     if (entry.isDirectory()) {
       await walkMarkdown(absolute, root, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -109537,15 +110352,15 @@ function frontmatterSources(data) {
   return result;
 }
 async function scanEntityPages(workspace, wiki) {
-  const wikiRoot = join36(workspace, "wikis", wiki);
-  const entitiesRoot = join36(wikiRoot, "entities");
+  const wikiRoot = join38(workspace, "wikis", wiki);
+  const entitiesRoot = join38(wikiRoot, "entities");
   const files = [];
   await walkMarkdown(entitiesRoot, entitiesRoot, files);
   const pages = [];
   for (const rel of files.sort((a, b) => a.localeCompare(b))) {
     let parsed;
     try {
-      parsed = (0, import_gray_matter16.default)(await readFile27(join36(entitiesRoot, rel), "utf-8"));
+      parsed = (0, import_gray_matter16.default)(await readFile28(join38(entitiesRoot, rel), "utf-8"));
     } catch {
       continue;
     }
@@ -109571,15 +110386,15 @@ async function scanEntityPages(workspace, wiki) {
   return pages;
 }
 async function scanTopicPages(workspace, wiki) {
-  const wikiRoot = join36(workspace, "wikis", wiki);
-  const topicsRoot = join36(wikiRoot, "topics");
+  const wikiRoot = join38(workspace, "wikis", wiki);
+  const topicsRoot = join38(wikiRoot, "topics");
   const files = [];
   await walkMarkdown(topicsRoot, topicsRoot, files);
   const pages = [];
   for (const rel of files.sort((a, b) => a.localeCompare(b))) {
     let parsed;
     try {
-      parsed = (0, import_gray_matter16.default)(await readFile27(join36(topicsRoot, rel), "utf-8"));
+      parsed = (0, import_gray_matter16.default)(await readFile28(join38(topicsRoot, rel), "utf-8"));
     } catch {
       continue;
     }
@@ -109604,11 +110419,11 @@ async function scanTopicPages(workspace, wiki) {
 // src/cross-wiki/run-control.ts
 import { existsSync as existsSync10 } from "node:fs";
 async function hashFile(absolute) {
-  return createHash4("sha256").update(await readFile28(absolute)).digest("hex");
+  return createHash4("sha256").update(await readFile29(absolute)).digest("hex");
 }
 async function collectPages(workspace, wiki, out) {
   for (const folder of ["entities", "topics"]) {
-    const root = join37(workspace, "wikis", wiki, folder);
+    const root = join39(workspace, "wikis", wiki, folder);
     const walk5 = async (dir) => {
       let entries;
       try {
@@ -109617,11 +110432,11 @@ async function collectPages(workspace, wiki, out) {
         return;
       }
       for (const entry of entries) {
-        const absolute = join37(dir, entry.name);
+        const absolute = join39(dir, entry.name);
         if (entry.isDirectory()) {
           await walk5(absolute);
         } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
-          const rel = relative5(join37(workspace, "wikis"), absolute).replace(/\\/g, "/");
+          const rel = relative5(join39(workspace, "wikis"), absolute).replace(/\\/g, "/");
           const stats = await stat(absolute);
           out[rel] = { sha256: await hashFile(absolute), mtimeMs: stats.mtimeMs, size: stats.size };
         }
@@ -109650,7 +110465,7 @@ async function readRunFingerprint(workspace) {
   return data;
 }
 function crossWikiArtifactsExist(workspace) {
-  return existsSync10(join37(workspace, "wikis", "cross-wiki", "index.md"));
+  return existsSync10(join39(workspace, "wikis", "cross-wiki", "index.md"));
 }
 async function preflightDecision(workspace, current) {
   if (current.wikis.length < 2) {
@@ -109714,8 +110529,8 @@ async function relevanceProbe(changes, options2 = {}) {
 }
 
 // src/cross-wiki/topic-clusterer.ts
-import { mkdir as mkdir22, rm as rm2, writeFile as writeFile22 } from "node:fs/promises";
-import { join as join38 } from "node:path";
+import { mkdir as mkdir23, rm as rm2, writeFile as writeFile22 } from "node:fs/promises";
+import { join as join40 } from "node:path";
 import { readdir as readdir10 } from "node:fs/promises";
 
 // src/pages/cross-wiki/topic-cluster-page.ts
@@ -109827,8 +110642,8 @@ function formatTopicCandidate(page) {
 }
 async function clusterTopics(pages, options2 = {}) {
   const workspace = options2.workspace ?? ".";
-  const topicsDir = join38(workspace, "wikis", "cross-wiki", "topics");
-  await mkdir22(topicsDir, { recursive: true });
+  const topicsDir = join40(workspace, "wikis", "cross-wiki", "topics");
+  await mkdir23(topicsDir, { recursive: true });
   const candidates = new Map(pages.map((page) => [page.id, page]));
   let kept = [];
   if (pages.length > 0) {
@@ -109884,13 +110699,13 @@ async function clusterTopics(pages, options2 = {}) {
   for (const entry of await readdir10(topicsDir, { withFileTypes: true })) {
     if (entry.isFile() && entry.name.endsWith(".md") && entry.name !== "index.md") {
       if (!kept.some((cluster) => `${cluster.clusterId}.md` === entry.name)) {
-        await rm2(join38(topicsDir, entry.name));
+        await rm2(join40(topicsDir, entry.name));
       }
     }
   }
   const updated = (/* @__PURE__ */ new Date()).toISOString();
   for (const cluster of kept) {
-    await writeFile22(join38(topicsDir, `${cluster.clusterId}.md`), writeTopicClusterPage(cluster, updated), "utf-8");
+    await writeFile22(join40(topicsDir, `${cluster.clusterId}.md`), writeTopicClusterPage(cluster, updated), "utf-8");
   }
   await writeCrossWikiState(workspace, "topic-clusters.json", { generated: updated, clusters: kept });
   return kept;
@@ -109898,10 +110713,10 @@ async function clusterTopics(pages, options2 = {}) {
 
 // src/cross-wiki/index.ts
 var import_gray_matter18 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile29 } from "node:fs/promises";
+import { readFile as readFile30 } from "node:fs/promises";
 async function changedPageSummary(workspace, path) {
   try {
-    const parsed = (0, import_gray_matter18.default)(await readFile29(join39(workspace, "wikis", path), "utf-8"));
+    const parsed = (0, import_gray_matter18.default)(await readFile30(join41(workspace, "wikis", path), "utf-8"));
     const data = parsed.data;
     return {
       path,
@@ -109999,8 +110814,8 @@ async function runCrossWikiPass(options2) {
     generateSignalsFn: options2.generateSignalsFn,
     onProgress: progress
   });
-  const crossWikiDir = join39(workspace, "wikis", CROSS_WIKI_FOLDER);
-  await mkdir23(join39(crossWikiDir, "topics"), { recursive: true });
+  const crossWikiDir = join41(workspace, "wikis", CROSS_WIKI_FOLDER);
+  await mkdir24(join41(crossWikiDir, "topics"), { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
   const artifactWikis = /* @__PURE__ */ new Set();
   for (const entry of resolution.entries) {
@@ -110020,7 +110835,7 @@ async function runCrossWikiPass(options2) {
     }
   }
   await writeFile23(
-    join39(crossWikiDir, "index.md"),
+    join41(crossWikiDir, "index.md"),
     writeCrossWikiIndexPage(
       {
         entityCount: resolution.entries.length,
@@ -110033,7 +110848,7 @@ async function runCrossWikiPass(options2) {
     "utf-8"
   );
   await writeFile23(
-    join39(crossWikiDir, "topics", "index.md"),
+    join41(crossWikiDir, "topics", "index.md"),
     writeCrossWikiTopicsIndexPage(clusters, updated),
     "utf-8"
   );
@@ -110062,15 +110877,15 @@ async function runCrossWikiPass(options2) {
 }
 
 // src/validation/index.ts
-import { mkdir as mkdir24, writeFile as writeFile24 } from "node:fs/promises";
-import { join as join42 } from "node:path";
+import { mkdir as mkdir25, writeFile as writeFile24 } from "node:fs/promises";
+import { join as join44 } from "node:path";
 
 // src/validation/citation-checker.ts
 var import_gray_matter19 = __toESM(require_gray_matter(), 1);
-import { access, readFile as readFile30, readdir as readdir11 } from "node:fs/promises";
-import { join as join40, relative as relative6 } from "node:path";
+import { access, readFile as readFile31, readdir as readdir11 } from "node:fs/promises";
+import { join as join42, relative as relative6 } from "node:path";
 async function findContentPages(wikiSlug, workspace) {
-  const dir = join40(workspace, "wikis", wikiSlug);
+  const dir = join42(workspace, "wikis", wikiSlug);
   const pages = [];
   await walk3(dir, dir, workspace, pages);
   return pages;
@@ -110081,7 +110896,7 @@ async function walk3(root, current, workspace, out) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join40(current, entry.name);
+    const absolute = join42(current, entry.name);
     if (entry.isDirectory()) {
       await walk3(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -110132,7 +110947,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
     if (page.relative.endsWith("index.md")) {
       continue;
     }
-    const content = await readFile30(page.absolute, "utf-8");
+    const content = await readFile31(page.absolute, "utf-8");
     const body = stripFrontmatter2(content);
     const definitions = /* @__PURE__ */ new Map();
     let defMatch;
@@ -110158,7 +110973,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
         invalid.push({ page: page.relative, citation: `[^${key}]` });
         continue;
       }
-      const sourcePath = join40(workspace, "wikis", wikiSlug, "raw", fileName);
+      const sourcePath = join42(workspace, "wikis", wikiSlug, "raw", fileName);
       try {
         await access(sourcePath);
       } catch {
@@ -110186,8 +111001,8 @@ async function checkCitations(wikiSlug, workspace = ".") {
 
 // src/validation/schema-validator.ts
 var import_gray_matter20 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile31, readdir as readdir12 } from "node:fs/promises";
-import { join as join41, relative as relative7 } from "node:path";
+import { readFile as readFile32, readdir as readdir12 } from "node:fs/promises";
+import { join as join43, relative as relative7 } from "node:path";
 var KNOWN_TYPES = /* @__PURE__ */ new Set([
   "entity",
   "topic",
@@ -110205,7 +111020,7 @@ var KNOWN_TYPES = /* @__PURE__ */ new Set([
   "cross-wiki-topic"
 ]);
 async function findPages(wikiSlug, workspace) {
-  const dir = join41(workspace, "wikis", wikiSlug);
+  const dir = join43(workspace, "wikis", wikiSlug);
   const pages = [];
   await walk4(dir, dir, workspace, pages);
   return pages;
@@ -110216,7 +111031,7 @@ async function walk4(root, current, workspace, out) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join41(current, entry.name);
+    const absolute = join43(current, entry.name);
     if (entry.isDirectory()) {
       await walk4(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -110249,7 +111064,7 @@ async function validateSchema(wikiSlug, workspace = ".") {
   const pages = await findPages(wikiSlug, workspace);
   const invalid = [];
   for (const page of pages) {
-    const content = await readFile31(page.absolute, "utf-8");
+    const content = await readFile32(page.absolute, "utf-8");
     let parsed;
     try {
       parsed = (0, import_gray_matter20.default)(content);
@@ -110331,10 +111146,10 @@ function formatSchemaSummary(schema) {
 }
 async function writeValidationReport(wikiDir2, summary) {
   try {
-    const reportDir = join42(wikiDir2, ".state");
-    await mkdir24(reportDir, { recursive: true });
+    const reportDir = join44(wikiDir2, ".state");
+    await mkdir25(reportDir, { recursive: true });
     await writeFile24(
-      join42(reportDir, "validation-report.json"),
+      join44(reportDir, "validation-report.json"),
       JSON.stringify(summary, null, 2) + "\n",
       "utf-8"
     );
@@ -110547,14 +111362,14 @@ function checkComparisonPreservation(originalData, writtenPage) {
 }
 
 // src/state/synthesis-report.ts
-import { mkdir as mkdir25, readFile as readFile32, writeFile as writeFile25 } from "node:fs/promises";
-import { join as join43 } from "node:path";
+import { mkdir as mkdir26, readFile as readFile33, writeFile as writeFile25 } from "node:fs/promises";
+import { join as join45 } from "node:path";
 function reportPath(wikiDir2) {
-  return join43(wikiDir2, ".state", "synthesis-report.json");
+  return join45(wikiDir2, ".state", "synthesis-report.json");
 }
 async function readReport(wikiDir2) {
   try {
-    const raw = await readFile32(reportPath(wikiDir2), "utf-8");
+    const raw = await readFile33(reportPath(wikiDir2), "utf-8");
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed.entries)) {
       return parsed;
@@ -110567,7 +111382,7 @@ async function readReport(wikiDir2) {
   return { entries: [] };
 }
 async function writeReport(wikiDir2, state) {
-  await mkdir25(join43(wikiDir2, ".state"), { recursive: true });
+  await mkdir26(join45(wikiDir2, ".state"), { recursive: true });
   await writeFile25(reportPath(wikiDir2), JSON.stringify(state, null, 2) + "\n", "utf-8");
 }
 async function appendSynthesisReportEntries(wikiDir2, entries) {
@@ -110691,7 +111506,7 @@ async function trySynthesisMode(runSynthesis, runCheck, label) {
   return { page: outcome.output, attempts: outcome.attempts, lastCheck };
 }
 function loadAgentsMd(wikiDir2) {
-  const path = join44(wikiDir2, "AGENTS.md");
+  const path = join46(wikiDir2, "AGENTS.md");
   try {
     return readFileSync3(path, "utf-8");
   } catch {
@@ -110703,8 +111518,9 @@ function formatIngestSummary(result) {
   if (result.synthesisRan === true) {
     const strict = (result.synthesized ?? 0) + (result.synthesizedTopics ?? 0) + (result.synthesizedComposites ?? 0) + (result.synthesizedComparisons ?? 0);
     const permissive = (result.synthesizedPermissive ?? 0) + (result.synthesizedTopicsPermissive ?? 0) + (result.synthesizedCompositesPermissive ?? 0) + (result.synthesizedComparisonsPermissive ?? 0);
+    const patched = result.patchedPages ?? 0;
     const conflicts = (result.synthesisConflicts ?? 0) + (result.topicConflicts ?? 0) + (result.compositeConflicts ?? 0) + (result.comparisonConflicts ?? 0);
-    summary += ` Synthesis: ${strict + permissive} pages written (${strict} strict, ${permissive} permissive), ${conflicts} conflicts.`;
+    summary += ` Synthesis: ${strict + permissive + patched} pages written (${strict} strict, ${permissive} permissive${patched > 0 ? `, ${patched} patched` : ""}), ${conflicts} conflicts.`;
   }
   const validation = result.finalValidation ?? result.validation;
   if (validation) {
@@ -110750,7 +111566,7 @@ async function runIngest(slug, options2) {
   if (!existsSync11(dir)) {
     throw new Error(`Wiki '${slug}' not found at ${dir}. Run 'init ${slug}' first.`);
   }
-  const rawDir = join44(dir, "raw");
+  const rawDir = join46(dir, "raw");
   if (!existsSync11(rawDir)) {
     throw new Error(`Wiki '${slug}' has no raw/ directory. Run 'init ${slug}' to repair it.`);
   }
@@ -110761,7 +111577,7 @@ async function runIngest(slug, options2) {
   const input = getLanguage(options2.inputLanguage ?? languageState.lastInputLanguage).code;
   const language = { input, output };
   if (input !== languageState.lastInputLanguage) {
-    const extractedDir = join44(dir, ".state", "extracted");
+    const extractedDir = join46(dir, ".state", "extracted");
     const hasExtractions = existsSync11(extractedDir) && (await readdir13(extractedDir)).some((file) => file.endsWith(".json"));
     if (hasExtractions) {
       console.log(
@@ -110782,6 +111598,8 @@ async function runIngest(slug, options2) {
     synthesizedTopicsPermissive: 0,
     synthesisConflicts: 0,
     topicConflicts: 0,
+    patchedPages: 0,
+    patchFallbacks: 0,
     languages: language
   };
   if (pdfFiles.length === 0) {
@@ -110808,6 +111626,8 @@ async function runIngest(slug, options2) {
   const claimsByType = {};
   let curationFallbacksThisRun = 0;
   let transportFailuresThisRun = 0;
+  let patchedPagesThisRun = 0;
+  let patchFallbacksThisRun = 0;
   const presentSlugs = new Set(pdfFiles.map((file) => sourceSlugForFile(file)));
   for (const recordedSlug of Object.keys(state.sources)) {
     if (!presentSlugs.has(recordedSlug)) {
@@ -110865,138 +111685,32 @@ async function runIngest(slug, options2) {
     }
     progress("Materialized entity, topic, and document pages.");
   };
-  for (const fileName of pdfFiles) {
-    const pdfPath = join44(rawDir, fileName);
-    const sourceSlug = sourceSlugForFile(fileName);
-    const hash = await sha256(pdfPath);
-    const existing = state.sources[sourceSlug];
-    if (existing && existing.hash === hash) {
-      progress(`Skipping ${fileName} (unchanged)`);
-      result.skipped.push(sourceSlug);
-      continue;
+  const amendmentSnapshot = /* @__PURE__ */ new Map();
+  const snapshotAmendmentPages = async () => {
+    if (!(extract && synthesis)) {
+      return;
     }
-    if (existing && existing.hash !== hash && existing.language && existing.language !== input) {
-      progress(
-        `Warning: ${fileName} was originally extracted under input language '${existing.language}'; re-processing under '${input}'.`
-      );
-    }
-    progress(`Extracting text from ${fileName}...`);
-    const pageCount = await getPageCount(pdfPath);
-    const pageTexts = [];
-    const warnings = [];
-    for (let pageNumber = 1; pageNumber <= pageCount; pageNumber++) {
-      const pageText = await extractText(pdfPath, pageNumber, pageNumber);
-      if (pageText.trim().length === 0) {
-        warnings.push(`Page ${pageNumber} extracted to empty text`);
+    const records = (await readSynthesisState(dir)).pages;
+    for (const [relPath, record] of Object.entries(records)) {
+      if (!isSkipEligible(record)) {
+        continue;
       }
-      pageTexts.push(pageText);
-    }
-    const chunkCount = Math.max(1, Math.ceil(pageCount / pagesPerChunk));
-    for (const oldPage of existing?.documentPages ?? []) {
-      await rm3(join44(dir, oldPage), { force: true });
-      const oldChunkId = oldPage.split("/").pop()?.replace(/\.md$/, "");
-      if (oldChunkId) {
-        await rm3(join44(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
+      const absolute = join46(dir, relPath);
+      if (!existsSync11(absolute)) {
+        continue;
+      }
+      try {
+        amendmentSnapshot.set(relPath, await readFile34(absolute, "utf-8"));
+      } catch {
       }
     }
-    const documentPages = [];
-    let tablesFound = 0;
-    for (let chunkIndex = 0; chunkIndex < chunkCount; chunkIndex++) {
-      const startPage = chunkIndex * pagesPerChunk + 1;
-      const endPage = Math.min((chunkIndex + 1) * pagesPerChunk, pageCount);
-      progress(`Chunk ${chunkIndex + 1}/${chunkCount} (pages ${startPage}-${endPage})`);
-      const rawChunkText = pageTexts.slice(startPage - 1, endPage).join("\n");
-      const rendered = renderTablesAsMarkdown(rawChunkText);
-      tablesFound += rendered.tablesFound;
-      const part = String(chunkIndex + 1).padStart(3, "0");
-      const docFileName = `${sourceSlug}-part-${part}.md`;
-      const docTitle = `${sourceSlug}-part-${part}`;
-      const docAliases = aliasesForTitle(docTitle, docFileName.replace(/\.md$/, ""));
-      const frontmatter = {
-        title: docTitle,
-        type: "document",
-        ...docAliases ? { aliases: docAliases } : {},
-        wiki: slug,
-        sources: [
-          {
-            file: sourcePdfPath(slug, fileName),
-            pages: `${startPage}-${endPage}`,
-            extracted: now,
-            sha256: hash
-          }
-        ],
-        updated: now
-      };
-      const body = `
-## Extracted Text: Pages ${startPage}-${endPage}
-
-${rendered.text}
-`;
-      await mkdir26(join44(dir, "documents"), { recursive: true });
-      await writeFile26(join44(dir, "documents", docFileName), import_gray_matter21.default.stringify(body, frontmatter), "utf-8");
-      documentPages.push(wikiRelativePath("documents", docFileName));
-      if (extract) {
-        const chunkId = docFileName.replace(/\.md$/, "");
-        const run = options2.extractChunkFn ?? ((d, id) => extractDocumentChunk(d, id, language));
-        const extraction = await run(dir, chunkId);
-        progress(
-          `Extracted ${extraction.result.entities.length} entities, ${extraction.result.relationships.length} relationships, ${extraction.result.claims.length} claims from chunk ${chunkId}.`
-        );
-        result.extractions.push({
-          chunkId,
-          entities: extraction.result.entities.length,
-          relationships: extraction.result.relationships.length,
-          claims: extraction.result.claims.length
-        });
-        relationshipsExtracted += extraction.result.relationships.length;
-        claimsExtracted += extraction.result.claims.length;
-        for (const claim of extraction.result.claims) {
-          claimsByType[claim.type] = (claimsByType[claim.type] ?? 0) + 1;
-        }
-      }
-    }
-    if (extract) {
-      await runMaterialize();
-    }
-    await writeSourcePage(dir, {
-      wiki: slug,
-      fileName,
-      filePath: sourcePdfPath(slug, fileName),
-      sourceSlug,
-      sha256: hash,
-      pageCount,
-      ingested: existing?.ingestedAt ?? now,
-      updated: now,
-      warnings,
-      documentPages
-    });
-    state.sources[sourceSlug] = { hash, documentPages, ingestedAt: now, language: input };
-    state.pageHashes = workingPageHashes;
-    await writeIngestionState(dir, state);
-    progress(`Ingested ${fileName} -> ${documentPages.length} document page(s)`);
-    result.ingested.push({
-      source: sourceSlug,
-      file: fileName,
-      pageCount,
-      documentPages,
-      warnings,
-      tablesFound
-    });
-  }
-  if (extract && lastMaterializeResult === void 0) {
-    const extractedDir = join44(dir, ".state", "extracted");
-    const hasExtractions = existsSync11(extractedDir) && (await readdir13(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
-    if (hasExtractions) {
-      await runMaterialize();
-    }
-  }
-  state.pageHashes = workingPageHashes;
-  await writeIngestionState(dir, state);
+  };
+  const synthesisSkipCountedPages = /* @__PURE__ */ new Set();
   const rehashWrittenPagesFromDisk = async () => {
     if (extract && writtenPagePaths.size > 0) {
       for (const relativePath of writtenPagePaths) {
         try {
-          const content = await readFile33(join44(dir, relativePath), "utf-8");
+          const content = await readFile34(join46(dir, relativePath), "utf-8");
           workingPageHashes[relativePath] = createHash5("sha256").update(content, "utf-8").digest("hex");
         } catch {
         }
@@ -111006,699 +111720,1165 @@ ${rendered.text}
     }
   };
   try {
-    if (extract && synthesis && lastMaterializeResult) {
-      result.synthesisRan = true;
-      const agentsMd = loadAgentsMd(dir);
-      const llmLogPath = join44(dir, ".state", "llm-calls.json");
-      const slugUniverse = await buildSlugUniverse(slug, options2.workspace, { language: input });
-      const repairPageLinks = (markdown, pageLabel) => {
-        const { markdown: repaired, repairs, unrepairable } = repairWikilinksInMarkdown(markdown, slugUniverse);
-        if (repairs.length > 0 || unrepairable.length > 0) {
-          progress(`Link repair ${pageLabel}: ${repairs.length} repaired${unrepairable.length > 0 ? `, ${unrepairable.length} unrepairable` : ""}.`);
-        }
-        return repaired;
-      };
-      const runEntitySynthesis = options2.synthesizeEntityFn ?? writeEntitySynthesis;
-      const runEntityPermissiveSynthesis = options2.synthesizeEntityPermissiveFn ?? writePermissiveEntitySynthesis;
-      const runTopicSynthesis = options2.synthesizeTopicFn ?? writeTopicSynthesis;
-      const runTopicPermissiveSynthesis = options2.synthesizeTopicPermissiveFn ?? writePermissiveTopicSynthesis;
-      const poolStaggerMs = options2.poolStaggerMs ?? SYNTHESIS_POOL_STAGGER_MS;
-      const synthesisRecords = (await readSynthesisState(dir)).pages;
-      const rewrittenThisRun = new Set(lastMaterializeResult.writtenPages.map((page) => page.path));
-      const partitionStage = (pages) => {
-        const skipped = /* @__PURE__ */ new Map();
-        const toRun = [];
-        for (const page of pages) {
-          const relPath = synthesisPagePath(page);
-          const record = synthesisRecords[relPath];
-          if (isSkipEligible(record) && record.dataHash === pageDataHash(page, language) && !rewrittenThisRun.has(relPath)) {
-            skipped.set(page.slug, record);
-          } else {
-            toRun.push(page);
-          }
-        }
-        return { skipped, toRun };
-      };
-      const reconstructedSkipEntry = (pageType, slug2, record) => ({
-        timestamp: record.synthesizedAt,
-        pageType,
-        slug: slug2,
-        strict: record.mode === "strict-synthesis" ? { attempted: true, passed: true, attempts: 1 } : { attempted: true, passed: false, attempts: 1 },
-        permissive: record.mode === "permissive-synthesis" ? { attempted: true, passed: true, attempts: 1 } : { attempted: false, passed: false },
-        finalMode: record.mode
-      });
-      const synthesizeEntityPage = async (entityPage, detector) => {
-        let chainPhase = "strict";
-        try {
-          const strict = await trySynthesisMode(
-            (feedback, attempt) => runEntitySynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
-            (page) => checkPreservation(entityPage, page),
-            entityPage.slug
-          );
-          if (strict.page !== null) {
-            const folderPath = join44(dir, entityPage.folder);
-            await writeFile26(
-              join44(folderPath, `${entityPage.slug}.md`),
-              repairPageLinks(
-                enforceSourcesSectionInMarkdown(
-                  enforceFrontmatterInMarkdown(
-                    enforceSparseInMarkdown(
-                      enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
-                      entityPage.sparse === true
-                    ),
-                    entityPage
-                  ),
-                  buildCitationMap(entityPage).citationMap
-                ),
-                entityPage.slug
-              ),
-              "utf-8"
-            );
-            return {
-              kind: "strict",
-              entry: {
-                timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-                pageType: "entity",
-                slug: entityPage.slug,
-                strict: { attempted: true, passed: true, attempts: strict.attempts },
-                permissive: { attempted: false, passed: false },
-                finalMode: "strict-synthesis"
-              }
-            };
-          }
-          console.warn(
-            `Strict synthesis failed preservation for ${entityPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`
-          );
-          chainPhase = "permissive";
-          const permissive = await trySynthesisMode(
-            (feedback, attempt) => runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
-            (page) => checkPreservation(entityPage, page),
-            entityPage.slug
-          );
-          if (permissive.page !== null) {
-            const folderPath = join44(dir, entityPage.folder);
-            await writeFile26(
-              join44(folderPath, `${entityPage.slug}.md`),
-              repairPageLinks(
-                enforceSourcesSectionInMarkdown(
-                  enforceFrontmatterInMarkdown(
-                    enforceSparseInMarkdown(
-                      enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
-                      entityPage.sparse === true
-                    ),
-                    entityPage
-                  ),
-                  buildCitationMap(entityPage).citationMap
-                ),
-                entityPage.slug
-              ),
-              "utf-8"
-            );
-            return {
-              kind: "permissive",
-              entry: {
-                timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-                pageType: "entity",
-                slug: entityPage.slug,
-                strict: { attempted: true, passed: false, attempts: strict.attempts },
-                permissive: { attempted: true, passed: true, attempts: permissive.attempts },
-                finalMode: "permissive-synthesis"
-              }
-            };
-          }
-          console.warn(
-            `Permissive synthesis also failed preservation for ${entityPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`
-          );
-          if (permissive.lastCheck !== null) {
-            await logConflict(dir, entityPage.slug, permissive.lastCheck, "entity");
-          }
-          return {
-            kind: "template",
-            entry: {
-              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-              pageType: "entity",
-              slug: entityPage.slug,
-              strict: { attempted: true, passed: false, attempts: strict.attempts },
-              permissive: { attempted: true, passed: false, attempts: permissive.attempts },
-              finalMode: "structured-template"
-            }
-          };
-        } catch (error) {
-          if (!isTransientTransportError(error)) {
-            throw error;
-          }
-          recordDetectorTransportFailure(detector, error);
-          transportFailuresThisRun += 1;
-          console.warn(`Transport failure for ${entityPage.slug} after retries \u2014 template fallback.`);
-          return {
-            kind: "transport",
-            entry: {
-              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-              pageType: "entity",
-              slug: entityPage.slug,
-              strict: { attempted: true, passed: false },
-              permissive: chainPhase === "permissive" ? { attempted: true, passed: false } : { attempted: false, passed: false },
-              finalMode: "transport-fallback"
-            }
-          };
-        }
-      };
-      const entityPages = lastMaterializeResult.entityPages;
-      const entityStage = partitionStage(entityPages);
-      const entityDetector = makeOutageDetector(entityStage.toRun.length);
-      let entityCompleted = 0;
-      const entityOutcomes = await runPool(
-        entityStage.toRun,
-        async (entityPage) => {
-          const outcome = await synthesizeEntityPage(entityPage, entityDetector);
-          if (outcome.kind !== "transport") {
-            recordDetectorSuccess(entityDetector);
-          }
-          await recordSynthesisPage(dir, synthesisPagePath(entityPage), {
-            mode: outcome.entry.finalMode,
-            dataHash: pageDataHash(entityPage, language),
-            synthesizedAt: outcome.entry.timestamp
-          });
-          entityCompleted += 1;
-          progress(
-            `Synthesis: ${entityCompleted}/${entityStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
-          );
-          return outcome;
-        },
-        { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs }
-      );
-      const entityOutcomeBySlug = new Map(entityOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
-      const entityEntries = [];
-      for (const entityPage of entityPages) {
-        const skippedRecord = entityStage.skipped.get(entityPage.slug);
-        if (skippedRecord) {
-          entityEntries.push(reconstructedSkipEntry("entity", entityPage.slug, skippedRecord));
-          result.synthesisSkipped = (result.synthesisSkipped ?? 0) + 1;
-          continue;
-        }
-        const outcome = entityOutcomeBySlug.get(entityPage.slug);
-        if (!outcome) {
-          continue;
-        }
-        entityEntries.push(outcome.entry);
-        if (outcome.kind === "strict") {
-          result.synthesized = (result.synthesized ?? 0) + 1;
-        } else if (outcome.kind === "permissive") {
-          result.synthesizedPermissive = (result.synthesizedPermissive ?? 0) + 1;
-        } else if (outcome.kind === "template") {
-          result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
-        }
+    for (const fileName of pdfFiles) {
+      const pdfPath = join46(rawDir, fileName);
+      const sourceSlug = sourceSlugForFile(fileName);
+      const hash = await sha256(pdfPath);
+      const existing = state.sources[sourceSlug];
+      if (existing && existing.hash === hash) {
+        progress(`Skipping ${fileName} (unchanged)`);
+        result.skipped.push(sourceSlug);
+        continue;
       }
-      await appendSynthesisReportEntries(dir, entityEntries);
-      if (entityStage.skipped.size > 0) {
-        progress(`Synthesis: ${entityStage.skipped.size} page(s) skipped (unchanged data).`);
-      }
-      const synthesizeTopicPage = async (topicPage, detector) => {
-        let chainPhase = "strict";
-        try {
-          const strict = await trySynthesisMode(
-            (feedback, attempt) => runTopicSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
-            (page) => checkTopicPreservation(topicPage, page),
-            `topic ${topicPage.slug}`
-          );
-          if (strict.page !== null) {
-            const folderPath = join44(dir, topicPage.folder);
-            await writeFile26(
-              join44(folderPath, `${topicPage.slug}.md`),
-              repairPageLinks(
-                enforceTopicSourcesSectionInMarkdown(
-                  enforceTopicFrontmatterInMarkdown(
-                    enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
-                    topicPage
-                  ),
-                  buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap
-                ),
-                `topic ${topicPage.slug}`
-              ),
-              "utf-8"
-            );
-            return {
-              kind: "strict",
-              entry: {
-                timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-                pageType: "topic",
-                slug: topicPage.slug,
-                strict: { attempted: true, passed: true, attempts: strict.attempts },
-                permissive: { attempted: false, passed: false },
-                finalMode: "strict-synthesis"
-              }
-            };
-          }
-          console.warn(
-            `Strict synthesis failed preservation for topic ${topicPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`
-          );
-          chainPhase = "permissive";
-          const permissive = await trySynthesisMode(
-            (feedback, attempt) => runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
-            (page) => checkTopicPreservation(topicPage, page),
-            `topic ${topicPage.slug}`
-          );
-          if (permissive.page !== null) {
-            const folderPath = join44(dir, topicPage.folder);
-            await writeFile26(
-              join44(folderPath, `${topicPage.slug}.md`),
-              repairPageLinks(
-                enforceTopicSourcesSectionInMarkdown(
-                  enforceTopicFrontmatterInMarkdown(
-                    enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
-                    topicPage
-                  ),
-                  buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap
-                ),
-                `topic ${topicPage.slug}`
-              ),
-              "utf-8"
-            );
-            return {
-              kind: "permissive",
-              entry: {
-                timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-                pageType: "topic",
-                slug: topicPage.slug,
-                strict: { attempted: true, passed: false, attempts: strict.attempts },
-                permissive: { attempted: true, passed: true, attempts: permissive.attempts },
-                finalMode: "permissive-synthesis"
-              }
-            };
-          }
-          console.warn(
-            `Permissive synthesis also failed preservation for topic ${topicPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`
-          );
-          if (permissive.lastCheck !== null) {
-            await logConflict(dir, topicPage.slug, permissive.lastCheck, "topic");
-          }
-          return {
-            kind: "template",
-            entry: {
-              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-              pageType: "topic",
-              slug: topicPage.slug,
-              strict: { attempted: true, passed: false, attempts: strict.attempts },
-              permissive: { attempted: true, passed: false, attempts: permissive.attempts },
-              finalMode: "structured-template"
-            }
-          };
-        } catch (error) {
-          if (!isTransientTransportError(error)) {
-            throw error;
-          }
-          recordDetectorTransportFailure(detector, error);
-          transportFailuresThisRun += 1;
-          console.warn(`Transport failure for ${topicPage.slug} after retries \u2014 template fallback.`);
-          return {
-            kind: "transport",
-            entry: {
-              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-              pageType: "topic",
-              slug: topicPage.slug,
-              strict: { attempted: true, passed: false },
-              permissive: chainPhase === "permissive" ? { attempted: true, passed: false } : { attempted: false, passed: false },
-              finalMode: "transport-fallback"
-            }
-          };
-        }
-      };
-      const topicPages = lastMaterializeResult.topicPages;
-      const topicStage = partitionStage(topicPages);
-      const topicDetector = makeOutageDetector(topicStage.toRun.length);
-      let topicCompleted = 0;
-      const topicOutcomes = await runPool(
-        topicStage.toRun,
-        async (topicPage) => {
-          const outcome = await synthesizeTopicPage(topicPage, topicDetector);
-          if (outcome.kind !== "transport") {
-            recordDetectorSuccess(topicDetector);
-          }
-          await recordSynthesisPage(dir, synthesisPagePath(topicPage), {
-            mode: outcome.entry.finalMode,
-            dataHash: pageDataHash(topicPage, language),
-            synthesizedAt: outcome.entry.timestamp
-          });
-          topicCompleted += 1;
-          progress(
-            `Synthesis: ${topicCompleted}/${topicStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
-          );
-          return outcome;
-        },
-        { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs }
-      );
-      const topicOutcomeBySlug = new Map(topicOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
-      const topicEntries = [];
-      for (const topicPage of topicPages) {
-        const skippedRecord = topicStage.skipped.get(topicPage.slug);
-        if (skippedRecord) {
-          topicEntries.push(reconstructedSkipEntry("topic", topicPage.slug, skippedRecord));
-          result.synthesisTopicsSkipped = (result.synthesisTopicsSkipped ?? 0) + 1;
-          continue;
-        }
-        const outcome = topicOutcomeBySlug.get(topicPage.slug);
-        if (!outcome) {
-          continue;
-        }
-        topicEntries.push(outcome.entry);
-        if (outcome.kind === "strict") {
-          result.synthesizedTopics = (result.synthesizedTopics ?? 0) + 1;
-        } else if (outcome.kind === "permissive") {
-          result.synthesizedTopicsPermissive = (result.synthesizedTopicsPermissive ?? 0) + 1;
-        } else if (outcome.kind === "template") {
-          result.topicConflicts = (result.topicConflicts ?? 0) + 1;
-        }
-      }
-      await appendSynthesisReportEntries(dir, topicEntries);
-      if (topicStage.skipped.size > 0) {
-        progress(`Synthesis: ${topicStage.skipped.size} page(s) skipped (unchanged data).`);
-      }
-      const runCompositeSynthesis = options2.synthesizeCompositeFn ?? writeCompositeSynthesis;
-      const runCompositePermissiveSynthesis = options2.synthesizeCompositePermissiveFn ?? writePermissiveCompositeSynthesis;
-      const synthesizeCompositePage = async (compositePage, detector) => {
-        let chainPhase = "strict";
-        try {
-          const strict = await trySynthesisMode(
-            (feedback, attempt) => runCompositeSynthesis(compositePage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
-            (page) => checkCompositePreservation(compositePage, page),
-            `composite ${compositePage.slug}`
-          );
-          if (strict.page !== null) {
-            const folderPath = join44(dir, compositePage.folder);
-            await writeFile26(
-              join44(folderPath, `${compositePage.slug}.md`),
-              repairPageLinks(
-                enforceSourcesSectionInMarkdown(
-                  enforceCompositeFrontmatterInMarkdown(strict.page, compositePage),
-                  buildCompositeCitationMap(compositePage).citationMap
-                ),
-                `composite ${compositePage.slug}`
-              ),
-              "utf-8"
-            );
-            return {
-              kind: "strict",
-              entry: {
-                timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-                pageType: "composite",
-                slug: compositePage.slug,
-                strict: { attempted: true, passed: true, attempts: strict.attempts },
-                permissive: { attempted: false, passed: false },
-                finalMode: "strict-synthesis"
-              }
-            };
-          }
-          console.warn(
-            `Strict synthesis failed preservation for composite ${compositePage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`
-          );
-          chainPhase = "permissive";
-          const permissive = await trySynthesisMode(
-            (feedback, attempt) => runCompositePermissiveSynthesis(compositePage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
-            (page) => checkCompositePreservation(compositePage, page),
-            `composite ${compositePage.slug}`
-          );
-          if (permissive.page !== null) {
-            const folderPath = join44(dir, compositePage.folder);
-            await writeFile26(
-              join44(folderPath, `${compositePage.slug}.md`),
-              repairPageLinks(
-                enforceSourcesSectionInMarkdown(
-                  enforceCompositeFrontmatterInMarkdown(permissive.page, compositePage),
-                  buildCompositeCitationMap(compositePage).citationMap
-                ),
-                `composite ${compositePage.slug}`
-              ),
-              "utf-8"
-            );
-            return {
-              kind: "permissive",
-              entry: {
-                timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-                pageType: "composite",
-                slug: compositePage.slug,
-                strict: { attempted: true, passed: false, attempts: strict.attempts },
-                permissive: { attempted: true, passed: true, attempts: permissive.attempts },
-                finalMode: "permissive-synthesis"
-              }
-            };
-          }
-          console.warn(
-            `Permissive synthesis also failed preservation for composite ${compositePage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`
-          );
-          if (permissive.lastCheck !== null) {
-            await logConflict(dir, compositePage.slug, permissive.lastCheck, "composite");
-          }
-          return {
-            kind: "template",
-            entry: {
-              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-              pageType: "composite",
-              slug: compositePage.slug,
-              strict: { attempted: true, passed: false, attempts: strict.attempts },
-              permissive: { attempted: true, passed: false, attempts: permissive.attempts },
-              finalMode: "structured-template"
-            }
-          };
-        } catch (error) {
-          if (!isTransientTransportError(error)) {
-            throw error;
-          }
-          recordDetectorTransportFailure(detector, error);
-          transportFailuresThisRun += 1;
-          console.warn(`Transport failure for composite ${compositePage.slug} after retries \u2014 template fallback.`);
-          return {
-            kind: "transport",
-            entry: {
-              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-              pageType: "composite",
-              slug: compositePage.slug,
-              strict: { attempted: true, passed: false },
-              permissive: chainPhase === "permissive" ? { attempted: true, passed: false } : { attempted: false, passed: false },
-              finalMode: "transport-fallback"
-            }
-          };
-        }
-      };
-      const compositePages = lastMaterializeResult.compositePages;
-      const compositeStage = partitionStage(compositePages);
-      const compositeDetector = makeOutageDetector(compositeStage.toRun.length);
-      let compositeCompleted = 0;
-      const compositeOutcomes = await runPool(
-        compositeStage.toRun,
-        async (compositePage) => {
-          const outcome = await synthesizeCompositePage(compositePage, compositeDetector);
-          if (outcome.kind !== "transport") {
-            recordDetectorSuccess(compositeDetector);
-          }
-          await recordSynthesisPage(dir, synthesisPagePath(compositePage), {
-            mode: outcome.entry.finalMode,
-            dataHash: pageDataHash(compositePage, language),
-            synthesizedAt: outcome.entry.timestamp
-          });
-          compositeCompleted += 1;
-          progress(
-            `Synthesis: ${compositeCompleted}/${compositeStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
-          );
-          return outcome;
-        },
-        { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs }
-      );
-      const compositeOutcomeBySlug = new Map(compositeOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
-      const compositeEntries = [];
-      for (const compositePage of compositePages) {
-        const skippedRecord = compositeStage.skipped.get(compositePage.slug);
-        if (skippedRecord) {
-          compositeEntries.push(reconstructedSkipEntry("composite", compositePage.slug, skippedRecord));
-          result.synthesisCompositesSkipped = (result.synthesisCompositesSkipped ?? 0) + 1;
-          continue;
-        }
-        const outcome = compositeOutcomeBySlug.get(compositePage.slug);
-        if (!outcome) {
-          continue;
-        }
-        compositeEntries.push(outcome.entry);
-        if (outcome.kind === "strict") {
-          result.synthesizedComposites = (result.synthesizedComposites ?? 0) + 1;
-        } else if (outcome.kind === "permissive") {
-          result.synthesizedCompositesPermissive = (result.synthesizedCompositesPermissive ?? 0) + 1;
-        } else if (outcome.kind === "template") {
-          result.compositeConflicts = (result.compositeConflicts ?? 0) + 1;
-        }
-      }
-      await appendSynthesisReportEntries(dir, compositeEntries);
-      if (compositeStage.skipped.size > 0) {
-        progress(`Synthesis: ${compositeStage.skipped.size} page(s) skipped (unchanged data).`);
-      }
-      const runComparisonSynthesis = options2.synthesizeComparisonFn ?? writeComparisonSynthesis;
-      const runComparisonPermissiveSynthesis = options2.synthesizeComparisonPermissiveFn ?? writePermissiveComparisonSynthesis;
-      const synthesizeComparisonPage = async (comparisonPage, detector) => {
-        let chainPhase = "strict";
-        try {
-          const strict = await trySynthesisMode(
-            (feedback, attempt) => runComparisonSynthesis(comparisonPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
-            (page) => checkComparisonPreservation(comparisonPage, page),
-            `comparison ${comparisonPage.slug}`
-          );
-          if (strict.page !== null) {
-            const folderPath = join44(dir, comparisonPage.folder);
-            await writeFile26(
-              join44(folderPath, `${comparisonPage.slug}.md`),
-              repairPageLinks(
-                enforceSourcesSectionInMarkdown(
-                  enforceComparisonBridgeInMarkdown(
-                    enforceComparisonFrontmatterInMarkdown(strict.page, comparisonPage),
-                    comparisonPage
-                  ),
-                  buildComparisonCitationMap(comparisonPage).citationMap
-                ),
-                `comparison ${comparisonPage.slug}`
-              ),
-              "utf-8"
-            );
-            return {
-              kind: "strict",
-              entry: {
-                timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-                pageType: "comparison",
-                slug: comparisonPage.slug,
-                strict: { attempted: true, passed: true, attempts: strict.attempts },
-                permissive: { attempted: false, passed: false },
-                finalMode: "strict-synthesis"
-              }
-            };
-          }
-          console.warn(
-            `Strict synthesis failed preservation for comparison ${comparisonPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`
-          );
-          chainPhase = "permissive";
-          const permissive = await trySynthesisMode(
-            (feedback, attempt) => runComparisonPermissiveSynthesis(comparisonPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
-            (page) => checkComparisonPreservation(comparisonPage, page),
-            `comparison ${comparisonPage.slug}`
-          );
-          if (permissive.page !== null) {
-            const folderPath = join44(dir, comparisonPage.folder);
-            await writeFile26(
-              join44(folderPath, `${comparisonPage.slug}.md`),
-              repairPageLinks(
-                enforceSourcesSectionInMarkdown(
-                  enforceComparisonBridgeInMarkdown(
-                    enforceComparisonFrontmatterInMarkdown(permissive.page, comparisonPage),
-                    comparisonPage
-                  ),
-                  buildComparisonCitationMap(comparisonPage).citationMap
-                ),
-                `comparison ${comparisonPage.slug}`
-              ),
-              "utf-8"
-            );
-            return {
-              kind: "permissive",
-              entry: {
-                timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-                pageType: "comparison",
-                slug: comparisonPage.slug,
-                strict: { attempted: true, passed: false, attempts: strict.attempts },
-                permissive: { attempted: true, passed: true, attempts: permissive.attempts },
-                finalMode: "permissive-synthesis"
-              }
-            };
-          }
-          console.warn(
-            `Permissive synthesis also failed preservation for comparison ${comparisonPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`
-          );
-          if (permissive.lastCheck !== null) {
-            await logConflict(dir, comparisonPage.slug, permissive.lastCheck, "comparison");
-          }
-          return {
-            kind: "template",
-            entry: {
-              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-              pageType: "comparison",
-              slug: comparisonPage.slug,
-              strict: { attempted: true, passed: false, attempts: strict.attempts },
-              permissive: { attempted: true, passed: false, attempts: permissive.attempts },
-              finalMode: "structured-template"
-            }
-          };
-        } catch (error) {
-          if (!isTransientTransportError(error)) {
-            throw error;
-          }
-          recordDetectorTransportFailure(detector, error);
-          transportFailuresThisRun += 1;
-          console.warn(`Transport failure for comparison ${comparisonPage.slug} after retries \u2014 template fallback.`);
-          return {
-            kind: "transport",
-            entry: {
-              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-              pageType: "comparison",
-              slug: comparisonPage.slug,
-              strict: { attempted: true, passed: false },
-              permissive: chainPhase === "permissive" ? { attempted: true, passed: false } : { attempted: false, passed: false },
-              finalMode: "transport-fallback"
-            }
-          };
-        }
-      };
-      const comparisonPages = lastMaterializeResult.comparisonPages;
-      const comparisonStage = partitionStage(comparisonPages);
-      const comparisonDetector = makeOutageDetector(comparisonStage.toRun.length);
-      let comparisonCompleted = 0;
-      const comparisonOutcomes = await runPool(
-        comparisonStage.toRun,
-        async (comparisonPage) => {
-          const outcome = await synthesizeComparisonPage(comparisonPage, comparisonDetector);
-          if (outcome.kind !== "transport") {
-            recordDetectorSuccess(comparisonDetector);
-          }
-          await recordSynthesisPage(dir, synthesisPagePath(comparisonPage), {
-            mode: outcome.entry.finalMode,
-            dataHash: pageDataHash(comparisonPage, language),
-            synthesizedAt: outcome.entry.timestamp
-          });
-          comparisonCompleted += 1;
-          progress(
-            `Synthesis: ${comparisonCompleted}/${comparisonStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
-          );
-          return outcome;
-        },
-        { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs }
-      );
-      const comparisonOutcomeBySlug = new Map(comparisonOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
-      const comparisonEntries = [];
-      for (const comparisonPage of comparisonPages) {
-        const skippedRecord = comparisonStage.skipped.get(comparisonPage.slug);
-        if (skippedRecord) {
-          comparisonEntries.push(reconstructedSkipEntry("comparison", comparisonPage.slug, skippedRecord));
-          result.synthesisComparisonsSkipped = (result.synthesisComparisonsSkipped ?? 0) + 1;
-          continue;
-        }
-        const outcome = comparisonOutcomeBySlug.get(comparisonPage.slug);
-        if (!outcome) {
-          continue;
-        }
-        comparisonEntries.push(outcome.entry);
-        if (outcome.kind === "strict") {
-          result.synthesizedComparisons = (result.synthesizedComparisons ?? 0) + 1;
-        } else if (outcome.kind === "permissive") {
-          result.synthesizedComparisonsPermissive = (result.synthesizedComparisonsPermissive ?? 0) + 1;
-        } else if (outcome.kind === "template") {
-          result.comparisonConflicts = (result.comparisonConflicts ?? 0) + 1;
-        }
-      }
-      await appendSynthesisReportEntries(dir, comparisonEntries);
-      if (comparisonStage.skipped.size > 0) {
-        progress(`Synthesis: ${comparisonStage.skipped.size} page(s) skipped (unchanged data).`);
-      }
-      if (transportFailuresThisRun > 0) {
+      if (existing && existing.hash !== hash && existing.language && existing.language !== input) {
         progress(
-          `Warning: ${transportFailuresThisRun} page(s) fell back to the structured template after transport failures this run \u2014 re-run ingest to retry them.`
+          `Warning: ${fileName} was originally extracted under input language '${existing.language}'; re-processing under '${input}'.`
         );
+      }
+      progress(`Extracting text from ${fileName}...`);
+      const pageCount = await getPageCount(pdfPath);
+      const pageTexts = [];
+      const warnings = [];
+      for (let pageNumber = 1; pageNumber <= pageCount; pageNumber++) {
+        const pageText = await extractText(pdfPath, pageNumber, pageNumber);
+        if (pageText.trim().length === 0) {
+          warnings.push(`Page ${pageNumber} extracted to empty text`);
+        }
+        pageTexts.push(pageText);
+      }
+      const chunkCount = Math.max(1, Math.ceil(pageCount / pagesPerChunk));
+      for (const oldPage of existing?.documentPages ?? []) {
+        await rm3(join46(dir, oldPage), { force: true });
+        const oldChunkId = oldPage.split("/").pop()?.replace(/\.md$/, "");
+        if (oldChunkId) {
+          await rm3(join46(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
+        }
+      }
+      const documentPages = [];
+      let tablesFound = 0;
+      for (let chunkIndex = 0; chunkIndex < chunkCount; chunkIndex++) {
+        const startPage = chunkIndex * pagesPerChunk + 1;
+        const endPage = Math.min((chunkIndex + 1) * pagesPerChunk, pageCount);
+        progress(`Chunk ${chunkIndex + 1}/${chunkCount} (pages ${startPage}-${endPage})`);
+        const rawChunkText = pageTexts.slice(startPage - 1, endPage).join("\n");
+        const rendered = renderTablesAsMarkdown(rawChunkText);
+        tablesFound += rendered.tablesFound;
+        const part = String(chunkIndex + 1).padStart(3, "0");
+        const docFileName = `${sourceSlug}-part-${part}.md`;
+        const docTitle = `${sourceSlug}-part-${part}`;
+        const docAliases = aliasesForTitle(docTitle, docFileName.replace(/\.md$/, ""));
+        const frontmatter = {
+          title: docTitle,
+          type: "document",
+          ...docAliases ? { aliases: docAliases } : {},
+          wiki: slug,
+          sources: [
+            {
+              file: sourcePdfPath(slug, fileName),
+              pages: `${startPage}-${endPage}`,
+              extracted: now,
+              sha256: hash
+            }
+          ],
+          updated: now
+        };
+        const body = `
+## Extracted Text: Pages ${startPage}-${endPage}
+
+${rendered.text}
+`;
+        await mkdir27(join46(dir, "documents"), { recursive: true });
+        await writeFile26(join46(dir, "documents", docFileName), import_gray_matter21.default.stringify(body, frontmatter), "utf-8");
+        documentPages.push(wikiRelativePath("documents", docFileName));
+        if (extract) {
+          const chunkId = docFileName.replace(/\.md$/, "");
+          const run = options2.extractChunkFn ?? ((d, id) => extractDocumentChunk(d, id, language));
+          const extraction = await run(dir, chunkId);
+          progress(
+            `Extracted ${extraction.result.entities.length} entities, ${extraction.result.relationships.length} relationships, ${extraction.result.claims.length} claims from chunk ${chunkId}.`
+          );
+          result.extractions.push({
+            chunkId,
+            entities: extraction.result.entities.length,
+            relationships: extraction.result.relationships.length,
+            claims: extraction.result.claims.length
+          });
+          relationshipsExtracted += extraction.result.relationships.length;
+          claimsExtracted += extraction.result.claims.length;
+          for (const claim of extraction.result.claims) {
+            claimsByType[claim.type] = (claimsByType[claim.type] ?? 0) + 1;
+          }
+        }
+      }
+      if (extract) {
+        await snapshotAmendmentPages();
+        await runMaterialize();
+      }
+      await writeSourcePage(dir, {
+        wiki: slug,
+        fileName,
+        filePath: sourcePdfPath(slug, fileName),
+        sourceSlug,
+        sha256: hash,
+        pageCount,
+        ingested: existing?.ingestedAt ?? now,
+        updated: now,
+        warnings,
+        documentPages
+      });
+      if (extract) {
+        await runSynthesisStages(fileName);
+      }
+      state.sources[sourceSlug] = { hash, documentPages, ingestedAt: now, language: input };
+      state.pageHashes = workingPageHashes;
+      await writeIngestionState(dir, state);
+      progress(`Ingested ${fileName} -> ${documentPages.length} document page(s)`);
+      result.ingested.push({
+        source: sourceSlug,
+        file: fileName,
+        pageCount,
+        documentPages,
+        warnings,
+        tablesFound
+      });
+    }
+    if (extract && lastMaterializeResult === void 0) {
+      const extractedDir = join46(dir, ".state", "extracted");
+      const hasExtractions = existsSync11(extractedDir) && (await readdir13(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
+      if (hasExtractions) {
+        await snapshotAmendmentPages();
+        await runMaterialize();
+        await runSynthesisStages(null);
       }
     }
   } finally {
     await rehashWrittenPagesFromDisk();
+  }
+  state.pageHashes = workingPageHashes;
+  await writeIngestionState(dir, state);
+  async function runSynthesisStages(pdfLabel) {
+    if (!(extract && synthesis && lastMaterializeResult)) {
+      return;
+    }
+    result.synthesisRan = true;
+    const agentsMd = loadAgentsMd(dir);
+    const llmLogPath = join46(dir, ".state", "llm-calls.json");
+    const slugUniverse = await buildSlugUniverse(slug, options2.workspace, { language: input });
+    const repairPageLinks = (markdown, pageLabel) => {
+      const { markdown: repaired, repairs, unrepairable } = repairWikilinksInMarkdown(markdown, slugUniverse);
+      if (repairs.length > 0 || unrepairable.length > 0) {
+        progress(`Link repair ${pageLabel}: ${repairs.length} repaired${unrepairable.length > 0 ? `, ${unrepairable.length} unrepairable` : ""}.`);
+      }
+      return repaired;
+    };
+    const runEntitySynthesis = options2.synthesizeEntityFn ?? writeEntitySynthesis;
+    const runEntityPermissiveSynthesis = options2.synthesizeEntityPermissiveFn ?? writePermissiveEntitySynthesis;
+    const runTopicSynthesis = options2.synthesizeTopicFn ?? writeTopicSynthesis;
+    const runTopicPermissiveSynthesis = options2.synthesizeTopicPermissiveFn ?? writePermissiveTopicSynthesis;
+    const poolStaggerMs = options2.poolStaggerMs ?? SYNTHESIS_POOL_STAGGER_MS;
+    const synthesisRecords = (await readSynthesisState(dir)).pages;
+    const rewrittenThisRun = new Set(lastMaterializeResult.writtenPages.map((page) => page.path));
+    const partitionStage = (pages) => {
+      const skipped = /* @__PURE__ */ new Map();
+      const toRun = [];
+      for (const page of pages) {
+        const relPath = synthesisPagePath(page);
+        const record = synthesisRecords[relPath];
+        if (isSkipEligible(record) && record.dataHash === pageDataHash(page, language) && !rewrittenThisRun.has(relPath)) {
+          skipped.set(page.slug, record);
+        } else {
+          toRun.push(page);
+        }
+      }
+      return { skipped, toRun };
+    };
+    const reconstructedSkipEntry = (pageType, slug2, record) => ({
+      timestamp: record.synthesizedAt,
+      pageType,
+      slug: slug2,
+      strict: record.mode === "strict-synthesis" || record.mode === "patch-amended" ? { attempted: true, passed: true, attempts: 1 } : { attempted: true, passed: false, attempts: 1 },
+      permissive: record.mode === "permissive-synthesis" ? { attempted: true, passed: true, attempts: 1 } : { attempted: false, passed: false },
+      finalMode: record.mode
+    });
+    const recordSynthesisOutcome = async (page, pageKind, entry) => {
+      await recordSynthesisPage(dir, synthesisPagePath(page), {
+        mode: entry.finalMode,
+        dataHash: pageDataHash(page, language),
+        synthesizedAt: entry.timestamp,
+        pageKind,
+        ...entry.finalMode === "strict-synthesis" || entry.finalMode === "permissive-synthesis" || entry.finalMode === "patch-amended" ? { baselineKeys: evidenceKeysFor(page) } : {}
+      });
+    };
+    const enforceMergedPage = (mergedBody, page, kind) => {
+      if (kind === "entity") {
+        const entity = page;
+        return repairPageLinks(
+          enforceSourcesSectionInMarkdown(
+            enforceFrontmatterInMarkdown(
+              enforceSparseInMarkdown(
+                enforceAliasesInMarkdown(mergedBody, entity.title, entity.slug, entity.mergedAliases),
+                entity.sparse === true
+              ),
+              entity
+            ),
+            buildCitationMap(entity).citationMap
+          ),
+          entity.slug
+        );
+      }
+      if (kind === "topic") {
+        const topic = page;
+        return repairPageLinks(
+          enforceTopicSourcesSectionInMarkdown(
+            enforceTopicFrontmatterInMarkdown(
+              enforceAliasesInMarkdown(mergedBody, topic.title, topic.slug),
+              topic
+            ),
+            buildCitationMap({ mentions: [], relationships: [], claims: topic.claims }).citationMap
+          ),
+          `topic ${topic.slug}`
+        );
+      }
+      if (kind === "composite") {
+        const composite = page;
+        return repairPageLinks(
+          enforceSourcesSectionInMarkdown(
+            enforceCompositeFrontmatterInMarkdown(mergedBody, composite),
+            buildCompositeCitationMap(composite).citationMap
+          ),
+          `composite ${composite.slug}`
+        );
+      }
+      const comparison = page;
+      return repairPageLinks(
+        enforceSourcesSectionInMarkdown(
+          enforceComparisonBridgeInMarkdown(
+            enforceComparisonFrontmatterInMarkdown(mergedBody, comparison),
+            comparison
+          ),
+          buildComparisonCitationMap(comparison).citationMap
+        ),
+        `comparison ${comparison.slug}`
+      );
+    };
+    const runPreservationCheck = (page, kind, writtenPage) => {
+      if (kind === "entity") {
+        return checkPreservation(page, writtenPage);
+      }
+      if (kind === "topic") {
+        return checkTopicPreservation(page, writtenPage);
+      }
+      if (kind === "composite") {
+        return checkCompositePreservation(page, writtenPage);
+      }
+      return checkComparisonPreservation(page, writtenPage);
+    };
+    const mergeAffectedSurvivors = /* @__PURE__ */ new Set();
+    {
+      const curation = lastMaterializeResult.curation;
+      if (curation) {
+        const preMaterializeSkipSlugs = new Set(
+          [...amendmentSnapshot.keys()].map((path) => path.split("/").pop()?.replace(/\.md$/, "") ?? "")
+        );
+        const vetoIfAbsorbedSynthesized = (into, from) => {
+          if (from.some((slug2) => preMaterializeSkipSlugs.has(slug2))) {
+            mergeAffectedSurvivors.add(into);
+          }
+        };
+        for (const merge of curation.entityMerges) {
+          vetoIfAbsorbedSynthesized(merge.into, merge.from);
+        }
+        for (const merge of curation.fromSticky.entityMerges) {
+          vetoIfAbsorbedSynthesized(merge.into, merge.from);
+        }
+        for (const merge of curation.topicMerges) {
+          vetoIfAbsorbedSynthesized(merge.into, merge.from);
+        }
+        for (const merge of curation.fromSticky.topicMerges) {
+          vetoIfAbsorbedSynthesized(merge.into, merge.from);
+        }
+        for (const entry of curation.autoApplied) {
+          vetoIfAbsorbedSynthesized(entry.into, [entry.from]);
+        }
+        for (const cluster of curation.entityClusters) {
+          vetoIfAbsorbedSynthesized(cluster.into, cluster.members);
+        }
+        for (const cluster of curation.fromSticky.entityClusters) {
+          vetoIfAbsorbedSynthesized(cluster.into, cluster.members);
+        }
+      }
+    }
+    const amendmentPlanFor = (page, kind) => {
+      const relPath = synthesisPagePath(page);
+      const record = synthesisRecords[relPath];
+      if (!isSkipEligible(record) || record.pageKind !== kind || record.baselineKeys === void 0 || mergeAffectedSurvivors.has(page.slug)) {
+        return null;
+      }
+      const snapshot = amendmentSnapshot.get(relPath);
+      if (snapshot === void 0) {
+        return null;
+      }
+      const delta = newEvidenceFor(page, record.baselineKeys);
+      if (delta.empty) {
+        return null;
+      }
+      return { delta, snapshot };
+    };
+    const amendmentOutputTokens = async (pageSlug) => {
+      try {
+        const raw = await readFile34(llmLogPath, "utf-8");
+        const prefix = `amendment:${pageSlug}`;
+        let last = null;
+        for (const line of raw.split("\n")) {
+          const trimmed = line.trim();
+          if (trimmed === "") {
+            continue;
+          }
+          try {
+            const entry = JSON.parse(trimmed);
+            if (typeof entry.context === "string" && (entry.context === prefix || entry.context.startsWith(`${prefix}#`)) && typeof entry.outputTokens === "number") {
+              last = entry.outputTokens;
+            }
+          } catch {
+          }
+        }
+        return last;
+      } catch {
+        return null;
+      }
+    };
+    const runAmendmentEpisode = async (args) => {
+      const { page, kind, plan } = args;
+      const relPath = synthesisPagePath(page);
+      const request2 = buildAmendmentRequest({ pageData: page, delta: plan.delta, pageContent: plan.snapshot });
+      const runAmendment = options2.amendmentFn ?? writeAmendment;
+      const landed = { patch: null, content: null };
+      let attemptsMade = 0;
+      let lastErrors = [];
+      try {
+        const outcome = await runWithFeedbackRetry(
+          (feedback, attempt) => {
+            attemptsMade = attempt;
+            return runAmendment(request2, agentsMd, llmLogPath, language, feedback ?? void 0, attempt);
+          },
+          (rawText) => {
+            const parsed = parsePatch(rawText);
+            if (parsed.patch === void 0) {
+              lastErrors = parsed.errors;
+              return { valid: false, errors: parsed.errors };
+            }
+            const validation = validatePatch(parsed.patch, {
+              pageContent: plan.snapshot,
+              pageKind: kind,
+              ...kind === "composite" ? {
+                members: page.members.map((member) => ({
+                  slug: member.slug,
+                  title: member.title
+                }))
+              } : {}
+            });
+            if (!validation.valid) {
+              lastErrors = validation.errors;
+              return { valid: false, errors: validation.errors };
+            }
+            let mergedBody;
+            try {
+              mergedBody = applyPatch(plan.snapshot, parsed.patch);
+            } catch (err) {
+              const errors = [err.message];
+              lastErrors = errors;
+              return { valid: false, errors };
+            }
+            const enforced = enforceMergedPage(mergedBody, page, kind);
+            const check2 = runPreservationCheck(page, kind, enforced);
+            if (!check2.passed) {
+              const errors = preservationFeedbackErrors(check2);
+              lastErrors = errors;
+              return { valid: false, errors };
+            }
+            landed.patch = parsed.patch;
+            landed.content = enforced;
+            return { valid: true, errors: [] };
+          },
+          {
+            maxAttempts: SYNTHESIS_MAX_ATTEMPTS,
+            label: `amendment:${page.slug}`,
+            onRepair: (errors) => {
+              console.warn(
+                `Amendment patch failed validation for ${page.slug} (${errors[0] ?? "unknown error"}); retrying with validator feedback.`
+              );
+            }
+          }
+        );
+        if (outcome.output === null || landed.content === null || landed.patch === null) {
+          const cause = lastErrors[0] ?? "validation-exhaustion";
+          console.warn(
+            `Warning: amendment for ${relPath} failed after ${outcome.attempts} attempt(s) (${cause}) \u2014 falling back to full synthesis.`
+          );
+          patchFallbacksThisRun += 1;
+          result.patchFallbacks = (result.patchFallbacks ?? 0) + 1;
+          await appendAmendmentLogRecord(
+            dir,
+            {
+              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+              page: relPath,
+              pdf: pdfLabel,
+              attempts: outcome.attempts,
+              operations: {},
+              outcome: "fallback-full-synthesis",
+              cause
+            },
+            () => amendmentOutputTokens(page.slug)
+          );
+          return null;
+        }
+        const entry = {
+          timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+          pageType: kind,
+          slug: page.slug,
+          strict: { attempted: false, passed: false },
+          permissive: { attempted: false, passed: false },
+          finalMode: "patch-amended"
+        };
+        return {
+          mergedPage: landed.content,
+          entry,
+          attempts: outcome.attempts,
+          opCounts: countOperations(landed.patch.operations)
+        };
+      } catch (error) {
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        console.warn(
+          `Warning: amendment for ${relPath} hit a transport failure after retries \u2014 falling back to full synthesis.`
+        );
+        patchFallbacksThisRun += 1;
+        result.patchFallbacks = (result.patchFallbacks ?? 0) + 1;
+        await appendAmendmentLogRecord(
+          dir,
+          {
+            timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+            page: relPath,
+            pdf: pdfLabel,
+            attempts: Math.max(attemptsMade, 1),
+            operations: {},
+            outcome: "fallback-full-synthesis",
+            cause: "transport-exhaustion"
+          },
+          () => amendmentOutputTokens(page.slug)
+        );
+        return null;
+      }
+    };
+    const tryAmendPage = async (page, kind) => {
+      const plan = amendmentPlanFor(page, kind);
+      if (plan === null) {
+        return null;
+      }
+      const episode = await runAmendmentEpisode({ page, kind, plan });
+      if (episode === null) {
+        return null;
+      }
+      const relPath = synthesisPagePath(page);
+      await writeFile26(join46(dir, relPath), episode.mergedPage, "utf-8");
+      writtenPagePaths.add(relPath);
+      patchedPagesThisRun += 1;
+      result.patchedPages = (result.patchedPages ?? 0) + 1;
+      await recordSynthesisOutcome(page, kind, episode.entry);
+      await appendAmendmentLogRecord(
+        dir,
+        {
+          timestamp: episode.entry.timestamp,
+          page: relPath,
+          pdf: pdfLabel,
+          attempts: episode.attempts,
+          operations: episode.opCounts,
+          outcome: "patched",
+          cause: null
+        },
+        () => amendmentOutputTokens(page.slug)
+      );
+      const opSummary = Object.entries(episode.opCounts).map(([op, count]) => `${count} ${op}`).join(", ");
+      progress(`Amended ${relPath} (patch: ${opSummary}).`);
+      return { kind: "patched", entry: episode.entry };
+    };
+    const synthesizeEntityPage = async (entityPage, detector) => {
+      let chainPhase = "strict";
+      try {
+        const amended = await tryAmendPage(entityPage, "entity");
+        if (amended !== null) {
+          return amended;
+        }
+        const strict = await trySynthesisMode(
+          (feedback, attempt) => runEntitySynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
+          (page) => checkPreservation(entityPage, page),
+          entityPage.slug
+        );
+        if (strict.page !== null) {
+          const folderPath = join46(dir, entityPage.folder);
+          await writeFile26(
+            join46(folderPath, `${entityPage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceFrontmatterInMarkdown(
+                  enforceSparseInMarkdown(
+                    enforceAliasesInMarkdown(strict.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+                    entityPage.sparse === true
+                  ),
+                  entityPage
+                ),
+                buildCitationMap(entityPage).citationMap
+              ),
+              entityPage.slug
+            ),
+            "utf-8"
+          );
+          return {
+            kind: "strict",
+            entry: {
+              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+              pageType: "entity",
+              slug: entityPage.slug,
+              strict: { attempted: true, passed: true, attempts: strict.attempts },
+              permissive: { attempted: false, passed: false },
+              finalMode: "strict-synthesis"
+            }
+          };
+        }
+        console.warn(
+          `Strict synthesis failed preservation for ${entityPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`
+        );
+        chainPhase = "permissive";
+        const permissive = await trySynthesisMode(
+          (feedback, attempt) => runEntityPermissiveSynthesis(entityPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
+          (page) => checkPreservation(entityPage, page),
+          entityPage.slug
+        );
+        if (permissive.page !== null) {
+          const folderPath = join46(dir, entityPage.folder);
+          await writeFile26(
+            join46(folderPath, `${entityPage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceFrontmatterInMarkdown(
+                  enforceSparseInMarkdown(
+                    enforceAliasesInMarkdown(permissive.page, entityPage.title, entityPage.slug, entityPage.mergedAliases),
+                    entityPage.sparse === true
+                  ),
+                  entityPage
+                ),
+                buildCitationMap(entityPage).citationMap
+              ),
+              entityPage.slug
+            ),
+            "utf-8"
+          );
+          return {
+            kind: "permissive",
+            entry: {
+              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+              pageType: "entity",
+              slug: entityPage.slug,
+              strict: { attempted: true, passed: false, attempts: strict.attempts },
+              permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+              finalMode: "permissive-synthesis"
+            }
+          };
+        }
+        console.warn(
+          `Permissive synthesis also failed preservation for ${entityPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`
+        );
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, entityPage.slug, permissive.lastCheck, "entity");
+        }
+        return {
+          kind: "template",
+          entry: {
+            timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+            pageType: "entity",
+            slug: entityPage.slug,
+            strict: { attempted: true, passed: false, attempts: strict.attempts },
+            permissive: { attempted: true, passed: false, attempts: permissive.attempts },
+            finalMode: "structured-template"
+          }
+        };
+      } catch (error) {
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        recordDetectorTransportFailure(detector, error);
+        transportFailuresThisRun += 1;
+        console.warn(`Transport failure for ${entityPage.slug} after retries \u2014 template fallback.`);
+        return {
+          kind: "transport",
+          entry: {
+            timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+            pageType: "entity",
+            slug: entityPage.slug,
+            strict: { attempted: true, passed: false },
+            permissive: chainPhase === "permissive" ? { attempted: true, passed: false } : { attempted: false, passed: false },
+            finalMode: "transport-fallback"
+          }
+        };
+      }
+    };
+    const entityPages = lastMaterializeResult.entityPages;
+    const entityStage = partitionStage(entityPages);
+    const entityDetector = makeOutageDetector(entityStage.toRun.length);
+    let entityCompleted = 0;
+    const entityOutcomes = await runPool(
+      entityStage.toRun,
+      async (entityPage) => {
+        const outcome = await synthesizeEntityPage(entityPage, entityDetector);
+        if (outcome.kind !== "transport") {
+          recordDetectorSuccess(entityDetector);
+        }
+        await recordSynthesisOutcome(entityPage, "entity", outcome.entry);
+        entityCompleted += 1;
+        progress(
+          `Synthesis: ${entityCompleted}/${entityStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
+        );
+        return outcome;
+      },
+      { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs }
+    );
+    const entityOutcomeBySlug = new Map(entityOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
+    const entityEntries = [];
+    for (const entityPage of entityPages) {
+      const skippedRecord = entityStage.skipped.get(entityPage.slug);
+      if (skippedRecord) {
+        entityEntries.push(reconstructedSkipEntry("entity", entityPage.slug, skippedRecord));
+        if (!synthesisSkipCountedPages.has(synthesisPagePath(entityPage))) {
+          synthesisSkipCountedPages.add(synthesisPagePath(entityPage));
+          result.synthesisSkipped = (result.synthesisSkipped ?? 0) + 1;
+        }
+        continue;
+      }
+      const outcome = entityOutcomeBySlug.get(entityPage.slug);
+      if (!outcome) {
+        continue;
+      }
+      entityEntries.push(outcome.entry);
+      if (outcome.kind === "strict") {
+        result.synthesized = (result.synthesized ?? 0) + 1;
+      } else if (outcome.kind === "permissive") {
+        result.synthesizedPermissive = (result.synthesizedPermissive ?? 0) + 1;
+      } else if (outcome.kind === "template") {
+        result.synthesisConflicts = (result.synthesisConflicts ?? 0) + 1;
+      }
+    }
+    await appendSynthesisReportEntries(dir, entityEntries);
+    if (entityStage.skipped.size > 0) {
+      progress(`Synthesis: ${entityStage.skipped.size} page(s) skipped (unchanged data).`);
+    }
+    const synthesizeTopicPage = async (topicPage, detector) => {
+      let chainPhase = "strict";
+      try {
+        const amended = await tryAmendPage(topicPage, "topic");
+        if (amended !== null) {
+          return amended;
+        }
+        const strict = await trySynthesisMode(
+          (feedback, attempt) => runTopicSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
+          (page) => checkTopicPreservation(topicPage, page),
+          `topic ${topicPage.slug}`
+        );
+        if (strict.page !== null) {
+          const folderPath = join46(dir, topicPage.folder);
+          await writeFile26(
+            join46(folderPath, `${topicPage.slug}.md`),
+            repairPageLinks(
+              enforceTopicSourcesSectionInMarkdown(
+                enforceTopicFrontmatterInMarkdown(
+                  enforceAliasesInMarkdown(strict.page, topicPage.title, topicPage.slug),
+                  topicPage
+                ),
+                buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap
+              ),
+              `topic ${topicPage.slug}`
+            ),
+            "utf-8"
+          );
+          return {
+            kind: "strict",
+            entry: {
+              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+              pageType: "topic",
+              slug: topicPage.slug,
+              strict: { attempted: true, passed: true, attempts: strict.attempts },
+              permissive: { attempted: false, passed: false },
+              finalMode: "strict-synthesis"
+            }
+          };
+        }
+        console.warn(
+          `Strict synthesis failed preservation for topic ${topicPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`
+        );
+        chainPhase = "permissive";
+        const permissive = await trySynthesisMode(
+          (feedback, attempt) => runTopicPermissiveSynthesis(topicPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
+          (page) => checkTopicPreservation(topicPage, page),
+          `topic ${topicPage.slug}`
+        );
+        if (permissive.page !== null) {
+          const folderPath = join46(dir, topicPage.folder);
+          await writeFile26(
+            join46(folderPath, `${topicPage.slug}.md`),
+            repairPageLinks(
+              enforceTopicSourcesSectionInMarkdown(
+                enforceTopicFrontmatterInMarkdown(
+                  enforceAliasesInMarkdown(permissive.page, topicPage.title, topicPage.slug),
+                  topicPage
+                ),
+                buildCitationMap({ mentions: [], relationships: [], claims: topicPage.claims }).citationMap
+              ),
+              `topic ${topicPage.slug}`
+            ),
+            "utf-8"
+          );
+          return {
+            kind: "permissive",
+            entry: {
+              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+              pageType: "topic",
+              slug: topicPage.slug,
+              strict: { attempted: true, passed: false, attempts: strict.attempts },
+              permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+              finalMode: "permissive-synthesis"
+            }
+          };
+        }
+        console.warn(
+          `Permissive synthesis also failed preservation for topic ${topicPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`
+        );
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, topicPage.slug, permissive.lastCheck, "topic");
+        }
+        return {
+          kind: "template",
+          entry: {
+            timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+            pageType: "topic",
+            slug: topicPage.slug,
+            strict: { attempted: true, passed: false, attempts: strict.attempts },
+            permissive: { attempted: true, passed: false, attempts: permissive.attempts },
+            finalMode: "structured-template"
+          }
+        };
+      } catch (error) {
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        recordDetectorTransportFailure(detector, error);
+        transportFailuresThisRun += 1;
+        console.warn(`Transport failure for ${topicPage.slug} after retries \u2014 template fallback.`);
+        return {
+          kind: "transport",
+          entry: {
+            timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+            pageType: "topic",
+            slug: topicPage.slug,
+            strict: { attempted: true, passed: false },
+            permissive: chainPhase === "permissive" ? { attempted: true, passed: false } : { attempted: false, passed: false },
+            finalMode: "transport-fallback"
+          }
+        };
+      }
+    };
+    const topicPages = lastMaterializeResult.topicPages;
+    const topicStage = partitionStage(topicPages);
+    const topicDetector = makeOutageDetector(topicStage.toRun.length);
+    let topicCompleted = 0;
+    const topicOutcomes = await runPool(
+      topicStage.toRun,
+      async (topicPage) => {
+        const outcome = await synthesizeTopicPage(topicPage, topicDetector);
+        if (outcome.kind !== "transport") {
+          recordDetectorSuccess(topicDetector);
+        }
+        await recordSynthesisOutcome(topicPage, "topic", outcome.entry);
+        topicCompleted += 1;
+        progress(
+          `Synthesis: ${topicCompleted}/${topicStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
+        );
+        return outcome;
+      },
+      { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs }
+    );
+    const topicOutcomeBySlug = new Map(topicOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
+    const topicEntries = [];
+    for (const topicPage of topicPages) {
+      const skippedRecord = topicStage.skipped.get(topicPage.slug);
+      if (skippedRecord) {
+        topicEntries.push(reconstructedSkipEntry("topic", topicPage.slug, skippedRecord));
+        if (!synthesisSkipCountedPages.has(synthesisPagePath(topicPage))) {
+          synthesisSkipCountedPages.add(synthesisPagePath(topicPage));
+          result.synthesisTopicsSkipped = (result.synthesisTopicsSkipped ?? 0) + 1;
+        }
+        continue;
+      }
+      const outcome = topicOutcomeBySlug.get(topicPage.slug);
+      if (!outcome) {
+        continue;
+      }
+      topicEntries.push(outcome.entry);
+      if (outcome.kind === "strict") {
+        result.synthesizedTopics = (result.synthesizedTopics ?? 0) + 1;
+      } else if (outcome.kind === "permissive") {
+        result.synthesizedTopicsPermissive = (result.synthesizedTopicsPermissive ?? 0) + 1;
+      } else if (outcome.kind === "template") {
+        result.topicConflicts = (result.topicConflicts ?? 0) + 1;
+      }
+    }
+    await appendSynthesisReportEntries(dir, topicEntries);
+    if (topicStage.skipped.size > 0) {
+      progress(`Synthesis: ${topicStage.skipped.size} page(s) skipped (unchanged data).`);
+    }
+    const runCompositeSynthesis = options2.synthesizeCompositeFn ?? writeCompositeSynthesis;
+    const runCompositePermissiveSynthesis = options2.synthesizeCompositePermissiveFn ?? writePermissiveCompositeSynthesis;
+    const synthesizeCompositePage = async (compositePage, detector) => {
+      let chainPhase = "strict";
+      try {
+        const amended = await tryAmendPage(compositePage, "composite");
+        if (amended !== null) {
+          return amended;
+        }
+        const strict = await trySynthesisMode(
+          (feedback, attempt) => runCompositeSynthesis(compositePage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
+          (page) => checkCompositePreservation(compositePage, page),
+          `composite ${compositePage.slug}`
+        );
+        if (strict.page !== null) {
+          const folderPath = join46(dir, compositePage.folder);
+          await writeFile26(
+            join46(folderPath, `${compositePage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceCompositeFrontmatterInMarkdown(strict.page, compositePage),
+                buildCompositeCitationMap(compositePage).citationMap
+              ),
+              `composite ${compositePage.slug}`
+            ),
+            "utf-8"
+          );
+          return {
+            kind: "strict",
+            entry: {
+              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+              pageType: "composite",
+              slug: compositePage.slug,
+              strict: { attempted: true, passed: true, attempts: strict.attempts },
+              permissive: { attempted: false, passed: false },
+              finalMode: "strict-synthesis"
+            }
+          };
+        }
+        console.warn(
+          `Strict synthesis failed preservation for composite ${compositePage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`
+        );
+        chainPhase = "permissive";
+        const permissive = await trySynthesisMode(
+          (feedback, attempt) => runCompositePermissiveSynthesis(compositePage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
+          (page) => checkCompositePreservation(compositePage, page),
+          `composite ${compositePage.slug}`
+        );
+        if (permissive.page !== null) {
+          const folderPath = join46(dir, compositePage.folder);
+          await writeFile26(
+            join46(folderPath, `${compositePage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceCompositeFrontmatterInMarkdown(permissive.page, compositePage),
+                buildCompositeCitationMap(compositePage).citationMap
+              ),
+              `composite ${compositePage.slug}`
+            ),
+            "utf-8"
+          );
+          return {
+            kind: "permissive",
+            entry: {
+              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+              pageType: "composite",
+              slug: compositePage.slug,
+              strict: { attempted: true, passed: false, attempts: strict.attempts },
+              permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+              finalMode: "permissive-synthesis"
+            }
+          };
+        }
+        console.warn(
+          `Permissive synthesis also failed preservation for composite ${compositePage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`
+        );
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, compositePage.slug, permissive.lastCheck, "composite");
+        }
+        return {
+          kind: "template",
+          entry: {
+            timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+            pageType: "composite",
+            slug: compositePage.slug,
+            strict: { attempted: true, passed: false, attempts: strict.attempts },
+            permissive: { attempted: true, passed: false, attempts: permissive.attempts },
+            finalMode: "structured-template"
+          }
+        };
+      } catch (error) {
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        recordDetectorTransportFailure(detector, error);
+        transportFailuresThisRun += 1;
+        console.warn(`Transport failure for composite ${compositePage.slug} after retries \u2014 template fallback.`);
+        return {
+          kind: "transport",
+          entry: {
+            timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+            pageType: "composite",
+            slug: compositePage.slug,
+            strict: { attempted: true, passed: false },
+            permissive: chainPhase === "permissive" ? { attempted: true, passed: false } : { attempted: false, passed: false },
+            finalMode: "transport-fallback"
+          }
+        };
+      }
+    };
+    const compositePages = lastMaterializeResult.compositePages;
+    const compositeStage = partitionStage(compositePages);
+    const compositeDetector = makeOutageDetector(compositeStage.toRun.length);
+    let compositeCompleted = 0;
+    const compositeOutcomes = await runPool(
+      compositeStage.toRun,
+      async (compositePage) => {
+        const outcome = await synthesizeCompositePage(compositePage, compositeDetector);
+        if (outcome.kind !== "transport") {
+          recordDetectorSuccess(compositeDetector);
+        }
+        await recordSynthesisOutcome(compositePage, "composite", outcome.entry);
+        compositeCompleted += 1;
+        progress(
+          `Synthesis: ${compositeCompleted}/${compositeStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
+        );
+        return outcome;
+      },
+      { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs }
+    );
+    const compositeOutcomeBySlug = new Map(compositeOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
+    const compositeEntries = [];
+    for (const compositePage of compositePages) {
+      const skippedRecord = compositeStage.skipped.get(compositePage.slug);
+      if (skippedRecord) {
+        compositeEntries.push(reconstructedSkipEntry("composite", compositePage.slug, skippedRecord));
+        if (!synthesisSkipCountedPages.has(synthesisPagePath(compositePage))) {
+          synthesisSkipCountedPages.add(synthesisPagePath(compositePage));
+          result.synthesisCompositesSkipped = (result.synthesisCompositesSkipped ?? 0) + 1;
+        }
+        continue;
+      }
+      const outcome = compositeOutcomeBySlug.get(compositePage.slug);
+      if (!outcome) {
+        continue;
+      }
+      compositeEntries.push(outcome.entry);
+      if (outcome.kind === "strict") {
+        result.synthesizedComposites = (result.synthesizedComposites ?? 0) + 1;
+      } else if (outcome.kind === "permissive") {
+        result.synthesizedCompositesPermissive = (result.synthesizedCompositesPermissive ?? 0) + 1;
+      } else if (outcome.kind === "template") {
+        result.compositeConflicts = (result.compositeConflicts ?? 0) + 1;
+      }
+    }
+    await appendSynthesisReportEntries(dir, compositeEntries);
+    if (compositeStage.skipped.size > 0) {
+      progress(`Synthesis: ${compositeStage.skipped.size} page(s) skipped (unchanged data).`);
+    }
+    const runComparisonSynthesis = options2.synthesizeComparisonFn ?? writeComparisonSynthesis;
+    const runComparisonPermissiveSynthesis = options2.synthesizeComparisonPermissiveFn ?? writePermissiveComparisonSynthesis;
+    const synthesizeComparisonPage = async (comparisonPage, detector) => {
+      let chainPhase = "strict";
+      try {
+        const amended = await tryAmendPage(comparisonPage, "comparison");
+        if (amended !== null) {
+          return amended;
+        }
+        const strict = await trySynthesisMode(
+          (feedback, attempt) => runComparisonSynthesis(comparisonPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
+          (page) => checkComparisonPreservation(comparisonPage, page),
+          `comparison ${comparisonPage.slug}`
+        );
+        if (strict.page !== null) {
+          const folderPath = join46(dir, comparisonPage.folder);
+          await writeFile26(
+            join46(folderPath, `${comparisonPage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceComparisonBridgeInMarkdown(
+                  enforceComparisonFrontmatterInMarkdown(strict.page, comparisonPage),
+                  comparisonPage
+                ),
+                buildComparisonCitationMap(comparisonPage).citationMap
+              ),
+              `comparison ${comparisonPage.slug}`
+            ),
+            "utf-8"
+          );
+          return {
+            kind: "strict",
+            entry: {
+              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+              pageType: "comparison",
+              slug: comparisonPage.slug,
+              strict: { attempted: true, passed: true, attempts: strict.attempts },
+              permissive: { attempted: false, passed: false },
+              finalMode: "strict-synthesis"
+            }
+          };
+        }
+        console.warn(
+          `Strict synthesis failed preservation for comparison ${comparisonPage.slug} after ${strict.attempts} attempt(s). Trying permissive fallback.`
+        );
+        chainPhase = "permissive";
+        const permissive = await trySynthesisMode(
+          (feedback, attempt) => runComparisonPermissiveSynthesis(comparisonPage, agentsMd, llmLogPath, language, feedback ?? void 0, attempt),
+          (page) => checkComparisonPreservation(comparisonPage, page),
+          `comparison ${comparisonPage.slug}`
+        );
+        if (permissive.page !== null) {
+          const folderPath = join46(dir, comparisonPage.folder);
+          await writeFile26(
+            join46(folderPath, `${comparisonPage.slug}.md`),
+            repairPageLinks(
+              enforceSourcesSectionInMarkdown(
+                enforceComparisonBridgeInMarkdown(
+                  enforceComparisonFrontmatterInMarkdown(permissive.page, comparisonPage),
+                  comparisonPage
+                ),
+                buildComparisonCitationMap(comparisonPage).citationMap
+              ),
+              `comparison ${comparisonPage.slug}`
+            ),
+            "utf-8"
+          );
+          return {
+            kind: "permissive",
+            entry: {
+              timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+              pageType: "comparison",
+              slug: comparisonPage.slug,
+              strict: { attempted: true, passed: false, attempts: strict.attempts },
+              permissive: { attempted: true, passed: true, attempts: permissive.attempts },
+              finalMode: "permissive-synthesis"
+            }
+          };
+        }
+        console.warn(
+          `Permissive synthesis also failed preservation for comparison ${comparisonPage.slug} after ${permissive.attempts} attempt(s). Keeping structured template.`
+        );
+        if (permissive.lastCheck !== null) {
+          await logConflict(dir, comparisonPage.slug, permissive.lastCheck, "comparison");
+        }
+        return {
+          kind: "template",
+          entry: {
+            timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+            pageType: "comparison",
+            slug: comparisonPage.slug,
+            strict: { attempted: true, passed: false, attempts: strict.attempts },
+            permissive: { attempted: true, passed: false, attempts: permissive.attempts },
+            finalMode: "structured-template"
+          }
+        };
+      } catch (error) {
+        if (!isTransientTransportError(error)) {
+          throw error;
+        }
+        recordDetectorTransportFailure(detector, error);
+        transportFailuresThisRun += 1;
+        console.warn(`Transport failure for comparison ${comparisonPage.slug} after retries \u2014 template fallback.`);
+        return {
+          kind: "transport",
+          entry: {
+            timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+            pageType: "comparison",
+            slug: comparisonPage.slug,
+            strict: { attempted: true, passed: false },
+            permissive: chainPhase === "permissive" ? { attempted: true, passed: false } : { attempted: false, passed: false },
+            finalMode: "transport-fallback"
+          }
+        };
+      }
+    };
+    const comparisonPages = lastMaterializeResult.comparisonPages;
+    const comparisonStage = partitionStage(comparisonPages);
+    const comparisonDetector = makeOutageDetector(comparisonStage.toRun.length);
+    let comparisonCompleted = 0;
+    const comparisonOutcomes = await runPool(
+      comparisonStage.toRun,
+      async (comparisonPage) => {
+        const outcome = await synthesizeComparisonPage(comparisonPage, comparisonDetector);
+        if (outcome.kind !== "transport") {
+          recordDetectorSuccess(comparisonDetector);
+        }
+        await recordSynthesisOutcome(comparisonPage, "comparison", outcome.entry);
+        comparisonCompleted += 1;
+        progress(
+          `Synthesis: ${comparisonCompleted}/${comparisonStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
+        );
+        return outcome;
+      },
+      { concurrency: SYNTHESIS_POOL_SIZE, staggerMs: poolStaggerMs }
+    );
+    const comparisonOutcomeBySlug = new Map(comparisonOutcomes.map((outcome) => [outcome.entry.slug, outcome]));
+    const comparisonEntries = [];
+    for (const comparisonPage of comparisonPages) {
+      const skippedRecord = comparisonStage.skipped.get(comparisonPage.slug);
+      if (skippedRecord) {
+        comparisonEntries.push(reconstructedSkipEntry("comparison", comparisonPage.slug, skippedRecord));
+        if (!synthesisSkipCountedPages.has(synthesisPagePath(comparisonPage))) {
+          synthesisSkipCountedPages.add(synthesisPagePath(comparisonPage));
+          result.synthesisComparisonsSkipped = (result.synthesisComparisonsSkipped ?? 0) + 1;
+        }
+        continue;
+      }
+      const outcome = comparisonOutcomeBySlug.get(comparisonPage.slug);
+      if (!outcome) {
+        continue;
+      }
+      comparisonEntries.push(outcome.entry);
+      if (outcome.kind === "strict") {
+        result.synthesizedComparisons = (result.synthesizedComparisons ?? 0) + 1;
+      } else if (outcome.kind === "permissive") {
+        result.synthesizedComparisonsPermissive = (result.synthesizedComparisonsPermissive ?? 0) + 1;
+      } else if (outcome.kind === "template") {
+        result.comparisonConflicts = (result.comparisonConflicts ?? 0) + 1;
+      }
+    }
+    await appendSynthesisReportEntries(dir, comparisonEntries);
+    if (comparisonStage.skipped.size > 0) {
+      progress(`Synthesis: ${comparisonStage.skipped.size} page(s) skipped (unchanged data).`);
+    }
+    const pagesToRehash = [
+      ...entityStage.toRun,
+      ...topicStage.toRun,
+      ...compositeStage.toRun,
+      ...comparisonStage.toRun
+    ];
+    for (const page of pagesToRehash) {
+      const relPath = synthesisPagePath(page);
+      const absolute = join46(dir, relPath);
+      if (existsSync11(absolute)) {
+        const content = await readFile34(absolute, "utf-8");
+        workingPageHashes[relPath] = createHash5("sha256").update(content).digest("hex");
+        writtenPagePaths.add(relPath);
+      }
+    }
+    if (transportFailuresThisRun > 0) {
+      progress(
+        `Warning: ${transportFailuresThisRun} page(s) fell back to the structured template after transport failures this run \u2014 re-run ingest to retry them.`
+      );
+    }
   }
   let memoryAfterEntityCount = 0;
   const buildRunMetrics = async () => {
@@ -111782,7 +112962,11 @@ ${rendered.text}
       curationFallbacks: curationFallbacksThisRun,
       // Phase 16 (vision `04` §6): per-page transport fallbacks this run
       // (both synthesis stages; 0 on a healthy run).
-      transportFailures: transportFailuresThisRun
+      transportFailures: transportFailuresThisRun,
+      // Phase 26 (§2.5): patch-amendment counters (0 on runs without
+      // amendments; the amendment-log carries the per-episode detail).
+      patchedPages: patchedPagesThisRun,
+      patchFallbacks: patchFallbacksThisRun
     };
   };
   try {
@@ -111815,7 +112999,7 @@ ${rendered.text}
     writeWorkspaceIndexFn: options2.writeWorkspaceIndexFn,
     writeWorkspaceProseFn: options2.writeWorkspaceProseFn,
     outputLanguage: getLanguage(output).name,
-    logPath: join44(dir, ".state", "llm-calls.json")
+    logPath: join46(dir, ".state", "llm-calls.json")
   });
   progress("Workspace index updated.");
   if (options2.crossWiki === true) {
@@ -111826,7 +113010,7 @@ ${rendered.text}
         wikiSlug: slug,
         language,
         forceCrossWiki: options2.forceCrossWiki,
-        logPath: join44(dir, ".state", "llm-calls.json"),
+        logPath: join46(dir, ".state", "llm-calls.json"),
         onProgress: progress
       });
       result.crossWiki = crossWiki;
@@ -111895,18 +113079,20 @@ function withProgressBar(line) {
 function IngestScreen({
   onBack,
   onResult,
-  workspace = ".",
+  workspace,
+  workspaces,
   extract = true,
   initialWiki,
   ingestFn,
   onReviewAgents
 }) {
   const { isRawModeSupported } = use_stdin_default();
-  const wikis = useWikiList(workspace);
+  const list = workspaces ?? [workspace ?? "."];
+  const wikis = useWikiList(list);
   const [selectedIndex, setSelectedIndex] = (0, import_react42.useState)(0);
   const selectedWiki = wikis.length > 0 ? wikis[Math.min(selectedIndex, wikis.length - 1)] : void 0;
   const [refreshKey, setRefreshKey] = (0, import_react42.useState)(0);
-  const details = useWikiDetails(workspace, selectedWiki, refreshKey);
+  const details = useWikiDetails(selectedWiki?.workspace ?? list[0], selectedWiki?.slug, refreshKey);
   const [status, setStatus] = (0, import_react42.useState)("idle");
   const [progressLines, setProgressLines] = (0, import_react42.useState)([]);
   const [message, setMessage] = (0, import_react42.useState)("");
@@ -111927,7 +113113,9 @@ function IngestScreen({
     if (appliedInitialWiki.current || !initialWiki) {
       return;
     }
-    const index = wikis.indexOf(initialWiki);
+    const index = wikis.findIndex(
+      (wiki) => wiki.slug === initialWiki.slug && wiki.workspace === initialWiki.workspace
+    );
     if (index >= 0) {
       setSelectedIndex(index);
       appliedInitialWiki.current = true;
@@ -111935,7 +113123,7 @@ function IngestScreen({
   }, [wikis, initialWiki]);
   (0, import_react42.useEffect)(() => {
     let mounted = true;
-    loadSettings(workspace).then((s) => {
+    loadSettings(selectedWiki?.workspace ?? list[0]).then((s) => {
       if (mounted) {
         setSynthesis(s.synthesis);
         setUpdateAgents(s.updateAgents);
@@ -111945,17 +113133,17 @@ function IngestScreen({
     return () => {
       mounted = false;
     };
-  }, [workspace]);
+  }, [selectedWiki?.workspace]);
   (0, import_react42.useEffect)(() => {
     let mounted = true;
     if (!selectedWiki) {
       return;
     }
-    const dir = wikiDir(workspace, selectedWiki);
+    const dir = wikiDir(selectedWiki.workspace, selectedWiki.slug);
     readWikiLanguage(dir).then(async (state) => {
       let extracted = false;
       try {
-        extracted = (await readdir14(join45(dir, ".state", "extracted"))).some(
+        extracted = (await readdir14(join47(dir, ".state", "extracted"))).some(
           (file) => file.endsWith(".json")
         );
       } catch {
@@ -111971,18 +113159,21 @@ function IngestScreen({
     return () => {
       mounted = false;
     };
-  }, [workspace, selectedWiki, refreshKey]);
+  }, [selectedWiki?.workspace, selectedWiki?.slug, refreshKey]);
   const selectedInput = SUPPORTED_LANGUAGES[inputIndex];
   const selectedOutput = SUPPORTED_LANGUAGES[outputIndex];
   const slugForkingRisk = hasExtractions && selectedInput.code !== languageState.lastInputLanguage;
+  const multiWorkspace = new Set(wikis.map((wiki) => wiki.workspace)).size > 1;
+  const wikiLabel = (wiki) => multiWorkspace ? `${wiki.slug} (${wiki.workspace})` : wiki.slug;
+  const wikiKey = (wiki) => `${wiki.workspace}/${wiki.slug}`;
   const runIngest2 = async (wiki) => {
     setStatus("running");
     setProgressLines([]);
     setProposalWiki(null);
     try {
       const run = ingestFn ?? ingest;
-      const result = await run(wiki, {
-        workspace,
+      const result = await run(wiki.slug, {
+        workspace: wiki.workspace,
         extract,
         synthesis,
         inputLanguage: selectedInput.code,
@@ -112101,23 +113292,19 @@ function IngestScreen({
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Box_default, { flexDirection: "column", children: [
     /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Header, {}),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { bold: true, children: "Ingest PDFs" }),
-    wikis.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { dimColor: true, children: [
-      "No wikis found in ",
-      workspace,
-      "/wikis. Create one first (init)."
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Box_default, { flexDirection: "column", marginTop: 1, children: [
+    wikis.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { dimColor: true, children: list.length === 1 ? `No wikis found in ${list[0]}/wikis. Create one first (init).` : "No wikis found in the registered workspaces. Create one first (init)." }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Box_default, { flexDirection: "column", marginTop: 1, children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { children: "Select Wiki:" }),
       isRawModeSupported ? wikis.map((wiki, index) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { color: focus === "wiki" && index === selectedIndex ? "cyan" : void 0, children: [
         focus === "wiki" && index === selectedIndex ? "> " : "  ",
-        wiki
-      ] }, wiki)) : (
+        wikiLabel(wiki)
+      ] }, wikiKey(wiki))) : (
         // Non-TTY fallback (piped output, test runner): interactive
         // selection requires raw mode, so list wikis statically instead
         // of crashing (same contract as menu.tsx).
         wikis.map((wiki) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { children: [
           " ",
-          wiki
-        ] }, wiki))
+          wikiLabel(wiki)
+        ] }, wikiKey(wiki)))
       ),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Box_default, { flexDirection: "column", marginTop: 1, children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { children: [
@@ -112192,7 +113379,7 @@ var import_react44 = __toESM(require_react(), 1);
 // src/tui/hooks/use-raw-contents.ts
 var import_react43 = __toESM(require_react(), 1);
 import { readdir as readdir15 } from "node:fs/promises";
-import { join as join46 } from "node:path";
+import { join as join48 } from "node:path";
 function useRawContents(workspace, wiki, refreshKey = 0) {
   const [files, setFiles] = (0, import_react43.useState)(null);
   (0, import_react43.useEffect)(() => {
@@ -112203,7 +113390,7 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
     }
     (async () => {
       try {
-        const entries = await readdir15(join46(workspace, "wikis", wiki, "raw"));
+        const entries = await readdir15(join48(workspace, "wikis", wiki, "raw"));
         if (!cancelled) {
           setFiles(entries.sort());
         }
@@ -112221,8 +113408,8 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
 }
 
 // src/commands/add-pdf.ts
-import { copyFile, mkdir as mkdir27, stat as stat2 } from "node:fs/promises";
-import { basename, extname, join as join47, resolve as resolve4 } from "node:path";
+import { copyFile, mkdir as mkdir28, stat as stat2 } from "node:fs/promises";
+import { basename, extname, join as join49, resolve as resolve4 } from "node:path";
 var AddPdfError = class extends Error {
   constructor(message) {
     super(message);
@@ -112254,9 +113441,9 @@ async function addPdfToWiki(wikiDir2, sourcePath) {
   if (extname(fileName).toLowerCase() !== ".pdf") {
     throw new AddPdfError(`Not a PDF file: ${fileName}. Only .pdf files can be added to raw/.`);
   }
-  const rawDir = join47(wikiDir2, "raw");
-  await mkdir27(rawDir, { recursive: true });
-  const destPath = join47(rawDir, fileName);
+  const rawDir = join49(wikiDir2, "raw");
+  await mkdir28(rawDir, { recursive: true });
+  const destPath = join49(rawDir, fileName);
   if (resolve4(cleaned) !== resolve4(destPath)) {
     try {
       await copyFile(cleaned, destPath);
@@ -112373,20 +113560,22 @@ function RawContents({ wiki, files }) {
 function AddPdfsScreen({
   onBack,
   onResult,
-  workspace = ".",
+  workspace,
+  workspaces,
   pickFiles,
   initialWiki,
   onStartIngest
 }) {
   const { isRawModeSupported } = use_stdin_default();
-  const wikis = useWikiList(workspace);
+  const list = workspaces ?? [workspace ?? "."];
+  const wikis = useWikiList(list);
   const [selectedIndex, setSelectedIndex] = (0, import_react44.useState)(0);
   const selectedWiki = wikis.length > 0 ? wikis[Math.min(selectedIndex, wikis.length - 1)] : void 0;
   const [mode, setMode] = (0, import_react44.useState)(initialWiki ? "add" : "select");
   const [activeWiki, setActiveWiki] = (0, import_react44.useState)(initialWiki);
   const [refreshKey, setRefreshKey] = (0, import_react44.useState)(0);
   const shownWiki = mode === "select" ? selectedWiki : activeWiki;
-  const rawFiles = useRawContents(workspace, shownWiki, refreshKey);
+  const rawFiles = useRawContents(shownWiki?.workspace ?? list[0], shownWiki?.slug, refreshKey);
   const [focus, setFocus] = (0, import_react44.useState)("browse");
   const [pathInput, setPathInput] = (0, import_react44.useState)("");
   const [status, setStatus] = (0, import_react44.useState)("idle");
@@ -112394,6 +113583,9 @@ function AddPdfsScreen({
   const [successMsg, setSuccessMsg] = (0, import_react44.useState)("");
   const [errorMsg, setErrorMsg] = (0, import_react44.useState)("");
   const [notice, setNotice] = (0, import_react44.useState)("");
+  const multiWorkspace = new Set(wikis.map((wiki) => wiki.workspace)).size > 1;
+  const wikiLabel = (wiki) => multiWorkspace ? `${wiki.slug} (${wiki.workspace})` : wiki.slug;
+  const wikiKey = (wiki) => `${wiki.workspace}/${wiki.slug}`;
   const clearFeedback = () => {
     setSuccessMsg("");
     setErrorMsg("");
@@ -112403,7 +113595,7 @@ function AddPdfsScreen({
     if (!activeWiki) {
       return;
     }
-    const summary = `Copied ${count} file(s) to wikis/${activeWiki}/raw/.`;
+    const summary = `Copied ${count} file(s) to wikis/${activeWiki.slug}/raw/.`;
     setSuccessMsg(summary);
     onResult?.(summary);
     setPathInput("");
@@ -112418,7 +113610,7 @@ function AddPdfsScreen({
     setBusyLabel("Copying PDF...");
     clearFeedback();
     try {
-      await addPdfToWiki(wikiDir(workspace, activeWiki), rawPath);
+      await addPdfToWiki(wikiDir(activeWiki.workspace, activeWiki.slug), rawPath);
       finishSuccessfulAdd(1);
     } catch (err) {
       setErrorMsg(err.message);
@@ -112454,7 +113646,7 @@ function AddPdfsScreen({
     const failures = [];
     for (const filePath of picked) {
       try {
-        const result = await addPdfToWiki(wikiDir(workspace, activeWiki), filePath);
+        const result = await addPdfToWiki(wikiDir(activeWiki.workspace, activeWiki.slug), filePath);
         added.push(result.fileName);
       } catch (err) {
         failures.push(`${filePath}: ${err.message}`);
@@ -112551,11 +113743,7 @@ function AddPdfsScreen({
   return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Box_default, { flexDirection: "column", children: [
     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Header, {}),
     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Text, { bold: true, children: "Add PDFs" }),
-    wikis.length === 0 && !activeWiki ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Text, { dimColor: true, children: [
-      "No wikis found in ",
-      workspace,
-      "/wikis. Create one first (init)."
-    ] }) : !isRawModeSupported ? (
+    wikis.length === 0 && !activeWiki ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Text, { dimColor: true, children: list.length === 1 ? `No wikis found in ${list[0]}/wikis. Create one first (init).` : "No wikis found in the registered workspaces. Create one first (init)." }) : !isRawModeSupported ? (
       // Non-TTY fallback (piped output, test runner): the picker and text
       // input require raw mode, so render the wiki list, raw/ contents, and
       // both add controls statically instead of crashing (same contract as
@@ -112564,9 +113752,9 @@ function AddPdfsScreen({
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Text, { children: "Select Wiki:" }),
         (activeWiki ? [activeWiki] : wikis).map((wiki) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Text, { children: [
           " ",
-          wiki
-        ] }, wiki)),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(RawContents, { wiki: shownWiki, files: rawFiles }),
+          wikiLabel(wiki)
+        ] }, wikiKey(wiki))),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(RawContents, { wiki: shownWiki?.slug, files: rawFiles }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Text, { children: " [ Browse for PDFs... ]" }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Text, { dimColor: true, children: " Fallback: enter path manually (PDF path:)" }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Text, { dimColor: true, children: "Interactive picker and path input require a TTY." })
@@ -112575,9 +113763,9 @@ function AddPdfsScreen({
       /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Text, { children: "Select Wiki:" }),
       wikis.map((wiki, index) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Text, { color: index === selectedIndex ? "cyan" : void 0, children: [
         index === selectedIndex ? "> " : "  ",
-        wiki
-      ] }, wiki)),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(RawContents, { wiki: shownWiki, files: rawFiles })
+        wikiLabel(wiki)
+      ] }, wikiKey(wiki))),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(RawContents, { wiki: shownWiki?.slug, files: rawFiles })
     ] }) : mode === "confirm-ingest" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Box_default, { flexDirection: "column", marginTop: 1, children: [
       /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(SuccessBox, { message: successMsg }),
       errorMsg.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ErrorBox, { message: errorMsg }),
@@ -112585,9 +113773,9 @@ function AddPdfsScreen({
     ] }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Box_default, { flexDirection: "column", marginTop: 1, children: [
       /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Text, { children: [
         "Adding to: ",
-        activeWiki
+        activeWiki?.slug
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(RawContents, { wiki: activeWiki, files: rawFiles }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(RawContents, { wiki: activeWiki?.slug, files: rawFiles }),
       /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Box_default, { marginTop: 1, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Text, { color: focus === "browse" ? "cyan" : void 0, bold: focus === "browse", children: [
         focus === "browse" ? "> " : "  ",
         "[ Browse for PDFs... ]"
@@ -113565,8 +114753,8 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
 
 // src/tui/agents-review-screen.tsx
 var import_react46 = __toESM(require_react(), 1);
-import { copyFile as copyFile2, readFile as readFile34 } from "node:fs/promises";
-import { join as join48 } from "node:path";
+import { copyFile as copyFile2, readFile as readFile35 } from "node:fs/promises";
+import { join as join50 } from "node:path";
 
 // src/utils/line-diff.ts
 function diffLines(before, after) {
@@ -113644,7 +114832,7 @@ var FULL_DIFF_LINES = 12;
 var DIFF_LINE_STEP = 4;
 function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWiki }) {
   const { isRawModeSupported } = use_stdin_default();
-  const wikis = useWikiList(workspace);
+  const wikis = useWikiList([workspace]);
   const [selectedIndex, setSelectedIndex] = (0, import_react46.useState)(0);
   const selectedWiki = wikis.length > 0 ? wikis[Math.min(selectedIndex, wikis.length - 1)] : void 0;
   const [activeWiki, setActiveWiki] = (0, import_react46.useState)(initialWiki);
@@ -113661,10 +114849,10 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     setScrollOffset(0);
     try {
       const dir = wikiDir(workspace, slug);
-      const currentText = await readFile34(join48(dir, "AGENTS.md"), "utf-8");
+      const currentText = await readFile35(join50(dir, "AGENTS.md"), "utf-8");
       let proposalText;
       try {
-        proposalText = await readFile34(join48(dir, ".state", "proposed-agents.md"), "utf-8");
+        proposalText = await readFile35(join50(dir, ".state", "proposed-agents.md"), "utf-8");
       } catch (err) {
         if (err.code === "ENOENT") {
           proposalText = null;
@@ -113684,7 +114872,7 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     }
   };
   (0, import_react46.useEffect)(() => {
-    if (initialWiki && wikis.length > 0 && wikis.includes(initialWiki)) {
+    if (initialWiki && wikis.length > 0 && wikis.some((entry) => entry.slug === initialWiki)) {
       setActiveWiki(initialWiki);
     }
   }, [initialWiki, wikis]);
@@ -113699,7 +114887,7 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     }
     try {
       const dir = wikiDir(workspace, activeWiki);
-      await copyFile2(join48(dir, ".state", "proposed-agents.md"), join48(dir, "AGENTS.md"));
+      await copyFile2(join50(dir, ".state", "proposed-agents.md"), join50(dir, "AGENTS.md"));
       const resultMessage = `Accepted proposed AGENTS.md updates for ${activeWiki}.`;
       setMessage(resultMessage);
       setStatus("done");
@@ -113792,7 +114980,7 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
         } else if (key.downArrow) {
           setSelectedIndex((idx) => (idx + 1) % wikis.length);
         } else if (key.return) {
-          setActiveWiki(selectedWiki);
+          setActiveWiki(selectedWiki?.slug);
         }
       }
     },
@@ -113812,11 +115000,11 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
       /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Text, { children: "Select Wiki:" }),
       isRawModeSupported ? wikis.map((wiki, index) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(Text, { color: index === selectedIndex ? "cyan" : void 0, children: [
         index === selectedIndex ? "> " : "  ",
-        wiki
-      ] }, wiki)) : wikis.map((wiki) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(Text, { children: [
+        wiki.slug
+      ] }, `${wiki.workspace}/${wiki.slug}`)) : wikis.map((wiki) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(Text, { children: [
         " ",
-        wiki
-      ] }, wiki))
+        wiki.slug
+      ] }, `${wiki.workspace}/${wiki.slug}`))
     ] }),
     status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LoadingSpinner, { label: "Loading proposal..." }),
     status === "error" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ErrorBox, { message }),
@@ -113907,9 +115095,11 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
 
 // src/tui/app.tsx
 var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
-function App2({ workspace = ".", ingestFn }) {
+function App2({ workspace = ".", workspaces, onWorkspaceRegistered, pickFolder: pickFolder2, ingestFn }) {
   const [screen, setScreen] = (0, import_react47.useState)("menu");
   const [lastResult, setLastResult] = (0, import_react47.useState)("");
+  const [registered, setRegistered] = (0, import_react47.useState)(() => workspaces ?? [workspace]);
+  const active = registered[registered.length - 1] ?? ".";
   const [flowWiki, setFlowWiki] = (0, import_react47.useState)(void 0);
   if (screen === "exit") {
     return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Box_default, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Text, { children: "Goodbye!" }) });
@@ -113927,7 +115117,7 @@ function App2({ workspace = ".", ingestFn }) {
           setScreen(next);
         },
         lastResult,
-        workspace
+        workspace: active
       }
     ),
     screen === "init" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
@@ -113935,9 +115125,15 @@ function App2({ workspace = ".", ingestFn }) {
       {
         onBack: goToMenu,
         onResult: setLastResult,
-        defaultWorkspace: workspace,
-        onCreated: (wiki) => {
-          setFlowWiki(wiki);
+        defaultWorkspace: active,
+        pickFolder: pickFolder2,
+        onCreated: (created) => {
+          setFlowWiki({ slug: created.slug, workspace: created.workspace });
+          setRegistered((previous) => [
+            ...previous.filter((entry) => entry !== created.workspace),
+            created.workspace
+          ]);
+          onWorkspaceRegistered?.(created.workspace);
           setScreen("add-pdfs");
         }
       }
@@ -113947,7 +115143,7 @@ function App2({ workspace = ".", ingestFn }) {
       {
         onBack: goToMenu,
         onResult: setLastResult,
-        workspace,
+        workspaces: registered,
         initialWiki: flowWiki,
         onStartIngest: (wiki) => {
           setFlowWiki(wiki);
@@ -113960,7 +115156,7 @@ function App2({ workspace = ".", ingestFn }) {
       {
         onBack: goToMenu,
         onResult: setLastResult,
-        workspace,
+        workspaces: registered,
         initialWiki: flowWiki,
         ingestFn,
         onReviewAgents: (wiki) => {
@@ -113974,19 +115170,84 @@ function App2({ workspace = ".", ingestFn }) {
       {
         onBack: goToMenu,
         onResult: setLastResult,
-        workspace,
-        wiki: flowWiki
+        workspace: flowWiki?.workspace ?? active,
+        wiki: flowWiki?.slug
       }
     ),
-    screen === "settings" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(SettingsScreen, { onBack: goToMenu, onResult: setLastResult, workspace })
+    screen === "settings" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(SettingsScreen, { onBack: goToMenu, onResult: setLastResult, workspace: active })
   ] });
+}
+
+// src/tui/workspace-bootstrap.ts
+import { existsSync as existsSync12 } from "node:fs";
+import { resolve as resolve5 } from "node:path";
+async function loadWorkspaceRegistry(bootDir = ".") {
+  const settings = await loadSettings(bootDir);
+  const active = settings.workspace?.trim() || ".";
+  const workspaces = [...settings.workspaces ?? []];
+  if (active !== "." && !workspaces.includes(active)) {
+    workspaces.push(active);
+  }
+  return { workspaces, active };
+}
+async function registerWorkspace(workspace, bootDir = ".") {
+  const resolvedBoot = resolve5(bootDir);
+  const resolved = resolve5(workspace.trim().length > 0 ? workspace.trim() : bootDir);
+  if (resolved !== resolvedBoot && !existsSync12(settingsPath(resolved)) && !existsSync12(legacySettingsPath(resolved))) {
+    try {
+      const boot = await loadSettings(resolvedBoot);
+      const inherited = { ...boot };
+      delete inherited.workspace;
+      delete inherited.workspaces;
+      await saveSettings(resolved, inherited);
+    } catch {
+    }
+  }
+  try {
+    const boot = await loadSettings(resolvedBoot);
+    const nextWorkspace = resolved !== resolvedBoot ? resolved : void 0;
+    const nextList = (boot.workspaces ?? []).filter((entry) => entry !== resolved);
+    if (resolved !== resolvedBoot) {
+      nextList.push(resolved);
+    }
+    const pointerChanged = (nextWorkspace ?? void 0) !== (boot.workspace ?? void 0);
+    const registryChanged = JSON.stringify(nextList) !== JSON.stringify(boot.workspaces ?? []);
+    if (pointerChanged || registryChanged) {
+      await saveSettings(resolvedBoot, {
+        ...boot,
+        workspace: nextWorkspace,
+        workspaces: nextList.length > 0 ? nextList : void 0
+      });
+    }
+  } catch {
+  }
 }
 
 // src/cli.ts
 var program2 = new Command();
 program2.name("chase").description("The paper chase, automated. Turn PDFs into citation-backed markdown wikis.").version("1.0.0");
-program2.action(() => {
-  render_default(import_react48.default.createElement(App2));
+program2.action(async () => {
+  let registry = [];
+  let active = ".";
+  try {
+    const bootstrap = await loadWorkspaceRegistry();
+    registry = bootstrap.workspaces.length > 0 ? bootstrap.workspaces : [bootstrap.active];
+    active = bootstrap.active;
+    await registerWorkspace(active);
+  } catch {
+    registry = ["."];
+    active = ".";
+  }
+  render_default(
+    import_react48.default.createElement(App2, {
+      workspaces: registry,
+      workspace: active,
+      onWorkspaceRegistered: (workspace) => {
+        void registerWorkspace(workspace).catch(() => {
+        });
+      }
+    })
+  );
 });
 program2.command("init <slug>").description("Create a new wiki").option("--title <title>", "Wiki title").option("-w, --workspace <workspace>", "Workspace directory", ".").option("--output-language <code>", "Output language (en, da, de, fr, es, no, sv)", "en").action(async (slug, options2) => {
   try {
@@ -114053,7 +115314,7 @@ program2.command("test").description("Run the test suite").action(async () => {
   const child = spawn3(npmCmd, ["test"], { stdio: "inherit", shell: true });
   child.on("close", (code) => process.exit(code ?? 1));
 });
-var entryPath = process.argv[1] ? resolve5(process.argv[1]) : "";
+var entryPath = process.argv[1] ? resolve6(process.argv[1]) : "";
 var modulePath = import.meta.url ? fileURLToPath3(import.meta.url) : entryPath;
 var isDirectExecution = isPackaged() || entryPath === modulePath || process.platform === "win32" && entryPath.toLowerCase() === modulePath.toLowerCase();
 if (!process.env.VITEST && isDirectExecution) {

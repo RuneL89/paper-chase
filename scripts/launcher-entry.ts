@@ -114,7 +114,13 @@ import { spawnSync } from 'node:child_process';
 // pageKind extension, the client.ts 'synthesis-amend' routing). The packaged
 // runtime must re-extract so the per-PDF patch-amendment pass can load its
 // prompt.
-const VERSION = '1.0.27';
+// 1.0.28 (2026-08-28): the workspace-registry bug fix — the TUI bundle
+// (src/cli.ts, src/tui/app.tsx, init-screen, add-pdfs-screen, ingest-screen,
+// agents-review-screen, settings.ts, hooks/use-wiki-list.ts, the NEW
+// src/tui/workspace-bootstrap.ts) gains the workspace registry, so the
+// packaged runtime must re-extract for Add PDFs/Ingest to target the picked
+// workspace folder instead of the launch folder.
+const VERSION = '1.0.28';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

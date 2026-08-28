@@ -132,7 +132,7 @@ test('the ingest screen renders a 429 stall line from the run progress channel',
   const screen = renderCaptured(
     <IngestScreen
       workspace={workspace}
-      initialWiki="test-wiki"
+      initialWiki={{ workspace, slug: 'test-wiki' }}
       onBack={() => {}}
       ingestFn={async (_wiki, options) => {
         // The real client reports the stall through ingest's onProgress; the

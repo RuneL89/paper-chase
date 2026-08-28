@@ -29,12 +29,14 @@ export interface InitScreenProps extends ScreenProps {
   pickFolder?: (initial?: string) => Promise<string | null>;
   /**
    * Phase 11 (phase doc §2.4, Gate 11.4): continuous workflow — invoked with
-   * the new wiki's slug as soon as init() succeeds, so the app can navigate
-   * straight to Add PDFs instead of waiting for Enter-to-go-back. When
-   * omitted (e.g. tests rendering the screen directly), the success banner
-   * stays and Enter still goes back.
+   * the new wiki's slug AND the workspace it was created in as soon as init()
+   * succeeds (2026-08-28: the workspace rides along so the app can activate
+   * it — the pre-fix bug dropped it and every later screen fell back to
+   * cwd), so the app can navigate straight to Add PDFs instead of waiting
+   * for Enter-to-go-back. When omitted (e.g. tests rendering the screen
+   * directly), the success banner stays and Enter still goes back.
    */
-  onCreated?: (wiki: string) => void;
+  onCreated?: (result: { slug: string; workspace: string }) => void;
 }
 
 type FieldName = 'title' | 'workspace' | 'browse' | 'language' | 'create' | 'back';
@@ -89,19 +91,21 @@ export function InitScreen({ onBack, onResult, defaultWorkspace = './', pickFold
     setValidationError('');
     setStatus('busy');
     setBusyLabel('Creating wiki...');
+    const normalizedWorkspace = workspace.trim().length > 0 ? workspace.trim() : '.';
     try {
       const result = await init(slug, {
         title: trimmedTitle,
-        workspace: workspace.trim().length > 0 ? workspace.trim() : '.',
+        workspace: normalizedWorkspace,
         outputLanguage: SUPPORTED_LANGUAGES[languageIndex].code,
       });
       setStatus('success');
       setMessage(result.message);
       onResult?.(result.message);
-      // Continuous workflow (Phase 11 §2.4): hand the new slug to the app so
-      // it can route straight to Add PDFs. When no callback is wired (direct
-      // renders in tests), the success banner stays and Enter goes back.
-      onCreated?.(slug);
+      // Continuous workflow (Phase 11 §2.4): hand the new slug AND its
+      // workspace to the app so it can activate the workspace and route
+      // straight to Add PDFs. When no callback is wired (direct renders in
+      // tests), the success banner stays and Enter goes back.
+      onCreated?.({ slug, workspace: normalizedWorkspace });
     } catch (err) {
       const errorMessage = (err as Error).message;
       setStatus('error');

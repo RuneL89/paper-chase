@@ -7,7 +7,7 @@ import { Footer } from './components/footer';
 import { LoadingSpinner } from './components/spinner';
 import { ErrorBox } from './components/error-box';
 import { SuccessBox } from './components/success-box';
-import { useWikiList } from './hooks/use-wiki-list';
+import { useWikiList, type WikiRef } from './hooks/use-wiki-list';
 import { useWikiDetails } from './hooks/use-wiki-details';
 import { ingest, formatIngestSummary, type IngestResult } from '../commands/ingest';
 import { loadSettings } from './settings';
@@ -20,6 +20,13 @@ export interface IngestScreenProps extends ScreenProps {
   /** Workspace directory containing wikis/ (used by tests; default '.'). */
   workspace?: string;
   /**
+   * 2026-08-28: every registered workspace — the selector aggregates the
+   * wikis of ALL of them (workspace labels shown when there is more than
+   * one). Falls back to `[workspace ?? '.']` so single-workspace callers
+   * behave exactly as before.
+   */
+  workspaces?: string[];
+  /**
    * Passed through to ingest() (Phase 2, additive): run the Layer 2 Extractor
    * on each new chunk. Defaults to true; tests pass false to stay LLM-free.
    */
@@ -27,9 +34,10 @@ export interface IngestScreenProps extends ScreenProps {
   /**
    * Phase 11 (phase doc §2.4, Gate 11.4): continuous workflow — pre-select
    * this wiki in the list (set after the post-add "Start ingesting now?"
-   * prompt is confirmed).
+   * prompt is confirmed). 2026-08-28: the workspace rides along so the run
+   * targets the wiki's own folder.
    */
-  initialWiki?: string;
+  initialWiki?: WikiRef;
   /**
    * Injectable ingestion implementation (test-only). Defaults to the real
    * ingest command; tests can inject a stub to avoid disk I/O / LLM calls.
@@ -41,7 +49,7 @@ export interface IngestScreenProps extends ScreenProps {
    * shows a hint and pressing `p` invokes this callback with the ingested
    * wiki (the App routes to the flow-only AGENTS.md review screen).
    */
-  onReviewAgents?: (wiki: string) => void;
+  onReviewAgents?: (wiki: WikiRef) => void;
 }
 
 type IngestStatus = 'idle' | 'confirm' | 'running' | 'success' | 'error';
@@ -99,18 +107,20 @@ function withProgressBar(line: string): string {
 export function IngestScreen({
   onBack,
   onResult,
-  workspace = '.',
+  workspace,
+  workspaces,
   extract = true,
   initialWiki,
   ingestFn,
   onReviewAgents,
 }: IngestScreenProps) {
   const { isRawModeSupported } = useStdin();
-  const wikis = useWikiList(workspace);
+  const list = workspaces ?? [workspace ?? '.'];
+  const wikis = useWikiList(list);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedWiki = wikis.length > 0 ? wikis[Math.min(selectedIndex, wikis.length - 1)] : undefined;
   const [refreshKey, setRefreshKey] = useState(0);
-  const details = useWikiDetails(workspace, selectedWiki, refreshKey);
+  const details = useWikiDetails(selectedWiki?.workspace ?? list[0], selectedWiki?.slug, refreshKey);
   const [status, setStatus] = useState<IngestStatus>('idle');
   const [progressLines, setProgressLines] = useState<string[]>([]);
   const [message, setMessage] = useState('');
@@ -132,7 +142,7 @@ export function IngestScreen({
   // Phase 11 v1.6.0: the wiki whose last completed run proposed AGENTS.md
   // updates (drives the post-ingest `p` review shortcut). Null when the last
   // run wrote no proposal — no hint is shown and `p` does nothing.
-  const [proposalWiki, setProposalWiki] = useState<string | null>(null);
+  const [proposalWiki, setProposalWiki] = useState<WikiRef | null>(null);
   // Phase 11: apply the continuous-workflow pre-selection exactly once (the
   // wiki list loads asynchronously).
   const appliedInitialWiki = useRef(false);
@@ -141,7 +151,9 @@ export function IngestScreen({
     if (appliedInitialWiki.current || !initialWiki) {
       return;
     }
-    const index = wikis.indexOf(initialWiki);
+    const index = wikis.findIndex(
+      (wiki) => wiki.slug === initialWiki.slug && wiki.workspace === initialWiki.workspace,
+    );
     if (index >= 0) {
       setSelectedIndex(index);
       appliedInitialWiki.current = true;
@@ -150,7 +162,9 @@ export function IngestScreen({
 
   useEffect(() => {
     let mounted = true;
-    loadSettings(workspace)
+    // 2026-08-28: the toggles follow the SELECTED wiki's workspace config
+    // (settings are per-workspace, and the list now spans several folders).
+    loadSettings(selectedWiki?.workspace ?? list[0])
       .then((s) => {
         if (mounted) {
           setSynthesis(s.synthesis);
@@ -165,7 +179,8 @@ export function IngestScreen({
     return () => {
       mounted = false;
     };
-  }, [workspace]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedWiki?.workspace]);
 
   // Phase 7: load the selected wiki's language state (.state/language.json)
   // and whether it already has extractions (for the slug-forking warning).
@@ -175,7 +190,7 @@ export function IngestScreen({
     if (!selectedWiki) {
       return;
     }
-    const dir = wikiDir(workspace, selectedWiki);
+    const dir = wikiDir(selectedWiki.workspace, selectedWiki.slug);
     readWikiLanguage(dir)
       .then(async (state) => {
         let extracted = false;
@@ -199,20 +214,26 @@ export function IngestScreen({
     return () => {
       mounted = false;
     };
-  }, [workspace, selectedWiki, refreshKey]);
+  }, [selectedWiki?.workspace, selectedWiki?.slug, refreshKey]);
 
   const selectedInput = SUPPORTED_LANGUAGES[inputIndex];
   const selectedOutput = SUPPORTED_LANGUAGES[outputIndex];
   const slugForkingRisk = hasExtractions && selectedInput.code !== languageState.lastInputLanguage;
 
-  const runIngest = async (wiki: string) => {
+  // 2026-08-28: the workspace label is shown only when the list spans more
+  // than one workspace — single-workspace frames stay byte-identical.
+  const multiWorkspace = new Set(wikis.map((wiki) => wiki.workspace)).size > 1;
+  const wikiLabel = (wiki: WikiRef) => (multiWorkspace ? `${wiki.slug} (${wiki.workspace})` : wiki.slug);
+  const wikiKey = (wiki: WikiRef) => `${wiki.workspace}/${wiki.slug}`;
+
+  const runIngest = async (wiki: WikiRef) => {
     setStatus('running');
     setProgressLines([]);
     setProposalWiki(null);
     try {
       const run = ingestFn ?? ingest;
-      const result = (await run(wiki, {
-        workspace,
+      const result = (await run(wiki.slug, {
+        workspace: wiki.workspace,
         extract,
         synthesis,
         inputLanguage: selectedInput.code,
@@ -252,7 +273,7 @@ export function IngestScreen({
     }
   };
 
-  const startIngest = (wiki: string) => {
+  const startIngest = (wiki: WikiRef) => {
     // Phase 7: slug-forking caution (vision `04` §9.3) — an input-language
     // change on a wiki with existing extractions requires explicit confirm.
     if (slugForkingRisk) {
@@ -349,22 +370,26 @@ export function IngestScreen({
       <Header />
       <Text bold>Ingest PDFs</Text>
       {wikis.length === 0 ? (
-        <Text dimColor>No wikis found in {workspace}/wikis. Create one first (init).</Text>
+        <Text dimColor>
+          {list.length === 1
+            ? `No wikis found in ${list[0]}/wikis. Create one first (init).`
+            : 'No wikis found in the registered workspaces. Create one first (init).'}
+        </Text>
       ) : (
         <Box flexDirection="column" marginTop={1}>
           <Text>Select Wiki:</Text>
           {isRawModeSupported ? (
             wikis.map((wiki, index) => (
-              <Text key={wiki} color={focus === 'wiki' && index === selectedIndex ? 'cyan' : undefined}>
+              <Text key={wikiKey(wiki)} color={focus === 'wiki' && index === selectedIndex ? 'cyan' : undefined}>
                 {focus === 'wiki' && index === selectedIndex ? '> ' : '  '}
-                {wiki}
+                {wikiLabel(wiki)}
               </Text>
             ))
           ) : (
             // Non-TTY fallback (piped output, test runner): interactive
             // selection requires raw mode, so list wikis statically instead
             // of crashing (same contract as menu.tsx).
-            wikis.map((wiki) => <Text key={wiki}> {wiki}</Text>)
+            wikis.map((wiki) => <Text key={wikiKey(wiki)}> {wikiLabel(wiki)}</Text>)
           )}
           <Box flexDirection="column" marginTop={1}>
             <Text>PDFs in raw/: {details.pdfCount === null ? '...' : `${details.pdfCount} file(s)`}</Text>
