@@ -72712,13 +72712,18 @@ function isTransientStatus(statusCode) {
   return statusCode === 429 || statusCode >= 500;
 }
 var LARGE_CALL_MAX_TOKENS = 32768;
-var LARGE_CALL_HEADERS_TIMEOUT_MS = 6e5;
+var LARGE_CALL_HEADERS_TIMEOUT_MS = 9e5;
 function transportRetryDelayMs(retry) {
   return 5e3 * 3 ** (Math.max(1, retry) - 1);
 }
 var TRANSIENT_MAX_ATTEMPTS = 6;
 function transientStallDelayMs(retry) {
   const stallMinutes = [1, 5, 15, 45, 90];
+  const index = Math.min(Math.max(1, retry) - 1, stallMinutes.length - 1);
+  return stallMinutes[index] * 6e4;
+}
+function networkStallDelayMs(retry) {
+  const stallMinutes = [10, 20, 30, 60, 90];
   const index = Math.min(Math.max(1, retry) - 1, stallMinutes.length - 1);
   return stallMinutes[index] * 6e4;
 }
@@ -72877,8 +72882,10 @@ async function callLLM(prompt, system, options2 = {}) {
     if (!transient) {
       break;
     }
-    const stalled = statusCode !== 0 && isTransientStatus(statusCode) && (options2.maxRetries ?? 0) > 0;
-    const ceiling = stalled ? Math.max(maxAttempts, TRANSIENT_MAX_ATTEMPTS) : maxAttempts;
+    const optedIn = (options2.maxRetries ?? 0) > 0;
+    const stalled = statusCode !== 0 && isTransientStatus(statusCode) && optedIn;
+    const networkStalled = lastTransportError !== void 0 && optedIn;
+    const ceiling = stalled || networkStalled ? Math.max(maxAttempts, TRANSIENT_MAX_ATTEMPTS) : maxAttempts;
     let delayMs = transportRetryDelayMs(attempt);
     if (stalled) {
       delayMs = Math.max(delayMs, transientStallDelayMs(attempt));
@@ -72893,6 +72900,10 @@ async function callLLM(prompt, system, options2 = {}) {
           );
         }
       }
+    } else if (networkStalled) {
+      delayMs = Math.max(delayMs, networkStallDelayMs(attempt));
+    }
+    if (stalled || networkStalled) {
       const waitSeconds = Math.round(delayMs / 1e3);
       const exhausted = attempt >= ceiling;
       await appendTransportStallLog(options2.logPath, {
@@ -72906,7 +72917,7 @@ async function callLLM(prompt, system, options2 = {}) {
         maxAttempts: ceiling,
         exhausted,
         waitSeconds: exhausted ? 0 : waitSeconds,
-        error: json?.error?.message
+        error: json?.error?.message ?? lastTransportError?.message
       });
       if (exhausted) {
         break;
@@ -72921,19 +72932,13 @@ async function callLLM(prompt, system, options2 = {}) {
       if (stallWaitReporter) {
         stallWaitReporter(info2);
       } else {
-        const label = statusCode === 429 ? "Rate limited (HTTP 429)" : `Provider error (HTTP ${statusCode})`;
+        const label = statusCode === 0 ? "Connection problem (network/timeout)" : statusCode === 429 ? "Rate limited (HTTP 429)" : `Provider error (HTTP ${statusCode})`;
         console.warn(
           `LLM Call | ${label} \u2014 waiting ${waitSeconds}s before retry (attempt ${nextAttempt}/${ceiling})...`
         );
       }
-    } else {
-      if (attempt >= ceiling) {
-        break;
-      }
-      const reason = lastTransportError?.message ?? `HTTP ${statusCode}`;
-      console.warn(
-        `LLM Call | Transient failure (${reason}), retrying (attempt ${attempt + 1}/${maxAttempts})...`
-      );
+    } else if (attempt >= ceiling) {
+      break;
     }
     await transportRetrySleeper(delayMs);
     attempt++;
@@ -111533,7 +111538,7 @@ async function ingest(slug, options2 = {}) {
   const reportProgress = options2.onProgress;
   if (reportProgress) {
     setStallWaitReporter(({ waitSeconds, attempt, maxAttempts, statusCode }) => {
-      const reason = statusCode === 429 ? "Rate limited by provider (HTTP 429)" : `Provider error (HTTP ${statusCode})`;
+      const reason = statusCode === 0 ? "Connection problem (network/timeout)" : statusCode === 429 ? "Rate limited by provider (HTTP 429)" : `Provider error (HTTP ${statusCode})`;
       reportProgress(
         `${reason} \u2014 waiting ${waitSeconds}s before retry (attempt ${attempt}/${maxAttempts})...`
       );

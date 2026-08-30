@@ -31,6 +31,7 @@ import {
   LARGE_CALL_MAX_TOKENS,
   TRANSIENT_MAX_ATTEMPTS,
   transientStallDelayMs,
+  networkStallDelayMs,
   setStallWaitReporter,
   transportStallsLogPath,
   parseRetryAfterSeconds,
@@ -153,9 +154,9 @@ function setupWikiWithPdf(): string {
 // messages match these patterns), representing EXHAUSTED bounded retries.
 // ---------------------------------------------------------------------------
 
-/** Transient: network/timeout class still throwing after the bounded retries. */
+/** Transient: network/timeout class still throwing after the ladder (6 attempts since v1.0.6). */
 function exhaustedTimeoutError(): Error {
-  return new Error('Anthropic API transport error after 3 attempt(s): Headers Timeout Error');
+  return new Error('Anthropic API transport error after 6 attempt(s): Headers Timeout Error');
 }
 
 /** Transient: HTTP 429 still throwing after the bounded retries. */
@@ -931,7 +932,7 @@ test('gate 16.8: staggered dispatch spreads the first pickups deterministically 
   expect(unstaggered).toEqual([0, 1, 2]);
 });
 
-test('gate 16.8: large-output calls carry the 600s headers timeout; smaller calls keep the default', async () => {
+test('gate 16.8: large-output calls carry the 900s headers timeout (raised from 600 in v1.0.6); smaller calls keep the default', async () => {
   const savedKey = process.env.ANTHROPIC_API_KEY;
   process.env.ANTHROPIC_API_KEY = 'gate-16-8-fake-key';
   mockUndiciRequest.mockResolvedValue({
@@ -946,7 +947,7 @@ test('gate 16.8: large-output calls carry the 600s headers timeout; smaller call
     await callLLM('p');
     const optionsOf = (index: number) => mockUndiciRequest.mock.calls[index]?.[1] as Record<string, unknown>;
     expect(optionsOf(0).headersTimeout).toBe(LARGE_CALL_HEADERS_TIMEOUT_MS);
-    expect(LARGE_CALL_HEADERS_TIMEOUT_MS).toBe(600_000);
+    expect(LARGE_CALL_HEADERS_TIMEOUT_MS).toBe(900_000);
     expect('headersTimeout' in optionsOf(1)).toBe(false);
     expect('headersTimeout' in optionsOf(2)).toBe(false);
   } finally {
@@ -964,10 +965,12 @@ test('gate 16.8: the transport retry backoff is exponential (5s/15s/45s), assert
     5000, 15000, 45000,
   ]);
 
-  // And callLLM actually waits those amounts between attempts: a network
-  // error x2 then a success with maxRetries 2, sleeper injected and
-  // recording. Network errors are the non-stall transient class — a 429/5xx
-  // would trigger the Phase 16 v1.0.3 stall floor instead (gates 16.13–16.16).
+  // And the exponential backoff function feeds the ladder machinery: a
+  // network error x2 then a success with maxRetries 2, sleeper injected and
+  // recording. Phase 16 v1.0.6 (user-ratified 2026-08-30): network errors now
+  // ride the 10/20/30/60/90-min stall ladder (the floor dominates the
+  // exponential at every rung), so the observed waits are the ladder rungs —
+  // the pure exponential sequence is pinned above and underneath via Math.max.
   const savedKey = process.env.ANTHROPIC_API_KEY;
   process.env.ANTHROPIC_API_KEY = 'gate-16-8-fake-key';
   const delays: number[] = [];
@@ -987,7 +990,7 @@ test('gate 16.8: the transport retry backoff is exponential (5s/15s/45s), assert
   try {
     await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
     expect(mockUndiciRequest).toHaveBeenCalledTimes(3);
-    expect(delays).toEqual([5000, 15000]);
+    expect(delays).toEqual([600000, 1200000]);
   } finally {
     if (savedKey === undefined) {
       delete process.env.ANTHROPIC_API_KEY;
@@ -1143,7 +1146,7 @@ test('gate 16.15: a persistent 429 aborts after exactly 6 attempts with the atte
   }
 });
 
-test('gate 16.16: a 503 gets the same 6-attempt stall ladder; network errors keep 3 attempts with the exponential backoff; maxRetries 0 keeps the frozen no-retry for both', async () => {
+test('gate 16.16: a 503 gets the same 6-attempt stall ladder; network errors get their own 10/20-min ladder rungs (v1.0.6); maxRetries 0 keeps the frozen no-retry for all classes', async () => {
   const savedKey = process.env.ANTHROPIC_API_KEY;
   process.env.ANTHROPIC_API_KEY = 'gate-16-16-fake-key';
   const delays: number[] = [];
@@ -1162,8 +1165,8 @@ test('gate 16.16: a 503 gets the same 6-attempt stall ladder; network errors kee
     expect(mockUndiciRequest).toHaveBeenCalledTimes(3);
     expect(delays).toEqual([60000, 300000]);
 
-    // Network errors are the non-stall transient class: 3 attempts with the
-    // exponential backoff.
+    // Phase 16 v1.0.6 (user-ratified 2026-08-30): network errors ride their
+    // own 10/20/30/60/90-min ladder — the first two rungs observed here.
     delays.length = 0;
     mockUndiciRequest.mockReset();
     mockUndiciRequest
@@ -1172,10 +1175,10 @@ test('gate 16.16: a 503 gets the same 6-attempt stall ladder; network errors kee
       .mockResolvedValueOnce(success200());
     await expect(callLLM('p', undefined, { maxRetries: 2 })).resolves.toBe('ok');
     expect(mockUndiciRequest).toHaveBeenCalledTimes(3);
-    expect(delays).toEqual([5000, 15000]);
+    expect(delays).toEqual([600000, 1200000]);
 
-    // Frozen default: maxRetries 0 -> a 429 and a 500 both throw on the
-    // first attempt.
+    // Frozen default: maxRetries 0 -> a 429, a 500, AND a network error all
+    // throw on the first attempt.
     delays.length = 0;
     mockUndiciRequest.mockReset();
     mockUndiciRequest.mockResolvedValueOnce(rateLimit429());
@@ -1185,6 +1188,11 @@ test('gate 16.16: a 503 gets the same 6-attempt stall ladder; network errors kee
     mockUndiciRequest.mockReset();
     mockUndiciRequest.mockResolvedValueOnce(serverError500());
     await expect(callLLM('p')).rejects.toThrow(/API error \(HTTP 500\) after 1 attempt\(s\)/);
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(1);
+
+    mockUndiciRequest.mockReset();
+    mockUndiciRequest.mockRejectedValueOnce(new Error('connect ECONNREFUSED'));
+    await expect(callLLM('p')).rejects.toThrow(/API transport error after 1 attempt\(s\)/);
     expect(mockUndiciRequest).toHaveBeenCalledTimes(1);
     expect(delays).toEqual([]);
   } finally {
@@ -1761,7 +1769,8 @@ test('gate 16.19: every attempt carries an absolute deadline; a timeout is a bou
   });
   vi.spyOn(console, 'warn').mockImplementation(() => {});
   try {
-    // A large-output call: 600s headers timeout AND an AbortSignal deadline.
+    // A large-output call: 900s headers timeout (raised from 600 in v1.0.6)
+    // AND an AbortSignal deadline.
     mockUndiciRequest.mockResolvedValueOnce(success200());
     await expect(callLLM('p', undefined, { maxTokens: 32768, maxRetries: 2 })).resolves.toBe('ok');
     const largeOptions = mockUndiciRequest.mock.calls[0]?.[1] as {
@@ -1783,9 +1792,9 @@ test('gate 16.19: every attempt carries an absolute deadline; a timeout is a bou
     expect(smallOptions.signal).toBeInstanceOf(AbortSignal);
 
     // A timed-out attempt (undici rejects with an abort/timeout error) takes
-    // the NETWORK path: the caller's ≤3-attempt bound with the 5s/15s
-    // exponential backoff, then the fail-loud attempt-count error — never an
-    // unbounded hang.
+    // the NETWORK ladder (v1.0.6, user-ratified 2026-08-30): 6 total attempts
+    // with the 10/20/30/60/90-min floor — a bounded, visible ride-out instead
+    // of an unbounded hang, then the fail-loud attempt-count error.
     mockUndiciRequest.mockReset();
     const timeoutError = new Error('The operation timed out');
     timeoutError.name = 'TimeoutError';
@@ -1796,9 +1805,9 @@ test('gate 16.19: every attempt carries an absolute deadline; a timeout is a bou
     } catch (err) {
       caught = err as Error;
     }
-    expect(mockUndiciRequest).toHaveBeenCalledTimes(3);
-    expect(delays).toEqual([5000, 15000]);
-    expect(caught?.message).toMatch(/API transport error after 3 attempt\(s\)/);
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(6);
+    expect(delays).toEqual([600000, 1200000, 1800000, 3600000, 5400000]);
+    expect(caught?.message).toMatch(/API transport error after 6 attempt\(s\)/);
     expect(isTransientTransportError(caught)).toBe(true);
   } finally {
     if (savedKey === undefined) {
@@ -1985,6 +1994,82 @@ test('gate 16.22: OpenAI-compatible response parsing covers deepseek and zhipu (
       delete process.env.DEEPSEEK_API_KEY;
     } else {
       process.env.DEEPSEEK_API_KEY = savedDeepSeekKey;
+    }
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Gate 16.22: the NETWORK/timeout stall ladder (Phase 16 v1.0.6, user-ratified
+// 2026-08-30). An opted-in caller's network-class error (DNS, socket, headers/
+// body timeout, absolute-deadline abort) gets TRANSIENT_MAX_ATTEMPTS total
+// attempts with the 10/20/30/60/90-minute floor — the same ride-out treatment
+// 429/5xx already had — every failed attempt audited to
+// `.state/transport-stalls.jsonl` with statusCode 0, surfaced live via the
+// stall reporter; exhaustion still fails loud. Born from the 2026-08-30
+// 21:14 `indikator-5` abort: a mega-composite synthesis on GLM-5.3-Flash
+// exceeded the 600s headers timeout 3x (~31 min of patience) and killed the
+// run, while a throttling provider would have gotten ~2.6 h.
+// ---------------------------------------------------------------------------
+
+test('gate 16.22: the network stall floor is exactly 10/20/30/60/90 minutes', () => {
+  expect([1, 2, 3, 4, 5, 6].map(networkStallDelayMs)).toEqual([
+    600000, 1200000, 1800000, 3600000, 5400000, 5400000,
+  ]);
+  // The large-call headers timeout was raised to match the 15-min deadline.
+  expect(LARGE_CALL_HEADERS_TIMEOUT_MS).toBe(900_000);
+});
+
+test('gate 16.22: a persistent network error is audited per attempt (statusCode 0) and reported live, then fails loud after 6', async () => {
+  const savedKey = process.env.ANTHROPIC_API_KEY;
+  process.env.ANTHROPIC_API_KEY = 'gate-16-22-fake-key';
+  const workspace = makeTempDir('paper-chase-g16-22-');
+  const logPath = join(workspace, 'llm-calls.json');
+  const delays: number[] = [];
+  setTransportRetrySleeper(async (ms) => {
+    delays.push(ms);
+  });
+  const reported: StallWaitInfo[] = [];
+  setStallWaitReporter((info) => reported.push(info));
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    mockUndiciRequest.mockRejectedValue(new Error('HTTP/2: headers timeout after 900000'));
+    let caught: Error | undefined;
+    try {
+      await callLLM('p', undefined, { maxRetries: 2, callType: 'synthesis', context: 'indikator-5', logPath });
+    } catch (err) {
+      caught = err as Error;
+    }
+    expect(mockUndiciRequest).toHaveBeenCalledTimes(6);
+    expect(delays).toEqual([600000, 1200000, 1800000, 3600000, 5400000]);
+    expect(caught?.message).toMatch(/API transport error after 6 attempt\(s\): HTTP\/2: headers timeout/);
+    expect(isTransientTransportError(caught)).toBe(true);
+
+    // The reporter received statusCode 0 (the network-class marker) with the
+    // ladder waits and the 6-attempt budget.
+    expect(reported).toHaveLength(5);
+    expect(reported[0]).toEqual({ waitSeconds: 600, attempt: 2, maxAttempts: 6, statusCode: 0 });
+    expect(reported[4]?.waitSeconds).toBe(5400);
+
+    // Every failed attempt — the 5 waits AND the exhausted final — landed in
+    // the audit log with statusCode 0 and the thrown message.
+    const stalls = readFileSync(transportStallsLogPath(logPath), 'utf-8')
+      .trim()
+      .split('\n')
+      .map((line) => JSON.parse(line) as { statusCode: number; attempt: number; exhausted: boolean; waitSeconds: number; error?: string; context?: string });
+    expect(stalls).toHaveLength(6);
+    expect(stalls.every((s) => s.statusCode === 0)).toBe(true);
+    expect(stalls.map((s) => s.attempt)).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(stalls.slice(0, 5).map((s) => s.waitSeconds)).toEqual([600, 1200, 1800, 3600, 5400]);
+    expect(stalls[5]?.exhausted).toBe(true);
+    expect(stalls[5]?.waitSeconds).toBe(0);
+    expect(stalls[0]?.error).toContain('headers timeout');
+    expect(stalls[0]?.context).toBe('indikator-5');
+  } finally {
+    setStallWaitReporter(null);
+    if (savedKey === undefined) {
+      delete process.env.ANTHROPIC_API_KEY;
+    } else {
+      process.env.ANTHROPIC_API_KEY = savedKey;
     }
   }
 });

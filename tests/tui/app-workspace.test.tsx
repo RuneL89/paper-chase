@@ -145,7 +145,7 @@ test('a wiki created via the folder picker activates its workspace for Add PDFs'
   const app = renderCaptured(
     React.createElement(App, {
       workspace: workspaceA,
-      pickFolder: () => new Promise((resolvePromise) => (resolvePicker = resolvePromise)),
+      pickFolder: () => new Promise<string | null>((resolvePromise) => (resolvePicker = resolvePromise)),
       onWorkspaceRegistered: (workspace) => registered.push(workspace),
     }),
   );

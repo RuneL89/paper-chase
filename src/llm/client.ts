@@ -790,8 +790,11 @@ function isTransientStatus(statusCode: number): boolean {
  */
 export const LARGE_CALL_MAX_TOKENS = 32768;
 
-/** Phase 16: headers timeout for large-output calls (600 seconds). */
-export const LARGE_CALL_HEADERS_TIMEOUT_MS = 600_000;
+/** Phase 16: headers timeout for large-output calls (900 seconds; raised from
+ * 600 on 2026-08-30, user-ratified, after a mega-composite synthesis on the
+ * mandatory-reasoning GLM-5.3-Flash legitimately needed >10 min of generation
+ * — Zhipu's non-streaming API sends headers only after generation completes). */
+export const LARGE_CALL_HEADERS_TIMEOUT_MS = 900_000;
 
 /**
  * Phase 16 (vision `04` §1): the backoff between transport retries is
@@ -810,9 +813,11 @@ export function transportRetryDelayMs(retry: number): number {
  * 429 or 5xx response when the caller has opted into retries
  * (`maxRetries > 0`) — 6 attempts with the escalating stall floor below,
  * about 2.6 hours of waiting in total. A throttled or erroring provider
- * is ridden out so the run completes cheaply instead of aborting. Network
- * errors keep the 2026-07-20 ≤3-attempt caller bound, so this constant
- * applies to 429 and 5xx only.
+ * is ridden out so the run completes cheaply instead of aborting.
+ * Phase 16 v1.0.6 (user-ratified 2026-08-30): NETWORK/timeout errors share
+ * this 6-attempt budget with their own `networkStallDelayMs` ladder — the
+ * 2026-07-20 ≤3-attempt rule no longer governs any transient class for
+ * opted-in callers; `maxRetries: 0` keeps the frozen no-retry default.
  */
 export const TRANSIENT_MAX_ATTEMPTS = 6;
 
@@ -834,6 +839,28 @@ export function transientStallDelayMs(retry: number): number {
 }
 
 /**
+ * Phase 16 v1.0.6 (user-ratified 2026-08-30): the stall floor between
+ * NETWORK/timeout retries — 10, 20, 30, 60, 90 minutes (wait index 1..5;
+ * later waits clamp at 90 minutes). The user's exact ladder, closing the gap
+ * the 2026-08-30 `indikator-5` abort exposed: a throttling provider (429/5xx)
+ * got ~2.6 h of ride-out patience while a silently-dead or slow connection
+ * (headers timeout, socket, DNS, deadline abort) got 3 attempts and ~31 min
+ * before a loud abort — yet both are the same evening provider-strain
+ * condition. Network errors now get the SAME treatment: 6 total attempts
+ * (TRANSIENT_MAX_ATTEMPTS), every failed attempt audited to
+ * `transport-stalls.jsonl` (statusCode 0) and surfaced live on the ingest
+ * progress channel; exhaustion after the ladder still aborts loudly. Applied
+ * ONLY at the call site via Math.max (the exponential backoff still applies
+ * underneath; the floor dominates every rung). Exported so tests assert the
+ * sequence without wall-clock sleeping.
+ */
+export function networkStallDelayMs(retry: number): number {
+  const stallMinutes = [10, 20, 30, 60, 90];
+  const index = Math.min(Math.max(1, retry) - 1, stallMinutes.length - 1);
+  return stallMinutes[index] * 60_000;
+}
+
+/**
  * Phase 16 v1.0.5 (2026-08-23, user-ratified): ABSOLUTE per-attempt deadline.
  * The stall ladder only reacts to RETURNED failures (429/5xx/network) — a
  * request whose connection dies silently (or whose server trickles bytes to
@@ -841,10 +868,9 @@ export function transientStallDelayMs(retry: number): number {
  * the ingest forever (observed twice 2026-08-22/23: a ~9.5 h overnight freeze
  * and a mid-chunk stall, both with zero open sockets). Every attempt now
  * carries an `AbortSignal.timeout` deadline: a timed-out attempt throws into
- * the existing network-error path (the caller's ≤3-attempt bound with the
- * 5/15/45s backoff), turning an unbounded hang into a fast loud retry.
- * Large-output calls get 15 minutes (a slow free-tier 32k-token response was
- * observed at ~7 min — 2× headroom); all other calls get 5 minutes.
+ * the network-error path, which since v1.0.6 rides the 6-attempt
+ * `networkStallDelayMs` ladder. Large-output calls get 15 minutes (matching
+ * the 900s headers timeout); all other calls get 5 minutes.
  */
 export const LARGE_CALL_DEADLINE_MS = 900_000;
 export const CALL_DEADLINE_MS = 300_000;
@@ -904,7 +930,8 @@ export interface StallWaitInfo {
   attempt: number;
   /** Total attempts allowed for this stall sequence. */
   maxAttempts: number;
-  /** The HTTP status that triggered the stall (429 or 5xx). */
+  /** The HTTP status that triggered the stall (429 or 5xx); 0 = the
+   * network/timeout class (thrown error, no HTTP status — v1.0.6). */
   statusCode: number;
 }
 
@@ -1189,12 +1216,16 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
     // an opted-in caller gets the extended transient budget
     // (TRANSIENT_MAX_ATTEMPTS total attempts, ~2.6 h of escalating stalls)
     // so a throttled or erroring provider is ridden out instead of aborting
-    // the run; network errors stay bounded by the caller's maxRetries. The
-    // ceiling is recomputed per attempt, so a network error after a 429/5xx
-    // reverts to the caller's bound.
-    const stalled =
-      statusCode !== 0 && isTransientStatus(statusCode) && (options.maxRetries ?? 0) > 0;
-    const ceiling = stalled ? Math.max(maxAttempts, TRANSIENT_MAX_ATTEMPTS) : maxAttempts;
+    // the run. Phase 16 v1.0.6 (user-ratified 2026-08-30): a NETWORK/timeout
+    // error from an opted-in caller gets the same 6-attempt budget with its
+    // own 10/20/30/60/90-min ladder — no transient class keeps the ≤3-attempt
+    // caller bound anymore; only `maxRetries: 0` stays frozen (no retries at
+    // all).
+    const optedIn = (options.maxRetries ?? 0) > 0;
+    const stalled = statusCode !== 0 && isTransientStatus(statusCode) && optedIn;
+    const networkStalled = lastTransportError !== undefined && optedIn;
+    const ceiling =
+      stalled || networkStalled ? Math.max(maxAttempts, TRANSIENT_MAX_ATTEMPTS) : maxAttempts;
     let delayMs = transportRetryDelayMs(attempt);
     if (stalled) {
       // The stall floor outlasts a saturated free-tier throttle or error
@@ -1216,12 +1247,21 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
           );
         }
       }
+    } else if (networkStalled) {
+      // Phase 16 v1.0.6 (user-ratified 2026-08-30): the network ladder rides
+      // the connection out — the floor dominates the exponential backoff at
+      // every rung, so the effective waits are exactly 10/20/30/60/90 min.
+      delayMs = Math.max(delayMs, networkStallDelayMs(attempt));
+    }
+    if (stalled || networkStalled) {
       const waitSeconds = Math.round(delayMs / 1000);
       const exhausted = attempt >= ceiling;
       // Phase 16 v1.0.4 (user directive 2026-08-22): persist EVERY failed
       // 429/5xx attempt — the retry waits AND the exhausted final attempt —
       // to the wiki's `.state/transport-stalls.jsonl` so provider
       // throttling/errors can be monitored and audited after the fact.
+      // Phase 16 v1.0.6: network/timeout attempts join the audit
+      // (statusCode 0 = network class; the thrown message rides `error`).
       await appendTransportStallLog(options.logPath, {
         timestamp: new Date().toISOString(),
         callType: options.callType,
@@ -1233,7 +1273,7 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
         maxAttempts: ceiling,
         exhausted,
         waitSeconds: exhausted ? 0 : waitSeconds,
-        error: json?.error?.message,
+        error: json?.error?.message ?? lastTransportError?.message,
       });
       if (exhausted) {
         break; // Stall budget exhausted — handle below (loud abort).
@@ -1250,22 +1290,17 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
         stallWaitReporter(info);
       } else {
         const label =
-          statusCode === 429
-            ? 'Rate limited (HTTP 429)'
-            : `Provider error (HTTP ${statusCode})`;
+          statusCode === 0
+            ? 'Connection problem (network/timeout)'
+            : statusCode === 429
+              ? 'Rate limited (HTTP 429)'
+              : `Provider error (HTTP ${statusCode})`;
         console.warn(
           `LLM Call | ${label} — waiting ${waitSeconds}s before retry (attempt ${nextAttempt}/${ceiling})...`,
         );
       }
-    } else {
-      if (attempt >= ceiling) {
-        break; // Network retries exhausted — handle below.
-      }
-      const reason =
-        lastTransportError?.message ?? `HTTP ${statusCode}`;
-      console.warn(
-        `LLM Call | Transient failure (${reason}), retrying (attempt ${attempt + 1}/${maxAttempts})...`,
-      );
+    } else if (attempt >= ceiling) {
+      break; // Network retries exhausted with no stall budget — handle below.
     }
     await transportRetrySleeper(delayMs);
     attempt++;

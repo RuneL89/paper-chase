@@ -686,13 +686,17 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // live "waiting Ns" line during a multi-minute stall (cheap completion
   // over speed for throttled or erroring free-tier models). Cleared in the
   // finally so the reporter never leaks into another caller's run.
+  // Phase 16 v1.0.6 (user-ratified 2026-08-30): network/timeout stalls
+  // (statusCode 0) join the channel with their own label.
   const reportProgress = options.onProgress;
   if (reportProgress) {
     setStallWaitReporter(({ waitSeconds, attempt, maxAttempts, statusCode }) => {
       const reason =
-        statusCode === 429
-          ? 'Rate limited by provider (HTTP 429)'
-          : `Provider error (HTTP ${statusCode})`;
+        statusCode === 0
+          ? 'Connection problem (network/timeout)'
+          : statusCode === 429
+            ? 'Rate limited by provider (HTTP 429)'
+            : `Provider error (HTTP ${statusCode})`;
       reportProgress(
         `${reason} — waiting ${waitSeconds}s before retry (attempt ${attempt}/${maxAttempts})...`,
       );

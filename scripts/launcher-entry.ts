@@ -120,7 +120,13 @@ import { spawnSync } from 'node:child_process';
 // src/tui/workspace-bootstrap.ts) gains the workspace registry, so the
 // packaged runtime must re-extract for Add PDFs/Ingest to target the picked
 // workspace folder instead of the launch folder.
-const VERSION = '1.0.28';
+// 1.0.29 (2026-08-30): Phase 16 v1.0.6 — the client bundle (src/llm/client.ts,
+// src/commands/ingest.ts) gains the network/timeout stall ladder
+// (networkStallDelayMs 10/20/30/60/90 min, 6 attempts,
+// .state/transport-stalls.jsonl records with statusCode 0, the
+// 'Connection problem (network/timeout)' live label, LARGE_CALL_HEADERS_TIMEOUT_MS
+// 900 s). The packaged runtime must re-extract so users get the ride-out behavior.
+const VERSION = '1.0.29';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');
