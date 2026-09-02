@@ -325,6 +325,26 @@ export interface IngestOptions {
    * own component seams) to keep every gate LLM-free.
    */
   runCrossWikiPassFn?: (options: CrossWikiPassOptions) => Promise<CrossWikiPassResult>;
+  /**
+   * Phase 27 (vision `04` §1 Worker-process isolation amendment,
+   * user-ratified 2026-09-02): restrict this run's per-PDF loop to exactly
+   * these PDF FILE NAMES (raw/ discovery order is preserved; unknown names
+   * are ignored). The conductor spawns one worker per PDF with this selector
+   * set to a single name. Pipeline mechanics inside the selected PDFs are
+   * unchanged — hash-skip, chunking, materialize, synthesis, and checkpoint
+   * law all behave exactly as an unselected run would for those PDFs.
+   */
+  onlyPdfs?: string[];
+  /**
+   * Phase 27: run ONLY the deferred tail — content validation, the DOX
+   * bottom-up chain, the workspace pass, Cross-Wiki Discovery, the AGENTS.md
+   * Updater, and the end-of-run state write. The per-PDF loop and the
+   * all-skipped fallback materialize/synthesis are skipped entirely: the
+   * per-PDF workers already ran them and checkpointed their state. The
+   * conductor's finalize worker uses this mode; the in-process default
+   * (absent flag) is byte-identical to the pre-Phase-27 behavior.
+   */
+  finalizeOnly?: boolean;
 }
 
 export interface IngestedSource {
@@ -350,6 +370,14 @@ export interface IngestResult {
   ingested: IngestedSource[];
   /** Source slugs skipped because their SHA-256 is unchanged. */
   skipped: string[];
+  /**
+   * Phase 27 (vision `04` §1 Worker-process isolation amendment): PDF file
+   * names whose worker crashed and whose crash the USER chose to defer —
+   * user-initiated only, never automatic, deletes nothing; the PDF stays in
+   * raw/ and is re-attempted on the next ingest run. Absent/empty for every
+   * old caller (additive field).
+   */
+  deferred?: string[];
   /** One entry per extracted chunk (Phase 2, additive; empty when extract: false). */
   extractions: ChunkExtractionSummary[];
   /** Phase 4: deterministic validation summary produced after materialization. */
@@ -613,6 +641,12 @@ function loadAgentsMd(wikiDir: string): string {
  */
 export function formatIngestSummary(result: IngestResult): string {
   let summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;
+  // Phase 27 (§2.3): the deferred segment appears only when the user chose
+  // Skip on a crashed worker's PDF (defer is user-initiated only; the PDF is
+  // re-attempted on the next run — nothing was deleted).
+  if ((result.deferred?.length ?? 0) > 0) {
+    summary += ` ${result.deferred!.length} deferred (re-attempted next ingest): ${result.deferred!.join(', ')}.`;
+  }
   if (result.synthesisRan === true) {
     const strict =
       (result.synthesized ?? 0) + (result.synthesizedTopics ?? 0) + (result.synthesizedComposites ?? 0) + (result.synthesizedComparisons ?? 0);
@@ -776,9 +810,18 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     }
   }
 
-  const pdfFiles = (await readdir(rawDir))
+  let pdfFiles = (await readdir(rawDir))
     .filter((file) => file.toLowerCase().endsWith('.pdf'))
     .sort();
+
+  // Phase 27 (§2.1 engine split): a worker-scoped run processes exactly the
+  // selected PDFs (discovery order preserved; unknown names ignored — the
+  // conductor only passes names it discovered itself). Absent selector =
+  // byte-identical behavior.
+  if (options.onlyPdfs !== undefined) {
+    const selected = new Set(options.onlyPdfs);
+    pdfFiles = pdfFiles.filter((file) => selected.has(file));
+  }
 
   const result: IngestResult = {
     wiki: slug,
@@ -797,7 +840,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     languages: language,
   };
 
-  if (pdfFiles.length === 0) {
+  if (pdfFiles.length === 0 && !options.finalizeOnly) {
     // Phase 8 (phase doc §2.2): warn about removed PDFs even when raw/ is
     // now empty — recorded sources whose files are gone are exactly the
     // removed-PDF case. Derived pages are kept either way.
@@ -1008,8 +1051,12 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
   // HOISTED `runSynthesisStages` function declared further below (after the
   // loop in source order; function declarations hoist, and every capture is
   // run-level state).
+  // Phase 27 (§2.1, vision `04` §1 Worker-process isolation amendment): a
+  // finalizeOnly run skips the loop entirely — the per-PDF workers already
+  // ran each PDF's pass and checkpointed its state; this run goes straight
+  // to the deferred tail below.
   try {
-  for (const fileName of pdfFiles) {
+  for (const fileName of options.finalizeOnly ? [] : pdfFiles) {
     const pdfPath = join(rawDir, fileName);
     const sourceSlug = sourceSlugForFile(fileName);
     const hash = await sha256(pdfPath);
@@ -1189,7 +1236,10 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
   // the synthesis stages once (with the amendment path — template-retry
   // semantics preserved; a wiki whose every PDF hash-skips still retries its
   // template-fallback pages exactly as before).
-  if (extract && lastMaterializeResult === undefined) {
+  // Phase 27 (§2.1): never in a finalizeOnly run — the per-PDF workers
+  // already materialized and synthesized against the grown aggregate, and
+  // re-running the fallback would re-synthesize the whole wiki.
+  if (extract && !options.finalizeOnly && lastMaterializeResult === undefined) {
     const extractedDir = join(dir, '.state', 'extracted');
     const hasExtractions =
       existsSync(extractedDir) &&
@@ -1206,6 +1256,16 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     // run FROM DISK so the recorded hashes always reflect the tool's own
     // final writes, even for an aborting run (Phase 19 B19).
     await rehashWrittenPagesFromDisk();
+  }
+
+  // Phase 27 (§2.1, vision `04` §1 Worker-process isolation amendment): a
+  // per-PDF worker (`onlyPdfs` set) runs ONLY its selected PDFs' loop — the
+  // deferred tail (validation, DOX, workspace, cross-wiki, updater, the
+  // end-of-run state/metrics write) belongs to the finalize worker alone,
+  // which runs exactly once after the loop. The per-PDF checkpoints inside
+  // the loop already persisted this run's ingestion state and page hashes.
+  if (options.onlyPdfs !== undefined) {
+    return result;
   }
 
   // Phase 19 (B19): carry the working folds (preservedPages convergence,

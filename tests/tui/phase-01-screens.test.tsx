@@ -7,6 +7,7 @@ import { afterAll, afterEach, beforeAll, expect, test } from 'vitest';
 import { render, type Instance } from 'ink';
 import { InitScreen } from '../../src/tui/init-screen';
 import { IngestScreen } from '../../src/tui/ingest-screen';
+import { ingest } from '../../src/commands/ingest';
 import { init } from '../../src/commands/init';
 
 const GOLDEN_MASTER = 'test-pdfs/golden-master.pdf';
@@ -396,7 +397,18 @@ test('ingest screen runs ingestion with progress display', async () => {
     const screen = renderCaptured(
       // extract={false} (Phase 2 deviation, .state/phase-2-status.json): this
       // Phase 1 flow test exercises Layer 1 only and must never call the LLM.
-      <IngestScreen onBack={() => {}} onResult={(message) => (result = message)} workspace={solo} extract={false} />,
+      // Phase 27 adaptation: the REAL ingest rides the screen's ingestFn seam
+      // — the screen's production default is now the per-PDF worker conductor
+      // (real subprocess spawns; covered by the phase-27 gates + the two
+      // Phase 27 ingest-screen tests). In-process keeps this gate fast and
+      // deterministic while still exercising the true pipeline code.
+      <IngestScreen
+        onBack={() => {}}
+        onResult={(message) => (result = message)}
+        workspace={solo}
+        extract={false}
+        ingestFn={(slug, options) => ingest(slug, options)}
+      />,
     );
     await tick(400); // let the wiki list load
     screen.stdin.write('\r'); // run ingest on the highlighted wiki

@@ -3,7 +3,7 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { PassThrough } from 'node:stream';
-import { afterAll, afterEach, expect, test } from 'vitest';
+import { afterAll, afterEach, expect, test, vi } from 'vitest';
 import { render, type Instance } from 'ink';
 import { init } from '../../src/commands/init';
 import type { IngestResult } from '../../src/commands/ingest';
@@ -183,4 +183,110 @@ test('the ingest screen renders a network/timeout stall line from the run progre
   // The line is 82 chars — two over the 80-column frame — so normalize
   // whitespace before asserting (the phase-11 footer-wrap precedent).
   expect(stripAnsi(screen.output()).replace(/\s+/g, ' ')).toContain(NETWORK_STALL_LINE);
+});
+
+// ---------------------------------------------------------------------------
+// Phase 27 (vision 04 §1 Worker-process isolation, user-ratified 2026-09-02):
+// the conductor path replaces the in-process call as the PRODUCTION run
+// shape. Pixel-identity: a healthy conductor-driven run renders the SAME
+// progress lines and banner as the in-process seam (the crash panel is the
+// only new UI and appears ONLY when a worker died and the retry cap hit).
+// ---------------------------------------------------------------------------
+
+const CONDUCTOR_PROGRESS = 'Ingested report-a.pdf -> 2 document page(s)';
+
+test('Phase 27: a healthy conductor-driven run renders the same lines and banner as the in-process path', async () => {
+  const workspace = makeTempDir('paper-chase-ingest-cond-');
+  await init('test-wiki', { workspace });
+
+  const conductorFn = vi.fn(async (_slug: string, options: { onProgress: (line: string) => void }) => {
+    options.onProgress(CONDUCTOR_PROGRESS);
+    return {
+      status: 'complete',
+      result: {
+        wiki: 'test-wiki',
+        wikiDir: join(workspace, 'wikis', 'test-wiki'),
+        ingested: [],
+        skipped: [],
+        extractions: [],
+      } as unknown as IngestResult,
+    };
+  });
+
+  const screen = renderCaptured(
+    <IngestScreen
+      workspace={workspace}
+      initialWiki={{ workspace, slug: 'test-wiki' }}
+      onBack={() => {}}
+      conductorFn={conductorFn as never}
+    />,
+  );
+  await waitFor(() => screen.output().includes('test-wiki'));
+  screen.stdin.write('\r');
+  await waitFor(() => screen.output().includes('Ingest complete'));
+  screen.unmount();
+  await tick(50);
+
+  expect(conductorFn).toHaveBeenCalledTimes(1);
+  expect(screen.output()).toContain(CONDUCTOR_PROGRESS);
+  expect(screen.output()).toContain('Ingest complete: 0 ingested, 0 skipped.');
+  // No crash panel in a healthy run — the phase's only new UI stays hidden.
+  expect(screen.output()).not.toContain('[R] Retry');
+});
+
+test('Phase 27: the crash panel renders on cap exhaustion and the R/S/A keys decide', async () => {
+  const workspace = makeTempDir('paper-chase-ingest-crash-');
+  await init('test-wiki', { workspace });
+
+  let decide: ((decision: 'retry' | 'skip' | 'abort') => void) | null = null;
+  const panelSeen: string[] = [];
+  const conductorFn = async (
+    _slug: string,
+    options: {
+      onProgress: (line: string) => void;
+      onCrashPanel?: (state: unknown) => void;
+      requestDecision?: () => Promise<'retry' | 'skip' | 'abort'>;
+    },
+  ) => {
+    options.onProgress('Worker for report-a.pdf exited unexpectedly (code 1) — auto-retry in 30s (attempt 3/4)...');
+    options.onCrashPanel?.({
+      pdf: 'report-a.pdf',
+      phase: 'pdf',
+      exitCode: 1,
+      stderrTail: 'Error: something escaped',
+      attempt: 4,
+    });
+    panelSeen.push('shown');
+    const decision = await options.requestDecision!();
+    panelSeen.push(decision);
+    options.onCrashPanel?.(null);
+    return {
+      status: 'aborted',
+      result: { wiki: 'test-wiki', wikiDir: join(workspace, 'wikis', 'test-wiki'), ingested: [], skipped: [], extractions: [] } as unknown as IngestResult,
+    };
+  };
+
+  const screen = renderCaptured(
+    <IngestScreen
+      workspace={workspace}
+      initialWiki={{ workspace, slug: 'test-wiki' }}
+      onBack={() => {}}
+      conductorFn={conductorFn as never}
+    />,
+  );
+  await waitFor(() => screen.output().includes('test-wiki'));
+  screen.stdin.write('\r');
+
+  // The panel: title with exit code/attempt, stderr tail, key legend.
+  await waitFor(() => screen.output().includes('[R] Retry'));
+  expect(screen.output()).toContain('Worker for report-a.pdf exited unexpectedly');
+  expect(screen.output()).toContain('Error: something escaped');
+  expect(screen.output()).toContain('[S] Skip PDF');
+
+  // R resolves the pending decision; the run then aborts per the stub.
+  screen.stdin.write('r');
+  await waitFor(() => screen.output().includes('Ingest aborted'));
+  screen.unmount();
+  await tick(50);
+  expect(panelSeen).toEqual(['shown', 'retry']);
 });

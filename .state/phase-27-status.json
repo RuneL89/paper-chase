@@ -1,0 +1,27 @@
+{
+  "phase": "27",
+  "status": "complete",
+  "goal": "All 11 technical gates in PHASE_27_per_pdf_worker_isolation.md pass (key-less npm test green), all 3 UAT steps documented with expected output (human-perceptual steps presented by the Reporter), compliance log shows no unresolved contradictions, and total LLM cost is $0.00 (deterministic phase — stub seams + fault injection only).",
+  "lastAction": "Implementation + gates + DOX closeout complete (2026-09-02 ~21:00). Full key-less suite green: 594 passed, 16 skipped, 0 failed across 41 files (40 passed + 1 skipped e2e); tsc --noEmit clean. Reporter UAT presented (three perceptual steps).",
+  "gatesPassed": ["27.1", "27.2", "27.3", "27.4", "27.5", "27.6", "27.7", "27.8", "27.9", "27.10", "27.11"],
+  "gatesFailed": [],
+  "gatesPending": [],
+  "llmCost": "$0.0000",
+  "tokenBudgetRemaining": "$0.00 (hard cap $0.00 — deterministic phase; every gate stub-injected or script-spawned, no gate requires any API key)",
+  "blocker": null,
+  "nextAction": null,
+  "deviations": [
+    "Gate 27.1 design clarification discovered during implementation: an onlyPdfs (per-PDF worker) run executes ONLY its selected PDFs' loop — the deferred tail (validation, DOX, workspace, cross-wiki, updater, end-of-run state/metrics) is the finalize worker's alone (vision-consistent: 'the deferred tail runs in its own worker exactly once after the loop'). Without this cut, every per-PDF worker would re-run the whole DOX pass (divergent AND expensive). Gate 27.1 proves the true conductor shape (PDF worker, PDF worker, finalize run) converges byte-for-byte to the single full run's durable tree (run-window artifacts excluded: metrics, llm-calls, transport-stalls, validation-report, conflicts).",
+    "Gate 27.1's crash gates exercise the conductor via a scripted SpawnWorkerFn (deterministic spawn outcomes) rather than the PAPER_CHASE_WORKER_FAULT env var — the env-var path is wired in the worker subcommand (workerFaultAfterProgress/workerFaultBeforeResult) and is what the LIVE human UAT 27.1 uses; the scripted gates assert the same outcome shapes (no result event + non-zero close) that the env var produces.",
+    "tests/tui/phase-01-screens.test.tsx 'ingest screen runs ingestion with progress display' adapted: the REAL ingest now rides the screen's ingestFn seam — the screen's production default is the per-PDF worker conductor (real subprocess spawns), which keeps this Phase 1 gate fast/deterministic while still exercising the true pipeline code. The conductor path through the screen has its own two new tests in tests/tui/ingest-screen.test.tsx (healthy-run pixel-identity + crash panel R/S/A), and gate 27.10 asserts the worker args carry the ingest options verbatim.",
+    "The screen gained a conductorFn test seam (defaults to runIngestConductor; ingestFn, when provided, still wins for pre-existing tests) — mirrored on the resolver with resolveWorkerCommand(rootOverride) for the layout-dependent branches."
+  ],
+  "llmCallInventory": {
+    "note": "$0.00 phase — 12 gates in tests/phase-27.test.ts + 2 new tests in tests/tui/ingest-screen.test.tsx + 1 adaptation in tests/tui/phase-01-screens.test.tsx, all deterministic (stub seams + scripted spawns); no gate requires any API key. Live UATs 27.1-27.3 are perceptual reads of stub-driven scratch wikis (no live LLM spend required)."
+  },
+  "watchItems": [
+    "The finalize worker is still one long-lived process (hours on a 37-PDF wiki) — acceptable per the ratified design, but if it ever becomes the crash exposure, it can be split later (per-level DOX workers) under a new amendment.",
+    "A single giant PDF still runs ~a day in one worker; memory is bounded per PDF but the within-PDF growth curve was never measured (the rkkp post-mortem measured cross-PDF growth). If a single-PDF OOM ever fires, the crash panel + retry absorbs it; a within-PDF memory fix would be Solution 3 territory.",
+    "The crash panel's Skip is intentionally absent for finalize crashes (deferral applies to PDFs only); finalize crash = Retry or Abort, per the never-auto-defer law."
+  ]
+}

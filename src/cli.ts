@@ -8,6 +8,7 @@ import { render } from 'ink';
 import { App } from './tui/app';
 import { init } from './commands/init';
 import { ingest, formatIngestSummary } from './commands/ingest';
+import { serializeWorkerEvent, workerFaultAfterProgress, workerFaultBeforeResult, type WorkerEvent } from './commands/worker-protocol';
 import { loadWorkspaceRegistry, registerWorkspace } from './tui/workspace-bootstrap';
 import { isPackaged } from './utils/app-root';
 
@@ -149,6 +150,87 @@ program
     const child = spawn(npmCmd, ['test'], { stdio: 'inherit', shell: true });
     child.on('close', (code) => process.exit(code ?? 1));
   });
+
+// Phase 27 (vision `04` §1 Worker-process isolation amendment, user-ratified
+// 2026-09-02): the headless per-PDF worker spawned by the TUI conductor.
+// Exactly ONE of --pdf / --finalize selects the run scope; the worker emits
+// the Phase 27 JSONL event protocol on stdout (progress lines streamed, one
+// terminal result|fatal event last — see src/commands/worker-protocol.ts)
+// and keeps stderr as raw diagnostics for the conductor to capture on a
+// crash. NOT for direct human use — plain `ingest` remains the user-facing
+// command.
+program
+  .command('ingest-worker <slug>')
+  .description('Internal: run ONE PDF (or the finalize tail) and speak the worker event protocol (Phase 27)')
+  .option('-w, --workspace <workspace>', 'Workspace directory', '.')
+  .option('--pdf <file>', 'Process exactly this raw/ PDF (per-PDF loop scope)')
+  .option('--finalize', 'Run only the deferred tail (validation, DOX, workspace, cross-wiki, updater)')
+  .option('--synthesis', 'Enable LLM synthesis (passed through to ingest)')
+  .option('--update-agents', 'Propose AGENTS.md updates after ingest (passed through)')
+  .option('--no-extract', 'Skip the Layer 2 Extractor (passed through)')
+  .option('--no-dox-llm', 'Skip the LLM DOX Writer (passed through)')
+  .option('--no-cross-wiki', 'Skip the cross-wiki discovery pass (passed through)')
+  .option('--force-cross-wiki', 'Force the cross-wiki discovery pass (passed through)')
+  .option('--input-language <code>', 'Input language of this run\'s PDFs (passed through)')
+  .option('--output-language <code>', 'Override the wiki output language for this run (passed through)')
+  .action(
+    async (
+      slug: string,
+      options: {
+        workspace: string;
+        pdf?: string;
+        finalize?: boolean;
+        synthesis?: boolean;
+        updateAgents?: boolean;
+        extract?: boolean;
+        doxLlm?: boolean;
+        crossWiki?: boolean;
+        forceCrossWiki?: boolean;
+        inputLanguage?: string;
+        outputLanguage?: string;
+      },
+    ) => {
+      // Worker events MUST be the only thing on stdout: silence any stray
+      // console.log from deep pipeline code (warnings etc.) by redirecting
+      // the console to stderr for the lifetime of this process.
+      const originalConsoleLog = console.log;
+      console.log = (...args: unknown[]) => console.error(...args);
+      const emit = (event: WorkerEvent): void => {
+        process.stdout.write(serializeWorkerEvent(event));
+      };
+      try {
+        if (Boolean(options.pdf) === Boolean(options.finalize)) {
+          throw new Error('ingest-worker requires exactly one of --pdf <file> or --finalize.');
+        }
+        const result = await ingest(slug, {
+          workspace: options.workspace,
+          onlyPdfs: options.pdf !== undefined ? [options.pdf] : undefined,
+          finalizeOnly: options.finalize === true,
+          extract: options.extract,
+          synthesis: options.synthesis,
+          doxLlm: options.doxLlm,
+          crossWiki: options.crossWiki,
+          forceCrossWiki: options.forceCrossWiki,
+          updateAgents: options.updateAgents,
+          inputLanguage: options.inputLanguage as import('./utils/language').LanguageCode | undefined,
+          outputLanguage: options.outputLanguage as import('./utils/language').LanguageCode | undefined,
+          onProgress: (message) => {
+            workerFaultAfterProgress();
+            emit({ type: 'progress', line: message });
+          },
+        });
+        workerFaultBeforeResult();
+        emit({ type: 'result', result });
+        process.exitCode = 0;
+      } catch (err) {
+        const error = err as Error;
+        emit({ type: 'fatal', error: error.message, stack: error.stack });
+        process.exitCode = 1;
+      } finally {
+        console.log = originalConsoleLog;
+      }
+    },
+  );
 
 // Parse guard: only run program.parse() when this file is executed directly,
 // never when it is imported (e.g. by Gate 0.5 in vitest). The VITEST env var

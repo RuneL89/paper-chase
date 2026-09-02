@@ -126,7 +126,14 @@ import { spawnSync } from 'node:child_process';
 // .state/transport-stalls.jsonl records with statusCode 0, the
 // 'Connection problem (network/timeout)' live label, LARGE_CALL_HEADERS_TIMEOUT_MS
 // 900 s). The packaged runtime must re-extract so users get the ride-out behavior.
-const VERSION = '1.0.29';
+// 1.0.30 (2026-09-02): Phase 27 — per-PDF worker-process isolation. The TUI
+// bundle (src/cli.ts with the NEW ingest-worker subcommand, the NEW
+// src/commands/worker-protocol.ts, src/tui/ingest-screen.tsx, the NEW
+// src/tui/ingest-conductor.ts + src/tui/worker-spawn.ts, the NEW
+// src/state/crash-log.ts, src/commands/ingest.ts engine split) must
+// re-extract: the TUI now spawns per-PDF worker children from the extracted
+// bundle, so a stale runtime has no worker entry to spawn.
+const VERSION = '1.0.30';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

@@ -10,6 +10,11 @@ import { SuccessBox } from './components/success-box';
 import { useWikiList, type WikiRef } from './hooks/use-wiki-list';
 import { useWikiDetails } from './hooks/use-wiki-details';
 import { ingest, formatIngestSummary, type IngestResult } from '../commands/ingest';
+import {
+  runIngestConductor,
+  type CrashPanelState,
+  type CrashDecision,
+} from './ingest-conductor';
 import { loadSettings } from './settings';
 import { readWikiLanguage, type WikiLanguageState } from '../state/language';
 import { SUPPORTED_LANGUAGES } from '../utils/language';
@@ -43,6 +48,12 @@ export interface IngestScreenProps extends ScreenProps {
    * ingest command; tests can inject a stub to avoid disk I/O / LLM calls.
    */
   ingestFn?: (slug: string, options: Record<string, unknown>) => Promise<unknown>;
+  /**
+   * Phase 27 (test-only): injectable conductor — defaults to the real
+   * `runIngestConductor`. When `ingestFn` is ALSO provided the in-process
+   * seam wins (existing tests keep the pre-Phase-27 byte-identical path).
+   */
+  conductorFn?: typeof import('./ingest-conductor').runIngestConductor;
   /**
    * Phase 11 v1.6.0 (user directive 2026-07-23): post-ingest review shortcut.
    * When a run completes with `agentsUpdateProposed: true`, the success state
@@ -112,6 +123,7 @@ export function IngestScreen({
   extract = true,
   initialWiki,
   ingestFn,
+  conductorFn,
   onReviewAgents,
 }: IngestScreenProps) {
   const { isRawModeSupported } = useStdin();
@@ -143,6 +155,13 @@ export function IngestScreen({
   // updates (drives the post-ingest `p` review shortcut). Null when the last
   // run wrote no proposal — no hint is shown and `p` does nothing.
   const [proposalWiki, setProposalWiki] = useState<WikiRef | null>(null);
+  // Phase 27 (vision `04` §1 Worker-process isolation): the crash-recovery
+  // panel state (null = no panel) and the resolver for the pending R/S/A
+  // decision the conductor awaits. The panel is the phase's only new UI —
+  // healthy runs render byte-identically to the pre-Phase-27 screen.
+  const [crashPanel, setCrashPanel] = useState<CrashPanelState | null>(null);
+  const decisionResolverRef = useRef<((decision: CrashDecision) => void) | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
   // Phase 11: apply the continuous-workflow pre-selection exactly once (the
   // wiki list loads asynchronously).
   const appliedInitialWiki = useRef(false);
@@ -230,28 +249,62 @@ export function IngestScreen({
     setStatus('running');
     setProgressLines([]);
     setProposalWiki(null);
+    setCrashPanel(null);
+    const abort = new AbortController();
+    abortRef.current = abort;
+    const onSigint = () => abort.abort();
+    process.once('SIGINT', onSigint);
     try {
-      const run = ingestFn ?? ingest;
-      const result = (await run(wiki.slug, {
-        workspace: wiki.workspace,
-        extract,
-        synthesis,
-        inputLanguage: selectedInput.code,
-        outputLanguage: selectedOutput.code,
-        // Phase 9: opt-in AGENTS.md update proposal after the ingest.
-        updateAgents,
-        // Phase 6: production runs are LLM-driven — the DOX Writer writes rich,
-        // content-based index.md contracts (deterministic enforcement and
-        // fallback still guarantee valid contracts without a key).
-        doxLlm: true,
-        // Phase 24: the cross-wiki discovery pass auto-runs in production
-        // (it self-skips when the workspace holds fewer than two wikis or
-        // nothing cross-wiki-relevant changed; failures never abort ingest).
-        crossWiki: true,
-        // Phase 24 (user-ratified extension 2026-08-14): bypass preflight/probe.
-        forceCrossWiki,
-        onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
-      })) as IngestResult & { agentsUpdateProposed?: boolean };
+      let result: IngestResult & { agentsUpdateProposed?: boolean };
+      if (ingestFn !== undefined) {
+        // Test seam — the in-process path, byte-identical to pre-Phase-27.
+        result = (await ingestFn(wiki.slug, {
+          workspace: wiki.workspace,
+          extract,
+          synthesis,
+          inputLanguage: selectedInput.code,
+          outputLanguage: selectedOutput.code,
+          updateAgents,
+          doxLlm: true,
+          crossWiki: true,
+          forceCrossWiki,
+          onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
+        })) as IngestResult & { agentsUpdateProposed?: boolean };
+      } else {
+        // Phase 27: the production path — one worker process per PDF, the
+        // finalize tail in its own worker, progress relayed to the same
+        // lines, crash recovery per the 2026-09-02 vision amendment.
+        const conductor = conductorFn ?? runIngestConductor;
+        const run = await conductor(wiki.slug, {
+          workspace: wiki.workspace,
+          ingest: {
+            extract,
+            synthesis,
+            updateAgents,
+            doxLlm: true,
+            crossWiki: true,
+            forceCrossWiki,
+            inputLanguage: selectedInput.code,
+            outputLanguage: selectedOutput.code,
+          },
+          onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
+          onCrashPanel: setCrashPanel,
+          requestDecision: () =>
+            new Promise<CrashDecision>((resolveDecision) => {
+              decisionResolverRef.current = resolveDecision;
+            }),
+          signal: abort.signal,
+        });
+        if (run.status === 'aborted') {
+          setStatus('error');
+          const abortMessage =
+            'Ingest aborted — everything already landed is saved on disk. Start the ingest again to resume where it stopped.';
+          setMessage(abortMessage);
+          onResult?.(`Error: ${abortMessage}`);
+          return;
+        }
+        result = run.result;
+      }
       // Phase 11 (phase doc §2.4): the result banner is the shared
       // formatIngestSummary string (same text the CLI prints).
       let summary = formatIngestSummary(result);
@@ -270,6 +323,11 @@ export function IngestScreen({
       setStatus('error');
       setMessage(errorMessage);
       onResult?.(`Error: ${errorMessage}`);
+    } finally {
+      process.removeListener('SIGINT', onSigint);
+      abortRef.current = null;
+      decisionResolverRef.current = null;
+      setCrashPanel(null);
     }
   };
 
@@ -285,6 +343,24 @@ export function IngestScreen({
 
   useInput(
     (_input, key) => {
+      // Phase 27: the crash-recovery panel outranks every other binding —
+      // the conductor is blocked awaiting this decision (R/S/A; Skip is a
+      // PDF-worker option only — deferral never applies to the finalize
+      // pass, and it is ALWAYS the user's explicit choice, never automatic).
+      if (crashPanel !== null) {
+        const lower = _input.toLowerCase();
+        if (lower === 'r') {
+          decisionResolverRef.current?.('retry');
+          decisionResolverRef.current = null;
+        } else if (lower === 's' && crashPanel.phase === 'pdf') {
+          decisionResolverRef.current?.('skip');
+          decisionResolverRef.current = null;
+        } else if (lower === 'a') {
+          decisionResolverRef.current?.('abort');
+          decisionResolverRef.current = null;
+        }
+        return;
+      }
       if (status === 'running') {
         return;
       }
@@ -436,6 +512,31 @@ export function IngestScreen({
           {withProgressBar(line)}
         </Text>
       ))}
+      {crashPanel !== null ? (
+        // Phase 27 (§2.3): the crash-recovery panel — the phase's only new
+        // UI element. Rendered only while a worker died, the auto-retry cap
+        // is exhausted, and the conductor awaits the user's decision.
+        <Box flexDirection="column" borderStyle="round" borderColor="red" marginTop={1} paddingX={1}>
+          <Text color="red" bold>
+            Worker for {crashPanel.pdf ?? 'the finalize pass'} exited unexpectedly (code{' '}
+            {crashPanel.exitCode ?? 'none'}, attempt {crashPanel.attempt})
+          </Text>
+          {crashPanel.stderrTail.length > 0
+            ? crashPanel.stderrTail
+                .split('\n')
+                .slice(-10)
+                .map((line, index) => (
+                  <Text key={index} color="gray">
+                    {line}
+                  </Text>
+                ))
+            : null}
+          <Text bold>
+            [R] Retry{crashPanel.phase === 'pdf' ? '   [S] Skip PDF (re-attempted next ingest)' : ''}{' '}
+            [A] Abort run
+          </Text>
+        </Box>
+      ) : null}
       {status === 'success' && <SuccessBox message={message} />}
       {status === 'success' && proposalWiki && isRawModeSupported ? (
         // Phase 11 v1.6.0: post-ingest review shortcut hint (only when a
