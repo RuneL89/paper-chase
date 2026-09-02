@@ -1,6 +1,7 @@
 flowchart LR
     Start
     U1
+    W0
     D0
     C1
     L1
@@ -19,6 +20,7 @@ flowchart LR
     D6
     C5
     C6
+    D9
     C7
     L6
     L7
@@ -28,6 +30,7 @@ flowchart LR
     L9
     C8
     U2
+    U3
     Done
 
     subgraph LLM["LLM — prompted model calls"]
@@ -43,6 +46,7 @@ flowchart LR
     end
 
     subgraph CODE["CODE — deterministic TypeScript"]
+        W0["[CODE] Conductor — spawns ONE worker process per<br/>PDF (fresh memory each) + the finalize worker;<br/>captures worker crashes, audits crash-log.jsonl"]
         D0{"PDF hash<br/>unchanged?"}
         C1["[CODE] Chunk PDF — split into<br/>page-size chunks; a page is<br/>never split across chunks"]
         C2["[CODE] Materialize — aggregate evidence<br/>across chunks + prior PDFs,<br/>flag generic-label suspects"]
@@ -52,13 +56,14 @@ flowchart LR
         D4{"Page already<br/>successfully<br/>synthesized?"}
         C5["[CODE] Page written + fingerprint stored —<br/>becomes skip-eligible / patch-eligible<br/>on later runs"]
         C6["[CODE] Checkpoint PDF state —<br/>interrupted runs resume<br/>without redoing finished PDFs"]
+        D9{"Worker<br/>died?"}
         C7["[CODE] Validate — wikilinks, citations,<br/>frontmatter, evidence preservation"]
         D1{"Extractor JSON<br/>+ schema valid?"}
         D5{"Patch valid, old and new<br/>evidence preserved?"}
         D6{"All evidence<br/>preserved?"}
         D7{"2+ wikis in<br/>workspace?"}
         D8{"AGENTS.md<br/>updater enabled?"}
-        C8["[CODE] Persist metrics, LLM call log,<br/>stall log, amendment log, state"]
+        C8["[CODE] Persist metrics, LLM call log,<br/>stall log, amendment log, crash log, state"]
         C9["Run aborted —<br/>fail-loud, nothing skipped"]
     end
 
@@ -68,10 +73,12 @@ flowchart LR
     end
 
     U2["[USER] Optional, post-run: press P to review<br/>the proposed AGENTS.md diff —<br/>applied only by explicit human action"]
+    U3["[USER] Crash panel — worker died and auto-retries<br/>hit the cap: [R] Retry / [S] Skip PDF<br/>(re-attempted next ingest) / [A] Abort run"]
     Done(["Wiki updated"])
 
     Start --> U1
-    U1 -->|"for each PDF in raw/"| D0
+    U1 --> W0
+    W0 -->|"for each PDF in raw/"| D0
     D0 -->|"yes — skip this PDF"| C6
     D0 -->|"no — hash changed"| C1
     C1 -->|"per chunk, sequential"| L1
@@ -98,7 +105,12 @@ flowchart LR
     D6 -->|"preserved — or exhausted, fallback page"| C5
     C5 -->|"more changed pages"| D4
     C5 -->|"PDF complete"| C6
-    C6 -->|"more PDFs"| D0
+    C6 -->|"more PDFs"| D9
+    D9 -->|"no — next PDF"| D0
+    D9 -->|"yes — auto-retry, max 3 (30 s apart)<br/>same PDF resumes from checkpoints"| D0
+    D9 -->|"yes — retries exhausted"| U3
+    U3 -->|"R retry / S skip — run continues"| D0
+    U3 -->|"A abort — everything landed stays"| Done
     C6 -->|"all PDFs done"| C7
     C7 --> L6
     L6 -->|"indexes pass final validation"| L7
@@ -119,9 +131,9 @@ flowchart LR
     classDef checkNode fill:#ffffcc,stroke:#cc9900,color:#000,font-weight:bold
     classDef abortNode fill:#ffcccc,stroke:#cc0000,color:#000,font-weight:bold
 
-    class Start,U1,U2,Done userNode
-    class C1,C2,C3,C4,C5,C6,C7,C8 codeNode
-    class D0,D1,D2,D4,D5,D6,D7,D8 checkNode
+    class Start,U1,U2,U3,Done userNode
+    class W0,C1,C2,C3,C4,C5,C6,C7,C8 codeNode
+    class D0,D1,D2,D4,D5,D6,D7,D8,D9 checkNode
     class L1,L2,L3,L4,L5,L6,L7,L8,L9 llmNode
     class C9 abortNode
 

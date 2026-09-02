@@ -66,11 +66,11 @@ Legend: **[USER]** = a human action · **[CODE]** = deterministic code · **[LLM
 
 ## The pipeline in detail
 
-![The detailed Paper Chase ingestion pipeline as a swimlane diagram: three horizontal bands (USER on top, CODE in the middle, LLM at the bottom), the flow running left to right, yellow diamonds marking validation gates, loop-back arrows marking retries, and two orange user nodes at the far right end](docs/images/pipeline-swimlane-state-machine.png)
+![The detailed Paper Chase ingestion pipeline as a swimlane diagram: three horizontal bands (USER on top, CODE in the middle, LLM at the bottom), the flow running left to right, yellow diamonds marking validation gates, loop-back arrows marking retries, and three orange user nodes (the start, the crash panel, and the post-run review) along the way](docs/images/pipeline-swimlane-state-machine.png)
 
 *The same pipeline, one level deeper: three bands say who acts, left to right says when.*
 
-How to read it: the three horizontal bands are the actors. Human is orange, deterministic code is green, LLM calls are blue. Vertical position tells you who is acting; left to right is time. Every blue box states what that LLM is prompted to do. Every yellow diamond is a deterministic check, and the labeled arrows leaving it say what happens on each outcome, including the loop-backs that retry with the validator's feedback (max 3), the unchanged-PDF skip at the start, and the two orange nodes at the far right that only a human can perform.
+How to read it: the three horizontal bands are the actors. Human is orange, deterministic code is green, LLM calls are blue. Vertical position tells you who is acting; left to right is time. Every blue box states what that LLM is prompted to do. Every yellow diamond is a deterministic check, and the labeled arrows leaving it say what happens on each outcome, including the loop-backs that retry with the validator's feedback (max 3), the unchanged-PDF skip at the start, the worker-crash loop (a died PDF worker is auto-retried, then the orange crash panel decides Retry/Skip/Abort), and the orange nodes only a human can perform.
 
 ### Trigger
 
@@ -94,11 +94,15 @@ When a PDF's pages are done, its state is checkpointed. An interrupted run picks
 
 ### Finalize
 
-Validation sweeps the whole wiki: links, citations, frontmatter. The DOX Writer writes each folder's `index.md` navigation contract, with children and statistics re-imposed by code, and the workspace index gains this wiki's segment with every other wiki's bytes untouched. With two or more wikis, the Cross-Wiki pass builds the entity registry, relationship graph, and topic clusters; uncertain matches are held for human review, and the pass never aborts the ingest on failure. If enabled, the Updater drafts an `AGENTS.md` proposal, applied only when you press `P` and accept the diff (or left on disk for later). Metrics, the LLM call log, the stall log, and the amendment log are persisted, and the wiki is ready.
+Validation sweeps the whole wiki: links, citations, frontmatter. The DOX Writer writes each folder's `index.md` navigation contract, with children and statistics re-imposed by code, and the workspace index gains this wiki's segment with every other wiki's bytes untouched. With two or more wikis, the Cross-Wiki pass builds the entity registry, relationship graph, and topic clusters; uncertain matches are held for human review, and the pass never aborts the ingest on failure. If enabled, the Updater drafts an `AGENTS.md` proposal, applied only when you press `P` and accept the diff (or left on disk for later). Metrics, the LLM call log, the stall log, the amendment log, and the crash log are persisted, and the wiki is ready.
 
 ### Guard rails (apply to every LLM call)
 
-HTTP 4xx fails immediately. That is a configuration problem, and retrying will not fix it. HTTP 429/5xx ride a stall ladder of up to six attempts with waiting floors of 1, 5, 15, 45, and 90 minutes, so a throttled free-tier provider can clear its window; network errors get three attempts. Content defects (bad JSON, dropped evidence) are re-asked up to three times with the validator's exact errors. Every call carries an absolute deadline (5 minutes, 15 for large-output calls) so a dead connection cannot hang the run.
+HTTP 4xx fails immediately. That is a configuration problem, and retrying will not fix it. HTTP 429/5xx ride a stall ladder of up to six attempts with waiting floors of 1, 5, 15, 45, and 90 minutes, so a throttled free-tier provider can clear its window; network errors and timeouts ride their own six-attempt ladder with 10, 20, 30, 60, and 90-minute floors. Content defects (bad JSON, dropped evidence) are re-asked up to three times with the validator's exact errors. Every call carries an absolute deadline (5 minutes, 15 for large-output calls) so a dead connection cannot hang the run.
+
+### Crash recovery (the run survives its own workers)
+
+Each PDF is processed in its own worker process, and the finalize pass in another. A worker that dies for any reason — an escaped error, an out-of-memory abort — never ends the run: the PDF is retried automatically up to three times (30 s apart), and if it still fails a panel shows the error text with three choices — `[R] Retry`, `[S] Skip PDF` (re-attempted on the next ingest, nothing is deleted), or `[A] Abort run` (everything already landed stays on disk). Every worker death is logged to the wiki's `.state/crash-log.jsonl` for later review.
 
 ## Getting the app
 

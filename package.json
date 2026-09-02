@@ -26,6 +26,7 @@
     "undici": "^8.7.0"
   },
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^11.17.0",
     "@types/node": "^20.14.0",
     "@types/react": "^19.2.17",
     "@yao-pkg/pkg": "^6.21.0",
