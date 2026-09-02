@@ -46041,7 +46041,7 @@ var require_snapshot_utils = __commonJS({
 var require_snapshot_recorder = __commonJS({
   "node_modules/undici/lib/mock/snapshot-recorder.js"(exports2, module2) {
     "use strict";
-    var { writeFile: writeFile27, readFile: readFile36, mkdir: mkdir29 } = __require("node:fs/promises");
+    var { writeFile: writeFile27, readFile: readFile36, mkdir: mkdir30 } = __require("node:fs/promises");
     var { dirname: dirname6, resolve: resolve7 } = __require("node:path");
     var { setTimeout: setTimeout2, clearTimeout: clearTimeout2 } = __require("node:timers");
     var { InvalidArgumentError: InvalidArgumentError2, UndiciError } = require_errors();
@@ -46288,7 +46288,7 @@ var require_snapshot_recorder = __commonJS({
           throw new InvalidArgumentError2("Snapshot path is required");
         }
         const resolvedPath = resolve7(path);
-        await mkdir29(dirname6(resolvedPath), { recursive: true });
+        await mkdir30(dirname6(resolvedPath), { recursive: true });
         const data = Array.from(this.#snapshots.entries()).map(([hash, snapshot]) => ({
           hash,
           snapshot
@@ -62744,7 +62744,7 @@ var {
 
 // src/cli.ts
 var import_react48 = __toESM(require_react(), 1);
-import { spawn as spawn3 } from "node:child_process";
+import { spawn as spawn4 } from "node:child_process";
 import { fileURLToPath as fileURLToPath3 } from "node:url";
 import { resolve as resolve6 } from "node:path";
 
@@ -74007,8 +74007,8 @@ function InitScreen({ onBack, onResult, defaultWorkspace = "./", pickFolder: pic
 
 // src/tui/ingest-screen.tsx
 var import_react42 = __toESM(require_react(), 1);
-import { readdir as readdir14 } from "node:fs/promises";
-import { join as join47 } from "node:path";
+import { readdir as readdir15 } from "node:fs/promises";
+import { join as join50 } from "node:path";
 
 // src/tui/hooks/use-wiki-list.ts
 var import_react40 = __toESM(require_react(), 1);
@@ -75864,7 +75864,7 @@ var __webpack_modules__ = {
       var defineProperty = Object.defineProperty;
       var stringSlice = uncurryThis("".slice);
       var replace = uncurryThis("".replace);
-      var join51 = uncurryThis([].join);
+      var join54 = uncurryThis([].join);
       var CONFIGURABLE_LENGTH = DESCRIPTORS && !fails(function() {
         return defineProperty(function() {
         }, "length", { value: 8 }).length !== 8;
@@ -75891,7 +75891,7 @@ var __webpack_modules__ = {
         }
         var state = enforceInternalState(value);
         if (!hasOwn(state, "source")) {
-          state.source = join51(TEMPLATE, typeof name == "string" ? name : "");
+          state.source = join54(TEMPLATE, typeof name == "string" ? name : "");
         }
         return value;
       };
@@ -111520,6 +111520,9 @@ function loadAgentsMd(wikiDir2) {
 }
 function formatIngestSummary(result) {
   let summary = `Ingest complete: ${result.ingested.length} ingested, ${result.skipped.length} skipped.`;
+  if ((result.deferred?.length ?? 0) > 0) {
+    summary += ` ${result.deferred.length} deferred (re-attempted next ingest): ${result.deferred.join(", ")}.`;
+  }
   if (result.synthesisRan === true) {
     const strict = (result.synthesized ?? 0) + (result.synthesizedTopics ?? 0) + (result.synthesizedComposites ?? 0) + (result.synthesizedComparisons ?? 0);
     const permissive = (result.synthesizedPermissive ?? 0) + (result.synthesizedTopicsPermissive ?? 0) + (result.synthesizedCompositesPermissive ?? 0) + (result.synthesizedComparisonsPermissive ?? 0);
@@ -111590,7 +111593,11 @@ async function runIngest(slug, options2) {
       );
     }
   }
-  const pdfFiles = (await readdir13(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
+  let pdfFiles = (await readdir13(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
+  if (options2.onlyPdfs !== void 0) {
+    const selected = new Set(options2.onlyPdfs);
+    pdfFiles = pdfFiles.filter((file) => selected.has(file));
+  }
   const result = {
     wiki: slug,
     wikiDir: dir,
@@ -111607,7 +111614,7 @@ async function runIngest(slug, options2) {
     patchFallbacks: 0,
     languages: language
   };
-  if (pdfFiles.length === 0) {
+  if (pdfFiles.length === 0 && !options2.finalizeOnly) {
     const emptyRunState = await readIngestionState(dir);
     for (const recordedSlug of Object.keys(emptyRunState.sources)) {
       progress(
@@ -111725,7 +111732,7 @@ async function runIngest(slug, options2) {
     }
   };
   try {
-    for (const fileName of pdfFiles) {
+    for (const fileName of options2.finalizeOnly ? [] : pdfFiles) {
       const pdfPath = join46(rawDir, fileName);
       const sourceSlug = sourceSlugForFile(fileName);
       const hash = await sha256(pdfPath);
@@ -111847,7 +111854,7 @@ ${rendered.text}
         tablesFound
       });
     }
-    if (extract && lastMaterializeResult === void 0) {
+    if (extract && !options2.finalizeOnly && lastMaterializeResult === void 0) {
       const extractedDir = join46(dir, ".state", "extracted");
       const hasExtractions = existsSync11(extractedDir) && (await readdir13(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
       if (hasExtractions) {
@@ -111858,6 +111865,9 @@ ${rendered.text}
     }
   } finally {
     await rehashWrittenPagesFromDisk();
+  }
+  if (options2.onlyPdfs !== void 0) {
+    return result;
   }
   state.pageHashes = workingPageHashes;
   await writeIngestionState(dir, state);
@@ -113057,6 +113067,376 @@ ${rendered.text}
   return result;
 }
 
+// src/tui/ingest-conductor.ts
+import { spawn as spawn2 } from "node:child_process";
+import { readdir as readdir14 } from "node:fs/promises";
+import { join as join49 } from "node:path";
+import { existsSync as existsSync13 } from "node:fs";
+
+// src/commands/worker-protocol.ts
+function serializeWorkerEvent(event) {
+  return `${JSON.stringify(event)}
+`;
+}
+function parseWorkerEventLine(line) {
+  const trimmed = line.trim();
+  if (trimmed.length === 0 || !trimmed.startsWith("{")) {
+    return null;
+  }
+  let parsed;
+  try {
+    parsed = JSON.parse(trimmed);
+  } catch {
+    return null;
+  }
+  if (typeof parsed !== "object" || parsed === null) {
+    return null;
+  }
+  const candidate = parsed;
+  if (candidate.type === "progress" && typeof candidate.line === "string") {
+    return { type: "progress", line: candidate.line };
+  }
+  if (candidate.type === "result") {
+    return { type: "result", result: candidate.result };
+  }
+  if (candidate.type === "fatal" && typeof candidate.error === "string") {
+    return { type: "fatal", error: candidate.error, stack: typeof candidate.stack === "string" ? candidate.stack : void 0 };
+  }
+  return null;
+}
+function createWorkerEventReader(onEvent) {
+  let buffer = "";
+  const handleLine = (line) => {
+    const event = parseWorkerEventLine(line);
+    if (event !== null) {
+      onEvent(event);
+    }
+  };
+  return {
+    push(chunk) {
+      buffer += chunk;
+      let newlineIndex = buffer.indexOf("\n");
+      while (newlineIndex !== -1) {
+        handleLine(buffer.slice(0, newlineIndex));
+        buffer = buffer.slice(newlineIndex + 1);
+        newlineIndex = buffer.indexOf("\n");
+      }
+    },
+    flush() {
+      if (buffer.length > 0) {
+        handleLine(buffer);
+        buffer = "";
+      }
+    }
+  };
+}
+var WORKER_FAULT_ENV = "PAPER_CHASE_WORKER_FAULT";
+var faultProgressCount = 0;
+function workerFaultAfterProgress() {
+  faultProgressCount += 1;
+  if (process.env[WORKER_FAULT_ENV] === "mid-pdf" && faultProgressCount >= 2) {
+    process.exit(1);
+  }
+}
+function workerFaultBeforeResult() {
+  if (process.env[WORKER_FAULT_ENV] === "pre-result") {
+    process.exit(1);
+  }
+}
+
+// src/state/crash-log.ts
+import { mkdir as mkdir28, appendFile as appendFile3 } from "node:fs/promises";
+import { join as join47 } from "node:path";
+var CRASH_LOG_STDERR_TAIL_LINES = 25;
+function crashLogPath(wikiDir2) {
+  return join47(wikiDir2, ".state", "crash-log.jsonl");
+}
+function tailLines(text, maxLines) {
+  const lines = text.split(/\r?\n/).filter((line) => line.length > 0);
+  return lines.slice(Math.max(0, lines.length - maxLines)).join("\n");
+}
+async function appendCrashLogRecord(wikiDir2, record) {
+  const path = crashLogPath(wikiDir2);
+  await enqueueSerializedWrite(path, async () => {
+    await mkdir28(join47(wikiDir2, ".state"), { recursive: true });
+    await appendFile3(path, `${JSON.stringify(record)}
+`, "utf-8");
+  });
+}
+
+// src/tui/worker-spawn.ts
+import { existsSync as existsSync12 } from "node:fs";
+import { join as join48 } from "node:path";
+var WORKER_CMD_ENV = "PAPER_CHASE_WORKER_CMD";
+function resolveWorkerCommand(rootOverride) {
+  const override = process.env[WORKER_CMD_ENV];
+  if (override !== void 0 && override.length > 0) {
+    return { command: override, baseArgs: [] };
+  }
+  if (isPackaged()) {
+    return { command: process.execPath, baseArgs: [] };
+  }
+  const root = rootOverride ?? appRoot();
+  const tsxCli = join48(root, "node_modules", "tsx", "dist", "cli.mjs");
+  const srcCli = join48(root, "src", "cli.ts");
+  if (existsSync12(tsxCli) && existsSync12(srcCli)) {
+    return { command: process.execPath, baseArgs: [tsxCli, srcCli] };
+  }
+  const bundle = join48(root, "dist", "chase.mjs");
+  if (existsSync12(bundle)) {
+    return { command: process.execPath, baseArgs: [bundle] };
+  }
+  throw new Error(
+    `Worker entry not found: no tsx/src CLI at ${srcCli} and no bundle at ${bundle}. The packaging runtime may be stale \u2014 re-run the app installer or rebuild.`
+  );
+}
+
+// src/tui/ingest-conductor.ts
+var AUTO_RETRY_RETRIES = 3;
+var AUTO_RETRY_BACKOFF_MS = 3e4;
+var defaultSpawnWorker = (args, handlers) => {
+  const resolved = resolveWorkerCommand();
+  const child = spawn2(resolved.command, [...resolved.baseArgs, ...args], {
+    stdio: ["ignore", "pipe", "pipe"],
+    // No shell — spaced-path-safe on Windows (the bin/chase.js precedent).
+    shell: false,
+    env: process.env
+  });
+  child.stdout?.setEncoding("utf-8");
+  child.stderr?.setEncoding("utf-8");
+  child.stdout?.on("data", (chunk) => handlers.onStdoutChunk(chunk));
+  child.stderr?.on("data", (chunk) => handlers.onStderrChunk(chunk));
+  const onClose = new Promise((resolvePromise) => {
+    child.on("error", (err) => {
+      handlers.onStderrChunk(`worker spawn failed: ${err.message}
+`);
+      resolvePromise({ code: null });
+    });
+    child.on("close", (code) => resolvePromise({ code: code ?? null }));
+  });
+  return { onClose, kill: () => child.kill() };
+};
+function mergeIngestResults(base, worker) {
+  const merged = {
+    ...base,
+    ingested: [...base.ingested, ...worker.ingested ?? []],
+    skipped: [...base.skipped, ...worker.skipped ?? []],
+    deferred: [...base.deferred ?? [], ...worker.deferred ?? []],
+    extractions: [...base.extractions, ...worker.extractions ?? []]
+  };
+  const numericKeys = [
+    "synthesized",
+    "synthesizedPermissive",
+    "synthesizedTopics",
+    "synthesizedTopicsPermissive",
+    "synthesisConflicts",
+    "topicConflicts",
+    "synthesizedComposites",
+    "synthesizedCompositesPermissive",
+    "compositeConflicts",
+    "synthesizedComparisons",
+    "synthesizedComparisonsPermissive",
+    "comparisonConflicts",
+    "patchedPages",
+    "patchFallbacks",
+    "synthesisSkipped",
+    "synthesisTopicsSkipped",
+    "synthesisCompositesSkipped",
+    "synthesisComparisonsSkipped"
+  ];
+  for (const key of numericKeys) {
+    const baseValue = base[key];
+    const workerValue = worker[key];
+    if (typeof baseValue === "number" || typeof workerValue === "number") {
+      merged[key] = (typeof baseValue === "number" ? baseValue : 0) + (typeof workerValue === "number" ? workerValue : 0);
+    }
+  }
+  for (const key of ["validation", "finalValidation", "crossWiki", "languages"]) {
+    if (worker[key] !== void 0) {
+      merged[key] = worker[key];
+    }
+  }
+  if (worker.agentsUpdateProposed) {
+    merged.agentsUpdateProposed = true;
+  }
+  if (worker.synthesisRan) {
+    merged.synthesisRan = true;
+  }
+  return merged;
+}
+async function discoverWorkspacePdfs(workspace, slug) {
+  const rawDir = join49(wikiDir(workspace, slug), "raw");
+  if (!existsSync13(rawDir)) {
+    throw new Error(`Wiki '${slug}' not found at ${wikiDir(workspace, slug)}. Run 'init ${slug}' first.`);
+  }
+  return (await readdir14(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
+}
+async function runWorker(spawnWorker, args, onProgress, signal) {
+  let stderr = "";
+  let workerResult;
+  const reader = createWorkerEventReader((event) => {
+    if (event.type === "progress") {
+      onProgress(event.line);
+    } else if (event.type === "result") {
+      workerResult = event.result;
+    }
+  });
+  const child = spawnWorker(args, {
+    onStdoutChunk: (chunk) => reader.push(chunk),
+    onStderrChunk: (chunk) => {
+      stderr = (stderr + chunk).slice(-64 * 1024);
+    }
+  });
+  const onAbort = () => child.kill();
+  signal?.addEventListener("abort", onAbort, { once: true });
+  let code;
+  try {
+    ({ code } = await child.onClose);
+  } finally {
+    signal?.removeEventListener("abort", onAbort);
+  }
+  reader.flush();
+  return {
+    ok: code === 0 && workerResult !== void 0,
+    result: workerResult,
+    exitCode: code,
+    stderrTail: tailLines(stderr, CRASH_LOG_STDERR_TAIL_LINES)
+  };
+}
+function buildWorkerArgs(slug, workspace, ingest3, scope) {
+  const args = ["ingest-worker", slug, "--workspace", workspace];
+  if ("pdf" in scope) {
+    args.push("--pdf", scope.pdf);
+  } else {
+    args.push("--finalize");
+  }
+  if (ingest3.extract === false) {
+    args.push("--no-extract");
+  }
+  if (ingest3.synthesis === true) {
+    args.push("--synthesis");
+  }
+  if (ingest3.updateAgents === true) {
+    args.push("--update-agents");
+  }
+  if (ingest3.doxLlm === false) {
+    args.push("--no-dox-llm");
+  }
+  if (ingest3.crossWiki === false) {
+    args.push("--no-cross-wiki");
+  }
+  if (ingest3.forceCrossWiki === true) {
+    args.push("--force-cross-wiki");
+  }
+  if (ingest3.inputLanguage !== void 0) {
+    args.push("--input-language", ingest3.inputLanguage);
+  }
+  if (ingest3.outputLanguage !== void 0) {
+    args.push("--output-language", ingest3.outputLanguage);
+  }
+  return args;
+}
+async function runIngestConductor(slug, options2) {
+  const spawnWorker = options2.spawnWorker ?? defaultSpawnWorker;
+  const sleep2 = options2.sleep ?? ((ms) => new Promise((resolvePromise) => setTimeout(resolvePromise, ms)));
+  const retries = options2.autoRetry?.retries ?? AUTO_RETRY_RETRIES;
+  const backoffMs = options2.autoRetry?.backoffMs ?? AUTO_RETRY_BACKOFF_MS;
+  const dir = wikiDir(options2.workspace, slug);
+  const pdfFiles = await discoverWorkspacePdfs(options2.workspace, slug);
+  const result = {
+    wiki: slug,
+    wikiDir: dir,
+    ingested: [],
+    skipped: [],
+    deferred: [],
+    extractions: [],
+    synthesized: 0,
+    synthesizedPermissive: 0,
+    synthesizedTopics: 0,
+    synthesizedTopicsPermissive: 0,
+    synthesisConflicts: 0,
+    topicConflicts: 0,
+    patchedPages: 0,
+    patchFallbacks: 0
+  };
+  const runScopedWorker = async (phase, pdf) => {
+    let merged = result;
+    let attempt = 0;
+    for (; ; ) {
+      if (options2.signal?.aborted) {
+        return { outcome: "aborted", merged };
+      }
+      attempt += 1;
+      const scope = phase === "pdf" ? { pdf } : { finalize: true };
+      const outcome = await runWorker(
+        spawnWorker,
+        buildWorkerArgs(slug, options2.workspace, options2.ingest, scope),
+        options2.onProgress,
+        options2.signal
+      );
+      if (outcome.ok && outcome.result !== void 0) {
+        merged = mergeIngestResults(merged, outcome.result);
+        return { outcome: "complete", merged };
+      }
+      const autoRetried = attempt <= retries;
+      await appendCrashLogRecord(dir, {
+        timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+        pdf,
+        phase,
+        exitCode: outcome.exitCode,
+        stderrTail: outcome.stderrTail,
+        attempt,
+        autoRetried
+      }).catch(() => {
+      });
+      const label = phase === "pdf" ? pdf : "finalize pass";
+      if (options2.signal?.aborted) {
+        return { outcome: "aborted", merged };
+      }
+      if (autoRetried) {
+        options2.onProgress(
+          `Worker for ${label} exited unexpectedly (code ${outcome.exitCode ?? "none"}) \u2014 auto-retry in ${Math.round(backoffMs / 1e3)}s (attempt ${attempt}/${retries + 1})...`
+        );
+        await sleep2(backoffMs);
+        continue;
+      }
+      const panelState = {
+        pdf,
+        phase,
+        exitCode: outcome.exitCode,
+        stderrTail: outcome.stderrTail,
+        attempt
+      };
+      options2.onCrashPanel?.(panelState);
+      const decision = options2.requestDecision !== void 0 ? await options2.requestDecision(panelState) : "abort";
+      options2.onCrashPanel?.(null);
+      if (decision === "retry") {
+        attempt = 0;
+        continue;
+      }
+      if (decision === "skip" && phase === "pdf") {
+        merged.deferred = [...merged.deferred ?? [], pdf];
+        options2.onProgress(`Deferred ${pdf} \u2014 it will be re-attempted on the next ingest run.`);
+        return { outcome: "skipped", merged };
+      }
+      return { outcome: "aborted", merged };
+    }
+  };
+  for (const pdf of pdfFiles) {
+    const { outcome, merged } = await runScopedWorker("pdf", pdf);
+    Object.assign(result, merged);
+    if (outcome === "aborted") {
+      return { result, status: "aborted" };
+    }
+  }
+  const finalize = await runScopedWorker("finalize", null);
+  Object.assign(result, finalize.merged);
+  if (finalize.outcome === "aborted") {
+    return { result, status: "aborted" };
+  }
+  return { result, status: "complete" };
+}
+
 // src/tui/ingest-screen.tsx
 var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
 var FOCUS_ORDER = ["wiki", "input", "output"];
@@ -113089,6 +113469,7 @@ function IngestScreen({
   extract = true,
   initialWiki,
   ingestFn,
+  conductorFn,
   onReviewAgents
 }) {
   const { isRawModeSupported } = use_stdin_default();
@@ -113113,6 +113494,9 @@ function IngestScreen({
   const [inputIndex, setInputIndex] = (0, import_react42.useState)(0);
   const [outputIndex, setOutputIndex] = (0, import_react42.useState)(0);
   const [proposalWiki, setProposalWiki] = (0, import_react42.useState)(null);
+  const [crashPanel, setCrashPanel] = (0, import_react42.useState)(null);
+  const decisionResolverRef = (0, import_react42.useRef)(null);
+  const abortRef = (0, import_react42.useRef)(null);
   const appliedInitialWiki = (0, import_react42.useRef)(false);
   (0, import_react42.useEffect)(() => {
     if (appliedInitialWiki.current || !initialWiki) {
@@ -113148,7 +113532,7 @@ function IngestScreen({
     readWikiLanguage(dir).then(async (state) => {
       let extracted = false;
       try {
-        extracted = (await readdir14(join47(dir, ".state", "extracted"))).some(
+        extracted = (await readdir15(join50(dir, ".state", "extracted"))).some(
           (file) => file.endsWith(".json")
         );
       } catch {
@@ -113175,28 +113559,56 @@ function IngestScreen({
     setStatus("running");
     setProgressLines([]);
     setProposalWiki(null);
+    setCrashPanel(null);
+    const abort = new AbortController();
+    abortRef.current = abort;
+    const onSigint = () => abort.abort();
+    process.once("SIGINT", onSigint);
     try {
-      const run = ingestFn ?? ingest;
-      const result = await run(wiki.slug, {
-        workspace: wiki.workspace,
-        extract,
-        synthesis,
-        inputLanguage: selectedInput.code,
-        outputLanguage: selectedOutput.code,
-        // Phase 9: opt-in AGENTS.md update proposal after the ingest.
-        updateAgents,
-        // Phase 6: production runs are LLM-driven — the DOX Writer writes rich,
-        // content-based index.md contracts (deterministic enforcement and
-        // fallback still guarantee valid contracts without a key).
-        doxLlm: true,
-        // Phase 24: the cross-wiki discovery pass auto-runs in production
-        // (it self-skips when the workspace holds fewer than two wikis or
-        // nothing cross-wiki-relevant changed; failures never abort ingest).
-        crossWiki: true,
-        // Phase 24 (user-ratified extension 2026-08-14): bypass preflight/probe.
-        forceCrossWiki,
-        onProgress: (line) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES))
-      });
+      let result;
+      if (ingestFn !== void 0) {
+        result = await ingestFn(wiki.slug, {
+          workspace: wiki.workspace,
+          extract,
+          synthesis,
+          inputLanguage: selectedInput.code,
+          outputLanguage: selectedOutput.code,
+          updateAgents,
+          doxLlm: true,
+          crossWiki: true,
+          forceCrossWiki,
+          onProgress: (line) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES))
+        });
+      } else {
+        const conductor = conductorFn ?? runIngestConductor;
+        const run = await conductor(wiki.slug, {
+          workspace: wiki.workspace,
+          ingest: {
+            extract,
+            synthesis,
+            updateAgents,
+            doxLlm: true,
+            crossWiki: true,
+            forceCrossWiki,
+            inputLanguage: selectedInput.code,
+            outputLanguage: selectedOutput.code
+          },
+          onProgress: (line) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
+          onCrashPanel: setCrashPanel,
+          requestDecision: () => new Promise((resolveDecision) => {
+            decisionResolverRef.current = resolveDecision;
+          }),
+          signal: abort.signal
+        });
+        if (run.status === "aborted") {
+          setStatus("error");
+          const abortMessage = "Ingest aborted \u2014 everything already landed is saved on disk. Start the ingest again to resume where it stopped.";
+          setMessage(abortMessage);
+          onResult?.(`Error: ${abortMessage}`);
+          return;
+        }
+        result = run.result;
+      }
       let summary = formatIngestSummary(result);
       if (result.agentsUpdateProposed) {
         summary += " AGENTS.md update proposal saved to .state/proposed-agents.md (review and apply manually).";
@@ -113211,6 +113623,11 @@ function IngestScreen({
       setStatus("error");
       setMessage(errorMessage);
       onResult?.(`Error: ${errorMessage}`);
+    } finally {
+      process.removeListener("SIGINT", onSigint);
+      abortRef.current = null;
+      decisionResolverRef.current = null;
+      setCrashPanel(null);
     }
   };
   const startIngest = (wiki) => {
@@ -113222,6 +113639,20 @@ function IngestScreen({
   };
   use_input_default(
     (_input, key) => {
+      if (crashPanel !== null) {
+        const lower = _input.toLowerCase();
+        if (lower === "r") {
+          decisionResolverRef.current?.("retry");
+          decisionResolverRef.current = null;
+        } else if (lower === "s" && crashPanel.phase === "pdf") {
+          decisionResolverRef.current?.("skip");
+          decisionResolverRef.current = null;
+        } else if (lower === "a") {
+          decisionResolverRef.current?.("abort");
+          decisionResolverRef.current = null;
+        }
+        return;
+      }
       if (status === "running") {
         return;
       }
@@ -113367,6 +113798,30 @@ function IngestScreen({
     ] }),
     status === "running" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LoadingSpinner, { label: "Running ingest..." }),
     progressLines.map((line, index) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { dimColor: status === "running", children: withProgressBar(line) }, index)),
+    crashPanel !== null ? (
+      // Phase 27 (§2.3): the crash-recovery panel — the phase's only new
+      // UI element. Rendered only while a worker died, the auto-retry cap
+      // is exhausted, and the conductor awaits the user's decision.
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Box_default, { flexDirection: "column", borderStyle: "round", borderColor: "red", marginTop: 1, paddingX: 1, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { color: "red", bold: true, children: [
+          "Worker for ",
+          crashPanel.pdf ?? "the finalize pass",
+          " exited unexpectedly (code",
+          " ",
+          crashPanel.exitCode ?? "none",
+          ", attempt ",
+          crashPanel.attempt,
+          ")"
+        ] }),
+        crashPanel.stderrTail.length > 0 ? crashPanel.stderrTail.split("\n").slice(-10).map((line, index) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { color: "gray", children: line }, index)) : null,
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { bold: true, children: [
+          "[R] Retry",
+          crashPanel.phase === "pdf" ? "   [S] Skip PDF (re-attempted next ingest)" : "",
+          " ",
+          "[A] Abort run"
+        ] })
+      ] })
+    ) : null,
     status === "success" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(SuccessBox, { message }),
     status === "success" && proposalWiki && isRawModeSupported ? (
       // Phase 11 v1.6.0: post-ingest review shortcut hint (only when a
@@ -113383,8 +113838,8 @@ var import_react44 = __toESM(require_react(), 1);
 
 // src/tui/hooks/use-raw-contents.ts
 var import_react43 = __toESM(require_react(), 1);
-import { readdir as readdir15 } from "node:fs/promises";
-import { join as join48 } from "node:path";
+import { readdir as readdir16 } from "node:fs/promises";
+import { join as join51 } from "node:path";
 function useRawContents(workspace, wiki, refreshKey = 0) {
   const [files, setFiles] = (0, import_react43.useState)(null);
   (0, import_react43.useEffect)(() => {
@@ -113395,7 +113850,7 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
     }
     (async () => {
       try {
-        const entries = await readdir15(join48(workspace, "wikis", wiki, "raw"));
+        const entries = await readdir16(join51(workspace, "wikis", wiki, "raw"));
         if (!cancelled) {
           setFiles(entries.sort());
         }
@@ -113413,8 +113868,8 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
 }
 
 // src/commands/add-pdf.ts
-import { copyFile, mkdir as mkdir28, stat as stat2 } from "node:fs/promises";
-import { basename, extname, join as join49, resolve as resolve4 } from "node:path";
+import { copyFile, mkdir as mkdir29, stat as stat2 } from "node:fs/promises";
+import { basename, extname, join as join52, resolve as resolve4 } from "node:path";
 var AddPdfError = class extends Error {
   constructor(message) {
     super(message);
@@ -113446,9 +113901,9 @@ async function addPdfToWiki(wikiDir2, sourcePath) {
   if (extname(fileName).toLowerCase() !== ".pdf") {
     throw new AddPdfError(`Not a PDF file: ${fileName}. Only .pdf files can be added to raw/.`);
   }
-  const rawDir = join49(wikiDir2, "raw");
-  await mkdir28(rawDir, { recursive: true });
-  const destPath = join49(rawDir, fileName);
+  const rawDir = join52(wikiDir2, "raw");
+  await mkdir29(rawDir, { recursive: true });
+  const destPath = join52(rawDir, fileName);
   if (resolve4(cleaned) !== resolve4(destPath)) {
     try {
       await copyFile(cleaned, destPath);
@@ -113460,7 +113915,7 @@ async function addPdfToWiki(wikiDir2, sourcePath) {
 }
 
 // src/utils/file-dialog.ts
-import { spawn as spawn2 } from "node:child_process";
+import { spawn as spawn3 } from "node:child_process";
 var DIALOG_TIMEOUT_MS2 = 10 * 60 * 1e3;
 var DIALOG_SCRIPT2 = [
   "Add-Type -AssemblyName System.Windows.Forms",
@@ -113479,7 +113934,7 @@ function pickPdfFiles() {
   return new Promise((resolvePromise, rejectPromise) => {
     let child;
     try {
-      child = spawn2(
+      child = spawn3(
         "powershell.exe",
         ["-NoProfile", "-NonInteractive", "-Command", DIALOG_SCRIPT2],
         { shell: false, windowsHide: true }
@@ -114759,7 +115214,7 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
 // src/tui/agents-review-screen.tsx
 var import_react46 = __toESM(require_react(), 1);
 import { copyFile as copyFile2, readFile as readFile35 } from "node:fs/promises";
-import { join as join50 } from "node:path";
+import { join as join53 } from "node:path";
 
 // src/utils/line-diff.ts
 function diffLines(before, after) {
@@ -114854,10 +115309,10 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     setScrollOffset(0);
     try {
       const dir = wikiDir(workspace, slug);
-      const currentText = await readFile35(join50(dir, "AGENTS.md"), "utf-8");
+      const currentText = await readFile35(join53(dir, "AGENTS.md"), "utf-8");
       let proposalText;
       try {
-        proposalText = await readFile35(join50(dir, ".state", "proposed-agents.md"), "utf-8");
+        proposalText = await readFile35(join53(dir, ".state", "proposed-agents.md"), "utf-8");
       } catch (err) {
         if (err.code === "ENOENT") {
           proposalText = null;
@@ -114892,7 +115347,7 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     }
     try {
       const dir = wikiDir(workspace, activeWiki);
-      await copyFile2(join50(dir, ".state", "proposed-agents.md"), join50(dir, "AGENTS.md"));
+      await copyFile2(join53(dir, ".state", "proposed-agents.md"), join53(dir, "AGENTS.md"));
       const resultMessage = `Accepted proposed AGENTS.md updates for ${activeWiki}.`;
       setMessage(resultMessage);
       setStatus("done");
@@ -115184,7 +115639,7 @@ function App2({ workspace = ".", workspaces, onWorkspaceRegistered, pickFolder: 
 }
 
 // src/tui/workspace-bootstrap.ts
-import { existsSync as existsSync12 } from "node:fs";
+import { existsSync as existsSync14 } from "node:fs";
 import { resolve as resolve5 } from "node:path";
 async function loadWorkspaceRegistry(bootDir = ".") {
   const settings = await loadSettings(bootDir);
@@ -115198,7 +115653,7 @@ async function loadWorkspaceRegistry(bootDir = ".") {
 async function registerWorkspace(workspace, bootDir = ".") {
   const resolvedBoot = resolve5(bootDir);
   const resolved = resolve5(workspace.trim().length > 0 ? workspace.trim() : bootDir);
-  if (resolved !== resolvedBoot && !existsSync12(settingsPath(resolved)) && !existsSync12(legacySettingsPath(resolved))) {
+  if (resolved !== resolvedBoot && !existsSync14(settingsPath(resolved)) && !existsSync14(legacySettingsPath(resolved))) {
     try {
       const boot = await loadSettings(resolvedBoot);
       const inherited = { ...boot };
@@ -115316,9 +115771,49 @@ program2.command("ingest <slug>").description("Ingest PDFs into a wiki").option(
 });
 program2.command("test").description("Run the test suite").action(async () => {
   const npmCmd = process.platform === "win32" ? "npm.cmd" : "npm";
-  const child = spawn3(npmCmd, ["test"], { stdio: "inherit", shell: true });
+  const child = spawn4(npmCmd, ["test"], { stdio: "inherit", shell: true });
   child.on("close", (code) => process.exit(code ?? 1));
 });
+program2.command("ingest-worker <slug>").description("Internal: run ONE PDF (or the finalize tail) and speak the worker event protocol (Phase 27)").option("-w, --workspace <workspace>", "Workspace directory", ".").option("--pdf <file>", "Process exactly this raw/ PDF (per-PDF loop scope)").option("--finalize", "Run only the deferred tail (validation, DOX, workspace, cross-wiki, updater)").option("--synthesis", "Enable LLM synthesis (passed through to ingest)").option("--update-agents", "Propose AGENTS.md updates after ingest (passed through)").option("--no-extract", "Skip the Layer 2 Extractor (passed through)").option("--no-dox-llm", "Skip the LLM DOX Writer (passed through)").option("--no-cross-wiki", "Skip the cross-wiki discovery pass (passed through)").option("--force-cross-wiki", "Force the cross-wiki discovery pass (passed through)").option("--input-language <code>", "Input language of this run's PDFs (passed through)").option("--output-language <code>", "Override the wiki output language for this run (passed through)").action(
+  async (slug, options2) => {
+    const originalConsoleLog = console.log;
+    console.log = (...args) => console.error(...args);
+    const emit = (event) => {
+      process.stdout.write(serializeWorkerEvent(event));
+    };
+    try {
+      if (Boolean(options2.pdf) === Boolean(options2.finalize)) {
+        throw new Error("ingest-worker requires exactly one of --pdf <file> or --finalize.");
+      }
+      const result = await ingest(slug, {
+        workspace: options2.workspace,
+        onlyPdfs: options2.pdf !== void 0 ? [options2.pdf] : void 0,
+        finalizeOnly: options2.finalize === true,
+        extract: options2.extract,
+        synthesis: options2.synthesis,
+        doxLlm: options2.doxLlm,
+        crossWiki: options2.crossWiki,
+        forceCrossWiki: options2.forceCrossWiki,
+        updateAgents: options2.updateAgents,
+        inputLanguage: options2.inputLanguage,
+        outputLanguage: options2.outputLanguage,
+        onProgress: (message) => {
+          workerFaultAfterProgress();
+          emit({ type: "progress", line: message });
+        }
+      });
+      workerFaultBeforeResult();
+      emit({ type: "result", result });
+      process.exitCode = 0;
+    } catch (err) {
+      const error = err;
+      emit({ type: "fatal", error: error.message, stack: error.stack });
+      process.exitCode = 1;
+    } finally {
+      console.log = originalConsoleLog;
+    }
+  }
+);
 var entryPath = process.argv[1] ? resolve6(process.argv[1]) : "";
 var modulePath = import.meta.url ? fileURLToPath3(import.meta.url) : entryPath;
 var isDirectExecution = isPackaged() || entryPath === modulePath || process.platform === "win32" && entryPath.toLowerCase() === modulePath.toLowerCase();
