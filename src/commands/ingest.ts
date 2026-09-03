@@ -27,7 +27,7 @@ import { readWikiLanguage, writeWikiLanguage } from '../state/language';
 import { readFullRollingMemory } from '../state/rolling-memory';
 import { readConflicts } from '../state/conflicts';
 import { writeMetrics, sumLlmUsageSince, countLlmCallsSince, type IngestionMetrics } from '../state/metrics';
-import { setModelRouting, isTransientTransportError, setStallWaitReporter } from '../llm/client';
+import { setModelRouting, isTransientTransportError, setStallWaitReporter, type StallWaitInfo } from '../llm/client';
 import { beginReaskRun, reaskRepairs, runWithFeedbackRetry } from '../llm/reask';
 import {
   isSkipEligible,
@@ -345,6 +345,22 @@ export interface IngestOptions {
    * (absent flag) is byte-identical to the pre-Phase-27 behavior.
    */
   finalizeOnly?: boolean;
+  /**
+   * Phase 27 v1.0.1: with `finalizeOnly`, also run the all-skipped repair
+   * fallback (materialize + curation + synthesis) before the deferred tail.
+   * The conductor passes this when NO PDF was ingested this run — restoring
+   * the 2026-07-21 repair law's batch semantics (exactly one repair pass per
+   * all-skip run) instead of one fallback per hash-skipped PDF worker. Ignored
+   * in `onlyPdfs` runs (per-PDF workers never run the fallback).
+   */
+  idleFallback?: boolean;
+  /**
+   * Phase 27 v1.0.1: structured stall tap — fired with the same
+   * {@link StallWaitInfo} the progress line renders, so the TUI worker can
+   * emit a protocol event and the screen can render a live countdown. The
+   * plain text stall line still flows through `onProgress` unchanged.
+   */
+  onStall?: (info: StallWaitInfo) => void;
 }
 
 export interface IngestedSource {
@@ -722,18 +738,24 @@ export async function ingest(slug: string, options: IngestOptions = {}): Promise
   // finally so the reporter never leaks into another caller's run.
   // Phase 16 v1.0.6 (user-ratified 2026-08-30): network/timeout stalls
   // (statusCode 0) join the channel with their own label.
+  // Phase 27 v1.0.1: the line names the failing call (info.label) and the
+  // structured info also reaches options.onStall so the TUI worker can emit
+  // a protocol event and the screen can render a live countdown.
   const reportProgress = options.onProgress;
-  if (reportProgress) {
-    setStallWaitReporter(({ waitSeconds, attempt, maxAttempts, statusCode }) => {
+  const reportStall = options.onStall;
+  if (reportProgress || reportStall) {
+    setStallWaitReporter((info) => {
       const reason =
-        statusCode === 0
+        info.statusCode === 0
           ? 'Connection problem (network/timeout)'
-          : statusCode === 429
+          : info.statusCode === 429
             ? 'Rate limited by provider (HTTP 429)'
-            : `Provider error (HTTP ${statusCode})`;
-      reportProgress(
-        `${reason} — waiting ${waitSeconds}s before retry (attempt ${attempt}/${maxAttempts})...`,
+            : `Provider error (HTTP ${info.statusCode})`;
+      const callLabel = info.label !== undefined ? ` — ${info.label}` : '';
+      reportProgress?.(
+        `${reason}${callLabel}: waiting ${info.waitSeconds}s before retry (attempt ${info.attempt}/${info.maxAttempts})...`,
       );
+      reportStall?.(info);
     });
   }
   try {
@@ -841,6 +863,18 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
   };
 
   if (pdfFiles.length === 0 && !options.finalizeOnly) {
+    // Phase 27 v1.0.1: a scoped worker whose target vanished between the
+    // conductor's discovery and this spawn (stale list, PDF removed mid-run)
+    // exits gracefully — one honest line per selected name. Never the
+    // run-level removed-PDF warnings: with `onlyPdfs` the filtered list is
+    // not the raw/ directory, and the finalize worker owns that check.
+    if (options.onlyPdfs !== undefined) {
+      for (const pdf of options.onlyPdfs) {
+        progress(`Skipping ${pdf} — no longer in raw/.`);
+      }
+      await writeWikiLanguage(dir, { outputLanguage: languageState.outputLanguage, lastInputLanguage: input });
+      return result;
+    }
     // Phase 8 (phase doc §2.2): warn about removed PDFs even when raw/ is
     // now empty — recorded sources whose files are gone are exactly the
     // removed-PDF case. Derived pages are kept either way.
@@ -889,12 +923,19 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
   // Phase 8 (phase doc §2.2): removed PDFs — recorded in the ingestion state
   // but no longer present in raw/. Warn only; derived pages are KEPT so the
   // journalist can review before removal (nothing is deleted).
-  const presentSlugs = new Set(pdfFiles.map((file) => sourceSlugForFile(file)));
-  for (const recordedSlug of Object.keys(state.sources)) {
-    if (!presentSlugs.has(recordedSlug)) {
-      progress(
-        `Warning: ${recordedSlug} is recorded in ingestion state but its PDF is no longer in raw/. Derived pages were kept.`,
-      );
+  // Phase 27 v1.0.1: this is a RUN-level check, so it runs only in unscoped
+  // runs — a worker-scoped (`onlyPdfs`) list is the selector, not the raw/
+  // directory, and would false-flag every other recorded source. The
+  // finalize worker carries no selector, so the check still runs exactly
+  // once per conductor run with the complete file list.
+  if (options.onlyPdfs === undefined) {
+    const presentSlugs = new Set(pdfFiles.map((file) => sourceSlugForFile(file)));
+    for (const recordedSlug of Object.keys(state.sources)) {
+      if (!presentSlugs.has(recordedSlug)) {
+        progress(
+          `Warning: ${recordedSlug} is recorded in ingestion state but its PDF is no longer in raw/. Derived pages were kept.`,
+        );
+      }
     }
   }
 
@@ -1239,7 +1280,16 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
   // Phase 27 (§2.1): never in a finalizeOnly run — the per-PDF workers
   // already materialized and synthesized against the grown aggregate, and
   // re-running the fallback would re-synthesize the whole wiki.
-  if (extract && !options.finalizeOnly && lastMaterializeResult === undefined) {
+  // Phase 27 v1.0.1: the fallback is RUN-LEVEL, not worker-level — it runs
+  // in unscoped runs exactly as before (batch law, 2026-07-21 repair), and
+  // in a finalizeOnly run ONLY when the conductor passes `idleFallback`
+  // (nothing was ingested this run). Per-PDF (`onlyPdfs`) workers never run
+  // it: under the conductor it would re-materialize and re-curate the whole
+  // wiki once per hash-skipped PDF.
+  const allSkipRepair =
+    (options.onlyPdfs === undefined && !options.finalizeOnly) ||
+    (options.finalizeOnly === true && options.idleFallback === true);
+  if (extract && allSkipRepair && lastMaterializeResult === undefined) {
     const extractedDir = join(dir, '.state', 'extracted');
     const hasExtractions =
       existsSync(extractedDir) &&

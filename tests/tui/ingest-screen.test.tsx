@@ -290,3 +290,81 @@ test('Phase 27: the crash panel renders on cap exhaustion and the R/S/A keys dec
   await tick(50);
   expect(panelSeen).toEqual(['shown', 'retry']);
 });
+
+// ---------------------------------------------------------------------------
+// Phase 27 v1.0.1 (user-ratified 2026-09-03): conductor observability — the
+// persistent worker-position row and the live stall countdown row render
+// during a run and vanish when it ends. The conductor stub holds the run
+// open so the rows can be asserted mid-flight.
+// ---------------------------------------------------------------------------
+
+test('Phase 27 v1.0.1: the worker-position row and live stall countdown render during a conductor run', async () => {
+  const workspace = makeTempDir('paper-chase-ingest-rows-');
+  await init('test-wiki', { workspace });
+
+  const release = { first: () => {}, second: () => {} };
+  const conductorFn = async (
+    _slug: string,
+    options: {
+      onProgress: (line: string) => void;
+      onWorkerChange?: (info: { index: number; total: number; pdf: string | null; phase: string }) => void;
+      onStall?: (info: { waitSeconds: number; attempt: number; maxAttempts: number; statusCode: number; label?: string }) => void;
+    },
+  ) => {
+    options.onWorkerChange?.({ index: 2, total: 37, pdf: 'AKDB_2025.pdf', phase: 'pdf' });
+    options.onProgress('── [2/37] AKDB_2025.pdf ──');
+    // A live stall with a countdown (10-minute wait); held open so the row
+    // can be asserted mid-flight.
+    options.onStall?.({ waitSeconds: 600, attempt: 2, maxAttempts: 6, statusCode: 0, label: 'curation-entities-bucket-2' });
+    await new Promise<void>((resolvePromise) => {
+      release.first = resolvePromise;
+    });
+    // A clamped stall (deadline already reached — the retry is in flight);
+    // held open again so the clamp state is observable before the run ends.
+    options.onStall?.({ waitSeconds: 0, attempt: 3, maxAttempts: 6, statusCode: 0, label: 'curation-entities-bucket-2' });
+    await new Promise<void>((resolvePromise) => {
+      release.second = resolvePromise;
+    });
+    return {
+      status: 'complete',
+      result: { wiki: 'test-wiki', wikiDir: join(workspace, 'wikis', 'test-wiki'), ingested: [], skipped: [], extractions: [] } as unknown as IngestResult,
+    };
+  };
+
+  const screen = renderCaptured(
+    <IngestScreen
+      workspace={workspace}
+      initialWiki={{ workspace, slug: 'test-wiki' }}
+      onBack={() => {}}
+      conductorFn={conductorFn as never}
+    />,
+  );
+  await waitFor(() => screen.output().includes('test-wiki'));
+  screen.stdin.write('\r');
+
+  // Mid-run: the position row (worker 2 of 38 — 37 PDFs + finalize) and the
+  // live countdown with the failing call's label.
+  await waitFor(() => screen.output().includes('AKDB_2025.pdf'));
+  const midRun = screen.output().replace(/\s+/g, ' ');
+  expect(midRun).toContain('Worker 2/38 · AKDB_2025.pdf');
+  expect(midRun).toContain('elapsed');
+  expect(midRun).toContain('Connection problem (network/timeout) — curation-entities-bucket-2');
+  expect(midRun).toMatch(/retry in (9|10)m/);
+  expect(midRun).toContain('attempt 2/6');
+
+  // Release the held run; the zero-second stall clamps to "in flight" (the
+  // run stays held so the clamp state is observable), then finish. The stall
+  // row exceeds 80 columns and wraps, so assert on whitespace-normalized
+  // output (the phase-11 footer-wrap precedent).
+  release.first();
+  await waitFor(() => screen.output().replace(/\s+/g, ' ').includes('retry in flight'));
+  release.second();
+  await waitFor(() => screen.output().includes('Ingest complete'));
+  screen.unmount();
+  await tick(50);
+
+  // Post-run: both rows are gone (they are run-scoped, not history).
+  const after = screen.output().slice(screen.output().lastIndexOf('Ingest complete'));
+  expect(after.replace(/\s+/g, ' ')).not.toContain('Worker 2/38');
+  expect(after.replace(/\s+/g, ' ')).not.toContain('retry in flight');
+});

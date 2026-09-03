@@ -1,9 +1,29 @@
 {
   "phase": "27",
-  "status": "complete",
+  "status": "implemented",
   "goal": "All 11 technical gates in PHASE_27_per_pdf_worker_isolation.md pass (key-less npm test green), all 3 UAT steps documented with expected output (human-perceptual steps presented by the Reporter), compliance log shows no unresolved contradictions, and total LLM cost is $0.00 (deterministic phase — stub seams + fault injection only).",
-  "lastAction": "Implementation + gates + DOX closeout complete (2026-09-02 ~21:00). Full key-less suite green: 594 passed, 16 skipped, 0 failed across 41 files (40 passed + 1 skipped e2e); tsc --noEmit clean. Reporter UAT presented (three perceptual steps).",
-  "gatesPassed": ["27.1", "27.2", "27.3", "27.4", "27.5", "27.6", "27.7", "27.8", "27.9", "27.10", "27.11"],
+  "lastAction": "v1.0.1 complete: gates 27.12-27.19 green, full suite 602 passed, Verifier PASS, DOX updated",
+  "gatesPassed": [
+    "27.1",
+    "27.2",
+    "27.3",
+    "27.4",
+    "27.5",
+    "27.6",
+    "27.7",
+    "27.8",
+    "27.9",
+    "27.10",
+    "27.11",
+    "27.12",
+    "27.13",
+    "27.14",
+    "27.15",
+    "27.16",
+    "27.17",
+    "27.18",
+    "27.19"
+  ],
   "gatesFailed": [],
   "gatesPending": [],
   "llmCost": "$0.0000",
@@ -23,5 +43,6 @@
     "The finalize worker is still one long-lived process (hours on a 37-PDF wiki) — acceptable per the ratified design, but if it ever becomes the crash exposure, it can be split later (per-level DOX workers) under a new amendment.",
     "A single giant PDF still runs ~a day in one worker; memory is bounded per PDF but the within-PDF growth curve was never measured (the rkkp post-mortem measured cross-PDF growth). If a single-PDF OOM ever fires, the crash panel + retry absorbs it; a within-PDF memory fix would be Solution 3 territory.",
     "The crash panel's Skip is intentionally absent for finalize crashes (deferral applies to PDFs only); finalize crash = Retry or Abort, per the never-auto-defer law."
-  ]
+  ],
+  "version": "1.0.1"
 }

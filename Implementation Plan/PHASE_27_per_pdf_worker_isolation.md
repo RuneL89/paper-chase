@@ -1,9 +1,9 @@
 # Phase 27: Per-PDF Worker-Process Isolation (TUI Conductor + Crash Recovery)
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-027`
-**Version:** 1.0.0
-**Status:** Implemented (all 11 gates green 2026-09-02; full key-less suite green — 594 passed, 16 skipped, 0 failed; $0 LLM spend)
-**Date:** 2026-09-02
+**Version:** 1.0.1 (v1.0.1 fix iteration appended 2026-09-03 — §8)
+**Status:** v1.0.0 Implemented (all 11 gates green 2026-09-02). v1.0.1 Implemented (gates 27.12–27.19 green 2026-09-03; full key-less suite green — 602 passed, 16 skipped, 0 failed; Verifier cold-check PASS; $0 LLM spend).
+**Date:** 2026-09-02 (v1.0.0) / 2026-09-03 (v1.0.1)
 **Dependencies:** Phases 0-9, 11-26 (Phase 26's per-PDF loop is the boundary being isolated; Phase 16's checkpointing is what makes retry cheap)
 **Estimated Time:** 10-14 hours
 **LLM Token Budget:** **$0.00** — fully deterministic. The worker split is transport-neutral; every gate uses the existing injectable stub seams (`extractChunkFn`, `synthesisFn`, `amendmentFn`, …). Crash gates fault-inject via a debug env var (`PAPER_CHASE_WORKER_FAULT=<stage>`), never a real API call. The key-less suite profile is unchanged.
@@ -105,3 +105,36 @@ Mechanical checks are Verifier pre-UAT (gates above). Human-verifiable UAT for t
 - **`IngestResult.deferred` is additive** (absent = empty for all old callers); `formatIngestSummary` mentions deferred PDFs only when the list is non-empty.
 - **No new Settings rows, prompts, or model routing** — the worker inherits the same `.paper-chase.json` resolution because it runs in the same launch/workspace context the TUI passes explicitly.
 - **Phase 16 interaction:** transport failures inside a worker ride the stall ladders exactly as today; a worker death mid-stall-wait looks like any other crash to the conductor (pipe closes, no result).
+
+---
+
+## 8. v1.0.1 Fix Iteration (2026-09-03): Worker-scope fencing + conductor observability
+
+**User-ratified 2026-09-03** (AskUserQuestion round — "All three fixes / Full TUI depth / Rebuild ASAP" — plus the rollout directive). Born from the 2026-09-03 live rkkp evidence, observed on the production run itself:
+
+1. **False orphan warnings:** the Phase 8 removed-PDF check builds `presentSlugs` from the `onlyPdfs`-FILTERED file list (`src/commands/ingest.ts` ~892), so every Phase 27 PDF worker warns that every OTHER recorded source's PDF "is no longer in raw/" (the AKDB skip-worker printed four false warnings while all five PDFs sat in raw/). The empty-raw path (~843) has the same shape. **Fix:** gate both warning blocks on `options.onlyPdfs === undefined` — the check is run-level, and the finalize worker (no `onlyPdfs`) carries the complete raw/ list, so it still runs exactly once per run with correct data. A scoped worker whose target vanished mid-run exits gracefully with one honest line instead of all-sources spam.
+2. **Fallback re-runs per skip-worker:** the 2026-07-21 all-skip repair fallback (`lastMaterializeResult === undefined`) ran in EVERY hash-skip worker under the conductor — the AFDK skip-worker burned 8h53m re-curating the whole wiki, with DAPROCA/DGCD/HOFTER owing ~3 more passes. **Fix:** restore batch semantics — the fallback runs for full runs (unchanged) OR for `finalizeOnly && idleFallback` (new additive option, CLI `--idle-fallback`); the conductor passes the flag iff its merged `result.ingested.length === 0` (the conductor is the only party that knows whether any PDF landed). An all-skip run still gets exactly ONE repair pass per run, now in the finalize worker before the tail.
+3. **Observability (amends the 2026-09-02 "only new UI is the crash-recovery panel" clause by user ratification):** per-worker banner lines (`[2/37] AKDB_2025.pdf`, `[finalize] validation · DOX · workspace · cross-wiki · updater`), a persistent dim worker-position row (`Worker 2/37 · <pdf> · elapsed …`), and stall lines that carry the failing call's label with a LIVE countdown in the TUI (clamping at zero to `retry in flight…`); `StallWaitInfo` gains `label`, the worker emits a structured `{type:'stall'}` protocol event, and the CLI degrades to today's single text line (now labeled).
+
+**Budget: $0.00** — every new gate is deterministic (stub seams + scripted spawns); the key-less suite profile is unchanged.
+
+### v1.0.1 Technical gates (tests/phase-27.test.ts + tests/tui/ingest-screen.test.tsx)
+
+| Gate | Test |
+|---|---|
+| 27.12 | **Orphan fencing (scoped):** an `onlyPdfs` run over a wiki with OTHER recorded sources present in raw/ emits ZERO "no longer in raw/" warnings; a scoped run whose target PDF is absent emits one honest skip line and returns cleanly (no all-sources warnings, no error). |
+| 27.13 | **Orphan fencing (finalize keeps it):** a `finalizeOnly` run (and a plain full run) over a wiki with a genuinely removed PDF still emits the warning exactly once — Phase 8 law preserved at run level. |
+| 27.14 | **Fallback fencing:** an `onlyPdfs` worker whose PDF hash-skips makes ZERO curation LLM calls and exits (the fallback does not run in per-PDF workers). |
+| 27.15 | **idleFallback engine mode:** `ingest(slug, { finalizeOnly: true, idleFallback: true })` on an all-skip wiki runs materialize + curation + synthesis (the repair pass) before the tail; without the flag the finalize run performs no materialize/curation. |
+| 27.16 | **Conductor flag + banners:** the conductor spawns the finalize worker with `--idle-fallback` iff no PDF was ingested this run (both scenarios asserted on the spawn sequence); each PDF worker is preceded by a `[i/N] <pdf>` banner line and the finalize worker by a `[finalize]` banner, relayed through onProgress in order. |
+| 27.17 | **Worker-position + stall relay:** the conductor fires `onWorkerChange({index, total, pdf, phase})` at each worker start; a worker `{type:'stall'}` event reaches the conductor's `onStall` callback with the label/wait/attempt payload; `StallWaitInfo` carries `label` and the ingest progress stall line includes it. |
+| 27.18 | **Screen rows:** the ingest screen renders the worker-position row during a conductor run and a live stall row that counts down (zero-clamp shows `retry in flight…`); both vanish when the run ends; the healthy-run screen gains the banner lines and the crash panel is unchanged. |
+| 27.19 | **Doc gates:** vision 04 §1 rider (2026-09-03) present; phase doc v1.0.1 section with gates 27.12–27.19 present. |
+
+### v1.0.1 Approval Checklist
+
+- [x] Gates 27.12–27.19 green; full key-less suite green (602 passed + 16 skipped, 41 files); tsc --noEmit clean.
+- [x] Compliance log: pre-check (COMPLIANT with the user-ratified observability amendment) + closeout entries present.
+- [x] Vision 04 §1 rider (2026-09-03) present; root AGENTS.md preference + dist 1.0.31 entries present.
+- [ ] VERSION 1.0.30 → 1.0.31; `npm run package:win` rebuild after the live TUI is closed.
+- [ ] Live-run UAT (post-rebuild, on rkkp): skip-workers exit in seconds with no curation calls and no false warnings; banner/position rows visible; CPOP's real worker runs and records the source.

@@ -133,7 +133,14 @@ import { spawnSync } from 'node:child_process';
 // src/state/crash-log.ts, src/commands/ingest.ts engine split) must
 // re-extract: the TUI now spawns per-PDF worker children from the extracted
 // bundle, so a stale runtime has no worker entry to spawn.
-const VERSION = '1.0.30';
+// 1.0.31 (2026-09-03): Phase 27 v1.0.1 — worker-scope fencing (orphan-check +
+// all-skip repair fallback gating) + conductor observability (per-worker
+// banners, worker-position row, live stall countdown, stall label). The bundle
+// (src/commands/ingest.ts, src/cli.ts, src/commands/worker-protocol.ts,
+// src/tui/ingest-conductor.ts, src/tui/ingest-screen.tsx, src/llm/client.ts)
+// must re-extract so installed runtimes get the fenced engine logic and the
+// live status rows.
+const VERSION = '1.0.31';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

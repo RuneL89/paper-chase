@@ -165,6 +165,7 @@ program
   .option('-w, --workspace <workspace>', 'Workspace directory', '.')
   .option('--pdf <file>', 'Process exactly this raw/ PDF (per-PDF loop scope)')
   .option('--finalize', 'Run only the deferred tail (validation, DOX, workspace, cross-wiki, updater)')
+  .option('--idle-fallback', 'With --finalize: also run the all-skipped repair pass (conductor sets this when nothing was ingested)')
   .option('--synthesis', 'Enable LLM synthesis (passed through to ingest)')
   .option('--update-agents', 'Propose AGENTS.md updates after ingest (passed through)')
   .option('--no-extract', 'Skip the Layer 2 Extractor (passed through)')
@@ -180,6 +181,7 @@ program
         workspace: string;
         pdf?: string;
         finalize?: boolean;
+        idleFallback?: boolean;
         synthesis?: boolean;
         updateAgents?: boolean;
         extract?: boolean;
@@ -206,6 +208,7 @@ program
           workspace: options.workspace,
           onlyPdfs: options.pdf !== undefined ? [options.pdf] : undefined,
           finalizeOnly: options.finalize === true,
+          idleFallback: options.idleFallback === true,
           extract: options.extract,
           synthesis: options.synthesis,
           doxLlm: options.doxLlm,
@@ -217,6 +220,12 @@ program
           onProgress: (message) => {
             workerFaultAfterProgress();
             emit({ type: 'progress', line: message });
+          },
+          // Phase 27 v1.0.1: the structured stall event rides the same
+          // channel so the conductor can hand the screen a live countdown
+          // (the plain text stall line still flows through onProgress).
+          onStall: (info) => {
+            emit({ type: 'stall', info });
           },
         });
         workerFaultBeforeResult();

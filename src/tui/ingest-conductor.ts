@@ -3,6 +3,7 @@ import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { existsSync } from 'node:fs';
 import type { IngestResult } from '../commands/ingest';
+import type { StallWaitInfo } from '../llm/client';
 import { wikiDir } from '../utils/paths';
 import { createWorkerEventReader, type WorkerEvent } from '../commands/worker-protocol';
 import { appendCrashLogRecord, tailLines, CRASH_LOG_STDERR_TAIL_LINES } from '../state/crash-log';
@@ -170,6 +171,17 @@ export interface ConductorOptions {
   onCrashPanel?: (state: CrashPanelState | null) => void;
   /** The user-decision channel (the panel's R/S/A keys); default: abort. */
   requestDecision?: (state: CrashPanelState) => Promise<CrashDecision>;
+  /**
+   * Phase 27 v1.0.1: fired at every worker spawn (attempts included) with
+   * the run-position info the screen renders as the persistent status row.
+   */
+  onWorkerChange?: (info: WorkerPosition) => void;
+  /**
+   * Phase 27 v1.0.1: structured stall relay — a worker's transport-stall
+   * wait start, for the screen's live countdown row (the plain text stall
+   * line still flows through onProgress).
+   */
+  onStall?: (info: StallWaitInfo) => void;
   spawnWorker?: SpawnWorkerFn;
   autoRetry?: { retries: number; backoffMs: number };
   sleep?: (ms: number) => Promise<void>;
@@ -180,6 +192,17 @@ export interface ConductorOptions {
    * everything landed so far.
    */
   signal?: AbortSignal;
+}
+
+/** The run-position snapshot the screen's status row renders (v1.0.1). */
+export interface WorkerPosition {
+  /** 1-based position within the run (finalize = total + 1). */
+  index: number;
+  /** Number of PDFs in the run (the finalize worker is extra). */
+  total: number;
+  /** PDF file name; null for the finalize worker. */
+  pdf: string | null;
+  phase: CrashPhase;
 }
 
 interface WorkerOutcome {
@@ -195,12 +218,17 @@ async function runWorker(
   args: string[],
   onProgress: (line: string) => void,
   signal?: AbortSignal,
+  onStall?: (info: StallWaitInfo) => void,
 ): Promise<WorkerOutcome> {
   let stderr = '';
   let workerResult: IngestResult | undefined;
   const reader = createWorkerEventReader((event: WorkerEvent) => {
     if (event.type === 'progress') {
       onProgress(event.line);
+    } else if (event.type === 'stall') {
+      // Phase 27 v1.0.1: structured stall relay for the screen's live
+      // countdown row (the text stall line already arrived via progress).
+      onStall?.(event.info);
     } else if (event.type === 'result') {
       workerResult = event.result as IngestResult;
     }
@@ -237,12 +265,18 @@ function buildWorkerArgs(
   workspace: string,
   ingest: ConductorIngestOptions,
   scope: { pdf: string } | { finalize: true },
+  /** v1.0.1: finalize-only — run the all-skipped repair pass first (the
+   * conductor sets this iff no PDF was ingested this run). */
+  idleFallback?: boolean,
 ): string[] {
   const args = ['ingest-worker', slug, '--workspace', workspace];
   if ('pdf' in scope) {
     args.push('--pdf', scope.pdf);
   } else {
     args.push('--finalize');
+    if (idleFallback === true) {
+      args.push('--idle-fallback');
+    }
   }
   if (ingest.extract === false) {
     args.push('--no-extract');
@@ -300,6 +334,9 @@ export async function runIngestConductor(slug: string, options: ConductorOptions
   const runScopedWorker = async (
     phase: CrashPhase,
     pdf: string | null,
+    position: { index: number; total: number },
+    /** v1.0.1: finalize-only idle-fallback flag (repair pass first). */
+    idleFallback?: boolean,
   ): Promise<{ outcome: 'complete' | 'aborted' | 'skipped'; merged: IngestResult }> => {
     let merged = result;
     let attempt = 0;
@@ -308,13 +345,23 @@ export async function runIngestConductor(slug: string, options: ConductorOptions
         return { outcome: 'aborted', merged };
       }
       attempt += 1;
+      // Phase 27 v1.0.1 observability: banner (on every attempt — a retry is
+      // a new worker the user should see start) + the position snapshot the
+      // screen's status row renders.
+      const banner =
+        phase === 'pdf'
+          ? `── [${position.index}/${position.total}] ${pdf as string} ──`
+          : '── [finalize] validation · DOX · workspace · cross-wiki · updater ──';
+      options.onProgress(banner);
+      options.onWorkerChange?.({ index: position.index, total: position.total, pdf, phase });
       const scope: { pdf: string } | { finalize: true } =
         phase === 'pdf' ? { pdf: pdf as string } : { finalize: true };
       const outcome = await runWorker(
         spawnWorker,
-        buildWorkerArgs(slug, options.workspace, options.ingest, scope),
+        buildWorkerArgs(slug, options.workspace, options.ingest, scope, idleFallback),
         options.onProgress,
         options.signal,
+        options.onStall,
       );
       if (outcome.ok && outcome.result !== undefined) {
         merged = mergeIngestResults(merged, outcome.result);
@@ -371,15 +418,27 @@ export async function runIngestConductor(slug: string, options: ConductorOptions
     }
   };
 
+  let workerIndex = 0;
   for (const pdf of pdfFiles) {
-    const { outcome, merged } = await runScopedWorker('pdf', pdf);
+    workerIndex += 1;
+    const { outcome, merged } = await runScopedWorker('pdf', pdf, { index: workerIndex, total: pdfFiles.length });
     Object.assign(result, merged);
     if (outcome === 'aborted') {
       return { result, status: 'aborted' };
     }
   }
 
-  const finalize = await runScopedWorker('finalize', null);
+  // Phase 27 v1.0.1: the finalize worker runs the all-skipped repair pass
+  // ONLY when nothing was ingested this run — restoring the 2026-07-21
+  // repair law's batch semantics (exactly one repair pass per all-skip run)
+  // instead of one fallback per hash-skipped PDF worker.
+  const idleFallback = result.ingested.length === 0;
+  const finalize = await runScopedWorker(
+    'finalize',
+    null,
+    { index: pdfFiles.length + 1, total: pdfFiles.length },
+    idleFallback,
+  );
   Object.assign(result, finalize.merged);
   if (finalize.outcome === 'aborted') {
     return { result, status: 'aborted' };

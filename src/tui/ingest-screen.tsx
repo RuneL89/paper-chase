@@ -14,7 +14,9 @@ import {
   runIngestConductor,
   type CrashPanelState,
   type CrashDecision,
+  type WorkerPosition,
 } from './ingest-conductor';
+import type { StallWaitInfo } from '../llm/client';
 import { loadSettings } from './settings';
 import { readWikiLanguage, type WikiLanguageState } from '../state/language';
 import { SUPPORTED_LANGUAGES } from '../utils/language';
@@ -80,6 +82,40 @@ function languageIndexOf(code: string): number {
 
 const CHUNK_PROGRESS_PATTERN = /^Chunk (\d+)\/(\d+)/;
 const PROGRESS_BAR_CELLS = 10;
+
+/**
+ * Phase 27 v1.0.1: the stall text lines' leading labels — a progress line
+ * starting with one of these is the static record of a stall wait (already
+ * rendered live by the countdown row), so it must NOT clear the live row.
+ */
+const STALL_LINE_PREFIXES = ['Rate limited', 'Provider error', 'Connection problem'];
+
+function isStallTextLine(line: string): boolean {
+  return STALL_LINE_PREFIXES.some((prefix) => line.startsWith(prefix));
+}
+
+/** v1.0.1: `1h 12m` / `4m 03s` / `7s` elapsed rendering for the status row. */
+function formatElapsed(ms: number): string {
+  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  if (hours > 0) {
+    return `${hours}h ${String(minutes).padStart(2, '0')}m`;
+  }
+  if (minutes > 0) {
+    return `${minutes}m ${String(seconds).padStart(2, '0')}s`;
+  }
+  return `${seconds}s`;
+}
+
+/** v1.0.1: the stall reason label (same mapping as the engine stall line). */
+function stallReason(statusCode: number): string {
+  if (statusCode === 0) {
+    return 'Connection problem (network/timeout)';
+  }
+  return statusCode === 429 ? 'Rate limited by provider (HTTP 429)' : `Provider error (HTTP ${statusCode})`;
+}
 
 /**
  * Phase 11 (phase doc §2.4): prefix "Chunk X/Y ..." progress lines with a
@@ -157,11 +193,17 @@ export function IngestScreen({
   const [proposalWiki, setProposalWiki] = useState<WikiRef | null>(null);
   // Phase 27 (vision `04` §1 Worker-process isolation): the crash-recovery
   // panel state (null = no panel) and the resolver for the pending R/S/A
-  // decision the conductor awaits. The panel is the phase's only new UI —
-  // healthy runs render byte-identically to the pre-Phase-27 screen.
+  // decision the conductor awaits.
   const [crashPanel, setCrashPanel] = useState<CrashPanelState | null>(null);
   const decisionResolverRef = useRef<((decision: CrashDecision) => void) | null>(null);
   const abortRef = useRef<AbortController | null>(null);
+  // Phase 27 v1.0.1 observability (user-ratified 2026-09-03): the current
+  // worker's position snapshot (the persistent status row) and the live
+  // transport-stall wait (the countdown row). `nowTick` re-renders both on a
+  // 1 s heartbeat while a run is active.
+  const [workerPos, setWorkerPos] = useState<(WorkerPosition & { startedAt: number }) | null>(null);
+  const [stallWait, setStallWait] = useState<(StallWaitInfo & { deadline: number }) | null>(null);
+  const [nowTick, setNowTick] = useState(() => Date.now());
   // Phase 11: apply the continuous-workflow pre-selection exactly once (the
   // wiki list loads asynchronously).
   const appliedInitialWiki = useRef(false);
@@ -239,6 +281,29 @@ export function IngestScreen({
   const selectedOutput = SUPPORTED_LANGUAGES[outputIndex];
   const slugForkingRisk = hasExtractions && selectedInput.code !== languageState.lastInputLanguage;
 
+  // Phase 27 v1.0.1: 1 s heartbeat while a run is active — keeps the status
+  // row's elapsed time and the stall row's countdown live between progress
+  // lines (a stall wait can sit silent for up to 90 minutes).
+  const running = status === 'running';
+  useEffect(() => {
+    if (!running || (workerPos === null && stallWait === null)) {
+      return;
+    }
+    const timer = setInterval(() => setNowTick(Date.now()), 1000);
+    return () => clearInterval(timer);
+  }, [running, workerPos === null, stallWait === null]);
+
+  // v1.0.1: one append point for progress lines — a NON-stall line means the
+  // pipeline moved, so any live stall row is stale and clears (the stall's
+  // own text line and event arrive in order line→event, so the row survives
+  // its own announcement).
+  const pushProgressLine = (line: string): void => {
+    if (!isStallTextLine(line)) {
+      setStallWait(null);
+    }
+    setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES));
+  };
+
   // 2026-08-28: the workspace label is shown only when the list spans more
   // than one workspace — single-workspace frames stay byte-identical.
   const multiWorkspace = new Set(wikis.map((wiki) => wiki.workspace)).size > 1;
@@ -250,6 +315,8 @@ export function IngestScreen({
     setProgressLines([]);
     setProposalWiki(null);
     setCrashPanel(null);
+    setWorkerPos(null);
+    setStallWait(null);
     const abort = new AbortController();
     abortRef.current = abort;
     const onSigint = () => abort.abort();
@@ -268,12 +335,14 @@ export function IngestScreen({
           doxLlm: true,
           crossWiki: true,
           forceCrossWiki,
-          onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
+          onProgress: pushProgressLine,
         })) as IngestResult & { agentsUpdateProposed?: boolean };
       } else {
         // Phase 27: the production path — one worker process per PDF, the
         // finalize tail in its own worker, progress relayed to the same
         // lines, crash recovery per the 2026-09-02 vision amendment.
+        // v1.0.1: also relay the worker-position snapshot (status row) and
+        // the structured stall waits (live countdown row).
         const conductor = conductorFn ?? runIngestConductor;
         const run = await conductor(wiki.slug, {
           workspace: wiki.workspace,
@@ -287,8 +356,15 @@ export function IngestScreen({
             inputLanguage: selectedInput.code,
             outputLanguage: selectedOutput.code,
           },
-          onProgress: (line: string) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
+          onProgress: pushProgressLine,
           onCrashPanel: setCrashPanel,
+          onWorkerChange: (info) => {
+            setWorkerPos({ ...info, startedAt: Date.now() });
+            setStallWait(null);
+          },
+          onStall: (info) => {
+            setStallWait({ ...info, deadline: Date.now() + info.waitSeconds * 1000 });
+          },
           requestDecision: () =>
             new Promise<CrashDecision>((resolveDecision) => {
               decisionResolverRef.current = resolveDecision;
@@ -328,6 +404,8 @@ export function IngestScreen({
       abortRef.current = null;
       decisionResolverRef.current = null;
       setCrashPanel(null);
+      setWorkerPos(null);
+      setStallWait(null);
     }
   };
 
@@ -507,6 +585,30 @@ export function IngestScreen({
         </Box>
       )}
       {status === 'running' && <LoadingSpinner label="Running ingest..." />}
+      {status === 'running' && workerPos !== null ? (
+        // Phase 27 v1.0.1 (user-ratified 2026-09-03): the persistent
+        // worker-position row — which worker of how many, and how long it
+        // has been running (the finalize worker counts as total+1).
+        <Text dimColor>
+          Worker {workerPos.index}/{workerPos.total + 1} ·{' '}
+          {workerPos.pdf ?? 'finalize (validation · DOX · workspace · cross-wiki · updater)'} · elapsed{' '}
+          {formatElapsed(nowTick - workerPos.startedAt)}
+        </Text>
+      ) : null}
+      {status === 'running' && stallWait !== null ? (
+        // Phase 27 v1.0.1: the live stall row — counts down to the retry
+        // (the buffer keeps the static announcement line), then clamps at
+        // zero and reports the retry in flight (calls may legally run up to
+        // the 15-minute large-call deadline after the wait ends).
+        <Text color="yellow">
+          ⏳ {stallReason(stallWait.statusCode)}
+          {stallWait.label !== undefined ? ` — ${stallWait.label}` : ''}:{' '}
+          {nowTick < stallWait.deadline
+            ? `retry in ${formatElapsed(stallWait.deadline - nowTick)}`
+            : 'retry in flight…'}{' '}
+          (attempt {stallWait.attempt}/{stallWait.maxAttempts})
+        </Text>
+      ) : null}
       {progressLines.map((line, index) => (
         <Text key={index} dimColor={status === 'running'}>
           {withProgressBar(line)}

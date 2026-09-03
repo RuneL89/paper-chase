@@ -311,12 +311,16 @@ test('gate 27.1 (ingest): sequential onlyPdfs runs converge to the full-run tree
 // Gate 27.2: the worker event protocol
 // ---------------------------------------------------------------------------
 
-test('gate 27.2 (protocol): round-trip of all three event shapes; noise tolerated; chunk-safe reader', () => {
+test('gate 27.2 (protocol): round-trip of all four event shapes; noise tolerated; chunk-safe reader', () => {
   const progress: WorkerEvent = { type: 'progress', line: 'Chunk 3/24 (pages 11-15)' };
+  const stall: WorkerEvent = {
+    type: 'stall',
+    info: { waitSeconds: 600, attempt: 2, maxAttempts: 6, statusCode: 0, label: 'curation-entities-bucket-2' },
+  };
   const result: WorkerEvent = { type: 'result', result: { wiki: 'x', ingested: [] } };
   const fatal: WorkerEvent = { type: 'fatal', error: 'boom', stack: 'at x' };
 
-  for (const event of [progress, result, fatal]) {
+  for (const event of [progress, stall, result, fatal]) {
     const line = serializeWorkerEvent(event);
     expect(line.endsWith('\n')).toBe(true);
     expect(parseWorkerEventLine(line)).toEqual(event);
@@ -327,6 +331,8 @@ test('gate 27.2 (protocol): round-trip of all three event shapes; noise tolerate
   expect(parseWorkerEventLine('not json at all')).toBeNull();
   expect(parseWorkerEventLine('{"type":"unknown"}')).toBeNull();
   expect(parseWorkerEventLine(JSON.stringify({ type: 'progress', line: 42 }))).toBeNull();
+  // A stall event without its info payload is noise, not a crash (v1.0.1).
+  expect(parseWorkerEventLine(JSON.stringify({ type: 'stall' }))).toBeNull();
 
   // The reader reassembles events split across arbitrary chunk boundaries.
   const events: WorkerEvent[] = [];
@@ -438,8 +444,16 @@ test('gate 27.3 (conductor): two PDFs then finalize — three spawns in order, r
   expect(calls[1].args[calls[1].args.indexOf('--pdf') + 1]).toBe(REPORT_2024);
   expect(calls[2].args).toContain('--finalize');
 
-  // Relay: progress lines reach the channel verbatim, in order.
-  expect(progressLines).toEqual(['pdf a line', 'pdf b line', 'finalize line']);
+  // Relay: worker progress lines reach the channel verbatim, in order, each
+  // preceded by its v1.0.1 conductor banner (the per-worker separator).
+  expect(progressLines).toEqual([
+    `── [1/2] ${REPORT_2023} ──`,
+    'pdf a line',
+    `── [2/2] ${REPORT_2024} ──`,
+    'pdf b line',
+    '── [finalize] validation · DOX · workspace · cross-wiki · updater ──',
+    'finalize line',
+  ]);
 
   // Merge: lists concatenated, counters summed, finalize's object fields win.
   expect(run.result.ingested.map((source) => source.file)).toEqual([REPORT_2023, REPORT_2024]);
@@ -821,4 +835,260 @@ test('gate 27.11 (docs): vision amendment, preference, phase doc, and VERSION al
   // The launcher VERSION was bumped (asset-affecting change: TUI bundle).
   const launcher = readFileSync(join(import.meta.dirname, '..', 'scripts', 'launcher-entry.ts'), 'utf-8');
   expect(launcher).toMatch(/VERSION = '1\.0\.3[0-9]'/);
+});
+
+// ---------------------------------------------------------------------------
+// v1.0.1 gates (worker-scope fencing + conductor observability, user-ratified
+// 2026-09-03 — born from the live rkkp evidence: false orphan warnings from
+// every skip-worker, and the all-skip repair fallback re-running per worker)
+// ---------------------------------------------------------------------------
+
+test('gate 27.12 (orphan fencing): a scoped worker never emits removed-PDF warnings; a vanished target skips gracefully', { timeout: 120_000 }, async () => {
+  // Both PDFs ingested once (Layer-1 only — deterministic, no stubs needed).
+  const workspace = await setupWikiWithPdfs([REPORT_2023, REPORT_2024]);
+  await ingest('test-wiki', { workspace, extract: false, onProgress: () => {} });
+  const state = await readIngestionState(wikiPath(workspace));
+  expect(Object.keys(state.sources).sort()).toEqual(['report-2023', 'report-2024']);
+
+  // The scoped worker's filtered list holds ONLY its own PDF — before the
+  // fix this false-flagged every OTHER recorded source (the live AKDB bug:
+  // four false "no longer in raw/" warnings with all PDFs present).
+  const scopedLines: string[] = [];
+  const scoped = await ingest('test-wiki', {
+    workspace,
+    extract: false,
+    onlyPdfs: [REPORT_2023],
+    onProgress: (line) => scopedLines.push(line),
+  });
+  expect(scopedLines.some((line) => line.includes('no longer in raw/'))).toBe(false);
+  expect(scoped.ingested).toHaveLength(0); // hash-skip
+  expect(scoped.skipped).toEqual(['report-2023']); // the skipped list carries source slugs
+
+  // A scoped worker whose target vanished between discovery and spawn: one
+  // honest skip line, no all-sources warning spam, clean return.
+  const ghostLines: string[] = [];
+  const ghost = await ingest('test-wiki', {
+    workspace,
+    extract: false,
+    onlyPdfs: ['ghost.pdf'],
+    onProgress: (line) => ghostLines.push(line),
+  });
+  expect(ghostLines).toEqual(['Skipping ghost.pdf — no longer in raw/.']);
+  expect(ghost.ingested).toHaveLength(0);
+});
+
+test('gate 27.13 (orphan fencing): the finalize run keeps the removed-PDF warning — Phase 8 law at run level', { timeout: 120_000 }, async () => {
+  const workspace = await setupWikiWithPdfs([REPORT_2023]);
+  await ingest('test-wiki', { workspace, extract: false, onProgress: () => {} });
+
+  // The PDF is genuinely removed — the finalize worker (no selector, full
+  // raw/ list) must still warn exactly once; derived pages are kept.
+  rmSync(wikiPath(workspace, 'raw', REPORT_2023));
+  const finalizeLines: string[] = [];
+  await ingest('test-wiki', {
+    workspace,
+    extract: false,
+    finalizeOnly: true,
+    onProgress: (line) => finalizeLines.push(line),
+  });
+  const warnings = finalizeLines.filter((line) => line.includes('no longer in raw/'));
+  expect(warnings).toEqual([
+    'Warning: report-2023 is recorded in ingestion state but its PDF is no longer in raw/. Derived pages were kept.',
+  ]);
+});
+
+test('gate 27.14 (fallback fencing): a hash-skipping scoped worker makes ZERO curation calls', { timeout: 180_000 }, async () => {
+  // Run A (full, fresh): records the source with real extraction stubs.
+  const extraction2023 = extractionFixture('report-2023', 'Alpha Corp', 'alpha-corp');
+  const stubs = synthesisStubs();
+  const extractor = makeExtractChunkFnStub({ 'report-2023-part-001': extraction2023 });
+  const workspace = await setupWikiWithPdfs([REPORT_2023]);
+  await ingest('test-wiki', {
+    workspace,
+    synthesis: true,
+    poolStaggerMs: 0,
+    ...KEEP_ALL_STUBS,
+    extractChunkFn: extractor.fn,
+    ...stubs,
+  });
+  const state = await readIngestionState(wikiPath(workspace));
+  expect(Object.keys(state.sources)).toEqual(['report-2023']);
+
+  // Run B (scoped, hash-skip): before v1.0.1 the all-skip fallback re-ran
+  // materialize + curation + synthesis for the WHOLE wiki inside this
+  // worker (the live 8h53m AFDK pass); now the fallback is run-level and
+  // per-PDF workers never run it.
+  const runBStubs = synthesisStubs();
+  const curateTopicsCalls: string[] = [];
+  const curateEntitiesCalls: string[] = [];
+  const lines: string[] = [];
+  await ingest('test-wiki', {
+    workspace,
+    synthesis: true,
+    poolStaggerMs: 0,
+    curateTopicsFn: async () => {
+      curateTopicsCalls.push('topics');
+      return keepAllOutcome();
+    },
+    curateEntitiesFn: async () => {
+      curateEntitiesCalls.push('entities');
+      return keepAllOutcome();
+    },
+    extractChunkFn: extractor.fn,
+    ...runBStubs,
+    onlyPdfs: [REPORT_2023],
+    onProgress: (line) => lines.push(line),
+  });
+  expect(lines).toContain(`Skipping ${REPORT_2023} (unchanged)`);
+  expect(curateTopicsCalls).toHaveLength(0);
+  expect(curateEntitiesCalls).toHaveLength(0);
+  expect(runBStubs.entityCalls).toHaveLength(0); // no fallback synthesis either
+});
+
+test('gate 27.15 (idleFallback): the finalize run repairs an all-skip wiki ONLY when the conductor asks', { timeout: 180_000 }, async () => {
+  const extraction2023 = extractionFixture('report-2023', 'Alpha Corp', 'alpha-corp');
+  const extractor = makeExtractChunkFnStub({ 'report-2023-part-001': extraction2023 });
+  const workspace = await setupWikiWithPdfs([REPORT_2023]);
+  await ingest('test-wiki', {
+    workspace,
+    synthesis: true,
+    poolStaggerMs: 0,
+    ...KEEP_ALL_STUBS,
+    extractChunkFn: extractor.fn,
+    ...synthesisStubs(),
+  });
+
+  // Without the flag: a finalize run performs no materialize/curation (the
+  // pre-v1.0.1 law — per-PDF workers already did the work).
+  const idleCounters = { topics: 0, entities: 0 };
+  await ingest('test-wiki', {
+    workspace,
+    synthesis: true,
+    poolStaggerMs: 0,
+    curateTopicsFn: async () => {
+      idleCounters.topics += 1;
+      return keepAllOutcome();
+    },
+    curateEntitiesFn: async () => {
+      idleCounters.entities += 1;
+      return keepAllOutcome();
+    },
+    extractChunkFn: extractor.fn,
+    ...synthesisStubs(),
+    finalizeOnly: true,
+  });
+  expect(idleCounters.topics).toBe(0);
+  expect(idleCounters.entities).toBe(0);
+
+  // With the flag (the conductor's "nothing was ingested this run" signal):
+  // exactly ONE repair pass — materialize + curation + synthesis — runs
+  // before the tail. The 2026-07-21 repair law, restored to batch semantics.
+  const repairCounters = { topics: 0, entities: 0 };
+  const repairStubs = synthesisStubs();
+  await ingest('test-wiki', {
+    workspace,
+    synthesis: true,
+    poolStaggerMs: 0,
+    curateTopicsFn: async () => {
+      repairCounters.topics += 1;
+      return keepAllOutcome();
+    },
+    curateEntitiesFn: async () => {
+      repairCounters.entities += 1;
+      return keepAllOutcome();
+    },
+    extractChunkFn: extractor.fn,
+    ...repairStubs,
+    finalizeOnly: true,
+    idleFallback: true,
+  });
+  expect(repairCounters.topics).toBeGreaterThan(0);
+  expect(repairCounters.entities).toBeGreaterThan(0);
+});
+
+test('gate 27.16 (conductor): --idle-fallback iff nothing ingested; banners and worker positions on every spawn', { timeout: 60_000 }, async () => {
+  // Busy run: a PDF worker landed an ingest → the finalize worker gets NO
+  // idle-fallback flag.
+  const busy = await setupWikiWithPdfs([REPORT_2023, REPORT_2024]);
+  const busySpawn = makeScriptedSpawn([
+    () => ({ lines: [workerResultFor(REPORT_2023)], code: 0 }),
+    () => ({ lines: [workerResultFor(REPORT_2024)], code: 0 }),
+    () => ({ lines: [workerResultFor(null)], code: 0 }),
+  ]);
+  const busyPositions: Array<{ index: number; total: number; pdf: string | null; phase: string }> = [];
+  const busyRun = await runIngestConductor('test-wiki', {
+    workspace: busy,
+    ingest: {},
+    onProgress: () => {},
+    spawnWorker: busySpawn.spawnWorker,
+    onWorkerChange: (info) => busyPositions.push({ ...info }),
+  });
+  expect(busyRun.status).toBe('complete');
+  expect(busySpawn.calls[2].args).toContain('--finalize');
+  expect(busySpawn.calls[2].args).not.toContain('--idle-fallback');
+  expect(busyPositions).toEqual([
+    { index: 1, total: 2, pdf: REPORT_2023, phase: 'pdf' },
+    { index: 2, total: 2, pdf: REPORT_2024, phase: 'pdf' },
+    { index: 3, total: 2, pdf: null, phase: 'finalize' },
+  ]);
+
+  // Idle run: every PDF hash-skipped (empty ingested lists) → the finalize
+  // worker carries the repair flag.
+  const idle = await setupWikiWithPdfs([REPORT_2023]);
+  const idleResult: Partial<IngestResult> = { ingested: [], skipped: [REPORT_2023] };
+  const idleSpawn = makeScriptedSpawn([
+    () => ({ lines: [{ type: 'result', result: idleResult }], code: 0 }),
+    () => ({ lines: [workerResultFor(null)], code: 0 }),
+  ]);
+  const idleProgress: string[] = [];
+  const idleRun = await runIngestConductor('test-wiki', {
+    workspace: idle,
+    ingest: {},
+    onProgress: (line) => idleProgress.push(line),
+    spawnWorker: idleSpawn.spawnWorker,
+  });
+  expect(idleRun.status).toBe('complete');
+  expect(idleSpawn.calls[1].args).toContain('--finalize');
+  expect(idleSpawn.calls[1].args).toContain('--idle-fallback');
+  expect(idleProgress).toContain(`── [1/1] ${REPORT_2023} ──`);
+  expect(idleProgress).toContain('── [finalize] validation · DOX · workspace · cross-wiki · updater ──');
+});
+
+test('gate 27.17 (stall relay): a worker stall event reaches onStall with the label; the text line still relays', { timeout: 60_000 }, async () => {
+  const workspace = await setupWikiWithPdfs([REPORT_2023]);
+  const stallInfo = { waitSeconds: 600, attempt: 2, maxAttempts: 6, statusCode: 0, label: 'curation-entities-bucket-2#attempt3' };
+  const { spawnWorker } = makeScriptedSpawn([
+    () => ({
+      lines: [
+        { type: 'stall', info: stallInfo },
+        { type: 'progress', line: 'Connection problem (network/timeout) — curation-entities-bucket-2#attempt3: waiting 600s before retry (attempt 2/6)...' },
+        workerResultFor(REPORT_2023),
+      ],
+      code: 0,
+    }),
+    () => ({ lines: [workerResultFor(null)], code: 0 }),
+  ]);
+  const stalls: Array<{ waitSeconds: number; label?: string }> = [];
+  const progress: string[] = [];
+  await runIngestConductor('test-wiki', {
+    workspace,
+    ingest: {},
+    onProgress: (line) => progress.push(line),
+    onStall: (info) => stalls.push({ waitSeconds: info.waitSeconds, label: info.label }),
+    spawnWorker,
+  });
+  expect(stalls).toEqual([{ waitSeconds: 600, label: 'curation-entities-bucket-2#attempt3' }]);
+  expect(progress).toContain(
+    'Connection problem (network/timeout) — curation-entities-bucket-2#attempt3: waiting 600s before retry (attempt 2/6)...',
+  );
+});
+
+test('gate 27.19 (docs): the v1.0.1 canon artifacts are law', () => {
+  const vision = readFileSync(join(import.meta.dirname, '..', 'Project Vision', '04_orchestration_detailed.md'), 'utf-8');
+  expect(vision).toContain('2026-09-03'); // the observability rider
+  const phaseDoc = readFileSync(join(import.meta.dirname, '..', 'Implementation Plan', 'PHASE_27_per_pdf_worker_isolation.md'), 'utf-8');
+  expect(phaseDoc).toContain('v1.0.1 Fix Iteration (2026-09-03)');
+  for (const gate of ['27.12', '27.13', '27.14', '27.15', '27.16', '27.17', '27.18', '27.19']) {
+    expect(phaseDoc).toContain(gate);
+  }
 });

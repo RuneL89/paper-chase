@@ -1380,7 +1380,9 @@ test('gate 16.17 (ingest level): a stalled 429 surfaces on the run\'s progress c
     });
     expect(
       lines.some((line) =>
-        /Rate limited by provider \(HTTP 429\) — waiting 60s before retry \(attempt 2\/6\)/.test(line),
+        // v1.0.1: the line names the failing call (`— <label>:`) when the
+        // stalled call carries a context — the DOX call here does.
+        /Rate limited by provider \(HTTP 429\) — (?:[^:]+: )?waiting 60s before retry \(attempt 2\/6\)/.test(line),
       ),
     ).toBe(true);
 
@@ -2045,9 +2047,10 @@ test('gate 16.22: a persistent network error is audited per attempt (statusCode 
     expect(isTransientTransportError(caught)).toBe(true);
 
     // The reporter received statusCode 0 (the network-class marker) with the
-    // ladder waits and the 6-attempt budget.
+    // ladder waits, the 6-attempt budget, and (v1.0.1) the failing call's
+    // label — the context the call carried.
     expect(reported).toHaveLength(5);
-    expect(reported[0]).toEqual({ waitSeconds: 600, attempt: 2, maxAttempts: 6, statusCode: 0 });
+    expect(reported[0]).toEqual({ waitSeconds: 600, attempt: 2, maxAttempts: 6, statusCode: 0, label: 'indikator-5' });
     expect(reported[4]?.waitSeconds).toBe(5400);
 
     // Every failed attempt — the 5 waits AND the exhausted final — landed in

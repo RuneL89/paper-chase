@@ -6,6 +6,7 @@
  * The worker speaks ONE JSON object per line on stdout:
  *
  *   {"type":"progress","line":"Chunk 3/24 (pages 11-15) ..."}   — streamed
+ *   {"type":"stall","info":{...StallWaitInfo...}}               — streamed (v1.0.1; a transport stall wait started)
  *   {"type":"result","result":{...IngestResult...}}             — LAST line on success
  *   {"type":"fatal","error":"...","stack":"..."}                — LAST line on a caught error
  *
@@ -20,9 +21,12 @@
  * future supervisor would consume.
  */
 
+import type { StallWaitInfo } from '../llm/client';
+
 /** Every event shape that can appear on the worker's stdout. */
 export type WorkerEvent =
   | { type: 'progress'; line: string }
+  | { type: 'stall'; info: StallWaitInfo }
   | { type: 'result'; result: unknown }
   | { type: 'fatal'; error: string; stack?: string };
 
@@ -54,6 +58,13 @@ export function parseWorkerEventLine(line: string): WorkerEvent | null {
   const candidate = parsed as Record<string, unknown>;
   if (candidate.type === 'progress' && typeof candidate.line === 'string') {
     return { type: 'progress', line: candidate.line };
+  }
+  // Phase 27 v1.0.1: structured stall event — the conductor relays it to the
+  // screen for the live countdown row. The payload is a StallWaitInfo
+  // (label/waitSeconds/attempt/maxAttempts/statusCode); unknown shapes fall
+  // back to noise (never relayed), same as every other event type.
+  if (candidate.type === 'stall' && typeof candidate.info === 'object' && candidate.info !== null) {
+    return { type: 'stall', info: candidate.info as StallWaitInfo };
   }
   if (candidate.type === 'result') {
     return { type: 'result', result: candidate.result };

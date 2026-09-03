@@ -933,6 +933,10 @@ export interface StallWaitInfo {
   /** The HTTP status that triggered the stall (429 or 5xx); 0 = the
    * network/timeout class (thrown error, no HTTP status — v1.0.6). */
   statusCode: number;
+  /** Phase 27 v1.0.1: the failing call's label (context, falling back to
+   * callType) so the stall line and the live countdown name the call —
+   * absent for calls that carry neither. */
+  label?: string;
 }
 
 /**
@@ -1284,6 +1288,13 @@ export async function callLLM(prompt: string, system?: string, options: CallLLMO
         attempt: nextAttempt,
         maxAttempts: ceiling,
         statusCode,
+        // Phase 27 v1.0.1: name the failing call (context first — it carries
+        // the slug/bucket; callType as fallback). Key omitted entirely when
+        // the call carries neither, so no-context stall records stay
+        // byte-identical.
+        ...(options.context !== undefined || options.callType !== undefined
+          ? { label: options.context ?? options.callType }
+          : {}),
       };
       if (stallWaitReporter) {
         // The ingest reporter (TUI/CLI progress channel) owns the message.
