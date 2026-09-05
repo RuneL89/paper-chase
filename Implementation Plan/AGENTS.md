@@ -2,15 +2,15 @@
 
 ## Purpose
 
-The phased implementation plan for Paper Chase v.1.0: phases 0–9 and 11–26, each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent. All phases through 26 are implemented; Phases 25 (generic-label disambiguation) and 26 (per-PDF patch amendment) completed 2026-08-27 — their vision amendments are law and their phase docs remain the build records.
+The phased implementation plan for Paper Chase v.1.0: phases 0–9 and 11–27, each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent. All phases through 27 are implemented; Phase 27 (per-PDF worker isolation) closed 2026-09-05 with the v1.0.1 live-run UAT — vision amendments are law and the phase docs remain the build records.
 
 ## Ownership
 
 * `IMPLEMENTATION_PLAN_MASTER_INDEX.md` — phase directory, golden rules, approval workflow
 * `MASTER_IMPLEMENTATION_PROMPT.md` — loop engineering framework, compliance rule, sub-agent architecture, phase prompt template
 * `START_PHASE_PROMPT.md` — kickoff prompt template for starting a phase
-* `PHASE_00_infrastructure.md` … `PHASE_26_per_pdf_patch_amendment.md` — one document per phase: objective, files to build, gates, UAT, checklist, integration notes
-* `BACKLOG.md` — living list of open issues, accepted residuals, and future tracks (multi-format ingestion since 2026-07-25); entries are unscheduled and move into a `PHASE_XX` doc when scheduled
+* `PHASE_00_infrastructure.md` … `PHASE_27_per_pdf_worker_isolation.md` — one document per phase: objective, files to build, gates, UAT, checklist, integration notes
+* `BACKLOG.md` — living list of open issues and accepted residuals plus an **Up next** queue for the next items to be scheduled; an Up-next item must first pass an in-conversation AskUserQuestion refinement gate (aspects, constraints, scope, preferred solution — user directive 2026-09-05) before its phase doc is written; scheduled/fixed items move into a `PHASE_XX` doc (or are resolved directly) and are removed from the list
 
 ## Local Contracts
 

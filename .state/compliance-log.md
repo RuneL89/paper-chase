@@ -2651,3 +2651,14 @@
   Budget: $0.0000 — every gate deterministic (stub seams + scripted spawns); no API key required.
   Build Status: feature commit pending; dist build pending user closing the running TUI (safe at any checkpoint). Rollout plan: commit feat(phase-27): v1.0.1 ..., then npm run package:win, then commit build(dist): ... 1.0.31; relaunch forces runtime re-extraction to 1.0.31.
   Checked By: main agent (ZCode) + independent Verifier sub-agent
+
+[2026-09-05 10:24] Backlog cleanup — closed items removed, B6 refreshed (user-directed; audit first verified against git history + code that no open item's fix has landed)
+  Changed: Implementation Plan/BACKLOG.md (doc version 1.0.3 — closed items B1–B3, B5, B10, B12, B14, B18–B24 deleted, their PHASE_XX docs are the build records; B6 refreshed from asset version 1.0.13 to 1.0.31 with the authoritative rebuild ladder delegated to the root AGENTS.md dist/ section; B15's dangling B10/B14 cross-references rephrased to their Phase 17/24 outcomes; convention updated from strike-through-on-close to removal-on-close), Implementation Plan/AGENTS.md (Phase 27 drift fixed: phases 0–9 and 11–27, all implemented, Phase 27 closed 2026-09-05; BACKLOG convention line aligned with removal-on-close).
+  Audit basis: B11/B13/B15/B25/B4/B7/B8/B9 each re-verified open against current code (materializer first-wins + curation-only aliases; dox-writer titleCase(wikiSlug) root title; per-wiki link checker; no per-chunk existsSync guard; CRASH_LOG_STDERR_TAIL_LINES without cost-line filtering) and git log (no touching commits).
+  Result: recorded; no code changes.
+  Checked By: main agent (ZCode)
+
+[2026-09-05 10:40] Backlog restructure — Up-next queue with mandatory refinement gate; B6 deleted (user-directed)
+  Changed: Implementation Plan/BACKLOG.md (doc version 1.0.4 — new "Up next" section holding B25 + B8 with a user-directed refinement gate: before any phase doc is written or any implementation begins, the user is interviewed in-conversation via the AskUserQuestion tool until aspects, constraints, scope, and the preferred solution are fully understood, outcomes recorded in the item, only then scheduled into a PHASE_XX doc; B6 deleted — the rebuild/asset-version discipline is already owned by the root AGENTS.md dist/ section, nothing lost; "Future tracks" section folded into the queue), Implementation Plan/AGENTS.md (BACKLOG.md ownership line: Up-next queue + refinement gate).
+  Result: recorded; no code changes.
+  Checked By: main agent (ZCode)
