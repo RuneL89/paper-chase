@@ -136,5 +136,5 @@ Mechanical checks are Verifier pre-UAT (gates above). Human-verifiable UAT for t
 - [x] Gates 27.12–27.19 green; full key-less suite green (602 passed + 16 skipped, 41 files); tsc --noEmit clean.
 - [x] Compliance log: pre-check (COMPLIANT with the user-ratified observability amendment) + closeout entries present.
 - [x] Vision 04 §1 rider (2026-09-03) present; root AGENTS.md preference + dist 1.0.31 entries present.
-- [ ] VERSION 1.0.30 → 1.0.31; `npm run package:win` rebuild after the live TUI is closed.
+- [x] VERSION 1.0.30 → 1.0.31; `npm run package:win` rebuild after the live TUI is closed (feat 70bf960 + build 235a9a9; exe smoke-tested — 1.0.31 runtime extracted, `ingest-worker` subcommand present).
 - [ ] Live-run UAT (post-rebuild, on rkkp): skip-workers exit in seconds with no curation calls and no false warnings; banner/position rows visible; CPOP's real worker runs and records the source.
