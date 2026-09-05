@@ -3478,7 +3478,7 @@ var require_react_production = __commonJS({
     exports2.useTransition = function() {
       return ReactSharedInternals.H.useTransition();
     };
-    exports2.version = "19.2.7";
+    exports2.version = "19.2.8";
   }
 });
 
@@ -4448,7 +4448,7 @@ var require_react_development = __commonJS({
       exports2.useTransition = function() {
         return resolveDispatcher().useTransition();
       };
-      exports2.version = "19.2.7";
+      exports2.version = "19.2.8";
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
     })();
   }
@@ -27481,7 +27481,7 @@ var require_permessage_deflate = __commonJS({
       acceptAsServer(offers) {
         const opts = this._options;
         const accepted = offers.find((params) => {
-          if (opts.serverNoContextTakeover === false && params.server_no_context_takeover || params.server_max_window_bits && (opts.serverMaxWindowBits === false || typeof opts.serverMaxWindowBits === "number" && opts.serverMaxWindowBits > params.server_max_window_bits) || typeof opts.clientMaxWindowBits === "number" && !params.client_max_window_bits) {
+          if (opts.serverNoContextTakeover === false && params.server_no_context_takeover || params.server_max_window_bits && (opts.serverMaxWindowBits === false || typeof opts.serverMaxWindowBits === "number" && opts.serverMaxWindowBits > params.server_max_window_bits) || typeof opts.clientMaxWindowBits === "number" && (typeof params.client_max_window_bits === "number" ? opts.clientMaxWindowBits > params.client_max_window_bits : !params.client_max_window_bits)) {
             return false;
           }
           return true;
@@ -72927,7 +72927,12 @@ async function callLLM(prompt, system, options2 = {}) {
         waitSeconds,
         attempt: nextAttempt,
         maxAttempts: ceiling,
-        statusCode
+        statusCode,
+        // Phase 27 v1.0.1: name the failing call (context first — it carries
+        // the slug/bucket; callType as fallback). Key omitted entirely when
+        // the call carries neither, so no-context stall records stay
+        // byte-identical.
+        ...options2.context !== void 0 || options2.callType !== void 0 ? { label: options2.context ?? options2.callType } : {}
       };
       if (stallWaitReporter) {
         stallWaitReporter(info2);
@@ -111539,12 +111544,15 @@ function formatIngestSummary(result) {
 }
 async function ingest(slug, options2 = {}) {
   const reportProgress = options2.onProgress;
-  if (reportProgress) {
-    setStallWaitReporter(({ waitSeconds, attempt, maxAttempts, statusCode }) => {
-      const reason = statusCode === 0 ? "Connection problem (network/timeout)" : statusCode === 429 ? "Rate limited by provider (HTTP 429)" : `Provider error (HTTP ${statusCode})`;
-      reportProgress(
-        `${reason} \u2014 waiting ${waitSeconds}s before retry (attempt ${attempt}/${maxAttempts})...`
+  const reportStall = options2.onStall;
+  if (reportProgress || reportStall) {
+    setStallWaitReporter((info2) => {
+      const reason = info2.statusCode === 0 ? "Connection problem (network/timeout)" : info2.statusCode === 429 ? "Rate limited by provider (HTTP 429)" : `Provider error (HTTP ${info2.statusCode})`;
+      const callLabel = info2.label !== void 0 ? ` \u2014 ${info2.label}` : "";
+      reportProgress?.(
+        `${reason}${callLabel}: waiting ${info2.waitSeconds}s before retry (attempt ${info2.attempt}/${info2.maxAttempts})...`
       );
+      reportStall?.(info2);
     });
   }
   try {
@@ -111615,6 +111623,13 @@ async function runIngest(slug, options2) {
     languages: language
   };
   if (pdfFiles.length === 0 && !options2.finalizeOnly) {
+    if (options2.onlyPdfs !== void 0) {
+      for (const pdf of options2.onlyPdfs) {
+        progress(`Skipping ${pdf} \u2014 no longer in raw/.`);
+      }
+      await writeWikiLanguage(dir, { outputLanguage: languageState.outputLanguage, lastInputLanguage: input });
+      return result;
+    }
     const emptyRunState = await readIngestionState(dir);
     for (const recordedSlug of Object.keys(emptyRunState.sources)) {
       progress(
@@ -111640,12 +111655,14 @@ async function runIngest(slug, options2) {
   let transportFailuresThisRun = 0;
   let patchedPagesThisRun = 0;
   let patchFallbacksThisRun = 0;
-  const presentSlugs = new Set(pdfFiles.map((file) => sourceSlugForFile(file)));
-  for (const recordedSlug of Object.keys(state.sources)) {
-    if (!presentSlugs.has(recordedSlug)) {
-      progress(
-        `Warning: ${recordedSlug} is recorded in ingestion state but its PDF is no longer in raw/. Derived pages were kept.`
-      );
+  if (options2.onlyPdfs === void 0) {
+    const presentSlugs = new Set(pdfFiles.map((file) => sourceSlugForFile(file)));
+    for (const recordedSlug of Object.keys(state.sources)) {
+      if (!presentSlugs.has(recordedSlug)) {
+        progress(
+          `Warning: ${recordedSlug} is recorded in ingestion state but its PDF is no longer in raw/. Derived pages were kept.`
+        );
+      }
     }
   }
   const workingPageHashes = { ...state.pageHashes ?? {} };
@@ -111854,7 +111871,8 @@ ${rendered.text}
         tablesFound
       });
     }
-    if (extract && !options2.finalizeOnly && lastMaterializeResult === void 0) {
+    const allSkipRepair = options2.onlyPdfs === void 0 && !options2.finalizeOnly || options2.finalizeOnly === true && options2.idleFallback === true;
+    if (extract && allSkipRepair && lastMaterializeResult === void 0) {
       const extractedDir = join46(dir, ".state", "extracted");
       const hasExtractions = existsSync11(extractedDir) && (await readdir13(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
       if (hasExtractions) {
@@ -113096,6 +113114,9 @@ function parseWorkerEventLine(line) {
   if (candidate.type === "progress" && typeof candidate.line === "string") {
     return { type: "progress", line: candidate.line };
   }
+  if (candidate.type === "stall" && typeof candidate.info === "object" && candidate.info !== null) {
+    return { type: "stall", info: candidate.info };
+  }
   if (candidate.type === "result") {
     return { type: "result", result: candidate.result };
   }
@@ -113271,12 +113292,14 @@ async function discoverWorkspacePdfs(workspace, slug) {
   }
   return (await readdir14(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
 }
-async function runWorker(spawnWorker, args, onProgress, signal) {
+async function runWorker(spawnWorker, args, onProgress, signal, onStall) {
   let stderr = "";
   let workerResult;
   const reader = createWorkerEventReader((event) => {
     if (event.type === "progress") {
       onProgress(event.line);
+    } else if (event.type === "stall") {
+      onStall?.(event.info);
     } else if (event.type === "result") {
       workerResult = event.result;
     }
@@ -113303,12 +113326,15 @@ async function runWorker(spawnWorker, args, onProgress, signal) {
     stderrTail: tailLines(stderr, CRASH_LOG_STDERR_TAIL_LINES)
   };
 }
-function buildWorkerArgs(slug, workspace, ingest3, scope) {
+function buildWorkerArgs(slug, workspace, ingest3, scope, idleFallback) {
   const args = ["ingest-worker", slug, "--workspace", workspace];
   if ("pdf" in scope) {
     args.push("--pdf", scope.pdf);
   } else {
     args.push("--finalize");
+    if (idleFallback === true) {
+      args.push("--idle-fallback");
+    }
   }
   if (ingest3.extract === false) {
     args.push("--no-extract");
@@ -113359,7 +113385,7 @@ async function runIngestConductor(slug, options2) {
     patchedPages: 0,
     patchFallbacks: 0
   };
-  const runScopedWorker = async (phase, pdf) => {
+  const runScopedWorker = async (phase, pdf, position, idleFallback2) => {
     let merged = result;
     let attempt = 0;
     for (; ; ) {
@@ -113367,12 +113393,16 @@ async function runIngestConductor(slug, options2) {
         return { outcome: "aborted", merged };
       }
       attempt += 1;
+      const banner = phase === "pdf" ? `\u2500\u2500 [${position.index}/${position.total}] ${pdf} \u2500\u2500` : "\u2500\u2500 [finalize] validation \xB7 DOX \xB7 workspace \xB7 cross-wiki \xB7 updater \u2500\u2500";
+      options2.onProgress(banner);
+      options2.onWorkerChange?.({ index: position.index, total: position.total, pdf, phase });
       const scope = phase === "pdf" ? { pdf } : { finalize: true };
       const outcome = await runWorker(
         spawnWorker,
-        buildWorkerArgs(slug, options2.workspace, options2.ingest, scope),
+        buildWorkerArgs(slug, options2.workspace, options2.ingest, scope, idleFallback2),
         options2.onProgress,
-        options2.signal
+        options2.signal,
+        options2.onStall
       );
       if (outcome.ok && outcome.result !== void 0) {
         merged = mergeIngestResults(merged, outcome.result);
@@ -113422,14 +113452,22 @@ async function runIngestConductor(slug, options2) {
       return { outcome: "aborted", merged };
     }
   };
+  let workerIndex = 0;
   for (const pdf of pdfFiles) {
-    const { outcome, merged } = await runScopedWorker("pdf", pdf);
+    workerIndex += 1;
+    const { outcome, merged } = await runScopedWorker("pdf", pdf, { index: workerIndex, total: pdfFiles.length });
     Object.assign(result, merged);
     if (outcome === "aborted") {
       return { result, status: "aborted" };
     }
   }
-  const finalize = await runScopedWorker("finalize", null);
+  const idleFallback = result.ingested.length === 0;
+  const finalize = await runScopedWorker(
+    "finalize",
+    null,
+    { index: pdfFiles.length + 1, total: pdfFiles.length },
+    idleFallback
+  );
   Object.assign(result, finalize.merged);
   if (finalize.outcome === "aborted") {
     return { result, status: "aborted" };
@@ -113450,6 +113488,29 @@ function languageIndexOf(code) {
 }
 var CHUNK_PROGRESS_PATTERN = /^Chunk (\d+)\/(\d+)/;
 var PROGRESS_BAR_CELLS = 10;
+var STALL_LINE_PREFIXES = ["Rate limited", "Provider error", "Connection problem"];
+function isStallTextLine(line) {
+  return STALL_LINE_PREFIXES.some((prefix) => line.startsWith(prefix));
+}
+function formatElapsed(ms) {
+  const totalSeconds = Math.max(0, Math.floor(ms / 1e3));
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor(totalSeconds % 3600 / 60);
+  const seconds = totalSeconds % 60;
+  if (hours > 0) {
+    return `${hours}h ${String(minutes).padStart(2, "0")}m`;
+  }
+  if (minutes > 0) {
+    return `${minutes}m ${String(seconds).padStart(2, "0")}s`;
+  }
+  return `${seconds}s`;
+}
+function stallReason(statusCode) {
+  if (statusCode === 0) {
+    return "Connection problem (network/timeout)";
+  }
+  return statusCode === 429 ? "Rate limited by provider (HTTP 429)" : `Provider error (HTTP ${statusCode})`;
+}
 function withProgressBar(line) {
   const match = CHUNK_PROGRESS_PATTERN.exec(line);
   if (!match) {
@@ -113497,6 +113558,9 @@ function IngestScreen({
   const [crashPanel, setCrashPanel] = (0, import_react42.useState)(null);
   const decisionResolverRef = (0, import_react42.useRef)(null);
   const abortRef = (0, import_react42.useRef)(null);
+  const [workerPos, setWorkerPos] = (0, import_react42.useState)(null);
+  const [stallWait, setStallWait] = (0, import_react42.useState)(null);
+  const [nowTick, setNowTick] = (0, import_react42.useState)(() => Date.now());
   const appliedInitialWiki = (0, import_react42.useRef)(false);
   (0, import_react42.useEffect)(() => {
     if (appliedInitialWiki.current || !initialWiki) {
@@ -113552,6 +113616,20 @@ function IngestScreen({
   const selectedInput = SUPPORTED_LANGUAGES[inputIndex];
   const selectedOutput = SUPPORTED_LANGUAGES[outputIndex];
   const slugForkingRisk = hasExtractions && selectedInput.code !== languageState.lastInputLanguage;
+  const running = status === "running";
+  (0, import_react42.useEffect)(() => {
+    if (!running || workerPos === null && stallWait === null) {
+      return;
+    }
+    const timer = setInterval(() => setNowTick(Date.now()), 1e3);
+    return () => clearInterval(timer);
+  }, [running, workerPos === null, stallWait === null]);
+  const pushProgressLine = (line) => {
+    if (!isStallTextLine(line)) {
+      setStallWait(null);
+    }
+    setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES));
+  };
   const multiWorkspace = new Set(wikis.map((wiki) => wiki.workspace)).size > 1;
   const wikiLabel = (wiki) => multiWorkspace ? `${wiki.slug} (${wiki.workspace})` : wiki.slug;
   const wikiKey = (wiki) => `${wiki.workspace}/${wiki.slug}`;
@@ -113560,6 +113638,8 @@ function IngestScreen({
     setProgressLines([]);
     setProposalWiki(null);
     setCrashPanel(null);
+    setWorkerPos(null);
+    setStallWait(null);
     const abort = new AbortController();
     abortRef.current = abort;
     const onSigint = () => abort.abort();
@@ -113577,7 +113657,7 @@ function IngestScreen({
           doxLlm: true,
           crossWiki: true,
           forceCrossWiki,
-          onProgress: (line) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES))
+          onProgress: pushProgressLine
         });
       } else {
         const conductor = conductorFn ?? runIngestConductor;
@@ -113593,8 +113673,15 @@ function IngestScreen({
             inputLanguage: selectedInput.code,
             outputLanguage: selectedOutput.code
           },
-          onProgress: (line) => setProgressLines((prev) => [...prev, line].slice(-MAX_PROGRESS_LINES)),
+          onProgress: pushProgressLine,
           onCrashPanel: setCrashPanel,
+          onWorkerChange: (info2) => {
+            setWorkerPos({ ...info2, startedAt: Date.now() });
+            setStallWait(null);
+          },
+          onStall: (info2) => {
+            setStallWait({ ...info2, deadline: Date.now() + info2.waitSeconds * 1e3 });
+          },
           requestDecision: () => new Promise((resolveDecision) => {
             decisionResolverRef.current = resolveDecision;
           }),
@@ -113628,6 +113715,8 @@ function IngestScreen({
       abortRef.current = null;
       decisionResolverRef.current = null;
       setCrashPanel(null);
+      setWorkerPos(null);
+      setStallWait(null);
     }
   };
   const startIngest = (wiki) => {
@@ -113797,6 +113886,43 @@ function IngestScreen({
       ] }) : null
     ] }),
     status === "running" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LoadingSpinner, { label: "Running ingest..." }),
+    status === "running" && workerPos !== null ? (
+      // Phase 27 v1.0.1 (user-ratified 2026-09-03): the persistent
+      // worker-position row — which worker of how many, and how long it
+      // has been running (the finalize worker counts as total+1).
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { dimColor: true, children: [
+        "Worker ",
+        workerPos.index,
+        "/",
+        workerPos.total + 1,
+        " \xB7",
+        " ",
+        workerPos.pdf ?? "finalize (validation \xB7 DOX \xB7 workspace \xB7 cross-wiki \xB7 updater)",
+        " \xB7 elapsed",
+        " ",
+        formatElapsed(nowTick - workerPos.startedAt)
+      ] })
+    ) : null,
+    status === "running" && stallWait !== null ? (
+      // Phase 27 v1.0.1: the live stall row — counts down to the retry
+      // (the buffer keeps the static announcement line), then clamps at
+      // zero and reports the retry in flight (calls may legally run up to
+      // the 15-minute large-call deadline after the wait ends).
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { color: "yellow", children: [
+        "\u23F3 ",
+        stallReason(stallWait.statusCode),
+        stallWait.label !== void 0 ? ` \u2014 ${stallWait.label}` : "",
+        ":",
+        " ",
+        nowTick < stallWait.deadline ? `retry in ${formatElapsed(stallWait.deadline - nowTick)}` : "retry in flight\u2026",
+        " ",
+        "(attempt ",
+        stallWait.attempt,
+        "/",
+        stallWait.maxAttempts,
+        ")"
+      ] })
+    ) : null,
     progressLines.map((line, index) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { dimColor: status === "running", children: withProgressBar(line) }, index)),
     crashPanel !== null ? (
       // Phase 27 (§2.3): the crash-recovery panel — the phase's only new
@@ -115774,7 +115900,7 @@ program2.command("test").description("Run the test suite").action(async () => {
   const child = spawn4(npmCmd, ["test"], { stdio: "inherit", shell: true });
   child.on("close", (code) => process.exit(code ?? 1));
 });
-program2.command("ingest-worker <slug>").description("Internal: run ONE PDF (or the finalize tail) and speak the worker event protocol (Phase 27)").option("-w, --workspace <workspace>", "Workspace directory", ".").option("--pdf <file>", "Process exactly this raw/ PDF (per-PDF loop scope)").option("--finalize", "Run only the deferred tail (validation, DOX, workspace, cross-wiki, updater)").option("--synthesis", "Enable LLM synthesis (passed through to ingest)").option("--update-agents", "Propose AGENTS.md updates after ingest (passed through)").option("--no-extract", "Skip the Layer 2 Extractor (passed through)").option("--no-dox-llm", "Skip the LLM DOX Writer (passed through)").option("--no-cross-wiki", "Skip the cross-wiki discovery pass (passed through)").option("--force-cross-wiki", "Force the cross-wiki discovery pass (passed through)").option("--input-language <code>", "Input language of this run's PDFs (passed through)").option("--output-language <code>", "Override the wiki output language for this run (passed through)").action(
+program2.command("ingest-worker <slug>").description("Internal: run ONE PDF (or the finalize tail) and speak the worker event protocol (Phase 27)").option("-w, --workspace <workspace>", "Workspace directory", ".").option("--pdf <file>", "Process exactly this raw/ PDF (per-PDF loop scope)").option("--finalize", "Run only the deferred tail (validation, DOX, workspace, cross-wiki, updater)").option("--idle-fallback", "With --finalize: also run the all-skipped repair pass (conductor sets this when nothing was ingested)").option("--synthesis", "Enable LLM synthesis (passed through to ingest)").option("--update-agents", "Propose AGENTS.md updates after ingest (passed through)").option("--no-extract", "Skip the Layer 2 Extractor (passed through)").option("--no-dox-llm", "Skip the LLM DOX Writer (passed through)").option("--no-cross-wiki", "Skip the cross-wiki discovery pass (passed through)").option("--force-cross-wiki", "Force the cross-wiki discovery pass (passed through)").option("--input-language <code>", "Input language of this run's PDFs (passed through)").option("--output-language <code>", "Override the wiki output language for this run (passed through)").action(
   async (slug, options2) => {
     const originalConsoleLog = console.log;
     console.log = (...args) => console.error(...args);
@@ -115789,6 +115915,7 @@ program2.command("ingest-worker <slug>").description("Internal: run ONE PDF (or 
         workspace: options2.workspace,
         onlyPdfs: options2.pdf !== void 0 ? [options2.pdf] : void 0,
         finalizeOnly: options2.finalize === true,
+        idleFallback: options2.idleFallback === true,
         extract: options2.extract,
         synthesis: options2.synthesis,
         doxLlm: options2.doxLlm,
@@ -115800,6 +115927,12 @@ program2.command("ingest-worker <slug>").description("Internal: run ONE PDF (or 
         onProgress: (message) => {
           workerFaultAfterProgress();
           emit({ type: "progress", line: message });
+        },
+        // Phase 27 v1.0.1: the structured stall event rides the same
+        // channel so the conductor can hand the screen a live countdown
+        // (the plain text stall line still flows through onProgress).
+        onStall: (info2) => {
+          emit({ type: "stall", info: info2 });
         }
       });
       workerFaultBeforeResult();
