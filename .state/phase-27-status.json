@@ -1,8 +1,8 @@
 {
   "phase": "27",
-  "status": "implemented",
+  "status": "accepted",
   "goal": "All 11 technical gates in PHASE_27_per_pdf_worker_isolation.md pass (key-less npm test green), all 3 UAT steps documented with expected output (human-perceptual steps presented by the Reporter), compliance log shows no unresolved contradictions, and total LLM cost is $0.00 (deterministic phase — stub seams + fault injection only).",
-  "lastAction": "v1.0.1 complete: gates 27.12-27.19 green, full suite 602 passed, Verifier PASS, DOX updated",
+  "lastAction": "v1.0.1 CLOSED: gates 27.12-27.19 green, full suite 602 passed, Verifier PASS, built at 1.0.31 (feat 70bf960 + build 235a9a9), live-run UAT accepted by the user 2026-09-05",
   "gatesPassed": [
     "27.1",
     "27.2",

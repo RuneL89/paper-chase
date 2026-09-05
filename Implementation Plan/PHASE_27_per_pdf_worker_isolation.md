@@ -137,4 +137,4 @@ Mechanical checks are Verifier pre-UAT (gates above). Human-verifiable UAT for t
 - [x] Compliance log: pre-check (COMPLIANT with the user-ratified observability amendment) + closeout entries present.
 - [x] Vision 04 §1 rider (2026-09-03) present; root AGENTS.md preference + dist 1.0.31 entries present.
 - [x] VERSION 1.0.30 → 1.0.31; `npm run package:win` rebuild after the live TUI is closed (feat 70bf960 + build 235a9a9; exe smoke-tested — 1.0.31 runtime extracted, `ingest-worker` subcommand present).
-- [ ] Live-run UAT (post-rebuild, on rkkp): skip-workers exit in seconds with no curation calls and no false warnings; banner/position rows visible; CPOP's real worker runs and records the source.
+- [x] Live-run UAT (post-rebuild, on rkkp): skip-workers exit in seconds with no curation calls and no false warnings; banner/position rows visible; CPOP's real worker runs and records the source. ACCEPTED by the user 2026-09-05 (explicit acceptance; UATs 27.1–27.3 stand as live-proven by the production run — 27.1's crash panel is gate-covered and the fault-injection demo is optional).
