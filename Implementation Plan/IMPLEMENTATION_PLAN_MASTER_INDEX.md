@@ -52,6 +52,7 @@ This structure prevents the compounding bug problem that destroyed the previous 
 | 25 | [PHASE_25_generic_label_disambiguation.md](PHASE_25_generic_label_disambiguation.md) | Generic-label disambiguation (Option E Variant B): class-6 composite pages at generic slugs whose per-source meanings diverge — deterministic heterogeneity proposal, LLM split judgment, sticky `disambiguate` records with source→member mapping (backlog B23) | ≤$6 (glm-5.3-flash only) | 6-9h |
 | 26 | [PHASE_26_per_pdf_patch_amendment.md](PHASE_26_per_pdf_patch_amendment.md) | Per-PDF sequential ingestion (Option B Patch, new default pipeline): each PDF runs extract → materialize (+per-PDF curation) → synthesize-or-AMEND with LLM patch output, deterministic applier, merged-page preservation, full-synthesis fallback; DOX/cross-wiki deferred to after the loop (backlog B24) | ≤$15 (glm-5.3-flash only) | 10-14h |
 | 27 | [PHASE_27_per_pdf_worker_isolation.md](PHASE_27_per_pdf_worker_isolation.md) | Per-PDF worker-process isolation: one child worker per PDF + a finalize worker, TUI conductor with JSONL progress relay, crash-log.jsonl audit, auto-retry cap 3/30s then crash panel (Retry/Skip/Abort — defer never automatic); screens byte-identical in normal operation (2026-09-02 vision amendment, born from the rkkp silent-death post-mortem); v1.0.1 (2026-09-03 rider): worker-scope fencing — removed-PDF check and all-skip repair fallback are run-level (finalize worker owns both; idleFallback flag), plus conductor observability (banners, worker-position row, labeled stall lines with live countdown) | $0 | 10-14h |
+| 28 | [PHASE_28_fine_grained_crash_resume.md](PHASE_28_fine_grained_crash_resume.md) | Fine-grained crash resume (2026-09-07 vision rider, backlog B25 — Implemented + user-accepted 2026-09-07, built at 1.0.32; Verifier cold-check pending): per-chunk extraction checkpoints (`_provenance` envelope + deterministic schema re-validation), per-PDF stage markers with extracted-set fingerprint, in-flight synthesis journal (stage cursor + done/queue), and crash telemetry (fatalError/fatalStack capture + cost-line filtering) — a worker death mid-extraction/materialize/synthesis auto-retries from the finest completed granularity instead of restarting the PDF | $0 | 8-12h |
 
 **Total Estimated LLM Cost (all phases):** Variable; baseline ~$32.00 plus quality-first DOX Writer cost per wiki.
 **Total Estimated Time:** 68-99 hours
@@ -236,7 +237,8 @@ Wiki v5/                              # project root — all code and tests are 
     ├── PHASE_24_cross_wiki_discovery.md
     ├── PHASE_25_generic_label_disambiguation.md
     ├── PHASE_26_per_pdf_patch_amendment.md
-    └── PHASE_27_per_pdf_worker_isolation.md
+    ├── PHASE_27_per_pdf_worker_isolation.md
+    └── PHASE_28_fine_grained_crash_resume.md
 ```
 
 ---

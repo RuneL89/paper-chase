@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The phased implementation plan for Paper Chase v.1.0: phases 0–9 and 11–27, each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent. All phases through 27 are implemented; Phase 27 (per-PDF worker isolation) closed 2026-09-05 with the v1.0.1 live-run UAT — vision amendments are law and the phase docs remain the build records.
+The phased implementation plan for Paper Chase v.1.0: phases 0–9 and 11–28, each a standalone deliverable with technical gates and user acceptance tests, plus the prompts that drive the implementing agent. Phases through 28 are implemented — Phase 28 (fine-grained crash resume, backlog B25) closed 2026-09-07: gates 28.1–28.9 green, full key-less suite 613 passed + 16 skipped across 42 files, tsc clean, $0 LLM spend, UAT accepted, built at 1.0.32 (feat 63fbc1e + build a3e8552); the independent Verifier cold-check is the standing exception (usage-limit blocked during implementation, recorded in .state/phase-28-status.json). Vision amendments are law and the phase docs remain the build records.
 
 ## Ownership
 

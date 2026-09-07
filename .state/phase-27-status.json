@@ -42,7 +42,8 @@
   "watchItems": [
     "The finalize worker is still one long-lived process (hours on a 37-PDF wiki) — acceptable per the ratified design, but if it ever becomes the crash exposure, it can be split later (per-level DOX workers) under a new amendment.",
     "A single giant PDF still runs ~a day in one worker; memory is bounded per PDF but the within-PDF growth curve was never measured (the rkkp post-mortem measured cross-PDF growth). If a single-PDF OOM ever fires, the crash panel + retry absorbs it; a within-PDF memory fix would be Solution 3 territory.",
-    "The crash panel's Skip is intentionally absent for finalize crashes (deferral applies to PDFs only); finalize crash = Retry or Abort, per the never-auto-defer law."
+    "The crash panel's Skip is intentionally absent for finalize crashes (deferral applies to PDFs only); finalize crash = Retry or Abort, per the never-auto-defer law.",
+    "Crash resume granularity (mid-PDF restarts from chunk 001) was scheduled as its own phase — Phase 28 (fine-grained crash resume, backlog B25) — on 2026-09-07; this phase's crash/recovery machinery is what Phase 28 makes fine-grained."
   ],
   "version": "1.0.1"
 }

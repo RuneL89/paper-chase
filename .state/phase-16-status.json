@@ -23,5 +23,8 @@
   "tokenBudgetRemaining": "$0.00 (no live LLM calls in implementation)",
   "blocker": null,
   "nextAction": "None — phase closed. Open tracks live in Implementation Plan/BACKLOG.md.",
-  "uatAcceptance": "User-accepted 2026-07-25. UAT 16.1 accepted on gate 16.11 evidence (kill-and-resume byte-equality) — live drill waived. UAT 16.2 accepted on gates 16.1-16.4 (run 5 transportFailures: 0 — no live occurrence). UAT 16.3 optional, superseded by run 5 completion."
+  "uatAcceptance": "User-accepted 2026-07-25. UAT 16.1 accepted on gate 16.11 evidence (kill-and-resume byte-equality) — live drill waived. UAT 16.2 accepted on gates 16.1-16.4 (run 5 transportFailures: 0 — no live occurrence). UAT 16.3 optional, superseded by run 5 completion.",
+  "deviations": [
+    "Phase 28 amendment (2026-09-07, user-ratified vision 04 Step 11 fine-grained extension): gate 16.11's test-law comment \"the aborted PDF (pdf-b) is re-processed whole (per-PDF atomicity — its chunks re-extract)\" is SUPERSEDED — an unchanged-PDF abort now resumes per chunk from _provenance checkpoints. The gate-16.11 assertion was amended (leg2ExtractionCalls: ['pdf-b-part-001'] → []) and its comment updated; the completed-PDF law (16.11's primary claim, pdf-a never re-extracted) is unchanged and still asserted."
+  ]
 }
