@@ -2,7 +2,7 @@
   "phase": "28",
   "status": "accepted",
   "goal": "All 9 technical gates in PHASE_28_fine_grained_crash_resume.md pass (key-less npm test green; tsc --noEmit clean), UAT 28.1/28.2 documented and accepted by the user, compliance log shows no unresolved contradictions, and total LLM cost is $0.00 (deterministic phase — stub seams + scripted spawns + fault injection only). VERSION bumped 1.0.31 → 1.0.32 and dist rebuilt.",
-  "lastAction": "CLOSED 2026-09-07: gates 28.1-28.9 green, full suite 613 passed + 16 skipped / 42 files, tsc clean, $0 LLM, UAT accepted by the user, built at 1.0.32 (feat 63fbc1e + build a3e8552, exe smoke-tested — 1.0.32 runtime extracted, ingest-worker present). The independent Verifier cold-check remains the standing exception (usage-limit blocked; role-merge deviation recorded).",
+  "lastAction": "CLOSED 2026-09-07: Verifier cold-check PASS (.state/phase-28-verification.md — all 9 gates on an independent re-run, suite 613+16/42, tsc clean, zero contradictions; six non-blocking findings F1-F6 recorded; F1 doc drift corrected in the phase doc). Phase fully closed.",
   "gatesPassed": [
     "28.1",
     "28.2",
@@ -19,7 +19,7 @@
   "llmCost": "$0.0000",
   "tokenBudgetRemaining": "$0.00 (hard cap $0.00 — deterministic phase; every gate stub-injected, script-spawned, or run against a corrupted-state wiki subprocess, no gate requires any API key)",
   "blocker": null,
-  "nextAction": "Verifier cold-check when the usage limit allows (post-hoc integrity check per the role-merge deviation); then phase closed. Watch items stand for the first production run.",
+  "nextAction": null,
   "deviations": [
     "Refinement gate scope expansion (2026-09-07, user free-text): 'if an ingestion gets killed in later phases, I also want the resume to start from where it ended — e.g. during synthesis phase' — resume coverage runs through synthesis/amendment; the finalize tail stays a re-runnable unit (user-approved boundary).",
     "Refinement gate choice (2026-09-07): an explicit in-flight synthesis journal (stage cursor + done/queue) over verify-only of the existing per-page records — the per-page synthesis-state.json records remain the durable cross-run skip law, written consistently with journal entries.",
@@ -31,7 +31,8 @@
     "Gate 28.8c spawns a REAL worker subprocess with the VITEST env var stripped — src/cli.ts's direct-run guard (line ~264) treats the vitest-inherited env as an import context and silently exits 0; the phase-20 execFile pattern with an explicit env copy is the house-compatible way to run the real subcommand from a test.",
     "Code defect found and fixed during gating (gate 28.3): removePdfProgressEntry left the empty .state/pdf-progress/ cache DIR behind (non-recursive rm refuses directories on this runtime — ERR_FS_EISDIR), violating the healthy-run .state byte-identity law; now removed when provably empty (readdir check gating a safe recursive rm).",
     "tests/phase-27.test.ts was missing the gray-matter import after the Implementer's stub-envelope edit (matter is not defined) — three phase-27 gates failed until the import was added; all 19 phase-27 tests green after.",
-    "Cross-version first-run byte-identity (gate 28.3's 'byte-identical to pre-phase behavior') is proven compositionally: the pre-existing byte-asserting suites (phase-16 gate 16.11's tree comparison etc.) remain green over the new envelope-carrying artifacts, plus the gate's own assertions (no resume lines, no scaffolding left, envelope present, pinned determinism across two fresh runs). A literal pre-phase snapshot fixture was not constructed."
+    "Cross-version first-run byte-identity (gate 28.3's 'byte-identical to pre-phase behavior') is proven compositionally: the pre-existing byte-asserting suites (phase-16 gate 16.11's tree comparison etc.) remain green over the new envelope-carrying artifacts, plus the gate's own assertions (no resume lines, no scaffolding left, envelope present, pinned determinism across two fresh runs). A literal pre-phase snapshot fixture was not constructed.",
+    "Verifier findings (2026-09-07, F1-F6, all non-blocking): F1 phase doc carried the draft resume-line wording — corrected same-day to the ratified pre-scan wording. F2 gate 28.1's fixture has zero relationships/claims so the metrics-accumulation lines run but aren't pinned with non-zero values (correct by inspection). F3 the conductor's CrashPanelState fatal-field spread is never exercised end-to-end (28.8b auto-retries; the screen test injects state directly) — the crash-record spread IS tested. F4 the implementation re-emits 'Chunk N/M' progress from 1 for checkpointed chunks while UAT 28.1's draft text said the counter continues at the first missing chunk — user accepted. F5/F6 byte-identity proof is compositional and the screen test asserts presence (not ordering) of the fatalError row. F2/F3 merit a future test-hardening pass."
   ],
   "llmCallInventory": {
     "note": "$0.00 phase — 10 tests in tests/phase-28.test.ts (gates 28.1-28.8) + 1 new ingest-screen crash-panel test, all deterministic (stub seams + scripted spawns + one real worker subprocess against a corrupted-state wiki that throws before any LLM call); no gate requires any API key. Live UATs 28.1/28.2 are perceptual reads of stub-driven scratch wikis (no live LLM spend required)."
@@ -42,6 +43,7 @@
     "The pre-scan resume line re-reads every chunk's extraction JSON once before the loop (N small local files; no LLM) — negligible on current PDF sizes, revisit only if chunk counts grow by orders of magnitude.",
     "First production run after 1.0.32 should confirm the DAD_2025-class crash signature now resumes: watch for the 'Resuming <file> — N/M chunks...' line and fatalError in any new crash-log records."
   ],
-  "version": "1.0.0",
-  "uatAcceptance": "User-accepted 2026-09-07 (explicit). UAT 28.1/28.2 stand on gates 28.4/28.6/28.8 (the same recovery paths) — the perceptual drill is optional."
+  "version": "1.0.0 (closed — Verifier PASS)",
+  "uatAcceptance": "User-accepted 2026-09-07 (explicit). UAT 28.1/28.2 stand on gates 28.4/28.6/28.8 (the same recovery paths) — the perceptual drill is optional.",
+  "verifierReport": ".state/phase-28-verification.md"
 }

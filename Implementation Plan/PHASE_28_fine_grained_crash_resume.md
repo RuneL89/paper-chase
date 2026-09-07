@@ -2,7 +2,7 @@
 
 **Document ID:** `LLM-WIKI-CLI-IMPL-PHASE-028`
 **Version:** 1.0.0
-**Status:** Implemented (gates 28.1–28.9 green 2026-09-07; full key-less suite green — 613 passed, 16 skipped, 0 failed across 42 files; tsc --noEmit clean; $0 LLM spend). Built at VERSION 1.0.32 (feat 63fbc1e + build a3e8552; exe smoke-tested — 1.0.32 runtime extracted, `ingest-worker` present). UAT 28.1/28.2 accepted by the user 2026-09-07. Standing exception: the independent Verifier cold-check (the Implementer sub-agent hit the account usage limit mid-run — the orchestrating agent completed the build; role-merge deviation recorded in `.state/phase-28-status.json`).
+**Status:** Implemented (gates 28.1–28.9 green 2026-09-07; full key-less suite green — 613 passed, 16 skipped, 0 failed across 42 files; tsc --noEmit clean; $0 LLM spend). Built at VERSION 1.0.32 (feat 63fbc1e + build a3e8552; exe smoke-tested — 1.0.32 runtime extracted, `ingest-worker` present). UAT 28.1/28.2 accepted by the user 2026-09-07. Independent Verifier cold-check PASS (2026-09-07, `.state/phase-28-verification.md` — all 9 gates PASS on an independent re-run, zero vision contradictions; six non-blocking findings F1–F6 recorded in the status file, F1's doc drift corrected same-day).
 **Date:** 2026-09-07
 **Dependencies:** Phases 0-9, 11-27 (Phase 27's conductor + auto-retry + crash audit are the recovery machinery this phase makes fine-grained; Phase 16's checkpointing law is what it extends; Phase 26's per-PDF loop is the loop being checkpointed; Phase 12/16's `validateExtractorResult` is the reused deterministic validator)
 **Estimated Time:** 8-12 hours
@@ -16,7 +16,7 @@
 2. **Scope:** per-chunk checkpoints + per-PDF stage markers, with resume coverage running THROUGH synthesis/amendment (each PDF's mini-pipeline); the finalize tail stays a re-runnable unit (cheap, mostly deterministic, cross-wiki already fingerprint-gated).
 3. **Synthesis resume:** an EXPLICIT in-flight journal (stage cursor + per-page done/queue) — user choice over verify-only; the per-page `synthesis-state.json` records remain the durable cross-run skip law and are written consistently with journal entries.
 4. **Crash telemetry (B25 fix direction 3, promoted from optional):** full fix — the conductor captures the fatal event's error/stack into the crash record, the stderr tail filters `LLM Call |` cost lines, and the worker mirrors the caught error to stderr.
-5. **Resume UX:** one dim progress line on a PDF's first skipped work (`Resuming <file> from chunk N/M (earlier chunks already extracted)…`) — recovery-path only; normal runs stay byte-identical.
+5. **Resume UX:** one dim progress line per resumed PDF (`Resuming <file> — N/M chunks already extracted, skipping...`, emitted from a pre-scan of the chunk checkpoints with the same deterministic guard so the count is truthful) — recovery-path only; normal runs stay byte-identical.
 
 **Findings → fixes:**
 
@@ -105,7 +105,7 @@ Mechanical checks are Verifier pre-UAT (gates above). Human-verifiable UAT for t
 - [x] Vision 04 §1 rider (2026-09-07) + Step 11 extension present; root `AGENTS.md` preference + dist 1.0.32 entries present.
 - [x] VERSION 1.0.31 → 1.0.32 (`scripts/launcher-entry.ts`); `npm run package:win` rebuilt via the runtime node (npm not on this shell's PATH); exe smoke-tested — the 1.0.32 runtime extracted and `ingest-worker --help` responds.
 - [x] UAT 28.1/28.2 accepted by the user (2026-09-07, explicit acceptance — the machine-verifiable claims are gates 28.1–28.8; the perceptual reads stand on the same recovery paths the gates drive).
-- [ ] Independent Verifier cold-check (blocked by the account usage limit during implementation; must run as a separate pass).
+- [x] Independent Verifier cold-check (2026-09-07, `.state/phase-28-verification.md`): PASS — all 9 gates on an independent re-run (613 passed + 16 skipped, tsc clean), no contradictions; findings F1–F6 recorded in `.state/phase-28-status.json`, F1 corrected (this doc's resume-line wording now matches the ratified entry).
 
 ## 7. Integration Notes
 
