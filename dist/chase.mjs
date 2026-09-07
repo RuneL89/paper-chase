@@ -29443,7 +29443,7 @@ var require_websocket = __commonJS({
     var http = __require("http");
     var net = __require("net");
     var tls = __require("tls");
-    var { randomBytes, createHash: createHash6 } = __require("crypto");
+    var { randomBytes, createHash: createHash7 } = __require("crypto");
     var { Duplex, Readable } = __require("stream");
     var { URL: URL2 } = __require("url");
     var PerMessageDeflate2 = require_permessage_deflate();
@@ -30111,7 +30111,7 @@ var require_websocket = __commonJS({
           abortHandshake(websocket, socket, "Invalid Upgrade header");
           return;
         }
-        const digest = createHash6("sha1").update(key + GUID).digest("base64");
+        const digest = createHash7("sha1").update(key + GUID).digest("base64");
         if (res.headers["sec-websocket-accept"] !== digest) {
           abortHandshake(websocket, socket, "Invalid Sec-WebSocket-Accept header");
           return;
@@ -30480,7 +30480,7 @@ var require_websocket_server = __commonJS({
     var EventEmitter3 = __require("events");
     var http = __require("http");
     var { Duplex } = __require("stream");
-    var { createHash: createHash6 } = __require("crypto");
+    var { createHash: createHash7 } = __require("crypto");
     var extension2 = require_extension();
     var PerMessageDeflate2 = require_permessage_deflate();
     var subprotocol2 = require_subprotocol();
@@ -30787,7 +30787,7 @@ var require_websocket_server = __commonJS({
           );
         }
         if (this._state > RUNNING) return abortHandshake(socket, 503);
-        const digest = createHash6("sha1").update(key + GUID).digest("base64");
+        const digest = createHash7("sha1").update(key + GUID).digest("base64");
         const headers = [
           "HTTP/1.1 101 Switching Protocols",
           "Upgrade: websocket",
@@ -46041,7 +46041,7 @@ var require_snapshot_utils = __commonJS({
 var require_snapshot_recorder = __commonJS({
   "node_modules/undici/lib/mock/snapshot-recorder.js"(exports2, module2) {
     "use strict";
-    var { writeFile: writeFile27, readFile: readFile36, mkdir: mkdir30 } = __require("node:fs/promises");
+    var { writeFile: writeFile28, readFile: readFile38, mkdir: mkdir31 } = __require("node:fs/promises");
     var { dirname: dirname6, resolve: resolve7 } = __require("node:path");
     var { setTimeout: setTimeout2, clearTimeout: clearTimeout2 } = __require("node:timers");
     var { InvalidArgumentError: InvalidArgumentError2, UndiciError } = require_errors();
@@ -46258,7 +46258,7 @@ var require_snapshot_recorder = __commonJS({
           throw new InvalidArgumentError2("Snapshot path is required");
         }
         try {
-          const data = await readFile36(resolve7(path), "utf8");
+          const data = await readFile38(resolve7(path), "utf8");
           const parsed = JSON.parse(data);
           if (Array.isArray(parsed)) {
             this.#snapshots.clear();
@@ -46288,12 +46288,12 @@ var require_snapshot_recorder = __commonJS({
           throw new InvalidArgumentError2("Snapshot path is required");
         }
         const resolvedPath = resolve7(path);
-        await mkdir30(dirname6(resolvedPath), { recursive: true });
+        await mkdir31(dirname6(resolvedPath), { recursive: true });
         const data = Array.from(this.#snapshots.entries()).map(([hash, snapshot]) => ({
           hash,
           snapshot
         }));
-        await writeFile27(resolvedPath, JSON.stringify(data, null, 2), { flush: true });
+        await writeFile28(resolvedPath, JSON.stringify(data, null, 2), { flush: true });
       }
       /**
        * Clears all recorded snapshots
@@ -74012,8 +74012,8 @@ function InitScreen({ onBack, onResult, defaultWorkspace = "./", pickFolder: pic
 
 // src/tui/ingest-screen.tsx
 var import_react42 = __toESM(require_react(), 1);
-import { readdir as readdir15 } from "node:fs/promises";
-import { join as join50 } from "node:path";
+import { readdir as readdir16 } from "node:fs/promises";
+import { join as join52 } from "node:path";
 
 // src/tui/hooks/use-wiki-list.ts
 var import_react40 = __toESM(require_react(), 1);
@@ -74094,9 +74094,9 @@ function useWikiDetails(workspace, wiki, refreshKey = 0) {
 // src/commands/ingest.ts
 var import_gray_matter21 = __toESM(require_gray_matter(), 1);
 import { existsSync as existsSync11, readFileSync as readFileSync3 } from "node:fs";
-import { mkdir as mkdir27, readFile as readFile34, readdir as readdir13, rm as rm3, writeFile as writeFile26 } from "node:fs/promises";
-import { join as join46 } from "node:path";
-import { createHash as createHash5 } from "node:crypto";
+import { mkdir as mkdir28, readFile as readFile36, readdir as readdir14, rm as rm4, writeFile as writeFile27 } from "node:fs/promises";
+import { join as join48 } from "node:path";
+import { createHash as createHash6 } from "node:crypto";
 
 // src/extraction/pdf.ts
 import { copyFileSync, existsSync as existsSync7, mkdirSync } from "node:fs";
@@ -75869,7 +75869,7 @@ var __webpack_modules__ = {
       var defineProperty = Object.defineProperty;
       var stringSlice = uncurryThis("".slice);
       var replace = uncurryThis("".replace);
-      var join54 = uncurryThis([].join);
+      var join56 = uncurryThis([].join);
       var CONFIGURABLE_LENGTH = DESCRIPTORS && !fails(function() {
         return defineProperty(function() {
         }, "length", { value: 8 }).length !== 8;
@@ -75896,7 +75896,7 @@ var __webpack_modules__ = {
         }
         var state = enforceInternalState(value);
         if (!hasOwn(state, "source")) {
-          state.source = join54(TEMPLATE, typeof name == "string" ? name : "");
+          state.source = join56(TEMPLATE, typeof name == "string" ? name : "");
         }
         return value;
       };
@@ -100175,357 +100175,9 @@ async function logManualEditConflict(wikiDir2, page, reason) {
   });
 }
 
-// src/state/metrics.ts
-import { mkdir as mkdir8, readFile as readFile10, writeFile as writeFile7 } from "node:fs/promises";
+// src/state/extraction-checkpoints.ts
+import { readFile as readFile10 } from "node:fs/promises";
 import { join as join15 } from "node:path";
-function metricsPath(wikiDir2) {
-  return join15(wikiDir2, ".state", "metrics.json");
-}
-async function writeMetrics(wikiDir2, metrics) {
-  await mkdir8(join15(wikiDir2, ".state"), { recursive: true });
-  await writeFile7(metricsPath(wikiDir2), JSON.stringify(metrics, null, 2) + "\n", "utf-8");
-}
-async function sumLlmUsageSince(wikiDir2, sinceIso) {
-  let raw;
-  try {
-    raw = await readFile10(join15(wikiDir2, ".state", "llm-calls.json"), "utf-8");
-  } catch {
-    return { cost: 0, inputTokens: 0, outputTokens: 0 };
-  }
-  let cost = 0;
-  let inputTokens = 0;
-  let outputTokens = 0;
-  for (const line of raw.split("\n")) {
-    const trimmed = line.trim();
-    if (trimmed === "") {
-      continue;
-    }
-    try {
-      const entry = JSON.parse(trimmed);
-      if (typeof entry.timestamp === "string" && entry.timestamp >= sinceIso) {
-        if (typeof entry.cost === "number") {
-          cost += entry.cost;
-        }
-        if (typeof entry.inputTokens === "number") {
-          inputTokens += entry.inputTokens;
-        }
-        if (typeof entry.outputTokens === "number") {
-          outputTokens += entry.outputTokens;
-        }
-      }
-    } catch {
-    }
-  }
-  return { cost, inputTokens, outputTokens };
-}
-async function countLlmCallsSince(wikiDir2, sinceIso) {
-  let raw;
-  try {
-    raw = await readFile10(join15(wikiDir2, ".state", "llm-calls.json"), "utf-8");
-  } catch {
-    return 0;
-  }
-  let count = 0;
-  for (const line of raw.split("\n")) {
-    const trimmed = line.trim();
-    if (trimmed === "") {
-      continue;
-    }
-    try {
-      const entry = JSON.parse(trimmed);
-      if (typeof entry.timestamp === "string" && entry.timestamp >= sinceIso) {
-        count++;
-      }
-    } catch {
-    }
-  }
-  return count;
-}
-
-// src/llm/reask.ts
-var REASK_CORRECTION_INSTRUCTION = "Your previous output failed deterministic validation. Correct ONLY the listed violations and return the complete corrected output.";
-function buildCorrectionBlock(invalidOutput, errors, enhancement) {
-  const errorLines = errors.map((error) => `- ${error}`).join("\n");
-  const lines = [
-    "=== CORRECTION REQUIRED ===",
-    REASK_CORRECTION_INSTRUCTION,
-    "",
-    "Validation errors:",
-    errorLines
-  ];
-  const guidance = enhancement?.guidance?.trim();
-  if (guidance) {
-    lines.push("", "Diagnosed cause and fix:", guidance);
-  }
-  lines.push(
-    "",
-    "Your previous output:",
-    enhancement?.echoOverride ?? invalidOutput,
-    "=== END CORRECTION ==="
-  );
-  return lines.join("\n");
-}
-function stringifyInvalidOutput(output) {
-  return typeof output === "string" ? output : JSON.stringify(output, null, 2);
-}
-var repairsThisRun = 0;
-function beginReaskRun() {
-  repairsThisRun = 0;
-}
-function reaskRepairs() {
-  return repairsThisRun;
-}
-async function runWithFeedbackRetry(runLlm, validate2, options2) {
-  const maxAttempts = Math.max(1, options2.maxAttempts ?? 3);
-  let attempts = 0;
-  let lastErrors = [];
-  let feedback = null;
-  while (attempts < maxAttempts) {
-    attempts++;
-    const output = await runLlm(feedback, attempts);
-    const validation = await validate2(output);
-    if (validation.valid) {
-      return { output, attempts, lastErrors: [] };
-    }
-    lastErrors = validation.errors;
-    if (attempts < maxAttempts) {
-      repairsThisRun++;
-      options2.onRepair?.(validation.errors);
-      let enhancement = null;
-      if (options2.feedbackEnhancer) {
-        try {
-          enhancement = await options2.feedbackEnhancer(output, validation.errors, attempts);
-        } catch {
-          enhancement = null;
-        }
-      }
-      feedback = buildCorrectionBlock(stringifyInvalidOutput(output), validation.errors, enhancement);
-    }
-  }
-  return { output: null, attempts, lastErrors };
-}
-
-// src/state/synthesis-state.ts
-import { existsSync as existsSync8 } from "node:fs";
-import { mkdir as mkdir9, readFile as readFile11, writeFile as writeFile8 } from "node:fs/promises";
-import { join as join16 } from "node:path";
-import { createHash as createHash2 } from "node:crypto";
-function emptySynthesisState() {
-  return { pages: {} };
-}
-function synthesisStatePath(wikiDir2) {
-  return join16(wikiDir2, ".state", "synthesis-state.json");
-}
-async function readSynthesisState(wikiDir2) {
-  const path = synthesisStatePath(wikiDir2);
-  let raw;
-  try {
-    raw = await readFile11(path, "utf-8");
-  } catch (err) {
-    if (err.code === "ENOENT") {
-      return emptySynthesisState();
-    }
-    throw err;
-  }
-  let parsed;
-  try {
-    parsed = JSON.parse(raw);
-  } catch {
-    throw new Error(`Synthesis state file is not valid JSON: ${path}`);
-  }
-  if (typeof parsed !== "object" || parsed === null || typeof parsed.pages !== "object" || parsed.pages === null) {
-    throw new Error(`Synthesis state file has an unexpected shape (missing "pages"): ${path}`);
-  }
-  return parsed;
-}
-function isSkipEligible(record) {
-  return record !== void 0 && (record.mode === "strict-synthesis" || record.mode === "permissive-synthesis" || record.mode === "patch-amended");
-}
-function synthesisPagePath(pageData) {
-  return `${pageData.folder}/${pageData.slug}.md`;
-}
-function canonicalJson(value) {
-  if (value === null || typeof value !== "object") {
-    return JSON.stringify(value) ?? "null";
-  }
-  if (Array.isArray(value)) {
-    return `[${value.map((entry) => canonicalJson(entry)).join(",")}]`;
-  }
-  const entries = Object.entries(value).filter(([, entryValue]) => entryValue !== void 0).sort(([keyA], [keyB]) => keyA.localeCompare(keyB)).map(([key, entryValue]) => `${JSON.stringify(key)}:${canonicalJson(entryValue)}`);
-  return `{${entries.join(",")}}`;
-}
-function pageDataHash(pageData, language) {
-  const { slugToTitle: _globalContext, ...aggregate } = pageData;
-  const canonical = canonicalJson({ aggregate, language: { input: language.input, output: language.output } });
-  return createHash2("sha256").update(canonical, "utf-8").digest("hex");
-}
-async function recordSynthesisPage(wikiDir2, pagePath, record) {
-  const path = synthesisStatePath(wikiDir2);
-  await enqueueSerializedWrite(path, async () => {
-    const state = await readSynthesisState(wikiDir2);
-    for (const existingPath of Object.keys(state.pages)) {
-      if (!existsSync8(join16(wikiDir2, existingPath))) {
-        delete state.pages[existingPath];
-      }
-    }
-    state.pages[pagePath] = record;
-    const sorted = {};
-    for (const key of Object.keys(state.pages).sort((a, b) => a.localeCompare(b))) {
-      sorted[key] = state.pages[key];
-    }
-    await mkdir9(join16(wikiDir2, ".state"), { recursive: true });
-    await writeFile8(path, JSON.stringify({ pages: sorted }, null, 2) + "\n", "utf-8");
-  });
-}
-
-// src/pages/source-page.ts
-var import_gray_matter5 = __toESM(require_gray_matter(), 1);
-import { mkdir as mkdir10, writeFile as writeFile9 } from "node:fs/promises";
-import { join as join17 } from "node:path";
-function renderSourcePage(data) {
-  const title = `Source: ${data.fileName}`;
-  const aliases = aliasesForTitle(title, data.sourceSlug);
-  const frontmatter = {
-    title,
-    type: "source",
-    ...aliases ? { aliases } : {},
-    wiki: data.wiki,
-    file: data.filePath,
-    sha256: data.sha256,
-    pages: data.pageCount,
-    ingested: data.ingested,
-    updated: data.updated,
-    warnings: data.warnings
-  };
-  const lines = [
-    `# Source: ${data.fileName}`,
-    "",
-    "| Field | Value |",
-    "|---|---|",
-    `| File | \`${data.filePath}\` |`,
-    `| Pages | ${data.pageCount} |`,
-    `| SHA-256 | \`${data.sha256}\` |`,
-    `| Ingested | ${data.ingested.slice(0, 10)} |`,
-    "",
-    "## Document Pages",
-    ""
-  ];
-  for (const pagePath of data.documentPages) {
-    const pageSlug = pagePath.replace(/^documents\//, "").replace(/\.md$/, "");
-    lines.push(`- [[${pageSlug}]]`);
-  }
-  if (data.warnings.length > 0) {
-    lines.push("", "## Warnings", "");
-    for (const warning of data.warnings) {
-      lines.push(`- ${warning}`);
-    }
-  }
-  const body = `
-${lines.join("\n")}
-`;
-  return import_gray_matter5.default.stringify(body, frontmatter);
-}
-async function writeSourcePage(wikiDir2, data) {
-  const relativePath = wikiRelativePath("sources", `${data.sourceSlug}.md`);
-  await mkdir10(join17(wikiDir2, "sources"), { recursive: true });
-  await writeFile9(join17(wikiDir2, relativePath), renderSourcePage(data), "utf-8");
-  return relativePath;
-}
-
-// src/commands/extract-chunk.ts
-var import_gray_matter6 = __toESM(require_gray_matter(), 1);
-import { mkdir as mkdir12, readFile as readFile14, writeFile as writeFile11 } from "node:fs/promises";
-import { join as join20 } from "node:path";
-
-// src/agents/extractor.ts
-import { mkdir as mkdir11, readFile as readFile13, writeFile as writeFile10 } from "node:fs/promises";
-import { join as join19 } from "node:path";
-
-// src/llm/json-corrector.ts
-import { readFile as readFile12 } from "node:fs/promises";
-import { join as join18 } from "node:path";
-var CORRECTOR_MAX_TOKENS = 2048;
-var CORRECTOR_MAX_RETRIES = 1;
-var POSITION_WINDOW_CHARS = 800;
-var HEAD_TAIL_CHARS = 1500;
-var FULL_ECHO_LIMIT_CHARS = 4e3;
-var TRUNCATED_ECHO_TAIL_CHARS = 4e3;
-function isTruncationFinishReason(reason) {
-  return reason === "length" || reason === "max_tokens";
-}
-function errorPosition(errorMessage) {
-  const match = /position (\d+)/.exec(errorMessage);
-  if (match === null) {
-    return null;
-  }
-  const position = Number(match[1]);
-  return Number.isInteger(position) && position >= 0 ? position : null;
-}
-function buildDiagnosisEvidence(rawResponse, errorMessage) {
-  if (rawResponse.length <= FULL_ECHO_LIMIT_CHARS) {
-    return rawResponse;
-  }
-  const position = errorPosition(errorMessage);
-  if (position !== null) {
-    const start = Math.max(0, position - POSITION_WINDOW_CHARS);
-    const end = Math.min(rawResponse.length, position + POSITION_WINDOW_CHARS);
-    const before = start > 0 ? `[... ${start} characters omitted before ...]
-` : "";
-    const after = end < rawResponse.length ? `
-[... ${rawResponse.length - end} characters omitted after ...]` : "";
-    return `${before}${rawResponse.slice(start, end)}${after}`;
-  }
-  const omitted = rawResponse.length - HEAD_TAIL_CHARS * 2;
-  return `${rawResponse.slice(0, HEAD_TAIL_CHARS)}
-[... ${omitted} characters omitted ...]
-${rawResponse.slice(rawResponse.length - HEAD_TAIL_CHARS)}`;
-}
-function truncatedOutputEcho(rawResponse) {
-  if (rawResponse.length <= TRUNCATED_ECHO_TAIL_CHARS) {
-    return rawResponse;
-  }
-  const omitted = rawResponse.length - TRUNCATED_ECHO_TAIL_CHARS;
-  return `[... truncated output \u2014 ${omitted} characters omitted; the TAIL where the cut happened follows ...]
-${rawResponse.slice(rawResponse.length - TRUNCATED_ECHO_TAIL_CHARS)}`;
-}
-var promptTemplateCache = null;
-async function loadCorrectorPrompt() {
-  if (promptTemplateCache !== null) {
-    return promptTemplateCache;
-  }
-  promptTemplateCache = await readFile12(join18(appRoot(), "prompts", "json-corrector.prompt.txt"), "utf-8");
-  return promptTemplateCache;
-}
-function fillPromptSlots(template, values) {
-  let result = template;
-  for (const [key, value] of Object.entries(values)) {
-    result = result.split(`{${key}}`).join(value);
-  }
-  return result;
-}
-var TRUNCATION_NOTE = "NOTE: the provider reported that this response stopped at the output-token limit (it is TRUNCATED). Your instruction must address that first: tell the model to shorten its free-text fields (contexts, summaries, evidence wording) while keeping every item, so the complete JSON object fits.";
-async function diagnoseJsonParseFailure(request2) {
-  try {
-    const template = await loadCorrectorPrompt();
-    const prompt = fillPromptSlots(template, {
-      truncationNote: request2.truncated === true ? TRUNCATION_NOTE : "",
-      errorMessage: request2.errorMessage,
-      outputEvidence: buildDiagnosisEvidence(request2.rawResponse, request2.errorMessage)
-    });
-    const diagnosis = await callLLM(prompt, void 0, {
-      maxTokens: CORRECTOR_MAX_TOKENS,
-      maxRetries: CORRECTOR_MAX_RETRIES,
-      temperature: 0,
-      callType: "json-corrector",
-      context: `${request2.context ?? "json"}#json-diagnosis`,
-      logPath: request2.logPath
-    });
-    const trimmed = diagnosis.trim();
-    return trimmed.length > 0 ? trimmed : null;
-  } catch {
-    return null;
-  }
-}
 
 // src/validation/extractor-schema.ts
 var SLUG_PATTERN = /^[a-z0-9-]+$/;
@@ -100749,6 +100401,612 @@ function validateExtractorResult(data, pageRange) {
   return { valid: issues.length === 0, issues, warnings };
 }
 
+// src/state/extraction-checkpoints.ts
+var PROVENANCE_KEY = "_provenance";
+async function readValidExtraction(wikiDir2, chunkId, expect) {
+  const path = join15(wikiDir2, ".state", "extracted", `${chunkId}.json`);
+  let raw;
+  try {
+    raw = await readFile10(path, "utf-8");
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      return null;
+    }
+    throw err;
+  }
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    return null;
+  }
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return null;
+  }
+  const envelope = parsed[PROVENANCE_KEY];
+  if (typeof envelope !== "object" || envelope === null || Array.isArray(envelope)) {
+    return null;
+  }
+  const provenance = envelope;
+  if (provenance.sha256 !== expect.sha256 || provenance.pages !== expect.pages) {
+    return null;
+  }
+  if (!validateExtractorResult(parsed, expect.pages).valid) {
+    return null;
+  }
+  return parsed;
+}
+async function readExtractionProvenanceSha256(wikiDir2, chunkId) {
+  const path = join15(wikiDir2, ".state", "extracted", `${chunkId}.json`);
+  let raw;
+  try {
+    raw = await readFile10(path, "utf-8");
+  } catch {
+    return null;
+  }
+  try {
+    const parsed = JSON.parse(raw);
+    const envelope = parsed[PROVENANCE_KEY];
+    if (typeof envelope !== "object" || envelope === null) {
+      return null;
+    }
+    const sha = envelope.sha256;
+    return typeof sha === "string" ? sha : null;
+  } catch {
+    return null;
+  }
+}
+
+// src/state/pdf-progress.ts
+import { createHash as createHash2 } from "node:crypto";
+import { mkdir as mkdir8, readFile as readFile11, readdir as readdir4, rm, writeFile as writeFile7 } from "node:fs/promises";
+import { join as join16 } from "node:path";
+function emptyEntry() {
+  return {
+    hash: "",
+    chunksExtracted: 0,
+    totalChunks: 0,
+    extractedSetHash: "",
+    stages: { extraction: false, materialize: false, curation: false },
+    updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+}
+function pdfProgressPath(wikiDir2) {
+  return join16(wikiDir2, ".state", "pdf-progress.json");
+}
+async function readPdfProgress(wikiDir2) {
+  const path = pdfProgressPath(wikiDir2);
+  let raw;
+  try {
+    raw = await readFile11(path, "utf-8");
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      return {};
+    }
+    throw err;
+  }
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error(`PDF progress file is not valid JSON: ${path}`);
+  }
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    throw new Error(`PDF progress file has an unexpected shape (expected an object keyed by source slug): ${path}`);
+  }
+  return parsed;
+}
+async function writeSortedPdfProgress(wikiDir2, state) {
+  const path = pdfProgressPath(wikiDir2);
+  const sorted = {};
+  for (const key of Object.keys(state).sort((a, b) => a.localeCompare(b))) {
+    sorted[key] = state[key];
+  }
+  await mkdir8(join16(wikiDir2, ".state"), { recursive: true });
+  await writeFile7(path, JSON.stringify(sorted, null, 2) + "\n", "utf-8");
+  return path;
+}
+async function updatePdfProgress(wikiDir2, sourceSlug, patch) {
+  await enqueueSerializedWrite(pdfProgressPath(wikiDir2), async () => {
+    const state = await readPdfProgress(wikiDir2);
+    const existing = state[sourceSlug] ?? emptyEntry();
+    const entry = {
+      ...existing,
+      ...patch.hash !== void 0 ? { hash: patch.hash } : {},
+      ...patch.chunksExtracted !== void 0 ? { chunksExtracted: patch.chunksExtracted } : {},
+      ...patch.totalChunks !== void 0 ? { totalChunks: patch.totalChunks } : {},
+      ...patch.extractedSetHash !== void 0 ? { extractedSetHash: patch.extractedSetHash } : {},
+      ...patch.stages !== void 0 ? { stages: { ...existing.stages, ...patch.stages } } : {},
+      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+    };
+    if (entry.stages.synthesis === void 0) {
+      delete entry.stages.synthesis;
+    }
+    state[sourceSlug] = entry;
+    await writeSortedPdfProgress(wikiDir2, state);
+  });
+}
+async function removePdfProgressEntry(wikiDir2, sourceSlug) {
+  const path = pdfProgressPath(wikiDir2);
+  await enqueueSerializedWrite(path, async () => {
+    let state;
+    try {
+      state = await readPdfProgress(wikiDir2);
+    } catch (err) {
+      if (err.code === "ENOENT") {
+        return;
+      }
+      throw err;
+    }
+    if (!(sourceSlug in state)) {
+      return;
+    }
+    delete state[sourceSlug];
+    if (Object.keys(state).length === 0) {
+      await rm(path, { force: true });
+    } else {
+      await writeSortedPdfProgress(wikiDir2, state);
+    }
+  });
+  await rm(materializeCachePath(wikiDir2, sourceSlug), { force: true });
+  try {
+    const cacheDir = join16(wikiDir2, ".state", "pdf-progress");
+    const remaining = await readdir4(cacheDir);
+    if (remaining.length === 0) {
+      await rm(cacheDir, { recursive: true, force: true });
+    }
+  } catch {
+  }
+}
+async function computeExtractedSetHash(wikiDir2) {
+  const extractedDir = join16(wikiDir2, ".state", "extracted");
+  let files;
+  try {
+    files = (await readdir4(extractedDir)).filter((name) => name.toLowerCase().endsWith(".json")).sort((a, b) => a.localeCompare(b));
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      files = [];
+    } else {
+      throw err;
+    }
+  }
+  const hash = createHash2("sha256");
+  for (const file of files) {
+    hash.update(`${file}:${await sha256(join16(extractedDir, file))}
+`);
+  }
+  return hash.digest("hex");
+}
+function materializeCachePath(wikiDir2, sourceSlug) {
+  return join16(wikiDir2, ".state", "pdf-progress", `${sourceSlug}.json`);
+}
+async function saveMaterializeCache(wikiDir2, sourceSlug, result) {
+  const path = materializeCachePath(wikiDir2, sourceSlug);
+  await enqueueSerializedWrite(path, async () => {
+    await mkdir8(join16(wikiDir2, ".state", "pdf-progress"), { recursive: true });
+    await writeFile7(path, JSON.stringify(result, null, 2) + "\n", "utf-8");
+  });
+}
+async function loadMaterializeCache(wikiDir2, sourceSlug) {
+  const path = materializeCachePath(wikiDir2, sourceSlug);
+  let raw;
+  try {
+    raw = await readFile11(path, "utf-8");
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      return null;
+    }
+    throw err;
+  }
+  try {
+    const parsed = JSON.parse(raw);
+    if (typeof parsed !== "object" || parsed === null || !Array.isArray(parsed.entityPages)) {
+      return null;
+    }
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+async function mutateSynthesisJournal(wikiDir2, sourceSlug, mutate) {
+  await enqueueSerializedWrite(pdfProgressPath(wikiDir2), async () => {
+    const state = await readPdfProgress(wikiDir2);
+    const entry = state[sourceSlug];
+    if (entry === void 0) {
+      return;
+    }
+    const existing = entry.stages.synthesis ?? { stage: "entities", done: [], queue: [] };
+    entry.stages.synthesis = mutate(existing);
+    entry.updatedAt = (/* @__PURE__ */ new Date()).toISOString();
+    await writeSortedPdfProgress(wikiDir2, state);
+  });
+}
+async function beginSynthesisJournalStage(wikiDir2, sourceSlug, stage, queue) {
+  try {
+    await mutateSynthesisJournal(wikiDir2, sourceSlug, (journal) => ({
+      stage,
+      done: journal.done,
+      queue
+    }));
+  } catch (err) {
+    console.warn(`Warning: could not update the synthesis journal for ${sourceSlug}: ${err.message}`);
+  }
+}
+async function appendSynthesisJournalDone(wikiDir2, sourceSlug, pagePath) {
+  try {
+    await mutateSynthesisJournal(wikiDir2, sourceSlug, (journal) => ({
+      stage: journal.stage,
+      done: journal.done.includes(pagePath) ? journal.done : [...journal.done, pagePath],
+      queue: journal.queue.filter((path) => path !== pagePath)
+    }));
+  } catch (err) {
+    console.warn(`Warning: could not update the synthesis journal for ${sourceSlug}: ${err.message}`);
+  }
+}
+async function completeSynthesisJournal(wikiDir2, sourceSlug) {
+  try {
+    await mutateSynthesisJournal(wikiDir2, sourceSlug, (journal) => ({
+      stage: "done",
+      done: journal.done,
+      queue: []
+    }));
+  } catch (err) {
+    console.warn(`Warning: could not close the synthesis journal for ${sourceSlug}: ${err.message}`);
+  }
+}
+
+// src/state/metrics.ts
+import { mkdir as mkdir9, readFile as readFile12, writeFile as writeFile8 } from "node:fs/promises";
+import { join as join17 } from "node:path";
+function metricsPath(wikiDir2) {
+  return join17(wikiDir2, ".state", "metrics.json");
+}
+async function writeMetrics(wikiDir2, metrics) {
+  await mkdir9(join17(wikiDir2, ".state"), { recursive: true });
+  await writeFile8(metricsPath(wikiDir2), JSON.stringify(metrics, null, 2) + "\n", "utf-8");
+}
+async function sumLlmUsageSince(wikiDir2, sinceIso) {
+  let raw;
+  try {
+    raw = await readFile12(join17(wikiDir2, ".state", "llm-calls.json"), "utf-8");
+  } catch {
+    return { cost: 0, inputTokens: 0, outputTokens: 0 };
+  }
+  let cost = 0;
+  let inputTokens = 0;
+  let outputTokens = 0;
+  for (const line of raw.split("\n")) {
+    const trimmed = line.trim();
+    if (trimmed === "") {
+      continue;
+    }
+    try {
+      const entry = JSON.parse(trimmed);
+      if (typeof entry.timestamp === "string" && entry.timestamp >= sinceIso) {
+        if (typeof entry.cost === "number") {
+          cost += entry.cost;
+        }
+        if (typeof entry.inputTokens === "number") {
+          inputTokens += entry.inputTokens;
+        }
+        if (typeof entry.outputTokens === "number") {
+          outputTokens += entry.outputTokens;
+        }
+      }
+    } catch {
+    }
+  }
+  return { cost, inputTokens, outputTokens };
+}
+async function countLlmCallsSince(wikiDir2, sinceIso) {
+  let raw;
+  try {
+    raw = await readFile12(join17(wikiDir2, ".state", "llm-calls.json"), "utf-8");
+  } catch {
+    return 0;
+  }
+  let count = 0;
+  for (const line of raw.split("\n")) {
+    const trimmed = line.trim();
+    if (trimmed === "") {
+      continue;
+    }
+    try {
+      const entry = JSON.parse(trimmed);
+      if (typeof entry.timestamp === "string" && entry.timestamp >= sinceIso) {
+        count++;
+      }
+    } catch {
+    }
+  }
+  return count;
+}
+
+// src/llm/reask.ts
+var REASK_CORRECTION_INSTRUCTION = "Your previous output failed deterministic validation. Correct ONLY the listed violations and return the complete corrected output.";
+function buildCorrectionBlock(invalidOutput, errors, enhancement) {
+  const errorLines = errors.map((error) => `- ${error}`).join("\n");
+  const lines = [
+    "=== CORRECTION REQUIRED ===",
+    REASK_CORRECTION_INSTRUCTION,
+    "",
+    "Validation errors:",
+    errorLines
+  ];
+  const guidance = enhancement?.guidance?.trim();
+  if (guidance) {
+    lines.push("", "Diagnosed cause and fix:", guidance);
+  }
+  lines.push(
+    "",
+    "Your previous output:",
+    enhancement?.echoOverride ?? invalidOutput,
+    "=== END CORRECTION ==="
+  );
+  return lines.join("\n");
+}
+function stringifyInvalidOutput(output) {
+  return typeof output === "string" ? output : JSON.stringify(output, null, 2);
+}
+var repairsThisRun = 0;
+function beginReaskRun() {
+  repairsThisRun = 0;
+}
+function reaskRepairs() {
+  return repairsThisRun;
+}
+async function runWithFeedbackRetry(runLlm, validate2, options2) {
+  const maxAttempts = Math.max(1, options2.maxAttempts ?? 3);
+  let attempts = 0;
+  let lastErrors = [];
+  let feedback = null;
+  while (attempts < maxAttempts) {
+    attempts++;
+    const output = await runLlm(feedback, attempts);
+    const validation = await validate2(output);
+    if (validation.valid) {
+      return { output, attempts, lastErrors: [] };
+    }
+    lastErrors = validation.errors;
+    if (attempts < maxAttempts) {
+      repairsThisRun++;
+      options2.onRepair?.(validation.errors);
+      let enhancement = null;
+      if (options2.feedbackEnhancer) {
+        try {
+          enhancement = await options2.feedbackEnhancer(output, validation.errors, attempts);
+        } catch {
+          enhancement = null;
+        }
+      }
+      feedback = buildCorrectionBlock(stringifyInvalidOutput(output), validation.errors, enhancement);
+    }
+  }
+  return { output: null, attempts, lastErrors };
+}
+
+// src/state/synthesis-state.ts
+import { existsSync as existsSync8 } from "node:fs";
+import { mkdir as mkdir10, readFile as readFile13, writeFile as writeFile9 } from "node:fs/promises";
+import { join as join18 } from "node:path";
+import { createHash as createHash3 } from "node:crypto";
+function emptySynthesisState() {
+  return { pages: {} };
+}
+function synthesisStatePath(wikiDir2) {
+  return join18(wikiDir2, ".state", "synthesis-state.json");
+}
+async function readSynthesisState(wikiDir2) {
+  const path = synthesisStatePath(wikiDir2);
+  let raw;
+  try {
+    raw = await readFile13(path, "utf-8");
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      return emptySynthesisState();
+    }
+    throw err;
+  }
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error(`Synthesis state file is not valid JSON: ${path}`);
+  }
+  if (typeof parsed !== "object" || parsed === null || typeof parsed.pages !== "object" || parsed.pages === null) {
+    throw new Error(`Synthesis state file has an unexpected shape (missing "pages"): ${path}`);
+  }
+  return parsed;
+}
+function isSkipEligible(record) {
+  return record !== void 0 && (record.mode === "strict-synthesis" || record.mode === "permissive-synthesis" || record.mode === "patch-amended");
+}
+function synthesisPagePath(pageData) {
+  return `${pageData.folder}/${pageData.slug}.md`;
+}
+function canonicalJson(value) {
+  if (value === null || typeof value !== "object") {
+    return JSON.stringify(value) ?? "null";
+  }
+  if (Array.isArray(value)) {
+    return `[${value.map((entry) => canonicalJson(entry)).join(",")}]`;
+  }
+  const entries = Object.entries(value).filter(([, entryValue]) => entryValue !== void 0).sort(([keyA], [keyB]) => keyA.localeCompare(keyB)).map(([key, entryValue]) => `${JSON.stringify(key)}:${canonicalJson(entryValue)}`);
+  return `{${entries.join(",")}}`;
+}
+function pageDataHash(pageData, language) {
+  const { slugToTitle: _globalContext, ...aggregate } = pageData;
+  const canonical = canonicalJson({ aggregate, language: { input: language.input, output: language.output } });
+  return createHash3("sha256").update(canonical, "utf-8").digest("hex");
+}
+async function recordSynthesisPage(wikiDir2, pagePath, record) {
+  const path = synthesisStatePath(wikiDir2);
+  await enqueueSerializedWrite(path, async () => {
+    const state = await readSynthesisState(wikiDir2);
+    for (const existingPath of Object.keys(state.pages)) {
+      if (!existsSync8(join18(wikiDir2, existingPath))) {
+        delete state.pages[existingPath];
+      }
+    }
+    state.pages[pagePath] = record;
+    const sorted = {};
+    for (const key of Object.keys(state.pages).sort((a, b) => a.localeCompare(b))) {
+      sorted[key] = state.pages[key];
+    }
+    await mkdir10(join18(wikiDir2, ".state"), { recursive: true });
+    await writeFile9(path, JSON.stringify({ pages: sorted }, null, 2) + "\n", "utf-8");
+  });
+}
+
+// src/pages/source-page.ts
+var import_gray_matter5 = __toESM(require_gray_matter(), 1);
+import { mkdir as mkdir11, writeFile as writeFile10 } from "node:fs/promises";
+import { join as join19 } from "node:path";
+function renderSourcePage(data) {
+  const title = `Source: ${data.fileName}`;
+  const aliases = aliasesForTitle(title, data.sourceSlug);
+  const frontmatter = {
+    title,
+    type: "source",
+    ...aliases ? { aliases } : {},
+    wiki: data.wiki,
+    file: data.filePath,
+    sha256: data.sha256,
+    pages: data.pageCount,
+    ingested: data.ingested,
+    updated: data.updated,
+    warnings: data.warnings
+  };
+  const lines = [
+    `# Source: ${data.fileName}`,
+    "",
+    "| Field | Value |",
+    "|---|---|",
+    `| File | \`${data.filePath}\` |`,
+    `| Pages | ${data.pageCount} |`,
+    `| SHA-256 | \`${data.sha256}\` |`,
+    `| Ingested | ${data.ingested.slice(0, 10)} |`,
+    "",
+    "## Document Pages",
+    ""
+  ];
+  for (const pagePath of data.documentPages) {
+    const pageSlug = pagePath.replace(/^documents\//, "").replace(/\.md$/, "");
+    lines.push(`- [[${pageSlug}]]`);
+  }
+  if (data.warnings.length > 0) {
+    lines.push("", "## Warnings", "");
+    for (const warning of data.warnings) {
+      lines.push(`- ${warning}`);
+    }
+  }
+  const body = `
+${lines.join("\n")}
+`;
+  return import_gray_matter5.default.stringify(body, frontmatter);
+}
+async function writeSourcePage(wikiDir2, data) {
+  const relativePath = wikiRelativePath("sources", `${data.sourceSlug}.md`);
+  await mkdir11(join19(wikiDir2, "sources"), { recursive: true });
+  await writeFile10(join19(wikiDir2, relativePath), renderSourcePage(data), "utf-8");
+  return relativePath;
+}
+
+// src/commands/extract-chunk.ts
+var import_gray_matter6 = __toESM(require_gray_matter(), 1);
+import { mkdir as mkdir13, readFile as readFile16, writeFile as writeFile12 } from "node:fs/promises";
+import { join as join22 } from "node:path";
+
+// src/agents/extractor.ts
+import { mkdir as mkdir12, readFile as readFile15, writeFile as writeFile11 } from "node:fs/promises";
+import { join as join21 } from "node:path";
+
+// src/llm/json-corrector.ts
+import { readFile as readFile14 } from "node:fs/promises";
+import { join as join20 } from "node:path";
+var CORRECTOR_MAX_TOKENS = 2048;
+var CORRECTOR_MAX_RETRIES = 1;
+var POSITION_WINDOW_CHARS = 800;
+var HEAD_TAIL_CHARS = 1500;
+var FULL_ECHO_LIMIT_CHARS = 4e3;
+var TRUNCATED_ECHO_TAIL_CHARS = 4e3;
+function isTruncationFinishReason(reason) {
+  return reason === "length" || reason === "max_tokens";
+}
+function errorPosition(errorMessage) {
+  const match = /position (\d+)/.exec(errorMessage);
+  if (match === null) {
+    return null;
+  }
+  const position = Number(match[1]);
+  return Number.isInteger(position) && position >= 0 ? position : null;
+}
+function buildDiagnosisEvidence(rawResponse, errorMessage) {
+  if (rawResponse.length <= FULL_ECHO_LIMIT_CHARS) {
+    return rawResponse;
+  }
+  const position = errorPosition(errorMessage);
+  if (position !== null) {
+    const start = Math.max(0, position - POSITION_WINDOW_CHARS);
+    const end = Math.min(rawResponse.length, position + POSITION_WINDOW_CHARS);
+    const before = start > 0 ? `[... ${start} characters omitted before ...]
+` : "";
+    const after = end < rawResponse.length ? `
+[... ${rawResponse.length - end} characters omitted after ...]` : "";
+    return `${before}${rawResponse.slice(start, end)}${after}`;
+  }
+  const omitted = rawResponse.length - HEAD_TAIL_CHARS * 2;
+  return `${rawResponse.slice(0, HEAD_TAIL_CHARS)}
+[... ${omitted} characters omitted ...]
+${rawResponse.slice(rawResponse.length - HEAD_TAIL_CHARS)}`;
+}
+function truncatedOutputEcho(rawResponse) {
+  if (rawResponse.length <= TRUNCATED_ECHO_TAIL_CHARS) {
+    return rawResponse;
+  }
+  const omitted = rawResponse.length - TRUNCATED_ECHO_TAIL_CHARS;
+  return `[... truncated output \u2014 ${omitted} characters omitted; the TAIL where the cut happened follows ...]
+${rawResponse.slice(rawResponse.length - TRUNCATED_ECHO_TAIL_CHARS)}`;
+}
+var promptTemplateCache = null;
+async function loadCorrectorPrompt() {
+  if (promptTemplateCache !== null) {
+    return promptTemplateCache;
+  }
+  promptTemplateCache = await readFile14(join20(appRoot(), "prompts", "json-corrector.prompt.txt"), "utf-8");
+  return promptTemplateCache;
+}
+function fillPromptSlots(template, values) {
+  let result = template;
+  for (const [key, value] of Object.entries(values)) {
+    result = result.split(`{${key}}`).join(value);
+  }
+  return result;
+}
+var TRUNCATION_NOTE = "NOTE: the provider reported that this response stopped at the output-token limit (it is TRUNCATED). Your instruction must address that first: tell the model to shorten its free-text fields (contexts, summaries, evidence wording) while keeping every item, so the complete JSON object fits.";
+async function diagnoseJsonParseFailure(request2) {
+  try {
+    const template = await loadCorrectorPrompt();
+    const prompt = fillPromptSlots(template, {
+      truncationNote: request2.truncated === true ? TRUNCATION_NOTE : "",
+      errorMessage: request2.errorMessage,
+      outputEvidence: buildDiagnosisEvidence(request2.rawResponse, request2.errorMessage)
+    });
+    const diagnosis = await callLLM(prompt, void 0, {
+      maxTokens: CORRECTOR_MAX_TOKENS,
+      maxRetries: CORRECTOR_MAX_RETRIES,
+      temperature: 0,
+      callType: "json-corrector",
+      context: `${request2.context ?? "json"}#json-diagnosis`,
+      logPath: request2.logPath
+    });
+    const trimmed = diagnosis.trim();
+    return trimmed.length > 0 ? trimmed : null;
+  } catch {
+    return null;
+  }
+}
+
 // src/agents/extractor.ts
 var ExtractorError = class extends Error {
   rawResponse;
@@ -100769,8 +101027,8 @@ async function loadPromptTemplate() {
   if (promptTemplateCache2 !== null) {
     return promptTemplateCache2;
   }
-  const promptPath = join19(appRoot(), "prompts", "extractor.prompt.txt");
-  promptTemplateCache2 = await readFile13(promptPath, "utf-8");
+  const promptPath = join21(appRoot(), "prompts", "extractor.prompt.txt");
+  promptTemplateCache2 = await readFile15(promptPath, "utf-8");
   return promptTemplateCache2;
 }
 function fillPromptTemplate(template, values) {
@@ -100802,10 +101060,10 @@ function stripCodeFences(text) {
 }
 async function debugWriteRawResponse(rawResponse) {
   try {
-    const debugDir = join19(appRoot(), ".state");
-    await mkdir11(debugDir, { recursive: true });
-    await writeFile10(
-      join19(debugDir, "debug-extractor-raw.txt"),
+    const debugDir = join21(appRoot(), ".state");
+    await mkdir12(debugDir, { recursive: true });
+    await writeFile11(
+      join21(debugDir, "debug-extractor-raw.txt"),
       rawResponse,
       "utf-8"
     );
@@ -100992,10 +101250,10 @@ ${feedback}`, void 0, {
 
 // src/commands/extract-chunk.ts
 async function extractDocumentChunk(wikiDir2, chunkId, language) {
-  const documentPath = join20(wikiDir2, "documents", `${chunkId}.md`);
+  const documentPath = join22(wikiDir2, "documents", `${chunkId}.md`);
   let rawPage;
   try {
-    rawPage = await readFile14(documentPath, "utf-8");
+    rawPage = await readFile16(documentPath, "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
       throw new Error(`Document chunk not found: ${documentPath}`);
@@ -101006,12 +101264,13 @@ async function extractDocumentChunk(wikiDir2, chunkId, language) {
   const firstSource = Array.isArray(parsed.data.sources) ? parsed.data.sources[0] : void 0;
   const pageRange = typeof firstSource?.pages === "string" ? firstSource.pages : "";
   const sourceFile = typeof firstSource?.file === "string" ? firstSource.file : `documents/${chunkId}.md`;
+  const sourceSha256 = typeof firstSource?.sha256 === "string" ? firstSource.sha256 : "";
   let agentsMd;
   try {
-    agentsMd = await readFile14(join20(wikiDir2, "AGENTS.md"), "utf-8");
+    agentsMd = await readFile16(join22(wikiDir2, "AGENTS.md"), "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
-      throw new Error(`Wiki constitution not found: ${join20(wikiDir2, "AGENTS.md")}. Run 'init' to repair the wiki.`);
+      throw new Error(`Wiki constitution not found: ${join22(wikiDir2, "AGENTS.md")}. Run 'init' to repair the wiki.`);
     }
     throw err;
   }
@@ -101023,12 +101282,22 @@ async function extractDocumentChunk(wikiDir2, chunkId, language) {
     agentsMd,
     memory.folders,
     memory.entitySlugs,
-    { logPath: join20(wikiDir2, ".state", "llm-calls.json"), context: chunkId, language }
+    { logPath: join22(wikiDir2, ".state", "llm-calls.json"), context: chunkId, language }
   );
-  const extractedDir = join20(wikiDir2, ".state", "extracted");
-  await mkdir12(extractedDir, { recursive: true });
-  const jsonPath = join20(extractedDir, `${chunkId}.json`);
-  await writeFile11(jsonPath, JSON.stringify(result, null, 2) + "\n", "utf-8");
+  const extractedDir = join22(wikiDir2, ".state", "extracted");
+  await mkdir13(extractedDir, { recursive: true });
+  const jsonPath = join22(extractedDir, `${chunkId}.json`);
+  const provenance = {
+    sha256: sourceSha256,
+    pages: pageRange,
+    sourceFile,
+    extractedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+  await writeFile12(
+    jsonPath,
+    JSON.stringify({ _provenance: provenance, ...result }, null, 2) + "\n",
+    "utf-8"
+  );
   return {
     chunkId,
     result,
@@ -101040,9 +101309,9 @@ async function extractDocumentChunk(wikiDir2, chunkId, language) {
 // src/materializer.ts
 var import_gray_matter9 = __toESM(require_gray_matter(), 1);
 import { existsSync as existsSync9 } from "node:fs";
-import { mkdir as mkdir17, readdir as readdir4, readFile as readFile21, rm, writeFile as writeFile16 } from "node:fs/promises";
-import { dirname as dirname4, join as join28 } from "node:path";
-import { createHash as createHash3 } from "node:crypto";
+import { mkdir as mkdir18, readdir as readdir5, readFile as readFile23, rm as rm2, writeFile as writeFile17 } from "node:fs/promises";
+import { dirname as dirname4, join as join30 } from "node:path";
+import { createHash as createHash4 } from "node:crypto";
 
 // src/pages/composite-page.ts
 var import_gray_matter7 = __toESM(require_gray_matter(), 1);
@@ -101528,16 +101797,16 @@ function comparisonRowValues(markdown) {
 }
 
 // src/state/structural-changes.ts
-import { mkdir as mkdir13, readFile as readFile15, writeFile as writeFile12 } from "node:fs/promises";
-import { join as join21 } from "node:path";
+import { mkdir as mkdir14, readFile as readFile17, writeFile as writeFile13 } from "node:fs/promises";
+import { join as join23 } from "node:path";
 function structuralChangesPath(wikiDir2) {
-  return join21(wikiDir2, ".state", "proposals", "structural-changes.json");
+  return join23(wikiDir2, ".state", "proposals", "structural-changes.json");
 }
 async function readStructuralChanges(wikiDir2) {
   const path = structuralChangesPath(wikiDir2);
   let raw;
   try {
-    raw = await readFile15(path, "utf-8");
+    raw = await readFile17(path, "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
       return { changes: [], knownPageTypes: [] };
@@ -101569,25 +101838,25 @@ async function logStructuralChanges(wikiDir2, changes, newlySeenPageTypes = []) 
   }
   log.knownPageTypes = Array.from(known).sort((a, b) => a.localeCompare(b));
   const path = structuralChangesPath(wikiDir2);
-  await mkdir13(join21(wikiDir2, ".state", "proposals"), { recursive: true });
-  await writeFile12(path, JSON.stringify(log, null, 2) + "\n", "utf-8");
+  await mkdir14(join23(wikiDir2, ".state", "proposals"), { recursive: true });
+  await writeFile13(path, JSON.stringify(log, null, 2) + "\n", "utf-8");
 }
 
 // src/state/curation-overrides.ts
-import { mkdir as mkdir14, readFile as readFile16, writeFile as writeFile13 } from "node:fs/promises";
-import { join as join22 } from "node:path";
+import { mkdir as mkdir15, readFile as readFile18, writeFile as writeFile14 } from "node:fs/promises";
+import { join as join24 } from "node:path";
 function curationOverridesPath(wikiDir2) {
-  return join22(wikiDir2, ".state", "curation-overrides.json");
+  return join24(wikiDir2, ".state", "curation-overrides.json");
 }
 async function readCurationOverrides(wikiDir2) {
   const path = curationOverridesPath(wikiDir2);
   let raw;
   try {
-    raw = await readFile16(path, "utf-8");
+    raw = await readFile18(path, "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
-      await mkdir14(join22(wikiDir2, ".state"), { recursive: true });
-      await writeFile13(path, JSON.stringify({ neverMerge: [] }, null, 2) + "\n", "utf-8");
+      await mkdir15(join24(wikiDir2, ".state"), { recursive: true });
+      await writeFile14(path, JSON.stringify({ neverMerge: [] }, null, 2) + "\n", "utf-8");
       return { neverMerge: [] };
     }
     throw err;
@@ -101612,21 +101881,21 @@ async function readCurationOverrides(wikiDir2) {
 }
 
 // src/state/curation-report.ts
-import { mkdir as mkdir15, writeFile as writeFile14 } from "node:fs/promises";
-import { join as join23 } from "node:path";
+import { mkdir as mkdir16, writeFile as writeFile15 } from "node:fs/promises";
+import { join as join25 } from "node:path";
 function curationReportPath(wikiDir2) {
-  return join23(wikiDir2, ".state", "curation-report.json");
+  return join25(wikiDir2, ".state", "curation-report.json");
 }
 async function writeCurationReport(wikiDir2, report) {
-  await mkdir15(join23(wikiDir2, ".state"), { recursive: true });
-  await writeFile14(curationReportPath(wikiDir2), JSON.stringify(report, null, 2) + "\n", "utf-8");
+  await mkdir16(join25(wikiDir2, ".state"), { recursive: true });
+  await writeFile15(curationReportPath(wikiDir2), JSON.stringify(report, null, 2) + "\n", "utf-8");
 }
 
 // src/state/curation-decisions.ts
-import { mkdir as mkdir16, readFile as readFile17, writeFile as writeFile15 } from "node:fs/promises";
-import { join as join24 } from "node:path";
+import { mkdir as mkdir17, readFile as readFile19, writeFile as writeFile16 } from "node:fs/promises";
+import { join as join26 } from "node:path";
 function curationDecisionsPath(wikiDir2) {
-  return join24(wikiDir2, ".state", "curation-decisions.json");
+  return join26(wikiDir2, ".state", "curation-decisions.json");
 }
 function isValidRecord(entry) {
   if (typeof entry !== "object" || entry === null || Array.isArray(entry)) {
@@ -101660,11 +101929,11 @@ async function readCurationDecisions(wikiDir2) {
   const path = curationDecisionsPath(wikiDir2);
   let raw;
   try {
-    raw = await readFile17(path, "utf-8");
+    raw = await readFile19(path, "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
-      await mkdir16(join24(wikiDir2, ".state"), { recursive: true });
-      await writeFile15(path, JSON.stringify(EMPTY_DECISIONS, null, 2) + "\n", "utf-8");
+      await mkdir17(join26(wikiDir2, ".state"), { recursive: true });
+      await writeFile16(path, JSON.stringify(EMPTY_DECISIONS, null, 2) + "\n", "utf-8");
       return { decisions: [], splits: [] };
     }
     throw err;
@@ -101686,7 +101955,7 @@ async function appendCurationDecisions(wikiDir2, newRecords) {
   let base = { decisions: [], splits: [] };
   let raw = null;
   try {
-    raw = await readFile17(path, "utf-8");
+    raw = await readFile19(path, "utf-8");
   } catch (err) {
     if (err.code !== "ENOENT") {
       throw err;
@@ -101695,8 +101964,8 @@ async function appendCurationDecisions(wikiDir2, newRecords) {
   if (raw !== null) {
     const parsed = parseDecisions(raw);
     if (parsed === null) {
-      await mkdir16(join24(wikiDir2, ".state"), { recursive: true });
-      await writeFile15(curationDecisionsPath(wikiDir2).replace("curation-decisions.json", "curation-decisions.corrupt.json"), raw, "utf-8");
+      await mkdir17(join26(wikiDir2, ".state"), { recursive: true });
+      await writeFile16(curationDecisionsPath(wikiDir2).replace("curation-decisions.json", "curation-decisions.corrupt.json"), raw, "utf-8");
       console.warn(
         `Warning: .state/curation-decisions.json was malformed \u2014 backed up to curation-decisions.corrupt.json and rebuilt fresh.`
       );
@@ -101724,8 +101993,8 @@ async function appendCurationDecisions(wikiDir2, newRecords) {
     }
   }
   const splits = base.splits.filter((slug) => !touched.has(slug));
-  await mkdir16(join24(wikiDir2, ".state"), { recursive: true });
-  await writeFile15(
+  await mkdir17(join26(wikiDir2, ".state"), { recursive: true });
+  await writeFile16(
     path,
     JSON.stringify({ decisions: [...base.decisions, ...appended], splits }, null, 2) + "\n",
     "utf-8"
@@ -101735,7 +102004,7 @@ async function updateCurationDecisionSourceMap(wikiDir2, into, sourceMap, member
   const path = curationDecisionsPath(wikiDir2);
   let raw;
   try {
-    raw = await readFile17(path, "utf-8");
+    raw = await readFile19(path, "utf-8");
   } catch {
     console.warn(
       `Warning: could not grow the disambiguation record for '${into}' \u2014 .state/curation-decisions.json is absent.`
@@ -101767,26 +102036,26 @@ async function updateCurationDecisionSourceMap(wikiDir2, into, sourceMap, member
     );
     return;
   }
-  await mkdir16(join24(wikiDir2, ".state"), { recursive: true });
-  await writeFile15(path, JSON.stringify(parsed, null, 2) + "\n", "utf-8");
+  await mkdir17(join26(wikiDir2, ".state"), { recursive: true });
+  await writeFile16(path, JSON.stringify(parsed, null, 2) + "\n", "utf-8");
 }
 
 // src/agents/curation.ts
-import { readFile as readFile19 } from "node:fs/promises";
-import { join as join26 } from "node:path";
+import { readFile as readFile21 } from "node:fs/promises";
+import { join as join28 } from "node:path";
 
 // src/agents/synthesis.ts
-import { readFile as readFile18 } from "node:fs/promises";
-import { join as join25 } from "node:path";
-var PROMPT_DIR = join25(appRoot(), "prompts");
+import { readFile as readFile20 } from "node:fs/promises";
+import { join as join27 } from "node:path";
+var PROMPT_DIR = join27(appRoot(), "prompts");
 var promptCache = {};
 var SYNTHESIS_MAX_TOKENS = 32768;
 async function loadPromptTemplate2(fileName) {
   if (promptCache[fileName]) {
     return promptCache[fileName];
   }
-  const promptPath = join25(PROMPT_DIR, fileName);
-  const template = await readFile18(promptPath, "utf-8");
+  const promptPath = join27(PROMPT_DIR, fileName);
+  const template = await readFile20(promptPath, "utf-8");
   promptCache[fileName] = template;
   return template;
 }
@@ -103069,7 +103338,7 @@ async function loadPromptTemplate3(kind) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile19(join26(appRoot(), "prompts", PROMPT_FILES[kind]), "utf-8");
+  const template = await readFile21(join28(appRoot(), "prompts", PROMPT_FILES[kind]), "utf-8");
   promptCache2[kind] = template;
   return template;
 }
@@ -104137,8 +104406,8 @@ async function curateEntities(candidates, options2) {
 }
 
 // src/agents/disambiguation.ts
-import { readFile as readFile20 } from "node:fs/promises";
-import { join as join27 } from "node:path";
+import { readFile as readFile22 } from "node:fs/promises";
+import { join as join29 } from "node:path";
 var PROMPT_FILE = "disambiguation.prompt.txt";
 var DISAMBIGUATION_MAX_ATTEMPTS = 3;
 var DISAMBIGUATION_MAX_RETRIES = 2;
@@ -104148,7 +104417,7 @@ async function loadPromptTemplate4() {
   if (promptTemplate !== null) {
     return promptTemplate;
   }
-  promptTemplate = await readFile20(join27(appRoot(), "prompts", PROMPT_FILE), "utf-8");
+  promptTemplate = await readFile22(join29(appRoot(), "prompts", PROMPT_FILE), "utf-8");
   return promptTemplate;
 }
 function fillPromptTemplate4(template, values) {
@@ -104667,9 +104936,9 @@ function newEvidenceFor(pageData, baselineKeys) {
   };
 }
 async function loadChunkSource(wikiDir2, chunkId) {
-  const documentPath = join28(wikiDir2, "documents", `${chunkId}.md`);
+  const documentPath = join30(wikiDir2, "documents", `${chunkId}.md`);
   try {
-    const raw = await readFile21(documentPath, "utf-8");
+    const raw = await readFile23(documentPath, "utf-8");
     const parsed = (0, import_gray_matter9.default)(raw);
     const firstSource = Array.isArray(parsed.data.sources) ? parsed.data.sources[0] : void 0;
     const file = typeof firstSource?.file === "string" ? firstSource.file : "";
@@ -104683,7 +104952,7 @@ async function loadChunkSource(wikiDir2, chunkId) {
   }
 }
 function hashContent(content) {
-  return createHash3("sha256").update(content, "utf-8").digest("hex");
+  return createHash4("sha256").update(content, "utf-8").digest("hex");
 }
 async function checkPageConflict(pagePath, relativePath, pageHashes, rendered) {
   if (!pageHashes || !existsSync9(pagePath)) {
@@ -104693,7 +104962,7 @@ async function checkPageConflict(pagePath, relativePath, pageHashes, rendered) {
   if (recorded === void 0) {
     return "write";
   }
-  const current = hashContent(await readFile21(pagePath, "utf-8"));
+  const current = hashContent(await readFile23(pagePath, "utf-8"));
   if (current === recorded) {
     return "write";
   }
@@ -104705,10 +104974,10 @@ function logHashConvergence(relativePath) {
   );
 }
 async function collectEntityPageLocations(root, relPrefix, out) {
-  for (const entry of await readdir4(root, { withFileTypes: true })) {
+  for (const entry of await readdir5(root, { withFileTypes: true })) {
     const rel = relPrefix === "" ? entry.name : `${relPrefix}/${entry.name}`;
     if (entry.isDirectory()) {
-      await collectEntityPageLocations(join28(root, entry.name), rel, out);
+      await collectEntityPageLocations(join30(root, entry.name), rel, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
       const slug = entry.name.replace(/\.md$/i, "");
       const list = out.get(slug) ?? [];
@@ -104718,10 +104987,10 @@ async function collectEntityPageLocations(root, relPrefix, out) {
   }
 }
 async function collectSectionPageLocations(root, section, relPrefix, out) {
-  for (const entry of await readdir4(root, { withFileTypes: true })) {
+  for (const entry of await readdir5(root, { withFileTypes: true })) {
     const rel = relPrefix === "" ? entry.name : `${relPrefix}/${entry.name}`;
     if (entry.isDirectory()) {
-      await collectSectionPageLocations(join28(root, entry.name), section, rel, out);
+      await collectSectionPageLocations(join30(root, entry.name), section, rel, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
       const slug = entry.name.replace(/\.md$/i, "");
       const list = out.get(slug) ?? [];
@@ -104731,10 +105000,10 @@ async function collectSectionPageLocations(root, section, relPrefix, out) {
   }
 }
 async function collectContentPagePaths(root, section, relPrefix, out) {
-  for (const entry of await readdir4(root, { withFileTypes: true })) {
+  for (const entry of await readdir5(root, { withFileTypes: true })) {
     const rel = relPrefix === "" ? entry.name : `${relPrefix}/${entry.name}`;
     if (entry.isDirectory()) {
-      await collectContentPagePaths(join28(root, entry.name), section, rel, out);
+      await collectContentPagePaths(join30(root, entry.name), section, rel, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
       out.push(`${section}/${rel}`);
     }
@@ -104778,7 +105047,7 @@ async function readOnDiskEntityMeta(dir, locations) {
     aliases: []
   };
   try {
-    const parsed = (0, import_gray_matter9.default)(await readFile21(join28(dir, locations[0]), "utf-8"));
+    const parsed = (0, import_gray_matter9.default)(await readFile23(join30(dir, locations[0]), "utf-8"));
     if (typeof parsed.data.title === "string") {
       meta.title = parsed.data.title;
     }
@@ -104805,7 +105074,7 @@ async function readOnDiskTopicMeta(dir, locations) {
     claimSamples: []
   };
   try {
-    const parsed = (0, import_gray_matter9.default)(await readFile21(join28(dir, locations[0]), "utf-8"));
+    const parsed = (0, import_gray_matter9.default)(await readFile23(join30(dir, locations[0]), "utf-8"));
     if (typeof parsed.data.title === "string") {
       meta.title = parsed.data.title;
     }
@@ -104980,13 +105249,13 @@ function detectGenericLabelDisambiguations(entityMap, topicMap, splitSlugs) {
 async function folderIsRemovable(path) {
   let entries;
   try {
-    entries = await readdir4(path, { withFileTypes: true });
+    entries = await readdir5(path, { withFileTypes: true });
   } catch {
     return false;
   }
   for (const entry of entries) {
     if (entry.isDirectory()) {
-      if (!await folderIsRemovable(join28(path, entry.name))) {
+      if (!await folderIsRemovable(join30(path, entry.name))) {
         return false;
       }
     } else if (!(entry.isFile() && entry.name.toLowerCase() === "index.md")) {
@@ -105001,7 +105270,7 @@ async function pruneEmptyFolderChain(sectionRoot, startFolder) {
     if (!await folderIsRemovable(current)) {
       break;
     }
-    await rm(current, { recursive: true, force: true });
+    await rm2(current, { recursive: true, force: true });
     current = dirname4(current);
   }
 }
@@ -105068,10 +105337,10 @@ function collapseStickyMerges(records, concern) {
 }
 async function materialize(wikiSlug, options2) {
   const dir = wikiDir(options2?.workspace, wikiSlug);
-  const extractedDir = join28(dir, ".state", "extracted");
+  const extractedDir = join30(dir, ".state", "extracted");
   let extractionFiles;
   try {
-    extractionFiles = (await readdir4(extractedDir)).filter((name) => name.toLowerCase().endsWith(".json")).sort();
+    extractionFiles = (await readdir5(extractedDir)).filter((name) => name.toLowerCase().endsWith(".json")).sort();
   } catch (err) {
     if (err.code === "ENOENT") {
       extractionFiles = [];
@@ -105101,7 +105370,7 @@ async function materialize(wikiSlug, options2) {
       continue;
     }
     chunkSources.push({ chunkId, file: chunkSource.file, pages: chunkSource.pages });
-    const raw = await readFile21(join28(extractedDir, fileName), "utf-8");
+    const raw = await readFile23(join30(extractedDir, fileName), "utf-8");
     const extracted = JSON.parse(raw);
     for (const entity of extracted.entities ?? []) {
       const existing = entityMap.get(entity.slug);
@@ -105239,12 +105508,12 @@ async function materialize(wikiSlug, options2) {
   let curationRunTimestamp = null;
   if (options2?.curation === true && extractionFiles.length > 0) {
     const entityLocations = /* @__PURE__ */ new Map();
-    const entitiesRoot = join28(dir, "entities");
+    const entitiesRoot = join30(dir, "entities");
     if (existsSync9(entitiesRoot)) {
       await collectSectionPageLocations(entitiesRoot, "entities", "", entityLocations);
     }
     const topicLocations = /* @__PURE__ */ new Map();
-    const topicsRoot = join28(dir, "topics");
+    const topicsRoot = join30(dir, "topics");
     if (existsSync9(topicsRoot)) {
       await collectSectionPageLocations(topicsRoot, "topics", "", topicLocations);
     }
@@ -105308,7 +105577,7 @@ async function materialize(wikiSlug, options2) {
     if (hasCurationWork) {
       let agentsMd = "";
       try {
-        agentsMd = await readFile21(join28(dir, "AGENTS.md"), "utf-8");
+        agentsMd = await readFile23(join30(dir, "AGENTS.md"), "utf-8");
       } catch {
       }
       curationSummary = {
@@ -105337,7 +105606,7 @@ async function materialize(wikiSlug, options2) {
         if (!pageHashes) {
           return false;
         }
-        const absolute = join28(dir, relPath);
+        const absolute = join30(dir, relPath);
         if (!existsSync9(absolute)) {
           return false;
         }
@@ -105345,7 +105614,7 @@ async function materialize(wikiSlug, options2) {
         if (recorded === void 0) {
           return true;
         }
-        return hashContent(await readFile21(absolute, "utf-8")) !== recorded;
+        return hashContent(await readFile23(absolute, "utf-8")) !== recorded;
       };
       const filterMerges = async (merges, locations, concern, intoLabel, reasonLabel) => {
         const reason = reasonLabel ?? `Curation ${concern} merge`;
@@ -105583,7 +105852,7 @@ async function materialize(wikiSlug, options2) {
       const disambiguationCallOptions = {
         agentsMd,
         language: options2?.language,
-        logPath: join28(dir, ".state", "llm-calls.json")
+        logPath: join30(dir, ".state", "llm-calls.json")
       };
       const runDisambiguation = options2?.disambiguateFn ?? disambiguateLabel;
       const memberSlugsAreFree = (concern, labelSlug, members) => {
@@ -105884,7 +106153,7 @@ async function materialize(wikiSlug, options2) {
       for (const fileName of extractionFiles) {
         const chunkId = fileName.replace(/\.json$/i, "");
         try {
-          corpusParts.push((0, import_gray_matter9.default)(await readFile21(join28(dir, "documents", `${chunkId}.md`), "utf-8")).content);
+          corpusParts.push((0, import_gray_matter9.default)(await readFile23(join30(dir, "documents", `${chunkId}.md`), "utf-8")).content);
         } catch {
         }
       }
@@ -105975,7 +106244,7 @@ async function materialize(wikiSlug, options2) {
       const callOptions = {
         agentsMd,
         language: options2?.language,
-        logPath: join28(dir, ".state", "llm-calls.json"),
+        logPath: join30(dir, ".state", "llm-calls.json"),
         neverMerge: overrides.neverMerge
       };
       const topicsFn = options2?.curateTopicsFn ?? curateTopics;
@@ -106130,7 +106399,7 @@ async function materialize(wikiSlug, options2) {
         const locations = [...entityLocations.get(into) ?? [], ...topicLocations.get(into) ?? []];
         for (const location of locations) {
           try {
-            const parsed = (0, import_gray_matter9.default)(await readFile21(join28(dir, location), "utf-8"));
+            const parsed = (0, import_gray_matter9.default)(await readFile23(join30(dir, location), "utf-8"));
             if (parsed.data.type === "composite") {
               deletions.add(location);
             }
@@ -106139,13 +106408,13 @@ async function materialize(wikiSlug, options2) {
         }
       }
       for (const location of deletions) {
-        const absolute = join28(dir, location);
+        const absolute = join30(dir, location);
         if (!existsSync9(absolute)) {
           continue;
         }
-        await rm(absolute, { force: true });
+        await rm2(absolute, { force: true });
         summary.removedPages.push(location);
-        await pruneEmptyFolderChain(join28(dir, location.split("/")[0]), dirname4(absolute));
+        await pruneEmptyFolderChain(join30(dir, location.split("/")[0]), dirname4(absolute));
       }
       folderStructure.clear();
       for (const entity of entityMap.values()) {
@@ -106316,8 +106585,8 @@ async function materialize(wikiSlug, options2) {
   const synthesisRecords = (await readSynthesisState(dir)).pages;
   const resumeLanguage = options2?.language ?? { input: "en", output: "en" };
   for (const [slug, entity] of entityMap.entries()) {
-    const folderPath = join28(dir, entity.folder);
-    await mkdir17(folderPath, { recursive: true });
+    const folderPath = join30(dir, entity.folder);
+    await mkdir18(folderPath, { recursive: true });
     const significance = entity.significance.trim();
     const disambiguation = entity.disambiguation?.trim();
     const mentions = dedupeMentions(entity.mentions);
@@ -106359,12 +106628,12 @@ async function materialize(wikiSlug, options2) {
       // pre-Phase-17 (skip-eligible pages stay byte-stable).
       incomingRelationships: incomingRelationships.length > 0 ? incomingRelationships : void 0
     };
-    const pagePath = join28(folderPath, `${slug}.md`);
+    const pagePath = join30(folderPath, `${slug}.md`);
     const relativePath = synthesisPagePath(pageData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) && existsSync9(pagePath)) {
       result.entityPages.push(pageData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile23(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeEntityPage(pageData);
@@ -106379,7 +106648,7 @@ async function materialize(wikiSlug, options2) {
       result.convergedPages.push(relativePath);
     }
     result.entityPages.push(pageData);
-    await writeFile16(pagePath, rendered, "utf-8");
+    await writeFile17(pagePath, rendered, "utf-8");
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
   for (const composite of clusterMap.values()) {
@@ -106435,14 +106704,14 @@ async function materialize(wikiSlug, options2) {
       ...aliasExtras.length > 0 ? { aliases: aliasExtras } : {},
       ...contexts.length > 0 ? { context: contexts.join("\n\n") } : {}
     };
-    const folderPath = join28(dir, folder);
-    await mkdir17(folderPath, { recursive: true });
-    const pagePath = join28(folderPath, `${decision.into}.md`);
+    const folderPath = join30(dir, folder);
+    await mkdir18(folderPath, { recursive: true });
+    const pagePath = join30(folderPath, `${decision.into}.md`);
     const relativePath = synthesisPagePath(compositeData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) && existsSync9(pagePath)) {
       result.compositePages.push(compositeData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile23(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeCompositePage(compositeData);
@@ -106457,7 +106726,7 @@ async function materialize(wikiSlug, options2) {
       result.convergedPages.push(relativePath);
     }
     result.compositePages.push(compositeData);
-    await writeFile16(pagePath, rendered, "utf-8");
+    await writeFile17(pagePath, rendered, "utf-8");
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
   for (const entry of entityDisambiguations.values()) {
@@ -106490,14 +106759,14 @@ async function materialize(wikiSlug, options2) {
       ...aliasExtras.length > 0 ? { aliases: aliasExtras } : {},
       ...contexts.length > 0 ? { context: contexts.join("\n\n") } : {}
     };
-    const folderPath = join28(dir, entry.folder);
-    await mkdir17(folderPath, { recursive: true });
-    const pagePath = join28(folderPath, `${entry.into}.md`);
+    const folderPath = join30(dir, entry.folder);
+    await mkdir18(folderPath, { recursive: true });
+    const pagePath = join30(folderPath, `${entry.into}.md`);
     const relativePath = synthesisPagePath(compositeData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) && existsSync9(pagePath)) {
       result.compositePages.push(compositeData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile23(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeCompositePage(compositeData);
@@ -106512,7 +106781,7 @@ async function materialize(wikiSlug, options2) {
       result.convergedPages.push(relativePath);
     }
     result.compositePages.push(compositeData);
-    await writeFile16(pagePath, rendered, "utf-8");
+    await writeFile17(pagePath, rendered, "utf-8");
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
   for (const entry of topicDisambiguations.values()) {
@@ -106532,14 +106801,14 @@ async function materialize(wikiSlug, options2) {
       slugToTitle,
       aliases: memberTitles
     };
-    const folderPath = join28(dir, entry.folder);
-    await mkdir17(folderPath, { recursive: true });
-    const pagePath = join28(folderPath, `${entry.into}.md`);
+    const folderPath = join30(dir, entry.folder);
+    await mkdir18(folderPath, { recursive: true });
+    const pagePath = join30(folderPath, `${entry.into}.md`);
     const relativePath = synthesisPagePath(compositeData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(compositeData, resumeLanguage) && existsSync9(pagePath)) {
       result.topicCompositePages.push(compositeData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile23(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeTopicCompositePage(compositeData);
@@ -106554,11 +106823,11 @@ async function materialize(wikiSlug, options2) {
       result.convergedPages.push(relativePath);
     }
     result.topicCompositePages.push(compositeData);
-    await writeFile16(pagePath, rendered, "utf-8");
+    await writeFile17(pagePath, rendered, "utf-8");
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
   if (entityMap.size > 0) {
-    const entitiesRoot = join28(dir, "entities");
+    const entitiesRoot = join30(dir, "entities");
     const slugLocations = /* @__PURE__ */ new Map();
     if (existsSync9(entitiesRoot)) {
       await collectEntityPageLocations(entitiesRoot, "", slugLocations);
@@ -106570,9 +106839,9 @@ async function materialize(wikiSlug, options2) {
           continue;
         }
         const recorded = options2?.pageHashes?.[location];
-        const currentHash = hashContent(await readFile21(join28(dir, location), "utf-8"));
+        const currentHash = hashContent(await readFile23(join30(dir, location), "utf-8"));
         if (recorded !== void 0 && recorded === currentHash) {
-          await rm(join28(dir, location), { force: true });
+          await rm2(join30(dir, location), { force: true });
           result.removedDuplicates.push({ path: location, canonicalPath });
         } else {
           await logManualEditConflict(
@@ -106585,8 +106854,8 @@ async function materialize(wikiSlug, options2) {
     }
   }
   for (const topic of topicMap.values()) {
-    const folderPath = join28(dir, topic.folder);
-    await mkdir17(folderPath, { recursive: true });
+    const folderPath = join30(dir, topic.folder);
+    await mkdir18(folderPath, { recursive: true });
     const topicClaims = dedupeClaims(topic.claims);
     const topicEntities = Array.from(
       new Set(topicClaims.flatMap((claim) => claim.entities.map((e) => slugToTitle[e] ?? e)))
@@ -106600,12 +106869,12 @@ async function materialize(wikiSlug, options2) {
       slugToTitle,
       entities: topicEntities
     };
-    const pagePath = join28(folderPath, `${topic.slug}.md`);
+    const pagePath = join30(folderPath, `${topic.slug}.md`);
     const relativePath = synthesisPagePath(pageData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) && existsSync9(pagePath)) {
       result.topicPages.push(pageData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile23(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeTopicPage(pageData);
@@ -106620,7 +106889,7 @@ async function materialize(wikiSlug, options2) {
       result.convergedPages.push(relativePath);
     }
     result.topicPages.push(pageData);
-    await writeFile16(pagePath, rendered, "utf-8");
+    await writeFile17(pagePath, rendered, "utf-8");
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
   for (const aggregate of comparisonMap.values()) {
@@ -106659,14 +106928,14 @@ async function materialize(wikiSlug, options2) {
       // a renamed/renumbered table's old titles still find the ONE page.
       aliases: aggregate.captions.length > 0 ? aggregate.captions : void 0
     };
-    const folderPath = join28(dir, "comparisons");
-    await mkdir17(folderPath, { recursive: true });
-    const pagePath = join28(folderPath, `${aggregate.slug}.md`);
+    const folderPath = join30(dir, "comparisons");
+    await mkdir18(folderPath, { recursive: true });
+    const pagePath = join30(folderPath, `${aggregate.slug}.md`);
     const relativePath = synthesisPagePath(pageData);
     const synthesisRecord = synthesisRecords[relativePath];
     if (isSkipEligible(synthesisRecord) && synthesisRecord.dataHash === pageDataHash(pageData, resumeLanguage) && existsSync9(pagePath)) {
       result.comparisonPages.push(pageData);
-      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile21(pagePath, "utf-8")) });
+      result.preservedPages.push({ path: relativePath, hash: hashContent(await readFile23(pagePath, "utf-8")) });
       continue;
     }
     const rendered = writeComparisonPage(pageData);
@@ -106681,14 +106950,14 @@ async function materialize(wikiSlug, options2) {
       result.convergedPages.push(relativePath);
     }
     result.comparisonPages.push(pageData);
-    await writeFile16(pagePath, rendered, "utf-8");
+    await writeFile17(pagePath, rendered, "utf-8");
     result.writtenPages.push({ path: relativePath, hash: hashContent(rendered) });
   }
   if (curationSummary !== null && mergeRewrites.size > 0) {
     const writtenSet = new Set(result.writtenPages.map((page) => page.path));
     const contentPages = [];
     for (const section of ["entities", "topics", "documents", "comparisons"]) {
-      const sectionRoot = join28(dir, section);
+      const sectionRoot = join30(dir, section);
       if (existsSync9(sectionRoot)) {
         await collectContentPagePaths(sectionRoot, section, "", contentPages);
       }
@@ -106697,29 +106966,29 @@ async function materialize(wikiSlug, options2) {
       if (writtenSet.has(relPath)) {
         continue;
       }
-      const absolute = join28(dir, relPath);
-      const original = await readFile21(absolute, "utf-8");
+      const absolute = join30(dir, relPath);
+      const original = await readFile23(absolute, "utf-8");
       const rewritten = rewriteWikilinkTargets(original, mergeRewrites);
       if (rewritten === original) {
         continue;
       }
-      await writeFile16(absolute, rewritten, "utf-8");
+      await writeFile17(absolute, rewritten, "utf-8");
       curationSummary.rewrittenLinks.push({ path: relPath, hash: hashContent(rewritten) });
     }
   }
   for (const { chunkId, file, pages } of chunkSources) {
-    const extractionPath = join28(extractedDir, `${chunkId}.json`);
+    const extractionPath = join30(extractedDir, `${chunkId}.json`);
     let extracted;
     try {
-      const raw = await readFile21(extractionPath, "utf-8");
+      const raw = await readFile23(extractionPath, "utf-8");
       extracted = JSON.parse(raw);
     } catch {
       continue;
     }
-    const documentPath = join28(dir, "documents", `${chunkId}.md`);
+    const documentPath = join30(dir, "documents", `${chunkId}.md`);
     let documentRaw;
     try {
-      documentRaw = await readFile21(documentPath, "utf-8");
+      documentRaw = await readFile23(documentPath, "utf-8");
     } catch {
       continue;
     }
@@ -106969,15 +107238,15 @@ async function materialize(wikiSlug, options2) {
 }
 
 // src/agents/amendment.ts
-import { readFile as readFile22 } from "node:fs/promises";
-import { join as join29 } from "node:path";
+import { readFile as readFile24 } from "node:fs/promises";
+import { join as join31 } from "node:path";
 var PROMPT_FILE2 = "amendment.prompt.txt";
 var promptTemplate2 = null;
 async function loadPromptTemplate5() {
   if (promptTemplate2 !== null) {
     return promptTemplate2;
   }
-  promptTemplate2 = await readFile22(join29(appRoot(), "prompts", PROMPT_FILE2), "utf-8");
+  promptTemplate2 = await readFile24(join31(appRoot(), "prompts", PROMPT_FILE2), "utf-8");
   return promptTemplate2;
 }
 function fillPromptTemplate5(template, values) {
@@ -107563,10 +107832,10 @@ function applyAddMember(content, entry, label) {
 }
 
 // src/state/amendment-log.ts
-import { mkdir as mkdir18, appendFile as appendFile2 } from "node:fs/promises";
-import { join as join30 } from "node:path";
+import { mkdir as mkdir19, appendFile as appendFile2 } from "node:fs/promises";
+import { join as join32 } from "node:path";
 function amendmentLogPath(wikiDir2) {
-  return join30(wikiDir2, ".state", "amendment-log.jsonl");
+  return join32(wikiDir2, ".state", "amendment-log.jsonl");
 }
 function countOperations(operations) {
   const counts = {};
@@ -107588,17 +107857,17 @@ async function appendAmendmentLogRecord(wikiDir2, record, readOutputTokens) {
     }
     const line = `${JSON.stringify({ ...record, outputTokens })}
 `;
-    await mkdir18(join30(wikiDir2, ".state"), { recursive: true });
+    await mkdir19(join32(wikiDir2, ".state"), { recursive: true });
     await appendFile2(path, line, "utf-8");
   });
 }
 
 // src/dox-writer.ts
 var import_gray_matter10 = __toESM(require_gray_matter(), 1);
-import { readdir as readdir5, readFile as readFile23, writeFile as writeFile17 } from "node:fs/promises";
-import { join as join31 } from "node:path";
+import { readdir as readdir6, readFile as readFile25, writeFile as writeFile18 } from "node:fs/promises";
+import { join as join33 } from "node:path";
 var EXCLUDED_FOLDERS = /* @__PURE__ */ new Set([".state", "raw"]);
-var PROMPT_DIR2 = join31(appRoot(), "prompts");
+var PROMPT_DIR2 = join33(appRoot(), "prompts");
 var DOX_PROMPT_FILE = "dox-writer.prompt.txt";
 var DOX_WRITER_MAX_TOKENS = 8192;
 var cachedDoxPrompt;
@@ -107606,7 +107875,7 @@ async function loadDoxPromptTemplate() {
   if (cachedDoxPrompt !== void 0) {
     return cachedDoxPrompt;
   }
-  const template = await readFile23(join31(PROMPT_DIR2, DOX_PROMPT_FILE), "utf-8");
+  const template = await readFile25(join33(PROMPT_DIR2, DOX_PROMPT_FILE), "utf-8");
   cachedDoxPrompt = template;
   return template;
 }
@@ -107625,7 +107894,7 @@ function folderDescription(name) {
 }
 async function readPageTitle(absolutePath) {
   try {
-    const content = await readFile23(absolutePath, "utf-8");
+    const content = await readFile25(absolutePath, "utf-8");
     const parsed = (0, import_gray_matter10.default)(content);
     if (typeof parsed.data.title === "string" && parsed.data.title.trim().length > 0) {
       return parsed.data.title.trim();
@@ -107636,7 +107905,7 @@ async function readPageTitle(absolutePath) {
 }
 async function readCompositeMembers(absolutePath) {
   try {
-    const content = await readFile23(absolutePath, "utf-8");
+    const content = await readFile25(absolutePath, "utf-8");
     const parsed = (0, import_gray_matter10.default)(content);
     if (parsed.data.type !== "composite" || !Array.isArray(parsed.data.members)) {
       return void 0;
@@ -107658,14 +107927,14 @@ async function readCompositeMembers(absolutePath) {
 }
 async function readTextIfExists(absolutePath) {
   try {
-    return await readFile23(absolutePath, "utf-8");
+    return await readFile25(absolutePath, "utf-8");
   } catch {
     return "";
   }
 }
 async function scanFolder(wikiDirPath, relativePath) {
-  const absolutePath = join31(wikiDirPath, relativePath);
-  const entries = await readdir5(absolutePath, { withFileTypes: true });
+  const absolutePath = join33(wikiDirPath, relativePath);
+  const entries = await readdir6(absolutePath, { withFileTypes: true });
   const subFolders = [];
   const files = [];
   for (const entry of entries) {
@@ -107680,8 +107949,8 @@ async function scanFolder(wikiDirPath, relativePath) {
       subFolders.push(await scanFolder(wikiDirPath, childRelativePath));
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
       const childRelativePath = relativePath ? `${relativePath}/${entry.name}` : entry.name;
-      const title = await readPageTitle(join31(wikiDirPath, childRelativePath));
-      const compositeMembers = await readCompositeMembers(join31(wikiDirPath, childRelativePath));
+      const title = await readPageTitle(join33(wikiDirPath, childRelativePath));
+      const compositeMembers = await readCompositeMembers(join33(wikiDirPath, childRelativePath));
       const fileSlug = entry.name.replace(/\.md$/i, "");
       const target = fileSlug.toLowerCase() === "index" ? childRelativePath.replace(/\.md$/i, "") : fileSlug;
       const linkText = formatWikilink(target, title || void 0);
@@ -108068,14 +108337,14 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
   );
   for (const file of contentFiles) {
     pages.push({ name: file.name, title: file.title, linkText: file.linkText });
-    const content = await readTextIfExists(join31(dir, file.relativePath));
+    const content = await readTextIfExists(join33(dir, file.relativePath));
     if (content.length > 0) {
       pageContents.push({ name: file.name, title: file.title, content });
     }
   }
   const childIndexes = [];
   for (const sub of folder.subFolders) {
-    const content = await readTextIfExists(join31(dir, sub.relativePath, "index.md"));
+    const content = await readTextIfExists(join33(dir, sub.relativePath, "index.md"));
     if (content.length === 0) {
       continue;
     }
@@ -108094,8 +108363,8 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
       content
     });
   }
-  const agentsMd = await readTextIfExists(join31(dir, "AGENTS.md"));
-  const rollingMemory = await readTextIfExists(join31(dir, ".state", "rolling-memory.json"));
+  const agentsMd = await readTextIfExists(join33(dir, "AGENTS.md"));
+  const rollingMemory = await readTextIfExists(join33(dir, ".state", "rolling-memory.json"));
   const parentTitle = isRoot ? "" : parentFolder && parentFolder.relativePath !== "" ? titleCase(parentFolder.name) : titleCase(wikiSlug);
   const siblingTitles = parentFolder ? parentFolder.subFolders.filter((sibling) => sibling.name !== folder.name).map((sibling) => titleCase(sibling.name)) : [];
   const parentLinkText = isRoot ? "" : parentFolder && parentFolder.relativePath !== "" ? folderIndexLink(parentFolder) : rootIndexLink(wikiSlug);
@@ -108118,7 +108387,7 @@ async function buildDoxIndexContext(dir, wikiSlug, folder, parentFolder, info2, 
     siblingLinkTexts,
     agentsMd,
     rollingMemory,
-    logPath: options2.logPath ?? join31(dir, ".state", "llm-calls.json"),
+    logPath: options2.logPath ?? join33(dir, ".state", "llm-calls.json"),
     language: options2.language
   };
 }
@@ -108174,7 +108443,7 @@ ${feedback}`, void 0, {
 }
 async function writeFolderIndexLlm(wikiSlug, folder, parentFolder, options2, linkIndex) {
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const absoluteFolderPath = join31(dir, folder.relativePath);
+  const absoluteFolderPath = join33(dir, folder.relativePath);
   const title = folder.relativePath === "" ? titleCase(wikiSlug) : titleCase(folder.name);
   const now = (/* @__PURE__ */ new Date()).toISOString();
   const children = buildChildrenList(folder);
@@ -108227,7 +108496,7 @@ async function writeFolderIndexLlm(wikiSlug, folder, parentFolder, options2, lin
     updated: now,
     children
   };
-  await writeFile17(join31(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile18(join33(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
 }
 async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIndex) {
   const hasContent = folder.files.length > 0 || folder.subFolders.length > 0;
@@ -108242,7 +108511,7 @@ async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIn
     return;
   }
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const absoluteFolderPath = join31(dir, folder.relativePath);
+  const absoluteFolderPath = join33(dir, folder.relativePath);
   const title = folder.relativePath === "" ? titleCase(wikiSlug) : titleCase(folder.name);
   const now = (/* @__PURE__ */ new Date()).toISOString();
   const children = buildChildrenList(folder);
@@ -108256,7 +108525,7 @@ async function writeFolderIndex(wikiSlug, folder, parentFolder, options2, linkIn
     updated: now,
     children
   };
-  await writeFile17(join31(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile18(join33(absoluteFolderPath, "index.md"), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
   for (const subFolder of folder.subFolders) {
     await writeFolderIndex(wikiSlug, subFolder, folder, options2);
   }
@@ -108278,7 +108547,7 @@ async function loadWorkspacePromptTemplate(fileName) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile23(join31(PROMPT_DIR2, fileName), "utf-8");
+  const template = await readFile25(join33(PROMPT_DIR2, fileName), "utf-8");
   workspacePromptCache[fileName] = template;
   return template;
 }
@@ -108446,10 +108715,10 @@ async function runWorkspaceEntryWithRetries(runLlm, contextLabel) {
   }
 }
 async function writeWorkspaceIndex(options2) {
-  const wikisRoot = join31(options2.workspace ?? ".", "wikis");
+  const wikisRoot = join33(options2.workspace ?? ".", "wikis");
   let entries;
   try {
-    entries = await readdir5(wikisRoot, { withFileTypes: true });
+    entries = await readdir6(wikisRoot, { withFileTypes: true });
   } catch {
     return;
   }
@@ -108458,7 +108727,7 @@ async function writeWorkspaceIndex(options2) {
     if (!entry.isDirectory() || entry.name === "cross-wiki") {
       continue;
     }
-    const indexPath = join31(wikisRoot, entry.name, "index.md");
+    const indexPath = join33(wikisRoot, entry.name, "index.md");
     const content = await readTextIfExists(indexPath);
     if (content.length === 0) {
       continue;
@@ -108488,7 +108757,7 @@ async function writeWorkspaceIndex(options2) {
   let entities = 0;
   let topics = 0;
   for (const wiki of wikis) {
-    const tree = await scanFolder(join31(wikisRoot, wiki.slug), "");
+    const tree = await scanFolder(join33(wikisRoot, wiki.slug), "");
     sources += countContentFiles(findSubFolder(tree, "sources") ?? emptyFolder());
     documents += countContentFiles(findSubFolder(tree, "documents") ?? emptyFolder());
     entities += countContentFiles(findSubFolder(tree, "entities") ?? emptyFolder());
@@ -108502,7 +108771,7 @@ async function writeWorkspaceIndex(options2) {
     `Topic pages: ${topics}`
   ];
   const children = wikis.map((wiki) => wiki.indexPath);
-  const existing = await readTextIfExists(join31(wikisRoot, WORKSPACE_INDEX_FILE));
+  const existing = await readTextIfExists(join33(wikisRoot, WORKSPACE_INDEX_FILE));
   const preserved = parseWorkspaceSegments(existing);
   let existingChildren = [];
   if (existing.length > 0) {
@@ -108555,7 +108824,7 @@ async function writeWorkspaceIndex(options2) {
     }
     entryDescription = description ?? deterministicDescription(triggering);
   }
-  const crossWikiArtifacts = (await readTextIfExists(join31(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  const crossWikiArtifacts = (await readTextIfExists(join33(wikisRoot, "cross-wiki", "index.md"))).length > 0;
   const crossWikiSection = crossWikiArtifacts ? parseCrossWikiSection((0, import_gray_matter10.default)(existing).content ?? "") ?? crossWikiDiscoverySection() : null;
   const body = composeWorkspaceBody(
     wikis,
@@ -108574,11 +108843,11 @@ async function writeWorkspaceIndex(options2) {
     updated: (/* @__PURE__ */ new Date()).toISOString(),
     children
   };
-  await writeFile17(join31(wikisRoot, WORKSPACE_INDEX_FILE), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
+  await writeFile18(join33(wikisRoot, WORKSPACE_INDEX_FILE), import_gray_matter10.default.stringify(body, frontmatter), "utf-8");
 }
 async function updateWorkspaceCrossWikiSection(workspace = ".") {
-  const wikisRoot = join31(workspace, "wikis");
-  const indexPath = join31(wikisRoot, WORKSPACE_INDEX_FILE);
+  const wikisRoot = join33(workspace, "wikis");
+  const indexPath = join33(wikisRoot, WORKSPACE_INDEX_FILE);
   const existing = await readTextIfExists(indexPath);
   if (existing.length === 0) {
     return;
@@ -108607,7 +108876,7 @@ async function updateWorkspaceCrossWikiSection(workspace = ".") {
       }
     }
   }
-  const artifactsExist = (await readTextIfExists(join31(wikisRoot, "cross-wiki", "index.md"))).length > 0;
+  const artifactsExist = (await readTextIfExists(join33(wikisRoot, "cross-wiki", "index.md"))).length > 0;
   if (artifactsExist) {
     const sectionLines = crossWikiDiscoverySection().replace(/\n+$/, "").split("\n");
     const statsIndex = lines.findIndex((line) => line.trim() === "## Statistics");
@@ -108621,18 +108890,18 @@ async function updateWorkspaceCrossWikiSection(workspace = ".") {
       lines.push(...sectionLines, "");
     }
   }
-  await writeFile17(indexPath, `${frontmatterBlock}${lines.join("\n")}`, "utf-8");
+  await writeFile18(indexPath, `${frontmatterBlock}${lines.join("\n")}`, "utf-8");
 }
 
 // src/agents/agents-updater.ts
 var import_gray_matter11 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile24, readdir as readdir6, writeFile as writeFile18, mkdir as mkdir19 } from "node:fs/promises";
-import { dirname as dirname5, join as join32, relative as relative2 } from "node:path";
-var PROMPT_DIR3 = join32(appRoot(), "prompts");
+import { readFile as readFile26, readdir as readdir7, writeFile as writeFile19, mkdir as mkdir20 } from "node:fs/promises";
+import { dirname as dirname5, join as join34, relative as relative2 } from "node:path";
+var PROMPT_DIR3 = join34(appRoot(), "prompts");
 var promptCache3;
 async function loadPromptTemplate6() {
   if (promptCache3 === void 0) {
-    promptCache3 = await readFile24(join32(PROMPT_DIR3, "agents-updater.prompt.txt"), "utf-8");
+    promptCache3 = await readFile26(join34(PROMPT_DIR3, "agents-updater.prompt.txt"), "utf-8");
   }
   return promptCache3;
 }
@@ -108654,18 +108923,18 @@ async function collectWikiStructure(wikiDirPath) {
   const folders = [];
   const typeCounts = /* @__PURE__ */ new Map();
   async function walk5(dir) {
-    const entries = await readdir6(dir, { withFileTypes: true });
+    const entries = await readdir7(dir, { withFileTypes: true });
     for (const entry of entries) {
       if (entry.isDirectory()) {
         if (entry.name === "raw" || entry.name === ".state") {
           continue;
         }
-        const folderPath = relative2(wikiDirPath, join32(dir, entry.name)).split("\\").join("/");
+        const folderPath = relative2(wikiDirPath, join34(dir, entry.name)).split("\\").join("/");
         folders.push(folderPath);
-        await walk5(join32(dir, entry.name));
+        await walk5(join34(dir, entry.name));
       } else if (entry.isFile() && entry.name.endsWith(".md")) {
         try {
-          const raw = await readFile24(join32(dir, entry.name), "utf-8");
+          const raw = await readFile26(join34(dir, entry.name), "utf-8");
           const type = (0, import_gray_matter11.default)(raw).data.type;
           if (typeof type === "string" && type.length > 0) {
             typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
@@ -108750,10 +109019,10 @@ ${typeLines}
 }
 async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
   const dir = wikiDir(options2.workspace, wikiSlug);
-  const agentsMdPath = join32(dir, "AGENTS.md");
+  const agentsMdPath = join34(dir, "AGENTS.md");
   let currentAgentsMd;
   try {
-    currentAgentsMd = await readFile24(agentsMdPath, "utf-8");
+    currentAgentsMd = await readFile26(agentsMdPath, "utf-8");
   } catch (err) {
     if (err.code === "ENOENT") {
       throw new Error(`Wiki '${wikiSlug}' has no AGENTS.md at ${agentsMdPath}. Run 'init ${wikiSlug}' first.`);
@@ -108775,7 +109044,7 @@ async function proposeAgentsUpdate(wikiSlug, options2 = {}) {
     maxTokens: 8192,
     callType: "agents-updater",
     context: wikiSlug,
-    logPath: options2.logPath ?? join32(dir, ".state", "llm-calls.json"),
+    logPath: options2.logPath ?? join34(dir, ".state", "llm-calls.json"),
     // Bounded retry amendment: transient transport failures (429/5xx,
     // network) get 2 extra attempts; deterministic 4xx throws immediately.
     maxRetries: 2,
@@ -108820,16 +109089,16 @@ ${feedback}`;
     proposal = buildDeterministicFallback(currentAgentsMd, newFolders, newPageTypes);
   }
   proposal = enforceLanguageSection(proposal, currentAgentsMd);
-  const proposalPath = join32(dir, ".state", "proposed-agents.md");
-  await mkdir19(dirname5(proposalPath), { recursive: true });
-  await writeFile18(proposalPath, proposal, "utf-8");
+  const proposalPath = join34(dir, ".state", "proposed-agents.md");
+  await mkdir20(dirname5(proposalPath), { recursive: true });
+  await writeFile19(proposalPath, proposal, "utf-8");
   console.log("Proposed AGENTS.md updates saved to .state/proposed-agents.md. Review and apply manually.");
   return proposal;
 }
 
 // src/cross-wiki/index.ts
-import { mkdir as mkdir24, writeFile as writeFile23 } from "node:fs/promises";
-import { join as join41 } from "node:path";
+import { mkdir as mkdir25, writeFile as writeFile24 } from "node:fs/promises";
+import { join as join43 } from "node:path";
 
 // src/pages/cross-wiki/cross-wiki-index-page.ts
 var import_gray_matter12 = __toESM(require_gray_matter(), 1);
@@ -108912,8 +109181,8 @@ ${lines.join("\n")}
 
 // src/validation/cross-wiki-schema.ts
 var import_gray_matter13 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile25, readdir as readdir7 } from "node:fs/promises";
-import { join as join33, relative as relative3 } from "node:path";
+import { readFile as readFile27, readdir as readdir8 } from "node:fs/promises";
+import { join as join35, relative as relative3 } from "node:path";
 var CROSS_WIKI_TYPES = /* @__PURE__ */ new Set(["cross-wiki-index", "cross-wiki-topic"]);
 function isValidIsoTimestamp(value) {
   if (value instanceof Date) {
@@ -108935,12 +109204,12 @@ function isValidIsoTimestamp(value) {
 async function walk2(dir, root, out) {
   let entries;
   try {
-    entries = await readdir7(dir, { withFileTypes: true });
+    entries = await readdir8(dir, { withFileTypes: true });
   } catch {
     return;
   }
   for (const entry of entries) {
-    const absolute = join33(dir, entry.name);
+    const absolute = join35(dir, entry.name);
     if (entry.isDirectory()) {
       await walk2(absolute, root, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -108949,7 +109218,7 @@ async function walk2(dir, root, out) {
   }
 }
 async function validateCrossWikiSchema(workspace = ".") {
-  const root = join33(workspace, "wikis", "cross-wiki");
+  const root = join35(workspace, "wikis", "cross-wiki");
   const files = [];
   await walk2(root, root, files);
   const invalid = [];
@@ -108957,7 +109226,7 @@ async function validateCrossWikiSchema(workspace = ".") {
     const page = `wikis/cross-wiki/${rel}`;
     let parsed;
     try {
-      parsed = (0, import_gray_matter13.default)(await readFile25(join33(root, rel), "utf-8"));
+      parsed = (0, import_gray_matter13.default)(await readFile27(join35(root, rel), "utf-8"));
     } catch (err) {
       invalid.push({ page, issue: `Invalid YAML frontmatter: ${err.message}` });
       continue;
@@ -108998,8 +109267,8 @@ async function validateCrossWikiSchema(workspace = ".") {
 }
 
 // src/cross-wiki/llm.ts
-import { readFile as readFile26 } from "node:fs/promises";
-import { join as join34 } from "node:path";
+import { readFile as readFile28 } from "node:fs/promises";
+import { join as join36 } from "node:path";
 var CROSS_WIKI_SMALL_MAX_TOKENS = 2048;
 var CROSS_WIKI_MAX_TOKENS = 8192;
 var CROSS_WIKI_MAX_ATTEMPTS = 3;
@@ -109009,7 +109278,7 @@ async function loadPrompt(fileName) {
   if (cached !== void 0) {
     return cached;
   }
-  const template = await readFile26(join34(appRoot(), "prompts", fileName), "utf-8");
+  const template = await readFile28(join36(appRoot(), "prompts", fileName), "utf-8");
   promptCache4[fileName] = template;
   return template;
 }
@@ -109109,30 +109378,30 @@ ${feedback}`, void 0, {
 }
 
 // src/cross-wiki/state.ts
-import { mkdir as mkdir20, readFile as readFile27, writeFile as writeFile19 } from "node:fs/promises";
-import { join as join35 } from "node:path";
+import { mkdir as mkdir21, readFile as readFile29, writeFile as writeFile20 } from "node:fs/promises";
+import { join as join37 } from "node:path";
 function crossWikiStatePath(workspace, fileName) {
-  return join35(workspace ?? ".", ".state", "cross-wiki", fileName);
+  return join37(workspace ?? ".", ".state", "cross-wiki", fileName);
 }
 function proposedCrossWikiMatchesPath(workspace) {
-  return join35(workspace ?? ".", ".state", "proposed-cross-wiki-matches.json");
+  return join37(workspace ?? ".", ".state", "proposed-cross-wiki-matches.json");
 }
 async function writeCrossWikiState(workspace, fileName, data) {
   const path = crossWikiStatePath(workspace, fileName);
-  await mkdir20(join35(workspace ?? ".", ".state", "cross-wiki"), { recursive: true });
-  await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
+  await mkdir21(join37(workspace ?? ".", ".state", "cross-wiki"), { recursive: true });
+  await writeFile20(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
 }
 async function readCrossWikiState(workspace, fileName) {
   try {
-    return JSON.parse(await readFile27(crossWikiStatePath(workspace, fileName), "utf-8"));
+    return JSON.parse(await readFile29(crossWikiStatePath(workspace, fileName), "utf-8"));
   } catch {
     return null;
   }
 }
 async function writeProposedCrossWikiMatches(workspace, data) {
   const path = proposedCrossWikiMatchesPath(workspace);
-  await mkdir20(join35(workspace ?? ".", ".state"), { recursive: true });
-  await writeFile19(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
+  await mkdir21(join37(workspace ?? ".", ".state"), { recursive: true });
+  await writeFile20(path, JSON.stringify(data, null, 2) + "\n", "utf-8");
 }
 
 // src/cross-wiki/entity-context-summarizer.ts
@@ -109222,8 +109491,8 @@ async function summarizeEntities(pages, options2 = {}) {
 }
 
 // src/cross-wiki/entity-resolver.ts
-import { mkdir as mkdir21, writeFile as writeFile20 } from "node:fs/promises";
-import { join as join36 } from "node:path";
+import { mkdir as mkdir22, writeFile as writeFile21 } from "node:fs/promises";
+import { join as join38 } from "node:path";
 
 // src/pages/cross-wiki/entity-registry-page.ts
 var import_gray_matter14 = __toESM(require_gray_matter(), 1);
@@ -109711,10 +109980,10 @@ async function resolveEntities(pages, summaries, options2 = {}) {
   }
   entries.sort((a, b) => a.canonicalTitle.localeCompare(b.canonicalTitle));
   remainingUncertain.sort((a, b) => groupKey(a.members.map((m) => m.path)).localeCompare(groupKey(b.members.map((m) => m.path))));
-  const crossWikiDir = join36(workspace, "wikis", "cross-wiki");
-  await mkdir21(crossWikiDir, { recursive: true });
+  const crossWikiDir = join38(workspace, "wikis", "cross-wiki");
+  await mkdir22(crossWikiDir, { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
-  await writeFile20(join36(crossWikiDir, "entities.md"), writeEntityRegistryPage(entries, updated), "utf-8");
+  await writeFile21(join38(crossWikiDir, "entities.md"), writeEntityRegistryPage(entries, updated), "utf-8");
   await writeCrossWikiState(workspace, "entity-registry.json", { generated: updated, entities: entries });
   await writeProposedCrossWikiMatches(workspace, {
     generated: updated,
@@ -110062,8 +110331,8 @@ function predicateLookup(groups) {
 }
 
 // src/cross-wiki/relationship-graph.ts
-import { mkdir as mkdir22, writeFile as writeFile21 } from "node:fs/promises";
-import { join as join37 } from "node:path";
+import { mkdir as mkdir23, writeFile as writeFile22 } from "node:fs/promises";
+import { join as join39 } from "node:path";
 
 // src/pages/cross-wiki/relationships-page.ts
 var import_gray_matter15 = __toESM(require_gray_matter(), 1);
@@ -110214,29 +110483,29 @@ async function buildRelationshipGraph(pages, registry, predicateGroups, options2
   edges.sort(
     (a, b) => `${a.subject.wiki}/${a.subject.slug}`.localeCompare(`${b.subject.wiki}/${b.subject.slug}`) || a.predicate.localeCompare(b.predicate) || `${a.object.wiki}/${a.object.slug}`.localeCompare(`${b.object.wiki}/${b.object.slug}`)
   );
-  const crossWikiDir = join37(workspace, "wikis", "cross-wiki");
-  await mkdir22(crossWikiDir, { recursive: true });
+  const crossWikiDir = join39(workspace, "wikis", "cross-wiki");
+  await mkdir23(crossWikiDir, { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
-  await writeFile21(join37(crossWikiDir, "relationships.md"), writeRelationshipsPage(edges, updated), "utf-8");
+  await writeFile22(join39(crossWikiDir, "relationships.md"), writeRelationshipsPage(edges, updated), "utf-8");
   await writeCrossWikiState(workspace, "relationship-graph.json", { generated: updated, edges });
   return edges;
 }
 
 // src/cross-wiki/run-control.ts
-import { readdir as readdir9, readFile as readFile29, stat } from "node:fs/promises";
-import { join as join39, relative as relative5 } from "node:path";
-import { createHash as createHash4 } from "node:crypto";
+import { readdir as readdir10, readFile as readFile31, stat } from "node:fs/promises";
+import { join as join41, relative as relative5 } from "node:path";
+import { createHash as createHash5 } from "node:crypto";
 
 // src/cross-wiki/workspace-scan.ts
 var import_gray_matter16 = __toESM(require_gray_matter(), 1);
-import { readdir as readdir8, readFile as readFile28 } from "node:fs/promises";
-import { join as join38, relative as relative4 } from "node:path";
+import { readdir as readdir9, readFile as readFile30 } from "node:fs/promises";
+import { join as join40, relative as relative4 } from "node:path";
 var CROSS_WIKI_FOLDER = "cross-wiki";
 async function listWorkspaceWikis(workspace = ".") {
-  const wikisRoot = join38(workspace, "wikis");
+  const wikisRoot = join40(workspace, "wikis");
   let entries;
   try {
-    entries = await readdir8(wikisRoot, { withFileTypes: true });
+    entries = await readdir9(wikisRoot, { withFileTypes: true });
   } catch {
     return [];
   }
@@ -110246,7 +110515,7 @@ async function listWorkspaceWikis(workspace = ".") {
       continue;
     }
     try {
-      await readFile28(join38(wikisRoot, entry.name, "index.md"), "utf-8");
+      await readFile30(join40(wikisRoot, entry.name, "index.md"), "utf-8");
       wikis.push(entry.name);
     } catch {
     }
@@ -110256,12 +110525,12 @@ async function listWorkspaceWikis(workspace = ".") {
 async function walkMarkdown(dir, root, out) {
   let entries;
   try {
-    entries = await readdir8(dir, { withFileTypes: true });
+    entries = await readdir9(dir, { withFileTypes: true });
   } catch {
     return;
   }
   for (const entry of entries) {
-    const absolute = join38(dir, entry.name);
+    const absolute = join40(dir, entry.name);
     if (entry.isDirectory()) {
       await walkMarkdown(absolute, root, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -110362,15 +110631,15 @@ function frontmatterSources(data) {
   return result;
 }
 async function scanEntityPages(workspace, wiki) {
-  const wikiRoot = join38(workspace, "wikis", wiki);
-  const entitiesRoot = join38(wikiRoot, "entities");
+  const wikiRoot = join40(workspace, "wikis", wiki);
+  const entitiesRoot = join40(wikiRoot, "entities");
   const files = [];
   await walkMarkdown(entitiesRoot, entitiesRoot, files);
   const pages = [];
   for (const rel of files.sort((a, b) => a.localeCompare(b))) {
     let parsed;
     try {
-      parsed = (0, import_gray_matter16.default)(await readFile28(join38(entitiesRoot, rel), "utf-8"));
+      parsed = (0, import_gray_matter16.default)(await readFile30(join40(entitiesRoot, rel), "utf-8"));
     } catch {
       continue;
     }
@@ -110396,15 +110665,15 @@ async function scanEntityPages(workspace, wiki) {
   return pages;
 }
 async function scanTopicPages(workspace, wiki) {
-  const wikiRoot = join38(workspace, "wikis", wiki);
-  const topicsRoot = join38(wikiRoot, "topics");
+  const wikiRoot = join40(workspace, "wikis", wiki);
+  const topicsRoot = join40(wikiRoot, "topics");
   const files = [];
   await walkMarkdown(topicsRoot, topicsRoot, files);
   const pages = [];
   for (const rel of files.sort((a, b) => a.localeCompare(b))) {
     let parsed;
     try {
-      parsed = (0, import_gray_matter16.default)(await readFile28(join38(topicsRoot, rel), "utf-8"));
+      parsed = (0, import_gray_matter16.default)(await readFile30(join40(topicsRoot, rel), "utf-8"));
     } catch {
       continue;
     }
@@ -110429,24 +110698,24 @@ async function scanTopicPages(workspace, wiki) {
 // src/cross-wiki/run-control.ts
 import { existsSync as existsSync10 } from "node:fs";
 async function hashFile(absolute) {
-  return createHash4("sha256").update(await readFile29(absolute)).digest("hex");
+  return createHash5("sha256").update(await readFile31(absolute)).digest("hex");
 }
 async function collectPages(workspace, wiki, out) {
   for (const folder of ["entities", "topics"]) {
-    const root = join39(workspace, "wikis", wiki, folder);
+    const root = join41(workspace, "wikis", wiki, folder);
     const walk5 = async (dir) => {
       let entries;
       try {
-        entries = await readdir9(dir, { withFileTypes: true });
+        entries = await readdir10(dir, { withFileTypes: true });
       } catch {
         return;
       }
       for (const entry of entries) {
-        const absolute = join39(dir, entry.name);
+        const absolute = join41(dir, entry.name);
         if (entry.isDirectory()) {
           await walk5(absolute);
         } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md") && entry.name.toLowerCase() !== "index.md") {
-          const rel = relative5(join39(workspace, "wikis"), absolute).replace(/\\/g, "/");
+          const rel = relative5(join41(workspace, "wikis"), absolute).replace(/\\/g, "/");
           const stats = await stat(absolute);
           out[rel] = { sha256: await hashFile(absolute), mtimeMs: stats.mtimeMs, size: stats.size };
         }
@@ -110475,7 +110744,7 @@ async function readRunFingerprint(workspace) {
   return data;
 }
 function crossWikiArtifactsExist(workspace) {
-  return existsSync10(join39(workspace, "wikis", "cross-wiki", "index.md"));
+  return existsSync10(join41(workspace, "wikis", "cross-wiki", "index.md"));
 }
 async function preflightDecision(workspace, current) {
   if (current.wikis.length < 2) {
@@ -110539,9 +110808,9 @@ async function relevanceProbe(changes, options2 = {}) {
 }
 
 // src/cross-wiki/topic-clusterer.ts
-import { mkdir as mkdir23, rm as rm2, writeFile as writeFile22 } from "node:fs/promises";
-import { join as join40 } from "node:path";
-import { readdir as readdir10 } from "node:fs/promises";
+import { mkdir as mkdir24, rm as rm3, writeFile as writeFile23 } from "node:fs/promises";
+import { join as join42 } from "node:path";
+import { readdir as readdir11 } from "node:fs/promises";
 
 // src/pages/cross-wiki/topic-cluster-page.ts
 var import_gray_matter17 = __toESM(require_gray_matter(), 1);
@@ -110652,8 +110921,8 @@ function formatTopicCandidate(page) {
 }
 async function clusterTopics(pages, options2 = {}) {
   const workspace = options2.workspace ?? ".";
-  const topicsDir = join40(workspace, "wikis", "cross-wiki", "topics");
-  await mkdir23(topicsDir, { recursive: true });
+  const topicsDir = join42(workspace, "wikis", "cross-wiki", "topics");
+  await mkdir24(topicsDir, { recursive: true });
   const candidates = new Map(pages.map((page) => [page.id, page]));
   let kept = [];
   if (pages.length > 0) {
@@ -110706,16 +110975,16 @@ async function clusterTopics(pages, options2 = {}) {
     }
   }
   kept.sort((a, b) => a.clusterId.localeCompare(b.clusterId));
-  for (const entry of await readdir10(topicsDir, { withFileTypes: true })) {
+  for (const entry of await readdir11(topicsDir, { withFileTypes: true })) {
     if (entry.isFile() && entry.name.endsWith(".md") && entry.name !== "index.md") {
       if (!kept.some((cluster) => `${cluster.clusterId}.md` === entry.name)) {
-        await rm2(join40(topicsDir, entry.name));
+        await rm3(join42(topicsDir, entry.name));
       }
     }
   }
   const updated = (/* @__PURE__ */ new Date()).toISOString();
   for (const cluster of kept) {
-    await writeFile22(join40(topicsDir, `${cluster.clusterId}.md`), writeTopicClusterPage(cluster, updated), "utf-8");
+    await writeFile23(join42(topicsDir, `${cluster.clusterId}.md`), writeTopicClusterPage(cluster, updated), "utf-8");
   }
   await writeCrossWikiState(workspace, "topic-clusters.json", { generated: updated, clusters: kept });
   return kept;
@@ -110723,10 +110992,10 @@ async function clusterTopics(pages, options2 = {}) {
 
 // src/cross-wiki/index.ts
 var import_gray_matter18 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile30 } from "node:fs/promises";
+import { readFile as readFile32 } from "node:fs/promises";
 async function changedPageSummary(workspace, path) {
   try {
-    const parsed = (0, import_gray_matter18.default)(await readFile30(join41(workspace, "wikis", path), "utf-8"));
+    const parsed = (0, import_gray_matter18.default)(await readFile32(join43(workspace, "wikis", path), "utf-8"));
     const data = parsed.data;
     return {
       path,
@@ -110824,8 +111093,8 @@ async function runCrossWikiPass(options2) {
     generateSignalsFn: options2.generateSignalsFn,
     onProgress: progress
   });
-  const crossWikiDir = join41(workspace, "wikis", CROSS_WIKI_FOLDER);
-  await mkdir24(join41(crossWikiDir, "topics"), { recursive: true });
+  const crossWikiDir = join43(workspace, "wikis", CROSS_WIKI_FOLDER);
+  await mkdir25(join43(crossWikiDir, "topics"), { recursive: true });
   const updated = (/* @__PURE__ */ new Date()).toISOString();
   const artifactWikis = /* @__PURE__ */ new Set();
   for (const entry of resolution.entries) {
@@ -110844,8 +111113,8 @@ async function runCrossWikiPass(options2) {
       artifactWikis.add(topic.wiki);
     }
   }
-  await writeFile23(
-    join41(crossWikiDir, "index.md"),
+  await writeFile24(
+    join43(crossWikiDir, "index.md"),
     writeCrossWikiIndexPage(
       {
         entityCount: resolution.entries.length,
@@ -110857,8 +111126,8 @@ async function runCrossWikiPass(options2) {
     ),
     "utf-8"
   );
-  await writeFile23(
-    join41(crossWikiDir, "topics", "index.md"),
+  await writeFile24(
+    join43(crossWikiDir, "topics", "index.md"),
     writeCrossWikiTopicsIndexPage(clusters, updated),
     "utf-8"
   );
@@ -110887,26 +111156,26 @@ async function runCrossWikiPass(options2) {
 }
 
 // src/validation/index.ts
-import { mkdir as mkdir25, writeFile as writeFile24 } from "node:fs/promises";
-import { join as join44 } from "node:path";
+import { mkdir as mkdir26, writeFile as writeFile25 } from "node:fs/promises";
+import { join as join46 } from "node:path";
 
 // src/validation/citation-checker.ts
 var import_gray_matter19 = __toESM(require_gray_matter(), 1);
-import { access, readFile as readFile31, readdir as readdir11 } from "node:fs/promises";
-import { join as join42, relative as relative6 } from "node:path";
+import { access, readFile as readFile33, readdir as readdir12 } from "node:fs/promises";
+import { join as join44, relative as relative6 } from "node:path";
 async function findContentPages(wikiSlug, workspace) {
-  const dir = join42(workspace, "wikis", wikiSlug);
+  const dir = join44(workspace, "wikis", wikiSlug);
   const pages = [];
   await walk3(dir, dir, workspace, pages);
   return pages;
 }
 async function walk3(root, current, workspace, out) {
-  const entries = await readdir11(current, { withFileTypes: true });
+  const entries = await readdir12(current, { withFileTypes: true });
   for (const entry of entries) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join42(current, entry.name);
+    const absolute = join44(current, entry.name);
     if (entry.isDirectory()) {
       await walk3(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -110957,7 +111226,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
     if (page.relative.endsWith("index.md")) {
       continue;
     }
-    const content = await readFile31(page.absolute, "utf-8");
+    const content = await readFile33(page.absolute, "utf-8");
     const body = stripFrontmatter2(content);
     const definitions = /* @__PURE__ */ new Map();
     let defMatch;
@@ -110983,7 +111252,7 @@ async function checkCitations(wikiSlug, workspace = ".") {
         invalid.push({ page: page.relative, citation: `[^${key}]` });
         continue;
       }
-      const sourcePath = join42(workspace, "wikis", wikiSlug, "raw", fileName);
+      const sourcePath = join44(workspace, "wikis", wikiSlug, "raw", fileName);
       try {
         await access(sourcePath);
       } catch {
@@ -111011,8 +111280,8 @@ async function checkCitations(wikiSlug, workspace = ".") {
 
 // src/validation/schema-validator.ts
 var import_gray_matter20 = __toESM(require_gray_matter(), 1);
-import { readFile as readFile32, readdir as readdir12 } from "node:fs/promises";
-import { join as join43, relative as relative7 } from "node:path";
+import { readFile as readFile34, readdir as readdir13 } from "node:fs/promises";
+import { join as join45, relative as relative7 } from "node:path";
 var KNOWN_TYPES = /* @__PURE__ */ new Set([
   "entity",
   "topic",
@@ -111030,18 +111299,18 @@ var KNOWN_TYPES = /* @__PURE__ */ new Set([
   "cross-wiki-topic"
 ]);
 async function findPages(wikiSlug, workspace) {
-  const dir = join43(workspace, "wikis", wikiSlug);
+  const dir = join45(workspace, "wikis", wikiSlug);
   const pages = [];
   await walk4(dir, dir, workspace, pages);
   return pages;
 }
 async function walk4(root, current, workspace, out) {
-  const entries = await readdir12(current, { withFileTypes: true });
+  const entries = await readdir13(current, { withFileTypes: true });
   for (const entry of entries) {
     if (entry.name === ".state") {
       continue;
     }
-    const absolute = join43(current, entry.name);
+    const absolute = join45(current, entry.name);
     if (entry.isDirectory()) {
       await walk4(root, absolute, workspace, out);
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".md")) {
@@ -111074,7 +111343,7 @@ async function validateSchema(wikiSlug, workspace = ".") {
   const pages = await findPages(wikiSlug, workspace);
   const invalid = [];
   for (const page of pages) {
-    const content = await readFile32(page.absolute, "utf-8");
+    const content = await readFile34(page.absolute, "utf-8");
     let parsed;
     try {
       parsed = (0, import_gray_matter20.default)(content);
@@ -111156,10 +111425,10 @@ function formatSchemaSummary(schema) {
 }
 async function writeValidationReport(wikiDir2, summary) {
   try {
-    const reportDir = join44(wikiDir2, ".state");
-    await mkdir25(reportDir, { recursive: true });
-    await writeFile24(
-      join44(reportDir, "validation-report.json"),
+    const reportDir = join46(wikiDir2, ".state");
+    await mkdir26(reportDir, { recursive: true });
+    await writeFile25(
+      join46(reportDir, "validation-report.json"),
       JSON.stringify(summary, null, 2) + "\n",
       "utf-8"
     );
@@ -111372,14 +111641,14 @@ function checkComparisonPreservation(originalData, writtenPage) {
 }
 
 // src/state/synthesis-report.ts
-import { mkdir as mkdir26, readFile as readFile33, writeFile as writeFile25 } from "node:fs/promises";
-import { join as join45 } from "node:path";
+import { mkdir as mkdir27, readFile as readFile35, writeFile as writeFile26 } from "node:fs/promises";
+import { join as join47 } from "node:path";
 function reportPath(wikiDir2) {
-  return join45(wikiDir2, ".state", "synthesis-report.json");
+  return join47(wikiDir2, ".state", "synthesis-report.json");
 }
 async function readReport(wikiDir2) {
   try {
-    const raw = await readFile33(reportPath(wikiDir2), "utf-8");
+    const raw = await readFile35(reportPath(wikiDir2), "utf-8");
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed.entries)) {
       return parsed;
@@ -111392,8 +111661,8 @@ async function readReport(wikiDir2) {
   return { entries: [] };
 }
 async function writeReport(wikiDir2, state) {
-  await mkdir26(join45(wikiDir2, ".state"), { recursive: true });
-  await writeFile25(reportPath(wikiDir2), JSON.stringify(state, null, 2) + "\n", "utf-8");
+  await mkdir27(join47(wikiDir2, ".state"), { recursive: true });
+  await writeFile26(reportPath(wikiDir2), JSON.stringify(state, null, 2) + "\n", "utf-8");
 }
 async function appendSynthesisReportEntries(wikiDir2, entries) {
   if (entries.length === 0) {
@@ -111516,7 +111785,7 @@ async function trySynthesisMode(runSynthesis, runCheck, label) {
   return { page: outcome.output, attempts: outcome.attempts, lastCheck };
 }
 function loadAgentsMd(wikiDir2) {
-  const path = join46(wikiDir2, "AGENTS.md");
+  const path = join48(wikiDir2, "AGENTS.md");
   try {
     return readFileSync3(path, "utf-8");
   } catch {
@@ -111582,7 +111851,7 @@ async function runIngest(slug, options2) {
   if (!existsSync11(dir)) {
     throw new Error(`Wiki '${slug}' not found at ${dir}. Run 'init ${slug}' first.`);
   }
-  const rawDir = join46(dir, "raw");
+  const rawDir = join48(dir, "raw");
   if (!existsSync11(rawDir)) {
     throw new Error(`Wiki '${slug}' has no raw/ directory. Run 'init ${slug}' to repair it.`);
   }
@@ -111593,15 +111862,15 @@ async function runIngest(slug, options2) {
   const input = getLanguage(options2.inputLanguage ?? languageState.lastInputLanguage).code;
   const language = { input, output };
   if (input !== languageState.lastInputLanguage) {
-    const extractedDir = join46(dir, ".state", "extracted");
-    const hasExtractions = existsSync11(extractedDir) && (await readdir13(extractedDir)).some((file) => file.endsWith(".json"));
+    const extractedDir = join48(dir, ".state", "extracted");
+    const hasExtractions = existsSync11(extractedDir) && (await readdir14(extractedDir)).some((file) => file.endsWith(".json"));
     if (hasExtractions) {
       console.log(
         `Warning: input language '${input}' differs from the last run ('${languageState.lastInputLanguage}'). Re-ingesting the same names under a different language can create duplicate pages (slug forking).`
       );
     }
   }
-  let pdfFiles = (await readdir13(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
+  let pdfFiles = (await readdir14(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
   if (options2.onlyPdfs !== void 0) {
     const selected = new Set(options2.onlyPdfs);
     pdfFiles = pdfFiles.filter((file) => selected.has(file));
@@ -111714,6 +111983,43 @@ async function runIngest(slug, options2) {
     }
     progress("Materialized entity, topic, and document pages.");
   };
+  const restoreMaterializeResult = async (saved) => {
+    const ownedPaths = /* @__PURE__ */ new Set([
+      ...saved.writtenPages.map((page) => page.path),
+      ...saved.preservedPages.map((page) => page.path),
+      ...(saved.curation?.rewrittenLinks ?? []).map((page) => page.path)
+    ]);
+    for (const relPath of ownedPaths) {
+      try {
+        const content = await readFile36(join48(dir, relPath), "utf-8");
+        workingPageHashes[relPath] = createHash6("sha256").update(content, "utf-8").digest("hex");
+      } catch {
+      }
+    }
+    const curation = saved.curation;
+    if (curation) {
+      curationFallbacksThisRun += curation.fallbacks.length;
+      for (const removedPath of curation.removedPages) {
+        delete workingPageHashes[removedPath];
+      }
+    }
+    for (const removed of saved.removedDuplicates) {
+      delete workingPageHashes[removed.path];
+    }
+    lastMaterializeResult = { ...saved, writtenPages: [] };
+  };
+  const recordMaterializeMarker = async (sourceSlug, setHash) => {
+    if (lastMaterializeResult !== void 0) {
+      await saveMaterializeCache(dir, sourceSlug, lastMaterializeResult);
+    }
+    await updatePdfProgress(dir, sourceSlug, {
+      extractedSetHash: setHash,
+      stages: {
+        materialize: true,
+        ...lastMaterializeResult?.curation !== void 0 ? { curation: true } : {}
+      }
+    });
+  };
   const amendmentSnapshot = /* @__PURE__ */ new Map();
   const snapshotAmendmentPages = async () => {
     if (!(extract && synthesis)) {
@@ -111724,12 +112030,12 @@ async function runIngest(slug, options2) {
       if (!isSkipEligible(record)) {
         continue;
       }
-      const absolute = join46(dir, relPath);
+      const absolute = join48(dir, relPath);
       if (!existsSync11(absolute)) {
         continue;
       }
       try {
-        amendmentSnapshot.set(relPath, await readFile34(absolute, "utf-8"));
+        amendmentSnapshot.set(relPath, await readFile36(absolute, "utf-8"));
       } catch {
       }
     }
@@ -111739,8 +112045,8 @@ async function runIngest(slug, options2) {
     if (extract && writtenPagePaths.size > 0) {
       for (const relativePath of writtenPagePaths) {
         try {
-          const content = await readFile34(join46(dir, relativePath), "utf-8");
-          workingPageHashes[relativePath] = createHash5("sha256").update(content, "utf-8").digest("hex");
+          const content = await readFile36(join48(dir, relativePath), "utf-8");
+          workingPageHashes[relativePath] = createHash6("sha256").update(content, "utf-8").digest("hex");
         } catch {
         }
       }
@@ -111750,7 +112056,7 @@ async function runIngest(slug, options2) {
   };
   try {
     for (const fileName of options2.finalizeOnly ? [] : pdfFiles) {
-      const pdfPath = join46(rawDir, fileName);
+      const pdfPath = join48(rawDir, fileName);
       const sourceSlug = sourceSlugForFile(fileName);
       const hash = await sha256(pdfPath);
       const existing = state.sources[sourceSlug];
@@ -111777,14 +112083,37 @@ async function runIngest(slug, options2) {
       }
       const chunkCount = Math.max(1, Math.ceil(pageCount / pagesPerChunk));
       for (const oldPage of existing?.documentPages ?? []) {
-        await rm3(join46(dir, oldPage), { force: true });
+        await rm4(join48(dir, oldPage), { force: true });
         const oldChunkId = oldPage.split("/").pop()?.replace(/\.md$/, "");
         if (oldChunkId) {
-          await rm3(join46(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
+          const staleSha = await readExtractionProvenanceSha256(dir, oldChunkId);
+          if (staleSha !== hash) {
+            await rm4(join48(dir, ".state", "extracted", `${oldChunkId}.json`), { force: true });
+          }
         }
       }
       const documentPages = [];
       let tablesFound = 0;
+      if (extract) {
+        let checkpointCount = 0;
+        for (let probeIndex = 0; probeIndex < chunkCount; probeIndex++) {
+          const probePart = String(probeIndex + 1).padStart(3, "0");
+          const probeStart = probeIndex * pagesPerChunk + 1;
+          const probeEnd = Math.min((probeIndex + 1) * pagesPerChunk, pageCount);
+          const probe = await readValidExtraction(dir, `${sourceSlug}-part-${probePart}`, {
+            sha256: hash,
+            pages: `${probeStart}-${probeEnd}`
+          });
+          if (probe !== null) {
+            checkpointCount += 1;
+          }
+        }
+        if (checkpointCount > 0) {
+          progress(
+            `Resuming ${fileName} \u2014 ${checkpointCount}/${chunkCount} chunks already extracted, skipping...`
+          );
+        }
+      }
       for (let chunkIndex = 0; chunkIndex < chunkCount; chunkIndex++) {
         const startPage = chunkIndex * pagesPerChunk + 1;
         const endPage = Math.min((chunkIndex + 1) * pagesPerChunk, pageCount);
@@ -111816,11 +112145,29 @@ async function runIngest(slug, options2) {
 
 ${rendered.text}
 `;
-        await mkdir27(join46(dir, "documents"), { recursive: true });
-        await writeFile26(join46(dir, "documents", docFileName), import_gray_matter21.default.stringify(body, frontmatter), "utf-8");
+        await mkdir28(join48(dir, "documents"), { recursive: true });
+        await writeFile27(join48(dir, "documents", docFileName), import_gray_matter21.default.stringify(body, frontmatter), "utf-8");
         documentPages.push(wikiRelativePath("documents", docFileName));
         if (extract) {
           const chunkId = docFileName.replace(/\.md$/, "");
+          const checkpoint = await readValidExtraction(dir, chunkId, {
+            sha256: hash,
+            pages: `${startPage}-${endPage}`
+          });
+          if (checkpoint !== null) {
+            result.extractions.push({
+              chunkId,
+              entities: checkpoint.entities.length,
+              relationships: checkpoint.relationships.length,
+              claims: checkpoint.claims.length
+            });
+            relationshipsExtracted += checkpoint.relationships.length;
+            claimsExtracted += checkpoint.claims.length;
+            for (const claim of checkpoint.claims) {
+              claimsByType[claim.type] = (claimsByType[claim.type] ?? 0) + 1;
+            }
+            continue;
+          }
           const run = options2.extractChunkFn ?? ((d, id) => extractDocumentChunk(d, id, language));
           const extraction = await run(dir, chunkId);
           progress(
@@ -111840,8 +112187,27 @@ ${rendered.text}
         }
       }
       if (extract) {
+        await updatePdfProgress(dir, sourceSlug, {
+          hash,
+          chunksExtracted: chunkCount,
+          totalChunks: chunkCount,
+          stages: { extraction: true }
+        });
         await snapshotAmendmentPages();
-        await runMaterialize();
+        const progressEntry = (await readPdfProgress(dir))[sourceSlug];
+        const currentSetHash = await computeExtractedSetHash(dir);
+        if (progressEntry !== void 0 && progressEntry.hash === hash && progressEntry.stages.materialize === true && progressEntry.extractedSetHash === currentSetHash) {
+          const cached = await loadMaterializeCache(dir, sourceSlug);
+          if (cached !== null) {
+            await restoreMaterializeResult(cached);
+          } else {
+            await runMaterialize();
+            await recordMaterializeMarker(sourceSlug, currentSetHash);
+          }
+        } else {
+          await runMaterialize();
+          await recordMaterializeMarker(sourceSlug, currentSetHash);
+        }
       }
       await writeSourcePage(dir, {
         wiki: slug,
@@ -111861,6 +112227,7 @@ ${rendered.text}
       state.sources[sourceSlug] = { hash, documentPages, ingestedAt: now, language: input };
       state.pageHashes = workingPageHashes;
       await writeIngestionState(dir, state);
+      await removePdfProgressEntry(dir, sourceSlug);
       progress(`Ingested ${fileName} -> ${documentPages.length} document page(s)`);
       result.ingested.push({
         source: sourceSlug,
@@ -111873,8 +112240,8 @@ ${rendered.text}
     }
     const allSkipRepair = options2.onlyPdfs === void 0 && !options2.finalizeOnly || options2.finalizeOnly === true && options2.idleFallback === true;
     if (extract && allSkipRepair && lastMaterializeResult === void 0) {
-      const extractedDir = join46(dir, ".state", "extracted");
-      const hasExtractions = existsSync11(extractedDir) && (await readdir13(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
+      const extractedDir = join48(dir, ".state", "extracted");
+      const hasExtractions = existsSync11(extractedDir) && (await readdir14(extractedDir)).some((file) => file.toLowerCase().endsWith(".json"));
       if (hasExtractions) {
         await snapshotAmendmentPages();
         await runMaterialize();
@@ -111895,7 +112262,7 @@ ${rendered.text}
     }
     result.synthesisRan = true;
     const agentsMd = loadAgentsMd(dir);
-    const llmLogPath = join46(dir, ".state", "llm-calls.json");
+    const llmLogPath = join48(dir, ".state", "llm-calls.json");
     const slugUniverse = await buildSlugUniverse(slug, options2.workspace, { language: input });
     const repairPageLinks = (markdown, pageLabel) => {
       const { markdown: repaired, repairs, unrepairable } = repairWikilinksInMarkdown(markdown, slugUniverse);
@@ -111911,6 +112278,17 @@ ${rendered.text}
     const poolStaggerMs = options2.poolStaggerMs ?? SYNTHESIS_POOL_STAGGER_MS;
     const synthesisRecords = (await readSynthesisState(dir)).pages;
     const rewrittenThisRun = new Set(lastMaterializeResult.writtenPages.map((page) => page.path));
+    const journalSlug = pdfLabel !== null ? sourceSlugForFile(pdfLabel) : null;
+    const journalStage = async (stage, queue) => {
+      if (journalSlug !== null) {
+        await beginSynthesisJournalStage(dir, journalSlug, stage, queue);
+      }
+    };
+    const journalDone = async (pagePath) => {
+      if (journalSlug !== null) {
+        await appendSynthesisJournalDone(dir, journalSlug, pagePath);
+      }
+    };
     const partitionStage = (pages) => {
       const skipped = /* @__PURE__ */ new Map();
       const toRun = [];
@@ -112059,7 +112437,7 @@ ${rendered.text}
     };
     const amendmentOutputTokens = async (pageSlug) => {
       try {
-        const raw = await readFile34(llmLogPath, "utf-8");
+        const raw = await readFile36(llmLogPath, "utf-8");
         const prefix = `amendment:${pageSlug}`;
         let last = null;
         for (const line of raw.split("\n")) {
@@ -112214,7 +112592,7 @@ ${rendered.text}
         return null;
       }
       const relPath = synthesisPagePath(page);
-      await writeFile26(join46(dir, relPath), episode.mergedPage, "utf-8");
+      await writeFile27(join48(dir, relPath), episode.mergedPage, "utf-8");
       writtenPagePaths.add(relPath);
       patchedPagesThisRun += 1;
       result.patchedPages = (result.patchedPages ?? 0) + 1;
@@ -112249,9 +112627,9 @@ ${rendered.text}
           entityPage.slug
         );
         if (strict.page !== null) {
-          const folderPath = join46(dir, entityPage.folder);
-          await writeFile26(
-            join46(folderPath, `${entityPage.slug}.md`),
+          const folderPath = join48(dir, entityPage.folder);
+          await writeFile27(
+            join48(folderPath, `${entityPage.slug}.md`),
             repairPageLinks(
               enforceSourcesSectionInMarkdown(
                 enforceFrontmatterInMarkdown(
@@ -112289,9 +112667,9 @@ ${rendered.text}
           entityPage.slug
         );
         if (permissive.page !== null) {
-          const folderPath = join46(dir, entityPage.folder);
-          await writeFile26(
-            join46(folderPath, `${entityPage.slug}.md`),
+          const folderPath = join48(dir, entityPage.folder);
+          await writeFile27(
+            join48(folderPath, `${entityPage.slug}.md`),
             repairPageLinks(
               enforceSourcesSectionInMarkdown(
                 enforceFrontmatterInMarkdown(
@@ -112358,6 +112736,7 @@ ${rendered.text}
     };
     const entityPages = lastMaterializeResult.entityPages;
     const entityStage = partitionStage(entityPages);
+    await journalStage("entities", entityStage.toRun.map((page) => synthesisPagePath(page)));
     const entityDetector = makeOutageDetector(entityStage.toRun.length);
     let entityCompleted = 0;
     const entityOutcomes = await runPool(
@@ -112368,6 +112747,7 @@ ${rendered.text}
           recordDetectorSuccess(entityDetector);
         }
         await recordSynthesisOutcome(entityPage, "entity", outcome.entry);
+        await journalDone(synthesisPagePath(entityPage));
         entityCompleted += 1;
         progress(
           `Synthesis: ${entityCompleted}/${entityStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
@@ -112418,9 +112798,9 @@ ${rendered.text}
           `topic ${topicPage.slug}`
         );
         if (strict.page !== null) {
-          const folderPath = join46(dir, topicPage.folder);
-          await writeFile26(
-            join46(folderPath, `${topicPage.slug}.md`),
+          const folderPath = join48(dir, topicPage.folder);
+          await writeFile27(
+            join48(folderPath, `${topicPage.slug}.md`),
             repairPageLinks(
               enforceTopicSourcesSectionInMarkdown(
                 enforceTopicFrontmatterInMarkdown(
@@ -112455,9 +112835,9 @@ ${rendered.text}
           `topic ${topicPage.slug}`
         );
         if (permissive.page !== null) {
-          const folderPath = join46(dir, topicPage.folder);
-          await writeFile26(
-            join46(folderPath, `${topicPage.slug}.md`),
+          const folderPath = join48(dir, topicPage.folder);
+          await writeFile27(
+            join48(folderPath, `${topicPage.slug}.md`),
             repairPageLinks(
               enforceTopicSourcesSectionInMarkdown(
                 enforceTopicFrontmatterInMarkdown(
@@ -112521,6 +112901,7 @@ ${rendered.text}
     };
     const topicPages = lastMaterializeResult.topicPages;
     const topicStage = partitionStage(topicPages);
+    await journalStage("topics", topicStage.toRun.map((page) => synthesisPagePath(page)));
     const topicDetector = makeOutageDetector(topicStage.toRun.length);
     let topicCompleted = 0;
     const topicOutcomes = await runPool(
@@ -112531,6 +112912,7 @@ ${rendered.text}
           recordDetectorSuccess(topicDetector);
         }
         await recordSynthesisOutcome(topicPage, "topic", outcome.entry);
+        await journalDone(synthesisPagePath(topicPage));
         topicCompleted += 1;
         progress(
           `Synthesis: ${topicCompleted}/${topicStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
@@ -112583,9 +112965,9 @@ ${rendered.text}
           `composite ${compositePage.slug}`
         );
         if (strict.page !== null) {
-          const folderPath = join46(dir, compositePage.folder);
-          await writeFile26(
-            join46(folderPath, `${compositePage.slug}.md`),
+          const folderPath = join48(dir, compositePage.folder);
+          await writeFile27(
+            join48(folderPath, `${compositePage.slug}.md`),
             repairPageLinks(
               enforceSourcesSectionInMarkdown(
                 enforceCompositeFrontmatterInMarkdown(strict.page, compositePage),
@@ -112617,9 +112999,9 @@ ${rendered.text}
           `composite ${compositePage.slug}`
         );
         if (permissive.page !== null) {
-          const folderPath = join46(dir, compositePage.folder);
-          await writeFile26(
-            join46(folderPath, `${compositePage.slug}.md`),
+          const folderPath = join48(dir, compositePage.folder);
+          await writeFile27(
+            join48(folderPath, `${compositePage.slug}.md`),
             repairPageLinks(
               enforceSourcesSectionInMarkdown(
                 enforceCompositeFrontmatterInMarkdown(permissive.page, compositePage),
@@ -112680,6 +113062,7 @@ ${rendered.text}
     };
     const compositePages = lastMaterializeResult.compositePages;
     const compositeStage = partitionStage(compositePages);
+    await journalStage("composites", compositeStage.toRun.map((page) => synthesisPagePath(page)));
     const compositeDetector = makeOutageDetector(compositeStage.toRun.length);
     let compositeCompleted = 0;
     const compositeOutcomes = await runPool(
@@ -112690,6 +113073,7 @@ ${rendered.text}
           recordDetectorSuccess(compositeDetector);
         }
         await recordSynthesisOutcome(compositePage, "composite", outcome.entry);
+        await journalDone(synthesisPagePath(compositePage));
         compositeCompleted += 1;
         progress(
           `Synthesis: ${compositeCompleted}/${compositeStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
@@ -112742,9 +113126,9 @@ ${rendered.text}
           `comparison ${comparisonPage.slug}`
         );
         if (strict.page !== null) {
-          const folderPath = join46(dir, comparisonPage.folder);
-          await writeFile26(
-            join46(folderPath, `${comparisonPage.slug}.md`),
+          const folderPath = join48(dir, comparisonPage.folder);
+          await writeFile27(
+            join48(folderPath, `${comparisonPage.slug}.md`),
             repairPageLinks(
               enforceSourcesSectionInMarkdown(
                 enforceComparisonBridgeInMarkdown(
@@ -112779,9 +113163,9 @@ ${rendered.text}
           `comparison ${comparisonPage.slug}`
         );
         if (permissive.page !== null) {
-          const folderPath = join46(dir, comparisonPage.folder);
-          await writeFile26(
-            join46(folderPath, `${comparisonPage.slug}.md`),
+          const folderPath = join48(dir, comparisonPage.folder);
+          await writeFile27(
+            join48(folderPath, `${comparisonPage.slug}.md`),
             repairPageLinks(
               enforceSourcesSectionInMarkdown(
                 enforceComparisonBridgeInMarkdown(
@@ -112845,6 +113229,7 @@ ${rendered.text}
     };
     const comparisonPages = lastMaterializeResult.comparisonPages;
     const comparisonStage = partitionStage(comparisonPages);
+    await journalStage("comparisons", comparisonStage.toRun.map((page) => synthesisPagePath(page)));
     const comparisonDetector = makeOutageDetector(comparisonStage.toRun.length);
     let comparisonCompleted = 0;
     const comparisonOutcomes = await runPool(
@@ -112855,6 +113240,7 @@ ${rendered.text}
           recordDetectorSuccess(comparisonDetector);
         }
         await recordSynthesisOutcome(comparisonPage, "comparison", outcome.entry);
+        await journalDone(synthesisPagePath(comparisonPage));
         comparisonCompleted += 1;
         progress(
           `Synthesis: ${comparisonCompleted}/${comparisonStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`
@@ -112892,6 +113278,9 @@ ${rendered.text}
     if (comparisonStage.skipped.size > 0) {
       progress(`Synthesis: ${comparisonStage.skipped.size} page(s) skipped (unchanged data).`);
     }
+    if (journalSlug !== null) {
+      await completeSynthesisJournal(dir, journalSlug);
+    }
     const pagesToRehash = [
       ...entityStage.toRun,
       ...topicStage.toRun,
@@ -112900,10 +113289,10 @@ ${rendered.text}
     ];
     for (const page of pagesToRehash) {
       const relPath = synthesisPagePath(page);
-      const absolute = join46(dir, relPath);
+      const absolute = join48(dir, relPath);
       if (existsSync11(absolute)) {
-        const content = await readFile34(absolute, "utf-8");
-        workingPageHashes[relPath] = createHash5("sha256").update(content).digest("hex");
+        const content = await readFile36(absolute, "utf-8");
+        workingPageHashes[relPath] = createHash6("sha256").update(content).digest("hex");
         writtenPagePaths.add(relPath);
       }
     }
@@ -113032,7 +113421,7 @@ ${rendered.text}
     writeWorkspaceIndexFn: options2.writeWorkspaceIndexFn,
     writeWorkspaceProseFn: options2.writeWorkspaceProseFn,
     outputLanguage: getLanguage(output).name,
-    logPath: join46(dir, ".state", "llm-calls.json")
+    logPath: join48(dir, ".state", "llm-calls.json")
   });
   progress("Workspace index updated.");
   if (options2.crossWiki === true) {
@@ -113043,7 +113432,7 @@ ${rendered.text}
         wikiSlug: slug,
         language,
         forceCrossWiki: options2.forceCrossWiki,
-        logPath: join46(dir, ".state", "llm-calls.json"),
+        logPath: join48(dir, ".state", "llm-calls.json"),
         onProgress: progress
       });
       result.crossWiki = crossWiki;
@@ -113087,8 +113476,8 @@ ${rendered.text}
 
 // src/tui/ingest-conductor.ts
 import { spawn as spawn2 } from "node:child_process";
-import { readdir as readdir14 } from "node:fs/promises";
-import { join as join49 } from "node:path";
+import { readdir as readdir15 } from "node:fs/promises";
+import { join as join51 } from "node:path";
 import { existsSync as existsSync13 } from "node:fs";
 
 // src/commands/worker-protocol.ts
@@ -113166,20 +113555,21 @@ function workerFaultBeforeResult() {
 }
 
 // src/state/crash-log.ts
-import { mkdir as mkdir28, appendFile as appendFile3 } from "node:fs/promises";
-import { join as join47 } from "node:path";
+import { mkdir as mkdir29, appendFile as appendFile3 } from "node:fs/promises";
+import { join as join49 } from "node:path";
 var CRASH_LOG_STDERR_TAIL_LINES = 25;
+var LLM_COST_LINE_PATTERN = /^LLM Call \| /;
 function crashLogPath(wikiDir2) {
-  return join47(wikiDir2, ".state", "crash-log.jsonl");
+  return join49(wikiDir2, ".state", "crash-log.jsonl");
 }
 function tailLines(text, maxLines) {
-  const lines = text.split(/\r?\n/).filter((line) => line.length > 0);
+  const lines = text.split(/\r?\n/).filter((line) => line.length > 0).filter((line) => !LLM_COST_LINE_PATTERN.test(line));
   return lines.slice(Math.max(0, lines.length - maxLines)).join("\n");
 }
 async function appendCrashLogRecord(wikiDir2, record) {
   const path = crashLogPath(wikiDir2);
   await enqueueSerializedWrite(path, async () => {
-    await mkdir28(join47(wikiDir2, ".state"), { recursive: true });
+    await mkdir29(join49(wikiDir2, ".state"), { recursive: true });
     await appendFile3(path, `${JSON.stringify(record)}
 `, "utf-8");
   });
@@ -113187,7 +113577,7 @@ async function appendCrashLogRecord(wikiDir2, record) {
 
 // src/tui/worker-spawn.ts
 import { existsSync as existsSync12 } from "node:fs";
-import { join as join48 } from "node:path";
+import { join as join50 } from "node:path";
 var WORKER_CMD_ENV = "PAPER_CHASE_WORKER_CMD";
 function resolveWorkerCommand(rootOverride) {
   const override = process.env[WORKER_CMD_ENV];
@@ -113198,12 +113588,12 @@ function resolveWorkerCommand(rootOverride) {
     return { command: process.execPath, baseArgs: [] };
   }
   const root = rootOverride ?? appRoot();
-  const tsxCli = join48(root, "node_modules", "tsx", "dist", "cli.mjs");
-  const srcCli = join48(root, "src", "cli.ts");
+  const tsxCli = join50(root, "node_modules", "tsx", "dist", "cli.mjs");
+  const srcCli = join50(root, "src", "cli.ts");
   if (existsSync12(tsxCli) && existsSync12(srcCli)) {
     return { command: process.execPath, baseArgs: [tsxCli, srcCli] };
   }
-  const bundle = join48(root, "dist", "chase.mjs");
+  const bundle = join50(root, "dist", "chase.mjs");
   if (existsSync12(bundle)) {
     return { command: process.execPath, baseArgs: [bundle] };
   }
@@ -113286,15 +113676,16 @@ function mergeIngestResults(base, worker) {
   return merged;
 }
 async function discoverWorkspacePdfs(workspace, slug) {
-  const rawDir = join49(wikiDir(workspace, slug), "raw");
+  const rawDir = join51(wikiDir(workspace, slug), "raw");
   if (!existsSync13(rawDir)) {
     throw new Error(`Wiki '${slug}' not found at ${wikiDir(workspace, slug)}. Run 'init ${slug}' first.`);
   }
-  return (await readdir14(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
+  return (await readdir15(rawDir)).filter((file) => file.toLowerCase().endsWith(".pdf")).sort();
 }
 async function runWorker(spawnWorker, args, onProgress, signal, onStall) {
   let stderr = "";
   let workerResult;
+  let fatal;
   const reader = createWorkerEventReader((event) => {
     if (event.type === "progress") {
       onProgress(event.line);
@@ -113302,6 +113693,8 @@ async function runWorker(spawnWorker, args, onProgress, signal, onStall) {
       onStall?.(event.info);
     } else if (event.type === "result") {
       workerResult = event.result;
+    } else if (event.type === "fatal") {
+      fatal = { error: event.error, stack: event.stack };
     }
   });
   const child = spawnWorker(args, {
@@ -113323,7 +113716,8 @@ async function runWorker(spawnWorker, args, onProgress, signal, onStall) {
     ok: code === 0 && workerResult !== void 0,
     result: workerResult,
     exitCode: code,
-    stderrTail: tailLines(stderr, CRASH_LOG_STDERR_TAIL_LINES)
+    stderrTail: tailLines(stderr, CRASH_LOG_STDERR_TAIL_LINES),
+    fatal
   };
 }
 function buildWorkerArgs(slug, workspace, ingest3, scope, idleFallback) {
@@ -113416,7 +113810,10 @@ async function runIngestConductor(slug, options2) {
         exitCode: outcome.exitCode,
         stderrTail: outcome.stderrTail,
         attempt,
-        autoRetried
+        autoRetried,
+        // Phase 28 (§2.4): the caught exception from the worker's fatal
+        // event — the crash record finally carries its diagnosis.
+        ...outcome.fatal !== void 0 ? { fatalError: outcome.fatal.error, ...outcome.fatal.stack !== void 0 ? { fatalStack: outcome.fatal.stack } : {} } : {}
       }).catch(() => {
       });
       const label = phase === "pdf" ? pdf : "finalize pass";
@@ -113435,7 +113832,10 @@ async function runIngestConductor(slug, options2) {
         phase,
         exitCode: outcome.exitCode,
         stderrTail: outcome.stderrTail,
-        attempt
+        attempt,
+        // Phase 28 (§2.4): the panel renders the actual exception above the
+        // stderr tail (recovery-path UI only — a healthy run never shows it).
+        ...outcome.fatal !== void 0 ? { fatalError: outcome.fatal.error, ...outcome.fatal.stack !== void 0 ? { fatalStack: outcome.fatal.stack } : {} } : {}
       };
       options2.onCrashPanel?.(panelState);
       const decision = options2.requestDecision !== void 0 ? await options2.requestDecision(panelState) : "abort";
@@ -113596,7 +113996,7 @@ function IngestScreen({
     readWikiLanguage(dir).then(async (state) => {
       let extracted = false;
       try {
-        extracted = (await readdir15(join50(dir, ".state", "extracted"))).some(
+        extracted = (await readdir16(join52(dir, ".state", "extracted"))).some(
           (file) => file.endsWith(".json")
         );
       } catch {
@@ -113928,6 +114328,10 @@ function IngestScreen({
       // Phase 27 (§2.3): the crash-recovery panel — the phase's only new
       // UI element. Rendered only while a worker died, the auto-retry cap
       // is exhausted, and the conductor awaits the user's decision.
+      // Phase 28 (§2.4): the worker's caught exception (fatalError) renders
+      // preferentially ABOVE the stderr tail — the actual crash cause first,
+      // cost lines filtered — recovery-path UI only (a healthy run never
+      // shows this panel).
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Box_default, { flexDirection: "column", borderStyle: "round", borderColor: "red", marginTop: 1, paddingX: 1, children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { color: "red", bold: true, children: [
           "Worker for ",
@@ -113939,6 +114343,10 @@ function IngestScreen({
           crashPanel.attempt,
           ")"
         ] }),
+        crashPanel.fatalError !== void 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { color: "red", children: [
+          "Fatal error: ",
+          crashPanel.fatalError
+        ] }) : null,
         crashPanel.stderrTail.length > 0 ? crashPanel.stderrTail.split("\n").slice(-10).map((line, index) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Text, { color: "gray", children: line }, index)) : null,
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Text, { bold: true, children: [
           "[R] Retry",
@@ -113964,8 +114372,8 @@ var import_react44 = __toESM(require_react(), 1);
 
 // src/tui/hooks/use-raw-contents.ts
 var import_react43 = __toESM(require_react(), 1);
-import { readdir as readdir16 } from "node:fs/promises";
-import { join as join51 } from "node:path";
+import { readdir as readdir17 } from "node:fs/promises";
+import { join as join53 } from "node:path";
 function useRawContents(workspace, wiki, refreshKey = 0) {
   const [files, setFiles] = (0, import_react43.useState)(null);
   (0, import_react43.useEffect)(() => {
@@ -113976,7 +114384,7 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
     }
     (async () => {
       try {
-        const entries = await readdir16(join51(workspace, "wikis", wiki, "raw"));
+        const entries = await readdir17(join53(workspace, "wikis", wiki, "raw"));
         if (!cancelled) {
           setFiles(entries.sort());
         }
@@ -113994,8 +114402,8 @@ function useRawContents(workspace, wiki, refreshKey = 0) {
 }
 
 // src/commands/add-pdf.ts
-import { copyFile, mkdir as mkdir29, stat as stat2 } from "node:fs/promises";
-import { basename, extname, join as join52, resolve as resolve4 } from "node:path";
+import { copyFile, mkdir as mkdir30, stat as stat2 } from "node:fs/promises";
+import { basename, extname, join as join54, resolve as resolve4 } from "node:path";
 var AddPdfError = class extends Error {
   constructor(message) {
     super(message);
@@ -114027,9 +114435,9 @@ async function addPdfToWiki(wikiDir2, sourcePath) {
   if (extname(fileName).toLowerCase() !== ".pdf") {
     throw new AddPdfError(`Not a PDF file: ${fileName}. Only .pdf files can be added to raw/.`);
   }
-  const rawDir = join52(wikiDir2, "raw");
-  await mkdir29(rawDir, { recursive: true });
-  const destPath = join52(rawDir, fileName);
+  const rawDir = join54(wikiDir2, "raw");
+  await mkdir30(rawDir, { recursive: true });
+  const destPath = join54(rawDir, fileName);
   if (resolve4(cleaned) !== resolve4(destPath)) {
     try {
       await copyFile(cleaned, destPath);
@@ -115339,8 +115747,8 @@ function SettingsScreen({ onBack, onResult, workspace = "." }) {
 
 // src/tui/agents-review-screen.tsx
 var import_react46 = __toESM(require_react(), 1);
-import { copyFile as copyFile2, readFile as readFile35 } from "node:fs/promises";
-import { join as join53 } from "node:path";
+import { copyFile as copyFile2, readFile as readFile37 } from "node:fs/promises";
+import { join as join55 } from "node:path";
 
 // src/utils/line-diff.ts
 function diffLines(before, after) {
@@ -115435,10 +115843,10 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     setScrollOffset(0);
     try {
       const dir = wikiDir(workspace, slug);
-      const currentText = await readFile35(join53(dir, "AGENTS.md"), "utf-8");
+      const currentText = await readFile37(join55(dir, "AGENTS.md"), "utf-8");
       let proposalText;
       try {
-        proposalText = await readFile35(join53(dir, ".state", "proposed-agents.md"), "utf-8");
+        proposalText = await readFile37(join55(dir, ".state", "proposed-agents.md"), "utf-8");
       } catch (err) {
         if (err.code === "ENOENT") {
           proposalText = null;
@@ -115473,7 +115881,7 @@ function AgentsReviewScreen({ onBack, onResult, workspace = ".", wiki: initialWi
     }
     try {
       const dir = wikiDir(workspace, activeWiki);
-      await copyFile2(join53(dir, ".state", "proposed-agents.md"), join53(dir, "AGENTS.md"));
+      await copyFile2(join55(dir, ".state", "proposed-agents.md"), join55(dir, "AGENTS.md"));
       const resultMessage = `Accepted proposed AGENTS.md updates for ${activeWiki}.`;
       setMessage(resultMessage);
       setStatus("done");
@@ -115941,6 +116349,7 @@ program2.command("ingest-worker <slug>").description("Internal: run ONE PDF (or 
     } catch (err) {
       const error = err;
       emit({ type: "fatal", error: error.message, stack: error.stack });
+      console.error(error);
       process.exitCode = 1;
     } finally {
       console.log = originalConsoleLog;
