@@ -10,6 +10,7 @@ import {
 import { tmpdir } from 'node:os';
 import { dirname, join, relative } from 'node:path';
 import { mkdir, writeFile } from 'node:fs/promises';
+import matter from 'gray-matter';
 import { afterAll, afterEach, expect, test, vi } from 'vitest';
 import { request as undiciRequest } from 'undici';
 import {
@@ -200,12 +201,26 @@ function buildExtraction(entityCount: number, topicTypes: string[] = []): Extrac
   };
 }
 
-/** Injected Layer 2 stub: writes the extraction JSON exactly like the real path. */
+/**
+ * Injected Layer 2 stub: writes the extraction JSON exactly like the real
+ * path — Phase 28 fidelity: the `_provenance` envelope (sha256/pages/
+ * sourceFile from the document page's frontmatter, extractedAt now) is
+ * written FIRST so stub-written JSONs are checkpoint-consumable (the real
+ * path writes the same shape via src/commands/extract-chunk.ts).
+ */
 function makeExtractChunkFnStub(extraction: ExtractorResult) {
   return async (wikiDir: string, chunkId: string): Promise<ChunkExtraction> => {
     const jsonPath = join(wikiDir, '.state', 'extracted', `${chunkId}.json`);
     await mkdir(dirname(jsonPath), { recursive: true });
-    await writeFile(jsonPath, JSON.stringify(extraction, null, 2) + '\n', 'utf-8');
+    const page = matter(readFileSync(join(wikiDir, 'documents', `${chunkId}.md`), 'utf-8'));
+    const source = Array.isArray(page.data.sources) ? (page.data.sources[0] as Record<string, unknown>) : undefined;
+    const envelope = {
+      sha256: typeof source?.sha256 === 'string' ? source.sha256 : '',
+      pages: typeof source?.pages === 'string' ? source.pages : '',
+      sourceFile: typeof source?.file === 'string' ? source.file : '',
+      extractedAt: new Date().toISOString(),
+    };
+    await writeFile(jsonPath, JSON.stringify({ _provenance: envelope, ...extraction }, null, 2) + '\n', 'utf-8');
     return {
       chunkId,
       result: extraction,
@@ -1713,10 +1728,14 @@ test('gate 16.11: kill mid-synthesis then resume — completed PDFs not re-extra
   });
 
   // The completed PDF (pdf-a) is NOT re-extracted; the aborted PDF (pdf-b) is
-  // re-processed whole (per-PDF atomicity — its chunks re-extract); passed
-  // pages are NOT re-synthesized (zero calls for them); the transport-fallback
-  // page and the never-checkpointed page are retried.
-  expect(leg2ExtractionCalls).toEqual(['pdf-b-part-001']);
+  // re-processed, but since Phase 28 (vision `04` Step 11's 2026-09-07
+  // fine-grained extension — supersedes this gate's old per-PDF-atomicity
+  // comment) its already-completed chunks RESUME from their `_provenance`
+  // checkpoints instead of re-extracting: zero extraction calls, the dim
+  // resume line, materialize restored from the stage marker. Passed pages are
+  // NOT re-synthesized (zero calls for them); the transport-fallback page and
+  // the never-checkpointed page are retried.
+  expect(leg2ExtractionCalls).toEqual([]);
   expect(leg2.synthesisSkipped).toBe(18);
   expect(leg2SynthCalls.sort()).toEqual(['entity-18', 'entity-19']);
   expect(leg2.synthesized).toBe(2);

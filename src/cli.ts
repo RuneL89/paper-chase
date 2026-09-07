@@ -234,6 +234,11 @@ program
       } catch (err) {
         const error = err as Error;
         emit({ type: 'fatal', error: error.message, stack: error.stack });
+        // Phase 28 (§2.4 crash telemetry): mirror the caught error + stack to
+        // worker stderr as well — belt-and-braces with the fatal event, so
+        // the crash cause survives even when the conductor misses the event
+        // (a worker dying mid-write). Uncaught crashes land here naturally.
+        console.error(error);
         process.exitCode = 1;
       } finally {
         console.log = originalConsoleLog;

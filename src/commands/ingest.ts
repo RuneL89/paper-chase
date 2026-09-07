@@ -26,6 +26,19 @@ import { readIngestionState, writeIngestionState } from '../state/ingestion-stat
 import { readWikiLanguage, writeWikiLanguage } from '../state/language';
 import { readFullRollingMemory } from '../state/rolling-memory';
 import { readConflicts } from '../state/conflicts';
+import { readValidExtraction, readExtractionProvenanceSha256 } from '../state/extraction-checkpoints';
+import {
+  appendSynthesisJournalDone,
+  beginSynthesisJournalStage,
+  completeSynthesisJournal,
+  computeExtractedSetHash,
+  loadMaterializeCache,
+  readPdfProgress,
+  removePdfProgressEntry,
+  saveMaterializeCache,
+  updatePdfProgress,
+  type SynthesisJournalStage,
+} from '../state/pdf-progress';
 import { writeMetrics, sumLlmUsageSince, countLlmCallsSince, type IngestionMetrics } from '../state/metrics';
 import { setModelRouting, isTransientTransportError, setStallWaitReporter, type StallWaitInfo } from '../llm/client';
 import { beginReaskRun, reaskRepairs, runWithFeedbackRetry } from '../llm/reask';
@@ -1017,6 +1030,68 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     progress('Materialized entity, topic, and document pages.');
   };
 
+  /**
+   * Phase 28 (§2.2, vision `04` §1 rider 2026-09-07): restore a crashed
+   * attempt's materialize result on the stage-marker skip path. Hands the
+   * synthesis stages their page aggregates — WITHOUT re-running the
+   * deterministic materialize or its two curation LLM calls — and converges
+   * the working hash map for every page the crashed materialize owned by
+   * re-hashing FROM DISK (the Phase 19 B19 convergence law: the crashed
+   * attempt's synthesis may have legitimately rewritten pages after the
+   * materialize, and disk is the truth; the per-PDF checkpoint must never
+   * persist hashes that lag disk). The restored `writtenPages` list is
+   * deliberately EMPTY: those pages were rewritten by the CRASHED attempt,
+   * not this run, and feeding them as `rewrittenThisRun` would force
+   * re-synthesis of every completed page, defeating the per-page skip law
+   * (the records remain the law).
+   */
+  const restoreMaterializeResult = async (saved: MaterializeResult): Promise<void> => {
+    const ownedPaths = new Set<string>([
+      ...saved.writtenPages.map((page) => page.path),
+      ...saved.preservedPages.map((page) => page.path),
+      ...(saved.curation?.rewrittenLinks ?? []).map((page) => page.path),
+    ]);
+    for (const relPath of ownedPaths) {
+      try {
+        const content = await readFile(join(dir, relPath), 'utf-8');
+        workingPageHashes[relPath] = createHash('sha256').update(content, 'utf-8').digest('hex');
+      } catch {
+        // Page vanished since the crash; keep whatever hash is recorded.
+      }
+    }
+    const curation = saved.curation;
+    if (curation) {
+      curationFallbacksThisRun += curation.fallbacks.length;
+      for (const removedPath of curation.removedPages) {
+        delete workingPageHashes[removedPath];
+      }
+    }
+    for (const removed of saved.removedDuplicates) {
+      delete workingPageHashes[removed.path];
+    }
+    lastMaterializeResult = { ...saved, writtenPages: [] };
+  };
+
+  /**
+   * Phase 28 (§2.2): record the materialize stage marker (and the curation
+   * flag when the curation pair ran inside materialize) plus the
+   * materialize-restore cache. The cache is written BEFORE the entry records
+   * the marker: a crash between the two degrades to a conservative
+   * re-materialize, never a bogus restore.
+   */
+  const recordMaterializeMarker = async (sourceSlug: string, setHash: string): Promise<void> => {
+    if (lastMaterializeResult !== undefined) {
+      await saveMaterializeCache(dir, sourceSlug, lastMaterializeResult);
+    }
+    await updatePdfProgress(dir, sourceSlug, {
+      extractedSetHash: setHash,
+      stages: {
+        materialize: true,
+        ...(lastMaterializeResult?.curation !== undefined ? { curation: true } : {}),
+      },
+    });
+  };
+
   // ------------------------------------------------------------------
   // Phase 26 (§2.1–§2.3, vision `04` §1 per-PDF sequential ingestion +
   // §3.2 Step 9 amendment synthesis): the per-PDF loop state.
@@ -1137,16 +1212,53 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     // Phase 8 (phase doc §2.2): the old extraction JSON is replaced too —
     // remove each old chunk's `.state/extracted/<chunk-id>.json` so stale
     // extractions never feed the Materializer after re-processing.
+    // Phase 28 (§2.1): the JSON deletion is now ENVELOPE-AWARE — an old chunk
+    // JSON is deleted only when it has no `_provenance` envelope or its
+    // sha256 differs from the NEW current hash, so a crashed changed-PDF
+    // attempt's fresh checkpoints survive its own auto-retry (a hash-mismatched
+    // file can still never be consumed — the chunk guard validates the same
+    // envelope). Anything unreadable or stale still goes (conservative).
     for (const oldPage of existing?.documentPages ?? []) {
       await rm(join(dir, oldPage), { force: true });
       const oldChunkId = oldPage.split('/').pop()?.replace(/\.md$/, '');
       if (oldChunkId) {
-        await rm(join(dir, '.state', 'extracted', `${oldChunkId}.json`), { force: true });
+        const staleSha = await readExtractionProvenanceSha256(dir, oldChunkId);
+        if (staleSha !== hash) {
+          await rm(join(dir, '.state', 'extracted', `${oldChunkId}.json`), { force: true });
+        }
       }
     }
 
     const documentPages: string[] = [];
     let tablesFound = 0;
+    // Phase 28 (§1 resume UX, ratified wording — "Resuming <file> — N/M
+    // chunks already extracted, skipping…"): ONE dim line per resumed PDF,
+    // emitted from a PRE-SCAN of the chunk checkpoints (the same
+    // deterministic guard the loop consults — local JSON parse + schema
+    // re-validation, no LLM) so the count is truthful even when a stored
+    // file later fails validation mid-loop. Recovery-path only: a healthy
+    // first run has zero valid checkpoints and never emits the line.
+    if (extract) {
+      let checkpointCount = 0;
+      for (let probeIndex = 0; probeIndex < chunkCount; probeIndex++) {
+        const probePart = String(probeIndex + 1).padStart(3, '0');
+        const probeStart = probeIndex * pagesPerChunk + 1;
+        const probeEnd = Math.min((probeIndex + 1) * pagesPerChunk, pageCount);
+        const probe =
+          await readValidExtraction(dir, `${sourceSlug}-part-${probePart}`, {
+            sha256: hash,
+            pages: `${probeStart}-${probeEnd}`,
+          });
+        if (probe !== null) {
+          checkpointCount += 1;
+        }
+      }
+      if (checkpointCount > 0) {
+        progress(
+          `Resuming ${fileName} — ${checkpointCount}/${chunkCount} chunks already extracted, skipping...`,
+        );
+      }
+    }
     for (let chunkIndex = 0; chunkIndex < chunkCount; chunkIndex++) {
       const startPage = chunkIndex * pagesPerChunk + 1;
       const endPage = Math.min((chunkIndex + 1) * pagesPerChunk, pageCount);
@@ -1190,6 +1302,32 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
       // Test Extractor screen share one code path.
       if (extract) {
         const chunkId = docFileName.replace(/\.md$/, '');
+        // Phase 28 (§2.1 per-chunk checkpoints, vision `04` §1 rider
+        // 2026-09-07): consult the checkpoint guard BEFORE the extraction
+        // seam — a checkpoint is DISK state, not an LLM concern, so the guard
+        // applies whether the seam is the real pipeline or a test stub. A
+        // valid stored extraction (envelope sha256/pages match + deterministic
+        // schema re-validation, no LLM) is DATA, not skipped work: the
+        // Extractor call is skipped, but the run report and metrics still
+        // count the chunk from the stored JSON.
+        const checkpoint = await readValidExtraction(dir, chunkId, {
+          sha256: hash,
+          pages: `${startPage}-${endPage}`,
+        });
+        if (checkpoint !== null) {
+          result.extractions.push({
+            chunkId,
+            entities: checkpoint.entities.length,
+            relationships: checkpoint.relationships.length,
+            claims: checkpoint.claims.length,
+          });
+          relationshipsExtracted += checkpoint.relationships.length;
+          claimsExtracted += checkpoint.claims.length;
+          for (const claim of checkpoint.claims) {
+            claimsByType[claim.type] = (claimsByType[claim.type] ?? 0) + 1;
+          }
+          continue;
+        }
         // Phase 7: the default extraction path threads the run's language pair
         // into the Extractor (language directive + slug transliteration).
         const run = options.extractChunkFn ?? ((d: string, id: string) => extractDocumentChunk(d, id, language));
@@ -1219,8 +1357,44 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     // content FIRST — it is the amendment input, and materialize is about to
     // rewrite changed-fingerprint pages as structured templates.
     if (extract) {
+      // Phase 28 (§2.2 extraction stage marker): the PDF's chunks are all on
+      // disk (freshly extracted or checkpoint-consumed) — record the in-flight
+      // entry a crashed attempt's retry will need.
+      await updatePdfProgress(dir, sourceSlug, {
+        hash,
+        chunksExtracted: chunkCount,
+        totalChunks: chunkCount,
+        stages: { extraction: true },
+      });
       await snapshotAmendmentPages();
-      await runMaterialize();
+      // Phase 28 (§2.2 materialize stage marker): an entry from a crashed
+      // attempt whose hash matches AND whose extractedSetHash matches the
+      // CURRENT extraction set means the deterministic materialize (with its
+      // curation pair) already ran against exactly these inputs — SKIP the
+      // call and restore the saved aggregates for the synthesis stages (the
+      // amendment snapshot above was still re-taken from disk — deterministic).
+      const progressEntry = (await readPdfProgress(dir))[sourceSlug];
+      const currentSetHash = await computeExtractedSetHash(dir);
+      if (
+        progressEntry !== undefined &&
+        progressEntry.hash === hash &&
+        progressEntry.stages.materialize === true &&
+        progressEntry.extractedSetHash === currentSetHash
+      ) {
+        const cached = await loadMaterializeCache(dir, sourceSlug);
+        if (cached !== null) {
+          // The resume line above (pre-scan) already announced the resumed
+          // PDF — restoring aggregates is silent.
+          await restoreMaterializeResult(cached);
+        } else {
+          // Cache absent or corrupt — conservative re-materialize.
+          await runMaterialize();
+          await recordMaterializeMarker(sourceSlug, currentSetHash);
+        }
+      } else {
+        await runMaterialize();
+        await recordMaterializeMarker(sourceSlug, currentSetHash);
+      }
     }
 
     await writeSourcePage(dir, {
@@ -1257,6 +1431,11 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     // per-page synthesis records preserving whatever already completed.
     state.pageHashes = workingPageHashes;
     await writeIngestionState(dir, state);
+    // Phase 28 (§2.2): the per-PDF record makes the in-flight progress entry
+    // redundant — remove it (and its materialize-restore cache) the moment
+    // the checkpoint lands, so a healthy run leaves the pre-Phase-28 `.state`
+    // tree behind and a later crash never accumulates stale scaffolding.
+    await removePdfProgressEntry(dir, sourceSlug);
     progress(`Ingested ${fileName} -> ${documentPages.length} document page(s)`);
     result.ingested.push({
       source: sourceSlug,
@@ -1438,6 +1617,26 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     // disk was restored as the structured template — the record's page is
     // gone, so the record must not suppress re-synthesis).
     const rewrittenThisRun = new Set(lastMaterializeResult.writtenPages.map((page) => page.path));
+
+    // Phase 28 (§2.3, vision `04` §1 rider 2026-09-07): the in-flight
+    // synthesis journal — the stage cursor + per-page done/queue OBSERVER.
+    // Journaled only for a real per-PDF invocation (a null pdfLabel is the
+    // all-skip repair path and never journals). The per-page
+    // `synthesis-state.json` records above remain THE durable skip law: the
+    // journal records what partitionStage computed and what the records
+    // checkpointed, and must never force a skip the records contradict (a
+    // fingerprint-mismatched page re-synthesizes despite a done-entry).
+    const journalSlug = pdfLabel !== null ? sourceSlugForFile(pdfLabel) : null;
+    const journalStage = async (stage: SynthesisJournalStage, queue: string[]): Promise<void> => {
+      if (journalSlug !== null) {
+        await beginSynthesisJournalStage(dir, journalSlug, stage, queue);
+      }
+    };
+    const journalDone = async (pagePath: string): Promise<void> => {
+      if (journalSlug !== null) {
+        await appendSynthesisJournalDone(dir, journalSlug, pagePath);
+      }
+    };
 
     interface SynthesisOutcome {
       /** The report entry appended once per stage, in original page order. */
@@ -2107,6 +2306,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
 
     const entityPages = lastMaterializeResult.entityPages;
     const entityStage = partitionStage(entityPages);
+    await journalStage('entities', entityStage.toRun.map((page) => synthesisPagePath(page)));
     const entityDetector = makeOutageDetector(entityStage.toRun.length);
     let entityCompleted = 0;
     const entityOutcomes = await runPool(
@@ -2122,6 +2322,9 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
         // synthesis record is persisted as it completes (through the Phase 15
         // serialized write queue), so an abort costs only pages in flight.
         await recordSynthesisOutcome(entityPage, 'entity', outcome.entry);
+        // Phase 28 (§2.3): journal AFTER the record write — a crash between
+        // them degrades to one conservative re-synthesis, never a skip.
+        await journalDone(synthesisPagePath(entityPage));
         entityCompleted += 1;
         progress(
           `Synthesis: ${entityCompleted}/${entityStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
@@ -2304,6 +2507,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
 
     const topicPages = lastMaterializeResult.topicPages;
     const topicStage = partitionStage(topicPages);
+    await journalStage('topics', topicStage.toRun.map((page) => synthesisPagePath(page)));
     const topicDetector = makeOutageDetector(topicStage.toRun.length);
     let topicCompleted = 0;
     const topicOutcomes = await runPool(
@@ -2314,6 +2518,8 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
           recordDetectorSuccess(topicDetector);
         }
         await recordSynthesisOutcome(topicPage, 'topic', outcome.entry);
+        // Phase 28 (§2.3): journal AFTER the record write (same law as entities).
+        await journalDone(synthesisPagePath(topicPage));
         topicCompleted += 1;
         progress(
           `Synthesis: ${topicCompleted}/${topicStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
@@ -2491,6 +2697,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
 
     const compositePages = lastMaterializeResult.compositePages;
     const compositeStage = partitionStage(compositePages);
+    await journalStage('composites', compositeStage.toRun.map((page) => synthesisPagePath(page)));
     const compositeDetector = makeOutageDetector(compositeStage.toRun.length);
     let compositeCompleted = 0;
     const compositeOutcomes = await runPool(
@@ -2504,6 +2711,8 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
         // fingerprint over { members, unioned evidence, language } drives
         // skip-eligibility on later runs (gate 22.8's resume contract).
         await recordSynthesisOutcome(compositePage, 'composite', outcome.entry);
+        // Phase 28 (§2.3): journal AFTER the record write (same law as entities).
+        await journalDone(synthesisPagePath(compositePage));
         compositeCompleted += 1;
         progress(
           `Synthesis: ${compositeCompleted}/${compositeStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
@@ -2689,6 +2898,7 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
 
     const comparisonPages = lastMaterializeResult.comparisonPages;
     const comparisonStage = partitionStage(comparisonPages);
+    await journalStage('comparisons', comparisonStage.toRun.map((page) => synthesisPagePath(page)));
     const comparisonDetector = makeOutageDetector(comparisonStage.toRun.length);
     let comparisonCompleted = 0;
     const comparisonOutcomes = await runPool(
@@ -2702,6 +2912,8 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
         // comparison fingerprint over { subject, dated sections, bridge,
         // language } drives skip-eligibility on later runs.
         await recordSynthesisOutcome(comparisonPage, 'comparison', outcome.entry);
+        // Phase 28 (§2.3): journal AFTER the record write (same law as entities).
+        await journalDone(synthesisPagePath(comparisonPage));
         comparisonCompleted += 1;
         progress(
           `Synthesis: ${comparisonCompleted}/${comparisonStage.toRun.length} pages complete (${SYNTHESIS_POOL_SIZE} workers)`,
@@ -2738,6 +2950,12 @@ async function runIngest(slug: string, options: IngestOptions): Promise<IngestRe
     await appendSynthesisReportEntries(dir, comparisonEntries);
     if (comparisonStage.skipped.size > 0) {
       progress(`Synthesis: ${comparisonStage.skipped.size} page(s) skipped (unchanged data).`);
+    }
+    // Phase 28 (§2.3): every stage's queue is exhausted — close the journal
+    // (stage 'done'). The PDF's own checkpoint removes the whole progress
+    // entry immediately after, so this is the last journal write of the PDF.
+    if (journalSlug !== null) {
+      await completeSynthesisJournal(dir, journalSlug);
     }
 
     // Phase 26 (§2.1): fold the final on-disk content of every page that ran

@@ -33,6 +33,9 @@ import { enqueueSerializedWrite } from '../utils/serialized-writes';
 /** The most stderr lines kept in a crash record (bounded by design). */
 export const CRASH_LOG_STDERR_TAIL_LINES = 25;
 
+/** Phase 28 (§2.4): the worker's per-call LLM cost lines — filtered OUT of the tail before the last-N cut. */
+const LLM_COST_LINE_PATTERN = /^LLM Call \| /;
+
 export interface CrashLogRecord {
   timestamp: string;
   /** The PDF file name for a per-PDF worker; null for the finalize worker. */
@@ -45,15 +48,32 @@ export interface CrashLogRecord {
   attempt: number;
   /** True when the conductor automatically launched another attempt. */
   autoRetried: boolean;
+  /**
+   * Phase 28 (§2.4, vision `04` §1 rider 2026-09-07): the fatal EVENT's
+   * error message — the caught exception the worker reported on stdout.
+   * Absent when the worker died without a terminal event (hard crash).
+   */
+  fatalError?: string;
+  /** Phase 28 (§2.4): the fatal event's stack trace, when the worker sent one. */
+  fatalStack?: string;
 }
 
 export function crashLogPath(wikiDir: string): string {
   return join(wikiDir, '.state', 'crash-log.jsonl');
 }
 
-/** Keep only the last N lines of a captured stderr buffer (never unbounded). */
+/**
+ * Keep only the last N lines of a captured stderr buffer (never unbounded).
+ * Phase 28 (§2.4): `LLM Call | Tokens … | Cost …` cost lines are filtered OUT
+ * BEFORE the last-N cut — with the cost noise gone, the 25-line budget holds
+ * real signal (the 2026-09-04/05 production records' tails were pure cost
+ * lines and the crash causes stayed undiagnosed).
+ */
 export function tailLines(text: string, maxLines: number): string {
-  const lines = text.split(/\r?\n/).filter((line) => line.length > 0);
+  const lines = text
+    .split(/\r?\n/)
+    .filter((line) => line.length > 0)
+    .filter((line) => !LLM_COST_LINE_PATTERN.test(line));
   return lines.slice(Math.max(0, lines.length - maxLines)).join('\n');
 }
 

@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import { extractChunk, type ExtractorResult } from '../agents/extractor';
 import { readRollingMemory } from '../state/rolling-memory';
+import type { ExtractionProvenance } from '../state/extraction-checkpoints';
 import type { LanguageCode } from '../utils/language';
 
 /**
@@ -50,6 +51,10 @@ export async function extractDocumentChunk(
   const firstSource = Array.isArray(parsed.data.sources) ? (parsed.data.sources[0] as Record<string, unknown>) : undefined;
   const pageRange = typeof firstSource?.pages === 'string' ? firstSource.pages : '';
   const sourceFile = typeof firstSource?.file === 'string' ? firstSource.file : `documents/${chunkId}.md`;
+  // Phase 28 (§2.1): the document page's frontmatter also carries the source
+  // PDF's sha256 (written by the Layer 1 pass) — the provenance anchor of the
+  // per-chunk checkpoint envelope below.
+  const sourceSha256 = typeof firstSource?.sha256 === 'string' ? firstSource.sha256 : '';
 
   let agentsMd: string;
   try {
@@ -75,7 +80,25 @@ export async function extractDocumentChunk(
   const extractedDir = join(wikiDir, '.state', 'extracted');
   await mkdir(extractedDir, { recursive: true });
   const jsonPath = join(extractedDir, `${chunkId}.json`);
-  await writeFile(jsonPath, JSON.stringify(result, null, 2) + '\n', 'utf-8');
+  // Phase 28 (vision `04` §1 Fine-grained crash resume rider, 2026-09-07):
+  // persist the extraction with its `_provenance` envelope as the JSON's
+  // FIRST key — source PDF sha256 + page range + source file + timestamp.
+  // The envelope makes the file a self-contained per-chunk checkpoint: a
+  // retried worker can validate it deterministically (no LLM) and skip the
+  // Extractor call for this chunk. The Materializer and the schema validator
+  // ignore the unknown root key (the `tables` additive-optional-field
+  // precedent); `ChunkExtraction.result` stays the bare ExtractorResult.
+  const provenance: ExtractionProvenance = {
+    sha256: sourceSha256,
+    pages: pageRange,
+    sourceFile,
+    extractedAt: new Date().toISOString(),
+  };
+  await writeFile(
+    jsonPath,
+    JSON.stringify({ _provenance: provenance, ...result }, null, 2) + '\n',
+    'utf-8',
+  );
 
   return {
     chunkId,

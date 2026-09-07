@@ -47,6 +47,16 @@ export interface CrashPanelState {
   stderrTail: string;
   /** The attempt number that died (1-based; 2..4 are auto-retries). */
   attempt: number;
+  /**
+   * Phase 28 (§2.4, vision `04` §1 rider 2026-09-07): the fatal EVENT's
+   * error message captured from the worker's stdout — rendered
+   * preferentially above the stderr tail so the crash panel leads with the
+   * actual exception, not cost lines. Absent on a hard crash without an
+   * event.
+   */
+  fatalError?: string;
+  /** Phase 28 (§2.4): the fatal event's stack trace, when sent. */
+  fatalStack?: string;
 }
 
 export type CrashDecision = 'retry' | 'skip' | 'abort';
@@ -210,6 +220,8 @@ interface WorkerOutcome {
   result?: IngestResult;
   exitCode: number | null;
   stderrTail: string;
+  /** Phase 28 (§2.4): the worker's terminal fatal event, when it sent one. */
+  fatal?: { error: string; stack?: string };
 }
 
 /** Run ONE worker (pdf or finalize) and resolve its outcome. */
@@ -222,6 +234,7 @@ async function runWorker(
 ): Promise<WorkerOutcome> {
   let stderr = '';
   let workerResult: IngestResult | undefined;
+  let fatal: { error: string; stack?: string } | undefined;
   const reader = createWorkerEventReader((event: WorkerEvent) => {
     if (event.type === 'progress') {
       onProgress(event.line);
@@ -231,9 +244,12 @@ async function runWorker(
       onStall?.(event.info);
     } else if (event.type === 'result') {
       workerResult = event.result as IngestResult;
+    } else if (event.type === 'fatal') {
+      // Phase 28 (§2.4 crash telemetry): STOP dropping fatal events — the
+      // error/stack flow into the crash record (additive fields). The close
+      // code remains the crash signal; the event is the diagnosis.
+      fatal = { error: event.error, stack: event.stack };
     }
-    // fatal events: the error text also lands on stderr via the worker's
-    // console.error; the close code is the crash signal.
   });
   const child = spawnWorker(args, {
     onStdoutChunk: (chunk) => reader.push(chunk),
@@ -257,6 +273,7 @@ async function runWorker(
     result: workerResult,
     exitCode: code,
     stderrTail: tailLines(stderr, CRASH_LOG_STDERR_TAIL_LINES),
+    fatal,
   };
 }
 
@@ -377,6 +394,11 @@ export async function runIngestConductor(slug: string, options: ConductorOptions
         stderrTail: outcome.stderrTail,
         attempt,
         autoRetried,
+        // Phase 28 (§2.4): the caught exception from the worker's fatal
+        // event — the crash record finally carries its diagnosis.
+        ...(outcome.fatal !== undefined
+          ? { fatalError: outcome.fatal.error, ...(outcome.fatal.stack !== undefined ? { fatalStack: outcome.fatal.stack } : {}) }
+          : {}),
       }).catch(() => {
         // The audit log must never block recovery; state files carry the rest.
       });
@@ -399,6 +421,11 @@ export async function runIngestConductor(slug: string, options: ConductorOptions
         exitCode: outcome.exitCode,
         stderrTail: outcome.stderrTail,
         attempt,
+        // Phase 28 (§2.4): the panel renders the actual exception above the
+        // stderr tail (recovery-path UI only — a healthy run never shows it).
+        ...(outcome.fatal !== undefined
+          ? { fatalError: outcome.fatal.error, ...(outcome.fatal.stack !== undefined ? { fatalStack: outcome.fatal.stack } : {}) }
+          : {}),
       };
       options.onCrashPanel?.(panelState);
       const decision =

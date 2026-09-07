@@ -292,6 +292,64 @@ test('Phase 27: the crash panel renders on cap exhaustion and the R/S/A keys dec
 });
 
 // ---------------------------------------------------------------------------
+// Phase 28 (vision 04 §1 Fine-grained crash resume rider, 2026-09-07): the
+// crash panel leads with the worker's caught exception (fatalError) above the
+// stderr tail — recovery-path UI only.
+// ---------------------------------------------------------------------------
+
+test('Phase 28: the crash panel renders the fatal error above the stderr tail', async () => {
+  const workspace = makeTempDir('paper-chase-ingest-fatal-');
+  await init('test-wiki', { workspace });
+
+  const conductorFn = async (
+    _slug: string,
+    options: {
+      onProgress: (line: string) => void;
+      onCrashPanel?: (state: unknown) => void;
+      requestDecision?: () => Promise<'retry' | 'skip' | 'abort'>;
+    },
+  ) => {
+    options.onCrashPanel?.({
+      pdf: 'report-a.pdf',
+      phase: 'pdf',
+      exitCode: 1,
+      stderrTail: 'LLM Call | Tokens: 100/32768 | Cost: $0.0042',
+      attempt: 4,
+      fatalError: 'Error: extractor hit the 32768-token cap',
+      fatalStack: 'at extractChunk (src/agents/extractor.ts:421:15)',
+    });
+    await options.requestDecision!();
+    options.onCrashPanel?.(null);
+    return {
+      status: 'aborted',
+      result: { wiki: 'test-wiki', wikiDir: join(workspace, 'wikis', 'test-wiki'), ingested: [], skipped: [], extractions: [] } as unknown as IngestResult,
+    };
+  };
+
+  const screen = renderCaptured(
+    <IngestScreen
+      workspace={workspace}
+      initialWiki={{ workspace, slug: 'test-wiki' }}
+      onBack={() => {}}
+      conductorFn={conductorFn as never}
+    />,
+  );
+  await waitFor(() => screen.output().includes('test-wiki'));
+  screen.stdin.write('\r');
+
+  await waitFor(() => screen.output().includes('[R] Retry'));
+  // The caught exception renders first — the actual crash cause, not cost lines.
+  expect(screen.output()).toContain('Fatal error: Error: extractor hit the 32768-token cap');
+  expect(screen.output()).toContain('Worker for report-a.pdf exited unexpectedly');
+  // The cost-line stderr tail still renders below (it is what the tail holds).
+  expect(screen.output()).toContain('LLM Call | Tokens');
+  screen.stdin.write('a');
+  await waitFor(() => screen.output().includes('Ingest aborted'));
+  screen.unmount();
+  await tick(50);
+});
+
+// ---------------------------------------------------------------------------
 // Phase 27 v1.0.1 (user-ratified 2026-09-03): conductor observability — the
 // persistent worker-position row and the live stall countdown row render
 // during a run and vanish when it ends. The conductor stub holds the run

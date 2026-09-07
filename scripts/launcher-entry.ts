@@ -140,7 +140,15 @@ import { spawnSync } from 'node:child_process';
 // src/tui/ingest-conductor.ts, src/tui/ingest-screen.tsx, src/llm/client.ts)
 // must re-extract so installed runtimes get the fenced engine logic and the
 // live status rows.
-const VERSION = '1.0.31';
+// Phase 28 (2026-09-07) 1.0.31 -> 1.0.32: the fine-grained crash resume bundle
+// (NEW src/state/extraction-checkpoints.ts, NEW src/state/pdf-progress.ts,
+// src/commands/extract-chunk.ts, src/commands/ingest.ts chunk guard + stage
+// markers + synthesis journal, src/cli.ts stderr mirror,
+// src/tui/ingest-conductor.ts fatal capture, src/state/crash-log.ts fatal
+// fields + cost-line filter, src/tui/ingest-screen.tsx panel fatalError row)
+// must re-extract so the packaged runtime gains the per-chunk checkpoints and
+// the enriched crash records.
+const VERSION = '1.0.32';
 
 /** Snapshot root: pkg assets are laid out project-relative (see pkg.config.launcher.json). */
 const SNAPSHOT_ROOT = join(__dirname, '..');

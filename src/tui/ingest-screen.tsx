@@ -618,11 +618,18 @@ export function IngestScreen({
         // Phase 27 (§2.3): the crash-recovery panel — the phase's only new
         // UI element. Rendered only while a worker died, the auto-retry cap
         // is exhausted, and the conductor awaits the user's decision.
+        // Phase 28 (§2.4): the worker's caught exception (fatalError) renders
+        // preferentially ABOVE the stderr tail — the actual crash cause first,
+        // cost lines filtered — recovery-path UI only (a healthy run never
+        // shows this panel).
         <Box flexDirection="column" borderStyle="round" borderColor="red" marginTop={1} paddingX={1}>
           <Text color="red" bold>
             Worker for {crashPanel.pdf ?? 'the finalize pass'} exited unexpectedly (code{' '}
             {crashPanel.exitCode ?? 'none'}, attempt {crashPanel.attempt})
           </Text>
+          {crashPanel.fatalError !== undefined ? (
+            <Text color="red">Fatal error: {crashPanel.fatalError}</Text>
+          ) : null}
           {crashPanel.stderrTail.length > 0
             ? crashPanel.stderrTail
                 .split('\n')

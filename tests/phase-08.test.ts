@@ -148,7 +148,12 @@ function extractionTwo(): ExtractorResult {
   };
 }
 
-/** Test-only extractChunkFn that persists the extracted JSON like the real path. */
+/**
+ * Test-only extractChunkFn that persists the extracted JSON exactly like the
+ * real path — Phase 28 fidelity: the `_provenance` envelope (sha256/pages/
+ * sourceFile from the document page's frontmatter, extractedAt now) is
+ * written FIRST so stub-written JSONs are checkpoint-consumable.
+ */
 function stubExtractChunkFn(byChunk: Record<string, ExtractorResult>) {
   return async (wikiDir: string, chunkId: string): Promise<ChunkExtraction> => {
     const extraction = byChunk[chunkId];
@@ -158,7 +163,15 @@ function stubExtractChunkFn(byChunk: Record<string, ExtractorResult>) {
     const extractedDir = join(wikiDir, '.state', 'extracted');
     mkdirSync(extractedDir, { recursive: true });
     const jsonPath = join(extractedDir, `${chunkId}.json`);
-    writeFileSync(jsonPath, JSON.stringify(extraction, null, 2) + '\n', 'utf-8');
+    const page = matter(readFileSync(join(wikiDir, 'documents', `${chunkId}.md`), 'utf-8'));
+    const source = Array.isArray(page.data.sources) ? (page.data.sources[0] as Record<string, unknown>) : undefined;
+    const envelope = {
+      sha256: typeof source?.sha256 === 'string' ? source.sha256 : '',
+      pages: typeof source?.pages === 'string' ? source.pages : '',
+      sourceFile: typeof source?.file === 'string' ? source.file : '',
+      extractedAt: new Date().toISOString(),
+    };
+    writeFileSync(jsonPath, JSON.stringify({ _provenance: envelope, ...extraction }, null, 2) + '\n', 'utf-8');
     return {
       chunkId,
       result: extraction,

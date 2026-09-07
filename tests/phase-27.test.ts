@@ -2,6 +2,7 @@ import { mkdtempSync, copyFileSync, mkdirSync, readFileSync, rmSync, writeFileSy
 import { tmpdir } from 'node:os';
 import { dirname, join, relative } from 'node:path';
 import { readdirSync, statSync } from 'node:fs';
+import matter from 'gray-matter';
 import { afterAll, expect, test, vi } from 'vitest';
 import { init } from '../src/commands/init';
 import { ingest, formatIngestSummary, type IngestResult } from '../src/commands/ingest';
@@ -96,7 +97,18 @@ function makeExtractChunkFnStub(byChunk: Record<string, ExtractorResult>) {
     }
     const jsonPath = join(wikiDirParam, '.state', 'extracted', `${chunkId}.json`);
     mkdirSync(dirname(jsonPath), { recursive: true });
-    writeFileSync(jsonPath, JSON.stringify(extraction, null, 2) + '\n', 'utf-8');
+    // Phase 28 fidelity: the `_provenance` envelope from the document page's
+    // frontmatter, exactly like the real path — stub-written JSONs are
+    // checkpoint-consumable.
+    const page = matter(readFileSync(join(wikiDirParam, 'documents', `${chunkId}.md`), 'utf-8'));
+    const source = Array.isArray(page.data.sources) ? (page.data.sources[0] as Record<string, unknown>) : undefined;
+    const envelope = {
+      sha256: typeof source?.sha256 === 'string' ? source.sha256 : '',
+      pages: typeof source?.pages === 'string' ? source.pages : '',
+      sourceFile: typeof source?.file === 'string' ? source.file : '',
+      extractedAt: new Date().toISOString(),
+    };
+    writeFileSync(jsonPath, JSON.stringify({ _provenance: envelope, ...extraction }, null, 2) + '\n', 'utf-8');
     return { chunkId, result: extraction, jsonPath, jsonRelativePath: `.state/extracted/${chunkId}.json` };
   };
   return { fn, seen };
